@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertisements - Lumos</title>
+
+    <meta name="description" content="Lumos 광고 서비스 - 효과적인 광고 솔루션">
+    <meta name="keywords" content="광고, 마케팅, 디지털 광고, 온라인 광고">
+    <meta name="author" content="Hwemo Chung">
+
+    <meta property="og:title" content="Lumos - 광고 서비스">
+    <meta property="og:description" content="효과적인 광고 솔루션을 제공합니다">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hwemo-chung.github.io/ads.html">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .ads-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .ads-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+        
+        .ads-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .ads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .ad-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .ad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: #f0c674;
+        }
+        
+        .ad-card h3 {
+            color: #f0c674;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .ad-card p {
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ad-price {
+            font-size: 1.8rem;
+            color: #fbbf24;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .ad-period {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+        
+        .ad-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .ad-features li {
+            padding: 0.5rem 0;
+            color: #e0e0e0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .ad-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+        }
+        
+        .ad-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .ad-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .contact-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .contact-section h2 {
+            color: #f0c674;
+            margin-bottom: 1.5rem;
+        }
+        
+        .back-home {
+            display: inline-block;
+            margin: 2rem 0;
+            color: #f0c674;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-home:hover {
+            color: #fbbf24;
+            transform: translateX(-5px);
+        }
+        
+        .back-home::before {
+            content: "← ";
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-10px); }
+        }
+        
+        @media (max-width: 768px) {
+            .ads-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .ads-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ad-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L16K8WDDBP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-L16K8WDDBP');
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">Lumos</div>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
+                <li><a href="index.html#projects" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+                <li><a href="color-picker.html" data-i18n="nav.colorpicker">Color Picker</a></li>
+                <li><a href="ads.html" class="active" data-i18n="nav.ads">Ads</a></li>
+                <li><a href="pp.html" data-i18n="nav.privacy">Privacy Policy</a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="ko">한</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ja">日</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="ads-container">
+            <a href="index.html" class="back-home" data-i18n="ads.back">홈으로 돌아가기</a>
+            
+            <div class="ads-hero">
+                <h1 data-i18n="ads.title">광고 서비스</h1>
+                <p data-i18n="ads.subtitle">귀하의 비즈니스를 위한 효과적인 광고 솔루션</p>
+            </div>
+
+            <div class="ads-grid">
+                <div class="ad-card">
+                    <h3 data-i18n="ads.basic.title">Basic Plan</h3>
+                    <p data-i18n="ads.basic.desc">소규모 비즈니스를 위한 기본 광고 패키지</p>
+                    <div class="ad-price">₩99,000</div>
+                    <div class="ad-period" data-i18n="ads.period.month">/월</div>
+                    <ul class="ad-features">
+                        <li data-i18n="ads.basic.feature1">월 1,000회 노출</li>
+                        <li data-i18n="ads.basic.feature2">기본 분석 리포트</li>
+                        <li data-i18n="ads.basic.feature3">이메일 지원</li>
+                    </ul>
+                    <a href="mailto:tolaria@naver.com?subject=Basic Plan 문의" class="ad-btn" data-i18n="ads.cta">문의하기</a>
+                </div>
+
+                <div class="ad-card">
+                    <h3 data-i18n="ads.pro.title">Professional Plan</h3>
+                    <p data-i18n="ads.pro.desc">성장하는 비즈니스를 위한 프로 패키지</p>
+                    <div class="ad-price">₩299,000</div>
+                    <div class="ad-period" data-i18n="ads.period.month">/월</div>
+                    <ul class="ad-features">
+                        <li data-i18n="ads.pro.feature1">월 5,000회 노출</li>
+                        <li data-i18n="ads.pro.feature2">상세 분석 리포트</li>
+                        <li data-i18n="ads.pro.feature3">A/B 테스팅</li>
+                        <li data-i18n="ads.pro.feature4">전담 매니저 지원</li>
+                    </ul>
+                    <a href="mailto:tolaria@naver.com?subject=Professional Plan 문의" class="ad-btn" data-i18n="ads.cta">문의하기</a>
+                </div>
+
+                <div class="ad-card">
+                    <h3 data-i18n="ads.enterprise.title">Enterprise Plan</h3>
+                    <p data-i18n="ads.enterprise.desc">대규모 비즈니스를 위한 맞춤형 솔루션</p>
+                    <div class="ad-price" data-i18n="ads.enterprise.price">맞춤 견적</div>
+                    <div class="ad-period" data-i18n="ads.enterprise.contact">상담 필요</div>
+                    <ul class="ad-features">
+                        <li data-i18n="ads.enterprise.feature1">무제한 노출</li>
+                        <li data-i18n="ads.enterprise.feature2">실시간 분석 대시보드</li>
+                        <li data-i18n="ads.enterprise.feature3">맞춤형 광고 전략</li>
+                        <li data-i18n="ads.enterprise.feature4">24/7 프리미엄 지원</li>
+                        <li data-i18n="ads.enterprise.feature5">전용 API 제공</li>
+                    </ul>
+                    <a href="mailto:tolaria@naver.com?subject=Enterprise Plan 문의" class="ad-btn" data-i18n="ads.cta">문의하기</a>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h2 data-i18n="ads.contact.title">광고 문의</h2>
+                <p data-i18n="ads.contact.desc">귀하의 비즈니스 목표에 맞는 최적의 광고 솔루션을 제공합니다.</p>
+                <div style="background: rgba(240, 198, 116, 0.1); border: 2px solid #f0c674; border-radius: 15px; padding: 1.5rem; margin: 2rem 0; position: relative;">
+                    <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+                        <span data-i18n="ads.contact.email">📧 Email: </span>
+                        <span id="email-copy" style="color: #f0c674; font-weight: bold; font-size: 1.3rem; cursor: pointer; text-decoration: underline;">tolaria@naver.com</span>
+                    </p>
+                    <p data-i18n="ads.contact.phone">전화 상담을 원하시면 이메일로 연락 주세요.</p>
+                    <div id="copy-notification" style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); background: #4CAF50; color: white; padding: 8px 16px; border-radius: 5px; display: none; font-size: 14px; white-space: nowrap;">
+                        <span data-i18n="ads.contact.copied">이메일 주소가 복사되었습니다!</span>
+                    </div>
+                </div>
+                <p style="color: #a0a0a0; font-size: 0.9rem;" data-i18n="ads.contact.hours">업무시간: 평일 09:00 - 18:00 (KST)</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2003 Lumos. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            ko: {
+                nav: {
+                    home: "홈",
+                    projects: "프로젝트",
+                    contact: "연락처",
+                    ads: "광고",
+                    privacy: "개인정보처리방침"
+                },
+                ads: {
+                    back: "홈으로 돌아가기",
+                    title: "광고 서비스",
+                    subtitle: "귀하의 비즈니스를 위한 효과적인 광고 솔루션",
+                    basic: {
+                        title: "Basic Plan",
+                        desc: "소규모 비즈니스를 위한 기본 광고 패키지",
+                        feature1: "월 1,000회 노출",
+                        feature2: "기본 분석 리포트",
+                        feature3: "이메일 지원"
+                    },
+                    pro: {
+                        title: "Professional Plan",
+                        desc: "성장하는 비즈니스를 위한 프로 패키지",
+                        feature1: "월 5,000회 노출",
+                        feature2: "상세 분석 리포트",
+                        feature3: "A/B 테스팅",
+                        feature4: "전담 매니저 지원"
+                    },
+                    enterprise: {
+                        title: "Enterprise Plan",
+                        desc: "대규모 비즈니스를 위한 맞춤형 솔루션",
+                        price: "맞춤 견적",
+                        contact: "상담 필요",
+                        feature1: "무제한 노출",
+                        feature2: "실시간 분석 대시보드",
+                        feature3: "맞춤형 광고 전략",
+                        feature4: "24/7 프리미엄 지원",
+                        feature5: "전용 API 제공"
+                    },
+                    period: {
+                        month: "/월"
+                    },
+                    cta: "문의하기",
+                    contact: {
+                        title: "광고 문의",
+                        desc: "귀하의 비즈니스 목표에 맞는 최적의 광고 솔루션을 제공합니다.",
+                        email: "📧 Email: ",
+                        phone: "전화 상담을 원하시면 이메일로 연락 주세요.",
+                        hours: "업무시간: 평일 09:00 - 18:00 (KST)",
+                        copied: "이메일 주소가 복사되었습니다!"
+                    }
+                }
+            },
+            en: {
+                nav: {
+                    home: "Home",
+                    projects: "Projects",
+                    contact: "Contact",
+                    ads: "Ads",
+                    privacy: "Privacy Policy"
+                },
+                ads: {
+                    back: "Back to Home",
+                    title: "Advertising Services",
+                    subtitle: "Effective advertising solutions for your business",
+                    basic: {
+                        title: "Basic Plan",
+                        desc: "Basic advertising package for small businesses",
+                        feature1: "1,000 impressions/month",
+                        feature2: "Basic analytics report",
+                        feature3: "Email support"
+                    },
+                    pro: {
+                        title: "Professional Plan",
+                        desc: "Pro package for growing businesses",
+                        feature1: "5,000 impressions/month",
+                        feature2: "Detailed analytics report",
+                        feature3: "A/B testing",
+                        feature4: "Dedicated manager support"
+                    },
+                    enterprise: {
+                        title: "Enterprise Plan",
+                        desc: "Custom solutions for large businesses",
+                        price: "Custom Quote",
+                        contact: "Contact Required",
+                        feature1: "Unlimited impressions",
+                        feature2: "Real-time analytics dashboard",
+                        feature3: "Custom advertising strategy",
+                        feature4: "24/7 premium support",
+                        feature5: "Dedicated API access"
+                    },
+                    period: {
+                        month: "/month"
+                    },
+                    cta: "Contact Us",
+                    contact: {
+                        title: "Contact Us",
+                        desc: "We provide optimal advertising solutions tailored to your business goals.",
+                        email: "📧 Email: ",
+                        phone: "For phone consultation, please contact us via email.",
+                        hours: "Business Hours: Weekdays 09:00 - 18:00 (KST)",
+                        copied: "Email address copied!"
+                    }
+                }
+            },
+            ja: {
+                nav: {
+                    home: "ホーム",
+                    projects: "プロジェクト",
+                    contact: "連絡先",
+                    ads: "広告",
+                    privacy: "プライバシーポリシー"
+                },
+                ads: {
+                    back: "ホームに戻る",
+                    title: "広告サービス",
+                    subtitle: "あなたのビジネスのための効果的な広告ソリューション",
+                    basic: {
+                        title: "ベーシックプラン",
+                        desc: "小規模ビジネス向けの基本広告パッケージ",
+                        feature1: "月間1,000回表示",
+                        feature2: "基本分析レポート",
+                        feature3: "メールサポート"
+                    },
+                    pro: {
+                        title: "プロフェッショナルプラン",
+                        desc: "成長ビジネス向けのプロパッケージ",
+                        feature1: "月間5,000回表示",
+                        feature2: "詳細分析レポート",
+                        feature3: "A/Bテスト",
+                        feature4: "専任マネージャーサポート"
+                    },
+                    enterprise: {
+                        title: "エンタープライズプラン",
+                        desc: "大規模ビジネス向けのカスタムソリューション",
+                        price: "カスタム見積もり",
+                        contact: "相談必要",
+                        feature1: "無制限表示",
+                        feature2: "リアルタイム分析ダッシュボード",
+                        feature3: "カスタム広告戦略",
+                        feature4: "24/7プレミアムサポート",
+                        feature5: "専用API提供"
+                    },
+                    period: {
+                        month: "/月"
+                    },
+                    cta: "お問い合わせ",
+                    contact: {
+                        title: "お問い合わせ",
+                        desc: "お客様のビジネス目標に合わせた最適な広告ソリューションを提供します。",
+                        email: "📧 メール: ",
+                        phone: "電話相談をご希望の場合は、メールでご連絡ください。",
+                        hours: "営業時間: 平日 09:00 - 18:00 (JST)",
+                        copied: "メールアドレスがコピーされました！"
+                    }
+                }
+            }
+        };
+
+        let currentLang = localStorage.getItem('language') || 'ko';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let translation = translations[lang];
+                
+                for (const k of keys) {
+                    translation = translation?.[k];
+                }
+                
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            document.documentElement.lang = lang === 'ja' ? 'ja' : (lang === 'en' ? 'en' : 'ko');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+            
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (menuToggle) {
+                const toggleMenu = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                };
+                
+                menuToggle.addEventListener('click', toggleMenu);
+                menuToggle.addEventListener('touchstart', toggleMenu, { passive: false });
+                
+                const closeMenu = (e) => {
+                    if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                };
+                
+                document.addEventListener('click', closeMenu);
+                document.addEventListener('touchstart', closeMenu, { passive: true });
+                
+                navMenu.querySelectorAll('a').forEach(link => {
+                    const handleLinkClick = () => {
+                        navMenu.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    };
+                    link.addEventListener('click', handleLinkClick);
+                    link.addEventListener('touchstart', handleLinkClick, { passive: true });
+                });
+            }
+            
+            const emailCopy = document.getElementById('email-copy');
+            const copyNotification = document.getElementById('copy-notification');
+            
+            if (emailCopy) {
+                emailCopy.addEventListener('click', async () => {
+                    const email = 'tolaria@naver.com';
+                    
+                    try {
+                        await navigator.clipboard.writeText(email);
+                        
+                        copyNotification.style.display = 'block';
+                        copyNotification.style.animation = 'fadeIn 0.3s ease';
+                        
+                        setTimeout(() => {
+                            copyNotification.style.animation = 'fadeOut 0.3s ease';
+                            setTimeout(() => {
+                                copyNotification.style.display = 'none';
+                            }, 300);
+                        }, 2000);
+                    } catch (err) {
+                        const textArea = document.createElement('textarea');
+                        textArea.value = email;
+                        textArea.style.position = 'absolute';
+                        textArea.style.left = '-999999px';
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        
+                        copyNotification.style.display = 'block';
+                        copyNotification.style.animation = 'fadeIn 0.3s ease';
+                        
+                        setTimeout(() => {
+                            copyNotification.style.animation = 'fadeOut 0.3s ease';
+                            setTimeout(() => {
+                                copyNotification.style.display = 'none';
+                            }, 300);
+                        }, 2000);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
