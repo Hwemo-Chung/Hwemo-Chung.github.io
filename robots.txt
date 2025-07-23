@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+Sitemap: https://hwemo-chung.github.io/sitemap.xml

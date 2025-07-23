@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker - Lumos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            transition: background 1.5s ease;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--selected-color, #667eea) 0%, var(--selected-color-dark, #764ba2) 100%);
+            opacity: 0.3;
+            transition: all 1.5s ease;
+            pointer-events: none;
+        }
+
+        .app-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 440px;
+            padding: 40px;
+            animation: slideUp 0.5s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .app-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .app-title {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .app-subtitle {
+            color: #8b92a9;
+            font-size: 14px;
+        }
+
+        .color-wheel-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 30px;
+        }
+
+        #colorWheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            cursor: crosshair;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-picker-cursor {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border: 3px solid white;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .brightness-slider {
+            margin: 30px 0;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .slider-label span {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .slider-value {
+            background: #f0f2f5;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 10px;
+            background: linear-gradient(to right, #2d3748, #ffffff);
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        .selected-color {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .color-preview {
+            width: 100%;
+            height: 120px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .color-value {
+            text-align: center;
+        }
+
+        .value-label {
+            font-size: 11px;
+            color: #8b92a9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .value-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #f0f2f5;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .value-input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .color-history {
+            margin-top: 25px;
+        }
+
+        .history-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 12px;
+        }
+
+        .history-colors {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .history-color {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .history-color:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .history-color::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .history-color:hover::after {
+            opacity: 1;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f2f5;
+            color: #4a5568;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #2d3748;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .back-link::before {
+            content: "← ";
+        }
+
+        @media (max-width: 768px) {
+            .back-link {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8998804759171463"
+        crossorigin="anonymous"></script>
+        <meta name="google-adsense-account" content="ca-pub-8998804759171463">
+</head>
+
+<body>
+    <a href="index.html" class="back-link" data-i18n="colorpicker.back">홈으로 돌아가기</a>
+    <div class="app-container">
+        <div class="app-header">
+            <h1 class="app-title" data-i18n="colorpicker.title">Color Picker</h1>
+            <p class="app-subtitle" data-i18n="colorpicker.subtitle">완벽한 색상을 선택하세요</p>
+        </div>
+
+        <div class="color-wheel-container">
+            <canvas id="colorWheel"></canvas>
+            <div class="color-picker-cursor"></div>
+        </div>
+
+        <div class="brightness-slider">
+            <div class="slider-label">
+                <span data-i18n="colorpicker.brightness">밝기</span>
+                <span class="slider-value">100%</span>
+            </div>
+            <input type="range" id="brightnessSlider" min="0" max="100" value="100">
+        </div>
+
+        <div class="selected-color">
+            <div class="color-preview" id="colorPreview"></div>
+            <div class="color-values">
+                <div class="color-value">
+                    <div class="value-label">HEX</div>
+                    <input type="text" class="value-input" id="hexValue" readonly>
+                </div>
+                <div class="color-value">
+                    <div class="value-label">RGB</div>
+                    <input type="text" class="value-input" id="rgbValue" readonly>
+                </div>
+                <div class="color-value">
+                    <div class="value-label">HSL</div>
+                    <input type="text" class="value-input" id="hslValue" readonly>
+                </div>
+            </div>
+        </div>
+
+        <div class="color-history">
+            <div class="history-title" data-i18n="colorpicker.recent">최근 색상</div>
+            <div class="history-colors" id="historyColors"></div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="copyToClipboard()">
+                <span>📋</span> <span data-i18n="colorpicker.copy">HEX 복사</span>
+            </button>
+            <button class="btn btn-secondary" onclick="randomColor()">
+                <span>🎲</span> <span data-i18n="colorpicker.random">랜덤</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // i18n translations
+        const translations = {
+            ko: {
+                colorpicker: {
+                    back: "홈으로 돌아가기",
+                    title: "Color Picker",
+                    subtitle: "완벽한 색상을 선택하세요",
+                    brightness: "밝기",
+                    recent: "최근 색상",
+                    copy: "HEX 복사",
+                    random: "랜덤",
+                    colorCopied: "색상이 복사되었습니다!",
+                    valueCopied: "복사되었습니다!"
+                }
+            },
+            en: {
+                colorpicker: {
+                    back: "Back to Home",
+                    title: "Color Picker",
+                    subtitle: "Pick your perfect color",
+                    brightness: "Brightness",
+                    recent: "Recent Colors",
+                    copy: "Copy HEX",
+                    random: "Random",
+                    colorCopied: "Color copied!",
+                    valueCopied: "copied!"
+                }
+            },
+            ja: {
+                colorpicker: {
+                    back: "ホームに戻る",
+                    title: "カラーピッカー",
+                    subtitle: "完璧な色を選択してください",
+                    brightness: "明度",
+                    recent: "最近の色",
+                    copy: "HEXコピー",
+                    random: "ランダム",
+                    colorCopied: "色がコピーされました！",
+                    valueCopied: "コピーされました！"
+                }
+            }
+        };
+
+        let currentLang = localStorage.getItem('language') || 'ko';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let translation = translations[lang];
+
+                for (const k of keys) {
+                    translation = translation?.[k];
+                }
+
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+        }
+
+        // Initialize language on load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+        });
+    </script>
+    <script>
+        let currentColor = { h: 0, s: 100, l: 50 };
+        let brightness = 100;
+        let colorHistory = [];
+        const maxHistory = 8;
+
+        const canvas = document.getElementById('colorWheel');
+        const ctx = canvas.getContext('2d');
+        const cursor = document.querySelector('.color-picker-cursor');
+        const colorPreview = document.getElementById('colorPreview');
+        const hexValue = document.getElementById('hexValue');
+        const rgbValue = document.getElementById('rgbValue');
+        const hslValue = document.getElementById('hslValue');
+        const brightnessSlider = document.getElementById('brightnessSlider');
+        const brightnessValue = document.querySelector('.slider-value');
+
+        function initColorWheel() {
+            const size = 280;
+            canvas.width = size;
+            canvas.height = size;
+            const centerX = size / 2;
+            const centerY = size / 2;
+            const radius = size / 2;
+
+            for (let angle = 0; angle < 360; angle += 1) {
+                for (let r = 0; r < radius; r += 1) {
+                    const saturation = (r / radius) * 100;
+                    const x = centerX + r * Math.cos((angle * Math.PI) / 180);
+                    const y = centerY + r * Math.sin((angle * Math.PI) / 180);
+
+                    ctx.fillStyle = `hsl(${angle}, ${saturation}%, 50%)`;
+                    ctx.fillRect(x, y, 2, 2);
+                }
+            }
+
+            const initialX = centerX + (radius * 0.8) * Math.cos(0);
+            const initialY = centerY + (radius * 0.8) * Math.sin(0);
+            cursor.style.left = initialX + 'px';
+            cursor.style.top = initialY + 'px';
+        }
+
+        function hslToRgb(h, s, l) {
+            s /= 100;
+            l /= 100;
+            const a = s * Math.min(l, 1 - l);
+            const f = n => {
+                const k = (n + h / 30) % 12;
+                const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+                return Math.round(255 * color);
+            };
+            return { r: f(0), g: f(8), b: f(4) };
+        }
+
+        function rgbToHex(r, g, b) {
+            return '#' + [r, g, b].map(x => {
+                const hex = x.toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+            }).join('');
+        }
+
+        function updateColor() {
+            const adjustedL = currentColor.l * (brightness / 100);
+            const rgb = hslToRgb(currentColor.h, currentColor.s, adjustedL);
+            const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+
+            colorPreview.style.background = hex;
+            cursor.style.backgroundColor = hex;
+            hexValue.value = hex.toUpperCase();
+            rgbValue.value = `${rgb.r}, ${rgb.g}, ${rgb.b}`;
+            hslValue.value = `${Math.round(currentColor.h)}°, ${Math.round(currentColor.s)}%, ${Math.round(adjustedL)}%`;
+
+            // Update background with selected color
+            const darkerRgb = hslToRgb(currentColor.h, currentColor.s, Math.max(adjustedL - 20, 10));
+            const darkerHex = rgbToHex(darkerRgb.r, darkerRgb.g, darkerRgb.b);
+            document.body.style.setProperty('--selected-color', hex);
+            document.body.style.setProperty('--selected-color-dark', darkerHex);
+        }
+
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+
+            const dx = x - centerX;
+            const dy = y - centerY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const maxDistance = canvas.width / 2;
+
+            if (distance <= maxDistance) {
+                let angle = Math.atan2(dy, dx) * (180 / Math.PI);
+                if (angle < 0) angle += 360;
+
+                currentColor.h = angle;
+                currentColor.s = Math.min(100, (distance / maxDistance) * 100);
+
+                cursor.style.left = x + 'px';
+                cursor.style.top = y + 'px';
+
+                updateColor();
+                addToHistory();
+            }
+        });
+
+        brightnessSlider.addEventListener('input', (e) => {
+            brightness = e.target.value;
+            brightnessValue.textContent = brightness + '%';
+            updateColor();
+        });
+
+        function addToHistory() {
+            const rgb = hslToRgb(currentColor.h, currentColor.s, currentColor.l * (brightness / 100));
+            const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+
+            if (!colorHistory.includes(hex)) {
+                colorHistory.unshift(hex);
+                if (colorHistory.length > maxHistory) {
+                    colorHistory.pop();
+                }
+                renderHistory();
+            }
+        }
+
+        function renderHistory() {
+            const container = document.getElementById('historyColors');
+            container.innerHTML = '';
+            colorHistory.forEach(color => {
+                const div = document.createElement('div');
+                div.className = 'history-color';
+                div.style.backgroundColor = color;
+                div.onclick = () => applyHistoryColor(color);
+                container.appendChild(div);
+            });
+        }
+
+        function applyHistoryColor(hex) {
+            const rgb = hexToRgb(hex);
+            const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+            currentColor = hsl;
+            brightness = 100;
+            brightnessSlider.value = 100;
+            brightnessValue.textContent = '100%';
+            updateColor();
+
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = (canvas.width / 2) * (hsl.s / 100);
+            const angle = hsl.h * (Math.PI / 180);
+            const x = centerX + radius * Math.cos(angle);
+            const y = centerY + radius * Math.sin(angle);
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+        }
+
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        }
+
+        function rgbToHsl(r, g, b) {
+            r /= 255;
+            g /= 255;
+            b /= 255;
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+
+            if (max === min) {
+                h = s = 0;
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+                    case g: h = ((b - r) / d + 2) / 6; break;
+                    case b: h = ((r - g) / d + 4) / 6; break;
+                }
+            }
+
+            return {
+                h: h * 360,
+                s: s * 100,
+                l: l * 100
+            };
+        }
+
+        function copyToClipboard() {
+            const hex = hexValue.value;
+            navigator.clipboard.writeText(hex).then(() => {
+                const message = translations[currentLang].colorpicker.colorCopied;
+                showToast(message);
+            });
+        }
+
+        function randomColor() {
+            currentColor.h = Math.random() * 360;
+            currentColor.s = 50 + Math.random() * 50;
+            currentColor.l = 40 + Math.random() * 20;
+
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = (canvas.width / 2) * (currentColor.s / 100);
+            const angle = currentColor.h * (Math.PI / 180);
+            const x = centerX + radius * Math.cos(angle);
+            const y = centerY + radius * Math.sin(angle);
+
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+
+            updateColor();
+            addToHistory();
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        document.querySelectorAll('.value-input').forEach(input => {
+            input.addEventListener('click', function () {
+                navigator.clipboard.writeText(this.value).then(() => {
+                    const valueType = this.previousElementSibling.textContent;
+                    const message = `${valueType} ${translations[currentLang].colorpicker.valueCopied}`;
+                    showToast(message);
+                });
+            });
+        });
+
+        initColorWheel();
+        updateColor();
+        addToHistory();
+    </script>
+</body>
+
+</html>
