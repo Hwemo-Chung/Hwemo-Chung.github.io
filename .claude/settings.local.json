@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:magicui.design)",
+      "Bash(cp:*)"
+    ],
+    "deny": []
+  }
+}
