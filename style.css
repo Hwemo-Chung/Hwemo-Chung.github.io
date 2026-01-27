@@ -630,6 +630,7 @@ main > section {
 .project-card:nth-child(9) { animation-delay: 0.9s; }
 .project-card:nth-child(10) { animation-delay: 1s; }
 .project-card:nth-child(11) { animation-delay: 1.1s; }
+.project-card:nth-child(12) { animation-delay: 1.2s; }
 
 @keyframes fadeIn {
     to {
