@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro SaaS MVPs - Lumos!</title>
+
+    <!-- 기본 메타 태그 -->
+    <meta name="description" content="작은 SaaS MVP들 - 빠르고 간단한 웹 솔루션들">
+    <meta name="keywords" content="SaaS, MVP, 웹솔루션, 프로토타입, Supabase, Vercel">
+    <meta name="author" content="Hwemo Chung">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Micro SaaS MVPs">
+    <meta property="og:description" content="작은 SaaS MVP들 - 빠르고 간단한 웹 솔루션들">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hwemo-chung.github.io/micro-saas-mvps/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Micro SaaS MVPs">
+    <meta name="twitter:description" content="작은 SaaS MVP들 - 빠르고 간단한 웹 솔루션들">
+
+    <!-- 추가 SEO -->
+    <link rel="canonical" href="https://hwemo-chung.github.io/micro-saas-mvps/">
+    <meta name="robots" content="index, follow">
+
+    <!-- 상위 디렉토리의 스타일 재사용 -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L16K8WDDBP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-L16K8WDDBP');
+    </script>
+
+    <style>
+        /* Micro SaaS MVP specific overrides */
+        #mvp-section {
+            padding-top: 10rem;
+        }
+
+        .mvp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .mvp-card {
+            background: rgba(36, 36, 36, 0.5);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            isolation: isolate;
+        }
+
+        .mvp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(251, 191, 36, 0.15),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .mvp-card:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            border-color: rgba(251, 191, 36, 0.3);
+            background: rgba(40, 40, 40, 0.7);
+        }
+
+        .mvp-card:hover::before {
+            opacity: 1;
+        }
+
+        .mvp-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .mvp-card .mvp-category {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .mvp-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .mvp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .mvp-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .mvp-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .mvp-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .mvp-link, .mvp-demo {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .mvp-link:hover, .mvp-demo:hover {
+            opacity: 0.8;
+        }
+
+        .mvp-card:nth-child(1) { animation-delay: 0.1s; }
+        .mvp-card:nth-child(2) { animation-delay: 0.15s; }
+        .mvp-card:nth-child(3) { animation-delay: 0.2s; }
+        .mvp-card:nth-child(4) { animation-delay: 0.25s; }
+        .mvp-card:nth-child(5) { animation-delay: 0.3s; }
+        .mvp-card:nth-child(6) { animation-delay: 0.35s; }
+        .mvp-card:nth-child(7) { animation-delay: 0.4s; }
+        .mvp-card:nth-child(8) { animation-delay: 0.45s; }
+        .mvp-card:nth-child(9) { animation-delay: 0.5s; }
+        .mvp-card:nth-child(10) { animation-delay: 0.55s; }
+        .mvp-card:nth-child(11) { animation-delay: 0.6s; }
+        .mvp-card:nth-child(12) { animation-delay: 0.65s; }
+        .mvp-card:nth-child(13) { animation-delay: 0.7s; }
+        .mvp-card:nth-child(14) { animation-delay: 0.75s; }
+        .mvp-card:nth-child(15) { animation-delay: 0.8s; }
+        .mvp-card:nth-child(16) { animation-delay: 0.85s; }
+        .mvp-card:nth-child(17) { animation-delay: 0.9s; }
+        .mvp-card:nth-child(18) { animation-delay: 0.95s; }
+        .mvp-card:nth-child(19) { animation-delay: 1s; }
+        .mvp-card:nth-child(20) { animation-delay: 1.05s; }
+        .mvp-card:nth-child(21) { animation-delay: 1.1s; }
+        .mvp-card:nth-child(22) { animation-delay: 1.15s; }
+        .mvp-card:nth-child(23) { animation-delay: 1.2s; }
+        .mvp-card:nth-child(24) { animation-delay: 1.25s; }
+        .mvp-card:nth-child(25) { animation-delay: 1.3s; }
+        .mvp-card:nth-child(26) { animation-delay: 1.35s; }
+        .mvp-card:nth-child(27) { animation-delay: 1.4s; }
+        .mvp-card:nth-child(28) { animation-delay: 1.45s; }
+        .mvp-card:nth-child(29) { animation-delay: 1.5s; }
+        .mvp-card:nth-child(30) { animation-delay: 1.55s; }
+
+        .mvp-card {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mvp-card:hover {
+            z-index: 10;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            #mvp-section {
+                padding-top: 6rem;
+            }
+
+            .mvp-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0;
+            }
+
+            .mvp-card {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">Lumos</div>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="../">Home</a></li>
+                <li><a href="../#projects">Projects</a></li>
+                <li><a href="./">Micro SaaS</a></li>
+                <li><a href="../#contact">Contact</a></li>
+                <li><a href="../pp.html">Privacy</a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="ko">한</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="mvp-section">
+            <a href="../" class="back-link">← 포트폴리오로 돌아가기</a>
+            <h2>Micro SaaS MVPs</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.1rem;">
+                빠르고 간단한 웹 솔루션들 - 각각은 하나의 문제를 빠르게 해결하는 MVP입니다
+            </p>
+
+            <div class="mvp-grid">
+                <!-- 1. 비용 추적 도구 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Finance</div>
+                    <h3>Expense Tracker</h3>
+                    <p>간단한 비용 추적 및 분석 도구</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Chart.js</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 2. 할일 목록 협업 도구 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Productivity</div>
+                    <h3>Collab Todo</h3>
+                    <p>팀과 함께하는 실시간 할일 관리</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">WebSocket</span>
+                        <span class="mvp-tag">Vue.js</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 3. 단축 URL 생성기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Utilities</div>
+                    <h3>Short URL</h3>
+                    <p>나만의 짧은 URL 생성 및 관리</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">Node.js</span>
+                        <span class="mvp-tag">Analytics</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 4. 설문조사 빌더 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Survey</div>
+                    <h3>Quick Survey</h3>
+                    <p>무료로 설문조사 만들고 결과 분석하기</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Real-time</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 5. 비밀번호 관리 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Security</div>
+                    <h3>Vault Lite</h3>
+                    <p>암호화된 비밀번호 및 메모 저장소</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Encryption</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">localStorage</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 6. 투표 앱 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Social</div>
+                    <h3>Instant Poll</h3>
+                    <p>링크 공유로 빠른 투표 진행</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">Real-time</span>
+                        <span class="mvp-tag">Vue.js</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 7. 북마크 저장소 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Bookmarks</div>
+                    <h3>Link Bank</h3>
+                    <p>웹에서 발견한 링크들을 체계적으로 저장</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Tag System</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 8. 마크다운 에디터 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Writing</div>
+                    <h3>Markdown Hub</h3>
+                    <p>클라우드 기반 마크다운 문서 편집기</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">Monaco Editor</span>
+                        <span class="mvp-tag">Export</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 9. 이미지 리사이징 도구 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Image</div>
+                    <h3>Image Resizer</h3>
+                    <p>온라인에서 간단하게 이미지 크기 조절</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Canvas</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Download</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 10. 색상 팔레트 생성기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Design</div>
+                    <h3>Color Palette Gen</h3>
+                    <p>AI 기반 색상 조합 제안</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">AI</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Export CSS</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 11. JSON 포매터 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Developer Tools</div>
+                    <h3>JSON Formatter</h3>
+                    <p>JSON 검증, 포맷, 압축 도구</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">JSON</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Validation</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 12. 정규표현식 테스터 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Developer Tools</div>
+                    <h3>RegEx Tester</h3>
+                    <p>정규표현식 작성 및 테스트</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">RegExp</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Real-time</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 13. Base64 인코더/디코더 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Developer Tools</div>
+                    <h3>Base64 Converter</h3>
+                    <p>Base64 인코딩/디코딩 도구</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Base64</span>
+                        <span class="mvp-tag">Vue.js</span>
+                        <span class="mvp-tag">Copy-to-Clipboard</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 14. 시간대 변환기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Utilities</div>
+                    <h3>Timezone Clock</h3>
+                    <p>여러 시간대 시간 한눈에 보기</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Moment.js</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Real-time</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 15. 스톱워치/타이머 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Utilities</div>
+                    <h3>Timer Plus</h3>
+                    <p>다중 타이머 및 스톱워치</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Audio Alerts</span>
+                        <span class="mvp-tag">Notifications</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 16. 계산기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Utilities</div>
+                    <h3>Scientific Calc</h3>
+                    <p>과학용 계산기 및 단위 변환</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Math.js</span>
+                        <span class="mvp-tag">Unit Conversion</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 17. 텍스트 분석 도구 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Writing</div>
+                    <h3>Text Analyzer</h3>
+                    <p>텍스트 통계 및 SEO 분석</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">NLP</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Analytics</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 18. QR 코드 생성기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Utilities</div>
+                    <h3>QR Code Gen</h3>
+                    <p>URL 또는 텍스트로 QR 코드 생성</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">QR.js</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Download</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 19. 바코드 생성기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Utilities</div>
+                    <h3>Barcode Creator</h3>
+                    <p>텍스트 또는 숫자 바코드 생성</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Barcode.js</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Print</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 20. 투자 계산기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Finance</div>
+                    <h3>Investment Calc</h3>
+                    <p>복리 및 투자 수익 계산</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Finance</span>
+                        <span class="mvp-tag">Chart.js</span>
+                        <span class="mvp-tag">React</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 21. 대출금 계산기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Finance</div>
+                    <h3>Loan Calculator</h3>
+                    <p>월별 대출금 상환액 계산</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Finance</span>
+                        <span class="mvp-tag">Vue.js</span>
+                        <span class="mvp-tag">Export PDF</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 22. 환율 변환기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Finance</div>
+                    <h3>Currency Exchange</h3>
+                    <p>실시간 환율 조회 및 변환</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">API</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Real-time</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 23. 음식 칼로리 계산기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Health</div>
+                    <h3>Calorie Counter</h3>
+                    <p>섭취 음식 칼로리 추적</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">Health</span>
+                        <span class="mvp-tag">React</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 24. 피트니스 추적기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Health</div>
+                    <h3>Fitness Tracker</h3>
+                    <p>운동 기록 및 진도 관리</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">Chart.js</span>
+                        <span class="mvp-tag">Vue.js</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 25. 독서 일지 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Hobby</div>
+                    <h3>Book Logger</h3>
+                    <p>읽은 책 기록 및 평가</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Book API</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 26. 영화 리뷰 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Hobby</div>
+                    <h3>Movie Reviews</h3>
+                    <p>본 영화 기록 및 평점</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">Vue.js</span>
+                        <span class="mvp-tag">TMDB API</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 27. 게임 점수 추적 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Gaming</div>
+                    <h3>Game Leaderboard</h3>
+                    <p>게임 플레이 점수 및 순위</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">Real-time</span>
+                        <span class="mvp-tag">React</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 28. 음악 플레이리스트 큐레이터 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Music</div>
+                    <h3>Playlist Curator</h3>
+                    <p>Spotify API로 플레이리스트 관리</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Spotify API</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Auth</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 29. 식단 계획 도구 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Health</div>
+                    <h3>Meal Planner</h3>
+                    <p>주간 식단 계획 및 쇼핑 목록</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">Vue.js</span>
+                        <span class="mvp-tag">Export PDF</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <!-- 30. 여행 예산 계획기 -->
+                <div class="mvp-card">
+                    <div class="mvp-category">Travel</div>
+                    <h3>Travel Budget</h3>
+                    <p>여행 경비 추적 및 환율 변환</p>
+                    <div class="mvp-tags">
+                        <span class="mvp-tag">Supabase</span>
+                        <span class="mvp-tag">React</span>
+                        <span class="mvp-tag">Map API</span>
+                    </div>
+                    <div class="mvp-links">
+                        <a href="#" class="mvp-link">데모 →</a>
+                        <a href="#" class="mvp-link">GitHub →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" style="margin-top: 6rem;">
+            <h2>문의 및 협력</h2>
+            <p>각 MVP에 대한 문의사항이나 협력 제안은 언제든 환영합니다</p>
+            <p>Email: <a href="mailto:tolaria@naver.com">tolaria@naver.com</a></p>
+            <p><a href="../#contact">포트폴리오 연락처 보기</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Lumos Micro SaaS. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 모바일 메뉴 토글
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+
+        if (menuToggle) {
+            const toggleMenu = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            };
+
+            menuToggle.addEventListener('click', toggleMenu);
+            menuToggle.addEventListener('touchstart', toggleMenu, { passive: false });
+
+            const closeMenu = (e) => {
+                if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            };
+
+            document.addEventListener('click', closeMenu);
+            document.addEventListener('touchstart', closeMenu, { passive: true });
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                const handleLinkClick = () => {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                };
+                link.addEventListener('click', handleLinkClick);
+                link.addEventListener('touchstart', handleLinkClick, { passive: true });
+            });
+        }
+
+        // 헤더 스크롤 효과
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(20, 20, 20, 0.95)';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.background = 'rgba(30, 30, 30, 0.9)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // 카드 호버 효과
+        const mvpCards = document.querySelectorAll('.mvp-card');
+        mvpCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.setProperty('--mouse-x', '50%');
+                card.style.setProperty('--mouse-y', '50%');
+            });
+        });
+
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 100;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
