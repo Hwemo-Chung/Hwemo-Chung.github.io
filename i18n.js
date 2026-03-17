@@ -131,10 +131,6 @@ const projectTranslations = {
       title: 'For Soccer',
       description: '축구 팬을 위한 정보 플랫폼',
     },
-    'micro-saas-mvps': {
-      title: 'Micro-SaaS MVPs',
-      description: '5개의 마이크로 SaaS 랜딩페이지 컬렉션',
-    },
   },
   en: {
     'gesture-color-picker': {
@@ -183,10 +179,6 @@ const projectTranslations = {
       title: 'For Soccer',
       description: 'Information platform for soccer fans',
     },
-    'micro-saas-mvps': {
-      title: 'Micro-SaaS MVPs',
-      description: 'Collection of 5 micro-SaaS landing pages',
-    },
   },
   ja: {
     'gesture-color-picker': {
@@ -232,10 +224,6 @@ const projectTranslations = {
     'for-soccer': {
       title: 'For Soccer',
       description: 'サッカーファンのための情報プラットフォーム',
-    },
-    'micro-saas-mvps': {
-      title: 'Micro-SaaS MVPs',
-      description: 'マイクロSaaSランディングページ5点のコレクション',
     },
   },
 };
