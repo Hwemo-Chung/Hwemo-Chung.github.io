@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보처리방침 — 지금어디 (where)</title>
+
+    <meta name="description" content="지금어디(where) 개인정보처리방침 — 기기 내 GPS 지하철 알람, 서버 전송 없음">
+    <meta name="author" content="Hwemo Chung">
+    <link rel="canonical" href="https://hwemo-chung.github.io/where-privacy.html">
+
+    <style>
+        :root { color-scheme: light dark; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            line-height: 1.8;
+        }
+        h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+        h2 { margin-top: 2.25rem; font-size: 1.2rem; }
+        h3 { margin-top: 1.5rem; font-size: 1.05rem; }
+        em { opacity: 0.7; }
+        code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+            padding: 0.5rem 0.65rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { font-weight: 600; }
+        hr {
+            margin: 3rem 0;
+            border: none;
+            border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+        }
+        .meta { opacity: 0.75; margin-bottom: 1.5rem; }
+        .lang-switch { margin: 1rem 0 2rem; font-size: 0.95rem; }
+        .lang-switch a { margin-right: 1rem; }
+        .short {
+            padding: 0.9rem 1rem;
+            border-left: 3px solid color-mix(in srgb, currentColor 40%, transparent);
+            margin: 1rem 0 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="lang-switch">
+        <a href="#ko">한국어</a>
+        <a href="#en">English</a>
+    </p>
+
+    <section id="ko">
+        <h1>개인정보처리방침 — 지금어디</h1>
+        <p class="meta">
+            앱: 지금어디 (<code>com.subway.where</code>)<br>
+            최종 업데이트: 2026-07-13<br>
+            제공자: Hwemo Chung
+        </p>
+
+        <div class="short">
+            <strong>요약:</strong> 위치·알람 설정은 <strong>기기 안에서만</strong> 처리됩니다.
+            계정·서버 전송·광고·분석 SDK가 없습니다.
+        </div>
+
+        <h2>1. 개요</h2>
+        <p>「지금어디」는 기기의 위치 정보를 이용해 지하철 역 근접·도착 알람을 제공하는 Android 앱입니다.
+            핵심 처리는 기기 로컬에서 수행되며, 운영자가 위치 좌표를 수집·저장하는 백엔드를 두지 않습니다.</p>
+
+        <h2>2. 수집·사용하는 정보</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>항목</th>
+                    <th>목적</th>
+                    <th>보관</th>
+                    <th>제3자 전송</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>정확한 위치 (GPS 등)</td>
+                    <td>현재 역·구간 판별, 도착 알람</td>
+                    <td>실시간 처리 후 별도 영구 저장 없음 (메모리/세션)</td>
+                    <td>없음</td>
+                </tr>
+                <tr>
+                    <td>알람 설정 (노선·역·알림 시점)</td>
+                    <td>사용자 지정 알람 유지</td>
+                    <td>기기 SharedPreferences</td>
+                    <td>없음</td>
+                </tr>
+                <tr>
+                    <td>언어 설정</td>
+                    <td>UI 언어</td>
+                    <td>기기 로컬</td>
+                    <td>없음</td>
+                </tr>
+                <tr>
+                    <td>알림 권한 상태</td>
+                    <td>도착·정거장 전 알림 표시</td>
+                    <td>OS가 관리</td>
+                    <td>없음</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>수집하지 않는 것:</strong> 계정, 이름, 이메일(앱 내 입력), 연락처, 사진, 광고 ID,
+            분석·행동 로그, 결제 정보.</p>
+
+        <h2>3. 권한</h2>
+        <ul>
+            <li><strong>위치 (대략/정확):</strong> 지하철 추적 및 알람. 거부 시 추적·알람 불가.</li>
+            <li><strong>알림:</strong> 도착·정거장 전 경고. 거부 시 알림 미표시.</li>
+            <li><strong>포그라운드 서비스 (위치):</strong> 이동 중 위치 추적. 진행 중 알림으로 표시됩니다.</li>
+        </ul>
+
+        <h2>4. 보관 및 삭제</h2>
+        <ul>
+            <li>위치 좌표는 알람 판별용으로만 일시 사용합니다. 별도 클라우드 저장소를 운영하지 않습니다.</li>
+            <li>알람·언어 설정은 기기 내에만 저장됩니다. 앱 삭제 또는 앱 데이터 삭제로 제거됩니다.</li>
+        </ul>
+
+        <h2>5. 제3자 및 SDK</h2>
+        <ul>
+            <li>Google Play 서비스 위치 API(Fused Location)를 기기 상에서 사용합니다.</li>
+            <li>광고·분석·크래시 리포팅 SDK를 포함하지 않습니다.</li>
+        </ul>
+
+        <h2>6. 아동</h2>
+        <p>만 13세 미만을 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다.</p>
+
+        <h2>7. 변경</h2>
+        <p>본 방침을 변경하는 경우 본 페이지의 「최종 업데이트」 날짜를 갱신합니다.</p>
+
+        <h2>8. 문의</h2>
+        <p>개인정보 관련 문의:
+            <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+        </p>
+    </section>
+
+    <hr>
+
+    <section id="en">
+        <h1>Privacy Policy — Jigeumeodi (지금어디)</h1>
+        <p class="meta">
+            App: Jigeumeodi / 지금어디 (<code>com.subway.where</code>)<br>
+            Last updated: 2026-07-13<br>
+            Provider: Hwemo Chung
+        </p>
+
+        <div class="short">
+            <strong>Short version:</strong> Location and alarm settings stay
+            <strong>on your device</strong>. No account, no backend upload, no ads or analytics SDKs.
+        </div>
+
+        <h2>1. Overview</h2>
+        <p>Jigeumeodi alerts you when you approach a selected subway station using device location.
+            Processing is on-device. We do not operate a backend that receives your location or alarm settings.</p>
+
+        <h2>2. Data we use</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Purpose</th>
+                    <th>Storage</th>
+                    <th>Shared with third parties</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Precise location (GPS, etc.)</td>
+                    <td>Detect stations / trigger alerts</td>
+                    <td>Ephemeral in memory during tracking</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Alarm settings (line, station, lead stops)</td>
+                    <td>Keep your saved alarm</td>
+                    <td>On-device SharedPreferences</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Language preference</td>
+                    <td>UI language</td>
+                    <td>On-device</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Notification permission state</td>
+                    <td>Show arrival / stop-lead alerts</td>
+                    <td>Managed by the OS</td>
+                    <td>No</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>We do <strong>not</strong> collect accounts, names, in-app emails, contacts, photos,
+            advertising IDs, analytics streams, or payment data.</p>
+
+        <h2>3. Permissions</h2>
+        <ul>
+            <li><strong>Location:</strong> Required for tracking and alerts.</li>
+            <li><strong>Notifications:</strong> Required to surface alarms.</li>
+            <li><strong>Foreground location service:</strong> Continues tracking while you ride;
+                shown as an ongoing notification.</li>
+        </ul>
+
+        <h2>4. Retention &amp; deletion</h2>
+        <p>Location is used only to evaluate proximity. Uninstalling the app or clearing app data
+            removes local settings. We do not run a cloud store of your coordinates.</p>
+
+        <h2>5. Third parties</h2>
+        <p>Uses Google Play services location APIs on the device.
+            No ads, analytics, or crash-reporting SDKs are included.</p>
+
+        <h2>6. Children</h2>
+        <p>Not directed at children under 13. We do not knowingly collect children’s data.</p>
+
+        <h2>7. Changes</h2>
+        <p>We will update the “Last updated” date on this page when the policy changes.</p>
+
+        <h2>8. Contact</h2>
+        <p>Questions about this policy:
+            <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+        </p>
+    </section>
+</body>
+
+</html>
