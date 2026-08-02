@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile Production Retainer — Ionic / Capacitor / WebView</title>
+  <meta name="description" content="Monthly production retainer for Ionic, Capacitor, and Android WebView apps. Real-device reliability, not emulator demos." />
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --card: #141a22;
+      --text: #e8eef6;
+      --muted: #93a0b4;
+      --accent: #3d8bfd;
+      --border: #243041;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
+    h1 { font-size: 1.85rem; line-height: 1.2; margin: 0 0 12px; }
+    h2 { font-size: 1.15rem; margin: 36px 0 12px; }
+    p { color: var(--muted); margin: 0 0 14px; }
+    .lead { font-size: 1.05rem; color: var(--text); }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .grid { display: grid; gap: 14px; margin-top: 16px; }
+    @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .card strong { display: block; font-size: 1.25rem; margin: 4px 0 8px; color: var(--text); }
+    .card ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+    .card li { margin: 6px 0; }
+    .price { color: var(--accent); font-weight: 700; }
+    a.cta {
+      display: inline-block;
+      margin-top: 22px;
+      background: var(--accent);
+      color: #041018;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+    a.cta:hover { filter: brightness(1.08); }
+    .fine { font-size: 0.85rem; margin-top: 28px; }
+    code { font-size: 0.9em; color: #cfe3ff; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="badge">Production retainer · USD · Remote</div>
+    <h1>Your Ionic / Capacitor app works in the browser.<br />Devices are where money burns.</h1>
+    <p class="lead">
+      Monthly production support for teams shipping Angular/Ionic/Capacitor and Android WebView apps.
+      Focus: release blockers, real-device regressions, store builds — not greenfield pitch decks.
+    </p>
+
+    <h2>Who this is for</h2>
+    <p>
+      Founders and small product teams with a live (or about-to-ship) mobile web app that fails on
+      specific OS versions, WebView quirks, scanners, deep links, or release packaging.
+    </p>
+
+    <h2>Packages</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="price">$1,200 / month</div>
+        <strong>Stabilizer</strong>
+        <ul>
+          <li>8 hours / month hard cap</li>
+          <li>Async-first (GitHub / email)</li>
+          <li>One production issue class at a time</li>
+          <li>First reply within 1 business day</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="price">$2,400 / month</div>
+        <strong>Scale</strong>
+        <ul>
+          <li>16 hours / month</li>
+          <li>Weekly 30-minute call</li>
+          <li>Pre-booked release-week window</li>
+          <li>Everything in Stabilizer</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2>Pilot (if you are not sure)</h2>
+    <p>
+      <span class="price">$400</span> · one week · ~6 hours · written diagnosis + fix attempt on
+      <em>one</em> production failure class. Converts to Stabilizer if it helped.
+    </p>
+
+    <h2>Out of scope</h2>
+    <p>
+      Full rewrites, unlimited Slack, 24/7 on-call, and “build the whole app for hobby rates.”
+      Those projects fail both of us.
+    </p>
+
+    <a class="cta" href="mailto:tolaria@naver.com?subject=Mobile%20Production%20Retainer%20—%20fit%20call">Email tolaria@naver.com to book a 20-min fit call</a>
+
+    <p class="fine">
+      Live URL (after push): <a href="https://hwemo-chung.github.io/retainer.html" style="color:#9ec1ff">hwemo-chung.github.io/retainer.html</a>.
+      Do not claim CAINZ or employer affiliation.
+    </p>
+  </main>
+</body>
+</html>
