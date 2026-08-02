@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Burnline · demo fixtures</title>
+  <style>
+    :root {
+      --bg: #07090c; --card: #12161d; --text: #f2f5f8; --muted: #9aa8b8;
+      --accent: #ff6a3d; --ok: #5eead4; --border: #243041;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.45;
+      padding: 32px 18px 64px;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; margin: 0 0 8px; letter-spacing: -0.02em; }
+    .sub { color: var(--muted); margin: 0 0 24px; font-size: 0.95rem; }
+    .cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin-bottom: 28px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px;
+    }
+    .card .label { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .card .value { font-size: 1.25rem; font-weight: 700; margin-top: 4px; }
+    .flag { color: #ff6a3d; font-weight: 700; }
+    h2 { font-size: 1.05rem; margin: 28px 0 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+    td.usd { color: var(--accent); font-weight: 600; }
+    code { font-size: 0.85em; color: #cfe3ff; }
+    .note { color: var(--muted); font-size: 0.82rem; margin-top: 28px; }
+    .warn { color: #fbbf24; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Burnline · demo fixtures</h1>
+    <p class="sub">Local-first AI cost report · tier: <strong>free</strong>
+      
+    </p>
+    <div class="cards">
+      <div class="card"><div class="label">Estimated spend</div><div class="value">$47.8800</div></div>
+      <div class="card"><div class="label">Events</div><div class="value">3</div></div>
+      <div class="card"><div class="label">Days</div><div class="value">2</div></div>
+      <div class="card"><div class="label">Budget</div><div class="value flag">$47.8800 / $40.0000 · OVER CAP</div></div>
+    </div>
+
+    <h2>By model</h2>
+    <table>
+      <thead><tr>
+        <th>Model</th><th class="n">Sessions</th><th class="n">Msgs</th>
+        <th class="n">In</th><th class="n">Out</th><th class="n">USD</th>
+      </tr></thead>
+      <tbody><tr>
+      <td><code>claude-opus-4</code></td>
+      <td class="n">1</td>
+      <td class="n">1</td>
+      <td class="n">2,000,000</td>
+      <td class="n">200,000</td>
+      <td class="n usd">$45.0000</td>
+    </tr>
+<tr>
+      <td><code>claude-sonnet-4-default</code></td>
+      <td class="n">2</td>
+      <td class="n">2</td>
+      <td class="n">640,000</td>
+      <td class="n">64,000</td>
+      <td class="n usd">$2.8800</td>
+    </tr></tbody>
+    </table>
+
+    <h2>By day</h2>
+    <table>
+      <thead><tr>
+        <th>Day</th><th class="n">Sessions</th><th class="n">In</th>
+        <th class="n">Out</th><th class="n">Cache read</th><th class="n">USD</th>
+      </tr></thead>
+      <tbody><tr>
+      <td>2026-07-28</td>
+      <td class="n">2</td>
+      <td class="n">640,000</td>
+      <td class="n">64,000</td>
+      <td class="n">0</td>
+      <td class="n usd">$2.8800</td>
+    </tr>
+<tr>
+      <td>2026-07-29</td>
+      <td class="n">1</td>
+      <td class="n">2,000,000</td>
+      <td class="n">200,000</td>
+      <td class="n">0</td>
+      <td class="n usd">$45.0000</td>
+    </tr></tbody>
+    </table>
+
+    <p class="note">Estimates only. Cache write priced at input rate unless catalog overrides. Reconcile against vendor invoices. No prompts are stored in this report.</p>
+  </div>
+</body>
+</html>
