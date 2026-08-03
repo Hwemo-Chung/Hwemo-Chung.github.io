@@ -4,87 +4,405 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mobile Production Retainer — Ionic / Capacitor / WebView</title>
-  <meta name="description" content="Monthly production retainer for Ionic, Capacitor, and Android WebView apps. Real-device reliability, not emulator demos." />
+  <meta name="description" content="Weekly pilot and monthly retainers for Ionic, Capacitor, and Android WebView production failures. Real devices, release weeks — not emulator demos." />
+  <link rel="canonical" href="https://hwemo-chung.github.io/retainer.html" />
+  <meta name="theme-color" content="#0b0d10" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hwemo-chung.github.io/retainer.html" />
+  <meta property="og:title" content="Mobile Production Retainer — $400 pilot" />
+  <meta property="og:description" content="Fix one production failure class on real devices. Ionic / Capacitor / WebView. Remote, USD." />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mobile Production Retainer" />
+  <meta name="twitter:description" content="Pilot $400 · Stabilizer $1,200/mo · real-device production support" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Mobile Production Retainer",
+    "url": "https://hwemo-chung.github.io/retainer.html",
+    "description": "Production support for Ionic, Capacitor, and Android WebView apps.",
+    "areaServed": "Worldwide",
+    "email": "tolaria@naver.com",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Pilot",
+        "price": "400",
+        "priceCurrency": "USD",
+        "description": "One week, ~6 hours, one production issue class"
+      },
+      {
+        "@type": "Offer",
+        "name": "Stabilizer",
+        "price": "1200",
+        "priceCurrency": "USD",
+        "description": "8 hours per month async production support"
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       --bg: #0b0d10;
       --card: #141a22;
       --text: #e8eef6;
       --muted: #93a0b4;
-      --accent: #3d8bfd;
-      --border: #243041;
+      --accent: #4d9fff;
+      --accent-ink: #041018;
+      --border: #2a384c;
+      --ok: #5eead4;
+      --warn: #fbbf24;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(900px 420px at 0% -10%, #13233a 0%, transparent 55%),
+        var(--bg);
       color: var(--text);
       line-height: 1.55;
+      padding-bottom: calc(88px + var(--safe-bottom));
     }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
-    h1 { font-size: 1.85rem; line-height: 1.2; margin: 0 0 12px; }
-    h2 { font-size: 1.15rem; margin: 36px 0 12px; }
+    a { color: #9ec1ff; }
+    a:hover { color: #c5dbff; }
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--accent);
+      color: var(--accent-ink);
+      padding: 8px 12px;
+      z-index: 100;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .skip:focus { left: 12px; top: 12px; }
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 13, 16, 0.86);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-nav .inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand {
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .site-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.9rem;
+    }
+    .site-nav a { color: var(--muted); text-decoration: none; }
+    .site-nav a[aria-current="page"] { color: var(--text); font-weight: 600; }
+    .site-nav a:hover { color: var(--text); }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 36px 20px 40px; }
+    h1 {
+      font-size: clamp(1.65rem, 4.2vw, 2.05rem);
+      line-height: 1.18;
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
+    }
+    h2 { font-size: 1.12rem; margin: 36px 0 12px; letter-spacing: -0.01em; }
+    h3 { font-size: 1rem; margin: 0 0 8px; }
     p { color: var(--muted); margin: 0 0 14px; }
-    .lead { font-size: 1.05rem; color: var(--text); }
+    .lead { font-size: 1.06rem; color: #d7e2f0; max-width: 40rem; }
     .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--ok);
       border: 1px solid var(--border);
-      padding: 4px 8px;
+      padding: 5px 10px;
       border-radius: 999px;
       margin-bottom: 16px;
     }
-    .grid { display: grid; gap: 14px; margin-top: 16px; }
-    @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .badge .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--ok);
+      box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.15);
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 8px;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      min-height: 44px;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+    .btn-primary:hover { filter: brightness(1.06); color: var(--accent-ink); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-ghost:hover { border-color: #3d516b; color: var(--text); }
+    .trust {
+      display: grid;
+      gap: 10px;
+      margin: 24px 0 0;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(20, 26, 34, 0.65);
+    }
+    .trust li {
+      color: var(--muted);
+      margin: 0;
+      list-style: none;
+      padding-left: 1.35rem;
+      position: relative;
+      font-size: 0.94rem;
+    }
+    .trust li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--ok);
+      font-weight: 700;
+    }
+    ul.trust { margin: 24px 0 0; padding: 14px 16px; }
+    .grid { display: grid; gap: 14px; margin-top: 14px; }
+    @media (min-width: 640px) {
+      .grid.two { grid-template-columns: 1fr 1fr; }
+      .grid.three { grid-template-columns: repeat(3, 1fr); }
+    }
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 18px;
+      position: relative;
     }
-    .card strong { display: block; font-size: 1.25rem; margin: 4px 0 8px; color: var(--text); }
+    .card.featured {
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent);
+    }
+    .card .tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-ink);
+      background: var(--accent);
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    .card strong.title { display: block; font-size: 1.15rem; margin: 4px 0 8px; color: var(--text); }
     .card ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
     .card li { margin: 6px 0; }
-    .price { color: var(--accent); font-weight: 700; }
-    a.cta {
-      display: inline-block;
-      margin-top: 22px;
-      background: var(--accent);
-      color: #041018;
-      text-decoration: none;
-      font-weight: 700;
-      padding: 12px 18px;
-      border-radius: 10px;
+    .price {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 1.35rem;
+      font-variant-numeric: tabular-nums;
     }
-    a.cta:hover { filter: brightness(1.08); }
-    .fine { font-size: 0.85rem; margin-top: 28px; }
-    code { font-size: 0.9em; color: #cfe3ff; }
+    .price span { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+    .steps .card h3 { color: var(--text); }
+    .step-n {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ok);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .faq details {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      background: var(--card);
+    }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text);
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+";
+      float: right;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { margin: 10px 0 0; font-size: 0.94rem; }
+    .out {
+      border-left: 3px solid var(--warn);
+      padding: 4px 0 4px 14px;
+      margin: 8px 0 0;
+    }
+    footer.page-foot {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer.page-foot nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    footer.page-foot a { color: var(--muted); }
+    .sticky-cta {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 50;
+      background: rgba(11, 13, 16, 0.94);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 10px 16px calc(10px + var(--safe-bottom));
+    }
+    .sticky-cta .inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .sticky-cta .hint {
+      flex: 1;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: none;
+    }
+    @media (min-width: 520px) {
+      .sticky-cta .hint { display: block; }
+    }
+    .sticky-cta .btn { flex: 0 0 auto; padding: 11px 14px; }
+    @media (min-width: 900px) {
+      body { padding-bottom: 24px; }
+      .sticky-cta { display: none; }
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <div class="badge">Production retainer · USD · Remote</div>
+  <a class="skip" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="inner">
+      <a class="brand" href="index.html">Lumos</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="retainer.html" aria-current="page">Retainer</a></li>
+        <li><a href="burnline.html">Burnline</a></li>
+        <li><a href="burnline-dashboard.html">Dashboard</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="wrap">
+    <div class="badge"><span class="dot" aria-hidden="true"></span> Production retainer · USD · Remote</div>
     <h1>Your Ionic / Capacitor app works in the browser.<br />Devices are where money burns.</h1>
     <p class="lead">
-      Monthly production support for teams shipping Angular/Ionic/Capacitor and Android WebView apps.
+      Weekly pilot and monthly production support for teams shipping Angular/Ionic/Capacitor and Android WebView apps.
       Focus: release blockers, real-device regressions, store builds — not greenfield pitch decks.
     </p>
 
-    <h2>Who this is for</h2>
-    <p>
-      Founders and small product teams with a live (or about-to-ship) mobile web app that fails on
-      specific OS versions, WebView quirks, scanners, deep links, or release packaging.
-    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=Pilot%20%24400%20%E2%80%94%20one%20issue%20class&amp;body=Product%20%2F%20platform%3A%0AIssue%20class%20(one)%3A%0ARepo%20access%20(yes%2Fno)%3A%0ATarget%20week%3A%0A">
+        Start with $400 pilot
+      </a>
+      <a class="btn btn-ghost" href="#packages">See monthly packages</a>
+      <a class="btn btn-ghost" href="mailto:tolaria@naver.com?subject=Mobile%20Production%20Retainer%20%E2%80%94%20fit%20call&amp;body=I%20want%20a%2020-min%20fit%20call.%0A%0AProduct%3A%0APlatform%3A%0AMain%20pain%3A%0A">
+        20-min fit call
+      </a>
+    </div>
 
-    <h2>Packages</h2>
-    <div class="grid">
+    <ul class="trust">
+      <li>One production failure class at a time — written diagnosis if fix needs more hours</li>
+      <li>Real devices / OS / WebView quirks — not “works on my emulator”</li>
+      <li>Async-first (email / GitHub). First reply within 1 business day on paid plans</li>
+      <li>No CAINZ or employer affiliation claimed. You own deliverables you pay for</li>
+    </ul>
+
+    <h2 id="how">How it works</h2>
+    <div class="grid three steps">
       <article class="card">
-        <div class="price">$1,200 / month</div>
-        <strong>Stabilizer</strong>
+        <div class="step-n">Step 1</div>
+        <h3>Fit email</h3>
+        <p>You send product, platform, and <em>one</em> issue class. I confirm fit or decline in writing.</p>
+      </article>
+      <article class="card">
+        <div class="step-n">Step 2</div>
+        <h3>Pilot week</h3>
+        <p>$400 · ~6 hours · diagnosis + fix attempt. Invoice before work starts (card / Wise / bank).</p>
+      </article>
+      <article class="card">
+        <div class="step-n">Step 3</div>
+        <h3>Retainer (optional)</h3>
+        <p>If the pilot helped, Stabilizer or Scale on a monthly hour cap. Cancel end of month.</p>
+      </article>
+    </div>
+
+    <h2 id="packages">Packages</h2>
+    <div class="grid two">
+      <article class="card featured" id="pilot">
+        <span class="tag">Best first step</span>
+        <div class="price">$400 <span>/ one week</span></div>
+        <strong class="title">Pilot</strong>
+        <ul>
+          <li>~6 hours focused</li>
+          <li>One production issue class only</li>
+          <li>Written diagnosis + fix attempt</li>
+          <li>Converts to Stabilizer if useful</li>
+        </ul>
+      </article>
+      <article class="card" id="stabilizer">
+        <div class="price">$1,200 <span>/ month</span></div>
+        <strong class="title">Stabilizer</strong>
         <ul>
           <li>8 hours / month hard cap</li>
           <li>Async-first (GitHub / email)</li>
@@ -92,9 +410,9 @@
           <li>First reply within 1 business day</li>
         </ul>
       </article>
-      <article class="card">
-        <div class="price">$2,400 / month</div>
-        <strong>Scale</strong>
+      <article class="card" id="scale">
+        <div class="price">$2,400 <span>/ month</span></div>
+        <strong class="title">Scale</strong>
         <ul>
           <li>16 hours / month</li>
           <li>Weekly 30-minute call</li>
@@ -102,26 +420,100 @@
           <li>Everything in Stabilizer</li>
         </ul>
       </article>
+      <article class="card">
+        <div class="price" style="color:var(--muted)">Who this is for</div>
+        <strong class="title">Qualify hard</strong>
+        <ul>
+          <li>Live or about-to-ship Ionic / Capacitor / WebView app</li>
+          <li>Pain is devices, stores, release — not mockups</li>
+          <li>Can pay USD; English async OK</li>
+          <li>Not: “build Uber for $500”</li>
+        </ul>
+      </article>
     </div>
 
-    <h2>Pilot (if you are not sure)</h2>
-    <p>
-      <span class="price">$400</span> · one week · ~6 hours · written diagnosis + fix attempt on
-      <em>one</em> production failure class. Converts to Stabilizer if it helped.
-    </p>
-
     <h2>Out of scope</h2>
+    <div class="out">
+      <p>
+        Full rewrites, unlimited Slack, 24/7 on-call, greenfield apps at hobby rates,
+        and work that conflicts with employment confidentiality. Those projects fail both of us.
+      </p>
+    </div>
+
+    <h2 id="faq">FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>What do I get from the $400 pilot?</summary>
+        <p>
+          A written diagnosis of one agreed issue class, plus a best-effort fix within ~6 hours.
+          If the fix needs more time, you get a clear estimate — no silent overrun.
+        </p>
+      </details>
+      <details>
+        <summary>Do unused hours roll over?</summary>
+        <p>No, unless we pre-agree in writing. The cap protects both schedule and price.</p>
+      </details>
+      <details>
+        <summary>How do I pay?</summary>
+        <p>
+          Invoice before work: card processor (Stripe / Lemon Squeezy when linked), Wise, or bank transfer.
+          Reply to the fit email and I send payment instructions for your region.
+        </p>
+      </details>
+      <details>
+        <summary>Refunds?</summary>
+        <p>
+          Work starts after payment. No mid-week refund once hours are used.
+          If I decline the fit before payment, you pay nothing.
+        </p>
+      </details>
+      <details>
+        <summary>Can you use my employer’s confidential stack?</summary>
+        <p>
+          No if it conflicts with my employment or NDA. Say so up front — I will decline cleanly.
+        </p>
+      </details>
+      <details>
+        <summary>Why trust a single operator?</summary>
+        <p>
+          You buy a narrow outcome (one issue class / hour-capped month), not a brand agency.
+          Scope is written before hours start. You can cancel at month end with no lock-in.
+        </p>
+      </details>
+    </div>
+
+    <h2 id="contact">Next step</h2>
     <p>
-      Full rewrites, unlimited Slack, 24/7 on-call, and “build the whole app for hobby rates.”
-      Those projects fail both of us.
+      Email <a href="mailto:tolaria@naver.com">tolaria@naver.com</a> with product, platform, and the one issue class.
+      Prefer monthly from day one? Use subject line <code style="color:#cfe3ff">Stabilizer — month 1</code>.
     </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=Pilot%20%24400%20%E2%80%94%20one%20issue%20class&amp;body=Product%20%2F%20platform%3A%0AIssue%20class%20(one)%3A%0ARepo%20access%20(yes%2Fno)%3A%0ATarget%20week%3A%0A">
+        Email to start pilot
+      </a>
+      <a class="btn btn-ghost" href="burnline.html">Also building Burnline →</a>
+    </div>
 
-    <a class="cta" href="mailto:tolaria@naver.com?subject=Mobile%20Production%20Retainer%20—%20fit%20call">Email tolaria@naver.com to book a 20-min fit call</a>
-
-    <p class="fine">
-      Live URL (after push): <a href="https://hwemo-chung.github.io/retainer.html" style="color:#9ec1ff">hwemo-chung.github.io/retainer.html</a>.
-      Do not claim CAINZ or employer affiliation.
-    </p>
+    <footer class="page-foot">
+      <nav aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="burnline.html">Burnline</a>
+        <a href="pp.html">Privacy</a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+      <p>
+        Independent contractor offer. Not affiliated with any employer.
+        Live: <a href="https://hwemo-chung.github.io/retainer.html">hwemo-chung.github.io/retainer.html</a>
+      </p>
+    </footer>
   </main>
+
+  <div class="sticky-cta" role="region" aria-label="Quick contact">
+    <div class="inner">
+      <span class="hint">Cold start → pilot only. One issue class.</span>
+      <a class="btn btn-ghost" href="mailto:tolaria@naver.com?subject=Mobile%20Production%20Retainer%20%E2%80%94%20fit%20call">Fit call</a>
+      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=Pilot%20%24400%20%E2%80%94%20one%20issue%20class">$400 pilot</a>
+    </div>
+  </div>
 </body>
 </html>
