@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보처리방침 — Sealcard</title>
+
+    <meta name="description" content="Sealcard privacy policy — on-device sealed photo cards, no servers, accounts, ads, or analytics">
+    <meta name="author" content="Hwemo Chung">
+    <link rel="canonical" href="https://hwemo-chung.github.io/sealcard-privacy.html">
+
+    <style>
+        :root { color-scheme: light dark; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Noto Sans JP", sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            line-height: 1.8;
+        }
+        h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+        h2 { margin-top: 2.25rem; font-size: 1.2rem; }
+        h3 { margin-top: 1.5rem; font-size: 1.05rem; }
+        em { opacity: 0.7; }
+        code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+            padding: 0.5rem 0.65rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th { font-weight: 600; }
+        hr {
+            margin: 3rem 0;
+            border: none;
+            border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+        }
+        .meta { opacity: 0.75; margin-bottom: 1.5rem; }
+        .lang-switch { margin: 1rem 0 2rem; font-size: 0.95rem; }
+        .lang-switch a { margin-right: 1rem; }
+        .short {
+            padding: 0.9rem 1rem;
+            border-left: 3px solid color-mix(in srgb, currentColor 40%, transparent);
+            margin: 1rem 0 1.5rem;
+        }
+        .note {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="lang-switch">
+        <a href="#ko">한국어</a>
+        <a href="#ja">日本語</a>
+        <a href="#en">English</a>
+    </p>
+
+    <section id="ko">
+        <h1>개인정보처리방침 — Sealcard</h1>
+        <p class="meta">
+            앱: Sealcard (<code>app.sealcard.mobile</code>)<br>
+            최종 업데이트: 2026-08-07<br>
+            제공자: Hwemo Chung
+        </p>
+
+        <div class="short">
+            <strong>요약:</strong> 사진·봉인 카드는 <strong>기기 안에서만</strong> 처리·저장됩니다.
+            서버·계정·광고·분석 SDK가 없습니다. 운영자에게 사진이 전송되지 않습니다.
+        </div>
+
+        <h2>1. 개요</h2>
+        <p>Sealcard는 카메라로 촬영한 이미지를 텍스트·레이아웃과 합성해 「봉인 카드」로 기기 내에 보관하는 앱입니다.
+            봉인된 카드는 앱 내에서 수정할 수 없으며, 삭제(파괴)만 가능합니다.
+            핵심 처리는 전부 기기 로컬에서 수행되며, 운영자가 운영하는 백엔드·클라우드 저장소가 없습니다.</p>
+
+        <h2>2. 수집·사용하는 정보</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>항목</th>
+                    <th>목적</th>
+                    <th>보관</th>
+                    <th>제3자 전송</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>카메라 촬영 이미지</td>
+                    <td>봉인 카드 합성</td>
+                    <td>앱 전용 저장소(기기 내). 봉인 후 앱 내 편집 불가; 파괴 시 삭제</td>
+                    <td>없음</td>
+                </tr>
+                <tr>
+                    <td>카드에 입력한 텍스트·레이아웃 설정</td>
+                    <td>봉인 카드 구성</td>
+                    <td>기기 내 앱 저장소 (카드와 함께)</td>
+                    <td>없음</td>
+                </tr>
+                <tr>
+                    <td>프레젠테이션 이미지 (선택)</td>
+                    <td>사용자가 갤러리 저장을 요청할 때만 기기 갤러리에 저장</td>
+                    <td>기기 미디어 저장소 (사용자 요청 시)</td>
+                    <td>없음 (OS 공유 시트 이용 시 사용자가 선택한 앱으로만 전달)</td>
+                </tr>
+                <tr>
+                    <td>언어·앱 설정</td>
+                    <td>UI·동작 설정</td>
+                    <td>기기 로컬</td>
+                    <td>없음</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>수집하지 않는 것:</strong> 계정, 이름, 연락처, 위치, 광고 ID, 분석·행동 로그, 크래시 리포트 전송, 결제 정보.
+            운영자 서버로 사진을 업로드하지 않습니다.</p>
+
+        <h2>3. 권한</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>권한</th>
+                    <th>용도</th>
+                    <th>거부 시</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>카메라 (CAMERA)</td>
+                    <td>봉인 카드용 사진 촬영</td>
+                    <td>촬영 불가</td>
+                </tr>
+                <tr>
+                    <td>사진/미디어 쓰기 (갤러리 저장, 해당 OS 버전)</td>
+                    <td>사용자가 프레젠테이션 이미지를 갤러리에 저장할 때만</td>
+                    <td>갤러리 저장 불가 (앱 내 카드 보관은 가능)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>공유는 OS 제공 공유 시트만 사용합니다. Sealcard가 자체 서버로 공유 대상을 보내지 않습니다.</p>
+
+        <h2>4. 보관 및 삭제</h2>
+        <ul>
+            <li>봉인 카드는 기기 앱 저장소에 보관됩니다. 봉인 후에는 앱 내 수정이 불가능하며, 파괴(삭제)만 할 수 있습니다.</li>
+            <li>파괴한 카드는 앱 저장소에서 제거됩니다.</li>
+            <li>앱 삭제 또는 앱 데이터 삭제로 기기 내 카드·설정이 제거됩니다.</li>
+            <li>사용자가 갤러리에 저장한 이미지는 사용자가 갤러리/파일 앱에서 직접 관리합니다.</li>
+            <li>클라우드 백업·원격 삭제를 제공하지 않습니다.</li>
+        </ul>
+
+        <h2>5. 제3자 및 SDK</h2>
+        <ul>
+            <li>광고·분석·크래시 리포팅 SDK를 포함하지 않습니다.</li>
+            <li>계정 로그인·소셜 로그인·원격 API 호출을 하지 않습니다.</li>
+            <li>카메라·미디어·공유는 기기 OS API만 사용합니다.</li>
+        </ul>
+
+        <h2>6. 아동</h2>
+        <p>만 13세 미만을 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다.</p>
+
+        <h2>7. 변경</h2>
+        <p>본 방침을 변경하는 경우 본 페이지의 「최종 업데이트」 날짜를 갱신합니다.
+            광고·수집 등 실질적 변경이 있으면 해당 버전 배포 전에 본 페이지를 업데이트합니다.</p>
+
+        <h2>8. 문의</h2>
+        <p>개인정보 관련 문의:
+            <a href="mailto:REPLACE_BEFORE_SUBMIT@example.com">REPLACE_BEFORE_SUBMIT@example.com</a>
+        </p>
+        <p class="note">위 주소는 앱 설정 화면의 문의 메일(<code>SUPPORT_EMAIL</code>)과 동일합니다.
+            Play 제출 전 실주소로 교체됩니다. 앱 내 설정 &gt; 문의에서도 확인할 수 있습니다.</p>
+    </section>
+
+    <hr>
+
+    <section id="ja">
+        <h1>プライバシーポリシー — Sealcard</h1>
+        <p class="meta">
+            アプリ: Sealcard (<code>app.sealcard.mobile</code>)<br>
+            最終更新: 2026-08-07<br>
+            提供者: Hwemo Chung
+        </p>
+
+        <div class="short">
+            <strong>要約:</strong> 写真・封印カードは<strong>端末内のみ</strong>で処理・保存されます。
+            サーバー・アカウント・広告・分析 SDK はありません。運営者へ写真は送信されません。
+        </div>
+
+        <h2>1. 概要</h2>
+        <p>Sealcard は、カメラで撮影した画像をテキスト・レイアウトと合成し、「封印カード」として端末内に保管するアプリです。
+            封印後のカードはアプリ内で編集できず、破棄（削除）のみ可能です。
+            処理はすべて端末ローカルで行われ、運営者のバックエンドやクラウド保存はありません。</p>
+
+        <h2>2. 取り扱う情報</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th>目的</th>
+                    <th>保管</th>
+                    <th>第三者への送信</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>カメラ撮影画像</td>
+                    <td>封印カードの合成</td>
+                    <td>アプリ専用ストレージ（端末内）。封印後はアプリ内編集不可。破棄で削除</td>
+                    <td>なし</td>
+                </tr>
+                <tr>
+                    <td>カードに入力したテキスト・レイアウト設定</td>
+                    <td>封印カードの構成</td>
+                    <td>端末内アプリ保存（カードと共に）</td>
+                    <td>なし</td>
+                </tr>
+                <tr>
+                    <td>プレゼンテーション画像（任意）</td>
+                    <td>ユーザーがギャラリー保存を依頼したときのみ端末ギャラリーへ保存</td>
+                    <td>端末メディア（ユーザー依頼時）</td>
+                    <td>なし（OS 共有シート利用時はユーザーが選んだアプリへのみ）</td>
+                </tr>
+                <tr>
+                    <td>言語・アプリ設定</td>
+                    <td>UI・動作設定</td>
+                    <td>端末ローカル</td>
+                    <td>なし</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>収集しないもの:</strong> アカウント、氏名、連絡先、位置情報、広告 ID、分析・行動ログ、クラッシュレポート送信、決済情報。
+            運営者サーバーへ写真をアップロードしません。</p>
+
+        <h2>3. 権限</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>権限</th>
+                    <th>用途</th>
+                    <th>拒否時</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>カメラ (CAMERA)</td>
+                    <td>封印カード用の撮影</td>
+                    <td>撮影不可</td>
+                </tr>
+                <tr>
+                    <td>写真/メディア書き込み（ギャラリー保存、該当 OS バージョン）</td>
+                    <td>ユーザーがプレゼン画像をギャラリーへ保存するときのみ</td>
+                    <td>ギャラリー保存不可（アプリ内カード保管は可能）</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>共有は OS の共有シートのみを使用します。Sealcard が独自サーバーへ共有先を送りません。</p>
+
+        <h2>4. 保管と削除</h2>
+        <ul>
+            <li>封印カードは端末のアプリ保存領域に保管されます。封印後はアプリ内編集不可で、破棄のみ可能です。</li>
+            <li>破棄したカードはアプリ保存から削除されます。</li>
+            <li>アプリ削除またはアプリデータの消去で端末内のカード・設定が削除されます。</li>
+            <li>ギャラリーに保存した画像は、ユーザーがギャラリー/ファイルアプリで管理します。</li>
+            <li>クラウドバックアップやリモート削除は提供しません。</li>
+        </ul>
+
+        <h2>5. 第三者および SDK</h2>
+        <ul>
+            <li>広告・分析・クラッシュ報告 SDK を含みません。</li>
+            <li>アカウントログイン・ソーシャルログイン・リモート API 呼び出しは行いません。</li>
+            <li>カメラ・メディア・共有は端末 OS API のみを使用します。</li>
+        </ul>
+
+        <h2>6. 子ども</h2>
+        <p>13 歳未満を対象とせず、子どもの個人情報を故意に収集しません。</p>
+
+        <h2>7. 変更</h2>
+        <p>本ポリシーを変更する場合、本ページの「最終更新」日付を更新します。
+            広告・収集など実質的な変更がある場合は、該当バージョンの公開前に本ページを更新します。</p>
+
+        <h2>8. お問い合わせ</h2>
+        <p>プライバシーに関するお問い合わせ:
+            <a href="mailto:REPLACE_BEFORE_SUBMIT@example.com">REPLACE_BEFORE_SUBMIT@example.com</a>
+        </p>
+        <p class="note">上記アドレスはアプリ設定画面の問い合わせメール（<code>SUPPORT_EMAIL</code>）と同一です。
+            Play 提出前に実アドレスへ差し替えます。アプリ内 設定 &gt; お問い合わせでも確認できます。</p>
+    </section>
+
+    <hr>
+
+    <section id="en">
+        <h1>Privacy Policy — Sealcard</h1>
+        <p class="meta">
+            App: Sealcard (<code>app.sealcard.mobile</code>)<br>
+            Last updated: 2026-08-07<br>
+            Provider: Hwemo Chung
+        </p>
+
+        <div class="short">
+            <strong>Short version:</strong> Photos and sealed cards stay
+            <strong>on your device</strong>. No servers, accounts, ads, or analytics SDKs.
+            We do not receive your photos.
+        </div>
+
+        <h2>1. Overview</h2>
+        <p>Sealcard captures photos with the camera, composes them with text and layout into
+            “sealed cards,” and stores those cards on the device. Sealed cards cannot be edited
+            in-app; they can only be destroyed (deleted). All processing is on-device. We do not
+            operate a backend or cloud store for your content.</p>
+
+        <h2>2. Data we use</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Purpose</th>
+                    <th>Storage</th>
+                    <th>Shared with third parties</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Camera images</td>
+                    <td>Compose sealed cards</td>
+                    <td>App-private storage on device. Immutable after seal; removed on destroy</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Text and layout you enter for a card</td>
+                    <td>Card composition</td>
+                    <td>On-device with the card</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Presentation image (optional)</td>
+                    <td>Saved to the device gallery only when you request it</td>
+                    <td>Device media store (on request)</td>
+                    <td>No (system share sheet only; destination chosen by you)</td>
+                </tr>
+                <tr>
+                    <td>Language / app preferences</td>
+                    <td>UI and behavior</td>
+                    <td>On-device</td>
+                    <td>No</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>We do <strong>not</strong> collect accounts, names, contacts, location, advertising IDs,
+            analytics streams, outbound crash reports, or payment data.
+            Photos are not uploaded to operator servers.</p>
+
+        <h2>3. Permissions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Permission</th>
+                    <th>Use</th>
+                    <th>If denied</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Camera (CAMERA)</td>
+                    <td>Capture photos for sealed cards</td>
+                    <td>Capture unavailable</td>
+                </tr>
+                <tr>
+                    <td>Photos / media write (gallery save, where required by OS)</td>
+                    <td>Only when you save a presentation image to the gallery</td>
+                    <td>Gallery save unavailable (in-app cards still work)</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Sharing uses the system share sheet only. Sealcard does not send share destinations
+            to its own servers.</p>
+
+        <h2>4. Retention &amp; deletion</h2>
+        <ul>
+            <li>Sealed cards live in app storage on the device. After sealing they are immutable
+                in-app and can only be destroyed.</li>
+            <li>Destroying a card removes it from app storage.</li>
+            <li>Uninstalling the app or clearing app data removes local cards and settings.</li>
+            <li>Images you saved to the gallery are managed by you in the gallery / Files apps.</li>
+            <li>We do not provide cloud backup or remote wipe.</li>
+        </ul>
+
+        <h2>5. Third parties</h2>
+        <ul>
+            <li>No ads, analytics, or crash-reporting SDKs.</li>
+            <li>No accounts, social login, or remote API calls for your content.</li>
+            <li>Camera, media, and share use on-device OS APIs only.</li>
+        </ul>
+
+        <h2>6. Children</h2>
+        <p>Not directed at children under 13. We do not knowingly collect children’s data.</p>
+
+        <h2>7. Changes</h2>
+        <p>We will update the “Last updated” date on this page when the policy changes.
+            Material changes (e.g. ads or data collection) will be reflected here before that
+            version ships.</p>
+
+        <h2>8. Contact</h2>
+        <p>Questions about this policy:
+            <a href="mailto:REPLACE_BEFORE_SUBMIT@example.com">REPLACE_BEFORE_SUBMIT@example.com</a>
+        </p>
+        <p class="note">This address matches the in-app support email (<code>SUPPORT_EMAIL</code>).
+            It will be replaced with a real address before Play submission.
+            You can also find it under Settings &gt; Contact in the app.</p>
+    </section>
+</body>
+
+</html>
