@@ -190,4 +190,11 @@ sales/
   offers.json
   SYSTEM.md      ← this file
   index.html     ← living system + hub
+  OUTREACH.md
+  CRM.md
+  kmong-listings.md
+  DIAGNOSIS_TEMPLATE.md
+  PAYMENT_SETUP.md
+  START_TODAY.md
+  payment-links.json / payment.js
 ```

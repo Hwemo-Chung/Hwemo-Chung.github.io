@@ -1,0 +1,8 @@
+{
+  "pilot_usd": "",
+  "stabilizer_usd": "",
+  "diag_paid_krw": "",
+  "threads_report_krw": "",
+  "paypal_me_base": "",
+  "note": "Public payment URLs only. Leave empty to use invoice-by-email. See PAYMENT_SETUP.md"
+}
