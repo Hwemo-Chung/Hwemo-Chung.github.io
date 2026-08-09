@@ -1,0 +1,624 @@
+/**
+ * Lumos Sales Components
+ * Requires: tokens.css
+ * Prefix: ls- optional on body class "ls" for isolation when mixed with portfolio CSS.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+body.ls {
+  margin: 0;
+  font-family: var(--ls-font);
+  background:
+    radial-gradient(900px 420px at 0% -10%, var(--ls-glow) 0%, transparent 55%),
+    var(--ls-bg);
+  color: var(--ls-text);
+  line-height: var(--ls-lh);
+  padding-bottom: calc(88px + var(--ls-safe-bottom));
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.ls a {
+  color: var(--ls-link);
+}
+body.ls a:hover {
+  color: var(--ls-link-hover);
+}
+body.ls :focus-visible {
+  outline: 2px solid var(--ls-accent);
+  outline-offset: 3px;
+}
+
+/* —— A11y —— */
+.ls-skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ls-accent);
+  color: var(--ls-accent-ink);
+  padding: 8px 12px;
+  z-index: var(--ls-z-skip);
+  font-weight: 700;
+  text-decoration: none;
+}
+.ls-skip:focus {
+  left: 12px;
+  top: 12px;
+}
+
+/* —— Nav —— */
+.ls-nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--ls-z-nav);
+  backdrop-filter: blur(12px);
+  background: rgba(11, 13, 16, 0.86);
+  border-bottom: 1px solid var(--ls-border);
+}
+.ls-nav__inner {
+  max-width: var(--ls-wrap);
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.ls-nav--wide .ls-nav__inner {
+  max-width: var(--ls-wrap-wide);
+}
+.ls-brand {
+  font-weight: 700;
+  color: var(--ls-text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.ls-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.9rem;
+}
+.ls-nav a {
+  color: var(--ls-muted);
+  text-decoration: none;
+}
+.ls-nav a[aria-current="page"],
+.ls-nav a:hover {
+  color: var(--ls-text);
+}
+.ls-nav a[aria-current="page"] {
+  font-weight: 600;
+}
+
+/* —— Layout —— */
+.ls-wrap {
+  max-width: var(--ls-wrap);
+  margin: 0 auto;
+  padding: 36px 20px 40px;
+}
+.ls-wrap--wide {
+  max-width: var(--ls-wrap-wide);
+}
+
+/* —— Type —— */
+.ls-wrap h1 {
+  font-size: clamp(1.6rem, 4.6vw, 2.1rem);
+  line-height: var(--ls-lh-tight);
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+.ls-wrap h2 {
+  font-size: 1.15rem;
+  margin: 40px 0 12px;
+  letter-spacing: -0.01em;
+}
+.ls-wrap h3 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+.ls-wrap p {
+  color: var(--ls-muted);
+  margin: 0 0 14px;
+}
+.ls-lead {
+  font-size: 1.05rem;
+  color: var(--ls-text-lead);
+}
+.ls-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ls-accent);
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+.ls-muted {
+  color: var(--ls-muted);
+}
+.ls-code,
+.ls-wrap code {
+  color: var(--ls-code);
+  font-family: var(--ls-font-mono);
+  font-size: 0.88em;
+}
+
+/* —— Badge / Status —— */
+.ls-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--ls-warn);
+  border: 1px solid var(--ls-border);
+  padding: 5px 12px;
+  border-radius: var(--ls-radius-pill);
+  margin-bottom: 16px;
+}
+.ls-badge--ok {
+  color: var(--ls-ok);
+}
+.ls-badge--accent {
+  color: var(--ls-accent);
+}
+.ls-badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 18%, transparent);
+}
+
+/* —— Callout: fact / warn / danger —— */
+.ls-callout {
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 20px 0 4px;
+  border: 1px solid var(--ls-border);
+  background: var(--ls-bg-elevated);
+}
+.ls-callout--warn {
+  border-color: color-mix(in srgb, var(--ls-warn) 45%, var(--ls-border));
+  background: var(--ls-warn-soft);
+}
+.ls-callout--ok {
+  border-color: color-mix(in srgb, var(--ls-ok) 40%, var(--ls-border));
+  background: color-mix(in srgb, var(--ls-ok) 8%, transparent);
+}
+.ls-callout strong {
+  color: var(--ls-warn);
+  font-size: 1.05rem;
+  display: block;
+}
+.ls-callout--ok strong {
+  color: var(--ls-ok);
+}
+.ls-callout p {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+}
+.ls-out {
+  border-left: 3px solid var(--ls-warn);
+  padding: 4px 0 4px 14px;
+  margin: 8px 0 0;
+}
+
+/* —— Buttons —— */
+.ls-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 8px;
+}
+a.ls-btn,
+button.ls-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: inherit;
+  padding: 12px 16px;
+  border-radius: var(--ls-radius-sm);
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  min-height: 44px;
+  cursor: pointer;
+  transition: filter var(--ls-duration) var(--ls-ease),
+    border-color var(--ls-duration) var(--ls-ease);
+}
+.ls-btn--primary {
+  background: var(--ls-accent);
+  color: var(--ls-accent-ink);
+}
+.ls-btn--primary:hover {
+  filter: brightness(1.06);
+  color: var(--ls-accent-ink);
+}
+.ls-btn--ghost {
+  background: transparent;
+  color: var(--ls-text);
+  border-color: var(--ls-border);
+}
+.ls-btn--ghost:hover {
+  border-color: var(--ls-border-strong);
+  color: var(--ls-text);
+}
+.ls-btn--warn {
+  background: var(--ls-warn);
+  color: #1a0803;
+}
+.ls-btn--sm {
+  padding: 8px 12px;
+  min-height: 36px;
+  font-size: 0.88rem;
+}
+
+/* —— Trust list —— */
+ul.ls-trust {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 14px 16px;
+  border: 1px solid var(--ls-border);
+  border-radius: 12px;
+  background: rgba(20, 26, 34, 0.65);
+  list-style: none;
+}
+ul.ls-trust li {
+  color: var(--ls-muted);
+  margin: 0;
+  padding-left: 1.35rem;
+  position: relative;
+  font-size: 0.94rem;
+}
+ul.ls-trust li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--ls-ok);
+  font-weight: 700;
+}
+ul.ls-trust--x li::before {
+  content: "×";
+  color: var(--ls-danger);
+}
+
+/* —— Grid + Cards —— */
+.ls-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+@media (min-width: 640px) {
+  .ls-grid--2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ls-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.ls-card {
+  background: var(--ls-card);
+  border: 1px solid var(--ls-border);
+  border-radius: var(--ls-radius);
+  padding: 18px;
+  position: relative;
+}
+.ls-card--featured {
+  border-color: color-mix(in srgb, var(--ls-accent) 55%, var(--ls-border));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ls-accent) 25%, transparent);
+}
+.ls-card__tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--ls-accent-ink);
+  background: var(--ls-accent);
+  padding: 3px 8px;
+  border-radius: var(--ls-radius-pill);
+  font-weight: 700;
+}
+.ls-card__tag--warn {
+  background: var(--ls-warn);
+  color: #1a0803;
+}
+.ls-card__tag--muted {
+  background: var(--ls-border);
+  color: var(--ls-text);
+}
+.ls-card__title {
+  display: block;
+  font-size: 1.12rem;
+  margin: 4px 0 8px;
+  color: var(--ls-text);
+  font-weight: 700;
+}
+.ls-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--ls-muted);
+}
+.ls-card li {
+  margin: 6px 0;
+}
+.ls-price {
+  color: var(--ls-accent);
+  font-weight: 800;
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
+}
+.ls-price span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ls-muted);
+}
+.ls-price--muted {
+  color: var(--ls-muted);
+}
+.ls-step {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ls-ok);
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+/* —— Offer meta chips —— */
+.ls-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 0;
+}
+.ls-chip {
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: var(--ls-radius-pill);
+  border: 1px solid var(--ls-border);
+  color: var(--ls-muted);
+  background: transparent;
+}
+.ls-chip--ok {
+  border-color: color-mix(in srgb, var(--ls-ok) 50%, var(--ls-border));
+  color: var(--ls-ok);
+}
+.ls-chip--warn {
+  border-color: color-mix(in srgb, var(--ls-warn) 50%, var(--ls-border));
+  color: var(--ls-warn);
+}
+.ls-chip--danger {
+  border-color: color-mix(in srgb, var(--ls-danger) 50%, var(--ls-border));
+  color: var(--ls-danger);
+}
+
+/* —— Tables —— */
+.ls-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.ls-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  min-width: 30rem;
+}
+.ls-table th,
+.ls-table td {
+  border: 1px solid var(--ls-border);
+  padding: 9px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.ls-table th {
+  background: rgba(20, 26, 34, 0.9);
+  color: var(--ls-text);
+  font-weight: 600;
+}
+.ls-table td {
+  color: var(--ls-muted);
+}
+.ls-table tr.is-primary td {
+  background: color-mix(in srgb, var(--ls-accent) 6%, transparent);
+  color: var(--ls-text-lead);
+}
+
+/* —— FAQ —— */
+.ls-faq details {
+  border: 1px solid var(--ls-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  background: var(--ls-card);
+}
+.ls-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ls-text);
+  list-style: none;
+}
+.ls-faq summary::-webkit-details-marker {
+  display: none;
+}
+.ls-faq summary::after {
+  content: "+";
+  float: right;
+  color: var(--ls-muted);
+  font-weight: 400;
+}
+.ls-faq details[open] summary::after {
+  content: "−";
+}
+.ls-faq details p {
+  margin: 10px 0 0;
+  font-size: 0.94rem;
+}
+
+/* —— Funnel strip —— */
+.ls-funnel {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+}
+@media (min-width: 640px) {
+  .ls-funnel {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.ls-funnel__step {
+  border: 1px solid var(--ls-border);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--ls-card);
+}
+.ls-funnel__n {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ls-accent);
+  letter-spacing: 0.06em;
+}
+.ls-funnel__step strong {
+  display: block;
+  margin: 4px 0;
+  color: var(--ls-text);
+  font-size: 0.92rem;
+}
+.ls-funnel__step p {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+/* —— Source footer —— */
+.ls-sources {
+  font-size: 0.82rem;
+  color: var(--ls-faint);
+  margin-top: 12px;
+}
+.ls-sources a {
+  color: var(--ls-muted);
+}
+
+/* —— Footer —— */
+.ls-foot {
+  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 1px solid var(--ls-border);
+  font-size: 0.85rem;
+  color: var(--ls-muted);
+}
+.ls-foot nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.ls-foot a {
+  color: var(--ls-muted);
+}
+
+/* —— Sticky CTA —— */
+.ls-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--ls-z-sticky);
+  background: rgba(11, 13, 16, 0.94);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--ls-border);
+  padding: 10px 16px calc(10px + var(--ls-safe-bottom));
+}
+.ls-sticky__inner {
+  max-width: var(--ls-wrap);
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.ls-sticky__hint {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--ls-muted);
+  display: none;
+}
+@media (min-width: 520px) {
+  .ls-sticky__hint {
+    display: block;
+  }
+}
+.ls-sticky .ls-btn {
+  flex: 0 0 auto;
+  padding: 11px 14px;
+}
+@media (min-width: 900px) {
+  body.ls {
+    padding-bottom: 24px;
+  }
+  .ls-sticky {
+    display: none;
+  }
+}
+
+/* —— Component gallery helpers (system page only) —— */
+.ls-demo-block {
+  border: 1px dashed var(--ls-border);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px 0 28px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.ls-demo-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ls-faint);
+  margin: 0 0 10px;
+}
+.ls-swatch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ls-swatch {
+  width: 88px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--ls-border);
+  font-size: 0.68rem;
+  color: var(--ls-muted);
+}
+.ls-swatch i {
+  display: block;
+  height: 48px;
+}
+.ls-swatch span {
+  display: block;
+  padding: 6px;
+}

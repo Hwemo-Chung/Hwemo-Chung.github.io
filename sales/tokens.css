@@ -1,0 +1,68 @@
+/**
+ * Lumos Sales Design Tokens
+ * Brand: dark field + blue action (sales) + gold warn (deadline)
+ * Do not invent colors on product pages — extend tokens here first.
+ */
+:root {
+  /* Surfaces */
+  --ls-bg: #0b0d10;
+  --ls-bg-elevated: #10151c;
+  --ls-card: #141a22;
+  --ls-card-2: #1a222d;
+
+  /* Text */
+  --ls-text: #e8eef6;
+  --ls-text-lead: #d7e2f0;
+  --ls-muted: #93a0b4;
+  --ls-faint: #6b7a90;
+
+  /* Brand actions */
+  --ls-accent: #4d9fff;
+  --ls-accent-hover: #6eb0ff;
+  --ls-accent-ink: #041018;
+  --ls-accent-soft: rgba(77, 159, 255, 0.12);
+  --ls-link: #9ec1ff;
+  --ls-link-hover: #c5dbff;
+
+  /* Semantic */
+  --ls-ok: #5eead4;
+  --ls-warn: #fbbf24;
+  --ls-warn-soft: rgba(251, 191, 36, 0.07);
+  --ls-danger: #f87171;
+  --ls-code: #cfe3ff;
+
+  /* Lines & chrome */
+  --ls-border: #2a384c;
+  --ls-border-strong: #3d516b;
+  --ls-glow: #13233a;
+
+  /* Layout */
+  --ls-wrap: 760px;
+  --ls-wrap-wide: 960px;
+  --ls-radius: 14px;
+  --ls-radius-sm: 10px;
+  --ls-radius-pill: 999px;
+  --ls-space-1: 4px;
+  --ls-space-2: 8px;
+  --ls-space-3: 12px;
+  --ls-space-4: 16px;
+  --ls-space-5: 24px;
+  --ls-space-6: 40px;
+  --ls-safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Type */
+  --ls-font: ui-sans-serif, system-ui, -apple-system, "Apple SD Gothic Neo",
+    "Malgun Gothic", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --ls-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ls-lh: 1.65;
+  --ls-lh-tight: 1.28;
+
+  /* Motion */
+  --ls-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ls-duration: 160ms;
+
+  /* Z */
+  --ls-z-nav: 40;
+  --ls-z-sticky: 50;
+  --ls-z-skip: 100;
+}
