@@ -81,19 +81,25 @@
     .btn-primary { background: var(--accent); color: #1a0803; }
     .btn-ghost { border: 1px solid var(--border); color: var(--text); }
   </style>
+  <link rel="stylesheet" href="sales/tokens.css" />
+  <link rel="stylesheet" href="sales/components.css" />
+  <link rel="stylesheet" href="sales/product-extras.css" />
 </head>
 <body>
-  <nav class="site-nav" aria-label="Primary">
-    <div class="inner">
-      <div>
-        <a href="index.html">Home</a>
-        <a href="burnline.html">Burnline</a>
-        <a href="burnline-dashboard.html">Dashboard</a>
-        <a href="retainer.html">Retainer</a>
-      </div>
-      <a href="burnline-dashboard.html">Open dashboard</a>
+    <nav class="ls-nav" aria-label="Primary">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="index.html">Lumos</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sales/">Sales</a></li>
+        <li><a href="retainer.html">Retainer</a></li>
+        <li><a href="burnline.html">Burnline</a></li>
+        <li><a href="burnline-dashboard.html">Dashboard</a></li>
+        <li><a href="burnline-demo.html" aria-current="page">Sample</a></li>
+      </ul>
     </div>
   </nav>
+
   <div class="banner" role="status">
     <strong>Sample fixtures only.</strong> Not your logs · not a paid product · estimates for demo.
   </div>

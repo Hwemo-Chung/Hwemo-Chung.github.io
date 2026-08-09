@@ -146,9 +146,11 @@ Canonical data: [`offers.json`](./offers.json). Hub UI: [`index.html`](./index.h
 |-----|------|----------------|
 | `/sales/` | Hub + gallery + catalog | full |
 | `/cordova.html` | KO flagship | full |
-| `/retainer.html` | EN flagship | migrate when touched |
-| `/threads-analyzer.html` | Product | optional later |
-| `/burnline.html` | Waitlist | optional later |
+| `/retainer.html` | EN flagship | full |
+| `/threads-analyzer.html` | Product (gold theme) | full |
+| `/burnline.html` | Waitlist (burn theme) | full |
+| `/burnline-dashboard.html` | App shell nav | nav only |
+| `/burnline-demo.html` | Sample | nav only |
 | `/` | Portfolio | gold `style.css` (not sales) |
 
 ---
