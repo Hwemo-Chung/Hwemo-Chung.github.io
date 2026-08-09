@@ -137,3 +137,279 @@ CLI 무료: github.com/Hwemo-Chung/threads-analytics
 실기기 Ionic/Capacitor/WebView · 레거시 Cordova · Play/iOS 스토어 정책.
 에뮬레이터 데모가 아니라 릴리스 주 장애와 업로드 봉쇄를 풉니다.
 ```
+
+---
+
+## 자동화 상품 (Angular / TypeScript / Cron)
+
+등록 시 카테고리: IT·프로그래밍 > 기타 / 자동화 / 스크립트
+
+### A1 — TypeScript 크론 워커 구축
+
+**영문:** TS Cron Worker Pack  
+**가격:** ₩400,000 ~ ₩1,200,000  
+**기간:** 3~10영업일 (잡 복잡도)
+
+```
+Cloudflare Cron / GitHub Actions / 서버 crontab 중 환경에 맞게 주기 작업 1종 가동
+
+■ 납품
+· 잡 스펙 1페이지 (입력·출력·실패 정책)
+· TypeScript 구현 + 환경변수 목록
+· cron / Actions / Workers cron 등록
+· 실패 알림(이메일 또는 웹훅) 1채널
+
+■ 예시
+· 매일 23:00 매출 CSV 수집
+· 1시간마다 헬스체크
+· 주 1회 만료 토큰 정리
+
+■ 필요
+실행 환경(클라우드/서버) 접근 + 대상 API·시트 권한
+
+■ 상세
+https://hwemo-chung.github.io/offers/auto-cron-worker.html
+```
+
+### A2 — Angular/TypeScript CI 파이프라인
+
+**영문:** Angular CI Gate  
+**가격:** ₩300,000 ~ ₩800,000  
+**기간:** 2~5영업일
+
+```
+PR마다 lint · test · build 자동 실행, 실패 시 머지 차단
+
+■ 납품
+· push/PR 워크플로 YAML
+· npm ci + lint + test + build
+· Node 버전 매트릭스 또는 고정
+· README 실행/트러블슈팅 절
+
+■ 예시
+· Angular 18+ 앱
+· 라이브러리 패키지 publish dry-run
+· 스토리북 빌드 옵션
+
+■ 필요
+GitHub/GitLab 저장소 + Actions 권한
+
+■ 상세
+https://hwemo-chung.github.io/offers/auto-angular-ci.html
+```
+
+### A3 — Google 시트 ↔ API 양방향 동기화
+
+**영문:** Sheet ↔ API Sync  
+**가격:** ₩500,000 ~ ₩1,500,000  
+**기간:** 1~2주
+
+```
+시트를 운영 DB처럼 쓰되, 크론으로 API와 주기 동기화
+
+■ 납품
+· 매핑 표 (열 ↔ 필드)
+· 증분 동기 / 전체 동기 선택
+· 충돌 정책(시트 우선 vs API 우선)
+· 스케줄 + 실패 로그 시트
+
+■ 예시
+· 재고 시트 → 쇼핑몰 API
+· 문의 시트 → CRM
+· 출고 상태 역동기
+
+■ 필요
+시트 공유 + API 스펙/토큰
+
+■ 상세
+https://hwemo-chung.github.io/offers/auto-sheet-sync.html
+```
+
+### A4 — Gmail 라벨·보관 자동화
+
+**영문:** Gmail Triage Bot  
+**가격:** ₩200,000 ~ ₩600,000  
+**기간:** 3~7영업일
+
+```
+규칙 기반 분류 + 일 1회 크론 정리 (Apps Script / TS)
+
+■ 납품
+· 라벨 규칙 세트
+· 시간 트리거(크론) 정리 잡
+· 처리 로그 시트
+· 오분류 예외 목록
+
+■ 예시
+· 청구서/영수증 분리
+· 채용 메일 라벨
+· 고객 도메인별 분류
+
+■ 필요
+대상 Gmail(Workspace 가능 여부) + 규칙 초안
+
+■ 상세
+https://hwemo-chung.github.io/offers/auto-gmail-triage.html
+```
+
+### A5 — RSS/뉴스 → 초안 파이프라인
+
+**영문:** RSS → Draft Pipeline  
+**가격:** ₩400,000 ~ ₩1,000,000  
+**기간:** 1~2주
+
+```
+수집 → 필터 → (선택) LLM 요약 → 초안 저장을 크론으로
+
+■ 납품
+· 소스 목록 + 필터 규칙
+· 크론 수집 잡
+· 초안 저장소(시트/노션/MD)
+· 중복 URL 제거
+
+■ 예시
+· 업계 뉴스 큐
+· 경쟁사 블로그 모니터링
+· 채용 공고 수집
+
+■ 필요
+소스 URL + 저장 위치 + (선택) LLM API 키
+
+■ 상세
+https://hwemo-chung.github.io/offers/auto-rss-pipeline.html
+```
+
+### A6 — API·웹 헬스체크 크론
+
+**영문:** API Health Cron  
+**가격:** ₩150,000 ~ ₩400,000  
+**기간:** 2~4영업일
+
+```
+분/시간 단위 핑 + 연속 실패 시 알림
+
+■ 납품
+· 체크 대상 URL 목록
+· 스케줄(크론 식)
+· 알림 채널 1개
+· 최근 결과 로그(시트 또는 JSON)
+
+■ 예시
+· 프로덕션 /health
+· 결제 웹훅 엔드포인트
+· 정적 사이트 200 확인
+
+■ 필요
+URL 목록 + 알림 웹훅/메일
+
+■ 상세
+https://hwemo-chung.github.io/offers/auto-health-cron.html
+```
+
+### A7 — Angular i18n 키 동기화 봇
+
+**영문:** i18n Key Sync Bot  
+**가격:** ₩200,000 ~ ₩500,000  
+**기간:** 2~5영업일
+
+```
+ko/en/ja JSON 키 누락·고아 키를 PR마다 검사
+
+■ 납품
+· 키 diff 스크립트(TS)
+· CI 스텝 통합
+· 리포트 아티팩트
+· 베이스 로케일 설정
+
+■ 예시
+· jp.json / en.json 싱크
+· 신규 키만 이슈화
+· 미사용 키 경고
+
+■ 필요
+i18n JSON/xlf 경로 + CI 권한
+
+■ 상세
+https://hwemo-chung.github.io/offers/auto-i18n-sync.html
+```
+
+### A8 — 야간 E2E(Playwright/Cypress) 크론
+
+**영문:** Nightly E2E Cron  
+**가격:** ₩500,000 ~ ₩1,500,000  
+**기간:** 1~3주
+
+```
+매일 밤 스모크 E2E 실행 → 실패 시 리포트 링크 알림
+
+■ 납품
+· 스모크 시나리오 1~3
+· CI 야간 크론
+· 스크린샷/트레이스 아티팩트
+· 실패 알림 1채널
+
+■ 예시
+· 로그인→홈
+· 장바구니 핵심 경로
+· 관리자 목록 조회
+
+■ 필요
+스테이징 URL + 테스트 계정
+
+■ 상세
+https://hwemo-chung.github.io/offers/auto-e2e-nightly.html
+```
+
+### A9 — 릴리스 노트 자동 초안 봇
+
+**영문:** Release Notes Bot  
+**가격:** ₩200,000 ~ ₩450,000  
+**기간:** 2~5영업일
+
+```
+태그/머지 시 커밋 로그 → CHANGELOG 초안 PR
+
+■ 납품
+· 태그/릴리스 트리거
+· CHANGELOG 섹션 템플릿
+· PR 본문 초안
+· 스킵 라벨 규칙
+
+■ 예시
+· 버전 태그 시 노트
+· 주간 요약 이슈
+· 스토어 릴리스 문구 초안
+
+■ 필요
+커밋 컨벤션 유무 + 저장소 권한
+
+■ 상세
+https://hwemo-chung.github.io/offers/auto-release-bot.html
+```
+
+### A10 — 문의 폼 → 시트/슬랙/CRM 웹훅
+
+**영문:** Form → CRM Webhook  
+**가격:** ₩250,000 ~ ₩700,000  
+**기간:** 3~7영업일
+
+```
+랜딩 문의를 실시간·배치로 운영 채널에 연결
+
+■ 납품
+· 수신 API(서버리스/Workers)
+· 시트 또는 메일 전달
+· 레이트리밋/허니팟
+· 문의 알림 1채널
+
+■ 예시
+· offers 문의 집계
+· 채용 지원 접수
+· B2B 리드 슬랙
+
+■ 필요
+도메인/호스팅 + 전달 대상(시트/슬랙)
+
+■ 상세
+https://hwemo-chung.github.io/offers/auto-form-webhook.html
+```
