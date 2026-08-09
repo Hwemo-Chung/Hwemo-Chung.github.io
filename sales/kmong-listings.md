@@ -619,3 +619,270 @@ https://hwemo-chung.github.io/offers/social-threads-schedule-assist.html
 ■ 상세
 https://hwemo-chung.github.io/offers/social-comment-mod-queue.html
 ```
+
+---
+
+## 심화 기술 (Deep)
+
+고단가. 저장소 접근·스테이징 협조 전제. 구현 스프린트는 별도 SOW.
+
+### D1 — Angular 메이저 마이그레이션 실행 계획
+
+**가격:** ₩800,000 ~ ₩2,500,000 · **기간:** 1~2주
+
+```
+vN→vN+k 경로, 깨질 패키지, 단계 PR 단위까지 문서+스파이크
+
+■ 납품
+· 현재→목표 버전 경로표
+· 차단 패키지·대체안
+· PR 단위 마이그레이션 순서
+· 리스크/공수 밴드 + 스파이크 결과(옵션)
+
+■ 예시
+· Angular 12→18
+· View Engine 잔재 정리
+· Ionic 동시 메이저
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-ng-major-migrate.html
+```
+
+### D2 — RxJS 구독·메모리 릭 감사
+
+**가격:** ₩500,000 ~ ₩1,200,000 · **기간:** 5~10영업일
+
+```
+takeUntilDestroyed/async pipe 누락·중첩 subscribe 전수 패턴 리포트
+
+■ 납품
+· 위험 패턴 목록(파일:라인)
+· 우선순위 P0–P2
+· 권장 패턴 치트시트
+· 수정 견적 밴드
+
+■ 예시
+· 라우트 이탈 후 폴링 잔존
+· 중첩 subscribe 지옥
+· Subject 미완료
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-rxjs-leak-audit.html
+```
+
+### D3 — 번들·런타임 성능 심층 분석
+
+**가격:** ₩600,000 ~ ₩1,500,000 · **기간:** 1주
+
+```
+초기 로드·메인 스레드·청크 전략을 수치로 분해
+
+■ 납품
+· 번들 상위 모듈 Top N
+· 라우트 레이지 기회
+· 메인 스레드 병목 가설
+· 2주 개선 백로그
+
+■ 예시
+· 모바일 3G 첫 화면
+· 관리자 거대 vendor.js
+· 아이콘/폰트 과다
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-bundle-perf.html
+```
+
+### D4 — WebView·Capacitor 브리지 장애 심층 디버그
+
+**가격:** ₩700,000 ~ ₩2,000,000 · **기간:** 1~2주 (기기 협조 필요)
+
+```
+실기기 only 이슈: 쿠키, 딥링크, 플러그인, 백그라운드
+
+■ 납품
+· 재현 시나리오 문서
+· 로그/크롬 인스펙트 포인트
+· 원인 후보 순위
+· 수정 방향 + 공수 밴드
+
+■ 예시
+· Android 쿠키/세션
+· iOS 안전영역·키보드
+· 백그라운드 복귀 후 토큰
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-webview-bridge.html
+```
+
+### D5 — 인증·세션 위협 모델링 리뷰
+
+**가격:** ₩800,000 ~ ₩2,000,000 · **기간:** 1~2주
+
+```
+JWT/리프레시/쿠키/OAuth 리다이렉트 흐름 보안 리뷰
+
+■ 납품
+· 플로우 다이어그램
+· 위협 시나리오 표
+· 수정 권고 P0–P2
+· 회귀 테스트 체크리스트
+
+■ 예시
+· 리프레시 재사용 탐지
+· 웹뷰 쿠키 SameSite
+· OAuth redirect 오픈 리다이렉트
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-auth-session.html
+```
+
+### D6 — 오프라인 우선 동기화 설계
+
+**가격:** ₩1,000,000 ~ ₩3,000,000 · **기간:** 2~3주
+
+```
+IndexedDB/큐/충돌 정책을 도메인에 맞게 설계 문서화
+
+■ 납품
+· 동기 상태머신
+· 충돌 정책 결정 로그
+· 실패 재시도/데드레터
+· 최소 스파이크 범위 제안
+
+■ 예시
+· 주문 오프라인 접수
+· 재고 실사
+· 서명/사진 지연 업로드
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-offline-sync.html
+```
+
+### D7 — Nx·모노레포 분리/통합 설계
+
+**가격:** ₩900,000 ~ ₩2,500,000 · **기간:** 1~3주
+
+```
+앱·라이브러리 경계, CI 영향 그래프, 배포 단위 설계
+
+■ 납품
+· 현재 구조 진단
+· 목표 라이브러리 경계
+· CI affected 전략
+· 이주 단계 로드맵
+
+■ 예시
+· 디자인시스템 패키지 분리
+· admin/web 공유 UI
+· 버전 정책
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-monorepo-nx.html
+```
+
+### D8 — 디자인 토큰·공유 UI 추출
+
+**가격:** ₩700,000 ~ ₩1,800,000 · **기간:** 1~2주
+
+```
+흩어진 스타일/컴포넌트를 토큰+라이브러리 초안으로
+
+■ 납품
+· 토큰 JSON/CSS 초안
+· 핵심 컴포넌트 목록
+· 안티패턴(복붙 스타일) 목록
+· 도입 PR 가이드
+
+■ 예시
+· 판매/세일즈 페이지 통합
+· 멤버 앱+어드민 톤 통일
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-design-tokens.html
+```
+
+### D9 — 접근성(WCAG) 감사 + 수정 백로그
+
+**가격:** ₩600,000 ~ ₩1,500,000 · **기간:** 1~2주
+
+```
+키보드·대비·스크린리더 기준 이슈 우선순위화
+
+■ 납품
+· 플로우별 이슈 표
+· 심각도·재현 절차
+· 수정 가이드 링크
+· 재감사 범위 제안
+
+■ 예시
+· 회원가입
+· 결제/신청
+· 관리자 테이블
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-a11y-wcag.html
+```
+
+### D10 — OpenAPI 타입 클라이언트 생성 파이프라인
+
+**가격:** ₩400,000 ~ ₩1,000,000 · **기간:** 3~7영업일
+
+```
+스펙 변경 시 Angular 서비스/타입 자동 재생성 + CI 검증
+
+■ 납품
+· 생성 스크립트
+· CI 스텝
+· 사용 가이드 (import 경로)
+· 브레이킹 변경 감지 전략
+
+■ 예시
+· nestjs swagger → angular
+· 버전 헤더 분기
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-openapi-client.html
+```
+
+### D11 — 피처 플래그 아키텍처 도입
+
+**가격:** ₩500,000 ~ ₩1,400,000 · **기간:** 1~2주
+
+```
+환경·유저·점진 배포를 위한 플래그 계층 설계+샘플 연동
+
+■ 납품
+· 플래그 분류(릴리스/실험/권한)
+· Angular 프로바이더 샘플
+· 킬스위치 운영 절차
+· 감사 로그 권고
+
+■ 예시
+· 결제 리뉴얼 점진 오픈
+· 내부 직원 only 메뉴
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-feature-flags.html
+```
+
+### D12 — API 부하 테스트 팩 (k6)
+
+**가격:** ₩500,000 ~ ₩1,300,000 · **기간:** 5~10영업일
+
+```
+핵심 API 시나리오 스크립트 + 기준선 리포트
+
+■ 납품
+· 시나리오 스크립트
+· 환경별 실행 방법
+· p95/에러율 리포트
+· 병목 가설
+
+■ 예시
+· 로그인+목록
+· 검색
+· 웹훅 수신
+
+■ 상세
+https://hwemo-chung.github.io/offers/deep-loadtest-k6.html
+```

@@ -635,5 +635,278 @@
       "채용 페이지 스팸 문의"
     ],
     "compliance": "불법 검열 대행·경쟁사 여론조작 도구 아님. 고객 커뮤니티 정책 준수."
+  },
+  {
+    "id": "deep-ng-major-migrate",
+    "category": "deep",
+    "name": "Angular Major Migration Plan",
+    "name_ko": "Angular 메이저 마이그레이션 실행 계획",
+    "tagline": "vN→vN+k 경로, 깨질 패키지, 단계 PR 단위까지 문서+스파이크",
+    "pitch": "단순 버전 숫자 올리기가 아닙니다. 의존성 그래프, 폐기 API, 테스트 공백, 스토어 빌드까지 포함해 ‘몇 개 PR로 어떻게 건너갈지’ 실행 계획을 납품합니다. 전량 구현은 별도 계약이며, 스파이크 1건(대표 깨짐 지점)까지 포함 가능합니다.",
+    "price": "₩800,000 ~ ₩2,500,000",
+    "delivery": "1~2주",
+    "benchmark": "엔터프라이즈 Angular 업그레이드 컨설팅 입구. 구현 수주~수개월 업셀.",
+    "bullets": [
+      "현재→목표 버전 경로표",
+      "차단 패키지·대체안",
+      "PR 단위 마이그레이션 순서",
+      "리스크/공수 밴드 + 스파이크 결과(옵션)"
+    ],
+    "needs": "저장소 읽기 + package-lock + 목표 Angular 버전",
+    "examples": [
+      "Angular 12→18",
+      "View Engine 잔재 정리",
+      "Ionic 동시 메이저"
+    ]
+  },
+  {
+    "id": "deep-rxjs-leak-audit",
+    "category": "deep",
+    "name": "RxJS Subscription Audit",
+    "name_ko": "RxJS 구독·메모리 릭 감사",
+    "tagline": "takeUntilDestroyed/async pipe 누락·중첩 subscribe 전수 패턴 리포트",
+    "pitch": "모바일 WebView·장수명 SPA에서 느린 성능·배터리 이슈의 상당수가 구독 누수입니다. 정적 패턴 스캔 + 대표 화면 런타임 메모 관찰 가이드를 문서로 납품합니다.",
+    "price": "₩500,000 ~ ₩1,200,000",
+    "delivery": "5~10영업일",
+    "benchmark": "성능/안정성 감사 상품. 패치 스프린트 업셀.",
+    "bullets": [
+      "위험 패턴 목록(파일:라인)",
+      "우선순위 P0–P2",
+      "권장 패턴 치트시트",
+      "수정 견적 밴드"
+    ],
+    "needs": "Angular/TS 소스 + (선택) 문제 화면 목록",
+    "examples": [
+      "라우트 이탈 후 폴링 잔존",
+      "중첩 subscribe 지옥",
+      "Subject 미완료"
+    ]
+  },
+  {
+    "id": "deep-bundle-perf",
+    "category": "deep",
+    "name": "Bundle & Runtime Perf Deep Dive",
+    "name_ko": "번들·런타임 성능 심층 분석",
+    "tagline": "초기 로드·메인 스레드·청크 전략을 수치로 분해",
+    "pitch": "Lighthouse 한 장이 아니라 source-map-explorer/esbuild metafile·네트워크 워터폴·장기 태스크를 기준으로 ‘무엇을 잘라야 돈이 되는지’ 순위를 매깁니다. Angular 앱 기준.",
+    "price": "₩600,000 ~ ₩1,500,000",
+    "delivery": "1주",
+    "benchmark": "프론트 성능 컨설팅. CWV 개선 프로젝트 입구.",
+    "bullets": [
+      "번들 상위 모듈 Top N",
+      "라우트 레이지 기회",
+      "메인 스레드 병목 가설",
+      "2주 개선 백로그"
+    ],
+    "needs": "프로덕션 또는 스테이징 URL + 빌드 산출물",
+    "examples": [
+      "모바일 3G 첫 화면",
+      "관리자 거대 vendor.js",
+      "아이콘/폰트 과다"
+    ]
+  },
+  {
+    "id": "deep-webview-bridge",
+    "category": "deep",
+    "name": "WebView / Capacitor Bridge Debug",
+    "name_ko": "WebView·Capacitor 브리지 장애 심층 디버그",
+    "tagline": "실기기 only 이슈: 쿠키, 딥링크, 플러그인, 백그라운드",
+    "pitch": "에뮬레이터 그린·실기기 레드 패턴을 재현 절차와 로그 포인트로 고정합니다. Ionic/Capacitor/레거시 Cordova WebView 대상. 파일럿($400)보다 깊게, 문서+재현 키트가 산출물입니다.",
+    "price": "₩700,000 ~ ₩2,000,000",
+    "delivery": "1~2주 (기기 협조 필요)",
+    "benchmark": "하이브리드 앱 최고난도 소방. 리테이너 전환율 높음.",
+    "bullets": [
+      "재현 시나리오 문서",
+      "로그/크롬 인스펙트 포인트",
+      "원인 후보 순위",
+      "수정 방향 + 공수 밴드"
+    ],
+    "needs": "문제 기기·OS 버전 + 빌드 + 증상 영상/로그",
+    "examples": [
+      "Android 쿠키/세션",
+      "iOS 안전영역·키보드",
+      "백그라운드 복귀 후 토큰"
+    ]
+  },
+  {
+    "id": "deep-auth-session",
+    "category": "deep",
+    "name": "Auth & Session Threat Review",
+    "name_ko": "인증·세션 위협 모델링 리뷰",
+    "tagline": "JWT/리프레시/쿠키/OAuth 리다이렉트 흐름 보안 리뷰",
+    "pitch": "로그인·토큰 갱신·로그아웃·탈취 시나리오를 기준으로 설계 결함을 찾습니다. 침투 테스트 전체가 아니라 프론트+BFF 구간의 세션 설계 리뷰입니다.",
+    "price": "₩800,000 ~ ₩2,000,000",
+    "delivery": "1~2주",
+    "benchmark": "앱 보안 리뷰 라이트. 핀테크/멤버십 앱 수요.",
+    "bullets": [
+      "플로우 다이어그램",
+      "위협 시나리오 표",
+      "수정 권고 P0–P2",
+      "회귀 테스트 체크리스트"
+    ],
+    "needs": "인증 관련 코드 + (가능하면) 스테이징",
+    "examples": [
+      "리프레시 재사용 탐지",
+      "웹뷰 쿠키 SameSite",
+      "OAuth redirect 오픈 리다이렉트"
+    ]
+  },
+  {
+    "id": "deep-offline-sync",
+    "category": "deep",
+    "name": "Offline-First Sync Design",
+    "name_ko": "오프라인 우선 동기화 설계",
+    "tagline": "IndexedDB/큐/충돌 정책을 도메인에 맞게 설계 문서화",
+    "pitch": "현장·물류·매장 앱용. ‘오프라인 저장 후 온라인 동기’의 큐 모델, 멱등, 충돌(서버/클라 우선)을 설계합니다. 구현 스파이크 범위는 합의 후.",
+    "price": "₩1,000,000 ~ ₩3,000,000",
+    "delivery": "2~3주",
+    "benchmark": "도메인 특화 아키텍처 설계. ERP/현장 앱 고단가.",
+    "bullets": [
+      "동기 상태머신",
+      "충돌 정책 결정 로그",
+      "실패 재시도/데드레터",
+      "최소 스파이크 범위 제안"
+    ],
+    "needs": "업무 시나리오 3~5개 + API 제약",
+    "examples": [
+      "주문 오프라인 접수",
+      "재고 실사",
+      "서명/사진 지연 업로드"
+    ]
+  },
+  {
+    "id": "deep-monorepo-nx",
+    "category": "deep",
+    "name": "Nx / Monorepo Carve-out",
+    "name_ko": "Nx·모노레포 분리/통합 설계",
+    "tagline": "앱·라이브러리 경계, CI 영향 그래프, 배포 단위 설계",
+    "pitch": "여러 Angular 앱이 한 레포에 얽혀 있거나, 반대로 복붙 라이브러리를 합칠 때. 프로젝트 그래프와 배포 경계를 다시 그립니다.",
+    "price": "₩900,000 ~ ₩2,500,000",
+    "delivery": "1~3주",
+    "benchmark": "플랫폼 팀 컨설팅. 대규모 프론트 조직.",
+    "bullets": [
+      "현재 구조 진단",
+      "목표 라이브러리 경계",
+      "CI affected 전략",
+      "이주 단계 로드맵"
+    ],
+    "needs": "모노레포 또는 관련 멀티 레포 접근",
+    "examples": [
+      "디자인시스템 패키지 분리",
+      "admin/web 공유 UI",
+      "버전 정책"
+    ]
+  },
+  {
+    "id": "deep-design-tokens",
+    "category": "deep",
+    "name": "Design System Extraction",
+    "name_ko": "디자인 토큰·공유 UI 추출",
+    "tagline": "흩어진 스타일/컴포넌트를 토큰+라이브러리 초안으로",
+    "pitch": "이미 있는 Angular/Ionic 화면에서 색·타이포·버튼/폼 패턴을 토큰과 공유 컴포넌트 경계로 뽑습니다. 풀 디자인시스템 구축이 아니라 ‘추출 1차’입니다.",
+    "price": "₩700,000 ~ ₩1,800,000",
+    "delivery": "1~2주",
+    "benchmark": "멀티 앱 브랜드 일관성 프로젝트 입구.",
+    "bullets": [
+      "토큰 JSON/CSS 초안",
+      "핵심 컴포넌트 목록",
+      "안티패턴(복붙 스타일) 목록",
+      "도입 PR 가이드"
+    ],
+    "needs": "대표 화면 5~10 + 브랜드 가이드(있으면)",
+    "examples": [
+      "판매/세일즈 페이지 통합",
+      "멤버 앱+어드민 톤 통일"
+    ]
+  },
+  {
+    "id": "deep-a11y-wcag",
+    "category": "deep",
+    "name": "WCAG Accessibility Audit",
+    "name_ko": "접근성(WCAG) 감사 + 수정 백로그",
+    "tagline": "키보드·대비·스크린리더 기준 이슈 우선순위화",
+    "pitch": "자동 스캐너만 돌리는 수준이 아니라, 핵심 유저 플로우를 기준으로 이슈를 재현 가능하게 기록합니다. 공공·대기업 납품 전 점검에 적합합니다.",
+    "price": "₩600,000 ~ ₩1,500,000",
+    "delivery": "1~2주",
+    "benchmark": "a11y 감사 시장 표준 상품화.",
+    "bullets": [
+      "플로우별 이슈 표",
+      "심각도·재현 절차",
+      "수정 가이드 링크",
+      "재감사 범위 제안"
+    ],
+    "needs": "대상 URL/빌드 + 핵심 플로우 3개",
+    "examples": [
+      "회원가입",
+      "결제/신청",
+      "관리자 테이블"
+    ]
+  },
+  {
+    "id": "deep-openapi-client",
+    "category": "deep",
+    "name": "OpenAPI → TS Client Pipeline",
+    "name_ko": "OpenAPI 타입 클라이언트 생성 파이프라인",
+    "tagline": "스펙 변경 시 Angular 서비스/타입 자동 재생성 + CI 검증",
+    "pitch": "백엔드 스펙과 프론트 타입이 어긋나는 사고를 줄입니다. openapi-generator/orval 등으로 생성 파이프라인을 붙이고, 깨지면 CI가 막히게 합니다.",
+    "price": "₩400,000 ~ ₩1,000,000",
+    "delivery": "3~7영업일",
+    "benchmark": "API 계약 자동화. BFF/멀티 클라이언트 팀.",
+    "bullets": [
+      "생성 스크립트",
+      "CI 스텝",
+      "사용 가이드 (import 경로)",
+      "브레이킹 변경 감지 전략"
+    ],
+    "needs": "OpenAPI/Swagger URL 또는 파일",
+    "examples": [
+      "nestjs swagger → angular",
+      "버전 헤더 분기"
+    ]
+  },
+  {
+    "id": "deep-feature-flags",
+    "category": "deep",
+    "name": "Feature Flag Architecture",
+    "name_ko": "피처 플래그 아키텍처 도입",
+    "tagline": "환경·유저·점진 배포를 위한 플래그 계층 설계+샘플 연동",
+    "pitch": "단순 if env가 아니라 원격 설정/로컬 기본값/킬스위치 계층을 Angular DI 패턴으로 설계합니다. LaunchDarkly 등 상용 연동 또는 자체 JSON 플래그.",
+    "price": "₩500,000 ~ ₩1,400,000",
+    "delivery": "1~2주",
+    "benchmark": "릴리스 리스크 감소 상품.",
+    "bullets": [
+      "플래그 분류(릴리스/실험/권한)",
+      "Angular 프로바이더 샘플",
+      "킬스위치 운영 절차",
+      "감사 로그 권고"
+    ],
+    "needs": "배포 환경 수 + 대표 기능 2~3",
+    "examples": [
+      "결제 리뉴얼 점진 오픈",
+      "내부 직원 only 메뉴"
+    ]
+  },
+  {
+    "id": "deep-loadtest-k6",
+    "category": "deep",
+    "name": "API Load Test Pack (k6)",
+    "name_ko": "API 부하 테스트 팩 (k6)",
+    "tagline": "핵심 API 시나리오 스크립트 + 기준선 리포트",
+    "pitch": "프론트만이 아니라 BFF/API 한도를 숫자로 남깁니다. k6 시나리오 2~3개와 결과 해석 문서를 납품합니다. 인프라 튜닝 자체는 별도.",
+    "price": "₩500,000 ~ ₩1,300,000",
+    "delivery": "5~10영업일",
+    "benchmark": "출시 전 부하 검증. 성능 SLA 협의 자료.",
+    "bullets": [
+      "시나리오 스크립트",
+      "환경별 실행 방법",
+      "p95/에러율 리포트",
+      "병목 가설"
+    ],
+    "needs": "스테이징 API + 테스트 계정 + 한도 합의",
+    "examples": [
+      "로그인+목록",
+      "검색",
+      "웹훅 수신"
+    ]
   }
 ]
