@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>레거시 앱 3중 봉쇄 진단 — Play 타겟 API · iOS 26 SDK · 딥링크 사망 | Lumos</title>
-  <meta name="description" content="구글 플레이 타겟 API 마감, 애플 iOS 26 SDK 필수, Firebase Dynamic Links 종료. 방치된 하이브리드 앱은 세 가지에 동시에 걸립니다. 무료 진단 후 대응합니다." />
-  <meta name="keywords" content="Cordova, Capacitor, Ionic, Angular, 타겟 API, targetSdkVersion, 구글 플레이 정책, iOS 26 SDK, Xcode 26, Firebase Dynamic Links, page.link, 딥링크, 레거시 앱 마이그레이션" />
+  <title>iOS 업데이트가 막힌 레거시 앱 진단 — Xcode 26 / iOS 26 SDK | Lumos</title>
+  <meta name="description" content="2026-04-28 이후 App Store 업로드는 Xcode 26·iOS 26 SDK 필수. 버그 수정·보안 패치를 못 올리는 Cordova/Ionic 앱을 공개 자료로 진단합니다. 해결 방법은 유료." />
+  <meta name="keywords" content="Cordova, Capacitor, Ionic, iOS 26 SDK, Xcode 26, App Store Connect, targetSdkVersion, 구글 플레이, Firebase Dynamic Links, 레거시 앱" />
   <link rel="canonical" href="https://hwemo-chung.github.io/cordova.html" />
   <meta name="theme-color" content="#0b0d10" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hwemo-chung.github.io/cordova.html" />
-  <meta property="og:title" content="방치된 앱은 지금 세 군데에서 동시에 막혀 있습니다" />
-  <meta property="og:description" content="Play 타겟 API · iOS 26 SDK · 딥링크 404. 무료 진단 10곳 한정." />
+  <meta property="og:title" content="iOS 업데이트를 못 올리면, 버그도 못 고칩니다" />
+  <meta property="og:description" content="App Store Connect: Xcode 26·iOS 26 SDK 필수(2026-04-28~). 레거시 하이브리드 앱 무료 진단 10곳." />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="레거시 앱 3중 봉쇄 진단" />
-  <meta name="twitter:description" content="Play 타겟 API · iOS 26 SDK · Firebase Dynamic Links 404. 무료 진단." />
+  <meta name="twitter:title" content="iOS 업로드가 막힌 레거시 앱 진단" />
+  <meta name="twitter:description" content="Xcode 26 / iOS 26 SDK. 무엇이 막혔는지만 무료로 정리합니다." />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Cordova 레거시 앱 Play 정책 대응 · Capacitor 이전",
+    "name": "레거시 하이브리드 앱 스토어 업로드·정책 진단",
     "url": "https://hwemo-chung.github.io/cordova.html",
-    "description": "Apache Cordova 기반 하이브리드 앱의 구글 플레이 타겟 API 정책 대응과 Capacitor 이전.",
+    "description": "Cordova/Ionic 앱의 iOS SDK 요건, Play 타겟 API, 종료된 딥링크 서비스 상태를 공개 자료로 진단하고 범위별 유료 대응.",
     "areaServed": "KR",
     "availableLanguage": ["ko", "ja", "en"],
     "email": "tolaria@naver.com"
@@ -205,120 +205,148 @@
   </nav>
 
   <main id="main" class="wrap">
-    <div class="badge"><span class="dot" aria-hidden="true"></span> 레거시 앱 3중 봉쇄 진단 · 원격 · 한국어/일본어</div>
+    <div class="badge"><span class="dot" aria-hidden="true"></span> 레거시 하이브리드 앱 진단 · 원격 · 한국어/일본어</div>
 
-    <h1>방치된 앱은 지금<br />세 군데에서 동시에 막혀 있습니다.</h1>
+    <h1>iOS 업데이트를 못 올리면,<br />버그도 보안 패치도 못 고칩니다.</h1>
 
     <p class="lead">
-      하나만 걸린 게 아닙니다. 안드로이드 배포, iOS 배포, 그리고 이미 뿌려둔 링크가
-      각각 다른 마감에 걸려 순서대로 죽습니다. 대부분은 세 개를 따로 인지하다가 하나씩 뒤늦게 발견합니다.
+      2026년 4월 28일부터 App Store Connect 업로드는 <strong>Xcode 26 · iOS 26 SDK</strong>가 필수입니다.
+      오래된 Cordova/Ionic 툴체인은 여기서 먼저 깨집니다. 안드로이드 정책·죽은 딥링크는
+      <em>그다음</em>에 점검합니다. 한꺼번에 “세 군데 동시 마감”으로 몰아붙이지 않습니다.
     </p>
 
     <div class="countdown">
-      <strong id="dday">2026년 8월 31일 마감</strong>
-      <p>구글 플레이 타겟 API. 연장 신청 기한은 2026년 11월 1일이며, 연장은 시간을 벌 뿐 요건을 없애지 않습니다.</p>
+      <strong>이미 적용 중 · 애플 업로드 요건</strong>
+      <p>
+        App Store Connect에 올리는 앱은 Xcode 26 이상으로 빌드해야 합니다
+        (애플 Upcoming Requirements). 아래 Play 일자는 <strong>별도 축</strong>이며, 연장은 시간을 벌 뿐입니다.
+      </p>
     </div>
 
     <div class="table-scroll" style="margin-top:14px">
       <table>
         <thead>
-          <tr><th style="width:9rem">봉쇄</th><th style="width:8rem">시점</th><th>지금 벌어지는 일</th></tr>
+          <tr><th style="width:9rem">축</th><th style="width:8rem">시점</th><th>공식 요지 (과장 없이)</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td>구글 플레이<br />타겟 API</td>
-            <td>2026-08-31</td>
-            <td>신규 앱·업데이트는 Android 16(API 36) 타겟 필수. 기존 앱도 Android 15(API 35) 미만이면 더 높은 OS를 쓰는 <strong>신규 사용자에게 노출되지 않습니다</strong></td>
+            <td><strong>애플<br />SDK 최소 요건</strong></td>
+            <td>2026-04-28<br /><em>이미 적용</em></td>
+            <td>
+              App Store Connect 업로드에 <strong>Xcode 26 이상 · iOS 26 SDK</strong> 필요.
+              레거시 <code>cordova-ios</code> / 구형 빌드 파이프라인은 여기서
+              <strong>업데이트 제출 자체가 막힐 수 있습니다</strong>.
+              이미 설치된 사용자 앱이 즉시 삭제되는 것은 아닙니다.
+            </td>
           </tr>
           <tr>
-            <td>애플<br />iOS 26 SDK</td>
-            <td>2026-04-28<br /><em>이미 경과</em></td>
-            <td>App Store Connect 업로드는 iOS 26 SDK · Xcode 26 필수. 오래된 <code>cordova-ios</code>는 빌드가 깨져 <strong>업데이트 자체를 못 올립니다</strong></td>
+            <td>구글 플레이<br />타겟 API</td>
+            <td>2026-08-31<br />연장 ~11/1</td>
+            <td>
+              <strong>신규 앱·업데이트</strong> 제출: Android 16 (API 36) 이상 타겟 (폼팩터 예외 있음).
+              <strong>기존 앱</strong>: Android 15 (API 35) 미만이면, 앱 타겟보다
+              <em>높은 OS를 쓰는 기기의 신규 사용자</em>에게 제공이 제한됩니다
+              (전 세계 모든 사용자·모든 기기 차단이 아닙니다).
+              연장은 Play Console에서 2026-11-01까지 신청 가능한 경우가 있습니다.
+            </td>
           </tr>
           <tr>
             <td>Firebase<br />Dynamic Links</td>
-            <td>2025-08-25<br /><em>이미 사망</em></td>
-            <td><code>*.page.link</code>와 커스텀 도메인 링크가 전부 <strong>404</strong>. 인쇄물·QR·문자·메일에 박아둔 링크가 지금 이 순간 안 열립니다</td>
+            <td>2025-08-25<br /><em>서비스 종료</em></td>
+            <td>
+              Firebase 공식 FAQ: Dynamic Links 서비스 종료.
+              <code>page.link</code> 등이 404면 <strong>그 링크는 죽었을 가능성</strong>이 큽니다.
+              다만 1년 가까이 방치됐다면 유입이 원래 없었을 수도 있습니다.
+              진단에서 “죽은 링크 유무”와 “유입 규모 추정”을 나눕니다.
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <p>
-      Cordova 기반 앱은 플러그인 생태계가 유지보수 모드로 들어가 첫 두 개를 스스로 따라가지 못합니다.
-      세 번째는 앱을 안 건드려도 이미 벌어진 일입니다.
+      Cordova/Ionic 하이브리드 앱은 네이티브 플러그인·구형 CLI에 묶여
+      최신 Xcode/Play 타겟을 <strong>혼자 따라가기 어려운 경우가 많습니다</strong>.
+      “Cordova가 공식 아카이브됐다” 같은 단정은 하지 않습니다. 앱마다 다릅니다.
     </p>
 
     <div class="hero-cta">
-      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=Cordova%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">
+      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">
         무료 진단 신청 (10곳 한정)
       </a>
       <a class="btn btn-ghost" href="#self">우리 앱이 해당되는지 직접 확인</a>
     </div>
 
     <ul class="trust">
-      <li>진단은 공개 배포된 APK만 사용합니다. 소스코드·계정·스토어 권한을 요구하지 않습니다</li>
-      <li>Angular 7 + Ionic 4 + Cordova 앱을 Angular 20 + Ionic 8 + Capacitor 8로 이전한 실적이 있습니다</li>
-      <li>Cordova 네이티브 플러그인을 직접 작성해 본 경험이 있습니다 (블루투스 프린터 연동)</li>
-      <li>특정 기업·고용주와의 제휴를 주장하지 않습니다. 고객사명은 공개하지 않습니다</li>
+      <li>무료 진단은 <strong>무엇이 막혔는지</strong>만 정리합니다. 상세 수정 절차·패치 설계는 유료 단계입니다</li>
+      <li>공개 배포 APK·스토어 페이지·공개 URL만 사용. 소스·서명키·스토어 계정은 진단에 불필요</li>
+      <li>Angular/Ionic/Cordova → Capacitor 이전·네이티브 플러그인(블루투스 프린터 등) 실무 경험</li>
+      <li>특정 기업·고용주 제휴를 주장하지 않습니다. 고객사명 비공개</li>
     </ul>
 
     <h2 id="self">우리 앱이 해당되는지 직접 확인하는 법</h2>
     <p>
-      맨 아래 딥링크 항목은 <strong>개발자 없이 30초</strong>면 확인됩니다. 진단을 맡기지 않아도 됩니다.
+      우선순위: <strong>iOS 최근 업로드</strong> → Play 타겟 → (해당 시) 딥링크.
+      딥링크는 개발자 없이 30초로 확인할 수 있지만, 404만으로 매출 손실을 단정하지 마세요.
     </p>
     <div class="table-scroll">
       <table>
         <thead>
-          <tr><th style="width:9rem">확인 항목</th><th>방법</th><th style="width:11rem">해당되면</th></tr>
+          <tr><th style="width:9rem">확인 항목</th><th>방법</th><th style="width:12rem">해석</th></tr>
         </thead>
         <tbody>
           <tr>
+            <td><strong>iOS 업로드</strong></td>
+            <td>App Store / 사내 빌드 기록에서 2026-04-28 이후 업로드·배포 성공 여부</td>
+            <td>성공 이력 없으면 <strong>업로드 봉쇄 가능</strong> (가장 아픈 축)</td>
+          </tr>
+          <tr>
             <td>Cordova 여부</td>
-            <td>APK 압축 해제 후 <code>assets/www/cordova.js</code> 또는 <code>assets/www/cordova_plugins.js</code> 존재 확인</td>
-            <td>Cordova 앱 확정</td>
+            <td>APK 압축 해제 후 <code>assets/www/cordova.js</code> 또는 <code>cordova_plugins.js</code></td>
+            <td>있으면 하이브리드(Cordova) 가능성 큼</td>
           </tr>
           <tr>
-            <td>타겟 API</td>
-            <td><code>aapt dump badging app.apk</code> 실행 후 <code>targetSdkVersion</code> 확인</td>
-            <td>34 이하면 8/31 영향권</td>
+            <td>Play 타겟 API</td>
+            <td><code>aapt dump badging app.apk</code> → <code>targetSdkVersion</code></td>
+            <td>35 미만이면 8/31 이후 <em>상위 OS 신규 사용자</em> 노출 제한 대상 가능. 이미 설치한 직원만 쓰는 앱은 영향이 작을 수 있음</td>
           </tr>
           <tr>
-            <td>iOS 빌드</td>
-            <td>최근 App Store 업데이트를 2026년 4월 28일 이후에 올린 적이 있는지 확인</td>
-            <td>없으면 업로드가 막혀 있을 수 있음</td>
-          </tr>
-          <tr>
-            <td><strong>딥링크 (제일 쉬움)</strong></td>
-            <td>회사 홈페이지·보도자료·QR 안내·문자·이메일에 들어간 앱 링크 주소를 봅니다. <code>page.link</code>가 들어 있으면 그 주소를 브라우저에 그대로 붙여넣습니다</td>
-            <td><strong>404가 뜨면 이미 죽은 링크</strong></td>
+            <td>딥링크</td>
+            <td>홈페이지·QR·문자·메일의 앱 링크에 <code>page.link</code>가 있으면 브라우저에 붙여넣기</td>
+            <td>404면 링크 사망. <strong>유입이 있었는지는 별도</strong></td>
           </tr>
           <tr>
             <td>방치 기간</td>
-            <td>플레이 스토어 상세의 “최종 업데이트” 날짜</td>
-            <td>18개월 이상이면 위험</td>
+            <td>스토어 “최종 업데이트” 날짜</td>
+            <td>길수록 툴체인 부채 가능. 단정 금지</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p>확인이 어렵거나 사내에 앱 담당이 없으면 아래 무료 진단을 쓰시면 됩니다.</p>
+    <p>확인이 어렵거나 사내 담당이 없으면 무료 진단을 쓰세요. 해당 없으면 “해당 없음”으로 회신합니다.</p>
 
     <h2>진행 방식</h2>
     <div class="grid three">
       <article class="card">
         <div class="step-n">1단계</div>
-        <h3>무료 진단</h3>
-        <p>앱 이름만 주시면 됩니다. 타겟 API, Cordova 플러그인 목록, iOS 업로드 가능 여부, 죽은 딥링크 목록과 실제 404 화면, 예상 공수를 1장으로 정리해 보내드립니다.</p>
+        <h3>무료 진단 (무엇만)</h3>
+        <p>
+          앱 이름·스토어 링크로 iOS 업로드 가능성, Play 타겟, Cordova 흔적, 죽은 공개 링크 유무를 1장으로 정리합니다.
+          <strong>고치는 방법의 상세 설계는 넣지 않습니다.</strong>
+        </p>
       </article>
       <article class="card">
         <div class="step-n">2단계</div>
-        <h3>긴급 대응</h3>
-        <p>이전 없이 타겟 API만 올려 스토어 노출을 유지합니다. 마감이 급할 때 선택합니다.</p>
+        <h3>시간 벌기 · 긴급</h3>
+        <p>
+          Play 연장 신청 안내/대행, 또는 이전 없이 타겟 API만 올리는 최소 대응.
+          iOS는 SDK/툴체인 문제로 최소 대응이 안 되면 바로 이전 견적으로 갑니다.
+        </p>
       </article>
       <article class="card">
         <div class="step-n">3단계</div>
         <h3>Capacitor 이전</h3>
-        <p>Cordova 런타임을 Capacitor로 교체하고 플러그인을 현행 대체품으로 옮깁니다. 웹 코드는 대부분 그대로 재사용합니다.</p>
+        <p>Cordova 런타임·플러그인 계층을 현행으로 옮깁니다. 웹 UI 코드는 대부분 재사용. 서명·스토어 업로드는 고객사 권한으로 설계 가능.</p>
       </article>
     </div>
 
@@ -331,52 +359,63 @@
       <article class="card featured">
         <span class="tag">먼저 이것부터</span>
         <div class="price">0원 <span>· 10곳 한정</span></div>
-        <strong class="title">진단 리포트</strong>
+        <strong class="title">진단 리포트 (상태만)</strong>
         <ul>
-          <li>공개 APK 기반 분석</li>
-          <li>타겟 API·Cordova 플러그인 목록</li>
-          <li>상향 차단 요인과 예상 공수</li>
-          <li>맡기지 않아도 리포트는 드립니다</li>
+          <li>공개 APK·스토어 페이지 기준</li>
+          <li>iOS 업로드 위험 / Play 타겟 / Cordova 흔적</li>
+          <li>공개 딥링크 404 여부 (유입 추정은 별도)</li>
+          <li>예상 공수 밴드만 — 상세 패치 절차 없음</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="price">50만~150만 <span>· 건별</span></div>
+        <strong class="title">Play 연장·정책 대응 안내</strong>
+        <ul>
+          <li>11/1 연장 신청 체크리스트·대행 범위</li>
+          <li>콘솔 문구·증빙 정리</li>
+          <li>마이그레이션 로드맵 1페이지</li>
+          <li>실작업 수십 분~수 시간 구간</li>
         </ul>
       </article>
       <article class="card">
         <div class="price">300만~600만 <span>· 건별</span></div>
-        <strong class="title">긴급 타겟 API 상향</strong>
+        <strong class="title">긴급 타겟 API 상향 (Android)</strong>
         <ul>
-          <li>Capacitor 이전 없이 진행</li>
-          <li>빌드 통과와 스토어 심사 제출까지</li>
-          <li>실기기 회귀 확인 포함</li>
-          <li>플러그인 다수 폐기 시 불가할 수 있음</li>
+          <li>Capacitor 이전 없이 진행 가능한 경우만</li>
+          <li>빌드 통과·제출 준비까지</li>
+          <li>실기기 회귀 확인</li>
+          <li>플러그인 다수 폐기 시 범위 밖일 수 있음</li>
         </ul>
       </article>
       <article class="card">
         <div class="price">800만~2,000만 <span>· 건별</span></div>
-        <strong class="title">Capacitor 이전</strong>
+        <strong class="title">Capacitor 이전 (iOS·Android)</strong>
         <ul>
           <li>Cordova → Capacitor 런타임 교체</li>
-          <li>플러그인 현행 대체 및 검증</li>
-          <li>빌드·서명 파이프라인 정리</li>
-          <li>인수인계 문서 포함</li>
+          <li>플러그인 현행 대체·검증</li>
+          <li>코드 납품 중심 — 서명키·스토어 업로드는 고객사 권한 가능</li>
+          <li>인수인계 문서</li>
         </ul>
       </article>
       <article class="card">
         <div class="price">150만~400만 <span>· 건별</span></div>
-        <strong class="title">딥링크 복구</strong>
+        <strong class="title">딥링크 복구 (유입 확인 후)</strong>
         <ul>
-          <li>죽은 <code>page.link</code> 주소 전수 수집</li>
-          <li>서버 리다이렉트로 구 링크 되살리기</li>
-          <li>App Links / Universal Links 전환</li>
-          <li>인쇄물·QR은 바꿀 수 없으므로 리다이렉트가 유일한 해법</li>
+          <li>죽은 <code>page.link</code> 등 공개 URL 수집</li>
+          <li>서버 리다이렉트 / App Links 전환</li>
+          <li>유입이 없으면 비추 — 진단에서 먼저 판정</li>
+          <li>인쇄물·QR은 회수 불가 → 리다이렉트가 핵심</li>
         </ul>
       </article>
       <article class="card">
         <div class="price" style="color:var(--muted)">이런 곳에 맞습니다</div>
         <strong class="title">대상</strong>
         <ul>
-          <li>Cordova/Ionic 기반 업무용·현장용 앱을 운영 중</li>
-          <li>원 개발 외주사가 이미 손을 뗐음</li>
-          <li>사내에 안드로이드 담당이 없거나 한 명뿐</li>
-          <li>“앱을 새로 만들자”가 아니라 “지금 걸 살리자”가 목표</li>
+          <li>신규 설치·회원가입·채용이 필요한 B2C/대외 앱</li>
+          <li>iOS 핫픽스를 올려야 하는데 빌드가 깨진 앱</li>
+          <li>원 개발사가 손을 뗀 Cordova/Ionic</li>
+          <li>사내 모바일 담당이 없거나 한 명뿐</li>
+          <li>현장 전용·신규 설치 0인 앱은 Play 영향이 작을 수 있음 → 진단에서 솔직히 말함</li>
         </ul>
       </article>
     </div>
@@ -395,53 +434,59 @@
       <details>
         <summary>진단이 왜 무료인가요?</summary>
         <p>
-          공개된 APK만 분석하므로 제 비용이 거의 들지 않습니다.
-          레퍼런스가 필요해서 초기 10곳까지만 무료로 하고 이후에는 유료로 전환합니다.
-          영업용 미끼가 아니라, 해당 없는 앱이면 “해당 없음”이라고 그대로 회신합니다.
+          공개 자료만 보므로 비용이 거의 없습니다. 초기 10곳은 레퍼런스용으로 무료, 이후 유료.
+          해당 없으면 “해당 없음”으로 회신합니다. 상세 수정 방법은 유료 단계에서만 제공합니다.
         </p>
       </details>
       <details>
-        <summary>소스코드를 줘야 하나요?</summary>
+        <summary>소스코드·서명키를 줘야 하나요?</summary>
         <p>
-          진단 단계에서는 필요 없습니다. 앱 이름 또는 플레이 스토어 링크만 있으면 됩니다.
-          실제 작업 단계에서는 저장소 접근이 필요하며, 그때 계약과 비밀유지 조건을 먼저 정합니다.
+          진단: 불필요. 구현: 저장소 접근은 필요할 수 있으나,
+          <strong>스토어 서명키·Play/App Store 계정은 고객사 보유</strong>로 설계할 수 있습니다.
+          코드 납품 + 고객사 빌드 파이프라인이 기본 권장입니다.
+        </p>
+      </details>
+      <details>
+        <summary>현장 직원만 쓰는 앱인데 Play 정책이 아픈가요?</summary>
+        <p>
+          신규 설치가 거의 없고 이미 설치된 기기만 쓰면 Play “신규 사용자 노출” 영향은
+          <strong>작을 수 있습니다</strong>. 오히려 iOS 핫픽스·보안 패치를 못 올리는 쪽이 아픕니다.
+          진단에서 설치 경로(사내 MDM vs 스토어 신규)를 물어보고 과장하지 않습니다.
         </p>
       </details>
       <details>
         <summary>연장 신청하면 되는 것 아닌가요?</summary>
         <p>
-          연장 기한은 2026년 11월 1일까지입니다. 요건 자체가 사라지지 않고, 내년에 또 상향됩니다.
-          연장은 이전 작업을 준비할 시간을 버는 용도로만 의미가 있습니다.
+          Play 쪽 연장은 시간을 벌 뿐입니다(공식 안내상 2026-11-01까지 신청 가능한 경우).
+          요건이 사라지지 않고 매년 상향됩니다. iOS SDK 요건은 연장 상품이 아닙니다.
         </p>
       </details>
       <details>
         <summary>Capacitor로 옮기면 웹 코드를 다시 짜야 하나요?</summary>
         <p>
-          대부분 그대로 씁니다. 교체 대상은 네이티브 런타임과 플러그인 계층입니다.
-          다만 오래된 Angular나 폐기된 플러그인에 의존하고 있으면 그 부분은 추가 작업이 생깁니다.
-          무엇이 걸리는지는 진단 리포트에 그대로 적어 드립니다.
+          대부분 재사용합니다. 교체 대상은 네이티브 런타임·플러그인입니다.
+          오래된 Angular·폐기 플러그인은 추가 공수가 생깁니다. “걸리는 목록”은 진단에,
+          “어떻게 고칠지”는 유료 설계에 둡니다.
         </p>
       </details>
       <details>
-        <summary>한 사람에게 맡겨도 되나요?</summary>
+        <summary>한 사람에게 서명키까지 맡겨도 되나요?</summary>
         <p>
-          범위를 좁게 계약하시면 됩니다. 진단 → 긴급 대응 → 이전 순서로 끊어서 진행하고,
-          각 단계마다 산출물을 받고 멈출 수 있습니다. 락인 없습니다.
+          권하지 않습니다. 범위를 단계로 끊고, 서명·스토어 제출은 고객사 권한으로 두는 계약을 권합니다.
         </p>
       </details>
       <details>
-        <summary>딥링크는 그냥 새 링크로 바꾸면 되는 것 아닌가요?</summary>
+        <summary>딥링크는 새 링크로 바꾸면 되나요?</summary>
         <p>
-          앱과 홈페이지 안의 링크는 바꾸면 됩니다. 문제는 이미 나간 것들입니다.
-          인쇄한 전단지의 QR, 발송 완료된 문자와 이메일, 외부 사이트에 걸린 링크는 회수가 안 됩니다.
-          그래서 옛 주소로 들어오는 요청을 서버에서 받아 새 주소로 넘겨주는 작업이 필요합니다.
+          앞으로 나갈 링크는 교체 가능합니다. 이미 배포된 인쇄·문자·외부 사이트 URL은 회수 불가라
+          서버 리다이렉트가 필요합니다. 유입이 없으면 복구 ROI가 없을 수 있습니다.
         </p>
       </details>
       <details>
-        <summary>Branch나 앱스플라이어를 쓰면 해결되나요?</summary>
+        <summary>Branch나 앱스플라이어면 해결되나요?</summary>
         <p>
-          그쪽은 새 링크를 만드는 도구를 팝니다. 좋은 제품이지만, 이미 죽은 옛 주소를 되살려주지는 않습니다.
-          앱 코드의 링크 생성 로직 교체와 옛 주소 리다이렉트는 별도 작업입니다. 그 부분을 맡습니다.
+          새 링크 생성 도구입니다. 이미 죽은 옛 주소를 자동 복구하지 않습니다.
+          리다이렉트·앱 코드 링크 생성 교체는 별도 작업입니다.
         </p>
       </details>
       <details>
@@ -462,7 +507,7 @@
       <li>원 개발사와 연락 가능 여부</li>
     </ul>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=Cordova%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 진단 신청</a>
+      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 진단 신청</a>
       <a class="btn btn-ghost" href="retainer.html">English retainer page →</a>
     </div>
 
@@ -476,40 +521,20 @@
       </nav>
       <p>
         독립 계약자 제안입니다. 특정 고용주와의 제휴를 주장하지 않습니다.
-        정책 관련 서술은 각 플랫폼 공식 문서를 근거로 하며, 정책은 변경될 수 있습니다.
-        <a href="https://support.google.com/googleplay/android-developer/answer/11926878?hl=ko" rel="nofollow noopener" target="_blank">구글 타겟 API 요건</a> ·
-        <a href="https://developer.apple.com/news/upcoming-requirements/" rel="nofollow noopener" target="_blank">애플 SDK 최소 요건</a> ·
-        <a href="https://firebase.google.com/support/dynamic-links-faq" rel="nofollow noopener" target="_blank">Firebase Dynamic Links 종료 FAQ</a>
+        정책 서술은 플랫폼 공식 문서를 요약하며, 원문이 우선이고 정책은 변경될 수 있습니다.
+        <a href="https://developer.apple.com/news/upcoming-requirements/" rel="nofollow noopener" target="_blank">Apple Upcoming Requirements</a> ·
+        <a href="https://support.google.com/googleplay/android-developer/answer/11926878?hl=en" rel="nofollow noopener" target="_blank">Play target API level</a> ·
+        <a href="https://firebase.google.com/support/dynamic-links-faq" rel="nofollow noopener" target="_blank">Firebase Dynamic Links FAQ</a>
       </p>
     </footer>
   </main>
 
   <div class="sticky-cta" role="region" aria-label="빠른 문의">
     <div class="inner">
-      <span class="hint">앱 이름만 보내면 진단 리포트가 갑니다.</span>
+      <span class="hint">무엇이 막혔는지만 정리해 드립니다.</span>
       <a class="btn btn-ghost" href="#self">자가 확인</a>
-      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=Cordova%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 진단</a>
+      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 진단</a>
     </div>
   </div>
-
-  <script>
-    // 마감까지 남은 일수를 실제 날짜로 계산한다. 지나면 연장 기한 안내로 바꾼다.
-    (function () {
-      var el = document.getElementById('dday');
-      if (!el) return;
-      var today = new Date();
-      var deadline = new Date('2026-08-31T23:59:59+09:00');
-      var extension = new Date('2026-11-01T23:59:59+09:00');
-      var day = 24 * 60 * 60 * 1000;
-      var left = Math.ceil((deadline - today) / day);
-      if (left > 0) {
-        el.textContent = '2026년 8월 31일 마감 · ' + left + '일 남음';
-      } else if (today <= extension) {
-        el.textContent = '마감 경과 · 연장 신청 기한 2026년 11월 1일까지';
-      } else {
-        el.textContent = '마감 및 연장 기한 경과 · 현재 상태 점검이 먼저입니다';
-      }
-    })();
-  </script>
 </body>
 </html>
