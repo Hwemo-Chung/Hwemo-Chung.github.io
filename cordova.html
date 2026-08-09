@@ -28,175 +28,17 @@
     "email": "tolaria@naver.com"
   }
   </script>
-  <style>
-    :root {
-      --bg: #0b0d10;
-      --card: #141a22;
-      --text: #e8eef6;
-      --muted: #93a0b4;
-      --accent: #4d9fff;
-      --accent-ink: #041018;
-      --border: #2a384c;
-      --ok: #5eead4;
-      --warn: #fbbf24;
-      --danger: #f87171;
-      --safe-bottom: env(safe-area-inset-bottom, 0px);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { transition: none !important; }
-    }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-      background:
-        radial-gradient(900px 420px at 0% -10%, #13233a 0%, transparent 55%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      padding-bottom: calc(88px + var(--safe-bottom));
-      word-break: keep-all;
-    }
-    a { color: #9ec1ff; }
-    a:hover { color: #c5dbff; }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-    .skip {
-      position: absolute; left: -9999px; top: 0;
-      background: var(--accent); color: var(--accent-ink);
-      padding: 8px 12px; z-index: 100; font-weight: 700; text-decoration: none;
-    }
-    .skip:focus { left: 12px; top: 12px; }
-    .site-nav {
-      position: sticky; top: 0; z-index: 40;
-      backdrop-filter: blur(12px);
-      background: rgba(11, 13, 16, 0.86);
-      border-bottom: 1px solid var(--border);
-    }
-    .site-nav .inner {
-      max-width: 760px; margin: 0 auto; padding: 12px 20px;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    }
-    .brand { font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
-    .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.9rem; }
-    .site-nav a { color: var(--muted); text-decoration: none; }
-    .site-nav a[aria-current="page"] { color: var(--text); font-weight: 600; }
-    .site-nav a:hover { color: var(--text); }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 36px 20px 40px; }
-    h1 { font-size: clamp(1.6rem, 4.6vw, 2.1rem); line-height: 1.28; margin: 0 0 14px; letter-spacing: -0.02em; }
-    h2 { font-size: 1.15rem; margin: 40px 0 12px; letter-spacing: -0.01em; }
-    h3 { font-size: 1rem; margin: 0 0 8px; }
-    p { color: var(--muted); margin: 0 0 14px; }
-    .lead { font-size: 1.05rem; color: #d7e2f0; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.74rem; letter-spacing: 0.04em;
-      color: var(--warn); border: 1px solid var(--border);
-      padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
-    }
-    .badge .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--warn); box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
-    }
-    .countdown {
-      border: 1px solid color-mix(in srgb, var(--warn) 45%, var(--border));
-      background: rgba(251, 191, 36, 0.07);
-      border-radius: 12px; padding: 14px 16px; margin: 20px 0 4px;
-    }
-    .countdown strong { color: var(--warn); font-size: 1.05rem; }
-    .countdown p { margin: 4px 0 0; font-size: 0.92rem; }
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 8px; }
-    a.btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      text-decoration: none; font-weight: 700; padding: 12px 16px;
-      border-radius: 10px; font-size: 0.95rem; border: 1px solid transparent; min-height: 44px;
-    }
-    .btn-primary { background: var(--accent); color: var(--accent-ink); }
-    .btn-primary:hover { filter: brightness(1.06); color: var(--accent-ink); }
-    .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
-    .btn-ghost:hover { border-color: #3d516b; color: var(--text); }
-    ul.trust {
-      display: grid; gap: 10px; margin: 24px 0 0; padding: 14px 16px;
-      border: 1px solid var(--border); border-radius: 12px; background: rgba(20, 26, 34, 0.65);
-    }
-    ul.trust li {
-      color: var(--muted); margin: 0; list-style: none;
-      padding-left: 1.35rem; position: relative; font-size: 0.94rem;
-    }
-    ul.trust li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 700; }
-    .grid { display: grid; gap: 14px; margin-top: 14px; }
-    @media (min-width: 640px) {
-      .grid.two { grid-template-columns: 1fr 1fr; }
-      .grid.three { grid-template-columns: repeat(3, 1fr); }
-    }
-    .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 18px; position: relative;
-    }
-    .card.featured {
-      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
-      box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent);
-    }
-    .card .tag {
-      position: absolute; top: 12px; right: 12px;
-      font-size: 0.68rem; letter-spacing: 0.03em;
-      color: var(--accent-ink); background: var(--accent);
-      padding: 3px 8px; border-radius: 999px; font-weight: 700;
-    }
-    .card strong.title { display: block; font-size: 1.12rem; margin: 4px 0 8px; color: var(--text); }
-    .card ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
-    .card li { margin: 6px 0; }
-    .price { color: var(--accent); font-weight: 800; font-size: 1.25rem; font-variant-numeric: tabular-nums; }
-    .price span { font-size: 0.82rem; font-weight: 600; color: var(--muted); }
-    .step-n {
-      display: inline-block; font-size: 0.72rem; font-weight: 700;
-      color: var(--ok); letter-spacing: 0.04em; margin-bottom: 6px;
-    }
-    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 30rem; }
-    th, td { border: 1px solid var(--border); padding: 9px 10px; text-align: left; vertical-align: top; }
-    th { background: rgba(20, 26, 34, 0.9); color: var(--text); font-weight: 600; }
-    td { color: var(--muted); }
-    code { color: #cfe3ff; font-size: 0.88em; }
-    .faq details {
-      border: 1px solid var(--border); border-radius: 12px;
-      padding: 12px 14px; margin-bottom: 8px; background: var(--card);
-    }
-    .faq summary { cursor: pointer; font-weight: 600; color: var(--text); list-style: none; }
-    .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::after { content: "+"; float: right; color: var(--muted); font-weight: 400; }
-    .faq details[open] summary::after { content: "−"; }
-    .faq details p { margin: 10px 0 0; font-size: 0.94rem; }
-    .out { border-left: 3px solid var(--warn); padding: 4px 0 4px 14px; margin: 8px 0 0; }
-    footer.page-foot {
-      margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--border);
-      font-size: 0.85rem; color: var(--muted);
-    }
-    footer.page-foot nav { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
-    footer.page-foot a { color: var(--muted); }
-    .sticky-cta {
-      position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
-      background: rgba(11, 13, 16, 0.94); backdrop-filter: blur(12px);
-      border-top: 1px solid var(--border); padding: 10px 16px calc(10px + var(--safe-bottom));
-    }
-    .sticky-cta .inner { max-width: 760px; margin: 0 auto; display: flex; gap: 10px; align-items: center; }
-    .sticky-cta .hint { flex: 1; font-size: 0.82rem; color: var(--muted); display: none; }
-    @media (min-width: 520px) { .sticky-cta .hint { display: block; } }
-    .sticky-cta .btn { flex: 0 0 auto; padding: 11px 14px; }
-    @media (min-width: 900px) {
-      body { padding-bottom: 24px; }
-      .sticky-cta { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="sales/tokens.css" />
+  <link rel="stylesheet" href="sales/components.css" />
 </head>
-<body>
-  <a class="skip" href="#main">본문으로 건너뛰기</a>
-  <nav class="site-nav" aria-label="주 메뉴">
-    <div class="inner">
-      <a class="brand" href="index.html">Lumos</a>
+<body class="ls">
+  <a class="ls-skip" href="#main">본문으로 건너뛰기</a>
+  <nav class="ls-nav" aria-label="주 메뉴">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="index.html">Lumos</a>
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="sales/">Sales</a></li>
         <li><a href="cordova.html" aria-current="page">레거시 앱 진단</a></li>
         <li><a href="retainer.html">Retainer (EN)</a></li>
         <li><a href="burnline.html">Burnline</a></li>
@@ -204,18 +46,18 @@
     </div>
   </nav>
 
-  <main id="main" class="wrap">
-    <div class="badge"><span class="dot" aria-hidden="true"></span> 레거시 하이브리드 앱 진단 · 원격 · 한국어/일본어</div>
+  <main id="main" class="ls-wrap">
+    <div class="ls-badge"><span class="ls-badge__dot" aria-hidden="true"></span> 레거시 하이브리드 앱 진단 · 원격 · 한국어/일본어</div>
 
     <h1>iOS 업데이트를 못 올리면,<br />버그도 보안 패치도 못 고칩니다.</h1>
 
-    <p class="lead">
+    <p class="ls-lead">
       2026년 4월 28일부터 App Store Connect 업로드는 <strong>Xcode 26 · iOS 26 SDK</strong>가 필수입니다.
       오래된 Cordova/Ionic 툴체인은 여기서 먼저 깨집니다. 안드로이드 정책·죽은 딥링크는
       <em>그다음</em>에 점검합니다. 한꺼번에 “세 군데 동시 마감”으로 몰아붙이지 않습니다.
     </p>
 
-    <div class="countdown">
+    <div class="ls-callout ls-callout--warn">
       <strong>이미 적용 중 · 애플 업로드 요건</strong>
       <p>
         App Store Connect에 올리는 앱은 Xcode 26 이상으로 빌드해야 합니다
@@ -223,8 +65,8 @@
       </p>
     </div>
 
-    <div class="table-scroll" style="margin-top:14px">
-      <table>
+    <div class="ls-table-scroll" style="margin-top:14px">
+      <table class="ls-table">
         <thead>
           <tr><th style="width:9rem">축</th><th style="width:8rem">시점</th><th>공식 요지 (과장 없이)</th></tr>
         </thead>
@@ -270,14 +112,14 @@
       “Cordova가 공식 아카이브됐다” 같은 단정은 하지 않습니다. 앱마다 다릅니다.
     </p>
 
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">
         무료 진단 신청 (10곳 한정)
       </a>
-      <a class="btn btn-ghost" href="#self">우리 앱이 해당되는지 직접 확인</a>
+      <a class="ls-btn ls-btn--ghost" href="#self">우리 앱이 해당되는지 직접 확인</a>
     </div>
 
-    <ul class="trust">
+    <ul class="ls-trust">
       <li>무료 진단은 <strong>무엇이 막혔는지</strong>만 정리합니다. 상세 수정 절차·패치 설계는 유료 단계입니다</li>
       <li>공개 배포 APK·스토어 페이지·공개 URL만 사용. 소스·서명키·스토어 계정은 진단에 불필요</li>
       <li>Angular/Ionic/Cordova → Capacitor 이전·네이티브 플러그인(블루투스 프린터 등) 실무 경험</li>
@@ -289,8 +131,8 @@
       우선순위: <strong>iOS 최근 업로드</strong> → Play 타겟 → (해당 시) 딥링크.
       딥링크는 개발자 없이 30초로 확인할 수 있지만, 404만으로 매출 손실을 단정하지 마세요.
     </p>
-    <div class="table-scroll">
-      <table>
+    <div class="ls-table-scroll">
+      <table class="ls-table">
         <thead>
           <tr><th style="width:9rem">확인 항목</th><th>방법</th><th style="width:12rem">해석</th></tr>
         </thead>
@@ -326,25 +168,25 @@
     <p>확인이 어렵거나 사내 담당이 없으면 무료 진단을 쓰세요. 해당 없으면 “해당 없음”으로 회신합니다.</p>
 
     <h2>진행 방식</h2>
-    <div class="grid three">
-      <article class="card">
-        <div class="step-n">1단계</div>
+    <div class="ls-grid ls-grid--3">
+      <article class="ls-card">
+        <div class="ls-step">1단계</div>
         <h3>무료 진단 (무엇만)</h3>
         <p>
           앱 이름·스토어 링크로 iOS 업로드 가능성, Play 타겟, Cordova 흔적, 죽은 공개 링크 유무를 1장으로 정리합니다.
           <strong>고치는 방법의 상세 설계는 넣지 않습니다.</strong>
         </p>
       </article>
-      <article class="card">
-        <div class="step-n">2단계</div>
+      <article class="ls-card">
+        <div class="ls-step">2단계</div>
         <h3>시간 벌기 · 긴급</h3>
         <p>
           Play 연장 신청 안내/대행, 또는 이전 없이 타겟 API만 올리는 최소 대응.
           iOS는 SDK/툴체인 문제로 최소 대응이 안 되면 바로 이전 견적으로 갑니다.
         </p>
       </article>
-      <article class="card">
-        <div class="step-n">3단계</div>
+      <article class="ls-card">
+        <div class="ls-step">3단계</div>
         <h3>Capacitor 이전</h3>
         <p>Cordova 런타임·플러그인 계층을 현행으로 옮깁니다. 웹 UI 코드는 대부분 재사용. 서명·스토어 업로드는 고객사 권한으로 설계 가능.</p>
       </article>
@@ -355,11 +197,11 @@
       아래 금액은 <strong>범위 가설</strong>입니다. 확정 견적은 무료 진단 이후에만 드립니다.
       앱 규모, 플러그인 개수, 네이티브 커스텀 코드 유무에 따라 크게 달라집니다.
     </p>
-    <div class="grid two">
-      <article class="card featured">
-        <span class="tag">먼저 이것부터</span>
-        <div class="price">0원 <span>· 10곳 한정</span></div>
-        <strong class="title">진단 리포트 (상태만)</strong>
+    <div class="ls-grid ls-grid--2">
+      <article class="ls-card ls-card--featured">
+        <span class="ls-card__tag">먼저 이것부터</span>
+        <div class="ls-price">0원 <span>· 10곳 한정</span></div>
+        <strong class="ls-card__title">진단 리포트 (상태만)</strong>
         <ul>
           <li>공개 APK·스토어 페이지 기준</li>
           <li>iOS 업로드 위험 / Play 타겟 / Cordova 흔적</li>
@@ -367,9 +209,9 @@
           <li>예상 공수 밴드만 — 상세 패치 절차 없음</li>
         </ul>
       </article>
-      <article class="card">
-        <div class="price">50만~150만 <span>· 건별</span></div>
-        <strong class="title">Play 연장·정책 대응 안내</strong>
+      <article class="ls-card">
+        <div class="ls-price">50만~150만 <span>· 건별</span></div>
+        <strong class="ls-card__title">Play 연장·정책 대응 안내</strong>
         <ul>
           <li>11/1 연장 신청 체크리스트·대행 범위</li>
           <li>콘솔 문구·증빙 정리</li>
@@ -377,9 +219,9 @@
           <li>실작업 수십 분~수 시간 구간</li>
         </ul>
       </article>
-      <article class="card">
-        <div class="price">300만~600만 <span>· 건별</span></div>
-        <strong class="title">긴급 타겟 API 상향 (Android)</strong>
+      <article class="ls-card">
+        <div class="ls-price">300만~600만 <span>· 건별</span></div>
+        <strong class="ls-card__title">긴급 타겟 API 상향 (Android)</strong>
         <ul>
           <li>Capacitor 이전 없이 진행 가능한 경우만</li>
           <li>빌드 통과·제출 준비까지</li>
@@ -387,9 +229,9 @@
           <li>플러그인 다수 폐기 시 범위 밖일 수 있음</li>
         </ul>
       </article>
-      <article class="card">
-        <div class="price">800만~2,000만 <span>· 건별</span></div>
-        <strong class="title">Capacitor 이전 (iOS·Android)</strong>
+      <article class="ls-card">
+        <div class="ls-price">800만~2,000만 <span>· 건별</span></div>
+        <strong class="ls-card__title">Capacitor 이전 (iOS·Android)</strong>
         <ul>
           <li>Cordova → Capacitor 런타임 교체</li>
           <li>플러그인 현행 대체·검증</li>
@@ -397,9 +239,9 @@
           <li>인수인계 문서</li>
         </ul>
       </article>
-      <article class="card">
-        <div class="price">150만~400만 <span>· 건별</span></div>
-        <strong class="title">딥링크 복구 (유입 확인 후)</strong>
+      <article class="ls-card">
+        <div class="ls-price">150만~400만 <span>· 건별</span></div>
+        <strong class="ls-card__title">딥링크 복구 (유입 확인 후)</strong>
         <ul>
           <li>죽은 <code>page.link</code> 등 공개 URL 수집</li>
           <li>서버 리다이렉트 / App Links 전환</li>
@@ -407,9 +249,9 @@
           <li>인쇄물·QR은 회수 불가 → 리다이렉트가 핵심</li>
         </ul>
       </article>
-      <article class="card">
-        <div class="price" style="color:var(--muted)">이런 곳에 맞습니다</div>
-        <strong class="title">대상</strong>
+      <article class="ls-card">
+        <div class="ls-price ls-price--muted">이런 곳에 맞습니다</div>
+        <strong class="ls-card__title">대상</strong>
         <ul>
           <li>신규 설치·회원가입·채용이 필요한 B2C/대외 앱</li>
           <li>iOS 핫픽스를 올려야 하는데 빌드가 깨진 앱</li>
@@ -421,7 +263,7 @@
     </div>
 
     <h2>하지 않는 일</h2>
-    <div class="out">
+    <div class="ls-out">
       <p>
         신규 앱 개발, 전면 리라이트, 24시간 상주 대응, iOS 심사 대행, 보안 취약점 진단,
         그리고 제 고용 계약·비밀유지 의무와 충돌하는 작업은 받지 않습니다.
@@ -430,7 +272,7 @@
     </div>
 
     <h2 id="faq">자주 묻는 질문</h2>
-    <div class="faq">
+    <div class="ls-faq">
       <details>
         <summary>진단이 왜 무료인가요?</summary>
         <p>
@@ -500,18 +342,18 @@
       <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>으로 아래 항목만 적어 보내주세요.
       진단 리포트는 영업일 기준 2일 안에 회신합니다.
     </p>
-    <ul class="trust" style="margin-top:0">
+    <ul class="ls-trust" style="margin-top:0">
       <li>앱 이름 또는 플레이 스토어 링크 <em>(이것만 있어도 진단 가능)</em></li>
       <li>최종 업데이트 시점 (모르면 생략)</li>
       <li>사내 안드로이드 담당 인력 유무</li>
       <li>원 개발사와 연락 가능 여부</li>
     </ul>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 진단 신청</a>
-      <a class="btn btn-ghost" href="retainer.html">English retainer page →</a>
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 진단 신청</a>
+      <a class="ls-btn ls-btn--ghost" href="retainer.html">English retainer page →</a>
     </div>
 
-    <footer class="page-foot">
+    <footer class="ls-foot">
       <nav aria-label="푸터">
         <a href="index.html">Home</a>
         <a href="retainer.html">Retainer</a>
@@ -529,11 +371,11 @@
     </footer>
   </main>
 
-  <div class="sticky-cta" role="region" aria-label="빠른 문의">
-    <div class="inner">
-      <span class="hint">무엇이 막혔는지만 정리해 드립니다.</span>
-      <a class="btn btn-ghost" href="#self">자가 확인</a>
-      <a class="btn btn-primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 진단</a>
+  <div class="ls-sticky" role="region" aria-label="빠른 문의">
+    <div class="ls-sticky__inner">
+      <span class="ls-sticky__hint">무엇이 막혔는지만 정리해 드립니다.</span>
+      <a class="ls-btn ls-btn--ghost" href="#self">자가 확인</a>
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 진단</a>
     </div>
   </div>
 </body>
