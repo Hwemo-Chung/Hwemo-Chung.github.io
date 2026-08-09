@@ -149,8 +149,8 @@ Canonical data: [`offers.json`](./offers.json). Hub UI: [`index.html`](./index.h
 | `/retainer.html` | EN flagship | full |
 | `/threads-analyzer.html` | Product (gold theme) | full |
 | `/burnline.html` | Waitlist (burn theme) | full |
-| `/burnline-dashboard.html` | App shell nav | nav only |
-| `/burnline-demo.html` | Sample | nav only |
+| `/burnline-dashboard.html` | App · token shell | full (burnline-app.css) |
+| `/burnline-demo.html` | Sample | full |
 | `/` | Portfolio | gold `style.css` (not sales) |
 
 ---

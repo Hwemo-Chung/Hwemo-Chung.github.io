@@ -1,0 +1,304 @@
+/**
+ * Burnline app shell (dashboard + demo widgets)
+ * Requires: tokens.css, components.css, product-extras.css
+ * Use: body.ls.ls-theme-burn
+ */
+
+/* Alias legacy app vars → design system tokens */
+body.ls.ls-theme-burn {
+  --bg: var(--ls-bg);
+  --bg2: var(--ls-bg-elevated);
+  --card: var(--ls-card);
+  --card2: var(--ls-card-2);
+  --text: var(--ls-text);
+  --muted: var(--ls-muted);
+  --accent: var(--ls-accent);
+  --accent-ink: var(--ls-accent-ink);
+  --ok: var(--ls-ok);
+  --warn: var(--ls-warn);
+  --over: var(--ls-accent);
+  --border: var(--ls-border);
+  --radius: var(--ls-radius);
+  --shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  --safe-bottom: var(--ls-safe-bottom);
+}
+
+/* Wider shell for dashboard */
+body.ls.ls-theme-burn .wrap,
+body.ls.ls-theme-burn .ls-wrap--app {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px 18px calc(40px + var(--ls-safe-bottom));
+}
+
+/* Map common buttons to sales system look if not using ls-btn */
+body.ls.ls-theme-burn .btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-family: inherit;
+}
+body.ls.ls-theme-burn .btn-primary {
+  background: var(--ls-accent);
+  color: var(--ls-accent-ink);
+}
+body.ls.ls-theme-burn .btn-primary:hover {
+  filter: brightness(1.06);
+  color: var(--ls-accent-ink);
+}
+body.ls.ls-theme-burn .btn-ghost {
+  background: transparent;
+  color: var(--ls-text);
+  border: 1px solid var(--ls-border);
+}
+body.ls.ls-theme-burn .btn-ghost:hover {
+  border-color: var(--ls-border-strong);
+}
+
+
+    .page-head .sub { margin: 0; color: var(--muted); font-size: 0.95rem; max-width: 36rem; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .badge {
+      font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
+      border: 1px solid var(--border); border-radius: 999px; padding: 4px 9px; color: var(--ok);
+    }
+    .badge.muted { color: var(--muted); }
+
+    .toolbar {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 800px) {
+      .toolbar { grid-template-columns: 1.2fr 1fr auto; align-items: end; }
+    }
+    .field label {
+      display: block; font-size: 0.75rem; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--muted); margin-bottom: 6px;
+    }
+    .seg {
+      display: inline-flex; flex-wrap: wrap; gap: 4px;
+      padding: 4px; background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .seg button {
+      appearance: none; border: 0; cursor: pointer;
+      background: transparent; color: var(--muted);
+      font-weight: 600; font-size: 0.88rem;
+      padding: 8px 12px; border-radius: 9px; min-height: 40px;
+    }
+    .seg button[aria-pressed="true"] {
+      background: color-mix(in srgb, var(--accent) 18%, var(--card));
+      color: var(--text);
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent);
+    }
+    .seg button:hover { color: var(--text); }
+    .cap-row {
+      display: flex; gap: 10px; align-items: center;
+    }
+    .cap-row input[type="number"] {
+      width: 110px;
+      background: var(--bg2); border: 1px solid var(--border); color: var(--text);
+      border-radius: 10px; padding: 10px 12px; font-size: 1rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn {
+      appearance: none; border: 0; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 42px; padding: 10px 14px; border-radius: 10px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+    }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); }
+    .btn-primary:hover { filter: brightness(1.06); }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: #3a4d66; }
+    .btn-file { position: relative; overflow: hidden; }
+    .btn-file input {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer;
+    }
+
+    .drop {
+      border: 1.5px dashed var(--border);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--card) 80%, transparent);
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .drop.drag {
+      border-color: var(--ok);
+      background: color-mix(in srgb, var(--ok) 8%, var(--card));
+    }
+    .drop p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+    .drop strong { color: var(--text); }
+    .status-line {
+      margin: 8px 0 0; font-size: 0.82rem; color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .status-line.err { color: #ff8f7a; }
+    .status-line.ok { color: var(--ok); }
+
+    .kpis {
+      display: grid; gap: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 14px;
+    }
+    @media (min-width: 720px) {
+      .kpis { grid-template-columns: repeat(4, 1fr); }
+    }
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+    }
+    .kpi .label {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted);
+    }
+    .kpi .value {
+      margin-top: 6px; font-size: 1.45rem; font-weight: 800;
+      letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+    }
+    .kpi .hint { margin-top: 4px; font-size: 0.8rem; color: var(--muted); }
+    .kpi.over .value { color: var(--over); }
+    .kpi.warn .value { color: var(--warn); }
+    .kpi.ok .value { color: var(--ok); }
+
+    .budget-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+    .budget-card .top {
+      display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 10px; font-size: 0.92rem;
+    }
+    .budget-card .top strong { font-variant-numeric: tabular-nums; }
+    .track {
+      height: 12px; border-radius: 999px; background: var(--bg2);
+      border: 1px solid var(--border); overflow: hidden;
+    }
+    .fill {
+      height: 100%; width: 0%; border-radius: 999px;
+      background: linear-gradient(90deg, var(--ok), #2dd4bf);
+      transition: width 0.25s ease;
+    }
+    .fill.warn { background: linear-gradient(90deg, var(--warn), #f59e0b); }
+    .fill.over { background: linear-gradient(90deg, #ff8a5c, var(--over)); }
+
+    .panels {
+      display: grid; gap: 14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px) {
+      .panels { grid-template-columns: 1fr 1fr; }
+    }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+    .panel h2 {
+      margin: 0 0 12px; font-size: 0.95rem; letter-spacing: -0.01em;
+      display: flex; align-items: baseline; justify-content: space-between; gap: 8px;
+    }
+    .panel h2 span { font-size: 0.8rem; font-weight: 500; color: var(--muted); }
+
+    .bar-list { display: grid; gap: 10px; }
+    .bar-row { min-width: 0; }
+    .bar-meta {
+      display: flex; justify-content: space-between; gap: 10px;
+      font-size: 0.86rem; margin-bottom: 4px;
+    }
+    .bar-meta .name {
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.8rem; color: #cfe3ff;
+    }
+    .bar-meta .amt {
+      flex: 0 0 auto; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent);
+    }
+    .bar-track {
+      height: 8px; border-radius: 999px; background: var(--bg2); overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%; border-radius: 999px;
+      background: linear-gradient(90deg, #ff8a5c, var(--accent));
+      min-width: 2px;
+    }
+    .bar-fill.day {
+      background: linear-gradient(90deg, #2dd4bf, var(--ok));
+    }
+    .empty {
+      color: var(--muted); font-size: 0.92rem; padding: 18px 4px;
+    }
+
+    .table-panel { margin-top: 14px; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table {
+      width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 640px;
+    }
+    th, td {
+      text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border);
+    }
+    th {
+      color: var(--muted); font-size: 0.72rem; text-transform: uppercase;
+      letter-spacing: 0.04em; font-weight: 600;
+    }
+    td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+    td.usd { color: var(--accent); font-weight: 600; }
+    code { font-size: 0.84em; color: #cfe3ff; }
+
+    .foot {
+      margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border);
+      font-size: 0.82rem; color: var(--muted);
+      display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: space-between;
+    }
+    .foot nav { display: flex; flex-wrap: wrap; gap: 12px; }
+    .foot a { color: var(--muted); }
+
+    .toast {
+      position: fixed; bottom: calc(16px + var(--safe-bottom)); left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      background: var(--card2); border: 1px solid var(--border);
+      color: var(--text); padding: 10px 14px; border-radius: 999px;
+      font-size: 0.88rem; font-weight: 600; box-shadow: var(--shadow);
+      transition: transform 0.2s ease; z-index: 60; max-width: min(92vw, 420px);
+      text-align: center;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+  
+/* File button overlay (Load CSV) works with ls-btn or .btn */
+body.ls.ls-theme-burn .btn-file,
+body.ls.ls-theme-burn label.ls-btn.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+body.ls.ls-theme-burn .btn-file input,
+body.ls.ls-theme-burn label.ls-btn.btn-file input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
