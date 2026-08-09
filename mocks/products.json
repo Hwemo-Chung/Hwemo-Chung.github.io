@@ -1,0 +1,132 @@
+[
+  {
+    "id": "targetscan",
+    "name": "TargetScan",
+    "tagline": "APK 올리면 targetSdk·권한 리스크를 한 장으로",
+    "pitch": "Play 타겟 API 마감 전에, 공개 APK만으로 위험 밴드를 표시하는 스캐너 목업입니다. 실제 업로드·빌드는 포함하지 않습니다.",
+    "price": "문의 · 월 구독 예정",
+    "bullets": [
+      "APK 드래그 앤 드롭 (목)",
+      "targetSdk / minSdk 표시",
+      "권한 하이라이트",
+      "PDF 리포트 미리보기"
+    ]
+  },
+  {
+    "id": "linkmortem",
+    "name": "LinkMortem",
+    "tagline": "page.link·딥링크 일괄 생존 검사",
+    "pitch": "마케팅·QR에 박힌 옛 링크가 404인지 배치로 확인하는 도구 목업. 유입 규모는 별도 분석입니다.",
+    "price": "문의 · 건당/월",
+    "bullets": [
+      "URL 목록 붙여넣기",
+      "200/404 결과 표",
+      "CSV 내보내기 (목)",
+      "복구 견적 문의 CTA"
+    ]
+  },
+  {
+    "id": "caphealth",
+    "name": "CapHealth",
+    "tagline": "Capacitor/Ionic 프로젝트 건강 점수",
+    "pitch": "package.json·플러그인 목록을 기준으로 스토어 제출 가능 점수를 보여주는 목업 대시보드입니다.",
+    "price": "문의 · 팀 시트",
+    "bullets": [
+      "플러그인 폐기 경고",
+      "iOS/Android 빌드 힌트",
+      "점수 0–100 (목 데이터)",
+      "리테이너 연결"
+    ]
+  },
+  {
+    "id": "policypulse",
+    "name": "PolicyPulse",
+    "tagline": "스토어 정책 마감 캘린더 + 알림",
+    "pitch": "Apple/Play 공식 요건 마감을 한 타임라인에 모아 보는 목업. 블로그 루머는 넣지 않는 방향의 설계 시안입니다.",
+    "price": "문의 · 연 구독",
+    "bullets": [
+      "마감 D-day",
+      "앱별 메모",
+      "슬랙/메일 알림 (예정)",
+      "1차 출처 링크"
+    ]
+  },
+  {
+    "id": "releasegate",
+    "name": "ReleaseGate",
+    "tagline": "릴리스 주 체크리스트 SaaS",
+    "pitch": "실기기 스모크·권한·스토어 설문을 체크리스트로 고정하는 목업. 에뮬레이터 통과만으로는 완료 처리하지 않는 철학.",
+    "price": "문의 · 시트로 시작 가능",
+    "bullets": [
+      "릴리스 템플릿",
+      "실기기 시나리오",
+      "담당자 배정",
+      "파일럿 $400 연결"
+    ]
+  },
+  {
+    "id": "hybridquote",
+    "name": "HybridQuote",
+    "tagline": "Cordova→Capacitor 이전 견적 시뮬레이터",
+    "pitch": "플러그인 수·네이티브 커스텀·플랫폼 수를 넣으면 공수 밴드를 보여주는 견적 목업. 확정 견적 아님을 명시합니다.",
+    "price": "무료 시뮬 · 유료 확정 진단",
+    "bullets": [
+      "입력 폼 (목)",
+      "S/M/L/XL 밴드",
+      "가정 목록 출력",
+      "진단 예약 메일"
+    ]
+  },
+  {
+    "id": "plugmap",
+    "name": "PlugMap",
+    "tagline": "Cordova 플러그인 → 현행 대체 맵",
+    "pitch": "자주 쓰이는 Cordova 플러그인의 Capacitor/커뮤니티 대체 후보를 표로 보는 목업 디렉터리입니다.",
+    "price": "문의 · 프로 데이터셋",
+    "bullets": [
+      "검색 UI",
+      "대체 후보 2–3개",
+      "위험도 태그",
+      "이전 컨설팅 CTA"
+    ]
+  },
+  {
+    "id": "nightwatch",
+    "name": "NightWatch Mobile",
+    "tagline": "릴리스 주 온콜 패키지 (제품화된 리테이너)",
+    "pitch": "Stabilizer를 출시 주간 전용으로 포장한 목 상품 페이지. 실제 계약은 retainer 파일럿과 동일 축입니다.",
+    "price": "$400 pilot · $1,200/mo",
+    "bullets": [
+      "장애 클래스 1개",
+      "실기기 우선",
+      "비동기 슬랙/메일",
+      "무선금 착수 없음"
+    ]
+  },
+  {
+    "id": "threadsmith",
+    "name": "ThreadSmith",
+    "tagline": "Threads 게시 시간·길이 추천 (목)",
+    "pitch": "Threads Analyzer 리포트를 바탕으로 언제·몇 자로 쓸지 카드만 뽑아 주는 목업 UI입니다. 엔진 연동 전 시안.",
+    "price": "문의 · Analyzer 연동 예정",
+    "bullets": [
+      "최적 시간대 카드",
+      "글자수 밴드",
+      "피해야 할 슬롯",
+      "리포트 대행 연결"
+    ]
+  },
+  {
+    "id": "burnline-teams",
+    "name": "Burnline Teams",
+    "tagline": "팀 AI 토큰 비용 보드 (목)",
+    "pitch": "Burnline의 팀 공유·좌석 과금 시안 목업. 현재 판매 없음·개인 Burnline waitlist와 별개 실험 표기.",
+    "price": "판매 안 함 · 관심만 접수",
+    "bullets": [
+      "멤버별 소각량",
+      "월 캡",
+      "CSV 합치기",
+      "대기 메일만"
+    ]
+  }
+]
