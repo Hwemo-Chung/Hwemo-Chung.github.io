@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>오프라인 우선 동기화 설계 — Lumos Deep</title>
+  <meta name="description" content="IndexedDB/큐/충돌 정책을 도메인에 맞게 설계 문서화 · ₩1,000,000 ~ ₩3,000,000 · 2~3주" />
+  <link rel="canonical" href="https://hwemo-chung.github.io/offers/deep-offline-sync.html" />
+  <meta name="theme-color" content="#0b0d10" />
+  <link rel="stylesheet" href="../sales/tokens.css" />
+  <link rel="stylesheet" href="../sales/components.css" />
+  <link rel="stylesheet" href="../sales/product-extras.css" />
+</head>
+<body class="ls">
+  <a class="ls-skip" href="#main">본문</a>
+  <nav class="ls-nav">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="../index.html">Lumos</a>
+      <ul>
+        <li><a href="index.html">Offers</a></li>
+        <li><a href="index.html#deep">Deep</a></li>
+        <li><a href="../sales/">Sales</a></li>
+        <li><a href="../retainer.html">Retainer</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main id="main" class="ls-wrap">
+    <div class="ls-badge-row">
+      <span class="ls-badge ls-badge--ok"><span class="ls-badge__dot"></span> 심화 · 아키텍처/성능/보안</span>
+      <span class="ls-badge">deep-offline-sync</span>
+    </div>
+    <p class="ls-kicker">Offline-First Sync Design</p>
+    <h1>오프라인 우선 동기화 설계</h1>
+    <p class="ls-lead">IndexedDB/큐/충돌 정책을 도메인에 맞게 설계 문서화</p>
+    <p>현장·물류·매장 앱용. ‘오프라인 저장 후 온라인 동기’의 큐 모델, 멱등, 충돌(서버/클라 우선)을 설계합니다. 구현 스파이크 범위는 합의 후.</p>
+    
+    <div class="ls-grid ls-grid--2">
+      <article class="ls-card ls-card--featured">
+        <span class="ls-card__tag">가격</span>
+        <div class="ls-price">₩1,000,000 ~ ₩3,000,000</div>
+        <p class="ls-fine">납기: 2~3주 · 입금 후 착수</p>
+      </article>
+      <article class="ls-card">
+        <strong class="ls-card__title">필요 자료</strong>
+        <p class="ls-muted" style="margin:0">업무 시나리오 3~5개 + API 제약</p>
+      </article>
+    </div>
+    <h2>납품물</h2>
+    <ul class="ls-trust"><li>동기 상태머신</li><li>충돌 정책 결정 로그</li><li>실패 재시도/데드레터</li><li>최소 스파이크 범위 제안</li></ul>
+    <h2>예시</h2><ul class="ls-dash"><li>주문 오프라인 접수</li><li>재고 실사</li><li>서명/사진 지연 업로드</li></ul>
+    <h2>시장 포지션</h2>
+    <p class="ls-muted">도메인 특화 아키텍처 설계. ERP/현장 앱 고단가.</p>
+    <div class="ls-out">
+      <p><strong>제외:</strong> 전량 구현 보증 없이 범위 무한 확장, 침투 테스트 전체, 인프라 전면 재구축.
+      구현 스프린트는 별도 SOW.</p>
+    </div>
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EC%9A%B0%EC%84%A0%20%EB%8F%99%EA%B8%B0%ED%99%94%20%EC%84%A4%EA%B3%84%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20Offline-First%20Sync%20Design%20/%20%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EC%9A%B0%EC%84%A0%20%EB%8F%99%EA%B8%B0%ED%99%94%20%EC%84%A4%EA%B3%84%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/deep-offline-sync.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A">메일로 심화 견적 문의</a>
+      
+      <a class="ls-btn ls-btn--ghost" href="index.html#deep">심화 목록</a>
+    </div>
+    <footer class="ls-foot">
+      <nav>
+        <a href="index.html">Offers</a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+    </footer>
+  </main>
+  <div class="ls-sticky">
+    <div class="ls-sticky__inner">
+      <span class="ls-sticky__hint">오프라인 우선 동기화 설계</span>
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EC%9A%B0%EC%84%A0%20%EB%8F%99%EA%B8%B0%ED%99%94%20%EC%84%A4%EA%B3%84%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20Offline-First%20Sync%20Design%20/%20%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EC%9A%B0%EC%84%A0%20%EB%8F%99%EA%B8%B0%ED%99%94%20%EC%84%A4%EA%B3%84%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/deep-offline-sync.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A">문의 메일</a>
+    </div>
+  </div>
+</body>
+</html>
