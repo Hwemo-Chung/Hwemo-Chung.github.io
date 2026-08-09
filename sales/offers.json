@@ -223,7 +223,7 @@
       ],
       "name": "APK 타겟 SDK 감사 리포트",
       "price": "₩99,000 ~ ₩199,000",
-      "price_band": "entry",
+      "price_band": "mid",
       "page": "/offers/targetscan.html",
       "category": "core",
       "delivery": "2영업일",
@@ -232,7 +232,8 @@
         "Play 공식 문구 기준 영향 요약 (과장 없음)",
         "권한·FGS 등 스토어 심사 리스크 메모",
         "후속 옵션: 긴급 상향 / Capacitor 이전 밴드"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-linkmortem",
@@ -243,7 +244,7 @@
       ],
       "name": "딥링크·page.link 생존 감사",
       "price": "₩99,000 ~ ₩250,000",
-      "price_band": "entry",
+      "price_band": "mid",
       "page": "/offers/linkmortem.html",
       "category": "core",
       "delivery": "2~4영업일",
@@ -252,7 +253,8 @@
         "page.link / 커스텀 도메인 분류",
         "복구 필요 여부 판정 (유입 가정 명시)",
         "후속: 리다이렉트 구현 견적"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-caphealth",
@@ -263,7 +265,7 @@
       ],
       "name": "Capacitor/Ionic 건강 점수 진단",
       "price": "₩200,000 ~ ₩400,000",
-      "price_band": "entry",
+      "price_band": "mid",
       "page": "/offers/caphealth.html",
       "category": "core",
       "delivery": "3~5영업일",
@@ -272,7 +274,8 @@
         "플러그인 교체 우선순위",
         "iOS/Android 제출 블로커 목록",
         "90일 로드맵 초안 1p"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-policypulse",
@@ -283,7 +286,7 @@
       ],
       "name": "스토어 정책 마감 브리핑 (앱 포트폴리오)",
       "price": "₩150,000 ~ ₩350,000 (앱 3개 기준, 추가 협의)",
-      "price_band": "entry",
+      "price_band": "mid",
       "page": "/offers/policypulse.html",
       "category": "core",
       "delivery": "3~5영업일",
@@ -292,7 +295,8 @@
         "연장 가능 여부 메모",
         "권장 대응 순서",
         "경영/보안 공유용 1페이지 요약"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-releasegate",
@@ -303,7 +307,7 @@
       ],
       "name": "릴리스 주 게이트 리뷰",
       "price": "₩300,000 ~ ₩500,000 또는 Pilot $400",
-      "price_band": "entry",
+      "price_band": "mid",
       "page": "/offers/releasegate.html",
       "category": "core",
       "delivery": "1주 이내 (일정 합의)",
@@ -312,7 +316,8 @@
         "실기기 시나리오 결과",
         "스토어 설문·권한 리스크",
         "막힌 항목 → pilot 범위 제안"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-hybridquote",
@@ -323,7 +328,7 @@
       ],
       "name": "Cordova→Capacitor 스코프 워크숍",
       "price": "₩300,000 (고정)",
-      "price_band": "entry",
+      "price_band": "mid",
       "page": "/offers/hybridquote.html",
       "category": "core",
       "delivery": "워크숍 90분 + 문서 2영업일",
@@ -332,7 +337,8 @@
         "공수 밴드 + 가정 목록",
         "단계 계약 제안 (진단→긴급→이전)",
         "서명키 고객 보유 전제"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-plugmap",
@@ -343,7 +349,7 @@
       ],
       "name": "Cordova 플러그인 대체 맵",
       "price": "₩200,000 ~ ₩500,000",
-      "price_band": "entry",
+      "price_band": "mid",
       "page": "/offers/plugmap.html",
       "category": "core",
       "delivery": "3~7영업일 (플러그인 수에 비례)",
@@ -352,7 +358,8 @@
         "위험도 (막힘/대체가능/재작성)",
         "예상 공수 상대 비교",
         "이전 프로젝트 착수 여부 권고"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-nightwatch",
@@ -363,7 +370,7 @@
       ],
       "name": "릴리스 주 프로덕션 파일럿",
       "price": "$400 (약 6h / 1주)",
-      "price_band": "entry",
+      "price_band": "mid",
       "page": "/offers/nightwatch.html",
       "category": "core",
       "delivery": "결제 후 7일 이내",
@@ -372,7 +379,8 @@
         "실기기 재현 우선",
         "진단 문서 + 패치 방향",
         "유용하면 Stabilizer $1,200/mo"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-threadsmith",
@@ -383,7 +391,7 @@
       ],
       "name": "Threads 12시트 분석 리포트",
       "price": "₩50,000 ~ ₩100,000",
-      "price_band": "entry",
+      "price_band": "mid",
       "page": "/offers/threadsmith.html",
       "category": "core",
       "delivery": "1~3일 (협조 완료 후)",
@@ -392,7 +400,8 @@
         "중앙값 vs 평균 괴리 요약",
         "시간대·글자수 인사이트",
         "팔로워 100 미만 시 인구통계 제외 명시"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-iosgate",
@@ -403,7 +412,7 @@
       ],
       "name": "iOS 26 SDK 업로드 봉쇄 진단",
       "price": "₩150,000 ~ ₩300,000",
-      "price_band": "entry",
+      "price_band": "mid",
       "page": "/offers/iosgate.html",
       "category": "core",
       "delivery": "2~4영업일",
@@ -412,7 +421,8 @@
         "툴체인/플러그인 원인 후보",
         "긴급 패치 vs 이전 분기",
         "경영 공유용 한 줄 요약"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-auto-cron-worker",
@@ -432,7 +442,8 @@
         "TypeScript 구현 + 환경변수 목록",
         "cron / Actions / Workers cron 등록",
         "실패 알림(이메일 또는 웹훅) 1채널"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-auto-angular-ci",
@@ -452,7 +463,8 @@
         "npm ci + lint + test + build",
         "Node 버전 매트릭스 또는 고정",
         "README 실행/트러블슈팅 절"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-auto-sheet-sync",
@@ -472,7 +484,8 @@
         "증분 동기 / 전체 동기 선택",
         "충돌 정책(시트 우선 vs API 우선)",
         "스케줄 + 실패 로그 시트"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-auto-gmail-triage",
@@ -492,7 +505,8 @@
         "시간 트리거(크론) 정리 잡",
         "처리 로그 시트",
         "오분류 예외 목록"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-auto-rss-pipeline",
@@ -512,7 +526,8 @@
         "크론 수집 잡",
         "초안 저장소(시트/노션/MD)",
         "중복 URL 제거"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-auto-health-cron",
@@ -532,7 +547,8 @@
         "스케줄(크론 식)",
         "알림 채널 1개",
         "최근 결과 로그(시트 또는 JSON)"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-auto-i18n-sync",
@@ -552,7 +568,8 @@
         "CI 스텝 통합",
         "리포트 아티팩트",
         "베이스 로케일 설정"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-auto-e2e-nightly",
@@ -572,7 +589,8 @@
         "CI 야간 크론",
         "스크린샷/트레이스 아티팩트",
         "실패 알림 1채널"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-auto-release-bot",
@@ -592,7 +610,8 @@
         "CHANGELOG 섹션 템플릿",
         "PR 본문 초안",
         "스킵 라벨 규칙"
-      ]
+      ],
+      "compliance": null
     },
     {
       "id": "prod-auto-form-webhook",
@@ -612,7 +631,218 @@
         "시트 또는 메일 전달",
         "레이트리밋/허니팟",
         "문의 알림 1채널"
-      ]
+      ],
+      "compliance": null
+    },
+    {
+      "id": "prod-social-calendar-sheet",
+      "priority": 2,
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "콘텐츠 캘린더(시트) 운영 자동화",
+      "price": "₩300,000 ~ ₩800,000",
+      "price_band": "mid",
+      "page": "/offers/social-calendar-sheet.html",
+      "category": "social",
+      "delivery": "5~10영업일",
+      "includes": [
+        "시트 스키마(채널·본문·미디어·상태)",
+        "상태머신: draft → review → approved → done",
+        "크론으로 리마인더/마감 알림 1채널",
+        "게시 실행은 수동 또는 공식 API(별도 범위)"
+      ],
+      "compliance": "플랫폼 자동 스팸 게시·가짜 참여 유도 없음. 고객 소유 계정·공식 API/수동 게시만."
+    },
+    {
+      "id": "prod-social-draft-queue",
+      "priority": 2,
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "블로그 초안 큐 자동화",
+      "price": "₩400,000 ~ ₩1,000,000",
+      "price_band": "mid",
+      "page": "/offers/social-draft-queue.html",
+      "category": "social",
+      "delivery": "1~2주",
+      "includes": [
+        "소스 2종까지 (RSS/시트/폴더)",
+        "중복 URL 제거",
+        "초안 저장(레포/노션/CMS draft API)",
+        "편집 체크리스트 템플릿"
+      ],
+      "compliance": "타 사이트 본문 무단 복제·자동 SEO 스팸 게시 제외. 라이선스 있는 소스·요약·오리지널 작성 전제."
+    },
+    {
+      "id": "prod-social-utm-tracker",
+      "priority": 2,
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "UTM·캠페인 링크 관리 자동화",
+      "price": "₩200,000 ~ ₩500,000",
+      "price_band": "mid",
+      "page": "/offers/social-utm-tracker.html",
+      "category": "social",
+      "delivery": "3~7영업일",
+      "includes": [
+        "UTM 빌더(시트 또는 소형 웹폼)",
+        "캠페인 마스터 시트",
+        "주 1회 링크 200/404 점검",
+        "깨진 링크 알림"
+      ],
+      "compliance": "피싱·오해 소지 도메인 클로킹 구축 안 함."
+    },
+    {
+      "id": "prod-social-mention-digest",
+      "priority": 2,
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "브랜드 멘션 일일 다이제스트",
+      "price": "₩300,000 ~ ₩900,000",
+      "price_band": "mid",
+      "page": "/offers/social-mention-digest.html",
+      "category": "social",
+      "delivery": "1~2주",
+      "includes": [
+        "키워드/핸들 목록",
+        "일 1회 크론 수집",
+        "다이제스트 메일 또는 시트",
+        "출처 링크 포함"
+      ],
+      "compliance": "계정 비밀번호 요구 스크래핑·약관 위반 크롤링 제외. API 한도 준수."
+    },
+    {
+      "id": "prod-social-approval-slack",
+      "priority": 2,
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "게시 승인 봇 (슬랙/메일)",
+      "price": "₩350,000 ~ ₩800,000",
+      "price_band": "mid",
+      "page": "/offers/social-approval-slack.html",
+      "category": "social",
+      "delivery": "5~10영업일",
+      "includes": [
+        "초안 수신 채널",
+        "승인/반려 액션",
+        "감사 로그(누가 언제)",
+        "반려 사유 필드"
+      ],
+      "compliance": "무단 대행 게시·계정 공유 강요 없음. 고객 정책에 맞춤."
+    },
+    {
+      "id": "prod-social-newsletter-digest",
+      "priority": 2,
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "자사 블로그 → 뉴스레터 초안",
+      "price": "₩250,000 ~ ₩600,000",
+      "price_band": "mid",
+      "page": "/offers/social-newsletter-digest.html",
+      "category": "social",
+      "delivery": "3~7영업일",
+      "includes": [
+        "자사 RSS 1~3개",
+        "주간 크론",
+        "HTML/MD 초안",
+        "제목·요약 템플릿"
+      ],
+      "compliance": "수신동의 없는 대량 메일 엔진 구축 안 함. 고객 ESP·구독 리스트 준수."
+    },
+    {
+      "id": "prod-social-seo-check-cron",
+      "priority": 2,
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "블로그 SEO 헬스 크론",
+      "price": "₩200,000 ~ ₩550,000",
+      "price_band": "mid",
+      "page": "/offers/social-seo-check-cron.html",
+      "category": "social",
+      "delivery": "3~7영업일",
+      "includes": [
+        "URL 목록 또는 사이트맵",
+        "title/description/og 누락 리포트",
+        "내부 404 샘플",
+        "주간 메일 리포트"
+      ],
+      "compliance": "검색 조작·숨은 텍스트 삽입 자동화 제외."
+    },
+    {
+      "id": "prod-social-crosspost-draft",
+      "priority": 2,
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "원문 1개 → 채널별 초안 패키지",
+      "price": "₩150,000 ~ ₩400,000 (템플릿) / 건당 운영은 별도",
+      "price_band": "mid",
+      "page": "/offers/social-crosspost-draft.html",
+      "category": "social",
+      "delivery": "템플릿 구축 3~5일",
+      "includes": [
+        "채널별 글자 수 템플릿",
+        "UTM 자동 부착 옵션",
+        "초안 출력(시트/MD)",
+        "금지 표현 체크리스트"
+      ],
+      "compliance": "타사 콘텐츠 무단 재게시·허위 후기 생성 안 함."
+    },
+    {
+      "id": "prod-social-threads-schedule-assist",
+      "priority": 2,
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Threads 게시 시간 도우미",
+      "price": "₩100,000 ~ ₩250,000 (리포트 연동 시)",
+      "price_band": "mid",
+      "page": "/offers/social-threads-schedule-assist.html",
+      "category": "social",
+      "delivery": "2~4영업일",
+      "includes": [
+        "추천 시간대 TOP",
+        "피해야 할 슬롯",
+        "4주 캘린더 시트",
+        "글자수 밴드 메모"
+      ],
+      "compliance": "공식 API·본인 계정 협조. 인게이지먼트 조작 봇 없음."
+    },
+    {
+      "id": "prod-social-comment-mod-queue",
+      "priority": 2,
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "댓글·문의 모더레이션 큐",
+      "price": "₩300,000 ~ ₩900,000",
+      "price_band": "mid",
+      "page": "/offers/social-comment-mod-queue.html",
+      "category": "social",
+      "delivery": "1~2주",
+      "includes": [
+        "금칙어/패턴 목록",
+        "수집 어댑터(가능한 공식 경로)",
+        "처리 상태 워크플로",
+        "처리 로그"
+      ],
+      "compliance": "불법 검열 대행·경쟁사 여론조작 도구 아님. 고객 커뮤니티 정책 준수."
     }
   ],
   "kill_list": [
@@ -633,5 +863,9 @@
     "payment": "/sales/PAYMENT_SETUP.md",
     "plan_local": "_docs-plans/plan/2026-08-09-90day-revenue-execution.md"
   },
-  "catalog": "/offers/"
+  "catalog": "/offers/",
+  "policy": {
+    "social_allowed": "owned accounts, approval gates, official APIs, public RSS",
+    "social_forbidden": "spam DM, fake engagement, non-consensual bulk email, blackhat SEO, credential scraping"
+  }
 }
