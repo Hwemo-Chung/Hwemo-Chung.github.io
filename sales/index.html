@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lumos Sales — 오퍼 허브 · Design System</title>
+  <meta name="description" content="Lumos 세일즈 오퍼 카탈로그와 디자인 시스템. 레거시 앱 진단, Capacitor 이전, 프로덕션 리테이너, Threads 리포트." />
+  <link rel="canonical" href="https://hwemo-chung.github.io/sales/" />
+  <meta property="og:title" content="Lumos Sales Design System" />
+  <meta property="og:description" content="Fact-checked offers. Real-device production. Free diagnosis is status only." />
+  <meta property="og:url" content="https://hwemo-chung.github.io/sales/" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b0d10" />
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="components.css" />
+</head>
+<body class="ls">
+  <a class="ls-skip" href="#main">본문으로 건너뛰기</a>
+  <nav class="ls-nav ls-nav--wide" aria-label="주 메뉴">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="../index.html">Lumos</a>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="index.html" aria-current="page">Sales</a></li>
+        <li><a href="../cordova.html">레거시 진단</a></li>
+        <li><a href="../retainer.html">Retainer</a></li>
+        <li><a href="../threads-analyzer.html">Threads</a></li>
+        <li><a href="SYSTEM.md">SYSTEM.md</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="ls-wrap ls-wrap--wide">
+    <div class="ls-badge ls-badge--accent">
+      <span class="ls-badge__dot" aria-hidden="true"></span>
+      Sales Design System v1.0 · 2026-08-09
+    </div>
+    <h1>팔 수 있는 것만,<br />말할 수 있는 사실만.</h1>
+    <p class="ls-lead">
+      조사·악마변호인·1차 출처 검증을 한 시스템에 묶었습니다.
+      무료 단계는 <strong>무엇이 막혔는지</strong>만. 고치는 방법은 유료입니다.
+    </p>
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="../cordova.html">레거시 앱 진단 (KO)</a>
+      <a class="ls-btn ls-btn--ghost" href="../retainer.html">Production retainer (EN)</a>
+      <a class="ls-btn ls-btn--ghost" href="#offers">오퍼 카탈로그</a>
+    </div>
+
+    <ul class="ls-trust">
+      <li>마감·정책 문구 = Apple / Play / Firebase 공식 문서 우선</li>
+      <li>서명키·스토어 계정은 고객사 보유 권장</li>
+      <li>고용주 브랜드 제휴 주장 없음 · 고객사명 비공개</li>
+      <li>머신 가독 카탈로그: <a href="offers.json"><code>offers.json</code></a></li>
+    </ul>
+
+    <!-- Funnel -->
+    <h2 id="funnel">퍼널</h2>
+    <div class="ls-funnel" role="list">
+      <div class="ls-funnel__step" role="listitem">
+        <span class="ls-funnel__n">01 AWARE</span>
+        <strong>인지</strong>
+        <p>허브·아웃리치·마감 키워드</p>
+      </div>
+      <div class="ls-funnel__step" role="listitem">
+        <span class="ls-funnel__n">02 SELF</span>
+        <strong>자가진단</strong>
+        <p>30초 표 (개발자 불필요 항목 포함)</p>
+      </div>
+      <div class="ls-funnel__step" role="listitem">
+        <span class="ls-funnel__n">03 FREE</span>
+        <strong>상태 리포트</strong>
+        <p>무엇만 · 10곳 · 상세 HOW 제외</p>
+      </div>
+      <div class="ls-funnel__step" role="listitem">
+        <span class="ls-funnel__n">04 PAID</span>
+        <strong>범위 계약</strong>
+        <p>연장 → 긴급 → 이전</p>
+      </div>
+    </div>
+
+    <!-- Capability pillars -->
+    <h2 id="pillars">역량 축</h2>
+    <div class="ls-grid ls-grid--2">
+      <article class="ls-card ls-card--featured">
+        <span class="ls-card__tag">P0 현금</span>
+        <strong class="ls-card__title">A. 스토어·레거시 하이브리드</strong>
+        <p class="ls-muted" style="margin:0 0 8px">iOS SDK 업로드 봉쇄 · Play 타겟 · Capacitor 이전 · 딥링크(조건부)</p>
+        <div class="ls-chips">
+          <span class="ls-chip ls-chip--ok">active</span>
+          <span class="ls-chip">KO/JA</span>
+        </div>
+        <div class="ls-cta" style="margin-top:12px">
+          <a class="ls-btn ls-btn--primary ls-btn--sm" href="../cordova.html">cordova.html</a>
+        </div>
+      </article>
+      <article class="ls-card ls-card--featured">
+        <span class="ls-card__tag">P0 현금</span>
+        <strong class="ls-card__title">B. 프로덕션 리테이너</strong>
+        <p class="ls-muted" style="margin:0 0 8px">Ionic / Capacitor / WebView · $400 pilot · $1,200/mo Stabilizer</p>
+        <div class="ls-chips">
+          <span class="ls-chip ls-chip--ok">active</span>
+          <span class="ls-chip">EN</span>
+        </div>
+        <div class="ls-cta" style="margin-top:12px">
+          <a class="ls-btn ls-btn--primary ls-btn--sm" href="../retainer.html">retainer.html</a>
+        </div>
+      </article>
+      <article class="ls-card">
+        <span class="ls-card__tag ls-card__tag--muted">P1</span>
+        <strong class="ls-card__title">C. 제품·대행</strong>
+        <p class="ls-muted" style="margin:0 0 8px">Threads 12시트 대행 · Analyzer waitlist · Burnline waitlist</p>
+        <div class="ls-chips">
+          <span class="ls-chip ls-chip--warn">mixed</span>
+        </div>
+        <div class="ls-cta" style="margin-top:12px">
+          <a class="ls-btn ls-btn--ghost ls-btn--sm" href="../threads-analyzer.html">Threads</a>
+          <a class="ls-btn ls-btn--ghost ls-btn--sm" href="../burnline.html">Burnline</a>
+        </div>
+      </article>
+      <article class="ls-card">
+        <span class="ls-card__tag ls-card__tag--muted">시드</span>
+        <strong class="ls-card__title">D. 포트폴리오 앱</strong>
+        <p class="ls-muted" style="margin:0 0 8px">where · sealcard · pixel diary — 세일즈 CSS 비적용. 신뢰 자산.</p>
+        <div class="ls-chips">
+          <span class="ls-chip">not sales funnel</span>
+        </div>
+      </article>
+    </div>
+
+    <!-- Offers table -->
+    <h2 id="offers">오퍼 카탈로그</h2>
+    <p>가격은 <strong>범위 가설</strong>입니다. 확정은 진단·핏 콜 이후.</p>
+    <div class="ls-table-scroll">
+      <table class="ls-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>이름</th>
+            <th>가격</th>
+            <th>상태</th>
+            <th>페이지</th>
+          </tr>
+        </thead>
+        <tbody id="offer-rows">
+          <tr><td colspan="5">offers.json 로딩…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Fact axes -->
+    <h2 id="facts">정책 축 (과장 금지 문구)</h2>
+    <div class="ls-table-scroll">
+      <table class="ls-table">
+        <thead>
+          <tr><th>축</th><th>시점</th><th>말할 수 있는 것</th><th>말하지 말 것</th></tr>
+        </thead>
+        <tbody>
+          <tr class="is-primary">
+            <td><strong>Apple SDK</strong></td>
+            <td>2026-04-28~</td>
+            <td>업로드에 Xcode 26 · iOS 26 SDK 필요. 핫픽스 제출 차단 가능</td>
+            <td>설치본이 기기에서 삭제된다</td>
+          </tr>
+          <tr>
+            <td>Play target API</td>
+            <td>2026-08-31 · 연장 ~11/1</td>
+            <td>신규/업데이트 API 36. 기존 앱 API 35 미만 → <em>타겟보다 높은 OS</em> 신규 사용자 제한</td>
+            <td>전 세계 모든 신규 사용자·모든 기기 차단</td>
+          </tr>
+          <tr>
+            <td>Firebase Dynamic Links</td>
+            <td>2025-08-25 종료</td>
+            <td>page.link 404 가능. 유입 있을 때만 복구 가치</td>
+            <td>모든 앱이 지금 매출 손실 중</td>
+          </tr>
+          <tr>
+            <td>Cordova</td>
+            <td>—</td>
+            <td>플러그인·구 CLI로 최신 SDK 추종이 어려울 수 있음</td>
+            <td>공식 아카이브·유지보수 모드 단정</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ls-sources">
+      출처:
+      <a href="https://developer.apple.com/news/upcoming-requirements/" rel="noopener" target="_blank">Apple</a> ·
+      <a href="https://support.google.com/googleplay/android-developer/answer/11926878" rel="noopener" target="_blank">Play</a> ·
+      <a href="https://firebase.google.com/support/dynamic-links-faq" rel="noopener" target="_blank">Firebase DL</a>
+    </p>
+
+    <div class="ls-callout ls-callout--warn">
+      <strong>Kill list (재유입 금지)</strong>
+      <p>
+        Maps JS “2026-05 제거” 블로그 오독 · Play 전면 노출 차단 과장 · Cordova 아카이브 단정 ·
+        본인 무매출 수익 코칭 · 타인 스킬 킷 재판매 · 면책 없는 TLS 서버 시공 주력화
+      </p>
+    </div>
+
+    <!-- Tokens gallery -->
+    <h2 id="tokens">토큰</h2>
+    <div class="ls-demo-block">
+      <p class="ls-demo-label">Color</p>
+      <div class="ls-swatch-row" id="swatches"></div>
+    </div>
+
+    <h2 id="components">컴포넌트 쇼케이스</h2>
+
+    <div class="ls-demo-block">
+      <p class="ls-demo-label">Badge</p>
+      <span class="ls-badge"><span class="ls-badge__dot"></span> warn default</span>
+      <span class="ls-badge ls-badge--ok"><span class="ls-badge__dot"></span> ok</span>
+      <span class="ls-badge ls-badge--accent"><span class="ls-badge__dot"></span> accent</span>
+    </div>
+
+    <div class="ls-demo-block">
+      <p class="ls-demo-label">Buttons</p>
+      <div class="ls-cta" style="margin:0">
+        <a class="ls-btn ls-btn--primary" href="#offers">Primary</a>
+        <a class="ls-btn ls-btn--ghost" href="#facts">Ghost</a>
+        <a class="ls-btn ls-btn--warn ls-btn--sm" href="#facts">Warn sm</a>
+      </div>
+    </div>
+
+    <div class="ls-demo-block">
+      <p class="ls-demo-label">Card + price</p>
+      <div class="ls-grid ls-grid--2" style="margin:0">
+        <article class="ls-card ls-card--featured">
+          <span class="ls-card__tag">먼저</span>
+          <div class="ls-price">0원 <span>· 10곳</span></div>
+          <strong class="ls-card__title">진단 (무엇만)</strong>
+          <ul>
+            <li>상태 리포트</li>
+            <li>HOW 제외</li>
+          </ul>
+        </article>
+        <article class="ls-card">
+          <div class="ls-price">$400 <span>· pilot</span></div>
+          <strong class="ls-card__title">One failure class</strong>
+          <ul>
+            <li>~6h / 1 week</li>
+            <li>Real devices</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="ls-demo-block">
+      <p class="ls-demo-label">Trust / exclusions</p>
+      <ul class="ls-trust" style="margin:0">
+        <li>포함 예시</li>
+      </ul>
+      <ul class="ls-trust ls-trust--x" style="margin-top:10px">
+        <li>전면 리라이트 · 24h 상주 · 서명키 강제 위탁</li>
+      </ul>
+    </div>
+
+    <div class="ls-demo-block">
+      <p class="ls-demo-label">FAQ</p>
+      <div class="ls-faq">
+        <details open>
+          <summary>무료 진단에 HOW를 넣나요?</summary>
+          <p>넣지 않습니다. 무엇이 막혔는지만. 상세 수정은 유료 단계입니다.</p>
+        </details>
+        <details>
+          <summary>현장 앱만 쓰면 Play가 아픈가요?</summary>
+          <p>신규 설치가 없으면 영향이 작을 수 있습니다. iOS 핫픽스 봉쇄가 더 아플 수 있습니다.</p>
+        </details>
+      </div>
+    </div>
+
+    <h2 id="docs">문서</h2>
+    <ul class="ls-trust">
+      <li><a href="SYSTEM.md">SYSTEM.md</a> — 규칙·퍼널·클래스 맵 전문</li>
+      <li><a href="offers.json">offers.json</a> — 오퍼 머신 데이터</li>
+      <li><a href="tokens.css">tokens.css</a> · <a href="components.css">components.css</a></li>
+    </ul>
+
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD">무료 진단 메일</a>
+      <a class="ls-btn ls-btn--ghost" href="mailto:tolaria@naver.com?subject=Pilot%20%24400%20%E2%80%94%20one%20issue%20class">Pilot pilot $400</a>
+    </div>
+
+    <footer class="ls-foot">
+      <nav aria-label="푸터">
+        <a href="../index.html">Home</a>
+        <a href="../cordova.html">레거시 진단</a>
+        <a href="../retainer.html">Retainer</a>
+        <a href="../pp.html">Privacy</a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+      <p>
+        독립 계약자 제안. 정책은 원문 우선·변경 가능.
+        Git author: Chung Hwemo &lt;tolaria@naver.com&gt;
+      </p>
+    </footer>
+  </main>
+
+  <div class="ls-sticky" role="region" aria-label="빠른 이동">
+    <div class="ls-sticky__inner">
+      <span class="ls-sticky__hint">오퍼는 사실 검증된 것만.</span>
+      <a class="ls-btn ls-btn--ghost" href="#offers">카탈로그</a>
+      <a class="ls-btn ls-btn--primary" href="../cordova.html">진단</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var colors = [
+        ["--ls-bg", "bg"],
+        ["--ls-card", "card"],
+        ["--ls-accent", "accent"],
+        ["--ls-ok", "ok"],
+        ["--ls-warn", "warn"],
+        ["--ls-danger", "danger"],
+        ["--ls-text", "text"],
+        ["--ls-muted", "muted"],
+        ["--ls-border", "border"]
+      ];
+      var root = getComputedStyle(document.documentElement);
+      var box = document.getElementById("swatches");
+      if (box) {
+        colors.forEach(function (pair) {
+          var hex = root.getPropertyValue(pair[0]).trim();
+          var el = document.createElement("div");
+          el.className = "ls-swatch";
+          el.innerHTML =
+            "<i style=\"background:" + hex + "\"></i><span>" + pair[1] + "<br>" + hex + "</span>";
+          box.appendChild(el);
+        });
+      }
+
+      fetch("offers.json")
+        .then(function (r) {
+          return r.json();
+        })
+        .then(function (data) {
+          var tb = document.getElementById("offer-rows");
+          if (!tb || !data.offers) return;
+          tb.innerHTML = "";
+          data.offers
+            .slice()
+            .sort(function (a, b) {
+              return (a.priority || 99) - (b.priority || 99);
+            })
+            .forEach(function (o) {
+              var tr = document.createElement("tr");
+              var page = o.page || "";
+              var href = page.indexOf("/") === 0 ? ".." + page : page;
+              tr.innerHTML =
+                "<td><code>" +
+                o.id +
+                "</code></td>" +
+                "<td>" +
+                o.name +
+                "</td>" +
+                "<td>" +
+                o.price +
+                "</td>" +
+                "<td><span class=\"ls-chip" +
+                (o.status === "active"
+                  ? " ls-chip--ok"
+                  : o.status === "waitlist" || o.status === "conditional"
+                    ? " ls-chip--warn"
+                    : "") +
+                "\">" +
+                o.status +
+                "</span></td>" +
+                "<td>" +
+                (href
+                  ? "<a href=\"" + href + "\">" + page + "</a>"
+                  : "—") +
+                "</td>";
+              tb.appendChild(tr);
+            });
+        })
+        .catch(function () {
+          var tb = document.getElementById("offer-rows");
+          if (tb) tb.innerHTML = "<tr><td colspan=\"5\">offers.json 로드 실패 (로컬 file:// 일 수 있음)</td></tr>";
+        });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+{
+  "brand": "Lumos",
+  "contact": "tolaria@naver.com",
+  "author_policy": "Commits: Chung Hwemo <tolaria@naver.com> only",
+  "updated": "2026-08-09",
+  "positioning": {
+    "ko": "실기기·스토어·레거시 하이브리드 — 에뮬레이터 데모가 아니라 프로덕션 장애와 정책 마감",
+    "en": "Real-device Ionic/Capacitor/WebView production support — release week, not greenfield decks"
+  },
+  "funnel": [
+    { "id": "aware", "label": "인지", "asset": "sales hub + cordova/retainer" },
+    { "id": "self", "label": "자가진단", "asset": "30s checks on landing" },
+    { "id": "free", "label": "무료 진단(무엇만)", "asset": "status report only" },
+    { "id": "paid", "label": "유료 범위", "asset": "extension / patch / migrate" }
+  ],
+  "rules": {
+    "fact_check": "Primary vendor docs only for deadlines; blogs are secondary",
+    "free_diag": "What is blocked only — how-to is paid",
+    "signing": "Customer keeps store keys; code delivery preferred",
+    "no_claim": "No employer brand; no Cordova 'archived' absolute claim",
+    "field_apps": "Play new-user impact may be low if no new installs"
+  },
+  "sources": {
+    "apple_sdk": "https://developer.apple.com/news/upcoming-requirements/",
+    "play_target_api": "https://support.google.com/googleplay/android-developer/answer/11926878",
+    "firebase_dl": "https://firebase.google.com/support/dynamic-links-faq"
+  },
+  "offers": [
+    {
+      "id": "diag-free",
+      "priority": 1,
+      "status": "active",
+      "lang": ["ko", "ja"],
+      "name": "레거시 앱 진단 리포트",
+      "price": "0 KRW",
+      "price_band": "free",
+      "limit": "10 slots",
+      "page": "/cordova.html",
+      "includes": ["공개 APK/스토어 기준 상태", "iOS 업로드 위험", "Play 타겟", "딥링크 404 유무"],
+      "excludes": ["상세 패치 절차", "소스 접근 요구"],
+      "cta_subject": "레거시 앱 무료 진단 신청"
+    },
+    {
+      "id": "play-extension",
+      "priority": 2,
+      "status": "active",
+      "lang": ["ko"],
+      "name": "Play 연장·정책 대응 안내",
+      "price": "500000-1500000 KRW",
+      "price_band": "entry",
+      "page": "/cordova.html#price",
+      "includes": ["11/1 연장 체크리스트", "콘솔 문구 정리", "로드맵 1p"]
+    },
+    {
+      "id": "android-target-bump",
+      "priority": 3,
+      "status": "active",
+      "lang": ["ko"],
+      "name": "긴급 타겟 API 상향",
+      "price": "3000000-6000000 KRW",
+      "price_band": "mid",
+      "page": "/cordova.html#price",
+      "includes": ["이전 없이 가능한 경우만", "빌드·제출 준비", "실기기 회귀"]
+    },
+    {
+      "id": "capacitor-migrate",
+      "priority": 4,
+      "status": "active",
+      "lang": ["ko", "ja", "en"],
+      "name": "Capacitor 이전",
+      "price": "8000000-20000000 KRW",
+      "price_band": "high",
+      "page": "/cordova.html#price",
+      "includes": ["런타임 교체", "플러그인 대체", "코드 납품", "서명키 고객 보유 가능"]
+    },
+    {
+      "id": "deeplink-repair",
+      "priority": 5,
+      "status": "conditional",
+      "lang": ["ko"],
+      "name": "딥링크 복구",
+      "price": "1500000-4000000 KRW",
+      "price_band": "mid",
+      "gate": "traffic_or_print_qr_evidence",
+      "page": "/cordova.html#price",
+      "includes": ["page.link 수집", "서버 리다이렉트", "App Links 전환"]
+    },
+    {
+      "id": "retainer-pilot",
+      "priority": 2,
+      "status": "active",
+      "lang": ["en"],
+      "name": "Mobile Production Pilot",
+      "price": "400 USD",
+      "price_band": "entry",
+      "page": "/retainer.html",
+      "includes": ["~6h one week", "one failure class", "written diagnosis"]
+    },
+    {
+      "id": "retainer-monthly",
+      "priority": 3,
+      "status": "active",
+      "lang": ["en"],
+      "name": "Stabilizer Retainer",
+      "price": "1200 USD/mo",
+      "price_band": "mid",
+      "page": "/retainer.html",
+      "includes": ["8h async/mo", "release-week support"]
+    },
+    {
+      "id": "threads-app",
+      "priority": 6,
+      "status": "waitlist",
+      "lang": ["ko", "en"],
+      "name": "Threads Analyzer desktop",
+      "price": "29 USD",
+      "price_band": "product",
+      "page": "/threads-analyzer.html",
+      "note": "CLI free; paid removes setup friction"
+    },
+    {
+      "id": "threads-report-svc",
+      "priority": 5,
+      "status": "active",
+      "lang": ["ko"],
+      "name": "Threads 12시트 리포트 대행",
+      "price": "50000-100000 KRW",
+      "price_band": "entry",
+      "page": "/threads-analyzer.html",
+      "includes": ["OAuth 세션 후 리포트 생성"]
+    },
+    {
+      "id": "burnline",
+      "priority": 9,
+      "status": "waitlist",
+      "lang": ["en"],
+      "name": "Burnline",
+      "price": "TBD",
+      "price_band": "product",
+      "page": "/burnline.html",
+      "note": "Not for sale yet"
+    }
+  ],
+  "kill_list": [
+    "Google Maps JS API 'May 2026 removal' blog claim",
+    "Cordova officially archived absolute claim",
+    "Play blocks all new users without OS condition",
+    "TLS cert install as primary offer without liability terms",
+    "Selling gongnyang-prompt-kit (third-party)",
+    "Revenue coaching before own paid revenue"
+  ]
+}

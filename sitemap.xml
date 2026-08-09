@@ -7,6 +7,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://hwemo-chung.github.io/sales/</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.97</priority>
+  </url>
+  <url>
     <loc>https://hwemo-chung.github.io/cordova.html</loc>
     <lastmod>2026-08-09</lastmod>
     <changefreq>weekly</changefreq>
