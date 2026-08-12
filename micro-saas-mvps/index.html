@@ -28,6 +28,8 @@
 
     <!-- 상위 디렉토리의 스타일 재사용 -->
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../sales/tokens.css">
+    <link rel="stylesheet" href="../sales/components.css">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L16K8WDDBP"></script>
@@ -246,32 +248,26 @@
             }
         }
     </style>
+  <link rel="stylesheet" href="../sales/site-unified.css" />
 </head>
 
-<body>
-    <header>
-        <nav>
-            <div class="logo">Lumos</div>
-            <button type="button" class="menu-toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+<body class="ls">
+    <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+    <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
+        <div class="ls-nav__inner">
+            <a class="ls-brand" href="/">Lumos</a>
             <ul>
-                <li><a href="../">Home</a></li>
-                <li><a href="../#projects">Projects</a></li>
-                <li><a href="./">Micro SaaS</a></li>
-                <li><a href="../#contact">Contact</a></li>
-                <li><a href="../pp.html">Privacy</a></li>
+                <li><a href="/" data-i18n="nav.home"></a></li>
+                <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+                <li><a href="/offers/" data-i18n="nav.offers"></a></li>
+                <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+                <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+                <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
             </ul>
-            <div class="language-selector">
-                <button type="button" class="lang-btn active" data-lang="ko">한</button>
-                <button type="button" class="lang-btn" data-lang="en">EN</button>
-            </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <main>
+    <main id="main">
         <section id="mvp-section">
             <a href="../" class="back-link">← 포트폴리오로 돌아가기</a>
             <h2>Micro SaaS MVPs</h2>
@@ -740,59 +736,18 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="ls-foot">
+        <nav data-i18n-aria-label="common.footerNav">
+            <a href="/" data-i18n="nav.home"></a><a href="/sales/" data-i18n="nav.sales"></a><a href="/offers/" data-i18n="nav.offers"></a>
+            <a href="/cordova.html" data-i18n="nav.diagnosis"></a><a href="/retainer.html" data-i18n="nav.retainer"></a>
+            <a href="/threads-analyzer.html" data-i18n="nav.threads"></a><a href="/pp.html" data-i18n="footer.privacy"></a>
+            <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+        </nav>
+        <p data-i18n="common.disclaimer"></p>
         <p>&copy; 2026 Lumos Micro SaaS. All rights reserved.</p>
     </footer>
 
     <script>
-        // 모바일 메뉴 토글
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('nav ul');
-
-        if (menuToggle) {
-            const toggleMenu = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                navMenu.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-            };
-
-            menuToggle.addEventListener('click', toggleMenu);
-            menuToggle.addEventListener('touchstart', toggleMenu, { passive: false });
-
-            const closeMenu = (e) => {
-                if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                    navMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                }
-            };
-
-            document.addEventListener('click', closeMenu);
-            document.addEventListener('touchstart', closeMenu, { passive: true });
-
-            navMenu.querySelectorAll('a').forEach(link => {
-                const handleLinkClick = () => {
-                    navMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                };
-                link.addEventListener('click', handleLinkClick);
-                link.addEventListener('touchstart', handleLinkClick, { passive: true });
-            });
-        }
-
-        // 헤더 스크롤 효과
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.scrollY;
-            if (currentScroll > 100) {
-                header.style.background = 'rgba(20, 20, 20, 0.95)';
-                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
-            } else {
-                header.style.background = 'rgba(30, 30, 30, 0.9)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            }
-        });
-
         // 카드 호버 효과
         const mvpCards = document.querySelectorAll('.mvp-card');
         mvpCards.forEach(card => {
@@ -826,6 +781,7 @@
             });
         });
     </script>
+    <script src="/i18n.js"></script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@
   <meta name="description" content="2026-04-28 이후 App Store 업로드는 Xcode 26·iOS 26 SDK 필수. 버그 수정·보안 패치를 못 올리는 Cordova/Ionic 앱을 공개 자료로 진단합니다. 해결 방법은 유료." />
   <meta name="keywords" content="Cordova, Capacitor, Ionic, iOS 26 SDK, Xcode 26, App Store Connect, targetSdkVersion, 구글 플레이, Firebase Dynamic Links, 레거시 앱" />
   <link rel="canonical" href="https://hwemo-chung.github.io/cordova.html" />
-  <meta name="theme-color" content="#0b0d10" />
+  <meta name="theme-color" content="#ffffff" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hwemo-chung.github.io/cordova.html" />
   <meta property="og:title" content="iOS 업데이트를 못 올리면, 버그도 못 고칩니다" />
@@ -30,18 +30,20 @@
   </script>
   <link rel="stylesheet" href="sales/tokens.css" />
   <link rel="stylesheet" href="sales/components.css" />
+  <link rel="stylesheet" href="sales/site-unified.css" />
 </head>
 <body class="ls">
-  <a class="ls-skip" href="#main">본문으로 건너뛰기</a>
-  <nav class="ls-nav" aria-label="주 메뉴">
+  <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
     <div class="ls-nav__inner">
-      <a class="ls-brand" href="index.html">Lumos</a>
+      <a class="ls-brand" href="/">Lumos</a>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sales/">Sales</a></li>
-        <li><a href="cordova.html" aria-current="page">레거시 앱 진단</a></li>
-        <li><a href="retainer.html">Retainer (EN)</a></li>
-        <li><a href="burnline.html">Burnline</a></li>
+        <li><a href="/" data-i18n="nav.home"></a></li>
+        <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+        <li><a href="/offers/" data-i18n="nav.offers"></a></li>
+        <li><a href="/cordova.html" aria-current="page" data-i18n="nav.diagnosis"></a></li>
+        <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+        <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
       </ul>
     </div>
   </nav>
@@ -356,15 +358,18 @@
     </div>
 
     <footer class="ls-foot">
-      <nav aria-label="푸터">
-        <a href="index.html">Home</a>
-        <a href="retainer.html">Retainer</a>
-        <a href="burnline.html">Burnline</a>
-        <a href="pp.html">개인정보처리방침</a>
+      <nav data-i18n-aria-label="common.footerNav">
+        <a href="/" data-i18n="nav.home"></a>
+        <a href="/sales/" data-i18n="nav.sales"></a>
+        <a href="/offers/" data-i18n="nav.offers"></a>
+        <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+        <a href="/retainer.html" data-i18n="nav.retainer"></a>
+        <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+        <a href="/pp.html" data-i18n="footer.privacy"></a>
         <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
       </nav>
       <p>
-        독립 계약자 제안입니다. 특정 고용주와의 제휴를 주장하지 않습니다.
+        <span data-i18n="common.disclaimer"></span>
         정책 서술은 플랫폼 공식 문서를 요약하며, 원문이 우선이고 정책은 변경될 수 있습니다.
         <a href="https://developer.apple.com/news/upcoming-requirements/" rel="nofollow noopener" target="_blank">Apple Upcoming Requirements</a> ·
         <a href="https://support.google.com/googleplay/android-developer/answer/11926878?hl=en" rel="nofollow noopener" target="_blank">Play target API level</a> ·
@@ -373,7 +378,7 @@
     </footer>
   </main>
 
-  <div class="ls-sticky" role="region" aria-label="빠른 문의">
+  <div class="ls-sticky" role="region" data-i18n-aria-label="common.quickContact">
     <div class="ls-sticky__inner">
       <span class="ls-sticky__hint">무엇이 막혔는지만 정리해 드립니다.</span>
       <a class="ls-btn ls-btn--ghost" href="#self">자가 확인</a>
@@ -381,5 +386,6 @@
     </div>
   </div>
   <script src="sales/payment.js" defer></script>
+    <script src="/i18n.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
   <title>Burnline — Local-first AI cost control</title>
   <meta name="description" content="See AI token burn by model and day. Set a monthly cap. Keep prompts on your machine. Waitlist open — not for sale yet." />
   <link rel="canonical" href="https://hwemo-chung.github.io/burnline.html" />
-  <meta name="theme-color" content="#07090c" />
+  <meta name="theme-color" content="#ffffff" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hwemo-chung.github.io/burnline.html" />
   <meta property="og:title" content="Burnline — local-first AI cost control" />
@@ -18,19 +18,20 @@
   <link rel="stylesheet" href="sales/tokens.css" />
   <link rel="stylesheet" href="sales/components.css" />
   <link rel="stylesheet" href="sales/product-extras.css" />
+  <link rel="stylesheet" href="sales/site-unified.css" />
 </head>
-<body class="ls ls-theme-burn">
-  <a class="ls-skip" href="#main">Skip to content</a>
-  <nav class="ls-nav" aria-label="Primary">
+<body class="ls">
+  <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
     <div class="ls-nav__inner">
-      <a class="ls-brand" href="index.html">Lumos</a>
+      <a class="ls-brand" href="/">Lumos</a>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sales/">Sales</a></li>
-        <li><a href="cordova.html">Legacy (KO)</a></li>
-        <li><a href="retainer.html">Retainer</a></li>
-        <li><a href="burnline.html" aria-current="page">Burnline</a></li>
-        <li><a href="burnline-dashboard.html">Dashboard</a></li>
+        <li><a href="/" data-i18n="nav.home"></a></li>
+        <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+        <li><a href="/offers/" data-i18n="nav.offers"></a></li>
+        <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+        <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+        <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
       </ul>
     </div>
   </nav>
@@ -58,7 +59,7 @@
       <a class="ls-btn ls-btn--ghost" href="#how">How it works</a>
     </div>
 
-    <div class="ls-demo" aria-label="Sample report summary">
+    <div class="ls-demo" data-i18n-aria-label="aria.sampleReport">
       <div class="ls-demo__head">
         <span><strong>Sample fixtures</strong> · not your data</span>
         <a href="burnline-dashboard.html">Interactive dashboard →</a>
@@ -145,17 +146,19 @@
     </p>
 
     <footer class="ls-foot">
-      <nav aria-label="Footer">
-        <a href="index.html">Home</a>
-        <a href="sales/">Sales</a>
-        <a href="retainer.html">Retainer</a>
-        <a href="burnline-dashboard.html">Dashboard</a>
-        <a href="burnline-demo.html">Sample</a>
-        <a href="pp.html">Privacy</a>
-        <a href="mailto:tolaria@naver.com">Contact</a>
+      <nav data-i18n-aria-label="common.footerNav">
+        <a href="/" data-i18n="nav.home"></a>
+        <a href="/sales/" data-i18n="nav.sales"></a>
+        <a href="/offers/" data-i18n="nav.offers"></a>
+        <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+        <a href="/retainer.html" data-i18n="nav.retainer"></a>
+        <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+        <a href="/pp.html" data-i18n="footer.privacy"></a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
       </nav>
-      <p>Independent product experiment. Estimates only — reconcile against vendor invoices.</p>
+      <p data-i18n="common.disclaimer"></p>
     </footer>
   </main>
+    <script src="/i18n.js"></script>
 </body>
 </html>

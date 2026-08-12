@@ -11,21 +11,23 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://hwemo-chung.github.io/threads-analyzer.html" />
 <meta property="og:locale" content="ko_KR" />
-<meta name="theme-color" content="#0b0d10" />
+<meta name="theme-color" content="#ffffff" />
 <link rel="stylesheet" href="sales/tokens.css" />
 <link rel="stylesheet" href="sales/components.css" />
 <link rel="stylesheet" href="sales/product-extras.css" />
+  <link rel="stylesheet" href="sales/site-unified.css" />
 </head>
-<body class="ls ls-theme-gold">
-<a class="ls-skip" href="#main">본문으로</a>
-<nav class="ls-nav" aria-label="주 메뉴"><div class="ls-nav__inner">
-<a class="ls-brand" href="index.html">Lumos</a>
-<ul class="ls-dash">
-<li><a href="index.html">Home</a></li>
-<li><a href="sales/">Sales</a></li>
-<li><a href="cordova.html">레거시 진단</a></li>
-<li><a href="retainer.html">Retainer</a></li>
-<li><a href="threads-analyzer.html" aria-current="page">Threads</a></li>
+<body class="ls">
+<a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+<nav class="ls-nav" data-i18n-aria-label="common.mainNav"><div class="ls-nav__inner">
+<a class="ls-brand" href="/">Lumos</a>
+<ul>
+<li><a href="/" data-i18n="nav.home"></a></li>
+<li><a href="/sales/" data-i18n="nav.sales"></a></li>
+<li><a href="/offers/" data-i18n="nav.offers"></a></li>
+<li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+<li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+<li><a href="/threads-analyzer.html" aria-current="page" data-i18n="nav.threads"></a></li>
 </ul></div></nav>
 <main id="main" class="ls-wrap ls-wrap--product">
 
@@ -199,17 +201,21 @@
 </section>
 
 <footer class="ls-foot">
-  <nav aria-label="푸터">
-    <a href="index.html">Home</a>
-    <a href="sales/">Sales</a>
-    <a href="https://github.com/Hwemo-Chung/threads-analytics">GitHub CLI</a>
-    <a href="mailto:tolaria@naver.com">Contact</a>
+  <nav data-i18n-aria-label="common.footerNav">
+    <a href="/" data-i18n="nav.home"></a>
+    <a href="/sales/" data-i18n="nav.sales"></a>
+    <a href="/offers/" data-i18n="nav.offers"></a>
+    <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+    <a href="/retainer.html" data-i18n="nav.retainer"></a>
+    <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+    <a href="/pp.html" data-i18n="footer.privacy"></a>
+    <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
   </nav>
-  <p>만든 사람 <a href="https://github.com/Hwemo-Chung">Hwemo Chung</a> ·
-  본문 수치는 제작자 계정(게시물 1,954개) 실측입니다.</p>
+  <p data-i18n="common.disclaimer"></p>
 </footer>
 
 </main>
 <script src="sales/payment.js" defer></script>
+    <script src="/i18n.js"></script>
 </body>
 </html>

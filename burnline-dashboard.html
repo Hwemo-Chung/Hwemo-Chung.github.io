@@ -6,7 +6,7 @@
   <title>Burnline Dashboard — local AI cost</title>
   <meta name="description" content="Local-first Burnline dashboard: spend by model and day, budget cap, load your events.csv. Data stays in the browser." />
   <link rel="canonical" href="https://hwemo-chung.github.io/burnline-dashboard.html" />
-  <meta name="theme-color" content="#07090c" />
+  <meta name="theme-color" content="#ffffff" />
   <meta property="og:title" content="Burnline Dashboard" />
   <meta property="og:description" content="See AI burn by model and day. Load CSV locally. No prompt upload." />
   <meta property="og:url" content="https://hwemo-chung.github.io/burnline-dashboard.html" />
@@ -15,19 +15,20 @@
   <link rel="stylesheet" href="sales/components.css" />
   <link rel="stylesheet" href="sales/product-extras.css" />
   <link rel="stylesheet" href="sales/burnline-app.css" />
+  <link rel="stylesheet" href="sales/site-unified.css" />
 </head>
-<body class="ls ls-theme-burn">
-  <a class="ls-skip" href="#main">Skip to content</a>
-  <nav class="ls-nav" aria-label="Primary">
+<body class="ls">
+  <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
     <div class="ls-nav__inner">
-      <a class="ls-brand" href="index.html">Lumos</a>
+      <a class="ls-brand" href="/">Lumos</a>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sales/">Sales</a></li>
-        <li><a href="retainer.html">Retainer</a></li>
-        <li><a href="burnline.html">Burnline</a></li>
-        <li><a href="burnline-dashboard.html" aria-current="page">Dashboard</a></li>
-        <li><a href="burnline-demo.html">Sample</a></li>
+        <li><a href="/" data-i18n="nav.home"></a></li>
+        <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+        <li><a href="/offers/" data-i18n="nav.offers"></a></li>
+        <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+        <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+        <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
       </ul>
     </div>
   </nav>
@@ -55,12 +56,12 @@
       </div>
     </header>
 
-    <div class="drop" id="drop" tabindex="0" aria-label="Drop events.csv here">
+    <div class="drop" id="drop" tabindex="0" data-i18n-aria-label="aria.dropCsv">
       <p><strong>Drop events.csv</strong> from <code>npm run report:* -- --out …</code> or use Load CSV.</p>
       <p class="status-line" id="status">Using built-in sample (3 events · $47.88).</p>
     </div>
 
-    <section class="toolbar" aria-label="Filters">
+    <section class="toolbar" data-i18n-aria-label="aria.filters">
       <div class="field">
         <label id="range-label">Range</label>
         <div class="seg" role="group" aria-labelledby="range-label">
@@ -82,7 +83,7 @@
       </div>
     </section>
 
-    <section class="kpis" aria-label="Summary">
+    <section class="kpis" data-i18n-aria-label="aria.summary">
       <article class="kpi" id="kpi-spend">
         <div class="label">Estimated spend</div>
         <div class="value" id="kpi-spend-v">$0.00</div>
@@ -105,7 +106,7 @@
       </article>
     </section>
 
-    <section class="budget-card" aria-label="Budget progress">
+    <section class="budget-card" data-i18n-aria-label="aria.budgetProgress">
       <div class="top">
         <span>Budget usage</span>
         <strong id="budget-label">$0.00 / $0.00</strong>
@@ -126,7 +127,7 @@
       </article>
     </section>
 
-    <section class="panel table-panel" aria-label="Events table">
+    <section class="panel table-panel" data-i18n-aria-label="aria.eventsTable">
       <h2>Events <span id="table-count">0 rows</span></h2>
       <div class="table-wrap">
         <table>
@@ -147,13 +148,17 @@
     </section>
 
     <footer class="ls-foot">
-      <nav aria-label="Footer">
-        <a href="burnline.html">Product</a>
-        <a href="burnline-demo.html">Static sample</a>
-        <a href="retainer.html">Retainer</a>
-        <a href="mailto:tolaria@naver.com?subject=Burnline%20waitlist">Waitlist email</a>
+      <nav data-i18n-aria-label="common.footerNav">
+        <a href="/" data-i18n="nav.home"></a>
+        <a href="/sales/" data-i18n="nav.sales"></a>
+        <a href="/offers/" data-i18n="nav.offers"></a>
+        <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+        <a href="/retainer.html" data-i18n="nav.retainer"></a>
+        <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+        <a href="/pp.html" data-i18n="footer.privacy"></a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
       </nav>
-      <p>Estimates only. Reconcile against vendor invoices. No prompts leave this page.</p>
+      <p data-i18n="common.disclaimer"></p>
     </footer>
   </main>
 
@@ -535,5 +540,6 @@
   render();
 })();
   </script>
+    <script src="/i18n.js"></script>
 </body>
 </html>
