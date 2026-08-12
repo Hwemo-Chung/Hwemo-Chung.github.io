@@ -2,11 +2,11 @@ const siteTranslations = {
     ko: {
         nav: {
             home: "홈",
-            sales: "Sales",
-            offers: "Offers",
+            sales: "서비스",
+            offers: "상품",
             diagnosis: "진단",
-            retainer: "Retainer",
-            threads: "Threads",
+            retainer: "유지보수",
+            threads: "스레드",
             about: "소개",
             projects: "프로젝트",
             contact: "연락처",
@@ -60,11 +60,11 @@ const siteTranslations = {
     en: {
         nav: {
             home: "Home",
-            sales: "Sales",
-            offers: "Offers",
+            sales: "サービス",
+            offers: "商品",
             diagnosis: "Diagnosis",
-            retainer: "Retainer",
-            threads: "Threads",
+            retainer: "保守",
+            threads: "スレッド",
             about: "About",
             projects: "Projects",
             contact: "Contact",
@@ -118,11 +118,11 @@ const siteTranslations = {
     ja: {
         nav: {
             home: "ホーム",
-            sales: "Sales",
-            offers: "Offers",
+            sales: "サービス",
+            offers: "商品",
             diagnosis: "診断",
-            retainer: "Retainer",
-            threads: "Threads",
+            retainer: "保守",
+            threads: "スレッド",
             about: "紹介",
             projects: "プロジェクト",
             contact: "連絡先",
