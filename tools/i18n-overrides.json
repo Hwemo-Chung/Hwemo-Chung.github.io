@@ -1,279 +1,802 @@
 {
-  "auto-angular-ci": {"ko": "auto-angular-ci"},
-  "auto-cron-worker": {"ko": "auto-cron-worker"},
-  "auto-e2e-nightly": {"ko": "auto-e2e-nightly"},
-  "auto-form-webhook": {"ko": "auto-form-webhook"},
-  "auto-gmail-triage": {"ko": "auto-gmail-triage"},
-  "auto-health-cron": {"ko": "auto-health-cron"},
-  "auto-i18n-sync": {"ko": "auto-i18n-sync"},
-  "auto-release-bot": {"ko": "auto-release-bot"},
-  "auto-rss-pipeline": {"ko": "auto-rss-pipeline"},
-  "auto-sheet-sync": {"ko": "auto-sheet-sync"},
-  "caphealth": {"ko": "caphealth"},
-  "deep-auth-session": {"ko": "deep-auth-session"},
-  "deep-bundle-perf": {"ko": "deep-bundle-perf"},
-  "deep-design-tokens": {"ko": "deep-design-tokens"},
-  "deep-feature-flags": {"ko": "deep-feature-flags"},
-  "deep-loadtest-k6": {"ko": "deep-loadtest-k6"},
-  "deep-monorepo-nx": {"ko": "deep-monorepo-nx"},
-  "deep-ng-major-migrate": {"ko": "deep-ng-major-migrate"},
-  "deep-offline-sync": {"ko": "deep-offline-sync"},
-  "deep-openapi-client": {"ko": "deep-openapi-client"},
-  "deep-rxjs-leak-audit": {"ko": "deep-rxjs-leak-audit"},
-  "deep-webview-bridge": {"ko": "deep-webview-bridge"},
-  "hybridquote": {"ko": "hybridquote"},
-  "iosgate": {"ko": "iosgate"},
-  "linkmortem": {"ko": "linkmortem"},
-  "nightwatch": {"ko": "nightwatch"},
-  "plugmap": {"ko": "plugmap"},
-  "policypulse": {"ko": "policypulse"},
-  "releasegate": {"ko": "releasegate"},
-  "targetscan": {"ko": "targetscan"},
-  "threadsmith": {"ko": "threadsmith"},
-  "social-approval-slack": {"ko": "social-approval-slack"},
-  "social-calendar-sheet": {"ko": "social-calendar-sheet"},
-  "social-comment-mod-queue": {"ko": "social-comment-mod-queue"},
-  "social-crosspost-draft": {"ko": "social-crosspost-draft"},
-  "social-draft-queue": {"ko": "social-draft-queue"},
-  "social-mention-digest": {"ko": "social-mention-digest"},
-  "social-newsletter-digest": {"ko": "social-newsletter-digest"},
-  "social-seo-check-cron": {"ko": "social-seo-check-cron"},
-  "social-threads-schedule-assist": {"ko": "social-threads-schedule-assist"},
-  "social-utm-tracker": {"ko": "social-utm-tracker"},
-  "npm ci + lint + test + build": {"ko": "npm ci + lint + test + build"},
-  "nestjs swagger → angular": {"ko": "nestjs swagger → angular"},
-
-  "404 | Lumos": {"ko": "404 | Lumos"},
-  "Lumos Sales Design System": {"ko": "Lumos Sales Design System"},
-  "Sales Design System v1.0 · 2026-08-09": {"ko": "Sales Design System v1.0 · 2026-08-09"},
-  "Color Picker - Lumos": {"ko": "Color Picker - Lumos"},
-  "Privacy Policy - Lumos": {"ko": "개인정보처리방침 - Lumos"},
-  "Advertisements - Lumos": {"ko": "광고 - Lumos"},
-  "Micro SaaS MVPs - Lumos!": {"ko": "Micro SaaS MVP - Lumos!"},
-  "© 2026 Lumos Micro SaaS. All rights reserved.": {"ko": "© 2026 Lumos Micro SaaS. All rights reserved."},
-
-  "Child Screen": {"ko": "Child Screen"},
-  "Elder Tel": {"ko": "Elder Tel"},
-  "For Soccer": {"ko": "For Soccer"},
-  "Dice Story": {"ko": "Dice Story"},
-  "Submarine Commander Game": {"ko": "Submarine Commander Game"},
-  "Sumiwake App Project": {"ko": "Sumiwake App Project"},
-  "Secret Clip Diary": {"ko": "Secret Clip Diary"},
-  "Media Organizer": {"ko": "Media Organizer"},
-  "News Collector Android": {"ko": "News Collector Android"},
-  "News Poster": {"ko": "News Poster"},
-  "Gesture Color Picker App": {"ko": "Gesture Color Picker App"},
-
-  "Burnline Dashboard": {"ko": "Burnline Dashboard"},
-  "Burnline Dashboard — local AI cost": {"ko": "Burnline Dashboard — 로컬 AI 비용"},
-  "Burnline waitlist": {"ko": "Burnline 대기자 명단"},
-  "Burnline · sample report": {"ko": "Burnline · 샘플 보고서"},
-  "Burnline · sample report (fixtures)": {"ko": "Burnline · 샘플 보고서 (fixtures)"},
-  "Burnline — Local-first AI cost control": {"ko": "Burnline — 로컬 우선 AI 비용 관리"},
-  "Burnline — local-first AI cost control": {"ko": "Burnline — 로컬 우선 AI 비용 관리"},
-  "Back to Burnline": {"ko": "Burnline으로 돌아가기"},
-  "Also building Burnline →": {"ko": "Burnline도 준비 중 →"},
-  "Local-first view of AI spend. Load a Burnline": {"ko": "AI 소진 현황을 로컬에서 확인. Burnline"},
-
-  "Angular / TS / Cron": {"ko": "Angular / TS / Cron"},
-  "Angular 12→18": {"ko": "Angular 12→18"},
-  "Angular CI Gate": {"ko": "Angular CI Gate"},
-  "Angular Major Migration Plan": {"ko": "Angular 메이저 마이그레이션 플랜"},
-  "Apple SDK": {"ko": "Apple SDK"},
-  "Apple Upcoming Requirements": {"ko": "Apple 향후 요구사항"},
-
-  "Mobile Production Retainer": {"ko": "모바일 프로덕션 리테이너"},
-  "Mobile Production Retainer — $400 pilot": {"ko": "모바일 프로덕션 리테이너 — $400 Pilot"},
-  "Mobile Production Retainer — Ionic / Capacitor / WebView": {"ko": "모바일 프로덕션 리테이너 — Ionic / Capacitor / WebView"},
-  "Mobile retainer (live offer)": {"ko": "모바일 리테이너 (오퍼 진행 중)"},
-  "Production retainer (EN)": {"ko": "프로덕션 리테이너 (EN)"},
-  "Production retainer · USD · Remote": {"ko": "프로덕션 리테이너 · USD · 원격"},
-
-  "Fix one production failure class on real devices. Ionic / Capacitor / WebView. Remote, USD.": {"ko": "실기기 프로덕션 장애 1건을 수정합니다. Ionic / Capacitor / WebView. 원격, USD."},
-  "One production failure class at a time — written diagnosis if fix needs more hours": {"ko": "한 번에 프로덕션 장애 1건 — 추가 시간이 필요하면 서면 진단서 제공"},
-  "One production issue class at a time": {"ko": "한 번에 프로덕션 이슈 1건"},
-  "One production issue class only": {"ko": "프로덕션 이슈 1건만"},
-  "One failure class": {"ko": "장애 1건"},
-
-  "Pilot $400 · Stabilizer $1,200/mo · real-device production support": {"ko": "Pilot $400 · Stabilizer $1,200/월 · 실기기 프로덕션 지원"},
-  "$400 pilot": {"ko": "$400 Pilot"},
-  "Start with $400 pilot": {"ko": "$400 Pilot로 시작"},
-  "Pilot week": {"ko": "Pilot 주간"},
-  "Pilot pilot $400": {"ko": "Pilot $400"},
-  "Email to start pilot": {"ko": "Pilot 시작 이메일"},
-  "Retainer pilot $400 (EN)": {"ko": "리테이너 Pilot $400 (EN)"},
-  "NightWatch Pilot": {"ko": "NightWatch Pilot"},
-  "· pilot": {"ko": "· Pilot"},
-  "Cold start → pilot only. One issue class.": {"ko": "콜드 스타트 → Pilot 전용. 이슈 클래스 1건."},
-
-  "Converts to Stabilizer if useful": {"ko": "유용하면 Stabilizer로 전환"},
-  "Everything in Stabilizer": {"ko": "Stabilizer 전체 포함"},
-  "If the pilot helped, Stabilizer or Scale on a monthly hour cap. Cancel end of month.": {"ko": "Pilot이 도움되었다면 월별 시간 한도의 Stabilizer 또는 Scale로 전환. 월말 해지 가능."},
-
-  "Ionic / Capacitor / WebView · $400 pilot · $1,200/mo Stabilizer": {"ko": "Ionic / Capacitor / WebView · $400 Pilot · $1,200/월 Stabilizer"},
-  "Monthly Ionic / Capacitor / Android WebView production support. Stabilizer $1,200/mo · Pilot $400.": {"ko": "월간 Ionic / Capacitor / Android WebView 프로덕션 지원. Stabilizer $1,200/월 · Pilot $400."},
-  "Weekly pilot and monthly retainers for Ionic, Capacitor, and Android WebView production failures. Real devices, release weeks — not emulator demos.": {"ko": "Ionic, Capacitor, Android WebView 프로덕션 장애에 대한 주간 Pilot 및 월간 리테이너. 실기기, 출시 주간 — 에뮬레이터 데모가 아닙니다."},
-  "Weekly pilot and monthly production support for teams shipping Angular/Ionic/Capacitor and Android WebView apps. Focus: release blockers, real-device regressions, store builds — not greenfield pitch decks.": {"ko": "Angular/Ionic/Capacitor 및 Android WebView 앱 출시 팀을 위한 주간 Pilot 및 월간 프로덕션 지원. 초점: 릴리스 차단 요소, 실기기 리그레션, 스토어 빌드 — 그린필드 피치 데크 제외."},
-  "Live or about-to-ship Ionic / Capacitor / WebView app": {"ko": "운영 중이거나 곧 출시할 Ionic / Capacitor / WebView 앱"},
-
-  "Fit call": {"ko": "적합성 통화"},
-  "Fit email": {"ko": "적합성 확인 이메일"},
-  "20-min fit call": {"ko": "20분 적합성 통화"},
-  "Best first step": {"ko": "최적의 첫 단계"},
-
-  "Devices are where money burns.": {"ko": "비용이 소진되는 곳은 실기기입니다."},
-  "Real devices": {"ko": "실기기"},
-  "Real devices / OS / WebView quirks — not “works on my emulator”": {"ko": "실기기/OS/WebView 특이사항 — “에뮬레이터에서 되는데”가 아님"},
-
-  "3. Cap the burn": {"ko": "3. 소진 한도를 설정한다"},
-  "Know your AI burn": {"ko": "AI 소진 비용을 파악하세요"},
-  "Import usage logs. Price by model. Cap the burn. Prompts stay on your machine.": {"ko": "사용 로그를 가져옵니다. 모델별 비용 산출. 소진 한도 설정. 프롬프트는 로컬에 유지됩니다."},
-  "See AI burn by model and day. Load CSV locally. No prompt upload.": {"ko": "모델·일자별 AI 소진을 확인하세요. CSV를 로컬로 로드합니다. 프롬프트 업로드 없음."},
-  "See AI token burn by model and day. Set a monthly cap. Keep prompts on your machine. Waitlist open — not for sale yet.": {"ko": "모델·일자별 AI 토큰 소진을 확인하세요. 월별 한도를 설정합니다. 프롬프트는 로컬에 유지됩니다. 대기자 명단 오픈 — 아직 판매 전입니다."},
-  "Burnline turns agent and API usage logs into clear cost by model and day. Set a monthly cap. Keep prompts on your machine.": {"ko": "Burnline은 에이전트 및 API 사용 로그를 모델·일자별 명확한 비용으로 변환합니다. 월별 한도를 설정합니다. 프롬프트는 로컬에 유지됩니다."},
-  "Point Burnline at Claude Code / JSONL usage logs. Core value does not require uploading prompts.": {"ko": "Burnline에 Claude Code / JSONL 사용 로그를 연결하세요. 핵심 기능은 프롬프트 업로드가 필요 없습니다."},
-  "Local-first Burnline dashboard: spend by model and day, budget cap, load your events.csv. Data stays in the browser.": {"ko": "로컬 우선 Burnline 대시보드: 모델·일자별 지출, 예산 한도, events.csv 로드. 데이터는 브라우저에 유지됩니다."},
-  "Local-first AI cost control — burn by model/day, monthly caps, no prompt upload required for core value. [Building]": {"ko": "로컬 우선 AI 비용 관리 — 모델·일자별 소진, 월별 한도, 핵심 기능에 프롬프트 업로드 불필요. [준비중]"},
-  "Local-first AI cost report · tier:": {"ko": "로컬 우선 AI 비용 보고서 · 티어:"},
-  "Local-first AI spend reports. Waitlist open.": {"ko": "로컬 우선 AI 지출 보고서. 대기자 명단 오픈."},
-  "CLI + HTML report spike exists. No Stripe checkout, no cloud login. Join the waitlist if you want launch notes — do not send money for Burnline today.": {"ko": "CLI + HTML 보고서 스파이크가 존재합니다. Stripe 결제도, 클라우드 로그인도 없습니다. 출시 알림을 원하시면 대기자 명단에 등록하세요 — 아직 Burnline에 결제하지 마세요."},
-  "Not a full prompt observability cloud. Not enterprise SSO in v1. If you need Helicone-scale pipelines, use those — Burnline is for builders who want cost truth with minimal ceremony.": {"ko": "완전한 프롬프트 관측 클라우드가 아닙니다. v1에는 엔터프라이즈 SSO도 없습니다. Helicone급 파이프라인이 필요하면 그쪽을 쓰세요 — Burnline은 최소한의 절차로 비용을 정확히 파악하려는 개발자를 위한 도구입니다."},
-  "If you run multi-model coding agents and care about cost control, email with subject": {"ko": "다중 모델 코딩 에이전트를 운영하며 비용 관리가 필요하다면, 제목에"},
-  "Shared aggregates for small teams — not in v0.1.": {"ko": "소규모 팀용 공유 집계 — v0.1에는 미포함."},
-
-  "Cap not set": {"ko": "한도 미설정"},
-  "Estimated spend": {"ko": "추정 지출"},
-  "Sample fixtures": {"ko": "샘플 데이터"},
-  "Sample fixtures only": {"ko": "샘플 데이터만 표시"},
-  "Drop events.csv": {"ko": "events.csv 파일 놓기"},
-  "Sample Burnline cost report from fixture data. Not live product checkout.": {"ko": "샘플 데이터 기반 Burnline 비용 보고서. 실제 제품 결제가 아닙니다."},
-  "Not your logs · not a paid product · estimates for demo.": {"ko": "실제 로그가 아닙니다 · 유료 제품이 아닙니다 · 데모용 추정치입니다."},
-  "· fixture data": {"ko": "· 샘플 데이터"},
-  "· not your data": {"ko": "· 실제 데이터가 아닙니다"},
-  "Offline model catalog with documented rates. Totals you can reconcile to a real bill.": {"ko": "문서화된 요금표가 포함된 오프라인 모델 카탈로그. 실제 청구서와 대조할 수 있는 합계."},
-  "Estimates only. Cache write priced at input rate unless catalog overrides. Reconcile against vendor invoices. No prompts are stored in this report.": {"ko": "추정치입니다. 카탈로그 재정의가 없으면 캐시 쓰기는 입력 단가로 산정됩니다. 공급사 인보이스와 대조하세요. 이 보고서에 프롬프트는 저장되지 않습니다."},
-  "Monthly USD budget with 80% warning and 100% hard flag. Export CSV for your records.": {"ko": "월별 USD 예산, 80% 경고 및 100% 초과 표시. 기록용 CSV 내보내기."},
-  "Numbers below are intent for later paid tiers.": {"ko": "아래 숫자는 향후 유료 티어를 위한 계획입니다."},
-
-  "Fact-checked offers. Real-device production. Free diagnosis is status only.": {"ko": "검증된 오퍼. 실기기 프로덕션. 무료 진단은 현황 파악만."},
-  "Qualify hard": {"ko": "까다롭게 심사합니다"},
-  "Pain is devices, stores, release — not mockups": {"ko": "문제는 실기기, 스토어, 릴리스 — 목업이 아닙니다"},
-  "Not: “build Uber for $500”": {"ko": "불가: “$500에 Uber 만들기”"},
-  "Out of scope": {"ko": "범위 밖"},
-  "Full rewrites, unlimited Slack, 24/7 on-call, greenfield apps at hobby rates, and work that conflicts with employment confidentiality. Those projects fail both of us.": {"ko": "전면 재작성, 무제한 Slack, 24/7 대기, 취미 요금의 신규 앱, 고용 기밀과 충돌하는 작업. 이런 프로젝트는 양쪽 모두에 실패입니다."},
-  "Who this is for": {"ko": "대상"},
-  "Not this": {"ko": "해당 안 됨"},
-  "Honest status:": {"ko": "실제 현황:"},
-
-  "A written diagnosis of one agreed issue class, plus a best-effort fix within ~6 hours. If the fix needs more time, you get a clear estimate — no silent overrun.": {"ko": "합의된 이슈 클래스 1건에 대한 서면 진단, 그리고 ~6시간 이내 최선의 수정. 추가 시간이 필요하면 명확한 견적을 드립니다 — 자동 초과 없음."},
-  "Do unused hours roll over?": {"ko": "미사용 시간은 이월되나요?"},
-  "No, unless we pre-agree in writing. The cap protects both schedule and price.": {"ko": "아니요, 서면으로 사전 합의하지 않는 한 이월되지 않습니다. 한도는 일정과 비용 모두를 보호합니다."},
-  "How do I pay?": {"ko": "결제 방법은?"},
-  "Invoice before work: card processor (Stripe / Lemon Squeezy when linked), Wise, or bank transfer. Reply to the fit email and I send payment instructions for your region.": {"ko": "작업 착수 전 인보이스: 카드 결제(연동 시 Stripe / Lemon Squeezy), Wise, 또는 계좌이체. 적합성 확인 이메일에 답장하시면 해당 지역 결제 안내를 보내드립니다."},
-  "Refunds?": {"ko": "환불은?"},
-  "Work starts after payment. No mid-week refund once hours are used. If I decline the fit before payment, you pay nothing.": {"ko": "결제 후 작업을 시작합니다. 시간 소진 후에는 중도 환불이 불가합니다. 결제 전 적합성 판단에서 제가 거절하면 비용은 없습니다."},
-  "Can you use my employer’s confidential stack?": {"ko": "고용주의 기밀 스택을 사용할 수 있습니까?"},
-  "No if it conflicts with my employment or NDA. Say so up front — I will decline cleanly.": {"ko": "고용 계약이나 NDA와 충돌하면 불가합니다. 미리 말씀해 주세요 — 깔끔하게 거절하겠습니다."},
-  "Why trust a single operator?": {"ko": "1인 운영자를 왜 신뢰해야 하나요?"},
-  "You buy a narrow outcome (one issue class / hour-capped month), not a brand agency. Scope is written before hours start. You can cancel at month end with no lock-in.": {"ko": "브랜드 에이전시가 아닌 좁은 범위의 결과물(이슈 1건 / 시간 한도 월간)을 구매합니다. 작업 시작 전에 범위를 문서화합니다. 월말에 위약금 없이 해지 가능합니다."},
-  "No CAINZ or employer affiliation claimed. You own deliverables you pay for": {"ko": "CAINZ 및 고용주 제휴를 표방하지 않습니다. 결제한 결과물의 소유권은 귀하에게 있습니다"},
-  "No public pay link yet? Email for invoice (card / Wise / bank). Setup:": {"ko": "공개 결제 링크가 아직 없나요? 인보이스 이메일(카드 / Wise / 계좌이체). 설정:"},
-  "You send product, platform, and": {"ko": "제품, 플랫폼, 그리고"},
-  "one": {"ko": "단일"},
-  "issue class. I confirm fit or decline in writing.": {"ko": "이슈 클래스를 보내세요. 적합 여부를 서면으로 확인 또는 거절합니다."},
-  "with product, platform, and the one issue class. Prefer monthly from day one? Use subject line": {"ko": "제품, 플랫폼, 이슈 클래스 1건을 포함하세요. 처음부터 월간을 원하시면 제목에"},
-  "$400 · ~6 hours · diagnosis + fix attempt. Invoice before work starts (card / Wise / bank).": {"ko": "$400 · ~6시간 · 진단 + 수정 시도. 작업 착수 전 인보이스(카드 / Wise / 계좌이체)."},
-  "before the invoice lands.": {"ko": "인보이스 발행 전."},
-
-  "How it works": {"ko": "진행 방식"},
-  "Next step": {"ko": "다음 단계"},
-  "Retainer (optional)": {"ko": "리테이너 (선택)"},
-  "Written diagnosis + fix attempt": {"ko": "서면 진단 + 수정 시도"},
-  "Need production mobile help now? →": {"ko": "프로덕션 모바일 지원이 필요하세요? →"},
-  "English retainer page →": {"ko": "영문 리테이너 페이지 →"},
-  "Product page →": {"ko": "제품 페이지 →"},
-  "Offer page →": {"ko": "오퍼 페이지 →"},
-  "Dashboard →": {"ko": "대시보드 →"},
-  "Interactive dashboard →": {"ko": "대화형 대시보드 →"},
-
-  "Metric": {"ko": "지표"},
-  "Verdict": {"ko": "판정"},
-  "accent": {"ko": "강조색"},
-  "In": {"ko": "입력"},
-  "Out": {"ko": "출력"},
-  "Warn sm": {"ko": "경고(소)"},
-  "warn default": {"ko": "기본 경고값"},
-  "not sales funnel": {"ko": "세일즈 퍼널이 아님"},
-  "Play": {"ko": "Play"},
-  "Play target API": {"ko": "Play 타겟 API"},
-  "Planned — not live": {"ko": "예정 — 미출시"},
-
-  "Database: MySQL, PostgreSQL, MongoDB, Firebase Realtime Database, SQLite": {"ko": "데이터베이스: MySQL, PostgreSQL, MongoDB, Firebase Realtime Database, SQLite"},
-  "Viral Threshold (applied)": {"ko": "바이럴 기준 (적용됨)"},
-  "Trust / exclusions": {"ko": "신뢰 / 제외 사항"},
-  "Canonical:": {"ko": "정식 URL:"},
-
-  "PicBatch privacy policy — on-device batch photo processing, no data collection": {"ko": "PicBatch 개인정보처리방침 — 기기 내 일괄 사진 처리, 데이터 수집 없음"},
-  "Privacy Policy - PicBatch": {"ko": "개인정보처리방침 - PicBatch"},
-  "Sealcard privacy policy — on-device sealed photo cards, no servers, accounts, ads, or analytics": {"ko": "Sealcard 개인정보처리방침 — 기기 내 봉인 포토 카드, 서버·계정·광고·분석 없음"},
-
-  "Blog SEO Health Cron": {"ko": "Blog SEO 상태 Cron"},
-  "Nightly E2E Cron": {"ko": "Nightly E2E Cron"},
-  "WebView / Capacitor Bridge Debug": {"ko": "WebView / Capacitor Bridge Debug"},
-
-  "Longer posts raise engagement rate but collapse reach (300-400 chars: ER 1.71% / 389 views, 50-100 chars: ER 0.86% / 674 views) — 1.7x reach gap": {"ko": "긴 게시물은 참여율을 높이지만 도달 범위가 줄어듦(300~400자: ER 1.71% / 389 조회, 50~100자: ER 0.86% / 674 조회) — 도달 격차 1.7배"},
-  "All media types included: TEXT_POST 782, IMAGE 107, CAROUSEL_ALBUM 8, VIDEO 3 / dead rate = share under 500 views": {"ko": "전체 미디어 유형 포함: TEXT_POST 782, IMAGE 107, CAROUSEL_ALBUM 8, VIDEO 3 / 데드 레이트 = 조회수 500회 미만 게시물 비율"},
-  "Viral Deep Dive — view concentration": {"ko": "Viral Deep Dive — 조회 집중도"},
-  "6. View Concentration": {"ko": "6. 조회 집중도"},
-  "Time of Day": {"ko": "시간대"},
-
-  ". Formspree / Stripe only after real demand.": {"ko": ". Formspree / Stripe는 실수요 발생 후에만."},
-  ". Include how you use AI today (one paragraph).": {"ko": ". 현재 AI 활용 방식을 포함하세요(한 문단)."},
-  "1. Import locally": {"ko": "1. 로컬에서 가져오기"},
-  "2. Price honestly": {"ko": "2. 정직하게 가격을 매긴다"},
-  "+ payment-links.json": {"ko": "+ payment-links.json"},
-  "Card + price": {"ko": "카드 + 가격"},
-
-  "Micro SaaS MVPs": {"ko": "Micro SaaS MVP"},
-  "Book Logger": {"ko": "Book Logger"},
-  "Calorie Counter": {"ko": "Calorie Counter"},
-  "Collab Todo": {"ko": "Collab Todo"},
-  "Currency Exchange": {"ko": "Currency Exchange"},
-  "Expense Tracker": {"ko": "Expense Tracker"},
-  "Fitness Tracker": {"ko": "Fitness Tracker"},
-  "Image Resizer": {"ko": "Image Resizer"},
-  "Instant Poll": {"ko": "Instant Poll"},
-  "Investment Calc": {"ko": "Investment Calc"},
-  "JSON Formatter": {"ko": "JSON Formatter"},
-  "Link Bank": {"ko": "Link Bank"},
-  "Loan Calculator": {"ko": "Loan Calculator"},
-  "Markdown Hub": {"ko": "Markdown Hub"},
-  "Meal Planner": {"ko": "Meal Planner"},
-  "Movie Reviews": {"ko": "Movie Reviews"},
-  "Playlist Curator": {"ko": "Playlist Curator"},
-  "Quick Survey": {"ko": "Quick Survey"},
-  "RegEx Tester": {"ko": "RegEx Tester"},
-  "Scientific Calc": {"ko": "Scientific Calc"},
-  "Short URL": {"ko": "Short URL"},
-  "Text Analyzer": {"ko": "Text Analyzer"},
-  "Timer Plus": {"ko": "Timer Plus"},
-  "Timezone Clock": {"ko": "Timezone Clock"},
-  "Travel Budget": {"ko": "Travel Budget"},
-  "Vault Lite": {"ko": "Vault Lite"},
-  "Barcode Creator": {"ko": "Barcode Creator"},
-  "Copy-to-Clipboard": {"ko": "Copy-to-Clipboard"},
-  "Color Palette Gen": {"ko": "Color Palette Gen"},
-  "Game Leaderboard": {"ko": "Game Leaderboard"},
-  "QR Code Gen": {"ko": "QR Code Gen"},
-  "Unit Conversion": {"ko": "Unit Conversion"},
-  "Base64 Converter": {"ko": "Base64 Converter"},
-  "Monaco Editor": {"ko": "Monaco Editor"},
-
-  "말할 수 있는 사실만.": {"en": "Only facts I can back up."},
-  "What do I get from the $400 pilot?": {"ko": "$400 Pilot을 통해 무엇을 얻을 수 있나요?"},
-  "파일럿": {"ko": "Pilot", "en": "Pilot", "ja": "Pilot"},
-  "릴리스 주 프로덕션 파일럿": {"ko": "릴리스 주 프로덕션 Pilot"},
-  "릴리스 주 프로덕션 파일럿 — Lumos Deep": {"ko": "릴리스 주 프로덕션 Pilot — Lumos Deep"},
-  "에뮬레이터 그린·실기기 레드 패턴을 재현 절차와 로그 포인트로 고정합니다. Ionic/Capacitor/레거시 Cordova WebView 대상. 파일럿($400)보다 깊게, 문서+재현 키트가 산출물입니다.": {"ko": "에뮬레이터 그린·실기기 레드 패턴을 재현 절차와 로그 포인트로 고정합니다. Ionic/Capacitor/레거시 Cordova WebView 대상. Pilot($400)보다 깊게, 문서+재현 키트가 산출물입니다."},
-  "글로벌 원격 ‘production firefighting’ 파일럿. $67/h 전후 mid-senior 밴드.": {"ko": "글로벌 원격 ‘production firefighting’ Pilot. $67/h 전후 mid-senior 밴드."}
+  "auto-angular-ci": {
+    "ko": "auto-angular-ci"
+  },
+  "auto-cron-worker": {
+    "ko": "auto-cron-worker"
+  },
+  "auto-e2e-nightly": {
+    "ko": "auto-e2e-nightly"
+  },
+  "auto-form-webhook": {
+    "ko": "auto-form-webhook"
+  },
+  "auto-gmail-triage": {
+    "ko": "auto-gmail-triage"
+  },
+  "auto-health-cron": {
+    "ko": "auto-health-cron"
+  },
+  "auto-i18n-sync": {
+    "ko": "auto-i18n-sync"
+  },
+  "auto-release-bot": {
+    "ko": "auto-release-bot"
+  },
+  "auto-rss-pipeline": {
+    "ko": "auto-rss-pipeline"
+  },
+  "auto-sheet-sync": {
+    "ko": "auto-sheet-sync"
+  },
+  "caphealth": {
+    "ko": "caphealth"
+  },
+  "deep-auth-session": {
+    "ko": "deep-auth-session"
+  },
+  "deep-bundle-perf": {
+    "ko": "deep-bundle-perf"
+  },
+  "deep-design-tokens": {
+    "ko": "deep-design-tokens"
+  },
+  "deep-feature-flags": {
+    "ko": "deep-feature-flags"
+  },
+  "deep-loadtest-k6": {
+    "ko": "deep-loadtest-k6"
+  },
+  "deep-monorepo-nx": {
+    "ko": "deep-monorepo-nx"
+  },
+  "deep-ng-major-migrate": {
+    "ko": "deep-ng-major-migrate"
+  },
+  "deep-offline-sync": {
+    "ko": "deep-offline-sync"
+  },
+  "deep-openapi-client": {
+    "ko": "deep-openapi-client"
+  },
+  "deep-rxjs-leak-audit": {
+    "ko": "deep-rxjs-leak-audit"
+  },
+  "deep-webview-bridge": {
+    "ko": "deep-webview-bridge"
+  },
+  "hybridquote": {
+    "ko": "hybridquote"
+  },
+  "iosgate": {
+    "ko": "iosgate"
+  },
+  "linkmortem": {
+    "ko": "linkmortem"
+  },
+  "nightwatch": {
+    "ko": "nightwatch"
+  },
+  "plugmap": {
+    "ko": "plugmap"
+  },
+  "policypulse": {
+    "ko": "policypulse"
+  },
+  "releasegate": {
+    "ko": "releasegate"
+  },
+  "targetscan": {
+    "ko": "targetscan"
+  },
+  "threadsmith": {
+    "ko": "threadsmith"
+  },
+  "social-approval-slack": {
+    "ko": "social-approval-slack"
+  },
+  "social-calendar-sheet": {
+    "ko": "social-calendar-sheet"
+  },
+  "social-comment-mod-queue": {
+    "ko": "social-comment-mod-queue"
+  },
+  "social-crosspost-draft": {
+    "ko": "social-crosspost-draft"
+  },
+  "social-draft-queue": {
+    "ko": "social-draft-queue"
+  },
+  "social-mention-digest": {
+    "ko": "social-mention-digest"
+  },
+  "social-newsletter-digest": {
+    "ko": "social-newsletter-digest"
+  },
+  "social-seo-check-cron": {
+    "ko": "social-seo-check-cron"
+  },
+  "social-threads-schedule-assist": {
+    "ko": "social-threads-schedule-assist"
+  },
+  "social-utm-tracker": {
+    "ko": "social-utm-tracker"
+  },
+  "npm ci + lint + test + build": {
+    "ko": "npm ci + lint + test + build"
+  },
+  "nestjs swagger → angular": {
+    "ko": "nestjs swagger → angular"
+  },
+  "404 | Lumos": {
+    "ko": "404 | Lumos"
+  },
+  "Lumos Sales Design System": {
+    "ko": "Lumos Sales Design System"
+  },
+  "Sales Design System v1.0 · 2026-08-09": {
+    "ko": "Sales Design System v1.0 · 2026-08-09"
+  },
+  "Color Picker - Lumos": {
+    "ko": "Color Picker - Lumos"
+  },
+  "Privacy Policy - Lumos": {
+    "ko": "개인정보처리방침 - Lumos"
+  },
+  "Advertisements - Lumos": {
+    "ko": "광고 - Lumos"
+  },
+  "Micro SaaS MVPs - Lumos!": {
+    "ko": "Micro SaaS MVP - Lumos!"
+  },
+  "© 2026 Lumos Micro SaaS. All rights reserved.": {
+    "ko": "© 2026 Lumos Micro SaaS. All rights reserved."
+  },
+  "Child Screen": {
+    "ko": "Child Screen"
+  },
+  "Elder Tel": {
+    "ko": "Elder Tel"
+  },
+  "For Soccer": {
+    "ko": "For Soccer"
+  },
+  "Dice Story": {
+    "ko": "Dice Story"
+  },
+  "Submarine Commander Game": {
+    "ko": "Submarine Commander Game"
+  },
+  "Sumiwake App Project": {
+    "ko": "Sumiwake App Project"
+  },
+  "Secret Clip Diary": {
+    "ko": "Secret Clip Diary"
+  },
+  "Media Organizer": {
+    "ko": "Media Organizer"
+  },
+  "News Collector Android": {
+    "ko": "News Collector Android"
+  },
+  "News Poster": {
+    "ko": "News Poster"
+  },
+  "Gesture Color Picker App": {
+    "ko": "Gesture Color Picker App"
+  },
+  "Burnline Dashboard": {
+    "ko": "Burnline Dashboard"
+  },
+  "Burnline Dashboard — local AI cost": {
+    "ko": "Burnline Dashboard — 로컬 AI 비용"
+  },
+  "Burnline waitlist": {
+    "ko": "Burnline 대기자 명단"
+  },
+  "Burnline · sample report": {
+    "ko": "Burnline · 샘플 보고서"
+  },
+  "Burnline · sample report (fixtures)": {
+    "ko": "Burnline · 샘플 보고서 (fixtures)"
+  },
+  "Burnline — Local-first AI cost control": {
+    "ko": "Burnline — 로컬 우선 AI 비용 관리"
+  },
+  "Burnline — local-first AI cost control": {
+    "ko": "Burnline — 로컬 우선 AI 비용 관리"
+  },
+  "Back to Burnline": {
+    "ko": "Burnline으로 돌아가기"
+  },
+  "Also building Burnline →": {
+    "ko": "Burnline도 준비 중 →"
+  },
+  "Local-first view of AI spend. Load a Burnline": {
+    "ko": "AI 소진 현황을 로컬에서 확인. Burnline"
+  },
+  "Angular / TS / Cron": {
+    "ko": "Angular / TS / Cron"
+  },
+  "Angular 12→18": {
+    "ko": "Angular 12→18"
+  },
+  "Angular CI Gate": {
+    "ko": "Angular CI Gate"
+  },
+  "Angular Major Migration Plan": {
+    "ko": "Angular 메이저 마이그레이션 플랜"
+  },
+  "Apple SDK": {
+    "ko": "Apple SDK"
+  },
+  "Apple Upcoming Requirements": {
+    "ko": "Apple 향후 요구사항"
+  },
+  "Mobile Production Retainer": {
+    "ko": "모바일 프로덕션 리테이너",
+    "ja": "モバイルプロダクションリテイナー"
+  },
+  "Mobile Production Retainer — $400 pilot": {
+    "ko": "모바일 프로덕션 리테이너 — $400 Pilot",
+    "ja": "モバイル プロダクション リテイナー — 400 ドルのPilot版"
+  },
+  "Mobile Production Retainer — Ionic / Capacitor / WebView": {
+    "ko": "모바일 프로덕션 리테이너 — Ionic / Capacitor / WebView",
+    "ja": "モバイル プロダクション リテイナー — Ionic / Capacitor / WebView"
+  },
+  "Mobile retainer (live offer)": {
+    "ko": "모바일 리테이너 (오퍼 진행 중)"
+  },
+  "Production retainer (EN)": {
+    "ko": "프로덕션 리테이너 (EN)",
+    "ja": "プロダクションリテイナー (EN)"
+  },
+  "Production retainer · USD · Remote": {
+    "ko": "프로덕션 리테이너 · USD · 원격",
+    "ja": "プロダクションリテイナー · USD · リモート"
+  },
+  "Fix one production failure class on real devices. Ionic / Capacitor / WebView. Remote, USD.": {
+    "ko": "실기기 프로덕션 장애 1건을 수정합니다. Ionic / Capacitor / WebView. 원격, USD.",
+    "ja": "実際のデバイス上の 1 つの運用障害クラスを修正しました。Ionic / Capacitor / WebView。リモート、米ドル。"
+  },
+  "One production failure class at a time — written diagnosis if fix needs more hours": {
+    "ko": "한 번에 프로덕션 장애 1건 — 추가 시간이 필요하면 서면 진단서 제공"
+  },
+  "One production issue class at a time": {
+    "ko": "한 번에 프로덕션 이슈 1건"
+  },
+  "One production issue class only": {
+    "ko": "프로덕션 이슈 1건만"
+  },
+  "One failure class": {
+    "ko": "장애 1건"
+  },
+  "Pilot $400 · Stabilizer $1,200/mo · real-device production support": {
+    "ko": "Pilot $400 · Stabilizer $1,200/월 · 실기기 프로덕션 지원",
+    "ja": "Pilot $400 · Stabilizer $1,200/月 · 実機プロダクションサポート"
+  },
+  "$400 pilot": {
+    "ko": "$400 Pilot",
+    "ja": "$400 Pilot"
+  },
+  "Start with $400 pilot": {
+    "ko": "$400 Pilot로 시작",
+    "ja": "$400 のPilot版から始める"
+  },
+  "Pilot week": {
+    "ko": "Pilot 주간",
+    "ja": "Pilotウィーク"
+  },
+  "Pilot pilot $400": {
+    "ko": "Pilot $400",
+    "ja": "Pilot Pilot $400"
+  },
+  "Email to start pilot": {
+    "ko": "Pilot 시작 이메일",
+    "ja": "Pilotを開始するためのメール"
+  },
+  "Retainer pilot $400 (EN)": {
+    "ko": "리테이너 Pilot $400 (EN)",
+    "ja": "リテイナー Pilot $400 (EN)"
+  },
+  "NightWatch Pilot": {
+    "ko": "NightWatch Pilot",
+    "ja": "夜警Pilot"
+  },
+  "· pilot": {
+    "ko": "· Pilot",
+    "ja": "· Pilot"
+  },
+  "Cold start → pilot only. One issue class.": {
+    "ko": "콜드 스타트 → Pilot 전용. 이슈 클래스 1건.",
+    "ja": "コールドスタート → Pilotのみ。 1 つの問題のクラス。"
+  },
+  "Converts to Stabilizer if useful": {
+    "ko": "유용하면 Stabilizer로 전환",
+    "ja": "有用な場合はStabilizerに変換します"
+  },
+  "Everything in Stabilizer": {
+    "ko": "Stabilizer 전체 포함",
+    "ja": "Stabilizerのすべて"
+  },
+  "If the pilot helped, Stabilizer or Scale on a monthly hour cap. Cancel end of month.": {
+    "ko": "Pilot이 도움되었다면 월별 시간 한도의 Stabilizer 또는 Scale로 전환. 월말 해지 가능.",
+    "ja": "Pilotが助けてくれた場合は、Stabilizerまたは毎月の時間制限を調整します。月末にキャンセルします。"
+  },
+  "Ionic / Capacitor / WebView · $400 pilot · $1,200/mo Stabilizer": {
+    "ko": "Ionic / Capacitor / WebView · $400 Pilot · $1,200/월 Stabilizer",
+    "ja": "Ionic / Capacitor / WebView · $400 Pilot · $1,200/月 Stabilizer"
+  },
+  "Monthly Ionic / Capacitor / Android WebView production support. Stabilizer $1,200/mo · Pilot $400.": {
+    "ko": "월간 Ionic / Capacitor / Android WebView 프로덕션 지원. Stabilizer $1,200/월 · Pilot $400.",
+    "ja": "毎月の Ionic / Capacitor / Android WebView プロダクションサポート。Stabilizer $1,200/月 · Pilot $400。"
+  },
+  "Weekly pilot and monthly retainers for Ionic, Capacitor, and Android WebView production failures. Real devices, release weeks — not emulator demos.": {
+    "ko": "Ionic, Capacitor, Android WebView 프로덕션 장애에 대한 주간 Pilot 및 월간 리테이너. 실기기, 출시 주간 — 에뮬레이터 데모가 아닙니다.",
+    "ja": "Ionic、Capacitor、Android WebView のプロダクション障害に対する週次Pilotおよび月次リテイナー。実際のデバイス、リリース週 — エミュレータのデモではありません。"
+  },
+  "Weekly pilot and monthly production support for teams shipping Angular/Ionic/Capacitor and Android WebView apps. Focus: release blockers, real-device regressions, store builds — not greenfield pitch decks.": {
+    "ko": "Angular/Ionic/Capacitor 및 Android WebView 앱 출시 팀을 위한 주간 Pilot 및 월간 프로덕션 지원. 초점: 릴리스 차단 요소, 실기기 리그레션, 스토어 빌드 — 그린필드 피치 데크 제외.",
+    "ja": "Angular/Ionic/Capacitor および Android WebView アプリを出荷するチーム向けの毎週のPilotおよび毎月の運用サポート。焦点: リリース ブロッカー、実デバイスのリグレッション、ストア ビルド — グリーンフィールドの提案資料ではありません。"
+  },
+  "Live or about-to-ship Ionic / Capacitor / WebView app": {
+    "ko": "운영 중이거나 곧 출시할 Ionic / Capacitor / WebView 앱"
+  },
+  "Fit call": {
+    "ko": "적합성 통화"
+  },
+  "Fit email": {
+    "ko": "적합성 확인 이메일"
+  },
+  "20-min fit call": {
+    "ko": "20분 적합성 통화"
+  },
+  "Best first step": {
+    "ko": "최적의 첫 단계"
+  },
+  "Devices are where money burns.": {
+    "ko": "비용이 소진되는 곳은 실기기입니다."
+  },
+  "Real devices": {
+    "ko": "실기기"
+  },
+  "Real devices / OS / WebView quirks — not “works on my emulator”": {
+    "ko": "실기기/OS/WebView 특이사항 — “에뮬레이터에서 되는데”가 아님"
+  },
+  "3. Cap the burn": {
+    "ko": "3. 소진 한도를 설정한다",
+    "ja": "3. 消費上限を設定する"
+  },
+  "Know your AI burn": {
+    "ko": "AI 소진 비용을 파악하세요"
+  },
+  "Import usage logs. Price by model. Cap the burn. Prompts stay on your machine.": {
+    "ko": "사용 로그를 가져옵니다. 모델별 비용 산출. 소진 한도 설정. 프롬프트는 로컬에 유지됩니다.",
+    "ja": "使用ログをインポートします。モデル別の価格。消費上限を設定。プロンプトはマシン上に残ります。"
+  },
+  "See AI burn by model and day. Load CSV locally. No prompt upload.": {
+    "ko": "모델·일자별 AI 소진을 확인하세요. CSV를 로컬로 로드합니다. 프롬프트 업로드 없음."
+  },
+  "See AI token burn by model and day. Set a monthly cap. Keep prompts on your machine. Waitlist open — not for sale yet.": {
+    "ko": "모델·일자별 AI 토큰 소진을 확인하세요. 월별 한도를 설정합니다. 프롬프트는 로컬에 유지됩니다. 대기자 명단 오픈 — 아직 판매 전입니다."
+  },
+  "Burnline turns agent and API usage logs into clear cost by model and day. Set a monthly cap. Keep prompts on your machine.": {
+    "ko": "Burnline은 에이전트 및 API 사용 로그를 모델·일자별 명확한 비용으로 변환합니다. 월별 한도를 설정합니다. 프롬프트는 로컬에 유지됩니다."
+  },
+  "Point Burnline at Claude Code / JSONL usage logs. Core value does not require uploading prompts.": {
+    "ko": "Burnline에 Claude Code / JSONL 사용 로그를 연결하세요. 핵심 기능은 프롬프트 업로드가 필요 없습니다."
+  },
+  "Local-first Burnline dashboard: spend by model and day, budget cap, load your events.csv. Data stays in the browser.": {
+    "ko": "로컬 우선 Burnline 대시보드: 모델·일자별 지출, 예산 한도, events.csv 로드. 데이터는 브라우저에 유지됩니다."
+  },
+  "Local-first AI cost control — burn by model/day, monthly caps, no prompt upload required for core value. [Building]": {
+    "ko": "로컬 우선 AI 비용 관리 — 모델·일자별 소진, 월별 한도, 핵심 기능에 프롬프트 업로드 불필요. [준비중]",
+    "ja": "ローカルファーストの AI コスト管理 - モデル/日ごとの書き込み、月次上限、コア価値の即時アップロードは不要です。 [準備中]"
+  },
+  "Local-first AI cost report · tier:": {
+    "ko": "로컬 우선 AI 비용 보고서 · 티어:"
+  },
+  "Local-first AI spend reports. Waitlist open.": {
+    "ko": "로컬 우선 AI 지출 보고서. 대기자 명단 오픈."
+  },
+  "CLI + HTML report spike exists. No Stripe checkout, no cloud login. Join the waitlist if you want launch notes — do not send money for Burnline today.": {
+    "ko": "CLI + HTML 보고서 스파이크가 존재합니다. Stripe 결제도, 클라우드 로그인도 없습니다. 출시 알림을 원하시면 대기자 명단에 등록하세요 — 아직 Burnline에 결제하지 마세요."
+  },
+  "Not a full prompt observability cloud. Not enterprise SSO in v1. If you need Helicone-scale pipelines, use those — Burnline is for builders who want cost truth with minimal ceremony.": {
+    "ko": "완전한 프롬프트 관측 클라우드가 아닙니다. v1에는 엔터프라이즈 SSO도 없습니다. Helicone급 파이프라인이 필요하면 그쪽을 쓰세요 — Burnline은 최소한의 절차로 비용을 정확히 파악하려는 개발자를 위한 도구입니다."
+  },
+  "If you run multi-model coding agents and care about cost control, email with subject": {
+    "ko": "다중 모델 코딩 에이전트를 운영하며 비용 관리가 필요하다면, 제목에"
+  },
+  "Shared aggregates for small teams — not in v0.1.": {
+    "ko": "소규모 팀용 공유 집계 — v0.1에는 미포함."
+  },
+  "Cap not set": {
+    "ko": "한도 미설정"
+  },
+  "Estimated spend": {
+    "ko": "추정 지출"
+  },
+  "Sample fixtures": {
+    "ko": "샘플 데이터"
+  },
+  "Sample fixtures only": {
+    "ko": "샘플 데이터만 표시"
+  },
+  "Drop events.csv": {
+    "ko": "events.csv 파일 놓기"
+  },
+  "Sample Burnline cost report from fixture data. Not live product checkout.": {
+    "ko": "샘플 데이터 기반 Burnline 비용 보고서. 실제 제품 결제가 아닙니다."
+  },
+  "Not your logs · not a paid product · estimates for demo.": {
+    "ko": "실제 로그가 아닙니다 · 유료 제품이 아닙니다 · 데모용 추정치입니다."
+  },
+  "· fixture data": {
+    "ko": "· 샘플 데이터"
+  },
+  "· not your data": {
+    "ko": "· 실제 데이터가 아닙니다"
+  },
+  "Offline model catalog with documented rates. Totals you can reconcile to a real bill.": {
+    "ko": "문서화된 요금표가 포함된 오프라인 모델 카탈로그. 실제 청구서와 대조할 수 있는 합계."
+  },
+  "Estimates only. Cache write priced at input rate unless catalog overrides. Reconcile against vendor invoices. No prompts are stored in this report.": {
+    "ko": "추정치입니다. 카탈로그 재정의가 없으면 캐시 쓰기는 입력 단가로 산정됩니다. 공급사 인보이스와 대조하세요. 이 보고서에 프롬프트는 저장되지 않습니다."
+  },
+  "Monthly USD budget with 80% warning and 100% hard flag. Export CSV for your records.": {
+    "ko": "월별 USD 예산, 80% 경고 및 100% 초과 표시. 기록용 CSV 내보내기."
+  },
+  "Numbers below are intent for later paid tiers.": {
+    "ko": "아래 숫자는 향후 유료 티어를 위한 계획입니다."
+  },
+  "Fact-checked offers. Real-device production. Free diagnosis is status only.": {
+    "ko": "검증된 오퍼. 실기기 프로덕션. 무료 진단은 현황 파악만."
+  },
+  "Qualify hard": {
+    "ko": "까다롭게 심사합니다"
+  },
+  "Pain is devices, stores, release — not mockups": {
+    "ko": "문제는 실기기, 스토어, 릴리스 — 목업이 아닙니다"
+  },
+  "Not: “build Uber for $500”": {
+    "ko": "불가: “$500에 Uber 만들기”"
+  },
+  "Out of scope": {
+    "ko": "범위 밖"
+  },
+  "Full rewrites, unlimited Slack, 24/7 on-call, greenfield apps at hobby rates, and work that conflicts with employment confidentiality. Those projects fail both of us.": {
+    "ko": "전면 재작성, 무제한 Slack, 24/7 대기, 취미 요금의 신규 앱, 고용 기밀과 충돌하는 작업. 이런 프로젝트는 양쪽 모두에 실패입니다."
+  },
+  "Who this is for": {
+    "ko": "대상"
+  },
+  "Not this": {
+    "ko": "해당 안 됨"
+  },
+  "Honest status:": {
+    "ko": "실제 현황:"
+  },
+  "A written diagnosis of one agreed issue class, plus a best-effort fix within ~6 hours. If the fix needs more time, you get a clear estimate — no silent overrun.": {
+    "ko": "합의된 이슈 클래스 1건에 대한 서면 진단, 그리고 ~6시간 이내 최선의 수정. 추가 시간이 필요하면 명확한 견적을 드립니다 — 자동 초과 없음."
+  },
+  "Do unused hours roll over?": {
+    "ko": "미사용 시간은 이월되나요?"
+  },
+  "No, unless we pre-agree in writing. The cap protects both schedule and price.": {
+    "ko": "아니요, 서면으로 사전 합의하지 않는 한 이월되지 않습니다. 한도는 일정과 비용 모두를 보호합니다."
+  },
+  "How do I pay?": {
+    "ko": "결제 방법은?"
+  },
+  "Invoice before work: card processor (Stripe / Lemon Squeezy when linked), Wise, or bank transfer. Reply to the fit email and I send payment instructions for your region.": {
+    "ko": "작업 착수 전 인보이스: 카드 결제(연동 시 Stripe / Lemon Squeezy), Wise, 또는 계좌이체. 적합성 확인 이메일에 답장하시면 해당 지역 결제 안내를 보내드립니다."
+  },
+  "Refunds?": {
+    "ko": "환불은?"
+  },
+  "Work starts after payment. No mid-week refund once hours are used. If I decline the fit before payment, you pay nothing.": {
+    "ko": "결제 후 작업을 시작합니다. 시간 소진 후에는 중도 환불이 불가합니다. 결제 전 적합성 판단에서 제가 거절하면 비용은 없습니다."
+  },
+  "Can you use my employer’s confidential stack?": {
+    "ko": "고용주의 기밀 스택을 사용할 수 있습니까?"
+  },
+  "No if it conflicts with my employment or NDA. Say so up front — I will decline cleanly.": {
+    "ko": "고용 계약이나 NDA와 충돌하면 불가합니다. 미리 말씀해 주세요 — 깔끔하게 거절하겠습니다."
+  },
+  "Why trust a single operator?": {
+    "ko": "1인 운영자를 왜 신뢰해야 하나요?"
+  },
+  "You buy a narrow outcome (one issue class / hour-capped month), not a brand agency. Scope is written before hours start. You can cancel at month end with no lock-in.": {
+    "ko": "브랜드 에이전시가 아닌 좁은 범위의 결과물(이슈 1건 / 시간 한도 월간)을 구매합니다. 작업 시작 전에 범위를 문서화합니다. 월말에 위약금 없이 해지 가능합니다."
+  },
+  "No CAINZ or employer affiliation claimed. You own deliverables you pay for": {
+    "ko": "CAINZ 및 고용주 제휴를 표방하지 않습니다. 결제한 결과물의 소유권은 귀하에게 있습니다"
+  },
+  "No public pay link yet? Email for invoice (card / Wise / bank). Setup:": {
+    "ko": "공개 결제 링크가 아직 없나요? 인보이스 이메일(카드 / Wise / 계좌이체). 설정:"
+  },
+  "You send product, platform, and": {
+    "ko": "제품, 플랫폼, 그리고"
+  },
+  "one": {
+    "ko": "단일"
+  },
+  "issue class. I confirm fit or decline in writing.": {
+    "ko": "이슈 클래스를 보내세요. 적합 여부를 서면으로 확인 또는 거절합니다."
+  },
+  "with product, platform, and the one issue class. Prefer monthly from day one? Use subject line": {
+    "ko": "제품, 플랫폼, 이슈 클래스 1건을 포함하세요. 처음부터 월간을 원하시면 제목에"
+  },
+  "$400 · ~6 hours · diagnosis + fix attempt. Invoice before work starts (card / Wise / bank).": {
+    "ko": "$400 · ~6시간 · 진단 + 수정 시도. 작업 착수 전 인보이스(카드 / Wise / 계좌이체)."
+  },
+  "before the invoice lands.": {
+    "ko": "인보이스 발행 전.",
+    "ja": "請求書が届く前に。"
+  },
+  "How it works": {
+    "ko": "진행 방식"
+  },
+  "Next step": {
+    "ko": "다음 단계"
+  },
+  "Retainer (optional)": {
+    "ko": "리테이너 (선택)"
+  },
+  "Written diagnosis + fix attempt": {
+    "ko": "서면 진단 + 수정 시도"
+  },
+  "Need production mobile help now? →": {
+    "ko": "프로덕션 모바일 지원이 필요하세요? →"
+  },
+  "English retainer page →": {
+    "ko": "영문 리테이너 페이지 →"
+  },
+  "Product page →": {
+    "ko": "제품 페이지 →"
+  },
+  "Offer page →": {
+    "ko": "오퍼 페이지 →"
+  },
+  "Dashboard →": {
+    "ko": "대시보드 →"
+  },
+  "Interactive dashboard →": {
+    "ko": "대화형 대시보드 →"
+  },
+  "Metric": {
+    "ko": "지표"
+  },
+  "Verdict": {
+    "ko": "판정"
+  },
+  "accent": {
+    "ko": "강조색"
+  },
+  "In": {
+    "ko": "입력"
+  },
+  "Out": {
+    "ko": "출력"
+  },
+  "Warn sm": {
+    "ko": "경고(소)"
+  },
+  "warn default": {
+    "ko": "기본 경고값"
+  },
+  "not sales funnel": {
+    "ko": "세일즈 퍼널이 아님"
+  },
+  "Play": {
+    "ko": "Play"
+  },
+  "Play target API": {
+    "ko": "Play 타겟 API"
+  },
+  "Planned — not live": {
+    "ko": "예정 — 미출시"
+  },
+  "Database: MySQL, PostgreSQL, MongoDB, Firebase Realtime Database, SQLite": {
+    "ko": "데이터베이스: MySQL, PostgreSQL, MongoDB, Firebase Realtime Database, SQLite"
+  },
+  "Viral Threshold (applied)": {
+    "ko": "바이럴 기준 (적용됨)"
+  },
+  "Trust / exclusions": {
+    "ko": "신뢰 / 제외 사항"
+  },
+  "Canonical:": {
+    "ko": "정식 URL:"
+  },
+  "PicBatch privacy policy — on-device batch photo processing, no data collection": {
+    "ko": "PicBatch 개인정보처리방침 — 기기 내 일괄 사진 처리, 데이터 수집 없음"
+  },
+  "Privacy Policy - PicBatch": {
+    "ko": "개인정보처리방침 - PicBatch"
+  },
+  "Sealcard privacy policy — on-device sealed photo cards, no servers, accounts, ads, or analytics": {
+    "ko": "Sealcard 개인정보처리방침 — 기기 내 봉인 포토 카드, 서버·계정·광고·분석 없음"
+  },
+  "Blog SEO Health Cron": {
+    "ko": "Blog SEO 상태 Cron"
+  },
+  "Nightly E2E Cron": {
+    "ko": "Nightly E2E Cron"
+  },
+  "WebView / Capacitor Bridge Debug": {
+    "ko": "WebView / Capacitor Bridge Debug",
+    "ja": "WebView / Capacitorブリッジのデバッグ"
+  },
+  "Longer posts raise engagement rate but collapse reach (300-400 chars: ER 1.71% / 389 views, 50-100 chars: ER 0.86% / 674 views) — 1.7x reach gap": {
+    "ko": "긴 게시물은 참여율을 높이지만 도달 범위가 줄어듦(300~400자: ER 1.71% / 389 조회, 50~100자: ER 0.86% / 674 조회) — 도달 격차 1.7배"
+  },
+  "All media types included: TEXT_POST 782, IMAGE 107, CAROUSEL_ALBUM 8, VIDEO 3 / dead rate = share under 500 views": {
+    "ko": "전체 미디어 유형 포함: TEXT_POST 782, IMAGE 107, CAROUSEL_ALBUM 8, VIDEO 3 / 데드 레이트 = 조회수 500회 미만 게시물 비율"
+  },
+  "Viral Deep Dive — view concentration": {
+    "ko": "Viral Deep Dive — 조회 집중도"
+  },
+  "6. View Concentration": {
+    "ko": "6. 조회 집중도"
+  },
+  "Time of Day": {
+    "ko": "시간대"
+  },
+  ". Formspree / Stripe only after real demand.": {
+    "ko": ". Formspree / Stripe는 실수요 발생 후에만."
+  },
+  ". Include how you use AI today (one paragraph).": {
+    "ko": ". 현재 AI 활용 방식을 포함하세요(한 문단)."
+  },
+  "1. Import locally": {
+    "ko": "1. 로컬에서 가져오기"
+  },
+  "2. Price honestly": {
+    "ko": "2. 정직하게 가격을 매긴다"
+  },
+  "+ payment-links.json": {
+    "ko": "+ payment-links.json"
+  },
+  "Card + price": {
+    "ko": "카드 + 가격"
+  },
+  "Micro SaaS MVPs": {
+    "ko": "Micro SaaS MVP"
+  },
+  "Book Logger": {
+    "ko": "Book Logger"
+  },
+  "Calorie Counter": {
+    "ko": "Calorie Counter"
+  },
+  "Collab Todo": {
+    "ko": "Collab Todo"
+  },
+  "Currency Exchange": {
+    "ko": "Currency Exchange"
+  },
+  "Expense Tracker": {
+    "ko": "Expense Tracker"
+  },
+  "Fitness Tracker": {
+    "ko": "Fitness Tracker"
+  },
+  "Image Resizer": {
+    "ko": "Image Resizer"
+  },
+  "Instant Poll": {
+    "ko": "Instant Poll"
+  },
+  "Investment Calc": {
+    "ko": "Investment Calc"
+  },
+  "JSON Formatter": {
+    "ko": "JSON Formatter"
+  },
+  "Link Bank": {
+    "ko": "Link Bank"
+  },
+  "Loan Calculator": {
+    "ko": "Loan Calculator"
+  },
+  "Markdown Hub": {
+    "ko": "Markdown Hub"
+  },
+  "Meal Planner": {
+    "ko": "Meal Planner"
+  },
+  "Movie Reviews": {
+    "ko": "Movie Reviews"
+  },
+  "Playlist Curator": {
+    "ko": "Playlist Curator"
+  },
+  "Quick Survey": {
+    "ko": "Quick Survey"
+  },
+  "RegEx Tester": {
+    "ko": "RegEx Tester"
+  },
+  "Scientific Calc": {
+    "ko": "Scientific Calc"
+  },
+  "Short URL": {
+    "ko": "Short URL"
+  },
+  "Text Analyzer": {
+    "ko": "Text Analyzer"
+  },
+  "Timer Plus": {
+    "ko": "Timer Plus"
+  },
+  "Timezone Clock": {
+    "ko": "Timezone Clock"
+  },
+  "Travel Budget": {
+    "ko": "Travel Budget"
+  },
+  "Vault Lite": {
+    "ko": "Vault Lite"
+  },
+  "Barcode Creator": {
+    "ko": "Barcode Creator"
+  },
+  "Copy-to-Clipboard": {
+    "ko": "Copy-to-Clipboard"
+  },
+  "Color Palette Gen": {
+    "ko": "Color Palette Gen"
+  },
+  "Game Leaderboard": {
+    "ko": "Game Leaderboard"
+  },
+  "QR Code Gen": {
+    "ko": "QR Code Gen"
+  },
+  "Unit Conversion": {
+    "ko": "Unit Conversion"
+  },
+  "Base64 Converter": {
+    "ko": "Base64 Converter"
+  },
+  "Monaco Editor": {
+    "ko": "Monaco Editor"
+  },
+  "말할 수 있는 사실만.": {
+    "en": "Only facts I can back up."
+  },
+  "What do I get from the $400 pilot?": {
+    "ko": "$400 Pilot을 통해 무엇을 얻을 수 있나요?",
+    "ja": "400 ドルのPilotから何が得られますか?"
+  },
+  "파일럿": {
+    "ko": "Pilot",
+    "en": "Pilot",
+    "ja": "Pilot"
+  },
+  "릴리스 주 프로덕션 파일럿": {
+    "ko": "릴리스 주 프로덕션 Pilot",
+    "ja": "リリースメインプロダクションPilot"
+  },
+  "릴리스 주 프로덕션 파일럿 — Lumos Deep": {
+    "ko": "릴리스 주 프로덕션 Pilot — Lumos Deep",
+    "ja": "リリース メイン プロダクション Pilot — Lumos Deep"
+  },
+  "에뮬레이터 그린·실기기 레드 패턴을 재현 절차와 로그 포인트로 고정합니다. Ionic/Capacitor/레거시 Cordova WebView 대상. 파일럿($400)보다 깊게, 문서+재현 키트가 산출물입니다.": {
+    "ko": "에뮬레이터 그린·실기기 레드 패턴을 재현 절차와 로그 포인트로 고정합니다. Ionic/Capacitor/레거시 Cordova WebView 대상. Pilot($400)보다 깊게, 문서+재현 키트가 산출물입니다.",
+    "ja": "エミュレータグリーン・実機赤パターンを再現手順とログポイントで固定します。 Ionic/Capacitor/レガシー Cordova WebView ターゲット。Pilot（$400）より深く、文書＋再現キットが出力物です。"
+  },
+  "글로벌 원격 ‘production firefighting’ 파일럿. $67/h 전후 mid-senior 밴드.": {
+    "ko": "글로벌 원격 ‘production firefighting’ Pilot. $67/h 전후 mid-senior 밴드.",
+    "ja": "グローバルリモート「production firefighting」Pilot。 $67/h前後のmid-seniorバンド。"
+  },
+  "스태빌라이저": {
+    "ja": "Stabilizer"
+  },
+  "Maps JS “2026-05 제거” 블로그 오독 · Play 전면 노출 차단 과장 · Cordova 아카이브 단정 · 본인 무매출 수익 코칭 · 타인 스킬 킷 재판매 · 면책 없는 TLS 서버 시공 주력화": {
+    "ja": "Maps JS「2026-05除去」ブログ誤読・Play全面露出遮断誇張・Cordovaアーカイブ断定・本人無売上収益コーチング・他人スキルキット再販・免責のないTLSサーバー施工主力化"
+  }
 }
