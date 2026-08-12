@@ -4,5 +4,6 @@
   "diag_paid_krw": "",
   "threads_report_krw": "",
   "paypal_me_base": "",
-  "note": "Public payment URLs only. Leave empty to use invoice-by-email. See PAYMENT_SETUP.md"
+  "note": "Public payment URLs only. Leave empty to use invoice-by-email. See PAYMENT_SETUP.md",
+  "todo": "A0.1 blocker: PayPal.me or Stripe Payment Link 1개 생성 후 pilot_usd 채울 것. START_TODAY.md 항목 1번 참고."
 }

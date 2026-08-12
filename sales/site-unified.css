@@ -91,6 +91,15 @@ body.ls h3 {
   color: var(--ls-text);
 }
 
+body.ls main,
+body.ls main * {
+  min-width: 0;
+}
+
+html[lang="ja"] body.ls main :where(h1, h2, h3, p, li, a, span, strong, th, td, label, button) {
+  overflow-wrap: anywhere;
+}
+
 body.ls .privacy-container strong {
   color: var(--ls-text);
 }

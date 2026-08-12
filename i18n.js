@@ -60,11 +60,11 @@ const siteTranslations = {
     en: {
         nav: {
             home: "Home",
-            sales: "サービス",
-            offers: "商品",
+            sales: "Sales",
+            offers: "Offers",
             diagnosis: "Diagnosis",
-            retainer: "保守",
-            threads: "スレッド",
+            retainer: "Retainer",
+            threads: "Threads",
             about: "About",
             projects: "Projects",
             contact: "Contact",
@@ -176,6 +176,53 @@ const siteTranslations = {
 };
 
 let siteCurrentLang = localStorage.getItem('language') || 'ko';
+let sitePageTranslations = null;
+const siteOriginalText = new WeakMap();
+const siteOriginalAttributes = new WeakMap();
+const siteOriginalTitle = document.title;
+
+function getSitePageKey() {
+    const path = window.location.pathname;
+    if (path === '/') return '/index.html';
+    if (path.endsWith('/')) return `${path}index.html`;
+    return path;
+}
+
+function translateSitePage(lang) {
+    const translations = sitePageTranslations?.[getSitePageKey()]?.[lang];
+    if (!translations) return;
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let node = walker.nextNode();
+    while (node) {
+        const parent = node.parentElement;
+        if (!siteOriginalText.has(node)) siteOriginalText.set(node, node.textContent);
+        const original = siteOriginalText.get(node);
+        const source = original?.trim().replace(/\s+/g, ' ');
+        if (source && parent && !parent.closest('script, style, code, pre, [data-i18n], .ls-nav, .ls-foot, .language-toolbar')) {
+            const translated = translations[source];
+            if (translated) node.textContent = translated;
+        }
+        node = walker.nextNode();
+    }
+
+    for (const element of document.querySelectorAll('[placeholder], [title], [aria-label]')) {
+        if (!siteOriginalAttributes.has(element)) siteOriginalAttributes.set(element, {});
+        const originals = siteOriginalAttributes.get(element);
+        for (const attribute of ['placeholder', 'title', 'aria-label']) {
+            if (!(attribute in originals)) originals[attribute] = element.getAttribute(attribute);
+            const source = originals[attribute];
+            if (source && translations[source]) element.setAttribute(attribute, translations[source]);
+        }
+    }
+    for (const meta of document.querySelectorAll('meta[name="description"], meta[property="og:title"], meta[property="og:description"], meta[name="twitter:title"], meta[name="twitter:description"]')) {
+        const source = meta.getAttribute('content');
+        if (source && translations[source]) meta.setAttribute('content', translations[source]);
+    }
+    if (translations[siteOriginalTitle]) document.title = translations[siteOriginalTitle];
+}
+
+const siteObserver = new MutationObserver(() => translateSitePage(siteCurrentLang));
 
 function setSiteLanguage(lang) {
     siteCurrentLang = siteTranslations[lang] ? lang : 'ko';
@@ -212,9 +259,10 @@ function setSiteLanguage(lang) {
     
     document.documentElement.lang = siteCurrentLang;
     document.documentElement.dataset.siteLang = siteCurrentLang;
+    translateSitePage(siteCurrentLang);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     if (!document.querySelector('.language-toolbar')) {
         const toolbar = document.createElement('div');
         const selector = document.createElement('div');
@@ -234,6 +282,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setSiteLanguage(siteCurrentLang);
+    fetch('/i18n-content.json')
+        .then(response => response.ok ? response.json() : null)
+        .then(content => {
+            sitePageTranslations = content;
+            setSiteLanguage(siteCurrentLang);
+            document.documentElement.dataset.i18nReady = 'true';
+            siteObserver.observe(document.body, { childList: true, subtree: true });
+        });
     
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
