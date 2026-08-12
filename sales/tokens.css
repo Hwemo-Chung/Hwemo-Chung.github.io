@@ -1,46 +1,46 @@
 /**
  * Lumos Sales Design Tokens
- * Brand: dark field + blue action (sales) + gold warn (deadline)
- * Do not invent colors on product pages — extend tokens here first.
+ * Source: shadcn/ui default neutral theme.
+ * Product pages do not introduce brand colors; semantic/data colors are functional only.
  */
 :root {
   /* Surfaces */
-  --ls-bg: #0b0d10;
-  --ls-bg-elevated: #10151c;
-  --ls-card: #141a22;
-  --ls-card-2: #1a222d;
+  --ls-bg: oklch(1 0 0);
+  --ls-bg-elevated: oklch(0.97 0 0);
+  --ls-card: oklch(1 0 0);
+  --ls-card-2: oklch(0.97 0 0);
 
   /* Text */
-  --ls-text: #e8eef6;
-  --ls-text-lead: #d7e2f0;
-  --ls-muted: #93a0b4;
-  --ls-faint: #6b7a90;
+  --ls-text: oklch(0.145 0 0);
+  --ls-text-lead: oklch(0.205 0 0);
+  --ls-muted: oklch(0.556 0 0);
+  --ls-faint: oklch(0.708 0 0);
 
   /* Brand actions */
-  --ls-accent: #4d9fff;
-  --ls-accent-hover: #6eb0ff;
-  --ls-accent-ink: #041018;
-  --ls-accent-soft: rgba(77, 159, 255, 0.12);
-  --ls-link: #9ec1ff;
-  --ls-link-hover: #c5dbff;
+  --ls-accent: oklch(0.205 0 0);
+  --ls-accent-hover: oklch(0.269 0 0);
+  --ls-accent-ink: oklch(0.985 0 0);
+  --ls-accent-soft: oklch(0.97 0 0);
+  --ls-link: oklch(0.205 0 0);
+  --ls-link-hover: oklch(0.145 0 0);
 
   /* Semantic */
-  --ls-ok: #5eead4;
-  --ls-warn: #fbbf24;
-  --ls-warn-soft: rgba(251, 191, 36, 0.07);
-  --ls-danger: #f87171;
-  --ls-code: #cfe3ff;
+  --ls-ok: oklch(0.52 0.12 145);
+  --ls-warn: oklch(0.62 0.15 70);
+  --ls-warn-soft: oklch(0.97 0.02 85);
+  --ls-danger: oklch(0.577 0.245 27.325);
+  --ls-code: oklch(0.205 0 0);
 
   /* Lines & chrome */
-  --ls-border: #2a384c;
-  --ls-border-strong: #3d516b;
-  --ls-glow: #13233a;
+  --ls-border: oklch(0.922 0 0);
+  --ls-border-strong: oklch(0.708 0 0);
+  --ls-glow: transparent;
 
   /* Layout */
   --ls-wrap: 760px;
   --ls-wrap-wide: 960px;
-  --ls-radius: 14px;
-  --ls-radius-sm: 10px;
+  --ls-radius: 0.625rem;
+  --ls-radius-sm: 0.5rem;
   --ls-radius-pill: 999px;
   --ls-space-1: 4px;
   --ls-space-2: 8px;
@@ -65,41 +65,4 @@
   --ls-z-nav: 40;
   --ls-z-sticky: 50;
   --ls-z-skip: 100;
-}
-
-/* —— Product themes (override accent only) —— */
-body.ls.ls-theme-gold {
-  --ls-accent: #fbbf24;
-  --ls-accent-hover: #fcd34d;
-  --ls-accent-ink: #1a1a1a;
-  --ls-accent-soft: rgba(251, 191, 36, 0.12);
-  --ls-glow: rgba(251, 191, 36, 0.12);
-  --ls-link: #fcd34d;
-  --ls-link-hover: #fde68a;
-  --ls-ok: #4ade80;
-  --ls-bg: #121212;
-  --ls-card: #1e1e1e;
-  --ls-border: #3a3a3a;
-  --ls-muted: #b8b8b8;
-  --ls-text: #f5f5f5;
-  background:
-    radial-gradient(ellipse at top, rgba(251, 191, 36, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(251, 191, 36, 0.04) 0%, transparent 50%),
-    var(--ls-bg);
-}
-
-body.ls.ls-theme-burn {
-  --ls-accent: #ff6a3d;
-  --ls-accent-hover: #ff855c;
-  --ls-accent-ink: #1a0803;
-  --ls-accent-soft: rgba(255, 106, 61, 0.12);
-  --ls-glow: #1a100c;
-  --ls-link: #ffb199;
-  --ls-link-hover: #ffd0c2;
-  --ls-bg: #07090c;
-  --ls-card: #12161d;
-  --ls-border: #243041;
-  background:
-    radial-gradient(900px 420px at 10% -10%, #2a1810 0%, transparent 55%),
-    var(--ls-bg);
 }

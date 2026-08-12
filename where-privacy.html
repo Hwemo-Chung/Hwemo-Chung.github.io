@@ -9,16 +9,10 @@
     <meta name="description" content="지금어디(where) 개인정보처리방침 — 기기 내 GPS 지하철 알람, 서버 전송 없음">
     <meta name="author" content="Hwemo Chung">
     <link rel="canonical" href="https://hwemo-chung.github.io/where-privacy.html">
+    <link rel="stylesheet" href="sales/tokens.css">
+    <link rel="stylesheet" href="sales/components.css">
 
     <style>
-        :root { color-scheme: light dark; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem 4rem;
-            line-height: 1.8;
-        }
         h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
         h2 { margin-top: 2.25rem; font-size: 1.2rem; }
         h3 { margin-top: 1.5rem; font-size: 1.05rem; }
@@ -51,9 +45,25 @@
             margin: 1rem 0 1.5rem;
         }
     </style>
+  <link rel="stylesheet" href="sales/site-unified.css" />
 </head>
 
-<body>
+<body class="ls">
+    <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+    <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
+        <div class="ls-nav__inner">
+            <a class="ls-brand" href="/">Lumos</a>
+            <ul>
+                <li><a href="/" data-i18n="nav.home"></a></li>
+                <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+                <li><a href="/offers/" data-i18n="nav.offers"></a></li>
+                <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+                <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+                <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <main id="main" class="ls-wrap ls-policy">
     <p class="lang-switch">
         <a href="#ko">한국어</a>
         <a href="#en">English</a>
@@ -233,6 +243,59 @@
             <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
         </p>
     </section>
+
+    <section id="ja">
+        <h1>プライバシーポリシー — Jigeumeodi（지금어디）</h1>
+        <p class="meta">
+            アプリ: Jigeumeodi / 지금어디（<code>com.subway.where</code>）<br>
+            最終更新日: 2026-07-13<br>
+            提供者: Hwemo Chung
+        </p>
+        <div class="short">
+            <strong>要約:</strong> 位置情報とアラーム設定は<strong>端末上だけ</strong>で処理されます。
+            アカウント、サーバー送信、広告、分析 SDK はありません。
+        </div>
+        <h2>1. 概要</h2>
+        <p>Jigeumeodi は端末の位置情報を利用し、選択した地下鉄駅への接近・到着を通知する Android アプリです。処理は端末上で行われ、位置座標やアラーム設定を受信するバックエンドは運用していません。</p>
+        <h2>2. 利用するデータ</h2>
+        <table>
+            <thead><tr><th>データ</th><th>目的</th><th>保存</th><th>第三者提供</th></tr></thead>
+            <tbody>
+                <tr><td>正確な位置情報（GPS など）</td><td>駅・区間の判定、到着通知</td><td>追跡中のメモリで一時処理</td><td>なし</td></tr>
+                <tr><td>アラーム設定（路線、駅、通知時点）</td><td>保存したアラームの維持</td><td>端末の SharedPreferences</td><td>なし</td></tr>
+                <tr><td>言語設定</td><td>UI の言語</td><td>端末内</td><td>なし</td></tr>
+                <tr><td>通知権限の状態</td><td>到着・停車駅前の通知</td><td>OS が管理</td><td>なし</td></tr>
+            </tbody>
+        </table>
+        <p>アカウント、氏名、アプリ内メール、連絡先、写真、広告 ID、分析・行動ログ、決済情報は収集しません。</p>
+        <h2>3. 権限</h2>
+        <ul>
+            <li><strong>位置情報:</strong> 追跡とアラームに必要です。</li>
+            <li><strong>通知:</strong> アラームの表示に必要です。</li>
+            <li><strong>フォアグラウンド位置情報サービス:</strong> 乗車中の追跡を継続し、実行中の通知を表示します。</li>
+        </ul>
+        <h2>4. 保管と削除</h2>
+        <p>位置情報は接近判定にだけ一時利用します。アプリの削除またはアプリデータの消去により端末内の設定が削除されます。座標を保管するクラウドストレージは運用していません。</p>
+        <h2>5. 第三者サービス</h2>
+        <p>端末上で Google Play 開発者サービスの位置情報 API を利用します。広告、分析、クラッシュレポート SDK は含まれていません。</p>
+        <h2>6. 子ども</h2>
+        <p>13歳未満を対象としておらず、子どもの個人データを意図的に収集しません。</p>
+        <h2>7. 変更</h2>
+        <p>本ポリシーを変更する場合、このページの「最終更新日」を更新します。</p>
+        <h2>8. お問い合わせ</h2>
+        <p>本ポリシーに関するお問い合わせ: <a href="mailto:tolaria@naver.com">tolaria@naver.com</a></p>
+    </section>
+    </main>
+    <footer class="ls-foot">
+        <nav data-i18n-aria-label="common.footerNav">
+            <a href="/" data-i18n="nav.home"></a><a href="/sales/" data-i18n="nav.sales"></a><a href="/offers/" data-i18n="nav.offers"></a>
+            <a href="/cordova.html" data-i18n="nav.diagnosis"></a><a href="/retainer.html" data-i18n="nav.retainer"></a>
+            <a href="/threads-analyzer.html" data-i18n="nav.threads"></a><a href="/pp.html" data-i18n="footer.privacy"></a>
+            <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+      <p data-i18n="common.disclaimer"></p>
+    </footer>
+    <script src="/i18n.js"></script>
 </body>
 
 </html>

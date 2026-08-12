@@ -33,9 +33,11 @@ body.ls {
     var(--ls-bg);
   color: var(--ls-text);
   line-height: var(--ls-lh);
-  padding-bottom: calc(88px + var(--ls-safe-bottom));
+  padding: 0 0 calc(88px + var(--ls-safe-bottom));
   word-break: keep-all;
   -webkit-font-smoothing: antialiased;
+  max-width: none;
+  min-width: 0;
 }
 
 body.ls a {
@@ -83,15 +85,20 @@ body.ls :focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  min-width: 0;
 }
 .ls-nav--wide .ls-nav__inner {
   max-width: var(--ls-wrap-wide);
 }
 .ls-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-weight: 700;
   color: var(--ls-text);
   text-decoration: none;
   letter-spacing: -0.02em;
+  flex: 0 0 auto;
 }
 .ls-nav ul {
   list-style: none;
@@ -101,6 +108,7 @@ body.ls :focus-visible {
   flex-wrap: wrap;
   gap: 14px;
   font-size: 0.9rem;
+  min-width: 0;
 }
 .ls-nav a {
   color: var(--ls-muted);
@@ -113,12 +121,85 @@ body.ls :focus-visible {
 .ls-nav a[aria-current="page"] {
   font-weight: 600;
 }
+.language-selector {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--ls-space-2);
+}
+.lang-btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--ls-space-2) var(--ls-space-3);
+  border: 1px solid var(--ls-border);
+  border-radius: var(--ls-radius-sm);
+  background: transparent;
+  color: var(--ls-muted);
+  font: 600 0.82rem/1 var(--ls-font);
+  cursor: pointer;
+}
+.lang-btn:hover {
+  border-color: var(--ls-border-strong);
+  color: var(--ls-text);
+}
+.lang-btn.active {
+  border-color: var(--ls-accent);
+  background: var(--ls-accent);
+  color: var(--ls-accent-ink);
+}
+
+@media (max-width: 640px) {
+  .ls-nav__inner {
+    flex-wrap: wrap;
+    padding: 8px 16px;
+  }
+  .ls-nav ul {
+    order: 3;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .ls-nav ul::-webkit-scrollbar {
+    display: none;
+  }
+  .ls-nav li,
+  .ls-nav li a {
+    white-space: nowrap;
+  }
+  .ls-nav__inner > .language-selector {
+    margin-left: auto;
+  }
+}
 
 /* —— Layout —— */
 .ls-wrap {
   max-width: var(--ls-wrap);
   margin: 0 auto;
   padding: 36px 20px 40px;
+}
+.ls-wrap > * {
+  min-width: 0;
+}
+.ls-wrap h1,
+.ls-wrap h2,
+.ls-wrap h3 {
+  text-wrap: balance;
+}
+.ls-wrap p,
+.ls-wrap li {
+  text-wrap: pretty;
+}
+
+.ls-policy {
+  overflow-wrap: anywhere;
+}
+.ls-policy table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .ls-wrap--wide {
   max-width: var(--ls-wrap-wide);
@@ -541,6 +622,13 @@ ul.ls-trust--x li::before {
 }
 .ls-foot a {
   color: var(--ls-muted);
+}
+body.ls > .ls-foot {
+  max-width: var(--ls-wrap);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 /* —— Sticky CTA —— */

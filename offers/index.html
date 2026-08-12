@@ -6,22 +6,24 @@
   <title>Lumos 오퍼 — 심화 · 자동화 · 소셜 · 모바일</title>
   <meta name="description" content="Angular 마이그레이션, RxJS, 성능, WebView, 인증, 오프라인 동기 등 심화 기술 오퍼와 자동화·소셜·모바일 상품." />
   <link rel="canonical" href="https://hwemo-chung.github.io/offers/" />
-  <meta name="theme-color" content="#0b0d10" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="stylesheet" href="../sales/tokens.css" />
   <link rel="stylesheet" href="../sales/components.css" />
   <link rel="stylesheet" href="../sales/product-extras.css" />
+  <link rel="stylesheet" href="../sales/site-unified.css" />
 </head>
 <body class="ls">
-  <a class="ls-skip" href="#main">본문</a>
-  <nav class="ls-nav ls-nav--wide">
+  <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
     <div class="ls-nav__inner">
-      <a class="ls-brand" href="../index.html">Lumos</a>
+      <a class="ls-brand" href="/">Lumos</a>
       <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../sales/">Sales</a></li>
-        <li><a href="index.html" aria-current="page">Offers</a></li>
-        <li><a href="#deep">Deep</a></li>
-        <li><a href="../retainer.html">Retainer</a></li>
+        <li><a href="/" data-i18n="nav.home"></a></li>
+        <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+        <li><a href="/offers/" aria-current="page" data-i18n="nav.offers"></a></li>
+        <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+        <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+        <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
       </ul>
     </div>
   </nav>
@@ -84,12 +86,19 @@
 <article class="ls-card"><span class="ls-card__tag">코어</span><div class="ls-kicker">iosgate</div><strong class="ls-card__title">iOS 26 SDK 업로드 봉쇄 진단</strong><p class="ls-muted" style="margin:0 0 8px">Xcode 26 요건에 막힌 하이브리드 앱 — 막힌 지점과 해소 밴드만 정리</p><div class="ls-price" style="font-size:1.05rem">₩150,000 ~ ₩300,000</div><p class="ls-fine">납기 2~4영업일</p><div class="ls-cta" style="margin-top:10px"><a class="ls-btn ls-btn--primary ls-btn--sm" href="iosgate.html">상세</a><a class="ls-btn ls-btn--ghost ls-btn--sm" href="mailto:tolaria@naver.com?subject=iOS%2026%20SDK%20%EC%97%85%EB%A1%9C%EB%93%9C%20%EB%B4%89%EC%87%84%20%EC%A7%84%EB%8B%A8%20%E2%80%94%20%EA%B5%AC%EB%A7%A4/%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20iOS%2026%20SDK%20%EC%97%85%EB%A1%9C%EB%93%9C%20%EB%B4%89%EC%87%84%20%EC%A7%84%EB%8B%A8%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/iosgate.html%0A%0ACompany%3A%0AProblem%3A%0A">메일 문의</a></div></article></div>
 
     <footer class="ls-foot">
-      <nav>
-        <a href="../sales/">Sales hub</a>
+      <nav data-i18n-aria-label="common.footerNav">
+        <a href="/" data-i18n="nav.home"></a>
+        <a href="/sales/" data-i18n="nav.sales"></a>
+        <a href="/offers/" data-i18n="nav.offers"></a>
+        <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+        <a href="/retainer.html" data-i18n="nav.retainer"></a>
+        <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+        <a href="/pp.html" data-i18n="footer.privacy"></a>
         <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
       </nav>
-      <p>Deep 12 · Social 10 · Auto 10 · Core 10</p>
+      <p data-i18n="common.disclaimer"></p>
     </footer>
   </main>
+    <script src="/i18n.js"></script>
 </body>
 </html>

@@ -195,7 +195,7 @@ ul.ls-dash b {
 .ls-mono {
   font-family: var(--ls-font-mono);
   font-size: 0.85rem;
-  color: #c6d4e4;
+  color: var(--ls-code);
 }
 
 /* Excel-like preview tables (threads sample) */

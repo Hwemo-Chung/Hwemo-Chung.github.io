@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Picker - Lumos</title>
+    <link rel="stylesheet" href="sales/tokens.css">
+    <link rel="stylesheet" href="sales/components.css">
     <style>
         * {
             margin: 0;
@@ -14,37 +16,26 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--ls-bg);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            padding: 0;
             position: relative;
             transition: background 1.5s ease;
         }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--selected-color, #667eea) 0%, var(--selected-color-dark, #764ba2) 100%);
-            opacity: 0.3;
-            transition: all 1.5s ease;
-            pointer-events: none;
+        .tool-stage {
+            display: grid;
+            min-height: calc(100dvh - 70px);
+            place-items: center;
+            padding: 32px 16px;
         }
 
         .app-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            background: var(--ls-card);
+            border: 1px solid var(--ls-border);
+            border-radius: var(--ls-radius);
             width: 100%;
             max-width: 440px;
-            padding: 40px;
+            padding: clamp(20px, 6vw, 40px);
             animation: slideUp 0.5s ease-out;
             position: relative;
             z-index: 1;
@@ -70,21 +61,19 @@
         .app-title {
             font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--ls-text);
             margin-bottom: 8px;
         }
 
         .app-subtitle {
-            color: #8b92a9;
+            color: var(--ls-muted);
             font-size: 14px;
         }
 
         .color-wheel-container {
             position: relative;
-            width: 280px;
-            height: 280px;
+            width: min(280px, 100%);
+            aspect-ratio: 1;
             margin: 0 auto 30px;
         }
 
@@ -122,16 +111,16 @@
         .slider-label span {
             font-size: 14px;
             font-weight: 600;
-            color: #4a5568;
+            color: var(--ls-muted);
         }
 
         .slider-value {
-            background: #f0f2f5;
+            background: var(--ls-bg-elevated);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
-            color: #667eea;
+            color: var(--ls-text);
         }
 
         input[type="range"] {
@@ -149,7 +138,7 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background: white;
+            background: var(--ls-text);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             transition: all 0.2s ease;
@@ -160,8 +149,9 @@
         }
 
         .selected-color {
-            background: white;
-            border-radius: 20px;
+            background: var(--ls-card-2);
+            border: 1px solid var(--ls-border);
+            border-radius: var(--ls-radius);
             padding: 20px;
             margin-bottom: 25px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -189,7 +179,7 @@
 
         .value-label {
             font-size: 11px;
-            color: #8b92a9;
+            color: var(--ls-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 6px;
@@ -198,7 +188,7 @@
         .value-input {
             width: 100%;
             padding: 10px;
-            border: 2px solid #f0f2f5;
+            border: 1px solid var(--ls-border);
             border-radius: 10px;
             font-size: 13px;
             font-weight: 600;
@@ -209,8 +199,8 @@
 
         .value-input:focus {
             outline: none;
-            border-color: #667eea;
-            background: #f8f9ff;
+            border-color: var(--ls-accent);
+            background: var(--ls-bg-elevated);
         }
 
         .color-history {
@@ -220,7 +210,7 @@
         .history-title {
             font-size: 14px;
             font-weight: 600;
-            color: #4a5568;
+            color: var(--ls-muted);
             margin-bottom: 12px;
         }
 
@@ -284,22 +274,21 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--ls-accent);
+            color: var(--ls-accent-ink);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            filter: brightness(1.06);
         }
 
         .btn-secondary {
-            background: #f0f2f5;
-            color: #4a5568;
+            background: var(--ls-bg-elevated);
+            color: var(--ls-text);
         }
 
         .btn-secondary:hover {
-            background: #e2e8f0;
+            border-color: var(--ls-border-strong);
         }
 
         .toast {
@@ -307,8 +296,8 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: #2d3748;
-            color: white;
+            background: var(--ls-card-2);
+            color: var(--ls-text);
             padding: 12px 24px;
             border-radius: 30px;
             font-size: 14px;
@@ -357,11 +346,33 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8998804759171463"
         crossorigin="anonymous"></script>
         <meta name="google-adsense-account" content="ca-pub-8998804759171463">
+  <link rel="stylesheet" href="sales/site-unified.css" />
 </head>
 
-<body>
-    <a href="index.html" class="back-link" data-i18n="colorpicker.back">홈으로 돌아가기</a>
-    <div class="app-container">
+<body class="ls page-color-picker">
+    <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+    <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
+        <div class="ls-nav__inner">
+            <a class="ls-brand" href="/">Lumos</a>
+            <ul>
+                <li><a href="/" data-i18n="nav.home"></a></li>
+                <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+                <li><a href="/offers/" data-i18n="nav.offers"></a></li>
+                <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+                <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+                <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="language-toolbar" data-i18n-aria-label="common.language">
+        <div class="language-selector">
+            <button class="lang-btn active" type="button" data-lang="ko">한</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ja">日</button>
+        </div>
+    </div>
+    <main id="main" class="tool-stage">
+      <div class="app-container">
         <div class="app-header">
             <h1 class="app-title" data-i18n="colorpicker.title">Color Picker</h1>
             <p class="app-subtitle" data-i18n="colorpicker.subtitle">완벽한 색상을 선택하세요</p>
@@ -405,13 +416,27 @@
 
         <div class="action-buttons">
             <button class="btn btn-primary" onclick="copyToClipboard()">
-                <span>📋</span> <span data-i18n="colorpicker.copy">HEX 복사</span>
+                <span data-i18n="colorpicker.copy">HEX 복사</span>
             </button>
             <button class="btn btn-secondary" onclick="randomColor()">
-                <span>🎲</span> <span data-i18n="colorpicker.random">랜덤</span>
+                <span data-i18n="colorpicker.random">랜덤</span>
             </button>
         </div>
-    </div>
+      </div>
+    </main>
+    <footer class="ls-foot">
+        <nav data-i18n-aria-label="common.footerNav">
+            <a href="/" data-i18n="nav.home"></a>
+            <a href="/sales/" data-i18n="nav.sales"></a>
+            <a href="/offers/" data-i18n="nav.offers"></a>
+            <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+            <a href="/retainer.html" data-i18n="nav.retainer"></a>
+            <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+            <a href="/pp.html" data-i18n="footer.privacy"></a>
+            <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+        </nav>
+        <p data-i18n="common.disclaimer"></p>
+    </footer>
 
     <div class="toast" id="toast"></div>
 
@@ -462,13 +487,14 @@
         let currentLang = localStorage.getItem('language') || 'ko';
 
         function setLanguage(lang) {
-            currentLang = lang;
-            document.documentElement.lang = lang;
+            currentLang = translations[lang] ? lang : 'ko';
+            localStorage.setItem('language', currentLang);
+            document.documentElement.lang = currentLang;
 
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 const keys = key.split('.');
-                let translation = translations[lang];
+                let translation = translations[currentLang];
 
                 for (const k of keys) {
                     translation = translation?.[k];
@@ -478,11 +504,18 @@
                     element.textContent = translation;
                 }
             });
+
+            document.querySelectorAll('.lang-btn').forEach(button => {
+                button.classList.toggle('active', button.dataset.lang === currentLang);
+            });
         }
 
         // Initialize language on load
         document.addEventListener('DOMContentLoaded', () => {
             setLanguage(currentLang);
+            document.querySelectorAll('.lang-btn').forEach(button => {
+                button.addEventListener('click', () => setLanguage(button.dataset.lang));
+            });
         });
     </script>
     <script>
@@ -502,7 +535,7 @@
         const brightnessValue = document.querySelector('.slider-value');
 
         function initColorWheel() {
-            const size = 280;
+            const size = Math.min(280, Math.floor(document.querySelector('.color-wheel-container').clientWidth));
             canvas.width = size;
             canvas.height = size;
             const centerX = size / 2;
@@ -556,11 +589,6 @@
             rgbValue.value = `${rgb.r}, ${rgb.g}, ${rgb.b}`;
             hslValue.value = `${Math.round(currentColor.h)}°, ${Math.round(currentColor.s)}%, ${Math.round(adjustedL)}%`;
 
-            // Update background with selected color
-            const darkerRgb = hslToRgb(currentColor.h, currentColor.s, Math.max(adjustedL - 20, 10));
-            const darkerHex = rgbToHex(darkerRgb.r, darkerRgb.g, darkerRgb.b);
-            document.body.style.setProperty('--selected-color', hex);
-            document.body.style.setProperty('--selected-color-dark', darkerHex);
         }
 
         canvas.addEventListener('click', (e) => {
@@ -726,6 +754,7 @@
         updateColor();
         addToHistory();
     </script>
+    <script src="/i18n.js"></script>
 </body>
 
 </html>

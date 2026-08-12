@@ -10,65 +10,52 @@
     <meta name="keywords" content="개인정보처리방침, 이용약관, privacy policy, terms">
     <meta name="author" content="Hwemo Chung">
     
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="sales/tokens.css">
+    <link rel="stylesheet" href="sales/components.css">
     <style>
         .privacy-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
-            background: rgba(30, 30, 30, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            margin-top: 2rem;
+            padding: 2rem 0;
         }
-        
         .privacy-container h1 {
-            color: var(--accent);
+            color: var(--ls-accent);
             margin-bottom: 2rem;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
         }
-        
         .privacy-container strong {
-            color: #f0c674;
+            color: var(--ls-warn);
             display: block;
             margin-top: 2.5rem;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
-        
         .privacy-container p {
-            color: var(--text-secondary);
+            color: var(--ls-muted);
             margin-bottom: 1rem;
             line-height: 1.8;
         }
-        
         .privacy-container ul {
             padding-left: 1.5rem;
             margin-bottom: 1rem;
         }
-        
         .privacy-container li {
-            color: var(--text-secondary);
+            color: var(--ls-muted);
             margin-bottom: 0.5rem;
             line-height: 1.8;
         }
-        
         .privacy-container a {
-            color: #667eea;
+            color: var(--ls-link);
             text-decoration: none;
-            transition: color 0.3s ease;
         }
-        
         .privacy-container a:hover {
-            color: #764ba2;
+            color: var(--ls-link-hover);
             text-decoration: underline;
         }
-        
         .privacy-container hr {
             margin: 3rem 0;
             border: none;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid var(--ls-border);
         }
     </style>
     
@@ -79,34 +66,33 @@
         gtag('js', new Date());
         gtag('config', 'G-L16K8WDDBP');
     </script>
+  <link rel="stylesheet" href="sales/site-unified.css" />
 </head>
 
-<body>
-    <header>
-        <nav>
-            <div class="logo">Lumos</div>
-            <button class="menu-toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+<body class="ls">
+    <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+    <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
+        <div class="ls-nav__inner">
+            <a class="ls-brand" href="/">Lumos</a>
             <ul>
-                <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
-                <li><a href="index.html#projects" data-i18n="nav.projects">Projects</a></li>
-                <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
-                <li><a href="color-picker.html" data-i18n="nav.colorpicker">Color Picker</a></li>
-                <li><a href="ads.html" data-i18n="nav.ads">Ads</a></li>
-                <li><a href="pp.html" class="active" data-i18n="nav.privacy">Privacy Policy</a></li>
+                <li><a href="/" data-i18n="nav.home"></a></li>
+                <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+                <li><a href="/offers/" data-i18n="nav.offers"></a></li>
+                <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+                <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+                <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
             </ul>
-            <div class="language-selector">
-                <button class="lang-btn active" data-lang="ko">한</button>
-                <button class="lang-btn" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="ja">日</button>
-            </div>
-        </nav>
-    </header>
-    
-    <main>
+        </div>
+    </nav>
+    <div class="language-toolbar" data-i18n-aria-label="common.language">
+        <div class="language-selector">
+            <button class="lang-btn active" type="button" data-lang="ko">한</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ja">日</button>
+        </div>
+    </div>
+
+    <main id="main" class="ls-wrap">
         <div class="privacy-container">
             <h1 data-i18n="title">개인정보처리방침</h1>
             
@@ -264,8 +250,22 @@
             <p data-i18n="terms-contact-desc">If you have any questions or suggestions about the Terms and Conditions, please do not hesitate to contact the
                 Service Provider at tolaria@naver.com.</p>
         </div>
+
+        <footer class="ls-foot">
+            <nav data-i18n-aria-label="common.footerNav">
+                <a href="/" data-i18n="nav.home"></a>
+                <a href="/sales/" data-i18n="nav.sales"></a>
+                <a href="/offers/" data-i18n="nav.offers"></a>
+                <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+                <a href="/retainer.html" data-i18n="nav.retainer"></a>
+                <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+                <a href="/pp.html" data-i18n="footer.privacy"></a>
+                <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+            </nav>
+            <p data-i18n="common.disclaimer"></p>
+        </footer>
     </main>
-    
+
     <script src="i18n.js"></script>
     <script>
         const ppTranslations = {
@@ -430,24 +430,9 @@
             }
         };
         
-        Object.assign(translations, ppTranslations);
-        
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('nav ul');
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-            });
-            
-            document.addEventListener('click', (e) => {
-                if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                    navMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                }
-            });
-        }
+        Object.entries(ppTranslations).forEach(([lang, values]) => {
+            Object.assign(siteTranslations[lang], values);
+        });
     </script>
 </body>
 

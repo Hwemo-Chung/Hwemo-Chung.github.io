@@ -29,7 +29,9 @@
     <meta name="googlebot" content="index, follow">
 
     <!-- 스타일시트 -->
+    <link rel="stylesheet" href="sales/tokens.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sales/components.css">
 
     <!-- 스키마 마크업 -->
     <script type="application/ld+json">
@@ -57,40 +59,33 @@
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8998804759171463"
         crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="sales/site-unified.css" />
 </head>
 
-<body>
-    <header>
-        <nav>
-            <div class="logo">Lumos</div>
-            <button class="menu-toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+<body class="ls page-home">
+    <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+    <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
+        <div class="ls-nav__inner">
+            <a class="ls-brand" href="/">Lumos</a>
             <ul>
-                <li><a href="#home" data-i18n="nav.home">Home</a></li>
-                <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-                <li><a href="sales/">Sales</a></li>
-                <li><a href="offers/">Offers</a></li>
-                <li><a href="cordova.html">레거시 앱 진단</a></li>
-                <li><a href="burnline.html">Burnline</a></li>
-                <li><a href="retainer.html">Retainer</a></li>
-                <li><a href="micro-saas-mvps/">Micro SaaS</a></li>
-                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-                <li><a href="color-picker.html" data-i18n="nav.colorpicker">Color Picker</a></li>
-                <li><a href="ads.html" data-i18n="nav.ads">Ads</a></li>
-                <li><a href="pp.html" data-i18n="nav.privacy">Privacy Policy</a></li>
+                <li><a href="/" aria-current="page" data-i18n="nav.home"></a></li>
+                <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+                <li><a href="/offers/" data-i18n="nav.offers"></a></li>
+                <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+                <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+                <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
             </ul>
-            <div class="language-selector">
-                <button class="lang-btn active" type="button" data-lang="ko">한</button>
-                <button class="lang-btn" type="button" data-lang="en">EN</button>
-                <button class="lang-btn" type="button" data-lang="ja">日</button>
-            </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+    <div class="language-toolbar" data-i18n-aria-label="common.language">
+        <div class="language-selector">
+            <button class="lang-btn active" type="button" data-lang="ko">한</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ja">日</button>
+        </div>
+    </div>
 
-    <main>
+    <main id="main" style="margin-top:0">
         <section id="home" class="hero">
             <div class="candle-container">
                 <h1 class="candle-text">
@@ -281,8 +276,18 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2003 Lumos. All rights reserved.</p>
+    <footer class="ls-foot">
+        <nav data-i18n-aria-label="common.footerNav">
+            <a href="/" data-i18n="nav.home"></a>
+            <a href="/sales/" data-i18n="nav.sales"></a>
+            <a href="/offers/" data-i18n="nav.offers"></a>
+            <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+            <a href="/retainer.html" data-i18n="nav.retainer"></a>
+            <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+            <a href="/pp.html" data-i18n="footer.privacy"></a>
+            <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+        </nav>
+        <p data-i18n="common.disclaimer"></p>
     </footer>
     <script src="i18n.js"></script>
 </body>

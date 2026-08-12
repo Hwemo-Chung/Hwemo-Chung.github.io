@@ -6,21 +6,24 @@
   <title>번들·런타임 성능 심층 분석 — Lumos Deep</title>
   <meta name="description" content="초기 로드·메인 스레드·청크 전략을 수치로 분해 · ₩600,000 ~ ₩1,500,000 · 1주" />
   <link rel="canonical" href="https://hwemo-chung.github.io/offers/deep-bundle-perf.html" />
-  <meta name="theme-color" content="#0b0d10" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="stylesheet" href="../sales/tokens.css" />
   <link rel="stylesheet" href="../sales/components.css" />
   <link rel="stylesheet" href="../sales/product-extras.css" />
+  <link rel="stylesheet" href="../sales/site-unified.css" />
 </head>
 <body class="ls">
-  <a class="ls-skip" href="#main">본문</a>
-  <nav class="ls-nav">
+  <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
     <div class="ls-nav__inner">
-      <a class="ls-brand" href="../index.html">Lumos</a>
+      <a class="ls-brand" href="/">Lumos</a>
       <ul>
-        <li><a href="index.html">Offers</a></li>
-        <li><a href="index.html#deep">Deep</a></li>
-        <li><a href="../sales/">Sales</a></li>
-        <li><a href="../retainer.html">Retainer</a></li>
+        <li><a href="/" data-i18n="nav.home"></a></li>
+        <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+        <li><a href="/offers/" aria-current="page" data-i18n="nav.offers"></a></li>
+        <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+        <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+        <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
       </ul>
     </div>
   </nav>
@@ -60,10 +63,17 @@
       <a class="ls-btn ls-btn--ghost" href="index.html#deep">심화 목록</a>
     </div>
     <footer class="ls-foot">
-      <nav>
-        <a href="index.html">Offers</a>
+      <nav data-i18n-aria-label="common.footerNav">
+        <a href="/" data-i18n="nav.home"></a>
+        <a href="/sales/" data-i18n="nav.sales"></a>
+        <a href="/offers/" data-i18n="nav.offers"></a>
+        <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+        <a href="/retainer.html" data-i18n="nav.retainer"></a>
+        <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+        <a href="/pp.html" data-i18n="footer.privacy"></a>
         <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
       </nav>
+      <p data-i18n="common.disclaimer"></p>
     </footer>
   </main>
   <div class="ls-sticky">
@@ -72,5 +82,6 @@
       <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%B2%88%EB%93%A4%C2%B7%EB%9F%B0%ED%83%80%EC%9E%84%20%EC%84%B1%EB%8A%A5%20%EC%8B%AC%EC%B8%B5%20%EB%B6%84%EC%84%9D%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20Bundle%20%26%20Runtime%20Perf%20Deep%20Dive%20/%20%EB%B2%88%EB%93%A4%C2%B7%EB%9F%B0%ED%83%80%EC%9E%84%20%EC%84%B1%EB%8A%A5%20%EC%8B%AC%EC%B8%B5%20%EB%B6%84%EC%84%9D%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/deep-bundle-perf.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A">문의 메일</a>
     </div>
   </div>
+    <script src="/i18n.js"></script>
 </body>
 </html>
