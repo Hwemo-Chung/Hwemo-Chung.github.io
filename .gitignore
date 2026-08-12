@@ -64,6 +64,10 @@ plugins/
 CLAUDE.md
 CLAUDE.*
 .doc/
+.omo/
+.playwright-cli/
+HANDOFF-*.md
+.debug-journal.md
 
 # [CAUTION] - Review these before ignoring
 # It is strongly recommended to keep these files under version control.
