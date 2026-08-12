@@ -1,0 +1,19 @@
+# Lumos
+
+Lumos is the portfolio and service catalog of full-stack developer Hwemo Chung. The site offers legacy hybrid-app diagnosis, production support, web automation, and small software tools. Shared navigation supports Korean, English, and Japanese.
+
+## Main pages
+
+- Home: https://hwemo-chung.github.io/
+- Services and pricing: https://hwemo-chung.github.io/sales/
+- Offer catalog: https://hwemo-chung.github.io/offers/
+- Legacy Cordova/Ionic diagnosis: https://hwemo-chung.github.io/cordova.html
+- Production retainer: https://hwemo-chung.github.io/retainer.html
+- Threads analyzer: https://hwemo-chung.github.io/threads-analyzer.html
+- Micro SaaS tools: https://hwemo-chung.github.io/micro-saas-mvps/
+- Privacy: https://hwemo-chung.github.io/pp.html
+
+## Contact
+
+- Email: tolaria@naver.com
+- GitHub: https://github.com/Hwemo-Chung

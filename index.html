@@ -37,14 +37,27 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Hwemo Chung",
-      "jobTitle": "Full Stack Developer",
-      "url": "https://hwemo-chung.github.io",
-      "sameAs": [
-        "https://github.com/Hwemo-Chung"
-      ],
-      "description": "어둠의 한 줄기 빛이 되는 소프트웨어를 개발하는 개발자"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://hwemo-chung.github.io/#person",
+          "name": "Hwemo Chung",
+          "jobTitle": "Full Stack Developer",
+          "url": "https://hwemo-chung.github.io/",
+          "email": "mailto:tolaria@naver.com",
+          "sameAs": ["https://github.com/Hwemo-Chung"],
+          "knowsAbout": ["Angular", "TypeScript", "Node.js", "AWS", "Ionic", "Capacitor"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://hwemo-chung.github.io/#website",
+          "url": "https://hwemo-chung.github.io/",
+          "name": "Lumos",
+          "description": "풀스택 개발, 레거시 앱 진단, 프로덕션 지원과 자동화 서비스를 제공합니다.",
+          "inLanguage": ["ko", "en", "ja"],
+          "publisher": {"@id": "https://hwemo-chung.github.io/#person"}
+        }
+      ]
     }
     </script>
 
