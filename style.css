@@ -5,13 +5,13 @@
 }
 
 :root {
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #242424;
-    --bg-tertiary: #2e2e2e;
-    --text-primary: #f5f5f5;
-    --text-secondary: #b8b8b8;
-    --accent: #fbbf24;
-    --border: #3a3a3a;
+    --bg-primary: var(--ls-bg);
+    --bg-secondary: var(--ls-card);
+    --bg-tertiary: var(--ls-card-2);
+    --text-primary: var(--ls-text);
+    --text-secondary: var(--ls-muted);
+    --accent: var(--ls-accent);
+    --border: var(--ls-border);
     --shadow: rgba(0, 0, 0, 0.1);
 }
 
@@ -32,8 +32,8 @@ body::before {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(ellipse at top, rgba(251, 191, 36, 0.05) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom right, rgba(251, 191, 36, 0.03) 0%, transparent 50%);
+        radial-gradient(ellipse at top, var(--ls-accent-soft) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, var(--ls-glow) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
@@ -70,7 +70,7 @@ header::after {
     pointer-events: none;
 }
 
-nav {
+header nav {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -135,7 +135,7 @@ nav {
     color: var(--accent);
 }
 
-nav ul {
+header nav ul {
     list-style: none;
     display: flex;
     gap: 2rem;
@@ -175,13 +175,13 @@ nav ul {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-nav a {
+header nav a {
     color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s;
 }
 
-nav a:hover {
+header nav a:hover {
     color: var(--text-primary);
 }
 
@@ -192,7 +192,7 @@ nav a:hover {
     padding: 8rem 2rem;
     text-align: center;
     position: relative;
-    overflow: visible;
+    overflow-x: clip;
     z-index: 1;
 }
 
@@ -215,7 +215,7 @@ nav a:hover {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at center, rgba(251, 191, 36, 0.08) 0%, transparent 60%);
+    background: radial-gradient(circle at center, var(--ls-accent-soft) 0%, transparent 60%);
     opacity: 0.7;
     animation: pulse 8s ease-in-out infinite;
     filter: blur(40px);
@@ -249,9 +249,8 @@ nav a:hover {
     transition: none;
     will-change: transform;
     text-shadow: 
-        0 0 20px #fbbf24,
-        0 0 40px #fbbf2480,
-        0 0 60px #fbbf2460;
+        0 0 20px var(--ls-accent),
+        0 0 40px var(--ls-accent-soft);
     animation: gentleFlicker 4s ease-in-out infinite;
     animation-delay: calc(var(--index) * 0.1s);
 }
@@ -269,7 +268,7 @@ nav a:hover {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at center, #fbbf2430 0%, transparent 60%);
+    background: radial-gradient(circle at center, var(--ls-accent-soft) 0%, transparent 60%);
     filter: blur(30px);
     pointer-events: none;
     z-index: 1;
@@ -400,7 +399,7 @@ h2::after {
 .skills ul:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    border-color: rgba(251, 191, 36, 0.2);
+    border-color: var(--ls-border-strong);
 }
 
 .skills li {
@@ -452,7 +451,7 @@ h2::after {
     height: 100%;
     background: radial-gradient(
         600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(251, 191, 36, 0.15),
+        var(--ls-accent-soft),
         transparent 40%
     );
     opacity: 0;
@@ -464,7 +463,7 @@ h2::after {
 .project-card:hover {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     transform: translateY(-5px);
-    border-color: rgba(251, 191, 36, 0.3);
+    border-color: var(--ls-border-strong);
     background: rgba(40, 40, 40, 0.7);
 }
 
@@ -531,7 +530,7 @@ h2::after {
     left: 20%;
     right: 20%;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(251, 191, 36, 0.3), transparent);
+    background: linear-gradient(to right, transparent, var(--ls-accent), transparent);
     animation: shimmer 3s ease-in-out infinite;
 }
 
@@ -636,23 +635,6 @@ main > section {
     to {
         opacity: 1;
     }
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
 }
 
 @media (max-width: 768px) {

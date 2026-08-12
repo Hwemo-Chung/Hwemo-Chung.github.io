@@ -1,11 +1,11 @@
 /**
  * Burnline app shell (dashboard + demo widgets)
  * Requires: tokens.css, components.css, product-extras.css
- * Use: body.ls.ls-theme-burn
+ * Use: body.ls
  */
 
 /* Alias legacy app vars → design system tokens */
-body.ls.ls-theme-burn {
+body.ls {
   --bg: var(--ls-bg);
   --bg2: var(--ls-bg-elevated);
   --card: var(--ls-card);
@@ -19,20 +19,20 @@ body.ls.ls-theme-burn {
   --over: var(--ls-accent);
   --border: var(--ls-border);
   --radius: var(--ls-radius);
-  --shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  --shadow: none;
   --safe-bottom: var(--ls-safe-bottom);
 }
 
 /* Wider shell for dashboard */
-body.ls.ls-theme-burn .wrap,
-body.ls.ls-theme-burn .ls-wrap--app {
+body.ls .wrap,
+body.ls .ls-wrap--app {
   max-width: 1120px;
   margin: 0 auto;
   padding: 22px 18px calc(40px + var(--ls-safe-bottom));
 }
 
 /* Map common buttons to sales system look if not using ls-btn */
-body.ls.ls-theme-burn .btn {
+body.ls .btn {
   appearance: none;
   border: 0;
   cursor: pointer;
@@ -47,20 +47,20 @@ body.ls.ls-theme-burn .btn {
   text-decoration: none;
   font-family: inherit;
 }
-body.ls.ls-theme-burn .btn-primary {
+body.ls .btn-primary {
   background: var(--ls-accent);
   color: var(--ls-accent-ink);
 }
-body.ls.ls-theme-burn .btn-primary:hover {
+body.ls .btn-primary:hover {
   filter: brightness(1.06);
   color: var(--ls-accent-ink);
 }
-body.ls.ls-theme-burn .btn-ghost {
+body.ls .btn-ghost {
   background: transparent;
   color: var(--ls-text);
   border: 1px solid var(--ls-border);
 }
-body.ls.ls-theme-burn .btn-ghost:hover {
+body.ls .btn-ghost:hover {
   border-color: var(--ls-border-strong);
 }
 
@@ -125,7 +125,7 @@ body.ls.ls-theme-burn .btn-ghost:hover {
       background: transparent; color: var(--text);
       border: 1px solid var(--border);
     }
-    .btn-ghost:hover { border-color: #3a4d66; }
+    .btn-ghost:hover { border-color: var(--ls-border-strong); }
     .btn-file { position: relative; overflow: hidden; }
     .btn-file input {
       position: absolute; inset: 0; opacity: 0; cursor: pointer;
@@ -234,7 +234,7 @@ body.ls.ls-theme-burn .btn-ghost:hover {
     .bar-meta .name {
       overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.8rem; color: #cfe3ff;
+      font-size: 0.8rem; color: var(--ls-code);
     }
     .bar-meta .amt {
       flex: 0 0 auto; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent);
@@ -268,7 +268,7 @@ body.ls.ls-theme-burn .btn-ghost:hover {
     }
     td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
     td.usd { color: var(--accent); font-weight: 600; }
-    code { font-size: 0.84em; color: #cfe3ff; }
+    code { font-size: 0.84em; color: var(--ls-code); }
 
     .foot {
       margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border);
@@ -287,16 +287,17 @@ body.ls.ls-theme-burn .btn-ghost:hover {
       transition: transform 0.2s ease; z-index: 60; max-width: min(92vw, 420px);
       text-align: center;
     }
+    .toast:empty { display: none; }
     .toast.show { transform: translateX(-50%) translateY(0); }
   
 /* File button overlay (Load CSV) works with ls-btn or .btn */
-body.ls.ls-theme-burn .btn-file,
-body.ls.ls-theme-burn label.ls-btn.btn-file {
+body.ls .btn-file,
+body.ls label.ls-btn.btn-file {
   position: relative;
   overflow: hidden;
 }
-body.ls.ls-theme-burn .btn-file input,
-body.ls.ls-theme-burn label.ls-btn.btn-file input {
+body.ls .btn-file input,
+body.ls label.ls-btn.btn-file input {
   position: absolute;
   inset: 0;
   opacity: 0;

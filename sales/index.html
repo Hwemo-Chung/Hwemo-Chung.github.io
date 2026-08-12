@@ -10,23 +10,23 @@
   <meta property="og:description" content="Fact-checked offers. Real-device production. Free diagnosis is status only." />
   <meta property="og:url" content="https://hwemo-chung.github.io/sales/" />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0b0d10" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="site-unified.css" />
 </head>
 <body class="ls">
-  <a class="ls-skip" href="#main">본문으로 건너뛰기</a>
-  <nav class="ls-nav ls-nav--wide" aria-label="주 메뉴">
+  <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
     <div class="ls-nav__inner">
-      <a class="ls-brand" href="../index.html">Lumos</a>
+      <a class="ls-brand" href="/">Lumos</a>
       <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="index.html" aria-current="page">Sales</a></li>
-        <li><a href="../offers/">Offers ×10</a></li>
-        <li><a href="../cordova.html">레거시 진단</a></li>
-        <li><a href="../retainer.html">Retainer</a></li>
-        <li><a href="../threads-analyzer.html">Threads</a></li>
-        <li><a href="SYSTEM.md">SYSTEM.md</a></li>
+        <li><a href="/" data-i18n="nav.home"></a></li>
+        <li><a href="/sales/" aria-current="page" data-i18n="nav.sales"></a></li>
+        <li><a href="/offers/" data-i18n="nav.offers"></a></li>
+        <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+        <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+        <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
       </ul>
     </div>
   </nav>
@@ -326,21 +326,21 @@
     </div>
 
     <footer class="ls-foot">
-      <nav aria-label="푸터">
-        <a href="../index.html">Home</a>
-        <a href="../cordova.html">레거시 진단</a>
-        <a href="../retainer.html">Retainer</a>
-        <a href="../pp.html">Privacy</a>
+      <nav data-i18n-aria-label="common.footerNav">
+        <a href="/" data-i18n="nav.home"></a>
+        <a href="/sales/" data-i18n="nav.sales"></a>
+        <a href="/offers/" data-i18n="nav.offers"></a>
+        <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+        <a href="/retainer.html" data-i18n="nav.retainer"></a>
+        <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+        <a href="/pp.html" data-i18n="footer.privacy"></a>
         <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
       </nav>
-      <p>
-        독립 계약자 제안. 정책은 원문 우선·변경 가능.
-        Git author: Chung Hwemo &lt;tolaria@naver.com&gt;
-      </p>
+      <p data-i18n="common.disclaimer"></p>
     </footer>
   </main>
 
-  <div class="ls-sticky" role="region" aria-label="빠른 이동">
+  <div class="ls-sticky" role="region" data-i18n-aria-label="common.quickNavigation">
     <div class="ls-sticky__inner">
       <span class="ls-sticky__hint">오퍼는 사실 검증된 것만.</span>
       <a class="ls-btn ls-btn--ghost" href="#offers">카탈로그</a>
@@ -424,5 +424,6 @@
         });
     })();
   </script>
+    <script src="/i18n.js"></script>
 </body>
 </html>

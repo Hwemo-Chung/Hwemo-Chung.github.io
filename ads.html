@@ -15,7 +15,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hwemo-chung.github.io/ads.html">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sales/tokens.css">
+    <link rel="stylesheet" href="sales/components.css">
     
     <style>
         .ads-container {
@@ -27,9 +28,10 @@
         .ads-hero {
             text-align: center;
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 20px;
+            background: var(--ls-bg-elevated);
+            color: var(--ls-text);
+            border: 1px solid var(--ls-border);
+            border-radius: var(--ls-radius);
             margin-bottom: 3rem;
         }
         
@@ -46,9 +48,9 @@
         }
         
         .ad-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+            background: var(--ls-card);
+            border: 1px solid var(--ls-border);
+            border-radius: var(--ls-radius);
             padding: 2rem;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
@@ -56,31 +58,30 @@
         
         .ad-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-color: #f0c674;
+            border-color: var(--ls-border-strong);
         }
         
         .ad-card h3 {
-            color: #f0c674;
+            color: var(--ls-text);
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
         
         .ad-card p {
-            color: #e0e0e0;
+            color: var(--ls-muted);
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
         
         .ad-price {
             font-size: 1.8rem;
-            color: #fbbf24;
+            color: var(--ls-text);
             font-weight: bold;
             margin-bottom: 1rem;
         }
         
         .ad-period {
-            color: #a0a0a0;
+            color: var(--ls-muted);
             font-size: 0.9rem;
         }
         
@@ -92,7 +93,7 @@
         
         .ad-features li {
             padding: 0.5rem 0;
-            color: #e0e0e0;
+            color: var(--ls-muted);
             position: relative;
             padding-left: 1.5rem;
         }
@@ -101,15 +102,15 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #4ade80;
+            color: var(--ls-ok);
         }
         
         .ad-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--ls-accent);
+            color: var(--ls-accent-ink);
             padding: 0.8rem 2rem;
-            border-radius: 50px;
+            border-radius: var(--ls-radius-sm);
             text-decoration: none;
             transition: all 0.3s ease;
             text-align: center;
@@ -117,33 +118,33 @@
         }
         
         .ad-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            filter: brightness(1.06);
         }
         
         .contact-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            background: var(--ls-card);
+            border: 1px solid var(--ls-border);
+            border-radius: var(--ls-radius);
             padding: 3rem;
             text-align: center;
             margin-top: 3rem;
         }
         
         .contact-section h2 {
-            color: #f0c674;
+            color: var(--ls-text);
             margin-bottom: 1.5rem;
         }
         
         .back-home {
             display: inline-block;
             margin: 2rem 0;
-            color: #f0c674;
+            color: var(--ls-link);
             text-decoration: none;
             transition: all 0.3s ease;
         }
         
         .back-home:hover {
-            color: #fbbf24;
+            color: var(--ls-link-hover);
             transform: translateX(-5px);
         }
         
@@ -183,34 +184,33 @@
         gtag('js', new Date());
         gtag('config', 'G-L16K8WDDBP');
     </script>
+  <link rel="stylesheet" href="sales/site-unified.css" />
 </head>
 
-<body>
-    <header>
-        <nav>
-            <div class="logo">Lumos</div>
-            <button class="menu-toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+<body class="ls page-ads">
+    <a class="ls-skip" href="#main" data-i18n="common.skip"></a>
+    <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
+        <div class="ls-nav__inner">
+            <a class="ls-brand" href="/">Lumos</a>
             <ul>
-                <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
-                <li><a href="index.html#projects" data-i18n="nav.projects">Projects</a></li>
-                <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
-                <li><a href="color-picker.html" data-i18n="nav.colorpicker">Color Picker</a></li>
-                <li><a href="ads.html" class="active" data-i18n="nav.ads">Ads</a></li>
-                <li><a href="pp.html" data-i18n="nav.privacy">Privacy Policy</a></li>
+                <li><a href="/" data-i18n="nav.home"></a></li>
+                <li><a href="/sales/" data-i18n="nav.sales"></a></li>
+                <li><a href="/offers/" data-i18n="nav.offers"></a></li>
+                <li><a href="/cordova.html" data-i18n="nav.diagnosis"></a></li>
+                <li><a href="/retainer.html" data-i18n="nav.retainer"></a></li>
+                <li><a href="/threads-analyzer.html" data-i18n="nav.threads"></a></li>
             </ul>
-            <div class="language-selector">
-                <button class="lang-btn active" data-lang="ko">한</button>
-                <button class="lang-btn" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="ja">日</button>
-            </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+    <div class="language-toolbar" data-i18n-aria-label="common.language">
+        <div class="language-selector">
+            <button class="lang-btn active" type="button" data-lang="ko">한</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ja">日</button>
+        </div>
+    </div>
 
-    <main>
+    <main id="main">
         <div class="ads-container">
             <a href="index.html" class="back-home" data-i18n="ads.back">홈으로 돌아가기</a>
             
@@ -266,23 +266,33 @@
             <div class="contact-section">
                 <h2 data-i18n="ads.contact.title">광고 문의</h2>
                 <p data-i18n="ads.contact.desc">귀하의 비즈니스 목표에 맞는 최적의 광고 솔루션을 제공합니다.</p>
-                <div style="background: rgba(240, 198, 116, 0.1); border: 2px solid #f0c674; border-radius: 15px; padding: 1.5rem; margin: 2rem 0; position: relative;">
+                <div class="contact-box">
                     <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">
-                        <span data-i18n="ads.contact.email">📧 Email: </span>
-                        <span id="email-copy" style="color: #f0c674; font-weight: bold; font-size: 1.3rem; cursor: pointer; text-decoration: underline;">tolaria@naver.com</span>
+                        <span data-i18n="ads.contact.email">Email: </span>
+                        <span id="email-copy">tolaria@naver.com</span>
                     </p>
                     <p data-i18n="ads.contact.phone">전화 상담을 원하시면 이메일로 연락 주세요.</p>
                     <div id="copy-notification" style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); background: #4CAF50; color: white; padding: 8px 16px; border-radius: 5px; display: none; font-size: 14px; white-space: nowrap;">
                         <span data-i18n="ads.contact.copied">이메일 주소가 복사되었습니다!</span>
                     </div>
                 </div>
-                <p style="color: #a0a0a0; font-size: 0.9rem;" data-i18n="ads.contact.hours">업무시간: 평일 09:00 - 18:00 (KST)</p>
+                <p class="ls-fine" data-i18n="ads.contact.hours">업무시간: 평일 09:00 - 18:00 (KST)</p>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2003 Lumos. All rights reserved.</p>
+    <footer class="ls-foot">
+        <nav data-i18n-aria-label="common.footerNav">
+            <a href="/" data-i18n="nav.home"></a>
+            <a href="/sales/" data-i18n="nav.sales"></a>
+            <a href="/offers/" data-i18n="nav.offers"></a>
+            <a href="/cordova.html" data-i18n="nav.diagnosis"></a>
+            <a href="/retainer.html" data-i18n="nav.retainer"></a>
+            <a href="/threads-analyzer.html" data-i18n="nav.threads"></a>
+            <a href="/pp.html" data-i18n="footer.privacy"></a>
+            <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+        </nav>
+        <p data-i18n="common.disclaimer"></p>
     </footer>
 
     <script>
@@ -332,7 +342,7 @@
                     contact: {
                         title: "광고 문의",
                         desc: "귀하의 비즈니스 목표에 맞는 최적의 광고 솔루션을 제공합니다.",
-                        email: "📧 Email: ",
+                        email: "Email: ",
                         phone: "전화 상담을 원하시면 이메일로 연락 주세요.",
                         hours: "업무시간: 평일 09:00 - 18:00 (KST)",
                         copied: "이메일 주소가 복사되었습니다!"
@@ -384,7 +394,7 @@
                     contact: {
                         title: "Contact Us",
                         desc: "We provide optimal advertising solutions tailored to your business goals.",
-                        email: "📧 Email: ",
+                        email: "Email: ",
                         phone: "For phone consultation, please contact us via email.",
                         hours: "Business Hours: Weekdays 09:00 - 18:00 (KST)",
                         copied: "Email address copied!"
@@ -436,7 +446,7 @@
                     contact: {
                         title: "お問い合わせ",
                         desc: "お客様のビジネス目標に合わせた最適な広告ソリューションを提供します。",
-                        email: "📧 メール: ",
+                        email: "メール: ",
                         phone: "電話相談をご希望の場合は、メールでご連絡ください。",
                         hours: "営業時間: 平日 09:00 - 18:00 (JST)",
                         copied: "メールアドレスがコピーされました！"
@@ -562,6 +572,7 @@
             }
         });
     </script>
+    <script src="/i18n.js"></script>
 </body>
 
 </html>
