@@ -12,11 +12,21 @@
 3. `sales/payment-links.json` 에 기입 (아래)  
 4. retainer / cordova CTA가 파일을 읽어 버튼을 붙임
 
-## 옵션 B — Stripe Payment Link
+## 옵션 B — Stripe Payment Link  ✅ 통합 검증 완료 (2026-08-17, 테스트 모드)
 
-1. Stripe Dashboard → Payment Links  
-2. Pilot $400 · Stabilizer $1200 one-time or subscription  
-3. URL을 `payment-links.json`에
+Stripe MCP 로 상품·결제링크를 만들고 4242 테스트 카드로 체크아웃까지 성공 확인.
+
+- 상품: `Mobile Production Retainer — Pilot`(단건 $400), `Mobile Production Retainer — Stabilizer`(구독 $1,200/월)
+- 계정: `Lumos sandbox`(테스트). **라이브 링크가 아니므로 아직 사이트에 걸지 않음** —
+  공개 사이트에 테스트 링크를 걸면 방문객이 "TEST MODE" 화면만 보고 실결제가 안 된다.
+
+**라이브 전환 (1줄로 끝남):**
+1. Stripe Dashboard 에서 계정 활성화 (한국은 사업자등록 필요) → 테스트→라이브 토글
+2. Payment Links 에서 Pilot/Stabilizer LIVE 링크 생성 (`https://buy.stripe.com/...`, `test_` 없음)
+3. `payment-links.json` 의 `pilot_usd`, `stabilizer_usd` 에 붙여넣기 → `payment.js` 가 자동으로 "Pay" 버튼 노출
+4. 본인 실카드로 1회 결제/환불 테스트 후 공지
+
+라이브 활성화 전 가장 빠른 실결제 경로는 옵션 A(PayPal.me).
 
 ## 옵션 C — Wise / 계좌 이체
 
