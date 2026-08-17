@@ -30,6 +30,7 @@
       inject("pay-stabilizer", d.stabilizer_usd, "Pay Stabilizer");
       inject("pay-diag", d.diag_paid_krw, "유료 진단 결제");
       inject("pay-threads", d.threads_report_krw, "리포트 결제");
+      inject("pay-lumoszip", d.lumoszip_usd, "베타 구매 · 다운로드");
       if (d.paypal_me_base) {
         inject("pay-pilot", d.paypal_me_base.replace(/\/?$/, "") + "/400", "PayPal $400");
       }
