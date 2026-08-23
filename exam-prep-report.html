@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>카인즈 필기시험 준비 분석</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+:root {
+  --bg: #FAFAF8;
+  --bg-surface: #F0EDE6;
+  --bg-surface-alt: #E8E4DA;
+  --text: #2C2A26;
+  --text-secondary: #6B6760;
+  --text-muted: #9A958D;
+  --accent: #B5432A;
+  --accent-light: rgba(181,67,42,0.08);
+  --accent-mid: rgba(181,67,42,0.15);
+  --teal: #2E6B7A;
+  --teal-light: rgba(46,107,122,0.08);
+  --teal-mid: rgba(46,107,122,0.15);
+  --gold: #A68B3C;
+  --gold-light: rgba(166,139,60,0.1);
+  --green: #3A7D44;
+  --green-light: rgba(58,125,68,0.08);
+  --green-mid: rgba(58,125,68,0.15);
+  --red: #C03030;
+  --red-light: rgba(192,48,48,0.08);
+  --red-mid: rgba(192,48,48,0.15);
+  --border: #DDD8CF;
+  --border-light: #EBE7E0;
+  --shadow: rgba(44,42,38,0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1917;
+    --bg-surface: #242320;
+    --bg-surface-alt: #2E2D29;
+    --text: #E8E5DE;
+    --text-secondary: #A9A49B;
+    --text-muted: #7A756C;
+    --accent: #D4624C;
+    --accent-light: rgba(212,98,76,0.1);
+    --accent-mid: rgba(212,98,76,0.18);
+    --teal: #4DA3B5;
+    --teal-light: rgba(77,163,181,0.1);
+    --teal-mid: rgba(77,163,181,0.18);
+    --gold: #C9A94E;
+    --gold-light: rgba(201,169,78,0.12);
+    --green: #5BB568;
+    --green-light: rgba(91,181,104,0.1);
+    --green-mid: rgba(91,181,104,0.18);
+    --red: #E05050;
+    --red-light: rgba(224,80,80,0.1);
+    --red-mid: rgba(224,80,80,0.18);
+    --border: #3A3834;
+    --border-light: #302E2A;
+    --shadow: rgba(0,0,0,0.2);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1A1917;
+  --bg-surface: #242320;
+  --bg-surface-alt: #2E2D29;
+  --text: #E8E5DE;
+  --text-secondary: #A9A49B;
+  --text-muted: #7A756C;
+  --accent: #D4624C;
+  --accent-light: rgba(212,98,76,0.1);
+  --accent-mid: rgba(212,98,76,0.18);
+  --teal: #4DA3B5;
+  --teal-light: rgba(77,163,181,0.1);
+  --teal-mid: rgba(77,163,181,0.18);
+  --gold: #C9A94E;
+  --gold-light: rgba(201,169,78,0.12);
+  --green: #5BB568;
+  --green-light: rgba(91,181,104,0.1);
+  --green-mid: rgba(91,181,104,0.18);
+  --red: #E05050;
+  --red-light: rgba(224,80,80,0.1);
+  --red-mid: rgba(224,80,80,0.18);
+  --border: #3A3834;
+  --border-light: #302E2A;
+  --shadow: rgba(0,0,0,0.2);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 15px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+
+.header { margin-bottom: 48px; }
+.header-eyebrow {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+.header h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(26px, 4vw, 34px); font-weight: 700;
+  line-height: 1.35; color: var(--text); text-wrap: balance; margin-bottom: 14px;
+}
+.header-meta {
+  font-size: 13px; color: var(--text-muted);
+  display: flex; gap: 16px; flex-wrap: wrap;
+}
+.header-meta span::before {
+  content: ''; display: inline-block; width: 4px; height: 4px;
+  border-radius: 50%; background: var(--border); margin-right: 8px; vertical-align: middle;
+}
+
+.summary-card {
+  background: var(--bg-surface); border: 1px solid var(--border-light);
+  border-radius: 8px; padding: 28px 28px 24px; margin-bottom: 40px;
+}
+.summary-card h2 {
+  font-family: 'Noto Serif JP', serif; font-size: 16px;
+  font-weight: 700; margin-bottom: 16px; color: var(--text);
+}
+.summary-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px;
+}
+.summary-stat {
+  background: var(--bg); border-radius: 6px; padding: 16px; text-align: center;
+}
+.summary-stat .num {
+  font-family: 'Noto Serif JP', serif; font-size: clamp(22px, 4vw, 28px); font-weight: 700;
+  color: var(--accent); line-height: 1.15; font-variant-numeric: tabular-nums;
+  word-break: keep-all;
+}
+.summary-stat .label { font-size: 12px; color: var(--text-secondary); margin-top: 6px; line-height: 1.45; }
+
+.section { margin-bottom: 40px; }
+.section-header {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border);
+}
+.section-header h2 {
+  font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; color: var(--text);
+}
+.section-header .badge {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.05em;
+  padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+}
+.badge-critical { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-mid); }
+.badge-high { background: var(--gold-light); color: var(--gold); border: 1px solid rgba(166,139,60,0.2); }
+.badge-medium { background: var(--teal-light); color: var(--teal); border: 1px solid var(--teal-mid); }
+
+.content-block {
+  background: var(--bg-surface); border: 1px solid var(--border-light);
+  border-radius: 8px; padding: 22px 24px; margin-bottom: 14px;
+}
+.content-block h3 {
+  font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.content-block h3 .icon {
+  font-size: 14px; width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-light); color: var(--accent); border-radius: 5px; flex-shrink: 0;
+}
+.content-block p, .content-block li {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.75;
+}
+.content-block ul { padding-left: 18px; list-style: none; }
+.content-block ul li { position: relative; padding-left: 2px; margin-bottom: 6px; }
+.content-block ul li::before {
+  content: '\2014'; position: absolute; left: -18px; color: var(--text-muted);
+}
+.tip-block { border-left: 3px solid var(--accent); background: var(--accent-light); }
+.tip-block h3 .icon { background: var(--accent-mid); }
+.info-block { border-left: 3px solid var(--teal); background: var(--teal-light); }
+.info-block h3 .icon { background: var(--teal-mid); color: var(--teal); }
+
+/* Verification-specific styles */
+.verified-block { border-left: 3px solid var(--green); background: var(--green-light); }
+.verified-block h3 .icon { background: var(--green-mid); color: var(--green); }
+.warning-block { border-left: 3px solid var(--red); background: var(--red-light); }
+.warning-block h3 .icon { background: var(--red-mid); color: var(--red); }
+.caution-block { border-left: 3px solid var(--gold); background: var(--gold-light); }
+.caution-block h3 .icon { background: rgba(166,139,60,0.2); color: var(--gold); }
+
+.v-table-wrap {
+  overflow-x: auto; margin-bottom: 24px; border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+.v-table {
+  width: 100%; border-collapse: collapse; font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+}
+.v-table thead { background: var(--bg-surface); }
+.v-table th {
+  text-align: left; padding: 10px 14px; font-weight: 500; font-size: 11px;
+  letter-spacing: 0.06em; color: var(--text-secondary); border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.v-table td {
+  padding: 10px 14px; border-bottom: 1px solid var(--border-light); vertical-align: top;
+}
+.v-table tr:last-child td { border-bottom: none; }
+.status { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.status-ok { background: var(--green-light); color: var(--green); }
+.status-warn { background: var(--red-light); color: var(--red); }
+.status-na { background: var(--gold-light); color: var(--gold); }
+.status-info { background: var(--teal-light); color: var(--teal); }
+
+.answer-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;
+}
+@media (max-width: 540px) { .answer-grid { grid-template-columns: 1fr; } }
+.answer-item {
+  background: var(--bg); border: 1px solid var(--border-light);
+  border-radius: 6px; padding: 12px 14px; font-size: 13px;
+}
+.answer-item .q { color: var(--text); font-weight: 500; margin-bottom: 4px; }
+.answer-item .a { color: var(--accent); font-weight: 700; font-size: 12px; }
+.answer-item .src { color: var(--text-muted); font-size: 11px; margin-top: 2px; }
+
+.timeline { position: relative; padding-left: 28px; margin-top: 8px; }
+.timeline::before {
+  content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px;
+  width: 2px; background: var(--border);
+}
+.timeline-item { position: relative; margin-bottom: 22px; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -24px; top: 7px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--accent);
+}
+.timeline-phase {
+  font-size: 12px; font-weight: 500; color: var(--accent);
+  letter-spacing: 0.04em; margin-bottom: 4px;
+}
+.timeline-title { font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 4px; }
+.timeline-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+.interview-q { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; }
+.interview-q .freq {
+  flex-shrink: 0; width: 36px; height: 20px; border-radius: 3px;
+  font-size: 10px; font-weight: 700; display: flex; align-items: center;
+  justify-content: center; font-variant-numeric: tabular-nums;
+}
+.freq-5 { background: var(--accent-mid); color: var(--accent); }
+.freq-4 { background: var(--accent-light); color: var(--accent); }
+.freq-3 { background: var(--gold-light); color: var(--gold); }
+.freq-2 { background: var(--teal-light); color: var(--teal); }
+.interview-q .text { font-size: 14px; color: var(--text); }
+
+.footer {
+  margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border-light);
+  font-size: 12px; color: var(--text-muted); text-align: center;
+}
+.footer a { color: var(--teal); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+.src-list { margin-top: 6px; }
+.src-list a { color: var(--teal); font-size: 12px; text-decoration: none; word-break: break-all; }
+.src-list a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .page { padding: 32px 16px 60px; }
+  .content-block { padding: 18px 16px; }
+  .summary-card { padding: 20px 16px; }
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-eyebrow">Cross-Verified Exam Analysis &mdash; Devil's Advocate Review</div>
+    <h1>카인즈 M그레이드 필기시험 — 공식 소스 교차검증 보고서</h1>
+    <div class="header-meta">
+      <span>검증 기반: 카인즈 공식 사이트·PEOPLE·정부 1차. 악마의 변호인 재검증 반영</span>
+      <span>검증일: 2026-08-21 (재검증 동일)</span>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 1: CROSS-VERIFICATION SUMMARY ===== -->
+  <div class="summary-card">
+    <h2>교차검증 총괄</h2>
+    <div class="summary-grid">
+      <div class="summary-stat">
+        <div class="num" style="color:var(--green)">OK</div>
+        <div class="label">시사 1차 자료 일치</div>
+      </div>
+      <div class="summary-stat">
+        <div class="num" style="color:var(--red)">5</div>
+        <div class="label">거짓 정답·오기 수정</div>
+      </div>
+      <div class="summary-stat">
+        <div class="num" style="color:var(--gold)">2</div>
+        <div class="label">원문 미확인</div>
+      </div>
+      <div class="summary-stat">
+        <div class="num" style="color:var(--teal)">6</div>
+        <div class="label">확인 대기 항목</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: CRITICAL CORRECTIONS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <h2>오류 수정 · 함정 경고</h2>
+      <span class="badge badge-critical">최우선 확인</span>
+    </div>
+
+    <div class="content-block warning-block">
+      <h3><span class="icon">!</span> 오류 #1: 제쇼HD 초임급 — 30만엔이 아니라 31.2만엔</h3>
+      <ul>
+        <li>샘플 자료: 「ゼンショーHDの初任給３０万へ引き上げ」</li>
+        <li><strong>실제:</strong> 2025년 4월부로 대졸 초임급 <strong>31만 2,000엔</strong>으로 인상 (11.24% 인상률, 베아 13년 연속)</li>
+        <li>2026년에는 추가 인상하여 <strong>32만 2,000엔</strong>. 임금인상률 6.7%(정승 3.5%+베아 3.2%). 베아 연속은 14년. 6.7%를 베아라고 쓰면 오답</li>
+        <li>시험에서 "30만" vs "31만"처럼 근접한 2택이 나올 가능성 높음 — <strong>정확한 숫자 기억 필수</strong></li>
+      </ul>
+      <div class="src-list">
+        <a href="https://www.nikkei.com/article/DGXZQOUC0616X0W5A300C2000000/">닛케이: ゼンショー11.24%賃上げ 初任給31.2万円</a>
+      </div>
+    </div>
+
+    <div class="content-block warning-block">
+      <h3><span class="icon">!</span> 오류 #2: いせや "창업" vs "설립" — 연도 함정</h3>
+      <ul>
+        <li>샘플 자료: 「( )：いせや創業」</li>
+        <li><strong>공식 연혁:</strong> 「1958年（昭和33年）：いせや<strong>設立</strong>」으로 표기</li>
+        <li>1978년은 "ホームセンター1号店（栃木店）オープン"</li>
+        <li>"창업"이라 하면 1958인지 1978인지 혼동 가능. <strong>공식 표기는 "설립" = 1958</strong></li>
+      </ul>
+      <div class="src-list">
+        <a href="https://www.cainz.co.jp/corporate/history/">카인즈 공식: 沿革</a>
+      </div>
+    </div>
+
+    <div class="content-block warning-block">
+      <h3><span class="icon">!</span> 오류 #3: 공동배송 — "ベイシアと"가 아니라 "DCM·高末と"</h3>
+      <ul>
+        <li>샘플 PEOPLE 기사: 「( )と共同配送を開始」</li>
+        <li><strong>실제:</strong> 발표 2025년 2월 14일, 운행 개시 2월 17일. <strong>DCM·카인즈·高末</strong> 3사 (동해 일부). 14일은 보도일, 17일은 운행일</li>
+        <li>베이시아와의 공동배송이 아님. 빈칸에 들어갈 답은 <strong>"DCM"</strong>일 가능성 높음</li>
+      </ul>
+      <div class="src-list">
+        <a href="https://www.cainz.co.jp/news/11645/">카인즈 공식: 共同配送を開始</a>
+      </div>
+    </div>
+
+    <div class="content-block warning-block">
+      <h3><span class="icon">!</span> 오류 #4 (2026.8.21 재검증에서 발견): 카인즈 매출·시사 수치 갱신</h3>
+      <ul>
+        <li>카인즈 매출: 구자료 4,722억 ✗ → <strong>5,874억엔</strong> (2026.2期, +2.4%, 공식 「数字で見るカインズ」). 점포 263(29도도부현)·종업원 13,738명·매장면적 186만㎡</li>
+        <li>인구: "▲60万人" ✗ → 주민기본대장(2026.1.1): <strong>일본인 ▲91만6,744명(조사개시 이래 최대·▲0.76%)</strong>, 42년 만에 1.2억 하회. 총인구 ▲56.3万. 외국인 첫 400만 돌파(403万, 3.26%)</li>
+        <li>어린이(인구추계 4/1): 1,329万人·10.8% (45년 연속↓·과거최소) — 이 수치는 정확했음</li>
+        <li>몬드셀렉션: 2025기출 8상품 → <strong>2026년도는 6상품</strong>(금상4+노미니2, 금상 15년 연속)</li>
+        <li>트럼프 관세: 2026.2.20 연방최고재 6:3, IEEPA 관세 위헌·무효 → 122조 10%→15%(150일·7/24만료) → <strong>301조 10~12.5%(약80개국, 기한 없음)으로 재대체</strong>. <strong>자동차 232조 관세는 유지</strong></li>
+        <li>2026 신점포(PEOPLE 7월호 확인분): 苅田店(4/15, 福岡県内3店舗目)·小田原店(4/25, 하코네·오다와라 생활권). 공식 사이트 확인분: 笛吹店(7/17, 山梨약10년만)·モザイクモール港北店(2026夏, 都筑区초출점)·リフォーム ルミエール新小岩店(7/25, 도시형8호)</li>
+        <li>魚耕: 2026.7.31부 베이시아 완전자회사화(선어 12점포, 야호 유지). 베이시아 단체: 3,615억·140점포</li>
+        <li>2026 춘투: 연합 최종 5.01%(3년 연속 5%대)·경단련 대기업 5.37%(인상액 19,752엔, 1976년 이래 최고)</li>
+      </ul>
+      <div class="src-list">
+        <a href="https://www.cainz.co.jp/about/numbers/">카인즈 공식: 数字で見るカインズ</a>
+        <a href="https://mainichi.jp/articles/20260729/k00/00m/010/309000c">마이니치: 인구동태조사 2026</a>
+        <a href="https://www.cainz.co.jp/news/16322/">카인즈: 몬드셀렉션 2026년도 6상품</a>
+        <a href="https://www.ryutsuu.biz/strategy/s072373.html">流通ニュース: 魚耕 완전자회사화</a>
+      </div>
+    </div>
+
+    <div class="content-block verified-block">
+      <h3><span class="icon">&#10003;</span> 검증 #5 (2026.8.22): 시험 함정 패턴 전수 검증 + 122조→301조 최신화</h3>
+      <p>함정 패턴 11개 + warning box 3개의 팩트를 공개 소스와 대조. <strong>오류 0건</strong>.</p>
+      <ul>
+        <li><strong>想像 vs 創造:</strong> 이념 페이지=「創造」, 그룹 페이지=「想像」 WebFetch 직접 확인 ✓</li>
+        <li><strong>ららぽーと台湾:</strong> 台中2023(1번째)→台北南港2025(2번째·5시설째)→高雄2026(3번째) 三井不動産 공식 확인 ✓</li>
+        <li><strong>인구 통계 2종:</strong> 住基台帳 ▲91.7万/▲56.3万(56万3048)/400万(403万)/14세이하11.13% + 人口推計 1,329万/10.8% — 닛케이·총무성 확인 ✓</li>
+        <li><strong>디자인상 3종:</strong> ノズピタ3관왕(GD2025·iF2026·RD2026)/木製サイレントキャリー2관왕(GD2025·RD2026)/RD통산10회/GD14년/몬드15년 — cainz.co.jp·PR TIMES 확인 ✓</li>
+        <li><strong>SAFEアワード:</strong> 令和4年度ゴールド(ウェルビーイング·KYT) / 令和7年度ブロンズ(フォークリフトKYT) — cainz.co.jp 확인 ✓</li>
+        <li><strong>ザスパ 3단계:</strong> 2020참가→2024필두주주→2025.5그룹가입 — 닛케이·PR TIMES 확인 ✓</li>
+        <li><strong>大都 2단계:</strong> 2017자본업무제휴→2025.12.30전주식양도 — cainz.co.jp·PR TIMES 확인 ✓</li>
+        <li><strong>트라이얼 세이유:</strong> 전주식 3,826억 / 연결매출 1兆2,873億 구분 확인 ✓</li>
+        <li><strong>⚠️ 122조→301조 최신화 (학습자료 3파일 수정):</strong><br>
+          IEEPA 위헌(2/20) → 122조 10%→15%(150일·7/24만료) → <strong>301조 10~12.5%(약80개국, 강제노동 사유, 기한·세율 상한 없음)</strong>으로 재대체. 자동차232조는 유지. 시험일(9/9)에는 122조 이미 만료, 현행 근거법은 301조</li>
+      </ul>
+      <div class="src-list">
+        <a href="https://www.cainz.co.jp/corporate/group/">카인즈: グループ(想像 표기 확인)</a>
+        <a href="https://www.cainz.co.jp/corporate/philosophy/">카인즈: 企業理念(創造 표기 확인)</a>
+        <a href="https://www.jetro.go.jp/biznews/2026/02/d83e4d3bb21cdefc.html">JETRO: 122조 과징금</a>
+        <a href="https://www.fennemorelaw.com/new-u-s-tariffs-replace-expiring-section-122-tariffs/">Fennemore: 301조 대체</a>
+        <a href="https://www.cainz.co.jp/news/1323/">카인즈: SAFEアワード ゴールド</a>
+        <a href="https://www.cainz.co.jp/news/15629/">카인즈: SAFEアワード ブロンズ</a>
+      </div>
+    </div>
+
+    <div class="content-block caution-block">
+      <h3><span class="icon">!</span> 함정 #1: 경영이념 — "想像" vs "創造" (미해소)</h3>
+      <ul>
+        <li>カインズ 企業理念 페이지: 「人をつくって商で文化を<strong>創造</strong>する」</li>
+        <li>グループ 페이지: 「人をつくって商で文化を<strong>想像</strong>する」 — 오탈자라고 단정할 수 없음. 공식 두 페이지가 갈라짐</li>
+        <li>코어밸류 「創る」빈칸은 둘 다 아님 → <strong>チャレンジ</strong>. 「豊かな想像力」만 想像 계열</li>
+      </ul>
+      <div class="src-list">
+        <a href="https://www.cainz.co.jp/corporate/group/">카인즈 공식: ベイシアグループについて (현재 "想像"으로 게재)</a>
+      </div>
+    </div>
+
+    <div class="content-block caution-block">
+      <h3><span class="icon">!</span> 함정 #2: ららぽーと "台湾進出" — 처음이 아님</h3>
+      <ul>
+        <li>샘플: 「ららぽーと？が台湾進出。ほかにもアジア諸国に展開」</li>
+        <li><strong>실제:</strong> 三井不動産 ららぽーと台北南港 2025년 3월 20일 개업 = 대만 <strong>2번째 ららぽーと</strong>(2023 台中에 이음). 미쓰이 대만 SC 전체는 5시설째. 3번째 ららぽーとは 高雄(2026 예정)</li>
+        <li>구자료의 「3회째」는 거짓. 시험이 "어느 기업인가"를 물으면 답은 三井不動産</li>
+      </ul>
+      <div class="src-list">
+        <a href="https://www.mitsuifudosan.co.jp/corporate/news/2025/0123/">三井不動産: ららぽーと台北南港</a>
+      </div>
+    </div>
+
+    <div class="content-block warning-block">
+      <h3><span class="icon">!</span> 재검증 오류: 클린폴리시 「賃貸」는 오기</h3>
+      <ul>
+        <li>공식 그룹 페이지: 「金品の贈受・<strong>貸借又酒食</strong>の供応」</li>
+        <li>2021 행동헌장 PDF: 「貸借又<strong>飲食</strong>」</li>
+        <li>구자료 「賃貸又飲食」의 賃貸는 어느 원문에도 없음. 빈칸 답 金品은 유지</li>
+      </ul>
+    </div>
+
+    <div class="content-block warning-block">
+      <h3><span class="icon">!</span> 재검증 오류: 육아·개호휴업법 시행일을 섞지 말 것</h3>
+      <ul>
+        <li>3세 미만 텔레워크 노력의무 = <strong>2025년 4월 1일</strong> (후생노동성 특설 사이트)</li>
+        <li>2025년 10월 1일 = 3세~취학전 유연근무 5조치 중 2개 이상 의무</li>
+        <li>「2025.10 시행 + 3세 미만 텔레워크」조합은 거짓</li>
+      </ul>
+      <div class="src-list">
+        <a href="https://www.mhlw.go.jp/seisakunitsuite/bunya/koyou_roudou/koyoukintou/ryouritsu/ikuji/law-amendment/">후생노동성: 육아휴업제도 특설</a>
+      </div>
+    </div>
+
+    <div class="content-block warning-block">
+      <h3><span class="icon">!</span> 재검증 오류: 저작권법 「인용」을 금지로 외우지 말 것</h3>
+      <ul>
+        <li>금지되는 것은 무단 전재·복제</li>
+        <li>저작권법 32조의 적법한 인용(주종관계·출처 명시)은 예외</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: VERIFIED ANSWERS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <h2>공식 소스 검증 완료 — 정답 확인표</h2>
+      <span class="badge badge-high">빈칸 정답 대조</span>
+    </div>
+
+    <!-- 기업이념 -->
+    <div class="content-block verified-block">
+      <h3><span class="icon">&#10003;</span> 기업 이념 · 코어 밸류 — 공식 사이트 전문 대조 완료</h3>
+      <p>카인즈 공식 기업이념 페이지에서 전문을 추출하여 시험 빈칸의 정답을 확인했습니다.</p>
+      <div class="answer-grid">
+        <div class="answer-item">
+          <div class="q">Kindness = ( )</div>
+          <div class="a">→ 親切心</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+        <div class="answer-item">
+          <div class="q">豊かな( )</div>
+          <div class="a">→ 想像力</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+        <div class="answer-item">
+          <div class="q">自分で( )して形にする</div>
+          <div class="a">→ チャレンジ</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+        <div class="answer-item">
+          <div class="q">店舗や( )をつくり出す</div>
+          <div class="a">→ くらし</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+        <div class="answer-item">
+          <div class="q">前例や( )に捉われない</div>
+          <div class="a">→ 常識</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+        <div class="answer-item">
+          <div class="q">ベイシアグループ理念</div>
+          <div class="a">→ For the Customers</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+      </div>
+      <div class="src-list" style="margin-top:10px">
+        <a href="https://www.cainz.co.jp/corporate/philosophy/">출처: カインズ企業理念ページ</a>
+      </div>
+    </div>
+
+    <!-- 경영기본방침 + 클린폴리시 -->
+    <div class="content-block verified-block">
+      <h3><span class="icon">&#10003;</span> 경영 기본 방침 + 클린 폴리시 — 전문 대조 완료</h3>
+      <div class="answer-grid">
+        <div class="answer-item">
+          <div class="q">マウンテンチェーン: ( )と業態を開発</div>
+          <div class="a">→ 店舗</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+        <div class="answer-item">
+          <div class="q">エブリデーロープライス: ( )の追求</div>
+          <div class="a">→ 高速回転</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+        <div class="answer-item">
+          <div class="q">( )の経営</div>
+          <div class="a">→ 全員参加</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+        <div class="answer-item">
+          <div class="q">取引先より( )の贈受…</div>
+          <div class="a">→ 金品</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+        <div class="answer-item">
+          <div class="q">社員間の( )はいたしません</div>
+          <div class="a">→ 虚礼</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+        <div class="answer-item">
+          <div class="q">部下及び社員間の( )はいたしません</div>
+          <div class="a">→ 金銭貸借</div>
+          <div class="src">공식 사이트 원문 확인</div>
+        </div>
+      </div>
+      <div class="src-list" style="margin-top:10px">
+        <a href="https://www.cainz.co.jp/corporate/group/">출처: ベイシアグループについて</a>
+      </div>
+    </div>
+
+    <!-- 연혁 -->
+    <div class="content-block verified-block">
+      <h3><span class="icon">&#10003;</span> 카인즈 연혁 — 공식 사이트 전수 대조</h3>
+      <div class="v-table-wrap">
+        <table class="v-table">
+          <thead><tr><th>연도</th><th>사건</th><th>검증</th></tr></thead>
+          <tbody>
+            <tr><td>1958</td><td>いせや<strong>設立</strong></td><td><span class="status status-ok">확인</span></td></tr>
+            <tr><td>1978</td><td>ホームセンター1号店（栃木店）オープン</td><td><span class="status status-ok">확인</span></td></tr>
+            <tr><td>1989</td><td>カインズ設立（いせやより分社独立）</td><td><span class="status status-ok">확인</span></td></tr>
+            <tr><td>1994</td><td>100店舗達成</td><td><span class="status status-ok">확인</span></td></tr>
+            <tr><td>2007</td><td><strong>SPA宣言</strong></td><td><span class="status status-ok">확인</span></td></tr>
+            <tr><td>2015</td><td><strong>200店舗突破</strong></td><td><span class="status status-ok">확인</span></td></tr>
+            <tr><td>2020.10</td><td>ベイシアグループ売上高<strong>1兆円</strong>達成</td><td><span class="status status-ok">확인</span></td></tr>
+            <tr><td>2021</td><td>くみまち構想を策定</td><td><span class="status status-ok">확인</span></td></tr>
+            <tr><td>2024</td><td>桑名流通センター本格稼働</td><td><span class="status status-ok">확인</span></td></tr>
+            <tr><td>2025</td><td>日高流通センター稼働 / Pet's Oneメンバーズ開始</td><td><span class="status status-ok">확인</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted)">물류센터 수: 공식 로지스틱스 페이지 기준 국내 <strong>15카소</strong> + 해외 5거점(上海·深圳·青島·寧波·ホーチミン)</p>
+      <div class="src-list">
+        <a href="https://www.cainz.co.jp/corporate/history/">출처: カインズ公式 沿革</a>
+      </div>
+    </div>
+
+    <!-- 업계 뉴스 검증 -->
+    <div class="content-block verified-block">
+      <h3><span class="icon">&#10003;</span> 자사 · 업계 뉴스 — 검증 결과 일람</h3>
+      <div class="v-table-wrap">
+        <table class="v-table">
+          <thead><tr><th>뉴스 항목</th><th>검증 결과</th><th>상태</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>モンドセレクション 8商品受賞</td>
+              <td>2025년도 8개 PB상품 수상, <strong>14年連続</strong>金賞</td>
+              <td><span class="status status-ok">확인</span></td>
+            </tr>
+            <tr>
+              <td>Pet's Oneメンバーズ 開始</td>
+              <td>2025年4月18日 개시</td>
+              <td><span class="status status-ok">확인</span></td>
+            </tr>
+            <tr>
+              <td>ベイシア·カインズ ザスパ株式取得</td>
+              <td>2025年5月29日, 각 25.2% → 합계 50.4%</td>
+              <td><span class="status status-ok">확인</span></td>
+            </tr>
+            <tr>
+              <td>DCM·高末と共同配送</td>
+              <td>발표 2/14, 운행 2/17～ 동해 일부</td>
+              <td><span class="status status-ok">확인</span></td>
+            </tr>
+            <tr>
+              <td>ローソン Catch&Go (NTTデータ)</td>
+              <td>2024年10月~ 二子玉川, 11月~ なかもず</td>
+              <td><span class="status status-ok">확인</span></td>
+            </tr>
+            <tr>
+              <td>イオン Green Beans 新ロボ</td>
+              <td>On-Grid Robot Pick 도입, 하루 20만 피킹 처리</td>
+              <td><span class="status status-ok">확인</span></td>
+            </tr>
+            <tr>
+              <td>ゼンショーHD 初任給</td>
+              <td>2025=31.2만 / 2026.4～=32.2만. 6.7%는 임금인상률(베아 3.2%)</td>
+              <td><span class="status status-warn">수정</span></td>
+            </tr>
+            <tr>
+              <td>トライアルHD 西友買収</td>
+              <td>2025年7月1日 완료, 약 3,800억엔</td>
+              <td><span class="status status-ok">확인</span></td>
+            </tr>
+            <tr>
+              <td>ららぽーと 台湾</td>
+              <td>台北南港 2025.3.20. 三井不動産. ららぽーと 2시설째(台中에 이음)</td>
+              <td><span class="status status-info">보완</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: UNVERIFIABLE AREAS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <h2>외부 검증 불가 영역 — 내부 자료 의존</h2>
+      <span class="badge badge-medium">자료 가치 평가</span>
+    </div>
+
+    <div class="content-block caution-block">
+      <h3><span class="icon">!</span> 베이시아 어록 100개 — 공개 소스 없음</h3>
+      <ul>
+        <li>웹 검색 결과, 베이시아 그룹 어록 전체 목록은 <strong>공개된 적 없음</strong></li>
+        <li>samples 폴더의 「ベイシア語録集穴抜き」가 <strong>유일한 참고 자료</strong></li>
+        <li>정답도 포함되어 있으므로 이 자료 자체가 가장 높은 가치. 외부 검증 대신 <strong>반복 암기에 시간 투자</strong></li>
+        <li>어록 내용은 체인 스토어 이론(渥美俊一 등)과 정합성 있음 — 내용 자체는 신뢰 가능</li>
+      </ul>
+    </div>
+
+    <div class="content-block caution-block">
+      <h3><span class="icon">!</span> 취업 규칙 · PEOPLE 사보 — 사내 한정 자료</h3>
+      <ul>
+        <li><strong>취업 규칙:</strong> 카인즈 정사원 취업규칙은 비공개. 샘플의 O/X 기출 문제가 유일한 외부 참조점</li>
+        <li>다만, 노동기준법 관련(6h→45분, 8h→60분 휴식, 유급 5일 소화 의무)은 일본법으로 검증 가능 ✅</li>
+        <li><strong>PEOPLE:</strong> 사내보. 본 작업 폴더에 12월~6월호 PDF와 7·8월 저장 HTML이 있어 대조는 가능. 외부 공개본은 없음. 취업규칙 원문은 여전히 미확인</li>
+        <li><strong>행동 헌장 PDF:</strong> 공식 사이트에 PDF 링크 존재하나 이미지 스캔 형태라 텍스트 추출 불가</li>
+      </ul>
+      <div class="src-list">
+        <a href="https://www.cainz.co.jp/wp-content/themes/corparate//assets/pdf/2021_beisia_conduct.pdf">ベイシアグループ行動憲章 PDF (이미지 스캔 — 열람만 가능)</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: EXAM TRAP ANALYSIS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <h2>악마변호인 시점 — 시험 함정 분석</h2>
+      <span class="badge badge-critical">실점 방지</span>
+    </div>
+
+    <div class="content-block tip-block">
+      <h3><span class="icon">1</span> 숫자 함정 — 근접한 2택</h3>
+      <ul>
+        <li>제쇼 초임급: 30만 vs <strong>31.2만</strong> (정답)</li>
+        <li>매출 돌파: 4,000억엔(2017) vs <strong>1兆円</strong>(2020 그룹 매출)</li>
+        <li>店舗: 100점(1994) vs <strong>200점(2015)</strong> vs 239점(2024현재)</li>
+        <li>트라이얼 서유 인수: <strong>약 3,800억엔</strong></li>
+        <li>자스파: 베이시아·카인즈 각 <strong>25.2%</strong>, 합계 <strong>50.4%</strong></li>
+      </ul>
+    </div>
+
+    <div class="content-block tip-block">
+      <h3><span class="icon">2</span> "어느 기업이" 함정 — 주어를 묻는 출제</h3>
+      <p>샘플 후기: 「どの企業が行ったか」「どの企業が買収したか」 형태 다수</p>
+      <ul>
+        <li>서유(西友) 인수 → <strong>トライアルHD</strong> (이온이나 세이조 아님)</li>
+        <li>초임급 30만+ → <strong>ゼンショーHD</strong></li>
+        <li>무인점포 Catch&Go → <strong>ローソン</strong> (NTTデータ 기술제공)</li>
+        <li>Green Beans 로봇 도입 → <strong>イオン</strong> (이온넥스트)</li>
+        <li>대만 ららぽーと → <strong>三井不動産</strong></li>
+        <li>공동배송 개시 → <strong>DCM·カインズ·高末</strong></li>
+      </ul>
+    </div>
+
+    <div class="content-block tip-block">
+      <h3><span class="icon">3</span> 유사 법률명 함정</h3>
+      <p>샘플 후기: 「個人情報保護法、著作権法、景品表示法、労働基準法…似たものが選択式」</p>
+      <ul>
+        <li><strong>지적재산보호법</strong>이 출제됐지만 "ベイシアグループ憲章には載ってなかったような…"란 후기 → 헌장 범위 밖 출제 전례 있음</li>
+        <li>노동시책총합추진법(パワハラ방지법 포함)도 출제 확인됨</li>
+        <li>유사 이름 법률: 「不正競争防止法」vs「知的財産基本法」vs「特許法」— 구별 필요</li>
+      </ul>
+    </div>
+
+    <div class="content-block tip-block">
+      <h3><span class="icon">4</span> AEO 제도 — 낯선 용어 주의</h3>
+      <ul>
+        <li>샘플: "国際物流における貨物のセキュリティ管理と法令遵守の体制…税関手続きの緩和·簡素化"</li>
+        <li>이것은 <strong>AEO(Authorized Economic Operator) 인정 제도</strong></li>
+        <li>카인즈가 AEO 인정을 받았는지 여부는 공식 확인 불가이나, PEOPLE 기사에서 다뤄진 것으로 추정</li>
+      </ul>
+    </div>
+
+    <div class="content-block tip-block">
+      <h3><span class="icon">5</span> 시사 문제 — 시험 직전 1~2개월이 타겟</h3>
+      <ul>
+        <li>2025년 시험: <strong>6~7월 뉴스에서만</strong> 출제 (후기 명시)</li>
+        <li>36기 시험: 시사 20문항까지 확대 — 전체 <strong>20%</strong></li>
+        <li>소매업 뉴스보다 <strong>소비자 시점 경제 뉴스</strong>가 중심 (출생률, 인구, 가계, 환율, 예산)</li>
+        <li>준비 방법: 시험 예정일 기준 2개월 전부터 닛케이·NHK 경제 뉴스 매일 정리</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: INTERVIEW ===== -->
+  <div class="section">
+    <div class="section-header">
+      <h2>면접 기출 패턴 (4인 종합) — 변동 없음</h2>
+      <span class="badge badge-medium">필기 후 연계</span>
+    </div>
+    <div class="content-block">
+      <p style="margin-bottom:14px">면접 기출은 공개 자료와 대조할 대상이 아닌 순수 경험 데이터. 4인 기출 교차분석 결과 다음이 <strong>100% 출제</strong>:</p>
+      <div class="interview-q"><span class="freq freq-5">5/5</span><span class="text">필기시험 어떠셨습니까? / 몇 점이라 생각하십니까?</span></div>
+      <div class="interview-q"><span class="freq freq-5">5/5</span><span class="text">업무에서 가장 중요한 지표(KPI)는?</span></div>
+      <div class="interview-q"><span class="freq freq-5">5/5</span><span class="text">자신의 강점 · 약점</span></div>
+      <div class="interview-q"><span class="freq freq-5">5/5</span><span class="text">3가지 코어 밸류 중 가장 중요하게 생각하는 것</span></div>
+      <div class="interview-q"><span class="freq freq-4">4/5</span><span class="text">향후 커리어 플랜 / M그레이드 직무 요건 (암기 확인)</span></div>
+      <div class="interview-q"><span class="freq freq-3">3/5</span><span class="text">최근 읽은 책 / 관심 뉴스 / 벤치마킹 기업</span></div>
+      <p style="margin-top:12px;font-size:13px;color:var(--text-muted)">주의: "KBHが結論から逆算している感じがする"라는 피드백 — 추정 원인을 다수 제시할 것</p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 7: STUDY ROADMAP ===== -->
+  <div class="section">
+    <div class="section-header">
+      <h2>수정된 학습 로드맵</h2>
+      <span class="badge badge-critical">실행 계획</span>
+    </div>
+
+    <div class="content-block">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-phase">PHASE 1 — 확실한 득점원 (검증 완료 영역)</div>
+          <div class="timeline-title">기업 이념 · 코어 밸류 · 경영 기본 방침 · 클린 폴리시</div>
+          <div class="timeline-desc">공식 사이트에서 전문 확인 완료. <strong>기술식(직접 쓰기)</strong> — 빈 종이에 쓸 수 있을 때까지 반복. 코어 밸류 본문 빈칸(親切心, 想像力, チャレンジ, くらし, 常識)은 공식 사이트 원문 기준.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">PHASE 2 — 고효율 암기 (내부 자료 의존)</div>
+          <div class="timeline-title">베이시아 어록 100개 + 취업 규칙</div>
+          <div class="timeline-desc">외부 검증 불가이므로 샘플 자료가 유일한 소스. 플래시카드 100장 만들어 매일 회전. 취업 규칙은 숫자(5일·30일·4주4일)와 O/X 포인트 정리.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">PHASE 3 — PEOPLE 정독 + 연혁</div>
+          <div class="timeline-title">경영 전략(3월호) + 수상 기사 + 연혁 연표</div>
+          <div class="timeline-desc">연혁은 공식 사이트로 교차검증 가능. PEOPLE은 내부 자료이므로 직접 정독 필수. <strong>도표 앞뒤 서문</strong>까지 빈칸 대상.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">PHASE 4 — 시험 직전 2주</div>
+          <div class="timeline-title">시사 · 업계 뉴스 (정확한 숫자 암기)</div>
+          <div class="timeline-desc">시험일 기준 직전 1~2개월 뉴스. <strong>근접 2택이 많으므로 정확한 수치 필수.</strong> 닛케이·NHK 경제 뉴스 매일 정리. 특히 "어느 기업이 했는가" 패턴 주의.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">PHASE 5 — 아웃풋 훈련</div>
+          <div class="timeline-title">어록 빈칸 시트 반복 + 모의 테스트</div>
+          <div class="timeline-desc">"인풋은 했지만 아웃풋 부족으로 자신 없었다" — 실제 후기. 정답을 가리고 빈칸 채우기 반복 연습.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 8: INDUSTRY ANALYSIS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <h2>업계 현황 2025-2026 · 미래 전망 2027-2030</h2>
+      <span class="badge badge-critical">시사 · 면접 대비</span>
+    </div>
+
+    <div class="content-block info-block">
+      <h3><span class="icon">i</span> 이 섹션의 용도</h3>
+      <p>필기시험 시사문제(8~20문항) + 면접 "최근 관심 뉴스" "경영방침 소감" 대비용. 모든 수치는 공식 발표·닛케이 보도 기준. 미확인 추측은 [보수적 추정]으로 명시.</p>
+    </div>
+
+    <!-- 홈센터 시장 -->
+    <div class="content-block">
+      <h3><span class="icon">A</span> 홈센터 업계 현황 (2025-2026)</h3>
+      <div class="v-table-wrap">
+        <table class="v-table">
+          <thead><tr><th>지표</th><th>수치</th><th>출처</th></tr></thead>
+          <tbody>
+            <tr><td>시장 규모 (2024년도)</td><td><strong>약 4조 180억엔</strong> (코로나 특수 후 횡보)</td><td>다이아몬드 체인스토어</td></tr>
+            <tr><td>점포 수 (2024년도)</td><td><strong>4,536점포</strong></td><td>업계 통계</td></tr>
+            <tr><td>카인즈 매출</td><td>약 <strong>5,874억엔</strong> (2026.2期, 공식 사이트 기준), PB 비율 40%+</td><td>공식 사이트 "数字で見るカインズ"</td></tr>
+            <tr><td>주요 3사 합계</td><td>약 1조 7,000억엔 (카인즈·DCM·코난)</td><td>업계 분석</td></tr>
+            <tr><td>카인즈 앱 회원수</td><td><strong>573만명</strong>, 연간 레지 통과 1억 4,477만회</td><td>공식 발표</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>시장 포화:</strong> 2020년 4.27조→2023년 3.98조→2024년 4.02조. 코로나 특수 소멸 후 <strong>실질 정체</strong></li>
+        <li><strong>프로유즈 전문점 확대:</strong> DCM은 2025년 신규 출점 7곳을 "ホダカ"(프로유즈), 코난은 11곳 "コーナンPRO"+ 8곳 "建デポ"로 배분</li>
+        <li><strong>PB·SPA 경쟁 심화:</strong> 카인즈 SPA(2007선언) PB비율 40%+ vs DCM·코난도 PB 강화 중</li>
+        <li><strong>물류 2024년 문제:</strong> 드라이버 시간 외 상한 규제 → 공동배송 가속 (DCM·카인즈·高末 동해 4현 실행)</li>
+      </ul>
+    </div>
+
+    <!-- 소매업 전체 -->
+    <div class="content-block">
+      <h3><span class="icon">B</span> 일본 소매업 전체 — M&A · 재편의 시대</h3>
+      <ul>
+        <li><strong>트라이얼HD × 서유:</strong> 2025년 7월 완전 자회사화 완료. 합산 매출 <strong>1.2조엔</strong>, 국내 소매 7위 규모. 향후 M&A도 시야에 (닛케이 보도)</li>
+        <li><strong>제쇼HD:</strong> 대졸 초임급 31.2만엔(2025) → 32.2만엔(2026). 2030년까지 연속 베어 합의. 인건비 경쟁 격화</li>
+        <li><strong>로손:</strong> NTT데이터 Catch&Go 무인점포 확대 (2024.10~ 후타코타마가와, 11~ 나카모즈)</li>
+        <li><strong>이온:</strong> Green Beans(넷 슈퍼) On-Grid Robot Pick 도입 — 대상 SKU 1만 개, 하루 20만 피킹</li>
+        <li><strong>삼정부동산:</strong> ららぽーと台北南港 2025.3 개업 = 대만 ららぽーと 2시설째(台中에 이음). 아시아 전개 가속</li>
+        <li><strong>소매업 도산:</strong> 2025년 8월 소매업 도산 94건, 전년 대비 +18.9%. 3개월 연속 전년 초과</li>
+      </ul>
+    </div>
+
+    <!-- 경제 시사 데이터 -->
+    <div class="content-block">
+      <h3><span class="icon">C</span> 시사 시험 출제 데이터 — 2025년 확정 수치</h3>
+      <div class="v-table-wrap">
+        <table class="v-table">
+          <thead><tr><th>항목</th><th>수치</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td>2025년도 국가예산 (일반회계)</td><td><strong>115조 5,415억엔</strong></td><td>과거 최대, 전년 대비 +3조엔</td></tr>
+            <tr><td>사회보장비</td><td><strong>38조 2,778억엔</strong></td><td>과거 최대</td></tr>
+            <tr><td>방위비</td><td><strong>8조 6,691억엔</strong></td><td>과거 최대</td></tr>
+            <tr><td>2025년 경상수지</td><td><strong>31조 8,799억엔 흑자</strong></td><td>2년 연속 최고 경신</td></tr>
+            <tr><td>2025년 무역수지</td><td><strong>8,487억엔 적자</strong> (축소)</td><td>연도 기준은 5년 만에 흑자전환</td></tr>
+            <tr><td>제1차 소득수지</td><td><strong>41조 5,903억엔 흑자</strong></td><td>과거 최고, 해외 투자 수익</td></tr>
+            <tr><td>인구 감소 (2024.10 기준)</td><td><strong>▲55만명</strong> (과거 최대)</td><td>14년 연속 감소</td></tr>
+            <tr><td>2025년 후반 인구 감소</td><td><strong>▲59~60만명/년</strong>으로 가속</td><td>총무성 월별 추계</td></tr>
+            <tr><td>15세 미만 인구</td><td><strong>1,360만명</strong> (전년 대비 ▲36만)</td><td>2025.6 확정치</td></tr>
+            <tr><td>트럼프 관세 (자동차)</td><td>25% → <strong>15%</strong>로 인하</td><td>샘플 자료 기재와 일치</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted)">주의: 무역수지는 역년 기준 vs 연도 기준(4~3월)으로 흑/적이 다름. 시험에서 "何が黒字転換したか"의 답은 <strong>貿易収支</strong> (연도 기준 5년 만에 흑자)</p>
+    </div>
+
+    <!-- 노동법 개정 -->
+    <div class="content-block">
+      <h3><span class="icon">D</span> 육아개호휴업법 개정 (2025년 4월·10월 2단계 시행)</h3>
+      <ul>
+        <li><strong>텔레워크:</strong> 단시간 근무 대체 조치에 "テレワーク" 추가 (4월 시행)</li>
+        <li><strong>대상 확대:</strong> 자녀 간호 휴가·잔업 면제 대상이 <strong>초등학교 취학 전</strong>까지 확대 (기존 3세 미만)</li>
+        <li><strong>공표 의무:</strong> 육아휴업 취득 상황 공표 의무 대상 기업 확대 (10월 시행)</li>
+        <li><strong>개호:</strong> 개호 이직 방지 위한 고용 환경 정비 의무화</li>
+        <li>시험에서 "何に対する改正だったか"가 출제됨 — <strong>"テレワーク" "子の看護休暇" "対象年齢の拡大"</strong> 등이 정답 후보</li>
+      </ul>
+    </div>
+
+    <!-- 미래 전망 2027-2030 -->
+    <div class="content-block">
+      <h3><span class="icon">E</span> 2027~2030 전망 — 확정 트렌드만 (보수적 해석)</h3>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px">아래는 예측이 아닌 <strong>이미 발표된 계획·확정된 구조적 트렌드</strong>만 기재합니다.</p>
+      <ul>
+        <li><strong>인구:</strong> 총무성 추계 — 2030년 약 1억 1,700만명. 생산연령인구 급감. 65세 이상이 전체 1/3 돌파</li>
+        <li><strong>소매 인력 부족:</strong> 도소매업 2030년 약 <strong>60만명 부족</strong> 예측 (후생노동성 기반)</li>
+        <li><strong>물류 로봇 시장:</strong> 2023년 357억엔 → 2027년 733억엔 → <strong>2030년 1,238억엔</strong> (야노경제연구소)</li>
+        <li><strong>트라이얼HD:</strong> 서유 PMI에 3년 투자(2027-2029) → 2030년 이후 규모 확대·M&A 가속 명시 (닛케이)</li>
+        <li><strong>카인즈 디지털:</strong> "ホームセンター → IT小売企業" 선언(2019) 이후 점포 수 동결로 18% 매출 성장. 무인점포 "CAINZ Mobile Store"(2025.12 요시카와미나미점) 확대 경로</li>
+        <li><strong>AI 활용:</strong> 대면판매 기업 43.7%가 "AI 활용 중"(2025 조사). 수요 예측·재고 관리·POP 생성에 집중</li>
+      </ul>
+    </div>
+
+    <div class="content-block caution-block">
+      <h3><span class="icon">!</span> 면접용 브레인스토밍 — 카인즈 시점에서의 의미</h3>
+      <p>면접에서 "경영방침을 듣고 어떻게 느꼈는가" "자기 업무에 대입하면" 질문 대비:</p>
+      <ul>
+        <li><strong>인구 감소 × くみまち構想:</strong> 상권 축소 환경에서 "점포 = 지역 인프라" 포지셔닝은 방어적 전략이자 성장 전략. 카인즈는 2021년 구미마치 구상 책정, 2025년 kumimachi.com 개시 — 이미 실행 단계</li>
+        <li><strong>물류 2024 문제 × 공동배송:</strong> DCM·高末과의 공동배송은 "경쟁사와의 협업"이라는 업계 전환점. 카인즈의 에브리데이 로프라이스 유지를 위한 물류비 억제의 현실적 답</li>
+        <li><strong>DX × SPA:</strong> PB 비율 40%+에서 AI 수요 예측·전자 선반 라벨·무인 결제를 결합하면 "지역밀착 × 표준 오퍼레이션"이 동시에 가능. 면접 응시자 AA씨도 이 점을 지적</li>
+        <li><strong>인건비 인상 경쟁:</strong> 제쇼 31만→32만, 업계 전체 임금 상승 압력. 카인즈는 "인시 개선(人時改善)"이 핵심 KPI — 기술 투자로 인건비 효율화와 임금 인상을 양립시키는 구조</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>교차검증 소스:</p>
+    <p>
+      <a href="https://www.cainz.co.jp/corporate/philosophy/">카인즈 기업이념</a> ·
+      <a href="https://www.cainz.co.jp/corporate/group/">베이시아 그룹</a> ·
+      <a href="https://www.cainz.co.jp/corporate/history/">카인즈 연혁</a> ·
+      <a href="https://prtimes.jp/main/html/rd/p/000000500.000008255.html">모드셀렉션 PR</a> ·
+      <a href="https://www.nikkei.com/article/DGXZQOUC0616X0W5A300C2000000/">닛케이 제쇼</a> ·
+      <a href="https://www.cainz.co.jp/news/11645/">카인즈 공동배송</a> ·
+      <a href="https://www.cainz.co.jp/news/12903/">자스파 주식취득</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

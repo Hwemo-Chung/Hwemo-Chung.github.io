@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M그레이드 필기시험 종합대비</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap">
+<style>
+:root {
+  --bg: #fafaf8; --bg2: #f0efeb; --card: #ffffff; --text: #1a1a1a; --text2: #555;
+  --red: #c8102e; --red2: #a00d24; --navy: #1e2a3a; --navy2: #2c3e50;
+  --green: #27ae60; --orange: #e67e22; --blue: #2980b9;
+  --border: #e0ddd8; --shadow: rgba(0,0,0,.06);
+  --radius: 10px;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121218;--bg2:#1a1a24;--card:#22222e;--text:#e8e6e0;--text2:#999;
+  --border:#333;--shadow:rgba(0,0,0,.3);--navy:#c8d6e5;--navy2:#dfe6e9;
+}}
+:root[data-theme="dark"]{
+  --bg:#121218;--bg2:#1a1a24;--card:#22222e;--text:#e8e6e0;--text2:#999;
+  --border:#333;--shadow:rgba(0,0,0,.3);--navy:#c8d6e5;--navy2:#dfe6e9;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-padding-top:56px}
+body{font-family:'Noto Sans JP','Apple SD Gothic Neo',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
+h1,h2,h3{font-family:'Noto Serif JP',serif}
+button,input{font-family:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+nav{position:sticky;top:0;z-index:100;background:var(--navy);display:flex;align-items:stretch;overflow-x:auto;scrollbar-width:thin;-webkit-overflow-scrolling:touch;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+nav button{background:none;border:none;color:#ccc;padding:12px 16px;font-size:13px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;flex:0 0 auto}
+nav button:hover{color:#fff}
+nav button.active{color:#fff;border-bottom-color:var(--red);font-weight:700}
+nav .nav-end{margin-left:auto;display:flex}
+nav .theme-btn{border-bottom:none;color:#fff;opacity:.85}
+.container{max-width:900px;margin:0 auto;padding:16px}
+.tab{display:none}.tab.active{display:block}
+.header{text-align:center;padding:20px 0 12px;border-bottom:2px solid var(--red);margin-bottom:16px}
+.header h1{font-size:clamp(1.25rem,4vw,1.6rem);color:var(--red);letter-spacing:.04em;line-height:1.35;text-wrap:balance}
+.header p{color:var(--text2);font-size:.85em;margin-top:6px;line-height:1.5}
+.meta-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px}
+.chip{font-size:11px;padding:3px 9px;border:1px solid var(--border);border-radius:999px;color:var(--text2);background:var(--card)}
+.banner{font-size:.8em;line-height:1.55;color:var(--text2);background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:8px 12px;margin:0 0 14px;text-align:left}
+.toolbar{position:sticky;top:46px;z-index:90;background:var(--bg);padding:8px 0 10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--border);margin-bottom:12px}
+.toolbar .toggle-all{margin:0}
+.toolbar .search-box{flex:1;min-width:180px;margin:0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px;box-shadow:0 1px 4px var(--shadow);overflow-x:auto}
+.card h2{font-size:1.1em;color:var(--red);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.card h3{font-size:.95em;color:var(--navy);margin:12px 0 6px}
+.qa{display:grid;grid-template-columns:1fr;gap:8px;margin:8px 0}
+.qa-item{display:flex;gap:10px;padding:8px 12px;background:var(--bg2);border-radius:6px;font-size:.88em;align-items:flex-start}
+.qa-item .q{flex:1;color:var(--text);min-width:0;overflow-wrap:break-word}
+.qa-item .a{color:var(--red);font-weight:700;white-space:normal;text-align:right;max-width:48%;cursor:pointer;user-select:none;line-height:1.5}
+.qa-item .a.hidden{color:transparent;background:var(--border);border-radius:3px;min-width:72px;min-height:1.35em}
+.qa-item .a.hidden:hover{color:var(--red);background:transparent}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.75em;font-weight:700;margin-right:4px}
+.badge-red{background:#fde8e8;color:var(--red)}
+.badge-blue{background:#e8f0fe;color:var(--blue)}
+.badge-green{background:#e8f8e8;color:var(--green)}
+.badge-orange{background:#fef3e0;color:var(--orange)}
+.section-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--red);color:#fff;border-radius:50%;font-size:.8em;font-weight:700;margin-right:8px;flex-shrink:0}
+.law-box{background:var(--bg2);border-left:3px solid var(--blue);padding:12px 16px;margin:8px 0;border-radius:0 6px 6px 0;font-size:.85em}
+.law-box strong{color:var(--blue)}
+.warn{background:#fff8e1;border-left:3px solid var(--orange);padding:10px 14px;margin:8px 0;border-radius:0 6px 6px 0;font-size:.85em}
+:root[data-theme="dark"] .warn,.warn-dark{background:#2a2410;border-left-color:var(--orange)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .warn{background:#2a2410}}
+:root[data-theme="dark"] .badge-red{background:#3a1515}
+:root[data-theme="dark"] .badge-blue{background:#152030}
+:root[data-theme="dark"] .badge-green{background:#153015}
+:root[data-theme="dark"] .badge-orange{background:#302515}
+:root[data-theme="dark"] .law-box{background:var(--bg2)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .badge-red{background:#3a1515}:root:not([data-theme="light"]) .badge-blue{background:#152030}:root:not([data-theme="light"]) .badge-green{background:#153015}:root:not([data-theme="light"]) .badge-orange{background:#302515}:root:not([data-theme="light"]) .law-box{background:var(--bg2)}}
+.fc-container{display:flex;flex-direction:column;align-items:center;gap:16px}
+.fc-card{width:100%;max-width:560px;min-height:220px;perspective:900px;cursor:pointer}
+.fc-inner{display:grid;width:100%;min-height:220px;transition:transform .45s;transform-style:preserve-3d}
+.fc-card.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{grid-area:1/1;min-height:220px;backface-visibility:hidden;border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow-wrap:break-word}
+.fc-front{background:var(--card);border:2px solid var(--border)}
+.fc-back{background:var(--red);color:#fff;transform:rotateY(180deg)}
+.fc-num{font-size:.8em;color:var(--text2);margin-bottom:8px}
+.fc-text{font-size:1.05em;line-height:1.8}
+.fc-answer{font-size:1.3em;font-weight:700}
+.fc-controls{display:flex;gap:12px;align-items:center}
+.fc-controls button{padding:8px 20px;border:none;border-radius:6px;font-family:inherit;font-size:.9em;cursor:pointer;font-weight:500}
+.fc-prev,.fc-next{background:var(--navy);color:#fff}
+.fc-prev:disabled,.fc-next:disabled{opacity:.3}
+.fc-shuffle{background:var(--orange);color:#fff}
+.fc-progress{font-size:.85em;color:var(--text2)}
+.fc-show-toggle{display:flex;gap:8px;margin-bottom:12px}
+.fc-show-toggle button{padding:6px 14px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:6px;font-family:inherit;font-size:.82em;cursor:pointer}
+.fc-show-toggle button.active{background:var(--red);color:#fff;border-color:var(--red)}
+.quiz{counter-reset:q}
+.quiz-q{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+.quiz-q::before{counter-increment:q;content:"Q" counter(q);display:inline-block;background:var(--navy);color:#fff;padding:2px 8px;border-radius:4px;font-size:.75em;font-weight:700;margin-bottom:8px}
+.quiz-q[data-section]::after{content:attr(data-section);display:inline-block;background:var(--bg2);color:var(--text2);padding:2px 8px;border-radius:4px;font-size:.7em;margin-left:8px}
+.quiz-q p{font-size:.9em;margin:8px 0}
+.quiz-opts{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.quiz-opt{display:flex;align-items:flex-start;gap:8px;padding:8px 12px;border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:.88em;transition:.15s;overflow-wrap:break-word}
+.quiz-opt:hover{border-color:var(--blue);background:var(--bg2)}
+.quiz-opt.selected{border-color:var(--blue);background:#e8f0fe}
+.quiz-opt.correct{border-color:var(--green);background:#e8f8e8}
+.quiz-opt.wrong{border-color:var(--red);background:#fde8e8}
+:root[data-theme="dark"] .quiz-opt.selected{background:#152030}
+:root[data-theme="dark"] .quiz-opt.correct{background:#153015}
+:root[data-theme="dark"] .quiz-opt.wrong{background:#3a1515}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .quiz-opt.selected{background:#152030}:root:not([data-theme="light"]) .quiz-opt.correct{background:#153015}:root:not([data-theme="light"]) .quiz-opt.wrong{background:#3a1515}}
+.quiz-input{width:100%;max-width:300px;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-family:inherit;font-size:.9em;background:var(--card);color:var(--text);margin-top:8px}
+.quiz-input:focus{outline:none;border-color:var(--blue)}
+.quiz-check{display:inline-block;padding:2px 10px;border-radius:4px;font-size:.8em;font-weight:700;margin-top:6px}
+.quiz-check.ok{background:#e8f8e8;color:var(--green)}
+.quiz-check.ng{background:#fde8e8;color:var(--red)}
+.score-bar{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:16px;text-align:center;position:sticky;top:48px;z-index:50}
+.score-num{font-size:2em;font-weight:900;color:var(--red)}
+.btn-submit{display:block;width:100%;max-width:300px;margin:20px auto;padding:14px;background:var(--red);color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:1em;font-weight:700;cursor:pointer;letter-spacing:.05em}
+.btn-submit:hover{background:var(--red2)}
+.toggle-all{display:inline-block;padding:6px 14px;background:var(--blue);color:#fff;border:none;border-radius:6px;font-family:inherit;font-size:.82em;cursor:pointer;margin-bottom:12px}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:8px 0}
+table{width:100%;border-collapse:collapse;font-size:.85em;margin:8px 0}
+th,td{padding:8px 10px;border:1px solid var(--border);text-align:left;vertical-align:top}
+th{background:var(--bg2);font-weight:700}
+.charter-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:var(--navy);color:#fff;border-radius:50%;font-size:.85em;font-weight:700;margin-right:8px}
+:root[data-theme="dark"] .charter-num{background:var(--red)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .charter-num{background:var(--red)}}
+.charter-item{margin-bottom:12px;padding-left:40px;position:relative}
+.charter-item .charter-num{position:absolute;left:0;top:0}
+.ox-q{display:flex;gap:8px;align-items:center;padding:10px 12px;background:var(--bg2);border-radius:6px;margin:6px 0;font-size:.88em;cursor:pointer}
+.ox-q .ox-mark{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.9em;flex-shrink:0;border:2px solid var(--border);color:var(--text2)}
+.ox-q.revealed .ox-mark.correct{border-color:var(--green);color:var(--green);background:#e8f8e8}
+.ox-q.revealed .ox-mark.wrong{border-color:var(--red);color:var(--red);background:#fde8e8}
+@media(max-width:600px){
+  .container{padding:12px 8px}
+  .card{padding:14px}
+  nav button{padding:10px 12px;font-size:12px}
+  .qa-item{flex-direction:column;gap:4px}
+  .qa-item .a{max-width:100%;text-align:left}
+  .toolbar{top:42px}
+  .score-bar{top:42px}
+}
+.search-box{display:flex;gap:8px;margin-bottom:16px}
+.search-box input{flex:1;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-family:inherit;font-size:.9em;background:var(--card);color:var(--text)}
+.highlight{background:#fff3cd;padding:0 2px;border-radius:2px}
+:root[data-theme="dark"] .highlight{background:#3a3010}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .highlight{background:#3a3010}}
+</style>
+</head>
+<body>
+<nav role="tablist" aria-label="학습 섹션">
+  <button type="button" role="tab" class="active" aria-selected="true" onclick="showTab('study')">핵심정리</button>
+  <button type="button" role="tab" aria-selected="false" onclick="showTab('charter')">행동헌장</button>
+  <button type="button" role="tab" aria-selected="false" onclick="showTab('flash')">어록100</button>
+  <button type="button" role="tab" aria-selected="false" onclick="showTab('mock')">모의고사</button>
+  <button type="button" role="tab" aria-selected="false" onclick="showTab('tips')">함정노트</button>
+  <span class="nav-end"><button type="button" class="theme-btn" onclick="toggleTheme()" title="테마">테마</button></span>
+</nav>
+
+<div class="container">
+
+<!-- ==================== TAB 1: 핵심정리 ==================== -->
+<div id="study" class="tab active" role="tabpanel">
+<div class="header">
+  <h1>M그레이드 필기시험 핵심정리</h1>
+  <div class="meta-row">
+    <span class="chip">시험 2026.9.9</span>
+    <span class="chip">12문 × 6~8</span>
+    <span class="chip">모의 135문</span>
+  </div>
+</div>
+<div class="banner">재검증 반영: ららぽーと 2회 / 育介 시행일 / 貸借又酒食 / 무단전재. 미확인: 취업규칙 원문·어록 55 경계.</div>
+<div class="toolbar">
+  <button type="button" class="toggle-all" onclick="toggleAllAnswers()">전체 정답 표시/숨기기</button>
+  <div class="search-box"><input id="study-filter" type="search" placeholder="핵심정리 검색" oninput="filterQa('study', this.value)"></div>
+</div>
+
+<!-- Section 1 -->
+<div class="card">
+  <h2><span class="section-num">1</span>カインズ企業理念 <span class="badge badge-red">全記述式</span></h2>
+  <div class="warn">매년 이 섹션만 기술식(記述式). 반드시 빈칸 없이 암기할 것!</div>
+  <div class="qa">
+    <div class="qa-item"><span class="q">カインズのプロミスは？</span><span class="a hidden" onclick="this.classList.toggle('hidden')">くらしに、ららら。</span></div>
+    <div class="qa-item"><span class="q">カインズのビジョンは？</span><span class="a hidden" onclick="this.classList.toggle('hidden')">世界を、日常から変える。</span></div>
+    <div class="qa-item"><span class="q">ベイシアグループ理念は？</span><span class="a hidden" onclick="this.classList.toggle('hidden')">For the Customers</span></div>
+    <div class="qa-item"><span class="q">コアバリュー3つは？</span><span class="a hidden" onclick="this.classList.toggle('hidden')">Kindnessでつながる / 創るをつくる / 枠をこえる</span></div>
+    <div class="qa-item"><span class="q">Kindness：（___）を中心においてつながる</span><span class="a hidden" onclick="this.classList.toggle('hidden')">親切心（公式原文で確定 ※思いやり✗）</span></div>
+    <div class="qa-item"><span class="q">プロフェッショナルとして自分を律する（___）と、相手の気持ちを汲み取る豊かな（___）、そして相手を心から大切にする（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">強さ / 想像力 / 愛</span></div>
+    <div class="qa-item"><span class="q">創る＝何事でも自分で（___）して形にする</span><span class="a hidden" onclick="this.classList.toggle('hidden')">チャレンジ（公式原文で確定 ※想像✗）</span></div>
+    <div class="qa-item"><span class="q">お客様やメンバー、パートナーと一緒により良い店舗や（___）をつくり出す</span><span class="a hidden" onclick="this.classList.toggle('hidden')">くらし（公式原文で確定 ※サービス✗）</span></div>
+    <div class="qa-item"><span class="q">前例や（___）に捉われない</span><span class="a hidden" onclick="this.classList.toggle('hidden')">常識</span></div>
+    <div class="qa-item"><span class="q">枠をこえる：多様なものやことに触れてみる（___）を持ち、新たな化学反応を起こす（___）を持つこと</span><span class="a hidden" onclick="this.classList.toggle('hidden')">好奇心 / 勇気</span></div>
+  </div>
+  <h3>企業理念の背景・社名の由来（公式ページより — 出題候補）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">カインズは1989年の（___）、2007年の（___）宣言を経て、2019年を「第（___）創業期」と位置づけ、3カ年中期経営計画「PROJECT（___）」がスタート。（___）年3月に新企業理念が決定</span><span class="a hidden" onclick="this.classList.toggle('hidden')">創業 / SPA / 第3創業期 / KINDNESS / 2020年</span></div>
+    <div class="qa-item"><span class="q">社名の由来：「親切な・豊富な」の「（___）」＋お客様第一の「（___）」＋愛のこもった接客「（___）」＋その気持ちを永遠に持ち続ける「（___）」</span><span class="a hidden" onclick="this.classList.toggle('hidden')">Kind(ness) / Customers first / AI（愛） / Z（永遠）</span></div>
+    <div class="qa-item"><span class="q">ブランドコンセプト「くらしDIY」＝ひとりひとりが（___）して手に入れる、自分らしいくらし。「やりたい」「（___）」「できた」</span><span class="a hidden" onclick="this.classList.toggle('hidden')">創意工夫 / やってみた</span></div>
+  </div>
+  <div class="warn" style="border-left-color:var(--green)"><strong>✅ 공식 원문 대조 완료 (2026.8.21)</strong>: <a href="https://www.cainz.co.jp/corporate/philosophy/" style="color:inherit">공식 企業理念 페이지</a> 전문과 1:1 대조 완료. 구버전 답 3건 정정: 思いやり→<strong>親切心</strong> / 想像→<strong>チャレンジ</strong> / サービス→<strong>くらし</strong>. 이 페이지가 기술식 출제 원전이므로 위 답이 최종.</div>
+  <h3>グループ理念の3本柱 (行動憲章より)</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">チェーンストア イズ モア（___）ビジネスに徹する</span><span class="a hidden" onclick="this.classList.toggle('hidden')">ディスカウント</span></div>
+    <div class="qa-item"><span class="q">（___）を解消し国民の豊かな生活づくりに貢献する</span><span class="a hidden" onclick="this.classList.toggle('hidden')">地域格差</span></div>
+    <div class="qa-item"><span class="q">人をつくって（___）で文化を創造する</span><span class="a hidden" onclick="this.classList.toggle('hidden')">商</span></div>
+  </div>
+</div>
+
+<!-- Section 2 -->
+<div class="card">
+  <h2><span class="section-num">2</span>経営基本方針 + クリーンポリシー</h2>
+  <h3>経営基本方針（3つ）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">マウンテンチェーンの展開：うるおいと節約を提供する（___）と業態を開発しつづけ"商の山脈"をつくりあげる</span><span class="a hidden" onclick="this.classList.toggle('hidden')">店舗</span></div>
+    <div class="qa-item"><span class="q">エブリデー・ロープライスの実践：（___）の追求と簡素で効果的なローコスト経営</span><span class="a hidden" onclick="this.classList.toggle('hidden')">高速回転</span></div>
+    <div class="qa-item"><span class="q">（___）の経営：人間尊重の精神で人の育つ環境をつくり衆知を集め絶えずイノベーションに挑戦する</span><span class="a hidden" onclick="this.classList.toggle('hidden')">全員参加</span></div>
+  </div>
+  <h3>クリーンポリシー「3つの誓い」</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">私達は取引先より（___）の贈受・貸借又酒食の供応は受けません</span><span class="a hidden" onclick="this.classList.toggle('hidden')">金品</span></div>
+    <div class="qa-item"><span class="q">私達は上司へはもちろん社員間の（___）はいたしません</span><span class="a hidden" onclick="this.classList.toggle('hidden')">虚礼</span></div>
+    <div class="qa-item"><span class="q">私達は部下および社員間の（___）はいたしません</span><span class="a hidden" onclick="this.classList.toggle('hidden')">金銭貸借</span></div>
+  </div>
+  <h3>信条「3つの満足」(行動憲章より)</h3>
+  <table>
+    <tr><th>満足</th><th>制度・取組</th></tr>
+    <tr><td>お客様の満足</td><td>返金制度 / フレンドリーサービスとクリンリネスの徹底 / バリアフリーの推進</td></tr>
+    <tr><td>社員の満足</td><td>プロフィットシェアリング（利益還元制度） / 福利厚生制度 / 充実した教育制度</td></tr>
+    <tr><td>お取引先の満足</td><td>キャッシュペイメント（現金決済制度） / 商品買取制度</td></tr>
+  </table>
+</div>
+
+<!-- Section 3 -->
+<div class="card">
+  <h2><span class="section-num">3</span>ベイシアグループ語録 <span class="badge badge-orange">全100問中8問出題</span></h2>
+  <p style="font-size:.85em;color:var(--text2);margin-bottom:8px">2025후기: 어록 범위 55에서 8문. 어느 55개인지는 미확인(1〜55 절단은 추정). 플래시 '출제범위55'는 편의 컷. 고빈도20도 추정(후기에 문장이 남은 것은 5개뿐).</p>
+  <h3>2025年 出題実績（判明分）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">ポジティブな発想が（___）を生む</span><span class="a hidden" onclick="this.classList.toggle('hidden')">独創</span></div>
+    <div class="qa-item"><span class="q">（___）とは単純化すること</span><span class="a hidden" onclick="this.classList.toggle('hidden')">標準化</span></div>
+    <div class="qa-item"><span class="q">（___）に例外なし ※2025後記はこの形。語録帳は「原則に（例外）なし」で空欄が逆</span><span class="a hidden" onclick="this.classList.toggle('hidden')">原則（語録帳なら例外）</span></div>
+    <div class="qa-item"><span class="q">ミスは（___）で防ぐ</span><span class="a hidden" onclick="this.classList.toggle('hidden')">仕組み</span></div>
+    <div class="qa-item"><span class="q">安さが（___）を増やす</span><span class="a hidden" onclick="this.classList.toggle('hidden')">客数</span></div>
+  </div>
+</div>
+
+<!-- Section 4 -->
+<div class="card">
+  <h2><span class="section-num">4</span>法律 <span class="badge badge-blue">行動憲章の関連法令</span></h2>
+  <p style="font-size:.85em;color:var(--text2);margin-bottom:12px">행동헌장 수록 법률 전체 정리. 시험에는 법률명과 핵심 내용 매칭 출제.</p>
+  <div class="law-box"><strong>個人情報保護法</strong> — 個人情報の不適正な取扱いによる不利益防止。氏名・生年月日だけでなく顔画像、身体的特徴なども含む。書類の置き忘れ、書類紛失、メール確認不徹底で漏洩リスク。</div>
+  <div class="law-box"><strong>労働施策総合推進法</strong>（パワハラ防止法） — パワハラ6類型：①身体的攻撃 ②精神的攻撃 ③人間関係からの切り離し ④過大な要求 ⑤過小な要求 ⑥個の侵害</div>
+  <div class="law-box"><strong>著作権法</strong> — 思想・感情を創作的に表現したもの（著作物）の利用制限。新聞記事・書籍の無断転載・複製、漫画のPOP利用、他人HPの写真無断転載は禁止。著作権法32条の適法な「引用」（主従関係・出典明示）は禁止ではない。</div>
+  <div class="law-box"><strong>知的財産基本法</strong> — 発明・考案・著作物の創造・保護・活用。営業秘密、ノウハウ、ライセンス等、著作権を含む。</div>
+  <div class="law-box"><strong>独占禁止法</strong> — 公正かつ自由な競争を阻害する行為を規制。競争相手との共同での不当低価格販売、地域での差別的取扱い等を禁止。</div>
+  <div class="law-box"><strong>下請法</strong> — 大企業の「親事業者」が中小の「下請事業者」を守る法律。陳列・販売応援の強制、受け取り拒否、代金減額（60日超）、「販売協力金」名目の金銭要請などを禁止。</div>
+  <div class="law-box"><strong>景品表示法</strong> — 消費者に誤認される不当な表示を禁止。「優良誤認表示」（実際より著しく優良と示す）と「有利誤認表示」（お得だと思わせて実はそうでない）の2種。</div>
+  <div class="law-box"><strong>不正競争防止法</strong> — 他人の商品を模倣した商品の販売、他人の商品表示の不正使用、社外秘の持ち出し等を禁止。</div>
+  <div class="law-box"><strong>外国為替及び外国貿易法（外為法）</strong> — 海外取引の規制。武器転用可能な物資の輸出管理。違反すると最大3年間の輸出禁止。経済制裁対象国の確認が必要。</div>
+  <div class="law-box"><strong>金融商品取引法</strong> — インサイダー取引の禁止。未公開の重要事実を知って株式売買を行うことは違法。</div>
+  <div class="law-box"><strong>食品衛生法</strong> — 飲食による健康リスク防止。販売食品だけでなく試食・試飲、乳幼児用おもちゃも対象。HACCPに沿った衛生管理が義務。</div>
+  <div class="law-box"><strong>PL法（製造物責任法）</strong> — 製品の欠陥による損害賠償責任。PB商品など外部委託製品も含む。警告・説明表示に留意。</div>
+  <div class="law-box"><strong>食品表示法</strong> — 食品衛生法・JAS法・健康増進法の3法を一本化。食品表示基準の遵守が義務。青果・鮮魚・精肉の加工日・消費期限等の厳格管理が必要。</div>
+  <div class="law-box"><strong>暴力団排除条例</strong> — 暴力団員への利益供与を禁止。フロント企業への業務委託、みかじめ料なども含む。</div>
+  <div class="law-box"><strong>政治資金規正法</strong> — 政治資金に関する法律。個人寄付でも寄付先・金額により違反。</div>
+  <div class="law-box"><strong>公職選挙法</strong> — 特定候補者への投票依頼のための金銭供与などを禁止。※ベイシアグループとして特定政党は支持しない。</div>
+  <div class="law-box"><strong>男女雇用機会均等法</strong> — セクハラ2類型：①対価型（性的関係拒否→降格等の不利益）②環境型（性的な噂を流す・身体に触る）。マタニティハラスメントも規定。</div>
+  <div class="law-box"><strong>労働安全衛生法</strong> — 職場の安全・健康確保。労災の事実と異なる届出・報告は禁止。</div>
+  <div class="law-box"><strong>廃棄物処理法</strong> — 事業廃棄物を一般ごみとして処理してはいけない。地中に埋める・山中に放置なども禁止。</div>
+</div>
+
+<!-- Section 5 -->
+<div class="card">
+  <h2><span class="section-num">5</span>就業規則 <span class="badge badge-green">○×クイズ 全8問</span></h2>
+  <div class="qa">
+    <div class="qa-item"><span class="q">業務上の必要がある場合を除き、所属長の許可なく部外者を職場に立ち入れさせないこと</span><span class="a hidden" onclick="this.classList.toggle('hidden')">○</span></div>
+    <div class="qa-item"><span class="q">他の社員が酒気を帯びている状態で自動車を運転することを知っているにもかかわらず、それを黙認し、煽動し、あるいは教唆するような行為をしないこと</span><span class="a hidden" onclick="this.classList.toggle('hidden')">○</span></div>
+    <div class="qa-item"><span class="q">会社及び社員は、36協定の限度時間を遵守し、不要不急な時間外勤務、深夜勤務、所定休日勤務を行わないようにする</span><span class="a hidden" onclick="this.classList.toggle('hidden')">○</span></div>
+    <div class="qa-item"><span class="q">本人が結婚するとき、挙式日または入籍日前後通算して連続5日以内の特別休暇を取得できる</span><span class="a hidden" onclick="this.classList.toggle('hidden')">○</span></div>
+    <div class="qa-item"><span class="q">異動を命ぜられた者は、正当な理由なくこれを拒むことはできない</span><span class="a hidden" onclick="this.classList.toggle('hidden')">○</span></div>
+    <div class="qa-item"><span class="q">退職しようとするときは、少なくとも退職希望日の30日前までに退職願を提出する</span><span class="a hidden" onclick="this.classList.toggle('hidden')">○</span></div>
+    <div class="qa-item"><span class="q">4週間で4日の休みが必要</span><span class="a hidden" onclick="this.classList.toggle('hidden')">○</span></div>
+    <div class="qa-item"><span class="q">会社は業務の都合により社員に転勤を命ずることができる（2025後記の8問目。就業規則原文は未確認）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">○</span></div>
+  </div>
+  <div class="warn">주의: ○×에서 숫자(5일 → 3일로 바꿔서 출제 등) 함정 조심. 정확한 숫자 암기 필수.</div>
+  <h3>2026年 制度改定（PEOPLE 2・3月号 — ○×函정 출제 유력）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">2026年3月1日から、正社員の定年年齢は（___）歳へ延長</span><span class="a hidden" onclick="this.classList.toggle('hidden')">65歳</span></div>
+    <div class="qa-item"><span class="q">正社員勤務地選択制度（7年ぶり改定）：（___）年目からリージョナル、（___）年目からエリア選択可能（以降毎年変更可）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">6年目 / 10年目</span></div>
+    <div class="qa-item"><span class="q">ナショナルコース単身赴任者の帰省旅費：年18回 → 年（___）回へ</span><span class="a hidden" onclick="this.classList.toggle('hidden')">24回</span></div>
+    <div class="qa-item"><span class="q">期間限定勤務地選択解除：最長（___）年間宣言できる（起点は実際に異動が発令された日）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">2年間</span></div>
+  </div>
+</div>
+
+<!-- Section 6 -->
+<div class="card">
+  <h2><span class="section-num">6</span>労働基準法 <span class="badge badge-blue">약4문</span></h2>
+  <table>
+    <tr><th>항목</th><th>기준</th></tr>
+    <tr><td>労働時間</td><td>1日8時間、1週間40時間</td></tr>
+    <tr><td>休憩</td><td>6時間超→45分以上、8時間超→60分以上</td></tr>
+    <tr><td>有給休暇</td><td>年10日以上付与 → 年間最低5日は消化義務</td></tr>
+    <tr><td>休日</td><td>毎週1日 or 4週間で4日以上</td></tr>
+  </table>
+  <div class="qa">
+    <div class="qa-item"><span class="q">6時間超えると（___）分、8時間を超えると（___）分の休憩</span><span class="a hidden" onclick="this.classList.toggle('hidden')">45 / 60</span></div>
+    <div class="qa-item"><span class="q">年間の有給休暇10日以上あると、年間（___）日は消化義務</span><span class="a hidden" onclick="this.classList.toggle('hidden')">5</span></div>
+  </div>
+  <div class="warn">시험 피드백: "祝日に出勤したら振替休日を1週間以内に取得" — 이 문장의 정확성은 취업규칙에 의존. 법정 요건은 "1주간以内"가 아닌 "4주間以内"일 수 있음.</div>
+</div>
+
+<!-- Section 7 -->
+<div class="card">
+  <h2><span class="section-num">7</span>経営戦略 — 38期経営方針 <span class="badge badge-red">3月号 全文反映済</span></h2>
+  <p style="font-size:.85em;color:var(--text2);margin-bottom:8px">PEOPLE No.319（2026.3月号）P.5〜12 「38期経営方針 −CAINZ Vision 2030−」 완전 반영. 기출 패턴: 도표보다 <strong>서문·본문 문장의 빈칸</strong>이 다수.</p>
+  <h3>全体構造・位置づけ</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">「CAINZ Vision 2030」は"くらしDIYを（___）へ"を旗印に、（___）期にスタート</span><span class="a hidden" onclick="this.classList.toggle('hidden')">文化 / 34期</span></div>
+    <div class="qa-item"><span class="q">38期の位置づけ：第（___）次中期経営計画の最終年としての目標必達＋第（___）次中計のゴールを見据えた準備。キーワードは「くらしDIYで（___）」</span><span class="a hidden" onclick="this.classList.toggle('hidden')">3次 / 4次 / 勝つ</span></div>
+    <div class="qa-item"><span class="q">マイルストーン1（35期〜）：今ある武器で戦う・投資成果の具現化、"くらしを支える（___）"＝カインズ流EDLPに向けた仕組み化</span><span class="a hidden" onclick="this.classList.toggle('hidden')">価格</span></div>
+    <div class="qa-item"><span class="q">マイルストーン2（37期〜）："くらしを楽しくする（___）"＝新カインズ（___）の立ち上げ</span><span class="a hidden" onclick="this.classList.toggle('hidden')">価値 / 業態</span></div>
+    <div class="qa-item"><span class="q">第4次中期経営計画（2027〜2030）のテーマ："（___）"から"（___）"へ</span><span class="a hidden" onclick="this.classList.toggle('hidden')">できる / 勝つ</span></div>
+  </div>
+  <h3>38期基本方針（3つ）— 頻出予想</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">① "（___）"から"（___）"へ</span><span class="a hidden" onclick="this.classList.toggle('hidden')">できる / 勝つ</span></div>
+    <div class="qa-item"><span class="q">② 会社と共にメンバーも（___）と（___）で成長へ</span><span class="a hidden" onclick="this.classList.toggle('hidden')">挑戦 / 変化</span></div>
+    <div class="qa-item"><span class="q">③ カインズ流の（___）経営実践に向けた「（___）経営と（___）経営」</span><span class="a hidden" onclick="this.classList.toggle('hidden')">ハリネズミ / 連結 / ROI</span></div>
+  </div>
+  <h3>3KSF ＝ 勝つために必要なこと</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">❶（___）・実行のスピード ❷あらゆる情報・作業の（___）化 ❸今のチェーンストアを（___）変えるという発想</span><span class="a hidden" onclick="this.classList.toggle('hidden')">変化 / データ / すべて</span></div>
+    <div class="qa-item"><span class="q">KSFの正式名称は？</span><span class="a hidden" onclick="this.classList.toggle('hidden')">Key Success Factor（重要成功要因）</span></div>
+  </div>
+  <h3>戦うフィールド（4つ）＝ どこで、どう戦うか</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">1 既存事業は（___）で着実な成長 / 2 既存商品・サービスによる（___）参入 / 3 既存チェーンストアモデルの進化による（___） / 4 小売り以外の儲け方による（___）参入</span><span class="a hidden" onclick="this.classList.toggle('hidden')">戦略5要件 / 新市場 / 深堀り / 新事業</span></div>
+  </div>
+  <h3>戦略5要件（基本戦略の中核 — 2025年出題実績あり）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">①競争に勝てるくらしDIY（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">MD</span></div>
+    <div class="qa-item"><span class="q">②リアル・デジタルが融合したくらしDIY（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">顧客体験</span></div>
+    <div class="qa-item"><span class="q">③スケールできる店舗（___）・（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">フォーマット / 新業態</span></div>
+    <div class="qa-item"><span class="q">④カインズ流チェーンストア（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">オペレーション</span></div>
+    <div class="qa-item"><span class="q">⑤企業理念を具現化して（___）カインズ人財</span><span class="a hidden" onclick="this.classList.toggle('hidden')">儲ける</span></div>
+    <div class="qa-item"><span class="q">新事業ミッション：戦略5要件を"（___）"して「尖らせる」</span><span class="a hidden" onclick="this.classList.toggle('hidden')">統合展開</span></div>
+  </div>
+  <h3>38期三位一体方針・くらしDIY MD</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">三位一体でつくり上げてきた（___）・（___）訴求のレベルをもう一段上げて取り組む。また第4次中計に向け、（___）ミドルを本気で取りに行く新プロジェクトを開始</span><span class="a hidden" onclick="this.classList.toggle('hidden')">価格 / 価値 / 若年</span></div>
+    <div class="qa-item"><span class="q">高い目標を設定し、（___）の力で徹底的に売り抜く</span><span class="a hidden" onclick="this.classList.toggle('hidden')">三位一体</span></div>
+    <div class="qa-item"><span class="q">戦略・施策と対競合：カインズ流EDLPの実行(EDLP&SLP)＝対（___）／重点MDの大玉化＝対（___）／くらしを楽しくするMDづくり＝対（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">トライアル・コスモス・ドンキ / HC・ニトリ / 3coins・無印良品</span></div>
+    <div class="qa-item"><span class="q">戦略の束ね：顧客・地域軸での戦略の束ねとマーケティング実行（（___）構築・活用）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">CDP</span></div>
+    <div class="qa-item"><span class="q">価格訴求3つ：絞りを利かせた厳選アイテムの（___）／（___）保証を起点とした「安さのイメージ」づくり／（___）確保（プラス1品、スイッチングなど）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">重点販売 / ロープライス / 荒利</span></div>
+    <div class="qa-item"><span class="q">フォーマット3施策：①（___）施策の拡大→店舗生産性（___）%向上 ②（___）改装の拡大→単位当たり収益の改善 ③多店化（___）構想策定</span><span class="a hidden" onclick="this.classList.toggle('hidden')">次世代化 / 20% / カテゴリー / フォーマット</span></div>
+  </div>
+  <h3>くらしDIY MD（商品）主要施策6つ</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">1.「（___）」の追求 2.「（___）事業」の強化（38期関東圏中心に（___）店舗出店） 3.「（___）事業」の強化 4.「（___）」の見直し 5.「（___）事業」の拡大 6.「（___）」の拡大</span><span class="a hidden" onclick="this.classList.toggle('hidden')">安さ / リフォーム・24店舗 / ペット / 商品構成 / 食品 / C'z PRO</span></div>
+  </div>
+  <h3>オペレーション・AI・人財</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">カインズ流CSOPの進化3段階：（___）化 Automation →（___）化 Optimization →（___）化 Concentration</span><span class="a hidden" onclick="this.classList.toggle('hidden')">自動 / 最適 / 集中</span></div>
+    <div class="qa-item"><span class="q">役割進化：営業部門＝（___）＝新たな価値 / 業務部門＝（___）＝最適化</span><span class="a hidden" onclick="this.classList.toggle('hidden')">アート / サイエンス</span></div>
+    <div class="qa-item"><span class="q">オペレーション目標：不要（___）在庫「0」に向けたSCM・棚割連動。売場は（___）分類での顧客軸棚割</span><span class="a hidden" onclick="this.classList.toggle('hidden')">バック / 5分類</span></div>
+    <div class="qa-item"><span class="q">38期デジタル施策：電子棚札（___）店舗導入・接客フォローAI ver1.0（___）導入・「CAINZ（___）」の設置。目標＝本部/店舗生産性（___）%改善</span><span class="a hidden" onclick="this.classList.toggle('hidden')">50店舗 / 全店 / AIセンター / 20%</span></div>
+    <div class="qa-item"><span class="q">AI理解：現実は「（___）割当たって人が楽になる」のが最初の価値</span><span class="a hidden" onclick="this.classList.toggle('hidden')">6-7割</span></div>
+    <div class="qa-item"><span class="q">人財サイクル：①本人が自律的に成長を考える（（___）シート）②上司との対話・伴走（（___）面談）③キャリアの意思表示（（___）制度）④会社・上司の支援（意志や希望を重視した異動）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">DIYキャリアプラン / キャリア（1on1） / キャリアエントリー</span></div>
+    <div class="qa-item"><span class="q">「チャレンジ目標」：残った課題は「経営の仕組みの（___）」と「メンバーの（___）意識」。高い目標を（___）的に掲げ成果創出に対し報いる</span><span class="a hidden" onclick="this.classList.toggle('hidden')">高度化 / 挑戦 / 自立</span></div>
+    <div class="qa-item"><span class="q">やってみたい！に応える機会創出＝（___）の復活</span><span class="a hidden" onclick="this.classList.toggle('hidden')">社内公募</span></div>
+  </div>
+  <h3>販売本部方針・数字 — 数字2択対策</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">販売本部テーマ：地域のくらし（___）として、新たな価値を創造する店舗に生まれ変わる！</span><span class="a hidden" onclick="this.classList.toggle('hidden')">プラットフォーム</span></div>
+    <div class="qa-item"><span class="q">売上：全社予算（___）億円 / チャレンジ目標（___）億円</span><span class="a hidden" onclick="this.classList.toggle('hidden')">5,410億円 / 5,428億円</span></div>
+    <div class="qa-item"><span class="q">経常利益：全社予算（___）億円 / チャレンジ目標（___）億円（マネジメントコミットメント反映後は（___）億円）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">238億円 / 242億円 / 251億円</span></div>
+    <div class="qa-item"><span class="q">3つの「変わる」：店舗の「（___）」・メンバーの「（___）」・お客様の「（___）」が変わる</span><span class="a hidden" onclick="this.classList.toggle('hidden')">Kindness / 働き方 / 買い物の仕方</span></div>
+    <div class="qa-item"><span class="q">シン・カインドネスの「シン」5つの漢字は？</span><span class="a hidden" onclick="this.classList.toggle('hidden')">新・親・心・進・深</span></div>
+    <div class="qa-item"><span class="q">販売本部アクション3本柱：地域一番の（___）な店舗づくり（現場収益最大化）／（___）・自律型人財への成長／地域（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">Kindness / 自主 / プラットフォーム</span></div>
+    <div class="qa-item"><span class="q">期待される姿勢：「待ち」の姿勢ではなく、自主・自律的に「（___）」こと</span><span class="a hidden" onclick="this.classList.toggle('hidden')">考える</span></div>
+  </div>
+  <h3>38期昇格役員（3/1付・4名）</h3>
+  <table>
+    <tr><th>氏名</th><th>役職</th><th>担当領域（戦略5要件との対応）</th></tr>
+    <tr><td>吉井 純人</td><td>上席執行役員CPO 兼 商品統括本部長</td><td>競争に勝てるくらしDIY MD（商品）／モノづくり推進本部</td></tr>
+    <tr><td>宮本 武志</td><td>執行役員 商品業務本部長</td><td>カインズ流チェーンストアオペレーション／SCM・ロジスティクス本部</td></tr>
+    <tr><td>深井 彰</td><td>執行役員 販売本部長</td><td>販売本部・店舗業務本部（シン・カインドネス）</td></tr>
+    <tr><td>大塚 浩司</td><td>執行役員 人事本部長</td><td>企業理念を具現化して儲けるカインズ人財</td></tr>
+  </table>
+  <h3>2025年（37期）출제 원형 — 미확정 잔여 2문</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">優先テーマ：（___）、（___）づくり、在庫／（___） ※37期 방침 표현 — 38期 자료에 동일 표현 없음. 38期 대응: SCM(在庫最適化)·売場·価格·商品構成</span><span class="a hidden" onclick="this.classList.toggle('hidden')">※37期 원문 미확보（확정 불가）</span></div>
+    <div class="qa-item"><span class="q">「くらしDIY提案」→ 新規顧客化 → カテゴリ新規顧客化 → （___） ※38期 근접 표현: 「新規入会の入口拡大×リピート化×客単価向上でLTV拡大」(C'z PRO 시책)</span><span class="a hidden" onclick="this.classList.toggle('hidden')">ファン化 또는 LTV拡大 계열（37期 원문 미확보）</span></div>
+  </div>
+  <h3>その他戦略関連（6〜7月号）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">表紙スローガン：CAINZ Vision 2030 "（___）"を文化へ ＊ 次のCAINZを（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">くらしDIY / 創る</span></div>
+    <div class="qa-item"><span class="q">4つの新事業（成長機会の定義）：ペットとの幸せなくらし＝（___）事業／快適な住まいとくらしの安心＝（___）事業／都市生活者のサイクル利用＝（___）事業／"職人"の手間を減らす＝（___）事業</span><span class="a hidden" onclick="this.classList.toggle('hidden')">ペット / リフォーム / 都市型モビリティ / 大都・プロEC</span></div>
+  </div>
+</div>
+
+<!-- Section 8 -->
+<div class="card">
+  <h2><span class="section-num">8</span>PEOPLE記事 <span class="badge badge-red">6・7月号 実紙面反映済</span></h2>
+  <p style="font-size:.85em;color:var(--text2);margin-bottom:8px">PEOPLE No.322(6月号①)・No.323(7月号) 실제 지면 정독 완료. 월간 뉴스 + 특집 기사 양쪽에서 출제. 날짜·지명·숫자가 선택지로 나옴.</p>
+  <h3>新店グランドオープン（News&Topics — 出題最有力）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">4.15(水)：カインズ（___）店 → 福岡県内3店舗目、自動車産業の臨海工業地帯、売場6,634㎡。目標「福岡県北西部におけるカインズシェア拡大」</span><span class="a hidden" onclick="this.classList.toggle('hidden')">苅田（かんだ）</span></div>
+    <div class="qa-item"><span class="q">4.25(土)：カインズ（___）店 → 2026年3月閉店の（___）店の役割を引き継ぎ。ニューファミリー層増加、売場7,565㎡、地域の旗艦店</span><span class="a hidden" onclick="this.classList.toggle('hidden')">小田原 / 小田原高田</span></div>
+    <div class="qa-item"><span class="q">7.17(金)：カインズ（___）店 → （___）県への約10年ぶり出店（2016年都留以来）、売場8,892㎡、駐車場310台 ＊公式サイト確認</span><span class="a hidden" onclick="this.classList.toggle('hidden')">笛吹 / 山梨</span></div>
+    <div class="qa-item"><span class="q">2026年夏：カインズ（___）店 → 横浜市（___）区初出店、市営地下鉄センター北駅ペデストリアンデッキ直結、モール2F ＊公式サイト確認</span><span class="a hidden" onclick="this.classList.toggle('hidden')">モザイクモール港北 / 都筑</span></div>
+    <div class="qa-item"><span class="q">7.25(土)：カインズリフォーム（___）店 → 都市型リフォーム専門小型店8店舗目（東京都葛飾区） ＊公式サイト確認</span><span class="a hidden" onclick="this.classList.toggle('hidden')">ルミエール新小岩</span></div>
+  </div>
+  <h3>グループ・提携・認定ニュース</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">5.23(土)：ザスパ群馬スペシャルマッチ（SC相模原戦）→ （___）名の応援、試合は（___）で圧勝。ベイシア公式キャラクター「（___）」も登場</span><span class="a hidden" onclick="this.classList.toggle('hidden')">2,881名 / 7-2 / ベイ坊</span></div>
+    <div class="qa-item"><span class="q">CDMが（___）西田司研究室と連携 → テーマ「オフィスに棲まう動物たち」、傘を背負った恐竜の傘立て「（___）」など4アイテムを4.22から販売</span><span class="a hidden" onclick="this.classList.toggle('hidden')">東京理科大学 / 親アンブレラサウルス</span></div>
+    <div class="qa-item"><span class="q">CDMが（___）と連携 → 学校家具の構造を生かしたパーソナルチェア・キッズデスク4点(5月〜)、テーブル・シェルフなど13点(6月〜)販売</span><span class="a hidden" onclick="this.classList.toggle('hidden')">コクヨ</span></div>
+    <div class="qa-item"><span class="q">北海道（___）ストアでカインズ商品取扱開始 → 6.17(水)リニューアルの北栄店を皮切りに展開。ホールセール事業部として（___）社目、アークスグループとは（___）社目の契約</span><span class="a hidden" onclick="this.classList.toggle('hidden')">東光 / 10社目 / 4社目</span></div>
+    <div class="qa-item"><span class="q">人工砂「撒くだけで防草できる人工砂」が埼玉県の「（___）」に認定。カインズは「彩の国サーキュラーエコノミー（___）」にも認定</span><span class="a hidden" onclick="this.classList.toggle('hidden')">彩の国リサイクル製品 / 企業</span></div>
+    <div class="qa-item"><span class="q">「カインズ にゃん祭り2026」(1.24〜2.23) → ねこ用フード・用品の売上から（___）万円を公益財団法人（___）へ寄付（さくらねこTNR等の支援）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">222万円 / どうぶつ基金</span></div>
+  </div>
+  <h3>2025.12〜2026.5月号の主要ニュース（全号PDF反映済）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">【12月号】グランドオープン3店：岡崎美合店・ユアエルム成田店・C'z PRO（___）店。（___）市と「資源循環に資する事業の連携に関する協定」締結。（___）がカインズグループの一員に（12.30日付の正式加入は2月号）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">小金井東八 / 名古屋 / 大都（プロ向けEC）</span></div>
+    <div class="qa-item"><span class="q">【1月号】（___）店グランドオープン・千葉ニュータウン店リニューアル。（___）と資本業務提携契約を締結（リフォーム関連）。日本青年会議所と「災害時における（___）の供給に関する協定」締結</span><span class="a hidden" onclick="this.classList.toggle('hidden')">堅田 / 交換できるくん / 生活物資</span></div>
+    <div class="qa-item"><span class="q">【2月号】「カインズ にゃん祭り2026」スタート。定年制度改定特集。多事総論vol.041「競争せずに勝つ」＝独占を生む4要素：独自の技術・（___）効果・（___）の経済・ブランド（ピーター・ティール『ZERO to ONE』）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">ネットワーク / 規模</span></div>
+    <div class="qa-item"><span class="q">【3月号】伊豆高原店リニューアル（2.5、3つの主要ターゲット：地域・（___）利用・旅行）。わんわん祭り2025で（___）万円をどうぶつ基金へ寄付（3回目）。組み立て式生ごみ処理容器「（___）」をCAINZ DIY MARKETで販売開始（カインズ・カヤック・ファブラボ鎌倉・慶應SFC田中研究室・考案者松本さんの5者共同）。カインズ（___）流通センター開所式（2.15）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">別荘 / 111万円 / Fab de キエーロ / 桑名</span></div>
+    <div class="qa-item"><span class="q">【3月号】（___）月1日から正社員の定年を（___）歳へ延長</span><span class="a hidden" onclick="this.classList.toggle('hidden')">3月 / 65歳</span></div>
+    <div class="qa-item"><span class="q">【3月号】正社員勤務地選択制度を（___）年ぶりに見直し（2019年制定）：6年目からリージョナル・10年目からエリア選択可、単身赴任者の帰省旅費 年18回→年（___）回、期間限定勤務地選択解除（最長（___）年間）導入</span><span class="a hidden" onclick="this.classList.toggle('hidden')">7年ぶり / 24回 / 2年間</span></div>
+    <div class="qa-item"><span class="q">【4月号】C'z PRO（___)店グランドオープン（2.24）・福岡新宮店リニューアル（3.6）。厚生労働省主催「（___）アワード」でブロンズ賞受賞（フォークリフト特化KYT＝危険予知トレーニング、25,000人が毎月5分学習）。家庭からの不用（___）回収サービスを開始。第38回上毛新聞カインズカップ U-12（___）大会開催</span><span class="a hidden" onclick="this.classList.toggle('hidden')">江戸川春江 / SAFE / 園芸用土 / ラグビーフットボール</span></div>
+    <div class="qa-item"><span class="q">【5月号】グランドオープン2店：（___）店（3.18、岐阜県内のカインズブランド発信拠点へ）・（___）店（3.25）。新座店リニューアル（3.18）。（___）・デザイン賞2026で受賞＝通算（___）回目。モンドセレクション金賞（___）年連続。（___）市と「包括連携協定」（鶴ヶ島店をハブに）。ベイシアグループ発祥の地・（___）市とも連携</span><span class="a hidden" onclick="this.classList.toggle('hidden')">岐阜北方 / 東海 / レッドドット・10回目 / 15年 / 鶴ヶ島 / 伊勢崎</span></div>
+    <div class="qa-item"><span class="q">【4月号】37期 CAINZ of the year 表彰式は（___）月（___)日、（___）店で開催（5月号本文には開催日なし）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">5月11日 / 吉川美南</span></div>
+    <div class="qa-item"><span class="q">【5月号詳細】レッドドット・デザイン賞2026 プロダクトデザイン部門受賞の2商品は「（___）」と「（___）シリーズ」。ノズピタはグッドデザイン賞2025・iF DESIGN AWARD 2026に続く（___）つ目の受賞</span><span class="a hidden" onclick="this.classList.toggle('hidden')">木製サイレントキャリー / ノズルがしまえるノズピタ / 3つ目</span></div>
+    <div class="qa-item"><span class="q">【5月号詳細】合同入社式（4.1）：カインズ・（___）・（___）の3社合同。グループ計（___）名、カインズ単独（___）名</span><span class="a hidden" onclick="this.classList.toggle('hidden')">ハンズ / オートアールズ / 274名 / 243名</span></div>
+    <div class="qa-item"><span class="q">【4月号詳細】「災害時における施設借用に関する協定」の締結相手は（___）。ザスパ群馬と共同チャリティーオークション売上金で（___）市へ児童書を寄贈</span><span class="a hidden" onclick="this.classList.toggle('hidden')">静岡県警察 / 前橋市</span></div>
+    <div class="qa-item"><span class="q">【名古屋市との協定は2つ — 混同注意】12月号：「（___）に資する事業の連携に関する協定」／5月号：「（___）に関する協定」→「なごやの苗」を市内全（___）店舗で販売開始</span><span class="a hidden" onclick="this.classList.toggle('hidden')">資源循環 / ネイチャーポジティブ / 5店舗</span></div>
+    <div class="qa-item"><span class="q">【1月号年表】「（___）保証」を開始（安さのイメージづくり＝EDLP戦略連動）。くみまち構想の情報を集約した新サイト「（___）」がオープン。「ベイシアグループ（___）・ハブ」を開設。イトーヨーカドーでのカインズ商品取扱を（___）店舗へ拡大</span><span class="a hidden" onclick="this.classList.toggle('hidden')">ロープライス / くみまち.com / 軽井沢クリエイション / 73店舗</span></div>
+    <div class="qa-item"><span class="q">【2月号Kindness】SNSバズ大ヒット商品「すき間を埋めるキッチンマット（___）」→ CAINZ of the year EXCELLENT JOB受賞（開発：鈴木史徳）/【1月号】「スパッと切れる（___）」（開発：新井康二）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">L-Fit / ラップケース</span></div>
+  </div>
+  <h3>社内制度・特集（6月号①＋7月号）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">CAINZ of the year とは → 3つのコアバリューを体現し価値創造に貢献した「（___）」「（___)」「（___）」を表彰する報奨制度</span><span class="a hidden" onclick="this.classList.toggle('hidden')">メンバー(MEMBER) / 取り組み(JOB) / 店舗(STORE)</span></div>
+    <div class="qa-item"><span class="q">Excellent MEMBER/最優秀を（___）度受賞したメンバーは「（___）」へ</span><span class="a hidden" onclick="this.classList.toggle('hidden')">3度 / 殿堂入り</span></div>
+    <div class="qa-item"><span class="q">CAINZ of the year 特別賞の最終承認者は（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">CEO</span></div>
+    <div class="qa-item"><span class="q">【6月号完全版】37期 最優秀Excellent STOREは（___）店。STOREは（___）など9つの項目で判定</span><span class="a hidden" onclick="this.classList.toggle('hidden')">宇都宮平出 / ストアコンディション</span></div>
+    <div class="qa-item"><span class="q">【6月号完全版】37期 特別賞は「（___）店プロジェクト 〜次世代型店舗構想のリード〜」</span><span class="a hidden" onclick="this.classList.toggle('hidden')">吉川美南</span></div>
+    <div class="qa-item"><span class="q">【6月号完全版】37期 Excellent JOB 代表例：（___）契約備蓄米の販売／国策（（___）リフォーム）受付／次世代出納システム「（___）」導入拡大／（___）コーヒー拡販によるファン獲得／グリーンの（___）削減／インドでの海外調達新規ルート開拓</span><span class="a hidden" onclick="this.classList.toggle('hidden')">随意 / 内窓 / Coin / MCT / マークダウン</span></div>
+    <div class="qa-item"><span class="q">【6月号完全版】熊本宇土店（第3ゾーン受賞）は（___）業態として（___）と協業</span><span class="a hidden" onclick="this.classList.toggle('hidden')">SuC / ベイシア</span></div>
+    <div class="qa-item"><span class="q">みんなで育てるAIツール「（___）」をSlackに導入（7月号）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">人事検索Bot</span></div>
+    <div class="qa-item"><span class="q">高家さんの多事総論：vol.045のタイトル「今日の賛辞も、明日は（___）」（東芝・キオクシア、カインズの「チャレンジ目標」は（___）由来）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">魚の包装紙 / 東芝</span></div>
+    <div class="qa-item"><span class="q">商品に込められたKindness：File17（7月号）は「（___）」</span><span class="a hidden" onclick="this.classList.toggle('hidden')">黄金ラガービール</span></div>
+    <div class="qa-item"><span class="q">必見!!カインズのあるまち：7月号は旭飯岡店・（___）店</span><span class="a hidden" onclick="this.classList.toggle('hidden')">佐久町</span></div>
+  </div>
+  <h3>誌面掲載の基礎数値（P.02に毎号掲載 — 頻出）</h3>
+  <table>
+    <tr><th>時点</th><th>店舗数</th><th>内訳</th><th>メンバー数</th></tr>
+    <tr><td>7月号（2026.6月末）</td><td><strong>266店舗</strong></td><td>カインズ254（別館含む）＋Style Factory 2＋C'z PRO 10</td><td>28,822名（6/16、関連会社含む）</td></tr>
+  </table>
+  <h3>2026年8月の最新ニュース（公式サイト — 9月号掲載予想・直前チェック）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">8.20：カインズ、（___）と資本業務提携契約を締結 → 住まいの（___）体験の変革を目指す（建築DXプラットフォーム企業）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">アンドパッド / リフォーム</span></div>
+    <div class="qa-item"><span class="q">カインズ、「GREEN×EXPO（___）」（国際園芸博覧会）に出展 → 店舗で（___）チケットを販売開始</span><span class="a hidden" onclick="this.classList.toggle('hidden')">2027 / 前売</span></div>
+    <div class="qa-item"><span class="q">8.11〜：カインズで「（___）祭」開催（くらしに役立つ商品を期間限定お買得価格で）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">衝撃価格</span></div>
+    <div class="qa-item"><span class="q">7.31：（___）地震に係る災害支援募金を実施</span><span class="a hidden" onclick="this.classList.toggle('hidden')">令和8年熊本</span></div>
+  </div>
+  <h3>その他（公開ソースで確認済の関連ニュース）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">2026年度モンドセレクション：カインズオリジナル（___）商品受賞（優秀品質金賞4＋ノミニーラベル2）。金賞は2012年から（___）年連続</span><span class="a hidden" onclick="this.classList.toggle('hidden')">6商品 / 15年連続</span></div>
+    <div class="qa-item"><span class="q">AEO制度 → 国際物流における貨物セキュリティ管理と法令遵守体制が整備された事業者への税関手続き緩和</span><span class="a hidden" onclick="this.classList.toggle('hidden')">AEO</span></div>
+    <div class="qa-item"><span class="q">（___）と共同配送を開始</span><span class="a hidden" onclick="this.classList.toggle('hidden')">DCM・高末（2025.2〜）</span></div>
+
+    <div class="qa-item"><span class="q">2025.12〜 関西のスーパー（___）でカインズオリジナル商品取扱開始（大阪・兵庫・京都・奈良42店舗）、2026.7.25〜 岩手の（___）でも開始</span><span class="a hidden" onclick="this.classList.toggle('hidden')">万代 / ベルジョイス</span></div>
+  </div>
+  <div class="warn">✅ PEOPLE 2025.12월호~2026.7월호 <strong>반영 완료</strong> (6월호는 완전판 PDF로 ①멤버편+②JOB·STORE·특별상편 모두 커버). 8월호 발행 후 추가 반영 필요.</div>
+</div>
+
+<!-- Section 9 -->
+<div class="card">
+  <h2><span class="section-num">9</span>カインズの沿革 + くみまち</h2>
+  <div class="qa">
+    <div class="qa-item"><span class="q">いせや（___）：設立年</span><span class="a hidden" onclick="this.classList.toggle('hidden')">1958年（設立）※「創業」ではなく「設立」</span></div>
+    <div class="qa-item"><span class="q">1978年：（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">ホームセンター1号店 開店</span></div>
+    <div class="qa-item"><span class="q">2007年：（___）宣言</span><span class="a hidden" onclick="this.classList.toggle('hidden')">SPA宣言</span></div>
+    <div class="qa-item"><span class="q">2015年：カインズ（___）店舗数突破</span><span class="a hidden" onclick="this.classList.toggle('hidden')">200</span></div>
+    <div class="qa-item"><span class="q">2020年：ベイシアグループ売上高（___）円達成</span><span class="a hidden" onclick="this.classList.toggle('hidden')">1兆</span></div>
+    <div class="qa-item"><span class="q">流通センターの数：公式サイトは国内（___）カ所の物流センター（業界紙では17拠点＝DC4＋TC11＋資材センター2）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">15カ所</span></div>
+    <div class="qa-item"><span class="q">西日本の基幹「カインズ（___）流通センター」→ 2024.3稼働（三重県、延床9.4万㎡）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">桑名</span></div>
+    <div class="qa-item"><span class="q">東日本の基幹「カインズ（___）流通センター」→ 2025.1.13本格稼働（埼玉県、保管能力カインズ最大）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">日高</span></div>
+    <div class="qa-item"><span class="q">くみまち：（___）実現</span><span class="a hidden" onclick="this.classList.toggle('hidden')">※PEOPLE参照</span></div>
+  </div>
+  <div class="warn">함정: 「いせや創業」 vs 「いせや設立」— 공식은 1958年「設立」. 연혁 이외에서도 출제됨에 주의.</div>
+  <h3>公式沿革 完全版（cainz.co.jp/corporate/history/ 対照済 — 頻出年表）</h3>
+  <table>
+    <tr><th>年</th><th>出来事（試験ポイント）</th></tr>
+    <tr><td>1958</td><td>いせや<strong>設立</strong></td></tr>
+    <tr><td>1978</td><td>ホームセンター1号店（<strong>栃木店</strong>）オープン</td></tr>
+    <tr><td>1987</td><td>初の流通センター＝<strong>矢板</strong>流通センター稼動</td></tr>
+    <tr><td>1989</td><td><strong>株式会社カインズ設立</strong>（いせやより分社・独立）＝「1989年創業」</td></tr>
+    <tr><td>1994</td><td>スーパーHC1号店（伊勢崎店）／100店舗達成</td></tr>
+    <tr><td>2007</td><td><strong>SPA宣言</strong></td></tr>
+    <tr><td>2012</td><td><strong>本庄早稲田本部</strong>開設（高崎本部から移転）</td></tr>
+    <tr><td>2015</td><td><strong>200店舗突破</strong></td></tr>
+    <tr><td>2016</td><td>九州初出店（<strong>福岡新宮店</strong>）</td></tr>
+    <tr><td>2017</td><td>売上<strong>4,000億円</strong>突破／大都と業務資本提携／Style Factory 1号店</td></tr>
+    <tr><td>2018</td><td>くみまちモール1号店（<strong>前橋小島田店</strong>）</td></tr>
+    <tr><td>2019</td><td>設立30周年／<strong>AEO特例輸入者認定</strong>／第3創業期「PROJECT KINDNESS」</td></tr>
+    <tr><td>2020</td><td>新企業理念決定（3月）／<strong>C'z PRO 1号店</strong>（東名横浜店）／PickUp全店展開／ザスパに資本経営参画</td></tr>
+    <tr><td>2021</td><td><strong>くみまち構想を策定</strong>／2050年カーボンゼロ目標／unerry提携</td></tr>
+    <tr><td>2022</td><td><strong>東急ハンズ（現ハンズ）・オートアールズがカインズグループに</strong>／初のCO2フリー店舗 壬生店</td></tr>
+    <tr><td>2023</td><td>売上<strong>5,000億円</strong>突破／SAFEアワード<strong>ゴールド賞</strong>（令和4年度・KYT）／8つのプロダクトブランド発表／和歌山初出店</td></tr>
+    <tr><td>2024</td><td>桑名流通センター本格稼働／<strong>CAINZ Pay</strong>登場／ザスパ単独筆頭株主に／ザスパーク前橋市へ寄贈</td></tr>
+    <tr><td>2025</td><td><strong>日高流通センター</strong>本格稼働／Pet's Oneメンバーズ開始／ザスパ第三者割当増資→<strong>ベイシアグループに</strong>／交換できるくん提携／<strong>ロープライス保証開始</strong>／次世代型初号店<strong>吉川美南店</strong>／園芸用土の水平リサイクルが「<strong>グリーン購入大賞</strong>」農林水産特別部門大賞／<strong>大都がカインズグループに</strong>／DIY Square会員10万人突破</td></tr>
+  </table>
+  <div class="warn"><strong>연혁 함정 3종</strong>: ①SAFEアワード = 2023년 <strong>ゴールド賞</strong>(령和4년도·웰빙부문) vs 2026년 <strong>ブロンズ賞</strong>(포크리프트 KYT) — 연도·상 바꿔치기 주의 ②ザスパ 3단계: 2020 資本経営参画 → 2024 単独筆頭株主 → 2025 第三者割当増資로 그룹 가입 ③大都 2단계: 2017 業務資本提携 → 2025 그룹 가입</div>
+</div>
+
+<!-- Section 10 -->
+<div class="card">
+  <h2><span class="section-num">10</span>カインズネタ</h2>
+  <div class="qa">
+    <div class="qa-item"><span class="q">カインズ 2026.2期 売上高（公式「数字で見るカインズ」）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">5,874億円（前年比＋2.4%）</span></div>
+    <div class="qa-item"><span class="q">カインズ店舗数（2026.2月末・公式サイト）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">263店舗（29都道府県）/ 売場面積計186万4,294㎡</span></div>
+    <div class="qa-item"><span class="q">カインズ従業員数（2026.2月末）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">13,738名</span></div>
+    <div class="qa-item"><span class="q">グッドデザイン賞 受賞（___）年連続（公式ニュース2025.10。PEOPLE本文には連続年数なし）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">14年連続</span></div>
+    <div class="qa-item"><span class="q">ハンズ（旧東急ハンズ）最高益</span><span class="a hidden" onclick="this.classList.toggle('hidden')">32年ぶりの過去最高益（カインズ傘下改善効果）</span></div>
+    <div class="qa-item"><span class="q">ハンズ店舗数 2026年内</span><span class="a hidden" onclick="this.classList.toggle('hidden')">100店舗突破予定 / 50周年</span></div>
+    <div class="qa-item"><span class="q">ベイシア、2026.7.31付で（___）を完全子会社化 → 鮮魚専門店（首都圏12店舗）、屋号は維持しベイシア鮮魚売場へ順次出店</span><span class="a hidden" onclick="this.classList.toggle('hidden')">魚耕（うおこう）</span></div>
+    <div class="qa-item"><span class="q">ベイシア単体：2026.2期売上高（___）億円 / （___）店舗（2026.7時点）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">3,615億円 / 140店舗</span></div>
+    <div class="qa-item"><span class="q">ベアの上昇率（___）％ ※カインズ単独は非公開 — PEOPLE要確認。参考：2026春闘 連合最終5.01%・経団連大手5.37%</span><span class="a hidden" onclick="this.classList.toggle('hidden')">※PEOPLE参照</span></div>
+    <div class="qa-item"><span class="q">モンドセレクション：2025年試験では「8商品」→ 2026年度受賞は（___）商品（金賞4＋ノミニー2、金賞15年連続）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">6</span></div>
+    <div class="qa-item"><span class="q">（___）メンバーズ開始</span><span class="a hidden" onclick="this.classList.toggle('hidden')">Pet's One</span></div>
+    <div class="qa-item"><span class="q">備蓄米：政府発表時の権利獲得（___）t（入荷量ではない）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">5,000</span></div>
+    <div class="qa-item"><span class="q">ベイシア、カインズで（___）の株式過半数を取得</span><span class="a hidden" onclick="this.classList.toggle('hidden')">ザスパ（群馬のサッカークラブ）</span></div>
+  </div>
+</div>
+
+<!-- Section 11 -->
+<div class="card">
+  <h2><span class="section-num">11</span>流通業界ネタ <span class="badge badge-blue">全8問</span></h2>
+  <div class="qa">
+    <div class="qa-item"><span class="q">ローソンの無人販売店舗 → （___）のCatch＆Goを導入</span><span class="a hidden" onclick="this.classList.toggle('hidden')">NTTデータ</span></div>
+    <div class="qa-item"><span class="q">イオンのネットスーパー「（___）」が新ロボ導入</span><span class="a hidden" onclick="this.classList.toggle('hidden')">Green Beans</span></div>
+    <div class="qa-item"><span class="q">ベイシアが（___）によってカインズ商品を取り扱うようになった（2025年出題）※公式外部発表なし — PEOPLE記事のみで確認可能。外部スーパー展開（万代・アークス系）と混同注意</span><span class="a hidden" onclick="this.classList.toggle('hidden')">※PEOPLE参照</span></div>
+    <div class="qa-item"><span class="q">ホームセンター市場規模は約（___）兆円 → ここ10年ほとんど伸びていない（カインズCMO発言）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">約4兆円</span></div>
+    <div class="qa-item"><span class="q">ゼンショーHD 2026年初任給・ベースアップ</span><span class="a hidden" onclick="this.classList.toggle('hidden')">初任給32.2万円 / 賃上げ率6.7%（ベア3.2%＋定昇3.5%、ベアは14年連続）</span></div>
+    <div class="qa-item"><span class="q">トライアルHDが西友を買収 → 全株式取得額</span><span class="a hidden" onclick="this.classList.toggle('hidden')">3,826億円（2025.7.1完了）連結売上1兆2,873億円</span></div>
+    <div class="qa-item"><span class="q">ららぽーとが（___）進出 → 何回目？</span><span class="a hidden" onclick="this.classList.toggle('hidden')">台湾 / 2回目（2023年台中に続く。初めてではない。高雄は3施設目予定）</span></div>
+    <div class="qa-item"><span class="q">ローソン 2026.8 新導入</span><span class="a hidden" onclick="this.classList.toggle('hidden')">調理ロボット（首都圏3店舗）</span></div>
+    <div class="qa-item"><span class="q">2026年 小売トレンド</span><span class="a hidden" onclick="this.classList.toggle('hidden')">百貨店売上+2.3%（6ヶ月連続前年超）/ ただし客数減・買入点数減（節約→選別）</span></div>
+  </div>
+  <div class="warn">함정: 트라이얼 세이유 인수 = 「1.2兆円」→ 실제 전주식 취득가 <strong>3,826億円</strong>. 연결매출이 1.2조엔. 숫자 혼동 주의!</div>
+</div>
+
+<!-- Section 12 -->
+<div class="card">
+  <h2><span class="section-num">12</span>時事ネタ <span class="badge badge-red">全8問 直近2-3ヶ月</span></h2>
+  <p style="font-size:.85em;color:var(--text2);margin-bottom:8px">2025年시험은 6-7월만 출제. 2026년시험은 6-8월이 유력. 숫자 2택 함정 주의.</p>
+  <h3>財政・経済（一次ソースで検証済）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">2026年度 国家予算（一般会計）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">122兆3,092億円（2年連続過去最大、高市政権初の当初予算）</span></div>
+    <div class="qa-item"><span class="q">2026年度予算の成立日 → 成立が4月にずれ込むのは（___）年ぶり</span><span class="a hidden" onclick="this.classList.toggle('hidden')">2026.4.7成立 / 11年ぶり（15年度以来）</span></div>
+    <div class="qa-item"><span class="q">国債費：初めて（___）兆円を突破</span><span class="a hidden" onclick="this.classList.toggle('hidden')">30兆円（31兆2,758億円）</span></div>
+    <div class="qa-item"><span class="q">防衛費（過去最大）/ 社会保障関係費</span><span class="a hidden" onclick="this.classList.toggle('hidden')">防衛費 9兆353億円（米軍再編等込み）※防衛関係費は8兆9,843億円 / 社会保障 39兆559億円</span></div>
+    <div class="qa-item"><span class="q">2025年度 経常収支（年度。暦年の31.8兆黒字・貿易赤字と混同しない）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">34兆5,218億円の黒字（＋15.0%、3年連続過去最大）</span></div>
+    <div class="qa-item"><span class="q">2025年度 貿易収支：（___）年ぶりに黒字転換、黒字額は？主因は？</span><span class="a hidden" onclick="this.classList.toggle('hidden')">5年ぶり / 1兆3,631億円 / 半導体などの輸出拡大</span></div>
+    <div class="qa-item"><span class="q">国税：地方税の比率</span><span class="a hidden" onclick="this.classList.toggle('hidden')">約63：37（国税63.4%、地方税36.6%）</span></div>
+    <div class="qa-item"><span class="q">2026春闘 賃上げ率：連合最終集計（___）% / 経団連大手（___）%</span><span class="a hidden" onclick="this.classList.toggle('hidden')">5.01%（3年連続5%台）/ 5.37%（引上げ額19,752円は1976年以降最高）</span></div>
+  </div>
+  <h3>人口（2つの統計を区別！）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">【住民基本台帳 2026.1.1（7/29公表）】日本人人口の減少数</span><span class="a hidden" onclick="this.classList.toggle('hidden')">▲91万6,744人（▲0.76%、調査開始以降最大）→ 1億1,973万人、42年ぶり1億2,000万人割れ</span></div>
+    <div class="qa-item"><span class="q">【同】総人口（外国人含む）の減少数</span><span class="a hidden" onclick="this.classList.toggle('hidden')">▲56万3,048人（▲0.45%）→ 1億2,376万7,642人</span></div>
+    <div class="qa-item"><span class="q">【同】外国人人口：初めて（___）万人突破</span><span class="a hidden" onclick="this.classList.toggle('hidden')">400万人（403万1,159人、＋9.62%、総人口の3.26%）</span></div>
+    <div class="qa-item"><span class="q">【同】自然減（___）万人＝過去最大 / 出生数（___）万人＝調査開始以来最少</span><span class="a hidden" onclick="this.classList.toggle('hidden')">92万3,008人 / 67万467人</span></div>
+    <div class="qa-item"><span class="q">【同】年齢構成：65歳以上（___）% / 15〜64歳（___）% / 14歳以下（___）%</span><span class="a hidden" onclick="this.classList.toggle('hidden')">29.79% / 59.09% / 11.13%</span></div>
+    <div class="qa-item"><span class="q">【人口推計 2026.4.1（こどもの日発表）】15歳未満のこどもの数と比率</span><span class="a hidden" onclick="this.classList.toggle('hidden')">1,329万人（45年連続減・過去最少）/ 10.8%（52年連続低下・過去最低）</span></div>
+  </div>
+  <h3>トランプ関税（時系列）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">2025年：日米合意で自動車関税 25%→（___）%へ引き下げ（2025年試験の出題実績）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">15%</span></div>
+    <div class="qa-item"><span class="q">2026.2.20：米連邦最高裁（6対3）の判決内容</span><span class="a hidden" onclick="this.classList.toggle('hidden')">IEEPA（国際緊急経済権限法）は大統領に関税賦課権限を与えていない→相互関税は違憲・無効、2/24付で徴収停止</span></div>
+    <div class="qa-item"><span class="q">判決後の代替措置：1974年通商法（___）条 → 当初（___）%→（___）%に引き上げ → 150日時限で（___）に期限切れ</span><span class="a hidden" onclick="this.classList.toggle('hidden')">122条 / 10%→15% / 7月24日に期限切れ</span></div>
+    <div class="qa-item"><span class="q">122条期限切れ後の代替：通商法（___）条に基づく関税（___）%を約（___）ヶ国に賦課（7/24〜）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">301条 / 10〜12.5% / 約80ヶ国（強制労働サプライチェーン根拠。122条と異なり税率上限・期限なし）</span></div>
+    <div class="qa-item"><span class="q">自動車関税（232条）は判決の影響を受けるか？</span><span class="a hidden" onclick="this.classList.toggle('hidden')">受けない（232条は別の法的根拠のため維持。日米合意で25%→15%）</span></div>
+  </div>
+  <h3>労働法制・くらし（消費者視点 — 36期は「出生率・家計・コメ」等が出題）</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">育児・介護休業法改正：施行日を区別</span><span class="a hidden" onclick="this.classList.toggle('hidden')">2025.4.1＝3歳未満テレワーク努力義務 / 2025.10.1＝3歳～就学前の柔軟な働き方（5措置から2つ以上）</span></div>
+    <div class="qa-item"><span class="q">2026年度 最低賃金の目安（7.28答申）：全国加重平均（___）円引き上げ→時給（___）円（引き上げ率4.9%、6年ぶりに前年を下回る）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">55円 / 1,176円（現行1,121円）</span></div>
+    <div class="qa-item"><span class="q">2025年の出生数（2026.6.3厚労省発表・概数）：（___）人で過去最少（10年連続）。合計特殊出生率は（___）で過去最低（10年連続低下）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">67万1,236人 / 1.14</span></div>
+    <div class="qa-item"><span class="q">コメ価格（2026年8月上旬POS）：スーパー5kg平均約（___）円前後へ下落（週次変動）。民間在庫は需給指針の6月末（___）万tで過去最大 →「コメ余り」（流通調査の6月末在庫194万tとは別統計）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">3,191〜3,220円 / 243万t</span></div>
+    <div class="qa-item"><span class="q">日銀 政策金利（2026.7.31）：（___）%で（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">1% / 据え置き</span></div>
+    <div class="qa-item"><span class="q">為替（2026.7.30夜〜31日）：円急落を受け政府・日銀が3ヶ月ぶりの（___）を実施（一時157円台へ。米東部31日に協調介入発表）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">為替介入</span></div>
+  </div>
+  <h3>政治・災害</h3>
+  <div class="qa">
+    <div class="qa-item"><span class="q">高市早苗氏が首相に就任（2025.10）→ 女性首相は（___）</span><span class="a hidden" onclick="this.classList.toggle('hidden')">憲政史上初（PEOPLE 1月号年表にも掲載）</span></div>
+    <div class="qa-item"><span class="q">2026年（___）月に衆院選実施 → 予算成立が4月にずれ込む一因に</span><span class="a hidden" onclick="this.classList.toggle('hidden')">2月</span></div>
+    <div class="qa-item"><span class="q">「令和8年熊本地震」：2026年（___）月（___)日発生、M（___）、最大震度（___）を熊本県（___）市・氷川町で観測</span><span class="a hidden" onclick="this.classList.toggle('hidden')">7月28日 / M7.1 / 震度7 / 宇城（うき）市</span></div>
+    <div class="qa-item"><span class="q">熊本地震とカインズ：震度6強地域に（___）店が立地（2025.12リニューアルの店舗）。カインズは7.31から災害支援（___）を実施 → 行動憲章の「災害時支援協定」（自治体要請に応じ物資優先提供）と関連出題に注意</span><span class="a hidden" onclick="this.classList.toggle('hidden')">熊本宇土 / 募金</span></div>
+  </div>
+  <div class="warn">2025年시험: 예산115.5조·인구▲55만 → 2026年시험 대비: <strong>예산122.3조(4/7성립)·일본인▲91.7만(42년 만에 1.2억 하회)·총인구▲56.3만·외국인 첫 400만·어린이 1,329만/10.8%</strong>. 인구는 통계 2종(주민기본대장 1/1 vs 인구추계 4/1)을 구분해서 암기!</div>
+</div>
+
+</div><!-- /study -->
+
+<!-- ==================== TAB 2: 행동헌장 ==================== -->
+<div id="charter" class="tab" role="tabpanel">
+<div class="header">
+  <h1>ベイシアグループ行動憲章</h1>
+  <p>制定 2004年10月 / 改定 2021年3月 第2版 | 試験セクション4・5の出題源</p>
+</div>
+
+<div class="card">
+  <h2>行動憲章（11項目）</h2>
+  <div class="charter-item"><span class="charter-num">01</span><strong>お客様の生活向上への貢献</strong><br>より良い商品・サービスの提供を通じ、常にお客様の立場に立って、お客様の生活の向上に貢献。</div>
+  <div class="charter-item"><span class="charter-num">02</span><strong>お取引先とともに発展する関係づくり</strong><br>公正な取引関係のもとに必要な商品資材などを適切な品質、価格および納期で取引し、互いが発展し合える関係を築く。</div>
+  <div class="charter-item"><span class="charter-num">03</span><strong>従業員の人格・価値観の尊重</strong><br>すべての従業員の人格・価値観を尊重し、能力を最大限発揮できる職場風土を醸成。チャレンジを支え、成果に応える制度・環境を作る。</div>
+  <div class="charter-item"><span class="charter-num">04</span><strong>安全・安心な商品・サービスの提供</strong><br>お客様が安心して充実した生活を送れるよう、安全・安心で満足度の高い商品・サービスの提供に努める。</div>
+  <div class="charter-item"><span class="charter-num">05</span><strong>コンプライアンスの徹底</strong><br>社会的責任と公共的使命を果たすため、あらゆる法令や社会規範、会社ルールを遵守。「クリーンポリシー」の実践を徹底し、公正・公明な企業を目指す。</div>
+  <div class="charter-item"><span class="charter-num">06</span><strong>重要情報の適切・厳格な管理</strong><br>個人情報や機密情報を正当かつ適切な手段での入手を徹底するとともに、業務上の目的のみに使用し、厳格かつ厳重に管理。</div>
+  <div class="charter-item"><span class="charter-num">07</span><strong>適時・適切な情報開示</strong><br>法令や制度、社会・経済規範、コーポレートガバナンスの諸原則に照らし、適時・適切に情報を開示。</div>
+  <div class="charter-item"><span class="charter-num">08</span><strong>すべての人権の尊重</strong><br>お客様、お取引先、従業員など当社が関わる全ての人の人権を尊重し、個人の尊厳を守る。多様性を尊重し、差別や嫌がらせを見逃さない。</div>
+  <div class="charter-item"><span class="charter-num">09</span><strong>「人財」の成長支援</strong><br>従業員の心身の健康やワークライフバランス向上、柔軟な働き方の実現に努める。エンゲージメント（仕事への熱意度）向上を図る。</div>
+  <div class="charter-item"><span class="charter-num">10</span><strong>地球環境への配慮</strong><br>環境保護に関する法令等の遵守はもとより、資源の有効活用・再資源化、省エネルギー、廃棄物の削減、ロス削減、環境汚染の予防に努める。</div>
+  <div class="charter-item"><span class="charter-num">11</span><strong>地域社会との連携・調和</strong><br>地域社会との連携と調和を図るため、社会的責任と公共的使命を実践。</div>
+</div>
+
+<div class="card">
+  <h2>行動基準（14章）要点</h2>
+  <h3>01. 従業員のあるべき姿</h3>
+  <p style="font-size:.85em">・行動憲章や行動基準、社会的ルールに従った行動<br>・会社・上司の指示を理解し、適切に業務を遂行<br>・不正を認知した場合には、報告するとともに是正に努める<br>・管理職：率先して従業員の模範となる行動、部下の育成</p>
+
+  <h3>02. 公正な取引</h3>
+  <p style="font-size:.85em">・口頭でなく文書による契約<br>・契約内容は双方十分に理解・納得して締め<br>・契約した内容は必ず守る（一方的な発注単位変更、期限内拒否は不可）<br>・PB商品の下請取引に関して返品は不良品・注文と異なる商品以外禁止</p>
+
+  <h3>03. 安全な商品・サービスの提供</h3>
+  <p style="font-size:.85em">・品質方針に合致した商品提供<br>・事故・トラブル時はお客様の安全確保を最優先<br>・事実を隠さず正直に公表、再発防止の対策を講じる<br>・消費期限（急速に劣化しやすいもの、概ね5日以内）vs 賞味期限（品質劣化が比較的遅いもの）</p>
+
+  <h3>04. 反社会的勢力との関係遮断</h3>
+  <p style="font-size:.85em">暴力団等とは一切関係を持たない。フロント企業＝暴力団や関係者が経営に関与している会社。</p>
+
+  <h3>05. 政治への関与禁止</h3>
+  <p style="font-size:.85em">※ベイシアグループとして特定の政党を支持することはない。上司の指示で投票を強制された場合は内部通報制度を利用。</p>
+
+  <h3>06. 適切な情報管理</h3>
+  <p style="font-size:.85em">・業務関連情報は共有化しよう<br>・提供する情報は事前に承認を得よう<br>・社外秘の資料の取扱いには十分注意<br>・各種の書類、資料を勝手に社外に持ち出さない</p>
+
+  <h3>07. マスメディアへの対応</h3>
+  <p style="font-size:.85em">・取材は広報担当責任者に連絡、指示に従う<br>・路上でのインタビューは「お問い合わせください」と対応<br>・ネガティブ情報は速やかに報告、個人で釈明・反論の投稿はしない</p>
+
+  <h3>08. ソーシャルメディアの利用</h3>
+  <p style="font-size:.85em">・会社を代表してSNS利用できるのは承認された従業員のみ<br>・個人的な発信は自己責任<br>・業務上入手した情報は発信しない<br>・禁止事項：会社貸与ハードウェアでの無許可SNS利用、ロゴ・商標の無許可使用、顧客情報の書き込み</p>
+
+  <h3>09. 会社財産の適切な使用</h3>
+  <p style="font-size:.85em">・取引先情報を他の取引先に漏らさない<br>・知的財産権を意識し保護する<br>・会社の商品や資機材の私的利用・無断持ち帰りはしない（お惣菜、サンプル、景品の持ち帰りも）</p>
+
+  <h3>10. 人権・個人の尊厳の尊重</h3>
+  <p style="font-size:.85em">・パワハラ6類型を認識<br>・セクハラ2類型（対価型・環境型）<br>・LGBT含む多様性を尊重<br>・ワークライフバランスの実現</p>
+
+  <h3>11-13. 安全衛生・環境・地域社会</h3>
+  <p style="font-size:.85em">・防火シャッター下に商品陳列禁止、避難経路確保<br>・廃棄物は一般ごみとして処理してはいけない<br>・ベイシア21世紀財団、ベイシアの森<br>・災害時支援協定：自治体の要請に応じて優先的に物資提供</p>
+
+  <h3>14. あるべき従業員の行動</h3>
+  <p style="font-size:.85em">・接待や贈り物は受けない（金銭・物品の一切受領不可）<br>・取引先に接待や経済的な負担を負わせない<br>・展示会でのお車代・記念品は原則受け取らない<br>・自宅住所はお取引先に教えない<br>・食事時間にかかるお取引先への訪問は止めよう<br>・社外で会社の話は慎もう、誹謗・中傷は厳禁<br>・社外で業務を行う際は逐一上司へ報告</p>
+</div>
+</div><!-- /charter -->
+
+<!-- ==================== TAB 3: 어록100 플래시카드 ==================== -->
+<div id="flash" class="tab" role="tabpanel">
+<div class="header">
+  <h1>ベイシアグループ語録 100選</h1>
+  <p>카드 탭·Enter로 정답 | ← → 이동 | 범위 55·고빈도 20은 추정</p>
+</div>
+
+<div class="fc-show-toggle">
+  <button class="active" onclick="setFCRange('all',this)">전체 100</button>
+  <button onclick="setFCRange('exam',this)">출제범위 55(추정)</button>
+  <button onclick="setFCRange('high',this)">고빈도 20(추정)</button>
+</div>
+
+<div class="fc-container">
+  <div class="fc-progress"><span id="fc-cur">1</span> / <span id="fc-total">100</span></div>
+  <div class="fc-card" id="fc-card" onclick="document.getElementById('fc-card').classList.toggle('flipped')">
+    <div class="fc-inner">
+      <div class="fc-front">
+        <div class="fc-num" id="fc-num">No.1</div>
+        <div class="fc-text" id="fc-question">Loading...</div>
+      </div>
+      <div class="fc-back">
+        <div class="fc-answer" id="fc-answer">Loading...</div>
+      </div>
+    </div>
+  </div>
+  <div class="fc-controls">
+    <button class="fc-prev" id="fc-prev" onclick="fcNav(-1)">&#9664; 이전</button>
+    <button class="fc-shuffle" onclick="fcShuffle()">셔플</button>
+    <button class="fc-next" id="fc-next" onclick="fcNav(1)">다음 &#9654;</button>
+  </div>
+</div>
+
+<div class="card" style="margin-top:24px">
+  <h2>전체 어록 리스트</h2>
+  <button class="toggle-all" onclick="toggleAllAnswers()">정답 표시/숨기기</button>
+  <div class="qa" id="goroku-list"></div>
+</div>
+</div><!-- /flash -->
+
+<!-- ==================== TAB 4: 모의고사 ==================== -->
+<div id="mock" class="tab" role="tabpanel">
+<div class="header">
+  <h1>模擬試験（모의고사）</h1>
+  <p>135문 자동 채점 · 선택지를 눌러 고른 뒤 하단에서 채점</p>
+</div>
+
+<div class="score-bar" id="score-bar" style="display:none">
+  <span class="score-num" id="score-num">0</span><span style="font-size:1.2em"> 점</span>
+  <div style="font-size:.85em;color:var(--text2);margin-top:4px" id="score-detail"></div>
+</div>
+
+<div id="quiz-container" class="quiz"></div>
+<button class="btn-submit" id="btn-submit" onclick="gradeQuiz()">채점하기</button>
+</div><!-- /mock -->
+
+<!-- ==================== TAB 5: 함정노트 ==================== -->
+<div id="tips" class="tab" role="tabpanel">
+<div class="header">
+  <h1>함정노트 + 오류정정</h1>
+  <p>재검증으로 고친 거짓 정답과 출제 함정만 모음</p>
+</div>
+
+<div class="card">
+  <h2 style="color:var(--red)">발견된 오류 (재검증 반영)</h2>
+  <div class="warn" style="border-left-color:var(--red)">
+    <strong>1. ゼンショーHD 初任給</strong><br>
+    샘플자료: 30万円 ✗<br>
+    실제: <strong>31.2万円</strong>（2025年）→ <strong>32.2万円</strong>（2026年4月〜）/ 賃上げ率6.7%（ベア3.2%＋定昇3.5%、ベア14年連続）<br>
+    출처: ゼンショーHD 공식 채용정보 / 日経
+  </div>
+  <div class="warn" style="border-left-color:var(--red)">
+    <strong>2. いせや「創業」vs「設立」</strong><br>
+    샘플자료: 1958年 いせや「創業」<br>
+    실제: 카인즈 공식 연혁에는 <strong>「設立」</strong>으로 기재<br>
+    시험에서 "창업"으로 출제될 수 있으나 공식 표현은 "설립"
+  </div>
+  <div class="warn" style="border-left-color:var(--red)">
+    <strong>3. 共同配送の相手</strong><br>
+    일부 자료: 「ベイシアと共同配送」<br>
+    실제: <strong>DCM・高末</strong>과 공동배송. 발표 2025.2.14 / 운행개시 2.17〜<br>
+    출처: 카인즈 공식 뉴스릴리스
+  </div>
+  <div class="warn" style="border-left-color:var(--red)">
+    <strong>4. カインズ売上高（본 도구의 구버전 데이터 정정）</strong><br>
+    구버전 표기: 4,722億1,300万円 ✗<br>
+    실제: <strong>5,874億円</strong>（2026.2期、前年比＋2.4%）<br>
+    출처: 카인즈 공식「数字で見るカインズ」(2026.2월말 기준) / 日経クロストレンド
+  </div>
+  <div class="warn" style="border-left-color:var(--red)">
+    <strong>5. コアバリュー 빈칸 3건 정정 (2026.8.21 공식 이념 페이지 원문 대조)</strong><br>
+    작년 수험자 메모 기반의 구버전 답이 오답이었음:<br>
+    ・Kindness：（思いやり ✗）→ <strong>親切心</strong> ✓<br>
+    ・創る＝自分で（想像 ✗）して形にする → <strong>チャレンジ</strong> ✓<br>
+    ・より良い店舗や（サービス ✗）→ <strong>くらし</strong> ✓<br>
+    출처: <a href="https://www.cainz.co.jp/corporate/philosophy/">공식 企業理念 페이지</a> — 기술식 답안은 반드시 이 원문 기준으로 쓸 것.
+  </div>
+  <div class="warn" style="border-left-color:var(--red)">
+    <strong>6. クリーンポリシー原文（2026.8.21 재검증）</strong><br>
+    오사: 贈受・<strong>賃貸</strong>又飲食 ✗ → 공식 사이트 「贈受・<strong>貸借又酒食</strong>」。行動憲章PDF는 「貸借又飲食」。賃貸는 어디에도 없음. 빈칸 답 金品은 유지.
+  </div>
+  <div class="warn" style="border-left-color:var(--red)">
+    <strong>7. 育児・介護休業法の施行日を混ぜない</strong><br>
+    3歳未満テレワーク努力義務 = <strong>2025.4.1</strong>。<strong>2025.10.1</strong>은 3歳〜就学前의 유연근무 5조치 중 2개 이상 의무.
+  </div>
+  <div class="warn" style="border-left-color:var(--red)">
+    <strong>8. ゼンショー 6.7%는 賃上げ率이지 ベア가 아님</strong><br>
+    2026년 4월 초임 32.2만 / 임금인상 6.7%(정승 3.5%+베아 3.2%). 베아 연속은 14년.
+  </div>
+</div>
+
+<div class="card">
+  <h2 style="color:var(--orange)">시험 함정 패턴</h2>
+  <div class="warn" style="border-left-color:var(--green)">
+    <strong>1. 想像 vs 創造 → 미해소 (공식 페이지가 갈라짐)</strong><br>
+    カインズ理念ページ는 「商で文化を<strong>創造</strong>する」. グループページ는 「商で文化を<strong>想像</strong>する」. 시험이 어느 원전을 쓰는지 미확정. ②코어밸류 「創るをつくる」의 빈칸은 想像도 創造도 아닌 <strong>チャレンジ</strong> ③「豊かな<strong>想像力</strong>」만 想像 계열.
+  </div>
+  <div class="warn">
+    <strong>2. ららぽーと 台湾 = 처음이 아님</strong><br>
+    ららぽーと台北南港은 대만 2번째 ららぽーと(2023 台中에 이음). 미쓰이 대만 SC 전체는 5시설째. 3번째 ららぽーとは 高雄(2026 예정). 「初進出」이면 ✗.
+  </div>
+  <div class="warn">
+    <strong>3. 숫자 근접 2택</strong><br>
+    시사 문제는 숫자 2택에 근접한 숫자를 배치하는 패턴 다수. 정확한 숫자 암기 필수.
+  </div>
+  <div class="warn">
+    <strong>4. 주어를 묻는 패턴</strong><br>
+    「どの企業が行ったか」형식 — 행위 내용은 맞지만 기업명이 틀린 선택지 배치. 기업명과 행위를 정확히 매칭할 것.
+  </div>
+  <div class="warn">
+    <strong>5. 유사 법률명</strong><br>
+    「個人情報保護法」vs「不正競争防止法」vs「知的財産基本法」— 법률명과 핵심 내용을 정확히 연결할 것. 행동헌장의 관련법령 섹션을 활용.
+  </div>
+  <div class="warn">
+    <strong>6. 몬드셀렉션 수상 수는 연도별로 다름</strong><br>
+    2025년 시험 기출 = 8商品. <strong>2026年度 수상은 6商品</strong>(優秀品質金賞4＋ノミニーラベル2, 금상 15년 연속). 작년 답을 그대로 쓰면 ✗ 가능.
+  </div>
+  <div class="warn">
+    <strong>7. 인구 통계는 2종류 — 기준일·범위가 다름</strong><br>
+    ①住民基本台帳(1/1 기준, 7월 발표): 일본인 ▲91.7万(과거최대)·42년 만에 1.2억 하회·총인구 ▲56.3万·외국인 첫 400万 돌파·14세이하 구성비 11.13%<br>
+    ②人口推計(4/1 기준, 어린이날 발표): こどもの数 1,329万人·비율 10.8%(과거최저)<br>
+    "일본 인구 감소수" 문제는 어느 통계인지 선택지를 보고 판단 (91.7万=일본인 / 56.3万=총인구).
+  </div>
+  <div class="warn">
+    <strong>8. 트럼프 관세 — 최고재 판결로 전부 무효가 아님</strong><br>
+    2026.2.20 위헌판결은 <strong>IEEPA 근거 관세(상호관세 등)만</strong> 무효. <strong>자동차 관세(232조)는 유지</strong>. 판결 후 통상법122조 10%→15% 과징금(150일 시한·7/24 만료) → <strong>301조 10~12.5%로 재대체(약80개국, 기한 없음)</strong>. "자동차 관세도 폐지됐다"는 선택지는 ✗.
+  </div>
+  <div class="warn">
+    <strong>9. 점포수는 출처별로 2개 숫자가 존재</strong><br>
+    공식 사이트(26.2월말): <strong>263店舗</strong>(29도도부현) / PEOPLE 7월호(26.6월말): <strong>266店舗</strong>.<br>
+    시험 출처는 PEOPLE일 가능성이 높으므로 <strong>266(멤버 28,822名)</strong>을 우선 암기하되, "26.2월말 기준"이라는 단서가 붙으면 263.
+  </div>
+  <div class="warn">
+    <strong>10. 디자인상 3종 구분 (수상 문제 단골)</strong><br>
+    ノズピタ는 <strong>グッドデザイン賞2025 → iF DESIGN AWARD 2026 → レッドドット2026</strong> 3관왕. 木製サイレントキャリー는 굿디자인2025+레드닷2026 2관왕. 레드닷은 통산 <strong>10回目</strong>(2016~), 굿디자인은 <strong>14年連続</strong>, 몬드셀렉션 금상은 <strong>15年連続</strong> — "몇 년 연속/통산 몇 회" 숫자를 상끼리 바꿔치기하는 함정 주의.
+  </div>
+  <div class="warn">
+    <strong>11. 名古屋市와의 협정은 2건 — 혼동 주의</strong><br>
+    ①「資源循環に資する事業の連携に関する協定」(12월호) ②「ネイチャーポジティブに関する協定」→ なごやの苗 시내 5점포 판매(5월호). 경찰서 협정도 다수: 瑞穂警察署(名古屋堀田店)·吉川警察署(吉川美南店)·笛吹警察署(笛吹店·公式サイト確認)·<strong>静岡県警察(시설차용 — 점포 아닌 현경!)</strong>.
+  </div>
+</div>
+
+<div class="card">
+  <h2>검증 불가 항목 (2건)</h2>
+  <p style="font-size:.85em">아래 항목은 사내 자료만 존재하여 외부 검증 불가. 제공된 샘플 자료가 유일한 소스.</p>
+  <div class="law-box"><strong>ベイシア語録100</strong> — 사내 배포 자료. 공개 자료 없음. xlsx 데이터가 유일한 소스.</div>
+  <div class="law-box"><strong>就業規則</strong> — 사내 규정. 공개 자료 없음. 시험 피드백 텍스트의 내용이 유일한 참고.</div>
+</div>
+
+<div class="card">
+  <h2>D-19 학습 로드맵</h2>
+  <table>
+    <tr><th>기간</th><th>중점</th><th>방법</th></tr>
+    <tr><td>D-19~D-14<br>(1주차)</td><td>기업이념 완전 암기<br>어록 55선 1회독<br>행동헌장 법률 정리</td><td>기술식 섹션 매일 필사<br>플래시카드 매일 30분<br>행동헌장 탭 정독</td></tr>
+    <tr><td>D-13~D-7<br>(2주차)</td><td>PEOPLE 최신호 정독<br>경영전략 빈칸 암기<br>시사 데이터 수집</td><td>사내보 직접 확인<br>모의고사 1회 실시<br>뉴스 클리핑</td></tr>
+    <tr><td>D-6~D-1<br>(마지막)</td><td>모의고사 반복<br>오답 집중 복습<br>최신 시사 최종 확인</td><td>함정노트 재확인<br>취약 섹션 집중<br>숫자 데이터 최종 암기</td></tr>
+  </table>
+</div>
+</div><!-- /tips -->
+
+</div><!-- /container -->
+
+<script>
+const GOROKU = [
+  ["商売とは(　)なり","継続"],
+  ["(　)こそ最強の武器","安さ"],
+  ["(　)は大きく　(　)は緻密に","ビジョン　実行"],
+  ["大きくなるのはもっと(　)ため","安く売る"],
+  ["(　)の確立","流通工学"],
+  ["すべての基本は(　)から","売場"],
+  ["(　)から学ぶ（　）のニーズをつかむ","お客様　お客様"],
+  ["チェーンストアは(　)(　)の実現","ポピュラーアイテム　ポピュラープライス"],
+  ["チェーンストアが目指す(　)","３S"],
+  ["チェーンストアの商品は(　)(　)","EverybodyGoods　EverydayGoods"],
+  ["商売に(　)の(　)なし","安心立命　境地"],
+  ["(　)な発想が(　)を生む","ポジティブ　独創"],
+  ["(　)立場(　)立場からの発想","買う　使う"],
+  ["その行動は(　)か","合理的か"],
+  ["与えられた条件の中で(　)を目指す","最大"],
+  ["常に(　)を持つ","マーケティングマインド"],
+  ["(　)にこだわるな","成功体験"],
+  ["(　)に徹する","プライスリーダー"],
+  ["(　・　・　)","シンプル・イズ・ベスト"],
+  ["(　)化とは(　)化すること","標準　単純"],
+  ["年商規模は(　)で左右され純利益は(　)で上下する","経営戦略　技術"],
+  ["原則に(　)なし","例外"],
+  ["(　)に合わせる","身の丈"],
+  ["下(　)上(　)","学　達"],
+  ["ミスは(　)で防ぐ","仕組み"],
+  ["(　)は共有する","情報"],
+  ["商品は(　)店は(　)","生活密着　地域密着"],
+  ["利は(　)(　)にあり","改善　改革"],
+  ["(　)なくして(　)なし","挑戦　成長"],
+  ["平凡を(　)に(　)を与えれば人は育つ","非凡　チャンス"],
+  ["(　)と(　)は同格","販売　仕入れ"],
+  ["商売は(　)に始まって(　)に終わる","在庫　在庫"],
+  ["商品は(　)商品は(　)","現金　氷水"],
+  ["(　)せよそして(　)せよ","模倣　創造"],
+  ["(　)が力を生む","競争"],
+  ["(　)は小さな(　)から","改善　疑問"],
+  ["(　)は多く(　)は少なく","品種　品目"],
+  ["売場の(　)を守れ","季節感"],
+  ["(　)は立ち上げを早く","シーゾナブル・アイテム(季節商品)"],
+  ["(　)を割るとお客様は買う気を起きなくなる","最低陳列量"],
+  ["楽しい(　)をつくる","売場"],
+  ["利は(　)にあり","回転"],
+  ["(　)売るより(　)売れ","高く　早く"],
+  ["売れる商品が(　)","安い"],
+  ["(　)買って(　)売る","安く　安く"],
+  ["すべてを(　)売る必要はない(　)あるものを(　)売る","安く　効果　安く"],
+  ["安さが(　)を増やす","客数"],
+  ["あなたはお店の(　)","代表者"],
+  ["顔は常に(　)に向ける","お客様"],
+  ["(　)な売場は(　)を活かす","クリーン　商品"],
+  ["(　・　・　)","サービス・イズ・フリー"],
+  ["(　)は迅速に","苦情処理"],
+  ["(　)は(　)ごとにチェック","販管費　勘定科目"],
+  ["(　)と(　)は一体である(　)","商品　物流　商流"],
+  ["(　)は(　)に正比例","陳列量　販売量"],
+  ["(　)に注目","一坪当たりの生産性"],
+  ["仕入れは(　)ではない(　)(　)行為でなければならない","博打　科学的　合理的"],
+  ["(　)は最大の経営原則","商品構成グラフ"],
+  ["バイヤーの最大の責務は(　)と(　)の維持","商品構成グラフ　品質"],
+  ["バイヤーの評価基準は担当売場の(　)","坪当たり荒利益額"],
+  ["供応は(　)","原価"],
+  ["売場の商品は(　)と(　)だけ","売る商品　見せる商品"],
+  ["(　)と(　)の実施","仮説　検証"],
+  ["品種は(　)し品目は(　)する","総合化　専門化"],
+  ["(　)なければ(　)なし","リスク　利益"],
+  ["(　)は足で探せ","売れ筋"],
+  ["安く仕入れる(　)をつくる","仕組み"],
+  ["(　)(　)こそ仕入れ担当の技術","追加補充　集荷能力"],
+  ["(　)の五大原則","品揃え(豊富さ、安さ、信頼性、便利さ、新しいこと)"],
+  ["(　)の転換","発想"],
+  ["(　)を徹底的に追求せよ","シーゾナブル・アイテム(季節商品)"],
+  ["(　)の統一","レベル"],
+  ["商品は(　)を考えて","５W1H"],
+  ["(　)と(　)のバランスを重視","TPOS　プライスレンジ"],
+  ["(　)の遵守＝(　)","契約　共存共栄"],
+  ["(　)の情報より(　)の情報","ベンダー　売場"],
+  ["(　)の確立とベンダーの(　)","メインベンダー　トレードオフ"],
+  ["(　)はわが社の規模の発展段階に応じて変えていかなければならない","ベンダー"],
+  ["(　)をマークする","納入率"],
+  ["(　)の強力な部門をマークする","繁盛しているベンダー"],
+  ["ベンダーの(　)を注視せよ","供給能力"],
+  ["(　)からの情報を重視せよ","取引されていないベンダー"],
+  ["(　)な店づくり","ローコスト"],
+  ["(　)なくして(　)なし","開発　発展"],
+  ["(　)をつくるのが開発","儲かる店"],
+  ["これから(　)が増えていくところがターゲット","人口"],
+  ["(　)の(　)％の人が住んでいる地域が(　)","来店客　75　商圏"],
+  ["絶対に(　)","あきらめない"],
+  ["(　)の中から(　)が生まれる","制約　創意"],
+  ["(　)を磨け","自分"],
+  ["(　・　・　)の(　)を持て","短期　中期　長期　候補地"],
+  ["十分な(　)が成功のもと","事前調査"],
+  ["訪問は(　)をもって","ストーリー"],
+  ["(　)を理解してもらい(　)を理解してもらう","会社　自分"],
+  ["(　)が成功の道","聞き上手"],
+  ["(　)はしない","曖昧な返事"],
+  ["(　)を焦らず一つでも多くの(　)を取る事を心がけよ","制約　情報"],
+  ["断られてから本当の(　)が始まる","交渉"],
+  ["メイン導線として想定マーケットを集約する(　)があるところ","貫通道路"],
+  ["(　)を分析して(　)をつかむ","車の流れ　商圏の形"]
+];
+
+const EXAM_RANGE = 55; // ponytail: 2025후기 '55에서 8문'만 확인. 1-55 절단은 추정
+const HIGH_FREQ = [0,1,5,6,11,14,19,21,24,25,28,31,34,41,43,46,47,56,57,87]; // 추정. 2025후기에 문장이 남은 것은 11,19,21,24,46 다섯. 56·57·87은 자체 1-55 컷 밖 // 추정. 후기에 남은 문장은 11,19,21,24,46 다섯
+
+let fcData = [...GOROKU.map((g,i) => ({q:g[0], a:g[1], n:i+1}))];
+let fcIdx = 0;
+let fcRange = 'all';
+
+function setFCRange(range, btn) {
+  document.querySelectorAll('.fc-show-toggle button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  fcRange = range;
+  if (range === 'exam') fcData = GOROKU.slice(0, EXAM_RANGE).map((g,i) => ({q:g[0], a:g[1], n:i+1}));
+  else if (range === 'high') fcData = HIGH_FREQ.map(i => ({q:GOROKU[i][0], a:GOROKU[i][1], n:i+1}));
+  else fcData = GOROKU.map((g,i) => ({q:g[0], a:g[1], n:i+1}));
+  fcIdx = 0;
+  renderFC();
+}
+
+function renderFC() {
+  const c = fcData[fcIdx];
+  document.getElementById('fc-num').textContent = `No.${c.n}`;
+  document.getElementById('fc-question').textContent = c.q;
+  document.getElementById('fc-answer').textContent = c.a;
+  document.getElementById('fc-cur').textContent = fcIdx + 1;
+  document.getElementById('fc-total').textContent = fcData.length;
+  document.getElementById('fc-card').classList.remove('flipped');
+  document.getElementById('fc-prev').disabled = fcIdx === 0;
+  document.getElementById('fc-next').disabled = fcIdx === fcData.length - 1;
+}
+
+function fcNav(dir) {
+  fcIdx = Math.max(0, Math.min(fcData.length - 1, fcIdx + dir));
+  renderFC();
+}
+
+function fcShuffle() {
+  for (let i = fcData.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [fcData[i], fcData[j]] = [fcData[j], fcData[i]];
+  }
+  fcIdx = 0;
+  renderFC();
+}
+
+function buildGorokuList() {
+  const el = document.getElementById('goroku-list');
+  el.innerHTML = GOROKU.map((g, i) =>
+    `<div class="qa-item"><span class="q" style="min-width:24px;flex-shrink:0;color:var(--text2)">${i+1}.</span><span class="q">${g[0]}</span><span class="a hidden" onclick="this.classList.toggle('hidden')">${g[1]}</span></div>`
+  ).join('');
+}
+
+function toggleAllAnswers() {
+  const answers = document.querySelectorAll('.tab.active .qa-item .a');
+  const allVisible = [...answers].every(a => !a.classList.contains('hidden'));
+  answers.forEach(a => a.classList.toggle('hidden', allVisible));
+}
+
+// ==================== MOCK TEST ====================
+const QUIZ_DATA = [
+  // Section 1: 企業理念 (8Q, 記述)
+  {s:"企業理念",t:"write",q:"カインズのプロミスは「くらしに、＿＿」",a:"ららら。",h:"ひらがな3文字＋。"},
+  {s:"企業理念",t:"write",q:"カインズのビジョンは「＿＿を、日常から変える。」",a:"世界",h:"漢字2文字"},
+  {s:"企業理念",t:"write",q:"ベイシアグループの経営理念は「For the ＿＿」",a:"Customers",h:"英語"},
+  {s:"企業理念",t:"mc",q:"コアバリュー「Kindnessでつながる」の空欄：Kindness：（　）を中心において",o:["親切心","思いやり","優しさ","配慮"],a:0},
+  {s:"企業理念",t:"mc",q:"コアバリュー：相手の気持ちを汲み取る豊かな（　）",o:["想像力","創造力","感受性","共感力"],a:0},
+  {s:"企業理念",t:"mc",q:"コアバリュー「創るをつくる」：何事でも自分で（　）して形にする",o:["チャレンジ","想像","創造","工夫"],a:0},
+  {s:"企業理念",t:"mc",q:"コアバリュー：お客様やメンバー、パートナーと一緒により良い店舗や（　）をつくり出す",o:["くらし","サービス","商品","文化"],a:0},
+  {s:"企業理念",t:"mc",q:"カインズの社名の由来：Kind(ness)＋Customers first＋「AI」＋「Z」— このAIとZの意味は？",o:["愛・永遠","人工知能・世代","挨拶・絆","相性・全部"],a:0},
+  {s:"企業理念",t:"mc",q:"コアバリュー「枠をこえる」：前例や（　）に捉われない",o:["常識","慣習","固定観念","伝統"],a:0},
+  {s:"企業理念",t:"write",q:"グループ理念：人をつくって＿＿で文化を創造する",a:"商",h:"漢字1文字"},
+  // Section 2: 経営基本方針+クリーンポリシー (6Q)
+  {s:"経営基本方針",t:"mc",q:"マウンテンチェーンの展開：うるおいと節約を提供する（　）と業態を開発",o:["店舗","商品","サービス","売場"],a:0},
+  {s:"経営基本方針",t:"mc",q:"エブリデー・ロープライスの実践：（　）の追求と簡素で効果的なローコスト経営",o:["高速回転","利益率","売上","効率"],a:0},
+  {s:"経営基本方針",t:"write",q:"（＿＿）の経営：人間尊重の精神で人の育つ環境をつくり衆知を集め",a:"全員参加",h:"漢字4文字"},
+  {s:"クリーンポリシー",t:"mc",q:"私達は取引先より（　）の贈受・貸借又酒食の供応は受けません",o:["金品","金銭","物品","贈答品"],a:0},
+  {s:"クリーンポリシー",t:"mc",q:"私達は上司へはもちろん社員間の（　）はいたしません",o:["虚礼","儀礼","贈答","接待"],a:0},
+  {s:"クリーンポリシー",t:"mc",q:"私達は部下および社員間の（　）はいたしません",o:["金銭貸借","借金","融通","立替"],a:0},
+  // Section 3: 語録 (8Q)
+  {s:"語録",t:"mc",q:"ポジティブな発想が（　）を生む",o:["独創","革新","利益","成功"],a:0},
+  {s:"語録",t:"mc",q:"（　）とは単純化すること",o:["標準化","効率化","最適化","合理化"],a:0},
+  {s:"語録",t:"mc",q:"原則に（　）なし",o:["例外","妥協","限界","変更"],a:0},
+  {s:"語録",t:"mc",q:"ミスは（　）で防ぐ",o:["仕組み","努力","注意","管理"],a:0},
+  {s:"語録",t:"mc",q:"安さが（　）を増やす",o:["客数","売上","利益","シェア"],a:0},
+  {s:"語録",t:"mc",q:"商売は（　）に始まって（　）に終わる",o:["在庫・在庫","仕入れ・販売","計画・実行","人・人"],a:0},
+  {s:"語録",t:"mc",q:"（　）せよ、そして（　）せよ",o:["模倣・創造","学習・実践","挑戦・改善","分析・実行"],a:0},
+  {s:"語録",t:"mc",q:"（　）が力を生む",o:["競争","努力","団結","革新"],a:0},
+  // Section 4: 法律 (8Q)
+  {s:"法律",t:"mc",q:"パワハラ防止法の正式名称は？",o:["労働施策総合推進法","労働基準法","男女雇用機会均等法","労働安全衛生法"],a:0},
+  {s:"法律",t:"mc",q:"製品の欠陥による損害賠償責任を定めた法律は？",o:["PL法（製造物責任法）","消費者契約法","不正競争防止法","景品表示法"],a:0},
+  {s:"法律",t:"mc",q:"未公開の重要事実を知って株式売買を行うことを禁じる法律は？",o:["金融商品取引法","独占禁止法","商法","証券取引法"],a:0},
+  {s:"法律",t:"mc",q:"HACCPに沿った衛生管理が義務付けられている法律は？",o:["食品衛生法","食品表示法","JAS法","健康増進法"],a:0},
+  {s:"法律",t:"mc",q:"セクハラの「対価型」とは？",o:["性的関係を拒否した人に降格等の不利益を与える","性的な噂を社内に流す","職場に卑猥なポスターを貼る","容姿について繰り返し発言する"],a:0},
+  {s:"法律",t:"mc",q:"著作権法で禁止されているのは？",o:["新聞記事や書籍の無断転載・複製","出典を明示した適法な引用","著作物の感想を述べる","私的使用の範囲での複製"],a:0},
+  {s:"法律",t:"mc",q:"下請法の禁止事項でないものは？",o:["適正価格での発注","60日超の支払遅延","受け取り拒否","販売協力金の要請"],a:0},
+  {s:"法律",t:"mc",q:"パワハラ6類型に含まれないものは？",o:["業務上の適正な指導","身体的攻撃","精神的攻撃","過大な要求"],a:0},
+  // Section 5: 就業規則 (8Q, ○×)
+  {s:"就業規則",t:"ox",q:"業務上の必要がある場合を除き、所属長の許可なく部外者を職場に立ち入れさせてはならない",a:true},
+  {s:"就業規則",t:"ox",q:"本人が結婚するとき、挙式日または入籍日前後通算して連続3日以内の特別休暇を取得できる",a:false,e:"正しくは連続5日以内"},
+  {s:"就業規則",t:"ox",q:"社員が退職しようとするときは、少なくとも退職希望日の14日前までに退職願を提出する",a:false,e:"正しくは30日前"},
+  {s:"就業規則",t:"ox",q:"異動を命ぜられた者は、正当な理由なくこれを拒むことはできない",a:true},
+  {s:"就業規則",t:"ox",q:"36協定の限度時間を遵守し、不要不急な時間外勤務を行わないようにする",a:true},
+  {s:"就業規則",t:"ox",q:"4週間で3日の休みが必要である",a:false,e:"正しくは4週間で4日"},
+  {s:"就業規則",t:"ox",q:"他の社員の飲酒運転を知りながら黙認する行為は禁止されている",a:true},
+  {s:"就業規則",t:"ox",q:"会社は業務の都合により社員に転勤を命ずることができる",a:true},
+  // Section 6: 労働基準法 (4Q)
+  {s:"労働基準法",t:"mc",q:"6時間を超えると（　）分以上の休憩が必要",o:["45","30","50","60"],a:0},
+  {s:"労働基準法",t:"mc",q:"8時間を超えると（　）分以上の休憩が必要",o:["60","45","90","50"],a:0},
+  {s:"労働基準法",t:"mc",q:"年間の有給休暇が10日以上ある場合、年間最低何日消化義務がある？",o:["5日","3日","7日","10日"],a:0},
+  {s:"労働基準法",t:"mc",q:"法定労働時間は1日何時間？",o:["8時間","7時間","9時間","10時間"],a:0},
+  // Section 7-8: 経営戦略+PEOPLE (8Q)
+  {s:"経営戦略",t:"mc",q:"カインズの「くらしDIY提案」が目指すのは？（37期メモ・原文未確保）",o:["新規顧客化→カテゴリ新規顧客化→ファン化","売上最大化","店舗拡大","コスト削減"],a:0},
+  {s:"PEOPLE",t:"mc",q:"AEO制度とは？",o:["国際物流のセキュリティ管理体制が整備された事業者への税関手続き緩和","環境配慮型企業認証","品質管理認証","労働安全認証"],a:0},
+  {s:"PEOPLE",t:"mc",q:"カインズが共同配送を開始した相手は？",o:["DCM・高末","ベイシア","コメリ","ナフコ"],a:0},
+  {s:"経営戦略",t:"mc",q:"信条「3つの満足」に含まれないものは？",o:["株主の満足","お客様の満足","社員の満足","お取引先の満足"],a:0},
+  {s:"経営戦略",t:"mc",q:"「お客様の満足」の制度として正しいものは？",o:["返金制度","プロフィットシェアリング","キャッシュペイメント","商品買取制度"],a:0},
+  {s:"経営戦略",t:"mc",q:"「社員の満足」の制度として正しいものは？",o:["プロフィットシェアリング（利益還元制度）","返金制度","キャッシュペイメント","商品買取制度"],a:0},
+  {s:"経営戦略",t:"mc",q:"「お取引先の満足」の制度として正しいものは？",o:["キャッシュペイメント（現金決済制度）","返金制度","プロフィットシェアリング","福利厚生制度"],a:0},
+  {s:"経営戦略",t:"mc",q:"「CAINZ Vision 2030」がスタートしたのは何期？",o:["34期","33期","35期","36期"],a:0},
+  {s:"経営戦略",t:"mc",q:"38期基本方針：カインズ流の（　）経営実践に向けた「連結経営とROI経営」",o:["ハリネズミ","ライオン","キツネ","カメ"],a:0},
+  {s:"経営戦略",t:"mc",q:"第4次中期経営計画（2027〜2030）のテーマは？",o:["\"できる\"から\"勝つ\"へ","\"守り\"から\"攻め\"へ","\"量\"から\"質\"へ","\"個\"から\"組織\"へ"],a:0},
+  {s:"経営戦略",t:"mc",q:"戦略5要件に含まれないものは？",o:["海外事業のグローバル展開","競争に勝てるくらしDIY MD","カインズ流チェーンストアオペレーション","企業理念を具現化して儲けるカインズ人財"],a:0},
+  {s:"経営戦略",t:"mc",q:"3KSF（勝つために必要なこと）に含まれるのは？",o:["あらゆる情報・作業のデータ化","店舗数の倍増","海外調達比率の向上","PB比率50%達成"],a:0},
+  {s:"経営戦略",t:"mc",q:"38期三位一体方針：第4次中計に向け本気で取りに行く新プロジェクトの対象は？",o:["若年ミドル","アクティブシニア","Z世代","ファミリー層"],a:0},
+  {s:"経営戦略",t:"mc",q:"「カインズ流EDLPの実行（EDLP&SLP）」の対競合は？",o:["トライアル・コスモス・ドンキ","HC・ニトリ","3coins・無印良品","イオン・セブン"],a:0},
+  {s:"経営戦略",t:"mc",q:"38期の売上全社予算は？",o:["5,410億円","5,428億円","5,874億円","5,000億円"],a:0},
+  {s:"経営戦略",t:"mc",q:"リフォーム事業：38期は関東圏を中心に何店舗出店？",o:["24店舗","10店舗","38店舗","50店舗"],a:0},
+  {s:"経営戦略",t:"mc",q:"カインズ流CSOPの進化3段階の正しい順序は？",o:["自動化→最適化→集中化","集中化→自動化→最適化","最適化→自動化→集中化","自動化→集中化→最適化"],a:0},
+  {s:"経営戦略",t:"mc",q:"シン・カインドネスの「シン」5つの漢字は？",o:["新・親・心・進・深","新・信・心・真・進","新・親・伸・進・深","真・親・心・進・芯"],a:0},
+  {s:"就業規則",t:"mc",q:"2026年3月1日から正社員の定年は何歳へ延長された？",o:["65歳","70歳","63歳","60歳のまま"],a:0},
+  {s:"就業規則",t:"mc",q:"勤務地選択制度改定：単身赴任者の帰省旅費は年何回へ増えた？",o:["24回","18回","12回","30回"],a:0},
+  {s:"PEOPLE",t:"mc",q:"2025年12月30日にカインズグループへ正式加入した企業は？",o:["大都","交換できるくん","魚耕","カヤック"],a:0},
+  {s:"PEOPLE",t:"mc",q:"2026年1月、カインズが資本業務提携契約を締結した企業は？",o:["交換できるくん","大都","VUILD","カヤック"],a:0},
+  {s:"PEOPLE",t:"mc",q:"「わんわん祭り2025」でどうぶつ基金へ寄付した金額は？",o:["111万円","222万円","100万円","150万円"],a:0},
+  {s:"PEOPLE",t:"mc",q:"レッドドット・デザイン賞2026での受賞は通算何回目？",o:["10回目","15回目","5回目","8回目"],a:0},
+  {s:"PEOPLE",t:"mc",q:"厚生労働省主催「SAFEアワード」で受賞した賞は？",o:["ブロンズ賞","ゴールド賞","シルバー賞","大賞"],a:0},
+  {s:"PEOPLE",t:"mc",q:"37期 CAINZ of the year 表彰式（5.11）が開催された店舗は？",o:["吉川美南店","本庄早稲田店","浦和美園店","前橋小島田店"],a:0},
+  {s:"PEOPLE",t:"mc",q:"組み立て式生ごみ処理容器「Fab de キエーロ」の販売場所は？",o:["CAINZ DIY MARKET","全店舗","オンラインショップ限定","Style Factory"],a:0},
+  {s:"PEOPLE",t:"mc",q:"37期 CAINZ of the year 最優秀Excellent STOREに選ばれた店舗は？",o:["宇都宮平出店","吉川美南店","南砂町SUNAMO店","熊本宇土店"],a:0},
+  {s:"PEOPLE",t:"mc",q:"37期 CAINZ of the year 特別賞を受賞したプロジェクトは？",o:["吉川美南店プロジェクト（次世代型店舗構想）","桑名流通センタープロジェクト","ハンズ再建プロジェクト","CAINZ Pay導入プロジェクト"],a:0},
+  {s:"PEOPLE",t:"mc",q:"37期 Excellent JOBを受賞した次世代出納システムの名前は？",o:["Coin","Cash","Pay","Vault"],a:0},
+  {s:"PEOPLE",t:"mc",q:"2026年度モンドセレクションでカインズオリジナル商品は何商品受賞？（優秀品質金賞4＋ノミニーラベル2）",o:["6商品","8商品","4商品","10商品"],a:0},
+  {s:"PEOPLE",t:"mc",q:"モンドセレクション優秀品質金賞の受賞は2012年から何年連続？",o:["15年連続","10年連続","12年連続","14年連続"],a:0},
+  {s:"公式サイト",t:"mc",q:"2026年7月17日グランドオープンのカインズ笛吹店は何県への約10年ぶり出店？",o:["山梨県","長野県","静岡県","新潟県"],a:0},
+  {s:"公式サイト",t:"mc",q:"2026年夏オープン予定のカインズ モザイクモール港北店が直結する駅は？",o:["センター北駅","センター南駅","新横浜駅","日吉駅"],a:0},
+  {s:"公式サイト",t:"mc",q:"2026年7月25日開業のカインズリフォーム ルミエール新小岩店は都市型リフォーム専門小型店の何店舗目？",o:["8店舗目","6店舗目","10店舗目","5店舗目"],a:0},
+  {s:"カインズネタ",t:"mc",q:"カインズの2026年2月期売上高は？",o:["5,874億円","4,722億円","6,120億円","5,315億円"],a:0},
+  {s:"カインズネタ",t:"mc",q:"2026年7月31日付でベイシアグループが完全子会社化した鮮魚専門店は？",o:["魚耕","魚力","魚喜","角上魚類"],a:0},
+  {s:"PEOPLE",t:"mc",q:"4月15日グランドオープンの苅田店は何県内3店舗目？",o:["福岡県","佐賀県","大分県","山口県"],a:0},
+  {s:"PEOPLE",t:"mc",q:"小田原店（4.25オープン）はどの店舗の役割を引き継いだ？",o:["小田原高田店","小田原西店","平塚店","秦野店"],a:0},
+  {s:"PEOPLE",t:"mc",q:"東光ストアとの契約はホールセール事業部として何社目？",o:["10社目","4社目","5社目","8社目"],a:0},
+  {s:"PEOPLE",t:"mc",q:"「にゃん祭り2026」で公益財団法人どうぶつ基金に寄付した金額は？",o:["222万円","122万円","322万円","111万円"],a:0},
+  {s:"PEOPLE",t:"mc",q:"人工砂「撒くだけで防草できる人工砂」が認定されたのは？",o:["彩の国リサイクル製品","エコマーク","グリーン購入法適合品","群馬県リサイクル製品"],a:0},
+  {s:"PEOPLE",t:"mc",q:"CAINZ of the yearで表彰される3部門は？",o:["MEMBER・JOB・STORE","個人・チーム・店舗","新人・中堅・ベテラン","販売・開発・物流"],a:0},
+  {s:"PEOPLE",t:"mc",q:"Excellent MEMBERを3度受賞したメンバーはどうなる？",o:["殿堂入り","特別賞","名誉メンバー","CEO表彰"],a:0},
+  {s:"PEOPLE",t:"mc",q:"AIツール「人事検索Bot」が導入されたコミュニケーションツールは？",o:["Slack","Teams","LINE WORKS","Chatwork"],a:0},
+  {s:"PEOPLE",t:"mc",q:"CDMと東京理科大学の連携商品、傘を背負った恐竜の形をした傘立ての名前は？",o:["親アンブレラサウルス","カサドン","アンブレラザウルス","カインゾー"],a:0},
+  // Section 9: 沿革 (8Q)
+  {s:"沿革",t:"mc",q:"いせやの設立年は？",o:["1958年","1948年","1968年","1978年"],a:0},
+  {s:"沿革",t:"mc",q:"SPA宣言の年は？",o:["2007年","2005年","2010年","2015年"],a:0},
+  {s:"沿革",t:"mc",q:"カインズが200店舗を突破した年は？",o:["2015年","2010年","2018年","2020年"],a:0},
+  {s:"沿革",t:"mc",q:"ベイシアグループ売上高1兆円達成の年は？",o:["2020年","2018年","2022年","2015年"],a:0},
+  {s:"カインズネタ",t:"mc",q:"Pet's Oneメンバーズを開始したのは？",o:["カインズ","ベイシア","コメリ","DCM"],a:0},
+  {s:"カインズネタ",t:"mc",q:"随意契約備蓄米でカインズが政府発表時に獲得した権利の数量は？",o:["5,000t","3,000t","8,000t","10,000t"],a:0},
+  {s:"カインズネタ",t:"mc",q:"ベイシア・カインズが株式過半数を取得したのは？",o:["ザスパ","群馬クレインサンダーズ","前橋育英","太田レディース"],a:0},
+  {s:"沿革",t:"mc",q:"1978年に起きたカインズの出来事は？",o:["ホームセンター1号店開店","いせや設立","SPA宣言","200店舗突破"],a:0},
+  // Section 11: 流通業界 (8Q)
+  {s:"流通業界",t:"mc",q:"ローソンの無人販売店舗で導入されたシステムは？",o:["NTTデータのCatch＆Go","富士通のスマートストア","NECの顔認証","Amazonのジャストウォークアウト"],a:0},
+  {s:"流通業界",t:"mc",q:"イオンのネットスーパーの名称は？",o:["Green Beans","おうちでイオン","まいばすネット","トップバリュデリバリー"],a:0},
+  {s:"流通業界",t:"mc",q:"西友を買収した企業は？",o:["トライアルHD","イオン","ドンキホーテ","ヨークベニマル"],a:0},
+  {s:"流通業界",t:"mc",q:"ゼンショーHDの2026年4月からの初任給は？",o:["32.2万円","30万円","31.2万円","35万円"],a:0},
+  {s:"流通業界",t:"mc",q:"ららぽーとの台湾進出は何回目？（ららぽーとブランドとして）",o:["2回目","初めて","3回目","4回目"],a:0},
+  {s:"流通業界",t:"mc",q:"トライアルHDの西友全株式取得額は？",o:["3,826億円","1.2兆円","5,000億円","8,000億円"],a:0},
+  {s:"流通業界",t:"mc",q:"行動憲章で、ベイシアグループの政治に対する姿勢は？",o:["特定の政党を支持しない","与党を支持","中立を宣言","政治には関与しない"],a:0},
+  {s:"流通業界",t:"mc",q:"行動憲章で、フロント企業とは？",o:["暴力団や関係者が経営に関与している会社","新規参入企業","フランチャイズ加盟店","海外子会社"],a:0},
+  // Section 12: 時事ネタ (8Q)
+  {s:"時事",t:"mc",q:"2026年度の日本の国家予算（一般会計）は？",o:["約122.3兆円","約115.5兆円","約118兆円","約125兆円"],a:0},
+  {s:"時事",t:"mc",q:"育児・介護休業法改正のうち、2025年10月1日施行で義務化されたのは？",o:["3歳～就学前の子について柔軟な働き方の措置（5つから2つ以上）","3歳未満へのテレワーク努力義務（これは4月1日施行）","1歳未満までの時短義務化","中学入学前までの在宅勤務義務"],a:0},
+  {s:"時事",t:"mc",q:"2026年2月、米連邦最高裁のトランプ相互関税判決は？",o:["違法・無効→徴収停止","合法と判断","審理不尽で差し戻し","判断見送り"],a:0},
+  {s:"時事",t:"mc",q:"日本人人口の減少数（2026.1.1住民基本台帳、過去最大）は約何万人？",o:["約91.7万人","約56.3万人","約60万人","約72万人"],a:0},
+  {s:"時事",t:"mc",q:"日本人人口が1億2,000万人を下回ったのは何年ぶり？",o:["42年ぶり","30年ぶり","50年ぶり","戦後初"],a:0},
+  {s:"時事",t:"mc",q:"外国人人口（2026.1.1）は初めて何万人を突破した？",o:["400万人","300万人","350万人","500万人"],a:0},
+  {s:"時事",t:"mc",q:"2026年度予算で国債費が初めて突破した金額は？",o:["30兆円","25兆円","35兆円","20兆円"],a:0},
+  {s:"時事",t:"mc",q:"2026春闘の賃上げ率（連合最終集計）は？",o:["5.01%","5.37%","4.69%","5.25%"],a:0},
+  {s:"時事",t:"mc",q:"2026年度最低賃金の目安：全国加重平均の時給は？",o:["1,176円","1,121円","1,155円","1,200円"],a:0},
+  {s:"時事",t:"mc",q:"2025年の合計特殊出生率（過去最低）は？",o:["1.14","1.15","1.20","1.08"],a:0},
+  {s:"時事",t:"mc",q:"2025年の出生数（過去最少）は約何万人？",o:["約67万人","約72万人","約58万人","約80万人"],a:0},
+  {s:"時事",t:"mc",q:"高市早苗首相の就任が「憲政史上初」とされる理由は？",o:["女性首相として初","最年少首相として初","参院議員出身として初","無派閥として初"],a:0},
+  {s:"時事",t:"mc",q:"日銀の政策金利（2026年7月時点）は？",o:["1%で据え置き","0.5%で据え置き","1.5%へ利上げ","0.25%へ利下げ"],a:0},
+  {s:"PEOPLE",t:"mc",q:"レッドドット・デザイン賞2026を受賞した2商品は「ノズピタシリーズ」と何？",o:["木製サイレントキャリー","L-Fit","スパッと切れるラップケース","Fab de キエーロ"],a:0},
+  {s:"PEOPLE",t:"mc",q:"2026年度合同入社式でカインズ単独の新社員数は？",o:["243名","274名","198名","305名"],a:0},
+  {s:"時事",t:"mc",q:"2025年度の経常収支黒字額は？",o:["約34.5兆円","約28兆円","約31.8兆円","約40兆円"],a:0},
+  {s:"時事",t:"mc",q:"15歳未満の人口比率（2026.4.1）は過去最低の何%？",o:["10.8%","11.2%","12.1%","10.3%"],a:0},
+  {s:"時事",t:"mc",q:"消費期限と賞味期限の違い：急速に劣化しやすいもの（概ね5日以内）は？",o:["消費期限","賞味期限","販売期限","使用期限"],a:0},
+  {s:"時事",t:"mc",q:"行動憲章におけるコンプライアンスの定義に含まれるのは？",o:["法令・社会規範・会社ルールの遵守","法令遵守のみ","社会規範のみ","会社ルールのみ"],a:0},
+];
+
+function buildQuiz() {
+  const container = document.getElementById('quiz-container');
+  const shuffled = [...QUIZ_DATA];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  window._quizData = shuffled;
+  container.innerHTML = shuffled.map((q, i) => {
+    if (q.t === 'mc') {
+      const opts = q.o.map((o, j) => {
+        const shuffleIdx = (j + Math.floor(Math.random() * q.o.length)) % q.o.length;
+        return {text: o, isCorrect: j === q.a};
+      });
+      for (let k = opts.length - 1; k > 0; k--) {
+        const m = Math.floor(Math.random() * (k + 1));
+        [opts[k], opts[m]] = [opts[m], opts[k]];
+      }
+      q._shuffled = opts;
+      return `<div class="quiz-q" data-section="${q.s}" data-idx="${i}">
+        <p>${q.q}</p>
+        <div class="quiz-opts">${opts.map((o, j) =>
+          `<div class="quiz-opt" data-correct="${o.isCorrect}" onclick="selectOpt(this)">${o.text}</div>`
+        ).join('')}</div>
+      </div>`;
+    } else if (q.t === 'write') {
+      return `<div class="quiz-q" data-section="${q.s}" data-idx="${i}">
+        <p>${q.q}</p>
+        <input class="quiz-input" data-answer="${q.a}" placeholder="${q.h || '回答を入力'}">
+      </div>`;
+    } else if (q.t === 'ox') {
+      return `<div class="quiz-q" data-section="${q.s}" data-idx="${i}">
+        <p>${q.q}</p>
+        <div class="quiz-opts">
+          <div class="quiz-opt" data-correct="${q.a === true}" onclick="selectOpt(this)">○</div>
+          <div class="quiz-opt" data-correct="${q.a === false}" onclick="selectOpt(this)">✕</div>
+        </div>
+        ${q.e ? `<div class="quiz-check" style="display:none">${q.e}</div>` : ''}
+      </div>`;
+    }
+  }).join('');
+}
+
+function selectOpt(el) {
+  const parent = el.closest('.quiz-opts');
+  parent.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function gradeQuiz() {
+  let score = 0;
+  let total = window._quizData.length;
+  document.querySelectorAll('.quiz-q').forEach(qEl => {
+    const selected = qEl.querySelector('.quiz-opt.selected');
+    const input = qEl.querySelector('.quiz-input');
+    if (selected) {
+      if (selected.dataset.correct === 'true') {
+        selected.classList.add('correct');
+        score++;
+      } else {
+        selected.classList.add('wrong');
+        qEl.querySelectorAll('.quiz-opt').forEach(o => {
+          if (o.dataset.correct === 'true') o.classList.add('correct');
+        });
+      }
+      const explanation = qEl.querySelector('.quiz-check');
+      if (explanation) explanation.style.display = 'block';
+    } else if (input) {
+      const answer = input.dataset.answer;
+      const val = input.value.trim();
+      if (val === answer || val.replace(/[。、．]/g,'') === answer.replace(/[。、．]/g,'')) {
+        input.style.borderColor = 'var(--green)';
+        score++;
+      } else {
+        input.style.borderColor = 'var(--red)';
+        const check = document.createElement('div');
+        check.className = 'quiz-check ng';
+        check.textContent = `正解: ${answer}`;
+        input.after(check);
+      }
+    }
+  });
+  document.getElementById('score-bar').style.display = 'block';
+  document.getElementById('score-num').textContent = score;
+  document.getElementById('score-detail').textContent = `${total}問中 ${score}問正解（${Math.round(score/total*100)}%）`;
+  document.getElementById('btn-submit').textContent = '다시 풀기';
+  document.getElementById('btn-submit').onclick = () => {
+    document.getElementById('score-bar').style.display = 'none';
+    buildQuiz();
+    document.getElementById('btn-submit').textContent = '채점하기';
+    document.getElementById('btn-submit').onclick = gradeQuiz;
+    window.scrollTo(0, 0);
+  };
+}
+
+// ==================== TAB SWITCHING ====================
+function showTab(id) {
+  document.querySelectorAll('.tab').forEach(t => {
+    const on = t.id === id;
+    t.classList.toggle('active', on);
+    t.hidden = !on;
+  });
+  document.querySelectorAll('nav [role="tab"]').forEach(b => {
+    const on = (b.getAttribute('onclick') || '').includes(`'${id}'`);
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  window.scrollTo(0, 0);
+}
+
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : cur === 'light' ? '' : 'dark';
+  if (next) document.documentElement.setAttribute('data-theme', next);
+  else document.documentElement.removeAttribute('data-theme');
+  try { localStorage.setItem('exam-theme', next); } catch (e) {}
+}
+
+function filterQa(tabId, q) {
+  const needle = (q || '').trim().toLowerCase();
+  document.querySelectorAll('#' + tabId + ' .qa-item').forEach(el => {
+    el.style.display = !needle || el.textContent.toLowerCase().includes(needle) ? '' : 'none';
+  });
+}
+
+document.addEventListener('keydown', e => {
+  if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+  const flash = document.getElementById('flash');
+  if (!flash || !flash.classList.contains('active')) return;
+  if (e.key === 'ArrowRight') { e.preventDefault(); fcNav(1); }
+  else if (e.key === 'ArrowLeft') { e.preventDefault(); fcNav(-1); }
+  else if (e.key === ' ' || e.key === 'Enter') {
+    e.preventDefault();
+    document.getElementById('fc-card').classList.toggle('flipped');
+  }
+});
+
+// ==================== INIT ====================
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const saved = localStorage.getItem('exam-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+  document.querySelectorAll('.tab').forEach(t => { if (!t.classList.contains('active')) t.hidden = true; });
+  renderFC();
+  buildGorokuList();
+  buildQuiz();
+});
+</script>
+</body>
+</html>
