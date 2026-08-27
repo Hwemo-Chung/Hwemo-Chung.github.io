@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HotLauncher — macOS 26, 런치패드 대신 단축키 20개</title>
   <meta name="description" content="macOS 26에서 런치패드가 사라졌습니다. Spotlight 앱 런처를 기다리지 말고, 자주 쓰는 앱 최대 20개를 전역 단축키로 실행하세요. 광고·구독 없음." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://hwemo-chung.github.io/hot-launcher.html" />
   <link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/hot-launcher.html" />
   <link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/hot-launcher.html?lang=en" />
@@ -12,15 +13,23 @@
   <link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/hot-launcher.html" />
   <meta name="theme-color" content="#ffffff" />
   <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="Lumos" />
   <meta property="og:url" content="https://hwemo-chung.github.io/hot-launcher.html" />
   <meta property="og:title" content="HotLauncher — macOS 26, 런치패드 대신 단축키 20개" />
   <meta property="og:description" content="런치패드 대신 전역 단축키. 슬롯 20개. 메뉴바 상주. 광고·구독 없음." />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:locale:alternate" content="ja_JP" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/hot-launcher-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="HotLauncher — macOS 26에서 사라진 런치패드 대신 전역 단축키로 앱을 여는 무료 메뉴바 런처. Free hotkey app launcher for macOS 26 after Launchpad was removed." />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="HotLauncher — macOS 26, 런치패드 대신 단축키 20개" />
   <meta name="twitter:description" content="런치패드 대신 전역 단축키. 슬롯 20개. 메뉴바 상주. 광고·구독 없음." />
+  <meta name="twitter:image" content="https://hwemo-chung.github.io/assets/hot-launcher-og.png" />
+  <meta name="twitter:image:alt" content="HotLauncher — macOS 26에서 사라진 런치패드 대신 전역 단축키로 앱을 여는 무료 메뉴바 런처. Free hotkey app launcher for macOS 26 after Launchpad was removed." />
   <script>
     (function () {
       try {
@@ -37,14 +46,94 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "HotLauncher",
-    "operatingSystem": "macOS 26+",
-    "applicationCategory": "UtilitiesApplication",
-    "url": "https://hwemo-chung.github.io/hot-launcher.html",
-    "downloadUrl": "https://github.com/Hwemo-Chung/HotLauncher",
-    "inLanguage": ["en", "ko", "ja"],
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://hwemo-chung.github.io/hot-launcher.html#app",
+        "name": "HotLauncher",
+        "operatingSystem": "macOS 26+",
+        "applicationCategory": "UtilitiesApplication",
+        "url": "https://hwemo-chung.github.io/hot-launcher.html",
+        "downloadUrl": "https://github.com/Hwemo-Chung/HotLauncher",
+        "image": "https://hwemo-chung.github.io/assets/hot-launcher-og.png",
+        "description": "macOS 26에서 런치패드가 사라졌습니다. Spotlight 앱 런처를 기다리지 말고, 자주 쓰는 앱 최대 20개를 전역 단축키로 실행하세요. 광고·구독 없음.",
+        "inLanguage": ["en", "ko", "ja"],
+        "isAccessibleForFree": true,
+        "softwareRequirements": "macOS 26 이상, Apple Silicon, Xcode Command Line Tools(소스 빌드)",
+        "featureList": [
+          "전역 단축키 → 지정한 앱만 실행, 검색·인덱싱 없음",
+          "슬롯 20개 · 한 화면 10개(2열×5줄) · 페이지 2장",
+          "메뉴바 상주, 독 아이콘 없음",
+          "로그인 시 자동 실행",
+          "설정은 기기 안 JSON, 네트워크는 기부 클릭뿐"
+        ],
+        "author": { "@type": "Person", "name": "Hwemo Chung", "url": "https://github.com/Hwemo-Chung" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://hwemo-chung.github.io/hot-launcher.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "런치패드는 어디로 갔나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "macOS 26 Tahoe에서 제거됐습니다. 대체는 Spotlight의 Apps입니다. HotLauncher는 그리드를 되살리지 않습니다. 자주 여는 앱에 단축키를 붙입니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Alfred나 Raycast를 쓰는데요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "그러면 이 앱이 필요 없을 수 있습니다. 런처 창 없이, 앱 20개만 키에 붙이고 싶을 때 쓰세요."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "왜 다운로드 파일이 없나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Apple 공증 전의 바이너리를 사이트에 올리지 않습니다. GitHub 소스에서 빌드하면 본인 맥에서 서명한 앱이 생깁니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "어떤 Mac에서 되나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "macOS 26 이상, Apple Silicon. 테스트는 macOS 26.6.2에서 했습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "유료인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "앱은 무료입니다. 원하면 PayPal로 $1.99 기부가 가능합니다. 기능과 무관합니다."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://hwemo-chung.github.io/hot-launcher.html#install",
+        "name": "HotLauncher 소스 빌드 설치",
+        "description": "macOS 26에서 소스를 내려받아 빌드하고 Applications 폴더에 설치합니다.",
+        "tool": [
+          { "@type": "HowToTool", "name": "macOS 26" },
+          { "@type": "HowToTool", "name": "Swift 6.3" },
+          { "@type": "HowToTool", "name": "Xcode Command Line Tools" }
+        ],
+        "step": [
+          { "@type": "HowToStep", "name": "소스 내려받기", "text": "git clone https://github.com/Hwemo-Chung/HotLauncher.git" },
+          { "@type": "HowToStep", "name": "디렉터리 이동", "text": "cd HotLauncher/HotLauncher" },
+          { "@type": "HowToStep", "name": "앱 번들 빌드", "text": "bash scripts/bundle.sh" },
+          { "@type": "HowToStep", "name": "설치", "text": "bash scripts/install.sh 를 실행하면 Applications 폴더에 HotLauncher로 설치됩니다." }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="stylesheet" href="sales/tokens.css" />
