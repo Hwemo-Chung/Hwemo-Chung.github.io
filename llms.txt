@@ -5,7 +5,7 @@ Lumos is the portfolio and service catalog of full-stack developer Hwemo Chung. 
 ## Main pages
 
 - Home: https://hwemo-chung.github.io/
-- HotLauncher (free hotkey app launcher, an alternative after Launchpad was removed in macOS 26): https://hwemo-chung.github.io/hot-launcher.html
+- HotLauncher (free hotkey app launcher, an alternative after Launchpad was removed in macOS 26): https://hwemo-chung.github.io/hotlauncher.html
 - LumosZipForMac: https://hwemo-chung.github.io/lumoszip.html
 - Services and pricing: https://hwemo-chung.github.io/sales/
 - Offer catalog: https://hwemo-chung.github.io/offers/
