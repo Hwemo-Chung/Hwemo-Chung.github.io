@@ -175,7 +175,15 @@ const siteTranslations = {
     }
 };
 
-let siteCurrentLang = localStorage.getItem('language') || 'ko';
+function readSiteLang() {
+    const queryLang = new URLSearchParams(location.search).get('lang');
+    if (queryLang && siteTranslations[queryLang]) return queryLang;
+    const stored = localStorage.getItem('language');
+    if (stored && siteTranslations[stored]) return stored;
+    return 'ko';
+}
+
+let siteCurrentLang = readSiteLang();
 let sitePageTranslations = null;
 const siteOriginalText = new WeakMap();
 const siteOriginalAttributes = new WeakMap();
