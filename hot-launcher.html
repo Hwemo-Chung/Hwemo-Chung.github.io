@@ -3,28 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HotLauncher — macOS 26에서 사라진 런치패드 대신 단축키 앱 런처</title>
-  <meta name="description" content="macOS 26에서 런치패드가 사라졌습니다. HotLauncher는 런치패드를 복원하는 앱이 아니라, 전역 단축키로 지정한 앱을 바로 여는 무료 macOS 메뉴바 런처입니다. 광고·구독 없음, 소스에서 직접 빌드합니다." />
+  <title>HotLauncher — macOS 26, 런치패드 대신 단축키 20개</title>
+  <meta name="description" content="macOS 26에서 런치패드가 사라졌습니다. Spotlight 앱 런처를 기다리지 말고, 자주 쓰는 앱 최대 20개를 전역 단축키로 실행하세요. 광고·구독 없음." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://hwemo-chung.github.io/hot-launcher.html" />
+  <link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/hot-launcher.html" />
+  <link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/hot-launcher.html?lang=en" />
+  <link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/hot-launcher.html?lang=ja" />
+  <link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/hot-launcher.html" />
   <meta name="theme-color" content="#ffffff" />
   <meta property="og:type" content="product" />
   <meta property="og:site_name" content="Lumos" />
   <meta property="og:url" content="https://hwemo-chung.github.io/hot-launcher.html" />
-  <meta property="og:title" content="HotLauncher — macOS 26에서 사라진 런치패드 대신 단축키 앱 런처" />
-  <meta property="og:description" content="런치패드가 사라진 macOS 26. 전역 단축키 한 번으로 지정한 앱을 엽니다. 무료, 광고·구독 없음, 소스 공개." />
+  <meta property="og:title" content="HotLauncher — macOS 26, 런치패드 대신 단축키 20개" />
+  <meta property="og:description" content="런치패드 대신 전역 단축키. 슬롯 20개. 메뉴바 상주. 광고·구독 없음." />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="ja_JP" />
   <meta property="og:image" content="https://hwemo-chung.github.io/assets/hot-launcher-og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:alt" content="HotLauncher — macOS 26에서 사라진 런치패드 대신 전역 단축키로 앱을 여는 무료 메뉴바 런처. Free hotkey app launcher for macOS 26 after Launchpad was removed." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HotLauncher — macOS 26에서 사라진 런치패드 대신 단축키 앱 런처" />
-  <meta name="twitter:description" content="런치패드가 사라진 macOS 26. 전역 단축키 한 번으로 지정한 앱을 엽니다. 무료, 광고·구독 없음, 소스 공개." />
+  <meta name="twitter:title" content="HotLauncher — macOS 26, 런치패드 대신 단축키 20개" />
+  <meta name="twitter:description" content="런치패드 대신 전역 단축키. 슬롯 20개. 메뉴바 상주. 광고·구독 없음." />
   <meta name="twitter:image" content="https://hwemo-chung.github.io/assets/hot-launcher-og.png" />
   <meta name="twitter:image:alt" content="HotLauncher — macOS 26에서 사라진 런치패드 대신 전역 단축키로 앱을 여는 무료 메뉴바 런처. Free hotkey app launcher for macOS 26 after Launchpad was removed." />
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('language')) return;
+        var p = new URLSearchParams(location.search);
+        if (p.get('lang')) return;
+        var n = (navigator.language || '').slice(0, 2).toLowerCase();
+        if (n !== 'en' && n !== 'ja') return;
+        p.set('lang', n);
+        history.replaceState(null, '', location.pathname + '?' + p.toString() + location.hash);
+      } catch (e) {}
+    })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,14 +56,14 @@
         "url": "https://hwemo-chung.github.io/hot-launcher.html",
         "downloadUrl": "https://github.com/Hwemo-Chung/HotLauncher",
         "image": "https://hwemo-chung.github.io/assets/hot-launcher-og.png",
-        "description": "macOS 26에서 사라진 런치패드 대신, 전역 단축키로 지정한 앱을 바로 여는 무료 macOS 메뉴바 런처. 광고·구독 없음, 소스에서 직접 빌드.",
-        "inLanguage": ["ko", "en"],
+        "description": "macOS 26에서 런치패드가 사라졌습니다. Spotlight 앱 런처를 기다리지 말고, 자주 쓰는 앱 최대 20개를 전역 단축키로 실행하세요. 광고·구독 없음.",
+        "inLanguage": ["en", "ko", "ja"],
         "isAccessibleForFree": true,
         "softwareRequirements": "macOS 26 이상, Apple Silicon, Xcode Command Line Tools(소스 빌드)",
         "featureList": [
-          "전역 단축키로 지정한 앱 실행",
+          "전역 단축키 → 지정한 앱만 실행, 검색·인덱싱 없음",
           "슬롯 20개 · 한 화면 10개(2열×5줄) · 페이지 2장",
-          "메뉴바 상주, 독 아이콘 없음(LSUIElement)",
+          "메뉴바 상주, 독 아이콘 없음",
           "로그인 시 자동 실행",
           "설정은 기기 안 JSON, 네트워크는 기부 클릭뿐"
         ],
@@ -58,18 +76,18 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "macOS 26에서 런치패드가 왜 사라졌나요?",
+            "name": "런치패드는 어디로 갔나요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Apple이 macOS 26(Tahoe)부터 런치패드(Launchpad)를 제거하고 Spotlight와 통합된 새 '앱' 보기로 대체했습니다. 설정에서 끄고 켤 수 있는 변경이 아닙니다."
+              "text": "macOS 26 Tahoe에서 제거됐습니다. 대체는 Spotlight의 Apps입니다. HotLauncher는 그리드를 되살리지 않습니다. 자주 여는 앱에 단축키를 붙입니다."
             }
           },
           {
             "@type": "Question",
-            "name": "사라진 런치패드를 되돌릴 수 있나요?",
+            "name": "Alfred나 Raycast를 쓰는데요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "시스템 설정에는 이전 런치패드로 되돌리는 공식 옵션이 없고, 베타 시기에 알려졌던 터미널 우회도 정식 버전에서는 막혔습니다. HotLauncher는 런치패드를 복원하는 앱이 아니라, 전역 단축키로 지정한 앱을 바로 여는 대안입니다."
+              "text": "그러면 이 앱이 필요 없을 수 있습니다. 런처 창 없이, 앱 20개만 키에 붙이고 싶을 때 쓰세요."
             }
           },
           {
@@ -77,7 +95,7 @@
             "name": "왜 다운로드 파일이 없나요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Apple 공증 전의 바이너리를 사이트에 올리지 않습니다. GitHub 소스에서 빌드하면 본인 머신에서 서명한 앱이 생깁니다."
+              "text": "Apple 공증 전의 바이너리를 사이트에 올리지 않습니다. GitHub 소스에서 빌드하면 본인 맥에서 서명한 앱이 생깁니다."
             }
           },
           {
@@ -102,7 +120,7 @@
         "@type": "HowTo",
         "@id": "https://hwemo-chung.github.io/hot-launcher.html#install",
         "name": "HotLauncher 소스 빌드 설치",
-        "description": "macOS 26에서 소스를 내려받아 빌드하고 /Applications에 설치합니다.",
+        "description": "macOS 26에서 소스를 내려받아 빌드하고 Applications 폴더에 설치합니다.",
         "tool": [
           { "@type": "HowToTool", "name": "macOS 26" },
           { "@type": "HowToTool", "name": "Swift 6.3" },
@@ -112,7 +130,7 @@
           { "@type": "HowToStep", "name": "소스 내려받기", "text": "git clone https://github.com/Hwemo-Chung/HotLauncher.git" },
           { "@type": "HowToStep", "name": "디렉터리 이동", "text": "cd HotLauncher/HotLauncher" },
           { "@type": "HowToStep", "name": "앱 번들 빌드", "text": "bash scripts/bundle.sh" },
-          { "@type": "HowToStep", "name": "설치", "text": "bash scripts/install.sh 를 실행하면 /Applications/HotLauncher.app 에 설치됩니다." }
+          { "@type": "HowToStep", "name": "설치", "text": "bash scripts/install.sh 를 실행하면 Applications 폴더에 HotLauncher로 설치됩니다." }
         ]
       }
     ]
@@ -121,36 +139,6 @@
   <link rel="stylesheet" href="sales/tokens.css" />
   <link rel="stylesheet" href="sales/components.css" />
   <link rel="stylesheet" href="sales/site-unified.css" />
-  <script>
-    // ?lang=en 또는 영어 브라우저(저장된 언어 없음)일 때 제목·메타를 영어로 전환합니다.
-    (function () {
-      var lang = new URLSearchParams(location.search).get("lang");
-      var stored = null;
-      try { stored = localStorage.getItem("language"); } catch (e) {}
-      if (!lang && !stored && /^en/i.test(navigator.language || "")) lang = "en";
-      if (lang && lang !== "en") {
-        try { localStorage.setItem("language", lang); } catch (e) {}
-        return;
-      }
-      if (lang !== "en") return;
-      try { localStorage.setItem("language", "en"); } catch (e) {}
-      document.documentElement.lang = "en";
-      var enTitle = "HotLauncher — skip the slow macOS 26 app launcher, bind up to 20 hotkeys";
-      var enDescription = "macOS 26 replaced Launchpad with a slower app launcher. HotLauncher is a free menubar app: up to 20 global hotkeys, no ads, no subscription, source-build for now.";
-      document.title = enTitle;
-      var swaps = [
-        ['meta[name="description"]', enDescription],
-        ['meta[property="og:title"]', enTitle],
-        ['meta[property="og:description"]', enDescription],
-        ['meta[name="twitter:title"]', enTitle],
-        ['meta[name="twitter:description"]', enDescription]
-      ];
-      for (var i = 0; i < swaps.length; i++) {
-        var el = document.querySelector(swaps[i][0]);
-        if (el) el.setAttribute("content", swaps[i][1]);
-      }
-    })();
-  </script>
 </head>
 <body class="ls">
   <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
@@ -170,11 +158,9 @@
 
   <main id="main" class="ls-wrap">
     <div class="ls-badge ls-badge--ok"><span class="ls-badge__dot" aria-hidden="true"></span> Free · macOS 26+ · Apple Silicon</div>
-    <h1 style="word-break:keep-all">런치패드가 사라진 macOS 26, 단축키 한 번이면 그 앱이 뜹니다.</h1>
+    <h1 style="word-break:keep-all">런치패드는 없어졌습니다. 단축키 20개면 됩니다.</h1>
     <p class="ls-lead">
-      HotLauncher는 메뉴바에 상주하는 macOS 네이티브 앱 런처입니다.
-      macOS 26에서 없어진 런치패드(Launchpad)를 흉내 내는 대신,
-      전역 단축키를 누르면 지정해 둔 앱이 바로 실행됩니다. 광고 없고, 구독 없고, 인덱싱도 없습니다.
+      macOS 26(Tahoe)는 Launchpad를 Spotlight 안의 Apps 런처로 바꿨습니다. 아이콘을 배치할 수 없고, 앱을 켜는 데 검색을 기다리는 경우가 많습니다. HotLauncher는 그 화면을 건너뜁니다. 자주 쓰는 앱을 최대 20개, 전역 단축키 하나에 붙입니다.
     </p>
 
     <div class="ls-cta">
@@ -182,49 +168,15 @@
       <a class="ls-btn ls-btn--ghost" href="https://paypal.me/HWEMOCHUNG/1.99USD">개발자에게 커피 한 잔 · $1.99</a>
     </div>
     <p class="ls-fine">
-      Apple 공증 전입니다. 미리 빌드한 <code>.app</code>을 사이트에 올리지 않습니다.
-      소스에서 빌드하세요. Gatekeeper가 막을 수 있습니다.
+      Apple 공증 전입니다. 미리 빌드한 앱을 사이트에 올리지 않습니다. 소스에서 빌드하세요. 다른 Mac에서는 Gatekeeper가 막을 수 있습니다.
     </p>
 
-    <section lang="en" id="english">
-      <h2>In English</h2>
-      <p>
-        Apple removed Launchpad in macOS 26 (Tahoe). Its replacement — a Spotlight-based Apps
-        view — is slower when you just want to open one specific app. HotLauncher is an
-        alternative, not a restored Launchpad grid: a free native menubar app that lets you
-        bind up to 20 apps to simple global hotkeys, so one keystroke opens the app you chose.
-      </p>
-      <ul>
-        <li>Up to 20 slots (two pages of 10), each app bound to a global hotkey</li>
-        <li>Free — no ads, no subscription; the only network access is the donation link</li>
-        <li>Not notarized yet: no prebuilt download, you build from source (commands below)</li>
-        <li>Requires macOS 26+ on Apple Silicon</li>
-      </ul>
-      <p>
-        Source is on <a href="https://github.com/Hwemo-Chung/HotLauncher">GitHub</a> — the
-        install commands below work as-is. Tip jar:
-        <a href="https://paypal.me/HWEMOCHUNG/1.99USD">$1.99 via PayPal</a>. Questions:
-        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>.
-      </p>
-    </section>
-
     <ul class="ls-trust">
-      <li>전역 단축키 → 지정한 <code>.app</code>만 실행</li>
+      <li>전역 단축키 → 지정한 앱만 실행. 검색·인덱싱 없음</li>
       <li>슬롯 20개 · 한 화면 10개(2열×5줄) · 페이지 2장</li>
       <li>로그인 시 자동 실행 (시스템 로그인 항목)</li>
       <li>설정은 기기 안 JSON. 네트워크는 기부 클릭뿐</li>
     </ul>
-
-    <h2 id="launchpad">런치패드가 사라졌습니다</h2>
-    <p>
-      Apple은 macOS 26(Tahoe)에서 런치패드(Launchpad)를 제거하고,
-      Spotlight와 통합된 새 &lsquo;앱&rsquo; 보기로 바꿨습니다.
-      시스템 설정에는 이전 런치패드로 되돌리는 공식 옵션이 없습니다.
-    </p>
-    <p>
-      HotLauncher는 그 격자 화면을 복원하는 앱이 아니고, Spotlight를 대체하지도 않습니다.
-      자주 쓰는 앱을 전역 단축키에 연결해 두고 키 한 번으로 바로 여는, 다른 방식의 대안입니다.
-    </p>
 
     <h2 id="install">설치</h2>
     <div class="ls-grid ls-grid--2">
@@ -237,16 +189,16 @@ bash scripts/bundle.sh
 bash scripts/install.sh</code></pre>
         <ul>
           <li>macOS 26 · Swift 6.3 · Xcode CLT</li>
-          <li><code>/Applications/HotLauncher.app</code> 에 설치</li>
+          <li>Applications 폴더에 HotLauncher로 설치됩니다</li>
         </ul>
       </article>
       <article class="ls-card">
         <div class="ls-price" style="color:var(--ls-muted)">알아두실 점</div>
         <strong class="ls-card__title">공증 전</strong>
         <ul>
-          <li>현재 <strong>adhoc 서명</strong> — <code>spctl --assess</code> 는 rejected</li>
-          <li>다른 Mac에 복사하면 Gatekeeper가 막을 수 있음</li>
-          <li>본인 머신에서 소스 빌드하는 경로가 안전합니다</li>
+          <li>현재 adhoc 서명입니다. 시스템 평가(spctl)는 rejected입니다</li>
+          <li>다른 Mac에 복사하면 Gatekeeper가 막을 수 있습니다</li>
+          <li>본인 맥에서 소스 빌드하는 경로가 안전합니다</li>
         </ul>
       </article>
     </div>
@@ -255,42 +207,36 @@ bash scripts/install.sh</code></pre>
     <div class="ls-grid ls-grid--3">
       <article class="ls-card">
         <h3>전역 단축키</h3>
-        <p>Carbon 핫키. 다른 앱이 앞에 있어도 지정한 조합으로 앱을 켭니다.</p>
+        <p>다른 앱이 앞에 있어도 지정한 키로 앱을 켭니다.</p>
       </article>
       <article class="ls-card">
         <h3>메뉴바만</h3>
-        <p>독 아이콘 없음(LSUIElement). Settings에서 앱과 키를 고릅니다.</p>
+        <p>독 아이콘 없음. Settings에서 앱과 키를 고릅니다.</p>
       </article>
       <article class="ls-card">
         <h3>로그인 실행</h3>
-        <p>시스템 로그인 항목 API. 켜면 부팅 후 메뉴바에 올라옵니다.</p>
+        <p>켜면 부팅 후 메뉴바에 올라옵니다.</p>
       </article>
     </div>
 
     <h2 id="faq">자주 묻는 질문</h2>
     <div class="ls-faq">
       <details>
-        <summary>macOS 26에서 런치패드가 왜 사라졌나요?</summary>
+        <summary>런치패드는 어디로 갔나요?</summary>
         <p>
-          Apple이 macOS 26(Tahoe)부터 런치패드(Launchpad)를 제거하고
-          Spotlight와 통합된 새 &lsquo;앱&rsquo; 보기로 대체했습니다.
-          설정에서 끄고 켤 수 있는 변경이 아닙니다.
+          macOS 26 Tahoe에서 제거됐습니다. 대체는 Spotlight의 Apps입니다. HotLauncher는 그리드를 되살리지 않습니다. 자주 여는 앱에 단축키를 붙입니다.
         </p>
       </details>
       <details>
-        <summary>사라진 런치패드를 되돌릴 수 있나요?</summary>
+        <summary>Alfred나 Raycast를 쓰는데요?</summary>
         <p>
-          시스템 설정에는 이전 런치패드로 되돌리는 공식 옵션이 없고,
-          베타 시기에 알려졌던 터미널 우회도 정식 버전에서는 막혔습니다.
-          HotLauncher는 런치패드를 복원하는 앱이 아니라,
-          전역 단축키로 지정한 앱을 바로 여는 대안입니다.
+          그러면 이 앱이 필요 없을 수 있습니다. 런처 창 없이, 앱 20개만 키에 붙이고 싶을 때 쓰세요.
         </p>
       </details>
       <details>
         <summary>왜 다운로드 파일이 없나요?</summary>
         <p>
-          Apple 공증 전의 바이너리를 사이트에 올리지 않습니다.
-          GitHub 소스에서 빌드하면 본인 머신에서 서명한 앱이 생깁니다.
+          Apple 공증 전의 바이너리를 사이트에 올리지 않습니다. GitHub 소스에서 빌드하면 본인 맥에서 서명한 앱이 생깁니다.
         </p>
       </details>
       <details>
@@ -305,8 +251,10 @@ bash scripts/install.sh</code></pre>
 
     <h2 id="contact">문의</h2>
     <p>
-      설치·버그: <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
-      · 소스: <a href="https://github.com/Hwemo-Chung/HotLauncher">Hwemo-Chung/HotLauncher</a>
+      설치와 버그 제보는 메일로, 소스는 GitHub에 있습니다.
+      <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      ·
+      <a href="https://github.com/Hwemo-Chung/HotLauncher">Hwemo-Chung/HotLauncher</a>
     </p>
 
     <footer class="ls-foot">
