@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HotLauncher — macOS 단축키 앱 런처</title>
+  <meta name="description" content="메뉴바에서 전역 단축키로 원하는 앱을 실행하는 macOS 네이티브 앱. 광고·구독 없음. 소스는 공개, 기부는 선택." />
+  <link rel="canonical" href="https://hwemo-chung.github.io/hot-launcher.html" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://hwemo-chung.github.io/hot-launcher.html" />
+  <meta property="og:title" content="HotLauncher — macOS 단축키 앱 런처" />
+  <meta property="og:description" content="전역 단축키로 앱을 실행. 메뉴바 상주, 로그인 시 자동 실행. 광고·구독 없음." />
+  <meta property="og:locale" content="ko_KR" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HotLauncher",
+    "operatingSystem": "macOS 26+",
+    "applicationCategory": "UtilitiesApplication",
+    "url": "https://hwemo-chung.github.io/hot-launcher.html",
+    "downloadUrl": "https://github.com/Hwemo-Chung/HotLauncher",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <link rel="stylesheet" href="sales/tokens.css" />
+  <link rel="stylesheet" href="sales/components.css" />
+  <link rel="stylesheet" href="sales/site-unified.css" />
+</head>
+<body class="ls">
+  <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="/">Lumos</a>
+      <ul>
+        <li><a href="/" data-i18n="nav.home">홈</a></li>
+        <li><a href="/sales/" data-i18n="nav.sales">서비스</a></li>
+        <li><a href="/offers/" data-i18n="nav.offers">상품</a></li>
+        <li><a href="/cordova.html" data-i18n="nav.diagnosis">진단</a></li>
+        <li><a href="/retainer.html" data-i18n="nav.retainer">유지보수</a></li>
+        <li><a href="/threads-analyzer.html" data-i18n="nav.threads">스레드</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="ls-wrap">
+    <div class="ls-badge ls-badge--ok"><span class="ls-badge__dot" aria-hidden="true"></span> Free · macOS 26+ · Apple Silicon</div>
+    <h1 style="word-break:keep-all">단축키 한 번이면, 그 앱이 뜹니다.</h1>
+    <p class="ls-lead">
+      HotLauncher는 메뉴바에 상주하는 macOS 네이티브 앱입니다.
+      전역 단축키를 누르면 설정해 둔 앱이 실행됩니다. 광고 없고, 구독 없고, 인덱싱도 없습니다.
+    </p>
+
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="https://github.com/Hwemo-Chung/HotLauncher">GitHub에서 소스 보기</a>
+      <a class="ls-btn ls-btn--ghost" href="https://paypal.me/HWEMOCHUNG/1.99USD">개발자에게 커피 한 잔 · $1.99</a>
+    </div>
+    <p class="ls-fine">
+      Apple 공증 전입니다. 미리 빌드한 <code>.app</code>을 사이트에 올리지 않습니다.
+      소스에서 빌드하세요. Gatekeeper가 막을 수 있습니다.
+    </p>
+
+    <ul class="ls-trust">
+      <li>전역 단축키 → 지정한 <code>.app</code>만 실행</li>
+      <li>슬롯 20개 · 한 화면 10개(2열×5줄) · 페이지 2장</li>
+      <li>로그인 시 자동 실행 (시스템 로그인 항목)</li>
+      <li>설정은 기기 안 JSON. 네트워크는 기부 클릭뿐</li>
+    </ul>
+
+    <h2 id="install">설치</h2>
+    <div class="ls-grid ls-grid--2">
+      <article class="ls-card ls-card--featured">
+        <span class="ls-card__tag">권장</span>
+        <strong class="ls-card__title">소스에서 빌드</strong>
+        <pre style="white-space:pre-wrap;font-size:13px;line-height:1.5"><code>git clone https://github.com/Hwemo-Chung/HotLauncher.git
+cd HotLauncher/HotLauncher
+bash scripts/bundle.sh
+bash scripts/install.sh</code></pre>
+        <ul>
+          <li>macOS 26 · Swift 6.3 · Xcode CLT</li>
+          <li><code>/Applications/HotLauncher.app</code> 에 설치</li>
+        </ul>
+      </article>
+      <article class="ls-card">
+        <div class="ls-price" style="color:var(--ls-muted)">알아두실 점</div>
+        <strong class="ls-card__title">공증 전</strong>
+        <ul>
+          <li>현재 <strong>adhoc 서명</strong> — <code>spctl --assess</code> 는 rejected</li>
+          <li>다른 Mac에 복사하면 Gatekeeper가 막을 수 있음</li>
+          <li>본인 머신에서 소스 빌드하는 경로가 안전합니다</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2>주요 기능</h2>
+    <div class="ls-grid ls-grid--3">
+      <article class="ls-card">
+        <h3>전역 단축키</h3>
+        <p>Carbon 핫키. 다른 앱이 앞에 있어도 지정한 조합으로 앱을 켭니다.</p>
+      </article>
+      <article class="ls-card">
+        <h3>메뉴바만</h3>
+        <p>독 아이콘 없음(LSUIElement). Settings에서 앱과 키를 고릅니다.</p>
+      </article>
+      <article class="ls-card">
+        <h3>로그인 실행</h3>
+        <p>시스템 로그인 항목 API. 켜면 부팅 후 메뉴바에 올라옵니다.</p>
+      </article>
+    </div>
+
+    <h2 id="faq">자주 묻는 질문</h2>
+    <div class="ls-faq">
+      <details>
+        <summary>왜 다운로드 파일이 없나요?</summary>
+        <p>
+          Apple 공증 전의 바이너리를 사이트에 올리지 않습니다.
+          GitHub 소스에서 빌드하면 본인 머신에서 서명한 앱이 생깁니다.
+        </p>
+      </details>
+      <details>
+        <summary>어떤 Mac에서 되나요?</summary>
+        <p>macOS 26 이상, Apple Silicon. 테스트는 macOS 26.6.2에서 했습니다.</p>
+      </details>
+      <details>
+        <summary>유료인가요?</summary>
+        <p>앱은 무료입니다. 원하면 PayPal로 $1.99 기부가 가능합니다. 기능과 무관합니다.</p>
+      </details>
+    </div>
+
+    <h2 id="contact">문의</h2>
+    <p>
+      설치·버그: <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      · 소스: <a href="https://github.com/Hwemo-Chung/HotLauncher">Hwemo-Chung/HotLauncher</a>
+    </p>
+
+    <footer class="ls-foot">
+      <nav data-i18n-aria-label="common.footerNav">
+        <a href="/" data-i18n="nav.home">홈</a>
+        <a href="/sales/" data-i18n="nav.sales">서비스</a>
+        <a href="/offers/" data-i18n="nav.offers">상품</a>
+        <a href="/retainer.html" data-i18n="nav.retainer">유지보수</a>
+        <a href="/pp.html" data-i18n="footer.privacy">개인정보처리방침</a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+      <p data-i18n="common.disclaimer"></p>
+    </footer>
+  </main>
+
+  <script src="/i18n.js"></script>
+</body>
+</html>
