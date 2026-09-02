@@ -362,6 +362,7 @@ section + section {
 h2 {
     font-size: 2rem;
     margin-bottom: 3rem;
+    scroll-margin-top: 6rem;
     text-align: center;
     color: var(--accent);
     position: relative;
@@ -506,10 +507,20 @@ h2::after {
 .project-link {
     display: inline-block;
     margin-top: 1rem;
+    margin-right: 1.25rem;
     color: var(--accent);
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.3s;
+}
+
+.project-link:last-child {
+    margin-right: 0;
+}
+
+/* 상태 라벨([판매 중] 등)은 앞 문장과 붙지 않게 자체 여백을 갖는다 — i18n 치환이 원문 공백을 지우기 때문 */
+.project-card p strong {
+    margin-left: 0.35em;
 }
 
 .project-link:hover {
