@@ -40,8 +40,11 @@ const siteTranslations = {
             home: "홈으로 돌아가기"
         },
         hero: {
-            tagline: "어둠의 한 줄기 빛이 되는 소프트웨어를 개발합니다",
-            cta: "프로젝트 보기"
+            tagline: "iOS 26 SDK 의무화 · Play 타겟 API · Dynamic Links 종료. 방치된 하이브리드 앱의 3중 봉쇄를 풉니다.",
+            sub: "Cordova · Ionic · Capacitor · Android WebView 프로덕션 전문. 진단 리포트는 영업일 2일 안에 회신하고, 10곳 한정 무료입니다.",
+            ctaPrimary: "무료 진단 신청 →",
+            ctaSecondary: "제품 보기",
+            fine: "독립 계약입니다. 신규 앱 개발과 전면 리라이트는 하지 않습니다."
         },
         about: {
             title: "About Me",
@@ -49,12 +52,18 @@ const siteTranslations = {
             skills: "기술 스택"
         },
         projects: {
-            title: "Projects",
+            products: "제품",
+            services: "서비스",
+            tools: "무료 도구",
+            archive: "아카이브",
+            archiveNote: "판매·운영하지 않는 과거 작업입니다. 소스만 공개해 둡니다.",
             viewGithub: "GitHub에서 보기 →"
         },
         contact: {
             title: "Contact",
-            description: "함께 빛을 만들어갈 기회를 찾고 있습니다"
+            description: "앱이 스토어에 못 올라가는 상태라면, 진단부터 시작하는 편이 빠릅니다",
+            ctaPrimary: "무료 진단 신청 →",
+            ctaSecondary: "서비스와 가격 보기"
         }
     },
     en: {
@@ -98,8 +107,11 @@ const siteTranslations = {
             home: "Return home"
         },
         hero: {
-            tagline: "Building software that brings light to darkness",
-            cta: "View Projects"
+            tagline: "iOS 26 SDK required · Play target API · Dynamic Links shut down. Unblocking neglected hybrid apps on all three fronts.",
+            sub: "Cordova · Ionic · Capacitor · Android WebView production work. Diagnosis reports come back within 2 business days, free for the first 10 apps.",
+            ctaPrimary: "Request a free diagnosis →",
+            ctaSecondary: "See the products",
+            fine: "Independent contractor. No greenfield apps, no full rewrites."
         },
         about: {
             title: "About Me",
@@ -107,12 +119,18 @@ const siteTranslations = {
             skills: "Tech Stack"
         },
         projects: {
-            title: "Projects",
+            products: "Products",
+            services: "Services",
+            tools: "Free tools",
+            archive: "Archive",
+            archiveNote: "Past work that is neither sold nor maintained. Source is left public.",
             viewGithub: "View on GitHub →"
         },
         contact: {
             title: "Contact",
-            description: "Looking for opportunities to create light together"
+            description: "If your app can no longer reach the store, start with the diagnosis",
+            ctaPrimary: "Request a free diagnosis →",
+            ctaSecondary: "See services and pricing"
         }
     },
     ja: {
@@ -156,8 +174,11 @@ const siteTranslations = {
             home: "ホームに戻る"
         },
         hero: {
-            tagline: "闇に一筋の光をもたらすソフトウェアを開発します",
-            cta: "プロジェクトを見る"
+            tagline: "iOS 26 SDK 必須・Play ターゲットAPI・Dynamic Links 終了。放置されたハイブリッドアプリの3重封鎖を解きます。",
+            sub: "Cordova・Ionic・Capacitor・Android WebView のプロダクション専門。診断レポートは営業日2日以内に返信、10件限定で無料です。",
+            ctaPrimary: "無料診断を申し込む →",
+            ctaSecondary: "製品を見る",
+            fine: "独立請負です。新規アプリ開発と全面リライトは行いません。"
         },
         about: {
             title: "About Me",
@@ -165,12 +186,18 @@ const siteTranslations = {
             skills: "技術スタック"
         },
         projects: {
-            title: "Projects",
+            products: "製品",
+            services: "サービス",
+            tools: "無料ツール",
+            archive: "アーカイブ",
+            archiveNote: "販売・運用していない過去の作業です。ソースのみ公開しています。",
             viewGithub: "GitHubで見る →"
         },
         contact: {
             title: "Contact",
-            description: "一緒に光を作り出す機会を探しています"
+            description: "アプリがストアに上げられない状態なら、診断から始めるのが早道です",
+            ctaPrimary: "無料診断を申し込む →",
+            ctaSecondary: "サービスと価格を見る"
         }
     }
 };
