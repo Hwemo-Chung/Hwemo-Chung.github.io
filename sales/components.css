@@ -710,3 +710,26 @@ body.ls > .ls-foot {
   display: block;
   padding: 6px;
 }
+
+/* 제품 스크린샷 프레임 — 캡션 포함 */
+.ls-shot {
+  max-width: 560px;
+  margin: 18px auto 24px;
+  border: 1px solid var(--ls-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ls-bg-elevated);
+}
+.ls-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ls-shot figcaption {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ls-muted);
+  border-top: 1px solid var(--ls-border);
+  background: var(--ls-card);
+}
