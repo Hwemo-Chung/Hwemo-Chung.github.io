@@ -1,18 +1,30 @@
 # Lumos
 
-Lumos is the portfolio and service catalog of full-stack developer Hwemo Chung. The site offers legacy hybrid-app diagnosis, production support, web automation, and small software tools. Shared navigation supports Korean, English, and Japanese.
+Lumos is the site of full-stack developer Hwemo Chung. Two lines of work: (1) diagnosing and maintaining neglected hybrid mobile apps — Cordova, Ionic, Capacitor, Android WebView — that can no longer ship to the App Store or Google Play, and (2) small native macOS and web utilities. Shared navigation supports Korean, English, and Japanese.
 
-## Main pages
+## Services
+
+- Legacy hybrid-app triple-blockade diagnosis (iOS 26 SDK requirement, Play target API, Firebase Dynamic Links shutdown). Free for the first 10 apps: https://hwemo-chung.github.io/cordova.html
+- Mobile production retainer — Ionic / Capacitor / Android WebView. Pilot $400 one week, Stabilizer $1,200/month: https://hwemo-chung.github.io/retainer.html
+- Services and pricing overview: https://hwemo-chung.github.io/sales/
+- Offer catalog: https://hwemo-chung.github.io/offers/
+
+## Products
+
+- HotLauncher — macOS 26 (Tahoe) removed Launchpad; bind up to 20 apps to one global hotkey. Free, open source: https://hwemo-chung.github.io/hot-launcher.html (English: ?lang=en)
+- LumosZipForMac — AES-256 password-protected ZIP for macOS, universal native app: https://hwemo-chung.github.io/lumoszip.html
+- Pebblez — quiet social PWA, no ads or recommendation algorithm: https://pebblez.teagarden-earlgrey.workers.dev
+- Burnline — local-first AI cost control (in development): https://hwemo-chung.github.io/burnline.html
+
+## Free tools
+
+- Threads analyzer (browser-only, no upload): https://hwemo-chung.github.io/threads-analyzer.html
+- Color picker: https://hwemo-chung.github.io/color-picker.html
+- Micro SaaS experiments: https://hwemo-chung.github.io/micro-saas-mvps/
+
+## Other
 
 - Home: https://hwemo-chung.github.io/
-- HotLauncher (macOS 26 hotkey launcher, English): https://hwemo-chung.github.io/hot-launcher.html?lang=en
-- LumosZipForMac: https://hwemo-chung.github.io/lumoszip.html
-- Services and pricing: https://hwemo-chung.github.io/sales/
-- Offer catalog: https://hwemo-chung.github.io/offers/
-- Legacy Cordova/Ionic diagnosis: https://hwemo-chung.github.io/cordova.html
-- Production retainer: https://hwemo-chung.github.io/retainer.html
-- Threads analyzer: https://hwemo-chung.github.io/threads-analyzer.html
-- Micro SaaS tools: https://hwemo-chung.github.io/micro-saas-mvps/
 - Privacy: https://hwemo-chung.github.io/pp.html
 
 ## Contact
