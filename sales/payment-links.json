@@ -4,7 +4,7 @@
   "diag_paid_krw": "",
   "threads_report_krw": "",
   "lumoszip_usd": "https://teagarden5.gumroad.com/l/qhyxm",
-  "paypal_me_base": "",
+  "paypal_me_base": "https://paypal.me/HWEMOCHUNG",
   "note": "Public payment URLs only. Leave empty to use invoice-by-email. See PAYMENT_SETUP.md",
-  "todo": "Stripe 통합 검증 완료(2026-08-17, 테스트 모드). 라이브 활성화(한국 사업자등록) 후 LIVE Payment Link 를 pilot_usd/stabilizer_usd 에 붙이면 버튼 자동 노출. 그 전까지 공란 유지 = mailto 인보이스 흐름."
+  "todo": "PayPal.me(HWEMOCHUNG) 로 Pilot $400 만 활성. Stabilizer/원화 오퍼는 메일 인보이스 유지. Stripe 라이브 활성화 시 pilot_usd/stabilizer_usd 에 Payment Link 를 붙이면 PayPal 대신 우선 노출됨."
 }

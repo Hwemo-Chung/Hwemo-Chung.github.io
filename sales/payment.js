@@ -31,8 +31,9 @@
       inject("pay-diag", d.diag_paid_krw, "유료 진단 결제");
       inject("pay-threads", d.threads_report_krw, "리포트 결제");
       inject("pay-lumoszip", d.lumoszip_usd, "베타 구매 · 다운로드");
+      // 통화 접미사 필수: 수취 계정 기본 통화가 JPY 라 "/400" 은 400엔으로 해석된다.
       if (d.paypal_me_base) {
-        inject("pay-pilot", d.paypal_me_base.replace(/\/?$/, "") + "/400", "PayPal $400");
+        inject("pay-pilot", d.paypal_me_base.replace(/\/?$/, "") + "/400USD", "Pay Pilot $400 via PayPal");
       }
     })
     .catch(function () {
