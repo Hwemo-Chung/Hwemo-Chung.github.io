@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>일본 불꽃놀이 지도</title>
+    <meta
+      name="description"
+      content="2026년 9월 4일 이후 일본 花火大会 비공식 지도. 거리와 통제를 함께 봅니다."
+    />
+    <script>
+      (function () {
+        try {
+          var saved = sessionStorage.getItem("lumos-fireworks-path");
+          if (saved && saved.indexOf("/lumos-fireworks") === 0) {
+            sessionStorage.removeItem("lumos-fireworks-path");
+            history.replaceState(null, "", saved);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/lumos-fireworks/assets/index-D0_ekfx5.js"></script>
+    <link rel="stylesheet" crossorigin href="/lumos-fireworks/assets/index-3HjPdJcn.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
