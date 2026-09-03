@@ -9,6 +9,15 @@
         // GitHub Pages는 경로 대소문자를 구분하므로, 옛 HotLauncher 슬러그 변형을 제품 페이지로 보냅니다.
         (function () {
             if (/^\/hot-?launcher\/?$/i.test(location.pathname)) location.replace("/hot-launcher.html");
+            if (location.pathname === "/lumos-fireworks" || location.pathname.indexOf("/lumos-fireworks/") === 0) {
+                try {
+                    sessionStorage.setItem(
+                        "lumos-fireworks-path",
+                        location.pathname + location.search + location.hash
+                    );
+                } catch (e) {}
+                location.replace("/lumos-fireworks/");
+            }
         })();
     </script>
     <link rel="stylesheet" href="/sales/tokens.css">
