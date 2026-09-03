@@ -31,7 +31,7 @@ Lumos is the site of full-stack developer Hwemo Chung. Two lines of work: (1) di
 
 ## Policies (as published)
 
-- Payment: invoice by email, prepaid. The offer catalog is priced in KRW; the retainer is billed in USD or as agreed. The only public self-serve payment link is LumosZipForMac on Gumroad.
+- Payment: the retainer Pilot ($400 USD) can be paid instantly via PayPal.me. Everything else is invoiced by email and prepaid. The 42 KRW-priced offers have no self-serve checkout — email tolaria@naver.com for a quote and invoice. LumosZipForMac is sold through Gumroad.
 - Retainer: work starts after payment. No mid-week refund once hours are used.
 - Free diagnosis: limited to the first 10 apps, status report only — no code changes.
 - Scope: audit/report products deliver documents (PDF/Markdown); code changes are quoted separately. Signing and store submission are recommended to stay with the client.
