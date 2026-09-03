@@ -40,10 +40,12 @@ body.ls {
   min-width: 0;
 }
 
-body.ls a {
+/* 본문 링크 기본색. :where()로 명시도를 0으로 낮춰 .ls-nav/.ls-foot/.ls-btn 등
+   컴포넌트가 지정한 색이 항상 이기게 한다 */
+:where(body.ls) a {
   color: var(--ls-link);
 }
-body.ls a:hover {
+:where(body.ls) a:hover {
   color: var(--ls-link-hover);
 }
 body.ls :focus-visible {
@@ -315,8 +317,7 @@ body.ls :focus-visible {
   gap: 10px;
   margin: 22px 0 8px;
 }
-a.ls-btn,
-button.ls-btn {
+.ls-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;

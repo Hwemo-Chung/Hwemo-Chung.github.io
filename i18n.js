@@ -236,7 +236,8 @@ function translateSitePage(lang) {
         const source = original?.trim().replace(/\s+/g, ' ');
         if (source && parent && !parent.closest('script, style, code, pre, [data-i18n], .ls-nav, .ls-foot, .language-toolbar')) {
             const translated = translations[source];
-            if (translated) node.textContent = translated;
+            // 원문의 앞뒤 공백은 인접 인라인 요소와의 간격이다 — 치환 시 되살린다
+            if (translated) node.textContent = original.match(/^\s*/)[0] + translated + original.match(/\s*$/)[0];
         }
         node = walker.nextNode();
     }
