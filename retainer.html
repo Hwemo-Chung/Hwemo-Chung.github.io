@@ -35,9 +35,16 @@
       {
         "@type": "Offer",
         "name": "Stabilizer",
-        "price": "1200",
         "priceCurrency": "USD",
-        "description": "8 hours per month async production support"
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "1200",
+          "priceCurrency": "USD",
+          "unitCode": "MON",
+          "billingDuration": 1,
+          "billingIncrement": 1
+        },
+        "description": "8 hours per month async production support, billed monthly"
       }
     ]
   }

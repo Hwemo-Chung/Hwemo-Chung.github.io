@@ -106,7 +106,9 @@
           "provider": {"@id": "https://hwemo-chung.github.io/#person"},
           "offers": [
             {"@type": "Offer", "name": "Pilot", "price": "400", "priceCurrency": "USD"},
-            {"@type": "Offer", "name": "Stabilizer", "price": "1200", "priceCurrency": "USD"}
+            {"@type": "Offer", "name": "Stabilizer", "priceCurrency": "USD",
+             "priceSpecification": {"@type": "UnitPriceSpecification", "price": "1200",
+               "priceCurrency": "USD", "unitCode": "MON", "billingDuration": 1, "billingIncrement": 1}}
           ]
         },
         {
