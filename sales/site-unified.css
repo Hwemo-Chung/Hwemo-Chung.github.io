@@ -235,7 +235,7 @@ body.ls .ls-btn--primary:visited {
 
 body.ls .back-home,
 body.ls .project-link,
-body.ls #contact a {
+body.ls #contact a:where(:not(.ls-btn)) {
   color: var(--ls-link);
 }
 

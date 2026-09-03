@@ -518,11 +518,6 @@ h2::after {
     margin-right: 0;
 }
 
-/* 상태 라벨([판매 중] 등)은 앞 문장과 붙지 않게 자체 여백을 갖는다 — i18n 치환이 원문 공백을 지우기 때문 */
-.project-card p strong {
-    margin-left: 0.35em;
-}
-
 .project-link:hover {
     opacity: 0.8;
 }
@@ -554,7 +549,7 @@ h2::after {
     margin-bottom: 1rem;
 }
 
-#contact a {
+#contact a:where(:not(.ls-btn)) {
     color: var(--accent);
     text-decoration: none;
     transition: all 0.3s;
@@ -562,7 +557,7 @@ h2::after {
     position: relative;
 }
 
-#contact a::after {
+#contact a:where(:not(.ls-btn))::after {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -573,8 +568,12 @@ h2::after {
     transition: width 0.3s;
 }
 
-#contact a:hover::after {
+#contact a:where(:not(.ls-btn)):hover::after {
     width: 100%;
+}
+
+footer.ls-foot nav {
+    justify-content: center;
 }
 
 footer {
