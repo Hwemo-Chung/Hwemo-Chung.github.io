@@ -6,6 +6,9 @@
     "tagline": "공개 APK 한 개로 targetSdk·권한·Play 마감 리스크를 2영업일 안에 문서화",
     "pitch": "Play target API 요건에 걸린 앱인지, 상위 OS 신규 사용자 노출 제한에 해당하는지 공식 조건 기준으로 정리합니다. 납품물은 PDF/Markdown 리포트입니다. 앱 수정 코드는 포함하지 않으며, 후속 상향 작업은 별도 견적입니다.",
     "price": "₩99,000 ~ ₩199,000",
+    "price_min": 99000,
+    "price_max": 199000,
+    "price_currency": "KRW",
     "delivery": "2영업일",
     "benchmark": "스토어 정책 감사·컴플라이언스 리포트형 B2B (단발 진단 상품). 진입 가격대 10만 전후가 크몽 IT 진단 상품과 동일 밴드.",
     "bullets": [
@@ -23,6 +26,9 @@
     "tagline": "인쇄·문자·웹에 박힌 링크 목록을 돌려 404/생존 표 + 복구 방향 1페이지",
     "pitch": "Firebase Dynamic Links 종료 이후 page.link 등이 죽었는지 일괄 확인합니다. 유입이 없으면 복구를 권하지 않습니다. 서버 리다이렉트 구현은 별도 범위입니다.",
     "price": "₩99,000 ~ ₩250,000",
+    "price_min": 99000,
+    "price_max": 250000,
+    "price_currency": "KRW",
     "delivery": "2~4영업일",
     "benchmark": "SEO/마케팅 링크 감사·마이그레이션 진단 상품과 유사. 단가보다 ‘죽은 링크 증거’가 구매 트리거.",
     "bullets": [
@@ -40,6 +46,9 @@
     "tagline": "저장소 기준으로 플러그인·빌드·스토어 제출 리스크 점수화",
     "pitch": "Ionic/Capacitor/Cordova 레포를 읽고 폐기 플러그인, iOS 26 SDK, Play 타겟, 실기기 리스크를 점수와 우선순위 백로그로 줍니다. 코드 패치는 포함하지 않습니다.",
     "price": "₩200,000 ~ ₩400,000",
+    "price_min": 200000,
+    "price_max": 400000,
+    "price_currency": "KRW",
     "delivery": "3~5영업일",
     "benchmark": "코드 리뷰/아키텍처 진단 단발 상품. 리테이너·이전 업셀 입구.",
     "bullets": [
@@ -57,6 +66,9 @@
     "tagline": "보유 앱 N개의 Apple/Play 마감을 표로 정리하고 연장·대응 순서 제시",
     "pitch": "여러 앱을 운영하는 팀용. 공식 문서 기준으로 마감·연장·영향 범위를 브리핑 문서로 납품합니다. 루머성 블로그 마감은 넣지 않습니다.",
     "price": "₩150,000 ~ ₩350,000 (앱 3개 기준, 추가 협의)",
+    "price_min": 150000,
+    "price_max": 350000,
+    "price_currency": "KRW",
     "delivery": "3~5영업일",
     "benchmark": "컴플라이언스 브리핑/PM 산출물. 내부 보고용으로 구매 명분 명확.",
     "bullets": [
@@ -74,6 +86,9 @@
     "tagline": "출시 전 실기기 시나리오·스토어 체크리스트 통과 여부 검토",
     "pitch": "에뮬레이터 그린이 아니라 실기기·정책·권한 기준으로 ‘이번 주 제출 가능한가’를 판정합니다. 막힌 항목은 장애 클래스 단위로 정리하고, 원하면 $400 pilot으로 이어집니다.",
     "price": "₩300,000 ~ ₩500,000 또는 Pilot $400",
+    "price_min": 300000,
+    "price_max": 500000,
+    "price_currency": "KRW",
     "delivery": "1주 이내 (일정 합의)",
     "benchmark": "릴리스 QA/게이트 리뷰. 고단가 리테이너 전환율이 높은 입구 상품.",
     "bullets": [
@@ -91,6 +106,9 @@
     "tagline": "이전 공수 밴드·리스크·단계 계약을 90분 안에 확정",
     "pitch": "전면 견적 전 단계. 플러그인 수, 네이티브 커스텀, iOS/Android 범위를 듣고 S/M/L/XL 밴드와 제외 범위를 문서로 남깁니다. 확정 구현 견적은 워크숍 후 별도.",
     "price": "₩300,000 (고정)",
+    "price_min": 300000,
+    "price_max": 300000,
+    "price_currency": "KRW",
     "delivery": "워크숍 90분 + 문서 2영업일",
     "benchmark": "Discovery/스코핑 유료화. 무선금 대형 이전을 막는 표준 패턴.",
     "bullets": [
@@ -108,6 +126,9 @@
     "tagline": "사용 중 플러그인별 Capacitor/대체재·위험도 표 납품",
     "pitch": "레거시 플러그인 목록을 받아 현행 대체 후보, 유지보수 상태, 이전 난이도를 표로 정리합니다. 코드 이전 작업은 포함하지 않습니다.",
     "price": "₩200,000 ~ ₩500,000",
+    "price_min": 200000,
+    "price_max": 500000,
+    "price_currency": "KRW",
     "delivery": "3~7영업일 (플러그인 수에 비례)",
     "benchmark": "마이그레이션 사전 조사 산출물. 대기업 외주 발주 전 ‘근거 자료’로 잘 팔림.",
     "bullets": [
@@ -125,6 +146,9 @@
     "tagline": "장애 클래스 1개 · 실기기 · 약 6시간 · $400",
     "pitch": "영문 retainer pilot과 동일 축의 한국어/영문 패키지입니다. Ionic/Capacitor/WebView 프로덕션 장애 한 종류를 재현하고 수정 경로까지 문서로 남깁니다. 입금 후 착수.",
     "price": "$400 (약 6h / 1주)",
+    "price_min": 400,
+    "price_max": 400,
+    "price_currency": "USD",
     "delivery": "결제 후 7일 이내",
     "benchmark": "글로벌 원격 ‘production firefighting’ 파일럿. $67/h 전후 mid-senior 밴드.",
     "bullets": [
@@ -143,6 +167,9 @@
     "tagline": "Meta 인사이트 → 엑셀 12시트 · 중앙값·시간대·글자수",
     "pitch": "이미 동작하는 Threads Analyzer 엔진으로 계정을 분석해 엑셀을 납품합니다. CLI는 무료 공개, 설정이 부담이면 이 대행을 쓰면 됩니다. Meta 개발자 앱/OAuth는 계정 소유자 협조가 필요합니다.",
     "price": "₩50,000 ~ ₩100,000",
+    "price_min": 50000,
+    "price_max": 100000,
+    "price_currency": "KRW",
     "delivery": "1~3일 (협조 완료 후)",
     "benchmark": "크리에이터·마케팅 계정 분석 대행. 저단가 반복 판매 가능.",
     "bullets": [
@@ -161,6 +188,9 @@
     "tagline": "Xcode 26 요건에 막힌 하이브리드 앱 — 막힌 지점과 해소 밴드만 정리",
     "pitch": "2026-04-28 이후 App Store Connect 업로드 요건(Xcode 26 / iOS 26 SDK)에 걸린 Cordova/Ionic 앱을 대상으로, 빌드 체인 어디에서 깨지는지와 해소 옵션 밴드만 문서로 납품합니다. 즉시 패치는 별도 계약입니다.",
     "price": "₩150,000 ~ ₩300,000",
+    "price_min": 150000,
+    "price_max": 300000,
+    "price_currency": "KRW",
     "delivery": "2~4영업일",
     "benchmark": "‘업데이트 자체를 못 올림’이 경영 언어로 가장 아픈 축. 무료 진단 상위 업셀.",
     "bullets": [
@@ -179,6 +209,9 @@
     "tagline": "Cloudflare Cron / GitHub Actions / 서버 crontab 중 환경에 맞게 주기 작업 1종 가동",
     "pitch": "Node/TypeScript로 배치 잡 1개를 설계·구현·스케줄 등록까지 합니다. 예: 매일 리포트 생성, API 폴링, 시트 동기화, 실패 시 메일/슬랙 알림. Angular 프론트와 무관하게 백오피스 자동화에 적합합니다.",
     "price": "₩400,000 ~ ₩1,200,000",
+    "price_min": 400000,
+    "price_max": 1200000,
+    "price_currency": "KRW",
     "delivery": "3~10영업일 (잡 복잡도)",
     "benchmark": "프리랜서 ‘배치/스케줄러 구축’ 중단가. 유지보수는 월 리테이너로 업셀.",
     "bullets": [
@@ -202,6 +235,9 @@
     "tagline": "PR마다 lint · test · build 자동 실행, 실패 시 머지 차단",
     "pitch": "Angular(또는 Nx 모노레포) 저장소에 GitHub Actions/GitLab CI를 붙입니다. 노드 버전 고정, 캐시, 아티팩트 보관까지 포함해 ‘로컬에선 되는데 CI에서 깨짐’을 줄입니다.",
     "price": "₩300,000 ~ ₩800,000",
+    "price_min": 300000,
+    "price_max": 800000,
+    "price_currency": "KRW",
     "delivery": "2~5영업일",
     "benchmark": "프론트 팀 필수 인프라. 크몽 ‘CI/CD 세팅’ 상위 전환 상품.",
     "bullets": [
@@ -225,6 +261,9 @@
     "tagline": "시트를 운영 DB처럼 쓰되, 크론으로 API와 주기 동기화",
     "pitch": "TypeScript(또는 Apps Script)로 시트 행을 REST API와 맞춥니다. 중소 운영팀이 익숙한 시트 UI를 유지하면서 야간 배치로 정합성을 맞추는 패턴입니다.",
     "price": "₩500,000 ~ ₩1,500,000",
+    "price_min": 500000,
+    "price_max": 1500000,
+    "price_currency": "KRW",
     "delivery": "1~2주",
     "benchmark": "노코드+커스텀 중간: Make.com 대체·보강 수요. 월 유지 가능.",
     "bullets": [
@@ -248,6 +287,9 @@
     "tagline": "규칙 기반 분류 + 일 1회 크론 정리 (Apps Script / TS)",
     "pitch": "수신 메일을 라벨·보관·스프레드시트 로그로 정리합니다. 완전 AI 분류가 아니라 규칙+선택적 LLM 보조로 비용을 통제합니다.",
     "price": "₩200,000 ~ ₩600,000",
+    "price_min": 200000,
+    "price_max": 600000,
+    "price_currency": "KRW",
     "delivery": "3~7영업일",
     "benchmark": "개인/SMB 생산성 자동화. 구독보다 구축비 선호 구간.",
     "bullets": [
@@ -271,6 +313,9 @@
     "tagline": "수집 → 필터 → (선택) LLM 요약 → 초안 저장을 크론으로",
     "pitch": "TypeScript 워커가 RSS/API를 돌고, 조건에 맞는 항목만 노션/시트/레포에 쌓습니다. 자동 게시까지 넣으면 플랫폼 정책 리스크가 있어 기본은 ‘초안 큐’까지입니다.",
     "price": "₩400,000 ~ ₩1,000,000",
+    "price_min": 400000,
+    "price_max": 1000000,
+    "price_currency": "KRW",
     "delivery": "1~2주",
     "benchmark": "콘텐츠 운영 자동화. 애드센스 스팸형 완전자동 게시는 범위 밖으로 명시.",
     "bullets": [
@@ -294,6 +339,9 @@
     "tagline": "분/시간 단위 핑 + 연속 실패 시 알림",
     "pitch": "단순 업타임. TypeScript fetch로 상태코드·지연을 기록하고, N회 실패 시 메일/슬랙/디스코드 웹훅. 상용 Uptime 대체 입문용.",
     "price": "₩150,000 ~ ₩400,000",
+    "price_min": 150000,
+    "price_max": 400000,
+    "price_currency": "KRW",
     "delivery": "2~4영업일",
     "benchmark": "UptimeRobot급 니즈의 사내 구축. 저단가 진입 후 관측 스택 업셀.",
     "bullets": [
@@ -317,6 +365,9 @@
     "tagline": "ko/en/ja JSON 키 누락·고아 키를 PR마다 검사",
     "pitch": "Angular 앱의 번역 파일 키를 비교해 누락·잉여를 CI에서 실패시킵니다. 선택적으로 빈 값 리포트 이슈를 엽니다.",
     "price": "₩200,000 ~ ₩500,000",
+    "price_min": 200000,
+    "price_max": 500000,
+    "price_currency": "KRW",
     "delivery": "2~5영업일",
     "benchmark": "다국어 앱 팀 반복 고통. 한 번 붙이면 회귀 방지.",
     "bullets": [
@@ -340,6 +391,9 @@
     "tagline": "매일 밤 스모크 E2E 실행 → 실패 시 리포트 링크 알림",
     "pitch": "Angular 앱에 Playwright 또는 Cypress 스모크 스위트를 스케줄 실행합니다. 전체 커버리지가 아니라 ‘결제/로그인/핵심 1~3시나리오’에 한정해 유지비를 낮춥니다.",
     "price": "₩500,000 ~ ₩1,500,000",
+    "price_min": 500000,
+    "price_max": 1500000,
+    "price_currency": "KRW",
     "delivery": "1~3주",
     "benchmark": "QA 자동화 입문 패키지. 시나리오 수에 따라 과금.",
     "bullets": [
@@ -363,6 +417,9 @@
     "tagline": "태그/머지 시 커밋 로그 → CHANGELOG 초안 PR",
     "pitch": "TypeScript 액션 또는 스크립트가 conventional commits를 모아 릴리스 노트 초안을 만듭니다. 사람이 다듬는 전제(완전 자동 배포 아님).",
     "price": "₩200,000 ~ ₩450,000",
+    "price_min": 200000,
+    "price_max": 450000,
+    "price_currency": "KRW",
     "delivery": "2~5영업일",
     "benchmark": "DX 자동화. 팀 규모 커질수록 반복 가치.",
     "bullets": [
@@ -386,6 +443,9 @@
     "tagline": "랜딩 문의를 실시간·배치로 운영 채널에 연결",
     "pitch": "Angular/정적 랜딩의 문의 폼을 TypeScript 엔드포인트(또는 서버리스)로 받아 시트·슬랙·이메일로 분기합니다. 스팸 가드(honeypot/rate limit) 포함.",
     "price": "₩250,000 ~ ₩700,000",
+    "price_min": 250000,
+    "price_max": 700000,
+    "price_currency": "KRW",
     "delivery": "3~7영업일",
     "benchmark": "마케팅 랜딩 필수 배관. 크몽 단골 상품.",
     "bullets": [
@@ -409,6 +469,9 @@
     "tagline": "시트에 쓴 초안·예약 시각 → 승인 큐로 정리 (자동 무단 게시 없음)",
     "pitch": "마케팅 시트를 기준으로 게시 후보를 모으고, ‘승인됨’ 행만 다음 단계로 넘기는 TypeScript/Apps Script 파이프라인입니다. 플랫폼에 무단 대량 게시하지 않으며, 사람 승인 게이트를 기본값으로 둡니다.",
     "price": "₩300,000 ~ ₩800,000",
+    "price_min": 300000,
+    "price_max": 800000,
+    "price_currency": "KRW",
     "delivery": "5~10영업일",
     "benchmark": "콘텐츠 팀 운영 배관. Buffer/Later 대체 입문이 아니라 ‘승인 워크플로’가 판매 포인트.",
     "bullets": [
@@ -433,6 +496,9 @@
     "tagline": "RSS/노션/시트 소스 → 마크다운·CMS 초안만 생성 (공개 예약은 사람)",
     "pitch": "수집·요약·초안 저장까지 자동화하고, 공개/예약은 편집자가 누릅니다. 검색 스팸·복제 콘텐츠 양산을 범위에서 제외합니다.",
     "price": "₩400,000 ~ ₩1,000,000",
+    "price_min": 400000,
+    "price_max": 1000000,
+    "price_currency": "KRW",
     "delivery": "1~2주",
     "benchmark": "콘텐츠 운영 SaaS의 ‘draft pipeline’. 자동 퍼블리시는 약관·품질 리스크로 옵션화.",
     "bullets": [
@@ -456,6 +522,9 @@
     "tagline": "캠페인별 UTM 생성·시트 기록·만료 링크 점검 크론",
     "pitch": "마케팅 링크 표준화와 생존 확인을 자동화합니다. 클릭 사기·숨은 리디렉트 스팸과 무관한, 자사 캠페인 운영 도구입니다.",
     "price": "₩200,000 ~ ₩500,000",
+    "price_min": 200000,
+    "price_max": 500000,
+    "price_currency": "KRW",
     "delivery": "3~7영업일",
     "benchmark": "퍼포먼스 마케팅 운영 도구. 에이전시·인하우스 공통 니즈.",
     "bullets": [
@@ -479,6 +548,9 @@
     "tagline": "공개 검색/공식 API 범위에서 멘션·키워드를 모아 매일 요약 메일",
     "pitch": "로그인 벽 뒤 무단 스크래핑 없이, 허용된 공개 RSS·공식 API·알림 메일 파싱 등으로 ‘오늘 뭐가 말했는지’ 요약을 보냅니다.",
     "price": "₩300,000 ~ ₩900,000",
+    "price_min": 300000,
+    "price_max": 900000,
+    "price_currency": "KRW",
     "delivery": "1~2주",
     "benchmark": "소셜 리스닝 라이트. 엔터프라이즈 대비 저가 입문.",
     "bullets": [
@@ -503,6 +575,9 @@
     "tagline": "초안 도착 → 승인/반려 버튼 → 결과 시트 반영",
     "pitch": "법적·브랜드 리스크를 줄이려면 자동 게시보다 승인 게이트가 먼저입니다. 승인 워크플로만 구축하고, 실제 게시는 담당자 또는 공식 스케줄러 연동(별도)으로 둡니다.",
     "price": "₩350,000 ~ ₩800,000",
+    "price_min": 350000,
+    "price_max": 800000,
+    "price_currency": "KRW",
     "delivery": "5~10영업일",
     "benchmark": "대기업·병의원·금융 등 컴플라이언스 감도 높은 조직에 적합.",
     "bullets": [
@@ -526,6 +601,9 @@
     "tagline": "자사 RSS만 모아 주간 뉴스레터 초안 생성",
     "pitch": "고객이 소유·운영하는 블로그 RSS를 읽어 주간 다이제스트 초안을 만듭니다. 구독자 구매 목록 무단 사용·스팸 대량 발송 시스템은 만들지 않습니다.",
     "price": "₩250,000 ~ ₩600,000",
+    "price_min": 250000,
+    "price_max": 600000,
+    "price_currency": "KRW",
     "delivery": "3~7영업일",
     "benchmark": "소유 미디어 리퍼포징. ESP(스티비 등)는 고객 계정에 붙여 초안만.",
     "bullets": [
@@ -549,6 +627,9 @@
     "tagline": "자사 URL 기준 타이틀·og·사이트맵·깨진 링크 주간 점검",
     "pitch": "소유 사이트에 대해 기술 SEO 기본 항목을 주기 점검합니다. 블랙햇(클로킹, 키워드 스터핑 자동 삽입)은 범위 밖입니다.",
     "price": "₩200,000 ~ ₩550,000",
+    "price_min": 200000,
+    "price_max": 550000,
+    "price_currency": "KRW",
     "delivery": "3~7영업일",
     "benchmark": "기술 SEO 모니터링 라이트.",
     "bullets": [
@@ -573,6 +654,9 @@
     "tagline": "블로그 URL/본문 → X·LinkedIn·Threads·뉴스레터용 초안 (게시 전 사람 확인)",
     "pitch": "한 콘텐츠를 채널 톤에 맞게 잘라 초안 세트를 만듭니다. 자동 동시 게시 봇이 아니라 ‘초안 팩’입니다. 플랫폼 스팸·동일 문구 도배 방지를 위해 검수 단계를 둡니다.",
     "price": "₩150,000 ~ ₩400,000 (템플릿) / 건당 운영은 별도",
+    "price_min": 150000,
+    "price_max": 400000,
+    "price_currency": "KRW",
     "delivery": "템플릿 구축 3~5일",
     "benchmark": "리퍼포징 워크플로. 에이전시 단가 절감 도구.",
     "bullets": [
@@ -596,6 +680,9 @@
     "tagline": "본인 계정 분석 리포트 기반 ‘추천 시간대’ 카드 + 캘린더 시트",
     "pitch": "ThreadSmith/Analyzer 결과로 추천 슬롯을 시트에 채웁니다. Meta 약관을 어기는 자동 대량 게시·팔로우 봇은 제공하지 않습니다.",
     "price": "₩100,000 ~ ₩250,000 (리포트 연동 시)",
+    "price_min": 100000,
+    "price_max": 250000,
+    "price_currency": "KRW",
     "delivery": "2~4영업일",
     "benchmark": "크리에이터 운영 보조. Analyzer 업셀.",
     "bullets": [
@@ -620,6 +707,9 @@
     "tagline": "신고·금칙어·스팸 패턴을 큐로 모아 사람이 처리",
     "pitch": "완전 자동 삭제 봇이 아니라, 위험 댓글/문의를 한곳에 모아 담당자가 처리하게 합니다. 명예훼손·혐오·스팸 대응의 감사 추적을 남깁니다.",
     "price": "₩300,000 ~ ₩900,000",
+    "price_min": 300000,
+    "price_max": 900000,
+    "price_currency": "KRW",
     "delivery": "1~2주",
     "benchmark": "커뮤니티·브랜드 보호. 자동 삭제는 오탐 리스크로 ‘큐’가 기본.",
     "bullets": [
@@ -644,6 +734,9 @@
     "tagline": "vN→vN+k 경로, 깨질 패키지, 단계 PR 단위까지 문서+스파이크",
     "pitch": "단순 버전 숫자 올리기가 아닙니다. 의존성 그래프, 폐기 API, 테스트 공백, 스토어 빌드까지 포함해 ‘몇 개 PR로 어떻게 건너갈지’ 실행 계획을 납품합니다. 전량 구현은 별도 계약이며, 스파이크 1건(대표 깨짐 지점)까지 포함 가능합니다.",
     "price": "₩800,000 ~ ₩2,500,000",
+    "price_min": 800000,
+    "price_max": 2500000,
+    "price_currency": "KRW",
     "delivery": "1~2주",
     "benchmark": "엔터프라이즈 Angular 업그레이드 컨설팅 입구. 구현 수주~수개월 업셀.",
     "bullets": [
@@ -667,6 +760,9 @@
     "tagline": "takeUntilDestroyed/async pipe 누락·중첩 subscribe 전수 패턴 리포트",
     "pitch": "모바일 WebView·장수명 SPA에서 느린 성능·배터리 이슈의 상당수가 구독 누수입니다. 정적 패턴 스캔 + 대표 화면 런타임 메모 관찰 가이드를 문서로 납품합니다.",
     "price": "₩500,000 ~ ₩1,200,000",
+    "price_min": 500000,
+    "price_max": 1200000,
+    "price_currency": "KRW",
     "delivery": "5~10영업일",
     "benchmark": "성능/안정성 감사 상품. 패치 스프린트 업셀.",
     "bullets": [
@@ -690,6 +786,9 @@
     "tagline": "초기 로드·메인 스레드·청크 전략을 수치로 분해",
     "pitch": "Lighthouse 한 장이 아니라 source-map-explorer/esbuild metafile·네트워크 워터폴·장기 태스크를 기준으로 ‘무엇을 잘라야 돈이 되는지’ 순위를 매깁니다. Angular 앱 기준.",
     "price": "₩600,000 ~ ₩1,500,000",
+    "price_min": 600000,
+    "price_max": 1500000,
+    "price_currency": "KRW",
     "delivery": "1주",
     "benchmark": "프론트 성능 컨설팅. CWV 개선 프로젝트 입구.",
     "bullets": [
@@ -713,6 +812,9 @@
     "tagline": "실기기 only 이슈: 쿠키, 딥링크, 플러그인, 백그라운드",
     "pitch": "에뮬레이터 그린·실기기 레드 패턴을 재현 절차와 로그 포인트로 고정합니다. Ionic/Capacitor/레거시 Cordova WebView 대상. 파일럿($400)보다 깊게, 문서+재현 키트가 산출물입니다.",
     "price": "₩700,000 ~ ₩2,000,000",
+    "price_min": 700000,
+    "price_max": 2000000,
+    "price_currency": "KRW",
     "delivery": "1~2주 (기기 협조 필요)",
     "benchmark": "하이브리드 앱 최고난도 소방. 리테이너 전환율 높음.",
     "bullets": [
@@ -736,6 +838,9 @@
     "tagline": "JWT/리프레시/쿠키/OAuth 리다이렉트 흐름 보안 리뷰",
     "pitch": "로그인·토큰 갱신·로그아웃·탈취 시나리오를 기준으로 설계 결함을 찾습니다. 침투 테스트 전체가 아니라 프론트+BFF 구간의 세션 설계 리뷰입니다.",
     "price": "₩800,000 ~ ₩2,000,000",
+    "price_min": 800000,
+    "price_max": 2000000,
+    "price_currency": "KRW",
     "delivery": "1~2주",
     "benchmark": "앱 보안 리뷰 라이트. 핀테크/멤버십 앱 수요.",
     "bullets": [
@@ -759,6 +864,9 @@
     "tagline": "IndexedDB/큐/충돌 정책을 도메인에 맞게 설계 문서화",
     "pitch": "현장·물류·매장 앱용. ‘오프라인 저장 후 온라인 동기’의 큐 모델, 멱등, 충돌(서버/클라 우선)을 설계합니다. 구현 스파이크 범위는 합의 후.",
     "price": "₩1,000,000 ~ ₩3,000,000",
+    "price_min": 1000000,
+    "price_max": 3000000,
+    "price_currency": "KRW",
     "delivery": "2~3주",
     "benchmark": "도메인 특화 아키텍처 설계. ERP/현장 앱 고단가.",
     "bullets": [
@@ -782,6 +890,9 @@
     "tagline": "앱·라이브러리 경계, CI 영향 그래프, 배포 단위 설계",
     "pitch": "여러 Angular 앱이 한 레포에 얽혀 있거나, 반대로 복붙 라이브러리를 합칠 때. 프로젝트 그래프와 배포 경계를 다시 그립니다.",
     "price": "₩900,000 ~ ₩2,500,000",
+    "price_min": 900000,
+    "price_max": 2500000,
+    "price_currency": "KRW",
     "delivery": "1~3주",
     "benchmark": "플랫폼 팀 컨설팅. 대규모 프론트 조직.",
     "bullets": [
@@ -805,6 +916,9 @@
     "tagline": "흩어진 스타일/컴포넌트를 토큰+라이브러리 초안으로",
     "pitch": "이미 있는 Angular/Ionic 화면에서 색·타이포·버튼/폼 패턴을 토큰과 공유 컴포넌트 경계로 뽑습니다. 풀 디자인시스템 구축이 아니라 ‘추출 1차’입니다.",
     "price": "₩700,000 ~ ₩1,800,000",
+    "price_min": 700000,
+    "price_max": 1800000,
+    "price_currency": "KRW",
     "delivery": "1~2주",
     "benchmark": "멀티 앱 브랜드 일관성 프로젝트 입구.",
     "bullets": [
@@ -827,6 +941,9 @@
     "tagline": "키보드·대비·스크린리더 기준 이슈 우선순위화",
     "pitch": "자동 스캐너만 돌리는 수준이 아니라, 핵심 유저 플로우를 기준으로 이슈를 재현 가능하게 기록합니다. 공공·대기업 납품 전 점검에 적합합니다.",
     "price": "₩600,000 ~ ₩1,500,000",
+    "price_min": 600000,
+    "price_max": 1500000,
+    "price_currency": "KRW",
     "delivery": "1~2주",
     "benchmark": "a11y 감사 시장 표준 상품화.",
     "bullets": [
@@ -850,6 +967,9 @@
     "tagline": "스펙 변경 시 Angular 서비스/타입 자동 재생성 + CI 검증",
     "pitch": "백엔드 스펙과 프론트 타입이 어긋나는 사고를 줄입니다. openapi-generator/orval 등으로 생성 파이프라인을 붙이고, 깨지면 CI가 막히게 합니다.",
     "price": "₩400,000 ~ ₩1,000,000",
+    "price_min": 400000,
+    "price_max": 1000000,
+    "price_currency": "KRW",
     "delivery": "3~7영업일",
     "benchmark": "API 계약 자동화. BFF/멀티 클라이언트 팀.",
     "bullets": [
@@ -872,6 +992,9 @@
     "tagline": "환경·유저·점진 배포를 위한 플래그 계층 설계+샘플 연동",
     "pitch": "단순 if env가 아니라 원격 설정/로컬 기본값/킬스위치 계층을 Angular DI 패턴으로 설계합니다. LaunchDarkly 등 상용 연동 또는 자체 JSON 플래그.",
     "price": "₩500,000 ~ ₩1,400,000",
+    "price_min": 500000,
+    "price_max": 1400000,
+    "price_currency": "KRW",
     "delivery": "1~2주",
     "benchmark": "릴리스 리스크 감소 상품.",
     "bullets": [
@@ -894,6 +1017,9 @@
     "tagline": "핵심 API 시나리오 스크립트 + 기준선 리포트",
     "pitch": "프론트만이 아니라 BFF/API 한도를 숫자로 남깁니다. k6 시나리오 2~3개와 결과 해석 문서를 납품합니다. 인프라 튜닝 자체는 별도.",
     "price": "₩500,000 ~ ₩1,300,000",
+    "price_min": 500000,
+    "price_max": 1300000,
+    "price_currency": "KRW",
     "delivery": "5~10영업일",
     "benchmark": "출시 전 부하 검증. 성능 SLA 협의 자료.",
     "bullets": [
