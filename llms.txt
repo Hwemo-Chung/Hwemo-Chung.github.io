@@ -41,6 +41,7 @@ Lumos is the site of full-stack developer Hwemo Chung. Two lines of work: (1) di
 
 - Home: https://hwemo-chung.github.io/
 - Privacy: https://hwemo-chung.github.io/pp.html
+- Specified commercial transactions (特商法): https://hwemo-chung.github.io/tokushoho.html
 
 ## Contact
 
