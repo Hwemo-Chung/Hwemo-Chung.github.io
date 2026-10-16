@@ -1,6 +1,0 @@
-:HL["/tools/thumb-card/_next/static/chunks/326hqhz92mdjx.css","style"]
-:HL["/tools/thumb-card/_next/static/chunks/2n_azk3ib8ulj.css","style"]
-:HL["/tools/thumb-card/_next/static/media/Pretendard_Black-s.p.24p8rjygxx9n5.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/tools/thumb-card/_next/static/media/Pretendard_Regular-s.p.0b3u7ignt8dbu.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"0S-bu7bkrE4cpEj31qd5D","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

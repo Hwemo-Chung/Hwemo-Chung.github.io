@@ -3,24 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Burnline — Local-first AI cost control</title>
-  <meta name="description" content="See AI token burn by model and day. Set a monthly cap. Keep prompts on your machine. Waitlist open — not for sale yet." />
+  <title>Burnline | Local-first AI cost tracking and budget cap</title>
+  <meta name="description" content="See AI token spend by model and day, set a monthly cap, and keep prompts on your machine. Waitlist open, not for sale yet." />
   <link rel="canonical" href="https://hwemo-chung.github.io/burnline.html" />
   <meta name="theme-color" content="#ffffff" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hwemo-chung.github.io/burnline.html" />
-  <meta property="og:title" content="Burnline — local-first AI cost control" />
-  <meta property="og:description" content="Import usage logs. Price by model. Cap the burn. Prompts stay on your machine." />
+  <meta property="og:title" content="Burnline | Local-first AI cost tracking" />
+  <meta property="og:description" content="Reads AI usage logs on your machine and shows cost by model and day against a monthly budget." />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Burnline" />
-  <meta name="twitter:description" content="Local-first AI spend reports. Waitlist open." />
+  <meta name="twitter:description" content="Local-first AI spend reports by model and day. Waitlist open." />
   <link rel="stylesheet" href="sales/tokens.css" />
   <link rel="stylesheet" href="sales/components.css" />
   <link rel="stylesheet" href="sales/product-extras.css" />
   <link rel="stylesheet" href="sales/site-unified.css" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
         crossorigin="anonymous"></script>
+  <meta property="og:site_name" content="Lumos">
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
 </head>
 <body class="ls">
   <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
@@ -39,32 +41,29 @@
   </nav>
 
   <main id="main" class="ls-wrap">
-    <div class="ls-badge-row">
-      <span class="ls-badge ls-badge--ok">Local-first · Multi-tool · English</span>
-      <span class="ls-badge">Waitlist · not for sale yet</span>
-    </div>
-    <h1>Know your AI burn<br />before the invoice lands.</h1>
+    <h1>Burnline</h1>
     <p class="ls-lead">
-      Burnline turns agent and API usage logs into clear cost by model and day.
-      Set a monthly cap. Keep prompts on your machine.
+      Burnline reads your AI agent and API usage logs on your own machine and shows what they cost,
+      by model and by day, against a monthly budget. Prompts stay on your machine.
+    </p>
+    <p>
+      It is not for sale yet. A CLI and an HTML report exist as a prototype; there is no checkout and no cloud login.
+      If you run multi-model coding agents and want launch notes, join the waitlist. Please don't send money for Burnline today.
     </p>
 
-    <div class="ls-callout ls-callout--warn" role="status">
-      <strong>Honest status:</strong> CLI + HTML report spike exists. No Stripe checkout, no cloud login.
-      Join the waitlist if you want launch notes — do not send money for Burnline today.
+    <div class="ls-cta" id="waitlist">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=Burnline%20waitlist&amp;body=I%20want%20Burnline%20updates.%0A%0AHow%20I%20use%20AI%20today%3A%0ATools%20%28Claude%20Code%20%2F%20Cursor%20%2F%20API%29%3A%0AApprox%20monthly%20AI%20spend%3A%0A">Join the waitlist by email</a>
+      <a class="ls-btn" href="burnline-dashboard.html">Try the dashboard</a>
     </div>
-
-    <div class="ls-cta">
-      <a class="ls-btn ls-btn--primary" href="burnline-dashboard.html">Open dashboard</a>
-      <a class="ls-btn ls-btn--ghost" href="#waitlist">Join the waitlist</a>
-      <a class="ls-btn ls-btn--ghost" href="burnline-demo.html">Static sample</a>
-      <a class="ls-btn ls-btn--ghost" href="#how">How it works</a>
-    </div>
+    <p class="ls-fine">
+      The button opens an email to tolaria@naver.com with the subject <code>Burnline waitlist</code>.
+      Add one paragraph on how you use AI today. Checkout (Stripe or a form) will only be added once there is real demand.
+    </p>
 
     <div class="ls-demo" data-i18n-aria-label="aria.sampleReport">
       <div class="ls-demo__head">
-        <span><strong>Sample fixtures</strong> · not your data</span>
-        <a href="burnline-dashboard.html">Interactive dashboard →</a>
+        <span><strong>Sample report</strong>, built from fixture data</span>
+        <a href="burnline-demo.html">See the full sample</a>
       </div>
       <div class="ls-demo__stats">
         <div>
@@ -80,72 +79,39 @@
           <div class="ls-demo__value">2</div>
         </div>
         <div>
-          <div class="ls-demo__label">Budget</div>
-          <div class="ls-demo__value ls-demo__value--hot">$47.88 / $40 · OVER</div>
+          <div class="ls-demo__label">Budget ($40 cap)</div>
+          <div class="ls-demo__value ls-demo__value--hot">Over</div>
         </div>
       </div>
     </div>
 
     <h2 id="how">How it works</h2>
-    <div class="ls-grid ls-grid--3">
-      <article class="ls-card">
-        <h3>1. Import locally</h3>
-        <p>Point Burnline at Claude Code / JSONL usage logs. Core value does not require uploading prompts.</p>
-      </article>
-      <article class="ls-card">
-        <h3>2. Price honestly</h3>
-        <p>Offline model catalog with documented rates. Totals you can reconcile to a real bill.</p>
-      </article>
-      <article class="ls-card">
-        <h3>3. Cap the burn</h3>
-        <p>Monthly USD budget with 80% warning and 100% hard flag. Export CSV for your records.</p>
-      </article>
+    <h3>Import logs locally</h3>
+    <p>Point Burnline at Claude Code or JSONL usage logs. You don't have to upload prompts to get the cost numbers.</p>
+    <h3>Price each call</h3>
+    <p>An offline model catalog with documented rates turns tokens into dollars. The totals are meant to be reconciled against your real bill.</p>
+    <h3>Set a monthly cap</h3>
+    <p>Set a budget in USD. Burnline warns at 80% and flags at 100%. Export the data as CSV for your records.</p>
+
+    <h2>Planned pricing</h2>
+    <p>These are the intended paid tiers for later. None of them is live and there is no buy button.</p>
+    <div class="ls-table-scroll">
+      <table class="ls-table">
+        <thead><tr><th>Plan</th><th>Price</th><th>Includes</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Free</td><td>$0</td><td>7-day window, one source, core charts</td><td>Planned</td></tr>
+          <tr><td>Pro</td><td>$19 / mo</td><td>Unlimited history, budgets, CSV, catalog updates</td><td>Planned</td></tr>
+          <tr><td>Team</td><td>$49 / mo</td><td>Shared aggregates for small teams. Not in v0.1.</td><td>Later</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <h2>Pricing <span class="ls-planned">Planned — not live</span></h2>
-    <p>Numbers below are intent for later paid tiers. <strong>There is no buy button.</strong></p>
-    <div class="ls-grid ls-grid--3">
-      <article class="ls-card">
-        <div class="ls-planned">Planned</div>
-        <div class="ls-price">$0</div>
-        <h3>Free</h3>
-        <p>7-day window, one source, core charts.</p>
-      </article>
-      <article class="ls-card">
-        <div class="ls-planned">Planned</div>
-        <div class="ls-price">$19 <span >/ mo</span></div>
-        <h3>Pro</h3>
-        <p>Unlimited history, budgets, CSV, catalog updates.</p>
-      </article>
-      <article class="ls-card">
-        <div class="ls-planned">Later</div>
-        <div class="ls-price">$49 <span >/ mo</span></div>
-        <h3>Team</h3>
-        <p>Shared aggregates for small teams — not in v0.1.</p>
-      </article>
-    </div>
-
-    <h2 id="waitlist">Waitlist</h2>
+    <h2>What it is not</h2>
     <p>
-      If you run multi-model coding agents and care about cost control, email with subject
-      <span class="ls-mono">Burnline waitlist</span>. Include how you use AI today (one paragraph).
+      Burnline is not a full prompt observability cloud, and v1 has no enterprise SSO.
+      If you need Helicone-scale pipelines, use those. Burnline is for builders who want accurate cost numbers with little setup.
     </p>
-    <div class="ls-cta">
-      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=Burnline%20waitlist&amp;body=I%20want%20Burnline%20updates.%0A%0AHow%20I%20use%20AI%20today%3A%0ATools%20%28Claude%20Code%20%2F%20Cursor%20%2F%20API%29%3A%0AApprox%20monthly%20AI%20spend%3A%0A">
-        Join via email — tolaria@naver.com
-      </a>
-      <a class="ls-btn ls-btn--ghost" href="retainer.html">Need production mobile help now? →</a>
-    </div>
-    <p class="ls-fine">
-      Canonical: <span class="ls-mono">https://hwemo-chung.github.io/burnline.html</span>.
-      Formspree / Stripe only after real demand.
-    </p>
-
-    <h2>Not this</h2>
-    <p>
-      Not a full prompt observability cloud. Not enterprise SSO in v1.
-      If you need Helicone-scale pipelines, use those — Burnline is for builders who want cost truth with minimal ceremony.
-    </p>
+    <p>Need help with a production mobile app now? See the <a href="retainer.html">mobile retainer</a>.</p>
 
     <footer class="ls-foot">
       <nav data-i18n-aria-label="common.footerNav">

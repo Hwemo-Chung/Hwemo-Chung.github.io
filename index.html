@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumos — 하이브리드 앱 진단 · 프로덕션 유지보수</title>
+    <title>Lumos | Cordova·Ionic 앱 진단과 유지보수</title>
 
     <!-- 기본 메타 태그 -->
-    <meta name="description" content="방치된 Cordova·Ionic·Capacitor 앱의 스토어 업로드 차단을 진단하고, 프로덕션 유지보수와 macOS 유틸리티를 제공합니다. 진단 리포트 10곳 한정 무료.">
+    <meta name="description" content="스토어 업로드가 막힌 Cordova·Ionic·Capacitor 앱을 진단하고 유지보수합니다. macOS 앱과 브라우저 도구도 만듭니다. 진단은 10곳까지 무료입니다.">
     <meta name="keywords" content="Cordova 유지보수, Ionic 마이그레이션, Capacitor, iOS 26 SDK, Play 타겟 API, Dynamic Links 종료, 하이브리드 앱 진단, macOS 유틸리티, HotLauncher">
     <meta name="author" content="Hwemo Chung">
     <meta name="google-site-verification" content="fwt2bZacz-ljJVxCcpa48qI5niS_SQGM24Tz6RePrDU">
 
     <!-- Open Graph (소셜 미디어용) -->
     <meta property="og:site_name" content="Lumos">
-    <meta property="og:title" content="Lumos — 하이브리드 앱 진단 · 프로덕션 유지보수">
-    <meta property="og:description" content="iOS 26 SDK 의무화 · Play 타겟 API · Dynamic Links 종료. 방치된 앱의 3중 봉쇄를 풉니다. 진단 10곳 한정 무료.">
+    <meta property="og:title" content="Lumos | Cordova·Ionic 앱 진단과 유지보수">
+    <meta property="og:description" content="iOS 26 SDK 요건, Play 타깃 API 기한, Dynamic Links 종료로 업데이트가 막힌 앱을 다시 스토어에 올립니다. 진단은 10곳까지 무료입니다.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hwemo-chung.github.io/">
     <meta property="og:locale" content="ko_KR">
@@ -25,12 +25,12 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:alt" content="Lumos — 하이브리드 앱 진단 · 프로덕션 유지보수">
+    <meta property="og:image:alt" content="Lumos | Cordova·Ionic 앱 진단과 유지보수">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lumos — 하이브리드 앱 진단 · 프로덕션 유지보수">
-    <meta name="twitter:description" content="iOS 26 SDK 의무화 · Play 타겟 API · Dynamic Links 종료. 방치된 앱의 3중 봉쇄를 풉니다. 진단 10곳 한정 무료.">
+    <meta name="twitter:title" content="Lumos | Cordova·Ionic 앱 진단과 유지보수">
+    <meta name="twitter:description" content="iOS 26 SDK 요건, Play 타깃 API 기한, Dynamic Links 종료로 업데이트가 막힌 앱을 다시 스토어에 올립니다. 진단은 10곳까지 무료입니다.">
     <meta name="twitter:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
 
     <!-- 추가 SEO -->
@@ -43,9 +43,7 @@
     <meta name="googlebot" content="index, follow">
 
     <!-- 스타일시트 -->
-    <link rel="stylesheet" href="sales/tokens.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sales/components.css">
+    <link rel="stylesheet" href="/assets/site.css">
 
     <!-- 스키마 마크업 -->
     <script type="application/ld+json">
@@ -136,401 +134,274 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8998804759171463"
         crossorigin="anonymous"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="sales/site-unified.css" />
 </head>
 
-<body class="ls page-home">
+
+<body>
     <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
     <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
         <div class="ls-nav__inner">
             <a class="ls-brand" href="/">Lumos</a>
             <ul>
-                <li><a href="/" aria-current="page" data-i18n="nav.home">홈</a></li>
                 <li><a href="/sales/" data-i18n="nav.sales">서비스</a></li>
                 <li><a href="/offers/" data-i18n="nav.offers">상품</a></li>
                 <li><a href="/cordova.html" data-i18n="nav.diagnosis">진단</a></li>
                 <li><a href="/retainer.html" data-i18n="nav.retainer">유지보수</a></li>
                 <li><a href="/threads-analyzer.html" data-i18n="nav.threads">스레드</a></li>
-                <li><a href="/tools/">도구 30</a></li>
+                <li><a href="/tools/">도구</a></li>
             </ul>
+            <div class="language-toolbar" data-i18n-aria-label="common.language">
+                <div class="language-selector">
+                    <button class="lang-btn active" type="button" data-lang="ko">한</button>
+                    <button class="lang-btn" type="button" data-lang="en">EN</button>
+                    <button class="lang-btn" type="button" data-lang="ja">日</button>
+                </div>
+            </div>
         </div>
     </nav>
-    <div class="language-toolbar" data-i18n-aria-label="common.language">
-        <div class="language-selector">
-            <button class="lang-btn active" type="button" data-lang="ko">한</button>
-            <button class="lang-btn" type="button" data-lang="en">EN</button>
-            <button class="lang-btn" type="button" data-lang="ja">日</button>
-        </div>
-    </div>
 
-    <main id="main" style="margin-top:0">
-        <section id="home" class="hero">
-            <div class="candle-container">
-                <h1 class="candle-text">
-                    <span class="flame-letter" style="--index: 0">L</span>
-                    <span class="flame-letter" style="--index: 1">U</span>
-                    <span class="flame-letter" style="--index: 2">M</span>
-                    <span class="flame-letter" style="--index: 3">O</span>
-                    <span class="flame-letter" style="--index: 4">S</span>
-                    <span class="flame-letter" style="--index: 5">!</span>
-                </h1>
-                <div class="flame-glow"></div>
-                <div class="shadow-text">LUMOS!</div>
+    <main id="main">
+        <section class="hero wrap" id="home">
+            <h1 data-i18n="hero.tagline">업데이트가 막힌 Cordova·Ionic 앱을 다시 스토어에 올립니다.</h1>
+            <p class="lead" data-i18n="hero.sub">2026년 4월 28일부터 App Store Connect는 iOS 26 SDK로 빌드한 앱만 받습니다. 같은 앱에 Play 타깃 API 기한과 Firebase Dynamic Links 종료도 겹칩니다. 무엇이 막혔는지 영업일 2일 안에 보고서로 알려 드리며, 10곳까지는 무료입니다.</p>
+            <div class="cta">
+                <a class="btn primary" href="/cordova.html" data-i18n="hero.ctaPrimary">무료 진단 신청</a>
+                <a class="btn" href="#products" data-i18n="hero.ctaSecondary">제품 보기</a>
             </div>
-            <p class="tagline" data-i18n="hero.tagline">iOS 26 SDK 의무화 · Play 타겟 API · Dynamic Links 종료. 방치된 하이브리드 앱의 3중 봉쇄를 풉니다.</p>
-            <p class="tagline" style="font-size:1rem;opacity:.8;max-width:46rem;margin-inline:auto" data-i18n="hero.sub">Cordova · Ionic · Capacitor · Android WebView 프로덕션 전문. 진단 리포트는 영업일 2일 안에 회신하고, 10곳 한정 무료입니다.</p>
-            <div class="ls-cta" style="justify-content:center">
-                <a class="ls-btn ls-btn--primary" href="/cordova.html" data-i18n="hero.ctaPrimary">무료 진단 신청 →</a>
-                <a class="ls-btn ls-btn--ghost" href="/tools/">도구 30</a>
-                <a class="ls-btn ls-btn--ghost" href="#products" data-i18n="hero.ctaSecondary">제품 보기</a>
-            </div>
-            <p class="tagline" style="font-size:.85rem;opacity:.6;margin-top:1.25rem" data-i18n="hero.fine">독립 계약입니다. 신규 앱 개발과 전면 리라이트는 하지 않습니다.</p>
+            <p class="fine" data-i18n="hero.fine">독립 계약으로 일합니다. 새 앱 개발과 전면 재작성은 맡지 않습니다.</p>
         </section>
 
-        <section id="projects">
-            <h2 id="products" data-i18n="projects.products">제품</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>HotLauncher</h3>
-                    <p>macOS 26(Tahoe)에서 런치패드가 사라졌습니다. Spotlight 검색을 기다리는 대신, 자주 쓰는 앱 최대 20개를 전역 단축키 하나에 붙입니다. 광고·구독 없음, 소스 공개. <strong>[무료]</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">macOS 26</span>
-                        <span class="tag">Swift</span>
-                        <span class="tag">단축키</span>
-                        <span class="tag">무료</span>
+        <section class="band" id="products">
+            <div class="wrap">
+                <div class="band-head"><h2 data-i18n="projects.products">제품</h2></div>
+                <div class="rows">
+                    <div class="row-item">
+                        <div><h3>HotLauncher</h3><span class="badge">무료</span></div>
+                        <p>macOS 26(Tahoe)에서 런치패드가 사라졌습니다. 자주 쓰는 앱을 최대 20개까지 전역 단축키에 하나씩 붙여 두고 바로 엽니다. 광고와 구독이 없고 소스를 공개했습니다.</p>
+                        <div class="links"><a href="hot-launcher.html">제품 페이지</a><a href="https://github.com/Hwemo-Chung/HotLauncher">GitHub</a></div>
                     </div>
-                    <a href="hot-launcher.html" class="project-link">제품 페이지 →</a>
-                    <a href="https://github.com/Hwemo-Chung/HotLauncher" class="project-link">GitHub →</a>
-                </div>
-                <div class="project-card">
-                    <h3>LumosZipForMac</h3>
-                    <p>비밀번호(AES-256) ZIP을 Mac에서. 터미널·광고·구독 없이. Apple Silicon + Intel 유니버설 네이티브 앱. 베타 할인가. <strong>[판매 중]</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">macOS</span>
-                        <span class="tag">Swift</span>
-                        <span class="tag">암호화</span>
-                        <span class="tag">Beta</span>
+                    <div class="row-item">
+                        <div><h3>LumosZipForMac</h3><span class="badge">판매 중</span></div>
+                        <p>Mac에서 AES-256 비밀번호 ZIP을 터미널 없이 다룹니다. 광고와 구독이 없고, Apple Silicon과 Intel에서 모두 돌아가는 네이티브 앱입니다. 지금은 베타 할인가로 팝니다.</p>
+                        <div class="links"><a href="lumoszip.html">제품 페이지</a><a href="https://teagarden5.gumroad.com/l/qhyxm">지금 구매</a></div>
                     </div>
-                    <a href="lumoszip.html" class="project-link">제품 페이지 →</a>
-                    <a href="https://teagarden5.gumroad.com/l/qhyxm" class="project-link">지금 구매 →</a>
-                </div>
-                <div class="project-card">
-                    <h3>Pebblez</h3>
-                    <p>가볍고 조용한 소셜 PWA. 광고·추천 알고리즘 없이 한 줄(페블)을 남기면 아는 사람들 사이에서 잔물결처럼 번집니다. 오프라인 지원, 무료. <strong>[라이브]</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">PWA</span>
-                        <span class="tag">SNS</span>
-                        <span class="tag">Cloudflare</span>
-                        <span class="tag">무료</span>
+                    <div class="row-item">
+                        <div><h3>Pebblez</h3><span class="badge">라이브</span></div>
+                        <p>광고와 추천 알고리즘이 없는 작은 소셜 PWA입니다. 한 줄(페블)을 남기면 아는 사람들 사이로 퍼집니다. 오프라인에서도 쓸 수 있고 무료입니다.</p>
+                        <div class="links"><a href="https://pebblez.teagarden-earlgrey.workers.dev">서비스 열기</a></div>
                     </div>
-                    <a href="https://pebblez.teagarden-earlgrey.workers.dev" class="project-link">서비스 열기 →</a>
-                </div>
-                <div class="project-card">
-                    <h3>Threads Analyzer</h3>
-                    <p>스레드 계정 전체를 12시트 엑셀 리포트로 해부합니다. 평균이 아니라 중앙값·데드율로 봅니다. CLI는 무료·오픈소스, 데스크톱 앱은 $29. <strong>[대기자 모집]</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">CLI</span>
-                        <span class="tag">분석</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">엑셀</span>
+                    <div class="row-item">
+                        <div><h3>Threads Analyzer</h3><span class="badge">대기자 모집</span></div>
+                        <p>스레드 계정의 글 전체를 12시트짜리 엑셀 리포트로 정리합니다. 평균 대신 중앙값과 데드율로 봅니다. CLI는 무료 오픈소스이고, 데스크톱 앱은 $29입니다.</p>
+                        <div class="links"><a href="threads-analyzer.html">제품 페이지</a></div>
                     </div>
-                    <a href="threads-analyzer.html" class="project-link">제품 페이지 →</a>
-                </div>
-                <div class="project-card">
-                    <h3>Burnline</h3>
-                    <p>Local-first AI cost control — burn by model/day, monthly caps, no prompt upload required for core value. [Building]</p>
-                    <div class="project-tags">
-                        <span class="tag">SaaS</span>
-                        <span class="tag">AI</span>
-                        <span class="tag">English</span>
+                    <div class="row-item">
+                        <div><h3>Burnline</h3><span class="badge">Building</span></div>
+                        <p>Local-first AI cost tracking. See spend by model and day, set monthly caps, and keep your prompts on your machine.</p>
+                        <div class="links"><a href="burnline.html">Product page</a><a href="burnline-dashboard.html">Dashboard</a></div>
                     </div>
-                    <a href="burnline.html" class="project-link">Product page →</a>
-                    <a href="burnline-dashboard.html" class="project-link">Dashboard →</a>
                 </div>
             </div>
+        </section>
 
-            <h2 id="ebooks" style="margin-top:5rem">전자책 / E-books</h2>
-            <p class="tagline" style="font-size:.95rem;opacity:.75;text-align:center">Gumroad에서 결제 후 바로 PDF를 내려받을 수 있습니다. / Gumroadで決済後すぐにPDFをダウンロードできます。</p>
-            <style>
-                .ebook-cover{display:block;width:100%;height:auto;max-height:320px;object-fit:cover;object-position:top;border-radius:8px;margin-bottom:1rem}
-                .ebook-price{font-size:1.15rem;margin:.25rem 0 .75rem}
-                .ebook-group-title{font-size:1.4rem;margin:3rem 0 1.25rem;padding-bottom:.5rem;border-bottom:1px solid currentColor;opacity:.9}
-            </style>
-            <h3 class="ebook-group-title" id="ebooks-ja" lang="ja">日本語 / 日本在住の方向け</h3>
-            <div class="project-grid">
-                <div class="project-card ebook-card">
-                    <h3>AIコーディングエージェント完全版</h3>
-                    <p>日本語 PDF · 99ページ · 1年アップデート保証</p>
-                    <p class="ebook-price"><strong>¥14,800</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">AI</span>
-                        <span class="tag">日本語</span>
-                        <span class="tag">PDF</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/xywavy" class="project-link" target="_blank" rel="noopener">購入する →</a>
-                </div>
-                <div class="project-card ebook-card">
-                    <h3>Shorts・ブログ・SEO自動化 完全版</h3>
-                    <p>日本語 PDF · 99ページ · 1年アップデート保証</p>
-                    <p class="ebook-price"><strong>¥19,800</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">自動化</span>
-                        <span class="tag">日本語</span>
-                        <span class="tag">PDF</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/dvvsq" class="project-link" target="_blank" rel="noopener">購入する →</a>
-                </div>
-                <div class="project-card ebook-card">
-                    <img class="ebook-cover" src="assets/images/ebooks/ai-work-guide-ja.jpg" alt="ChatGPT・Claude・Gemini 仕事で使う入門 2026：メール・議事録・資料・表計算をAIと一緒に 表紙" loading="lazy" width="800">
-                    <h3>ChatGPT・Claude・Gemini 仕事で使う入門 2026</h3>
-                    <p>日本語 PDF · 42ページ</p>
-                    <p class="ebook-price"><strong>¥14,800</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">AI</span>
-                        <span class="tag">日本語</span>
-                        <span class="tag">PDF</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/ai-work-ja" class="project-link" target="_blank" rel="noopener">購入する →</a>
-                </div>
-                <div class="project-card ebook-card">
-                    <img class="ebook-cover" src="assets/images/ebooks/automation-advanced-ja.jpg" alt="自動化処理 応用編（上級）1年間の購読 表紙" loading="lazy" width="800" height="450">
-                    <h3>自動化処理 応用編（上級）1年間の購読</h3>
-                    <p>日本語 · Gumroad メンバーシップ（年払い・自動更新）· 毎週1本、合計52本のレッスン（第1巻 PDF 104ページを含む）· 途中解約時は未提供分を比例返金</p>
-                    <p class="ebook-price"><strong>¥100,000/年</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">AI</span>
-                        <span class="tag">自動化</span>
-                        <span class="tag">購読</span>
-                        <span class="tag">日本語</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/lfzanl" class="project-link" target="_blank" rel="noopener">購読する →</a>
-                    <a href="https://teagarden5.gumroad.com/l/lsvdhw" class="project-link" target="_blank" rel="noopener">無料サンプル（8ページ）→</a>
-                </div>
-            </div>
-            <h3 class="ebook-group-title" id="ebooks-ko" lang="ko">한국어 / 한국 독자용</h3>
-            <div class="project-grid">
-                <div class="project-card ebook-card">
-                    <h3>AI 코딩 에이전트 완전판</h3>
-                    <p>한국어 PDF · 95쪽 · 1년 업데이트 보장</p>
-                    <p class="ebook-price"><strong>₩139,000</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">AI</span>
-                        <span class="tag">한국어</span>
-                        <span class="tag">PDF</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/cxhiny" class="project-link" target="_blank" rel="noopener">구매하기 →</a>
-                </div>
-                <div class="project-card ebook-card">
-                    <h3>Shorts·블로그·SEO 자동화 완전판</h3>
-                    <p>한국어 PDF · 94쪽 · 1년 업데이트 보장</p>
-                    <p class="ebook-price"><strong>₩169,000</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">자동화</span>
-                        <span class="tag">한국어</span>
-                        <span class="tag">PDF</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/jbqeaw" class="project-link" target="_blank" rel="noopener">구매하기 →</a>
-                </div>
-                <div class="project-card ebook-card">
-                    <img class="ebook-cover" src="assets/images/ebooks/ai-work-guide-ko.jpg" alt="ChatGPT·Claude·Gemini 업무 활용 입문 2026: 메일·회의록·문서·표 정리를 AI와 함께 표지" loading="lazy" width="800">
-                    <h3>ChatGPT·Claude·Gemini 업무 활용 입문 2026</h3>
-                    <p>한국어 PDF · 42쪽</p>
-                    <p class="ebook-price"><strong>₩139,000</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">AI</span>
-                        <span class="tag">한국어</span>
-                        <span class="tag">PDF</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/ai-work-ko" class="project-link" target="_blank" rel="noopener">구매하기 →</a>
-                </div>
-                <div class="project-card ebook-card">
-                    <img class="ebook-cover" src="assets/images/ebooks/automation-advanced-ko.jpg" alt="자동화 처리 응용편(고급) 1년 구독 표지" loading="lazy" width="800" height="450">
-                    <h3>자동화 처리 응용편(고급) 1년 구독</h3>
-                    <p>한국어 · Gumroad 멤버십(연 결제, 자동 갱신) · 매주 레슨 1개, 모두 52개(제1권 PDF 99쪽 포함) · 중도 해지 시 받지 못한 레슨만큼 비례 환불</p>
-                    <p class="ebook-price"><strong>₩1,000,000/년</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">AI</span>
-                        <span class="tag">자동화</span>
-                        <span class="tag">구독</span>
-                        <span class="tag">한국어</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/awnihs" class="project-link" target="_blank" rel="noopener">구독하기 →</a>
-                    <a href="https://teagarden5.gumroad.com/l/udxhyj" class="project-link" target="_blank" rel="noopener">무료 샘플(8쪽) →</a>
-                </div>
-                <div class="project-card ebook-card">
-                    <img class="ebook-cover" src="assets/images/ebooks/tokyo-first-trip-pack.jpg" alt="도쿄 첫 여행 실전팩: 전철·짐·현금·예약 체크리스트 표지" loading="lazy" width="800">
-                    <h3>도쿄 첫 여행 실전팩: 전철·짐·현금·예약 체크리스트</h3>
-                    <p>한국어 PDF · 27쪽</p>
-                    <p class="ebook-price"><strong>₩12,900</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">여행</span>
-                        <span class="tag">한국어</span>
-                        <span class="tag">PDF</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/zibxvl" class="project-link" target="_blank" rel="noopener">구매하기 →</a>
-                </div>
-                <div class="project-card ebook-card">
-                    <img class="ebook-cover" src="assets/images/ebooks/tokyo-nearby-pack.jpg" alt="도쿄에서 당일치기·1박: 근교 여행 실전팩 표지" loading="lazy" width="800">
-                    <h3>도쿄에서 당일치기·1박: 근교 여행 실전팩</h3>
-                    <p>한국어 PDF · 17쪽</p>
-                    <p class="ebook-price"><strong>₩9,900</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">여행</span>
-                        <span class="tag">한국어</span>
-                        <span class="tag">PDF</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/lbezhq" class="project-link" target="_blank" rel="noopener">구매하기 →</a>
-                </div>
-                <div class="project-card ebook-card">
-                    <img class="ebook-cover" src="assets/images/ebooks/tokyo-autumn-2026.jpg" alt="도쿄 가을 단풍 여행 2026: 정원·은행나무길·다카오산 표지" loading="lazy" width="800">
-                    <h3>도쿄 가을 단풍 여행 2026: 정원·은행나무길·다카오산</h3>
-                    <p>한국어 PDF · 36쪽</p>
-                    <p class="ebook-price"><strong>₩12,900</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">여행</span>
-                        <span class="tag">한국어</span>
-                        <span class="tag">PDF</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/mfhchf" class="project-link" target="_blank" rel="noopener">구매하기 →</a>
-                </div>
-                <div class="project-card ebook-card">
-                    <img class="ebook-cover" src="assets/images/ebooks/tokyo-kids.jpg" alt="도쿄 아이와 함께 여행 실전팩: 유모차·수유실·키즈 명소·티켓 표지" loading="lazy" width="800">
-                    <h3>도쿄 아이와 함께 여행 실전팩: 유모차·수유실·키즈 명소·티켓</h3>
-                    <p>한국어 PDF · 31쪽</p>
-                    <p class="ebook-price"><strong>₩12,900</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">여행</span>
-                        <span class="tag">한국어</span>
-                        <span class="tag">PDF</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/tokyo-kids" class="project-link" target="_blank" rel="noopener">구매하기 →</a>
-                </div>
-
-                <div class="project-card ebook-card">
-                    <h3>도쿄 여행 묶음: 도쿄 첫 여행 실전팩 + 근교 당일치기·1박 실전팩</h3>
-                    <p>한국어 PDF 2권 세트</p>
-                    <p class="ebook-price"><strong>₩19,900</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">여행</span>
-                        <span class="tag">묶음</span>
-                        <span class="tag">한국어</span>
-                    </div>
-                    <a href="https://teagarden5.gumroad.com/l/ufehcd" class="project-link" target="_blank" rel="noopener">구매하기 →</a>
-                </div>
-            </div>
-            <div class="ls-cta" style="justify-content:center;margin-top:2rem">
-                <a class="ls-btn ls-btn--primary" href="https://teagarden5.gumroad.com/" target="_blank" rel="noopener">전체 스토어 보기 / ストア一覧 →</a>
-                <a class="ls-btn ls-btn--ghost" href="tokushoho.html">特定商取引法に基づく表記 / 특정상거래법 표기</a>
-            </div>
-            <p class="tagline" style="font-size:.85rem;opacity:.6;text-align:center;margin-top:1rem">표시 가격 기준이며, checkout 시 세금이 추가될 수 있음 / 決済時に税が加算される場合があります</p>
-
-            <h2 id="services" style="margin-top:5rem" data-i18n="projects.services">서비스</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>레거시 앱 3중 봉쇄 진단</h3>
-                    <p>App Store Connect는 iOS 26 SDK 없이는 업로드를 거부합니다. Play 타겟 API 기한은 지났고(연장 신청 여지는 남아 있습니다), Firebase Dynamic Links는 종료됐습니다. 방치된 하이브리드 앱은 셋에 동시에 걸립니다. 진단 10곳 한정 무료. <strong>[모집 중]</strong></p>
-                    <div class="project-tags">
-                        <span class="tag">Consulting</span>
-                        <span class="tag">Cordova</span>
-                        <span class="tag">Capacitor</span>
-                        <span class="tag">딥링크</span>
-                        <span class="tag">한국어</span>
-                    </div>
-                    <a href="cordova.html" class="project-link">진단 신청 →</a>
-                </div>
-                <div class="project-card">
-                    <h3>Mobile Production Retainer</h3>
-                    <p>Monthly Ionic / Capacitor / Android WebView production support. Stabilizer $1,200/mo · Pilot $400.</p>
-                    <div class="project-tags">
-                        <span class="tag">Consulting</span>
-                        <span class="tag">Ionic</span>
-                        <span class="tag">Android</span>
-                    </div>
-                    <a href="retainer.html" class="project-link">Offer page →</a>
-                </div>
-                <div class="project-card">
-                    <h3>서비스·오퍼 카탈로그</h3>
-                    <p>진단부터 유지보수까지, 지금 팔고 있는 오퍼와 가격을 한 장에 모았습니다. 범위·제외 항목·응답 시간까지 문서로 확인하세요.</p>
-                    <div class="project-tags">
-                        <span class="tag">가격</span>
-                        <span class="tag">범위</span>
-                        <span class="tag">문서</span>
-                    </div>
-                    <a href="/sales/" class="project-link">서비스 보기 →</a>
-                    <a href="/offers/" class="project-link">오퍼 카탈로그 →</a>
-                </div>
-            </div>
-
-            <h2 id="tools" style="margin-top:5rem" data-i18n="projects.tools">무료 도구</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Color Picker</h3>
-                    <p>브라우저에서 바로 쓰는 색상 추출·변환 도구. 설치 없음.</p>
-                    <div class="project-tags">
-                        <span class="tag">Web</span>
-                        <span class="tag">UI/UX</span>
-                        <span class="tag">무료</span>
-                    </div>
-                    <a href="color-picker.html" class="project-link">도구 열기 →</a>
-                </div>
-                <div class="project-card">
-                    <h3>공개 검색 노출 범위</h3>
-                    <p>본인 이름, 회사, 주소를 넣어 그 글이 공개 검색에 어디까지 보이는지 확인합니다. 입력은 브라우저 안에만 있습니다.</p>
-                    <div class="project-tags">
-                        <span class="tag">Web</span>
-                        <span class="tag">검색</span>
-                        <span class="tag">무료</span>
-                    </div>
-                    <a href="public-search-exposure.html" class="project-link">도구 열기 →</a>
-                </div>
-                <div class="project-card">
-                    <h3>Micro SaaS 실험실</h3>
-                    <p>작게 만들어 빠르게 검증한 도구 모음. 살아남은 것만 위로 올립니다.</p>
-                    <div class="project-tags">
-                        <span class="tag">MVP</span>
-                        <span class="tag">실험</span>
-                    </div>
-                    <a href="micro-saas-mvps/" class="project-link">목록 보기 →</a>
-                </div>
-            </div>
-
-            <h2 id="archive" style="margin-top:5rem" data-i18n="projects.archive">아카이브</h2>
-            <p class="tagline" style="font-size:.95rem;opacity:.75;text-align:center" data-i18n="projects.archiveNote">판매·운영하지 않는 과거 작업입니다. 소스만 공개해 둡니다.</p>
-            <div class="skills">
-                <ul>
-                    <li><a href="https://github.com/Hwemo-Chung/gesture-color-picker-app">Gesture Color Picker App — 제스처 기반 색상 선택 (Android)</a></li>
-                    <li><a href="https://github.com/Hwemo-Chung/submarine-commander-game">Submarine Commander — 잠수함 지휘 시뮬레이션</a></li>
-                    <li><a href="https://github.com/Hwemo-Chung/news_collector_android">News Collector — 뉴스 수집·큐레이션 (Android)</a></li>
-                    <li><a href="https://github.com/Hwemo-Chung/news_poster">News Poster — 뉴스 포스팅 자동화</a></li>
-                    <li><a href="https://github.com/Hwemo-Chung/sumiwake-app-project">Sumiwake — 스미와케 관리 앱</a></li>
-                    <li><a href="https://github.com/Hwemo-Chung/media-organizer">Media Organizer — 미디어 파일 정리 도구</a></li>
-                    <li><a href="https://github.com/Hwemo-Chung/elder_tel">Elder Tel — 고령자용 간편 전화 앱</a></li>
-                    <li><a href="https://github.com/Hwemo-Chung/SecretClipDiary">Secret Clip Diary — 개인 클립보드 일기</a></li>
-                    <li><a href="https://childscreen.netlify.app/">Child Screen — 아동 스크린 타임 관리</a></li>
-                    <li><a href="https://github.com/Hwemo-Chung/Dice_Story">Dice Story — 주사위 스토리텔링 게임</a></li>
-                    <li><a href="https://github.com/Hwemo-Chung/for-soccer">For Soccer — 축구 정보 플랫폼</a></li>
-                </ul>
-            </div>
-
-            <h2 id="stack" style="margin-top:5rem" data-i18n="about.skills">Tech Stack</h2>
-            <div class="skills">
-                <ul>
-                    <li>실제 출하: Angular · Ionic · Capacitor · TypeScript · Node.js · Swift · AWS</li>
-                    <li>레거시 대응: Cordova · Android WebView · Firebase Dynamic Links 이전</li>
-                    <li>그 외 경험: React · Vue · Python · Java / Spring Boot · Kotlin · PostgreSQL · Docker</li>
+        <section class="band" id="tools">
+            <div class="wrap">
+                <div class="band-head"><h2>도구</h2><a href="/tools/">전체 보기</a></div>
+                <!-- TOOLS:START -->
+<ul class="tool-index" data-no-i18n>
+<li><a href="/tools/image-shrink/">이미지 용량 줄이기<span>사진</span></a></li>
+<li><a href="/tools/white-background/">상품 사진 흰 배경<span>사진</span></a></li>
+<li><a href="/tools/id-photo/">증명사진 만들기<span>사진</span></a></li>
+<li><a href="/tools/image-upscale/">사진 해상도 키우기<span>사진</span></a></li>
+<li><a href="/tools/brush-erase/">붓으로 잡티 지우기<span>사진</span></a></li>
+<li><a href="/tools/item-removal/">흩어진 물건만 지우기<span>사진</span></a></li>
+<li><a href="/tools/colorize-photo/">흑백 초상에 색 입히기<span>사진</span></a></li>
+<li><a href="/tools/logo-svg/">로고 SVG 변환<span>사진</span></a></li>
+<li><a href="/tools/wall-color/">벽 색 바꾸기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/day-to-dusk/">색 보정<span>집·상품 사진</span></a></li>
+<li><a href="/tools/room-stage/">빈 방에 가구 놓아 보기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/lifestyle-scene/">제품 연출 사진 만들기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/promo-template/">상품 홍보 카드 만들기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/thumb-card/">유튜브 썸네일 만들기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/shot-frame/">스크린샷 꾸미기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/device-mockup/">기기 목업 만들기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/silence-cut/">무음 구간 자르기<span>영상</span></a></li>
+<li><a href="/tools/vertical-clip/">세로 영상으로 자르기<span>영상</span></a></li>
+<li><a href="/tools/burned-captions/">영상에 자막 입히기<span>영상</span></a></li>
+<li><a href="/tools/video-cutout/">영상 배경 바꾸기<span>영상</span></a></li>
+<li><a href="/tools/waveform-video/">오디오 파형 영상<span>영상</span></a></li>
+<li><a href="/tools/vocal-split/">보컬 분리<span>소리</span></a></li>
+<li><a href="/tools/voice-denoise/">음성 잡음 제거<span>소리</span></a></li>
+<li><a href="/tools/subtitle-file/">자막 파일 만들기<span>자막</span></a></li>
+<li><a href="/tools/subtitle-translate/">자막 번역<span>자막</span></a></li>
+<li><a href="/tools/pdf-to-doc/">PDF를 Word 문서로 바꾸기<span>문서</span></a></li>
+<li><a href="/tools/statement-sheet/">통장 거래내역 엑셀로 옮기기<span>문서</span></a></li>
+<li><a href="/tools/receipt-line/">영수증 사진을 표로 정리하기<span>문서</span></a></li>
+<li><a href="/tools/page-shot/">웹페이지 전체 캡처<span>웹·개발</span></a></li>
+<li><a href="/tools/copilot-usage-monitor/">Copilot 사용량<span>웹·개발</span></a></li>
+</ul>
+<!-- TOOLS:END -->
+                <h3 class="group-title" style="margin-top:40px" data-i18n="projects.tools">무료 도구</h3>
+                <ul class="plain">
+                    <li><a href="color-picker.html">Color Picker</a><br>색을 고르고 HEX, RGB 같은 형식으로 바꾸는 브라우저 도구입니다.</li>
+                    <li><a href="public-search-exposure.html">공개 검색 노출 범위</a><br>이름, 회사, 주소를 넣으면 그 정보가 공개 검색에 어디까지 보이는지 확인합니다. 입력한 내용은 브라우저 밖으로 나가지 않습니다.</li>
+                    <li><a href="micro-saas-mvps/">Micro SaaS 실험실</a><br>작게 만들어 빨리 시험해 본 도구들입니다. 반응이 있던 것을 위에 둡니다.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="contact">
-            <h2 data-i18n="contact.title">Contact</h2>
-            <p data-i18n="contact.description">앱이 스토어에 못 올라가는 상태라면, 진단부터 시작하는 편이 빠릅니다</p>
-            <div class="ls-cta" style="justify-content:center">
-                <a class="ls-btn ls-btn--primary" href="/cordova.html" data-i18n="contact.ctaPrimary">무료 진단 신청 →</a>
-                <a class="ls-btn ls-btn--ghost" href="/sales/" data-i18n="contact.ctaSecondary">서비스와 가격 보기</a>
+        <section class="band" id="ebooks">
+            <div class="wrap">
+                <div class="band-head">
+                    <h2>전자책 / E-books</h2>
+                    <a href="https://teagarden5.gumroad.com/" target="_blank" rel="noopener">전체 스토어 보기 / ストア一覧</a>
+                </div>
+                <p class="band-note" style="margin-bottom:32px">Gumroad에서 결제하면 바로 PDF를 받습니다. / Gumroadで決済するとすぐにPDFをダウンロードできます。</p>
+
+                <h3 class="group-title" id="ebooks-ja" lang="ja">日本語 / 日本在住の方向け</h3>
+                <div class="shelf">
+                    <div class="book">
+                        <div class="cover type">AIコーディングエージェント完全版</div>
+                        <div class="body"><h3>AIコーディングエージェント完全版</h3><p>日本語 PDF · 99ページ · 1年アップデート保証</p>
+                        <div class="price"><strong>¥14,800</strong><a href="https://teagarden5.gumroad.com/l/xywavy" target="_blank" rel="noopener">購入する</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover type">Shorts・ブログ・SEO自動化 完全版</div>
+                        <div class="body"><h3>Shorts・ブログ・SEO自動化 完全版</h3><p>日本語 PDF · 99ページ · 1年アップデート保証</p>
+                        <div class="price"><strong>¥19,800</strong><a href="https://teagarden5.gumroad.com/l/dvvsq" target="_blank" rel="noopener">購入する</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="assets/images/ebooks/ai-work-guide-ja.jpg" alt="ChatGPT・Claude・Gemini 仕事で使う入門 2026：メール・議事録・資料・表計算をAIと一緒に 表紙" loading="lazy" width="800"></div>
+                        <div class="body"><h3>ChatGPT・Claude・Gemini 仕事で使う入門 2026</h3><p>日本語 PDF · 42ページ</p>
+                        <div class="price"><strong>¥14,800</strong><a href="https://teagarden5.gumroad.com/l/ai-work-ja" target="_blank" rel="noopener">購入する</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="assets/images/ebooks/automation-advanced-ja.jpg" alt="自動化処理 応用編（上級）1年間の購読 表紙" loading="lazy" width="800" height="450"></div>
+                        <div class="body"><h3>自動化処理 応用編（上級）1年間の購読</h3><p>日本語 · Gumroad メンバーシップ（年払い・自動更新）· 毎週1本、合計52本のレッスン（第1巻 PDF 104ページを含む）· 途中解約時は未提供分を比例返金</p>
+                        <a class="extra" href="https://teagarden5.gumroad.com/l/lsvdhw" target="_blank" rel="noopener">無料サンプル（8ページ）</a>
+                        <div class="price"><strong>¥100,000/年</strong><a href="https://teagarden5.gumroad.com/l/lfzanl" target="_blank" rel="noopener">購読する</a></div></div>
+                    </div>
+                </div>
+
+                <h3 class="group-title" id="ebooks-ko" lang="ko" style="margin-top:48px">한국어 / 한국 독자용</h3>
+                <div class="shelf">
+                    <div class="book">
+                        <div class="cover type">AI 코딩 에이전트 완전판</div>
+                        <div class="body"><h3>AI 코딩 에이전트 완전판</h3><p>한국어 PDF · 95쪽 · 1년 업데이트 보장</p>
+                        <div class="price"><strong>₩139,000</strong><a href="https://teagarden5.gumroad.com/l/cxhiny" target="_blank" rel="noopener">구매하기</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover type">Shorts·블로그·SEO 자동화 완전판</div>
+                        <div class="body"><h3>Shorts·블로그·SEO 자동화 완전판</h3><p>한국어 PDF · 94쪽 · 1년 업데이트 보장</p>
+                        <div class="price"><strong>₩169,000</strong><a href="https://teagarden5.gumroad.com/l/jbqeaw" target="_blank" rel="noopener">구매하기</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="assets/images/ebooks/ai-work-guide-ko.jpg" alt="ChatGPT·Claude·Gemini 업무 활용 입문 2026: 메일·회의록·문서·표 정리를 AI와 함께 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>ChatGPT·Claude·Gemini 업무 활용 입문 2026</h3><p>한국어 PDF · 42쪽</p>
+                        <div class="price"><strong>₩139,000</strong><a href="https://teagarden5.gumroad.com/l/ai-work-ko" target="_blank" rel="noopener">구매하기</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="assets/images/ebooks/automation-advanced-ko.jpg" alt="자동화 처리 응용편(고급) 1년 구독 표지" loading="lazy" width="800" height="450"></div>
+                        <div class="body"><h3>자동화 처리 응용편(고급) 1년 구독</h3><p>한국어 · Gumroad 멤버십(연 결제, 자동 갱신) · 매주 레슨 1개, 모두 52개(제1권 PDF 99쪽 포함) · 중도 해지 시 받지 못한 레슨만큼 비례 환불</p>
+                        <a class="extra" href="https://teagarden5.gumroad.com/l/udxhyj" target="_blank" rel="noopener">무료 샘플(8쪽)</a>
+                        <div class="price"><strong>₩1,000,000/년</strong><a href="https://teagarden5.gumroad.com/l/awnihs" target="_blank" rel="noopener">구독하기</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="assets/images/ebooks/tokyo-first-trip-pack.jpg" alt="도쿄 첫 여행 실전팩: 전철·짐·현금·예약 체크리스트 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>도쿄 첫 여행 실전팩: 전철·짐·현금·예약 체크리스트</h3><p>한국어 PDF · 27쪽</p>
+                        <div class="price"><strong>₩12,900</strong><a href="https://teagarden5.gumroad.com/l/zibxvl" target="_blank" rel="noopener">구매하기</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="assets/images/ebooks/tokyo-nearby-pack.jpg" alt="도쿄에서 당일치기·1박: 근교 여행 실전팩 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>도쿄에서 당일치기·1박: 근교 여행 실전팩</h3><p>한국어 PDF · 17쪽</p>
+                        <div class="price"><strong>₩9,900</strong><a href="https://teagarden5.gumroad.com/l/lbezhq" target="_blank" rel="noopener">구매하기</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="assets/images/ebooks/tokyo-autumn-2026.jpg" alt="도쿄 가을 단풍 여행 2026: 정원·은행나무길·다카오산 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>도쿄 가을 단풍 여행 2026: 정원·은행나무길·다카오산</h3><p>한국어 PDF · 36쪽</p>
+                        <div class="price"><strong>₩12,900</strong><a href="https://teagarden5.gumroad.com/l/mfhchf" target="_blank" rel="noopener">구매하기</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="assets/images/ebooks/tokyo-kids.jpg" alt="도쿄 아이와 함께 여행 실전팩: 유모차·수유실·키즈 명소·티켓 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>도쿄 아이와 함께 여행 실전팩: 유모차·수유실·키즈 명소·티켓</h3><p>한국어 PDF · 31쪽</p>
+                        <div class="price"><strong>₩12,900</strong><a href="https://teagarden5.gumroad.com/l/tokyo-kids" target="_blank" rel="noopener">구매하기</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover type">도쿄 여행 묶음: 도쿄 첫 여행 실전팩 + 근교 당일치기·1박 실전팩</div>
+                        <div class="body"><h3>도쿄 여행 묶음: 도쿄 첫 여행 실전팩 + 근교 당일치기·1박 실전팩</h3><p>한국어 PDF 2권 세트</p>
+                        <div class="price"><strong>₩19,900</strong><a href="https://teagarden5.gumroad.com/l/ufehcd" target="_blank" rel="noopener">구매하기</a></div></div>
+                    </div>
+                </div>
+                <p class="band-note" style="margin-top:24px">결제할 때 세금이 더해질 수 있습니다. / 決済時に税が加算される場合があります · <a href="tokushoho.html">特定商取引法に基づく表記 / 특정상거래법 표기</a></p>
             </div>
-            <p>Email: <a href="mailto:tolaria@naver.com">tolaria@naver.com</a></p>
-            <p>GitHub: <a href="https://github.com/Hwemo-Chung">@Hwemo-Chung</a></p>
+        </section>
+
+        <section class="band" id="services">
+            <div class="wrap">
+                <div class="band-head"><h2 data-i18n="projects.services">서비스</h2></div>
+                <div class="rows">
+                    <div class="row-item">
+                        <div><h3>레거시 하이브리드 앱 진단</h3><span class="badge">모집 중</span></div>
+                        <p>App Store Connect는 iOS 26 SDK로 빌드하지 않은 앱을 받지 않습니다. Play 타깃 API 기한은 지났지만 연장 신청은 아직 할 수 있고, Firebase Dynamic Links는 종료됐습니다. 오래 손대지 않은 하이브리드 앱은 셋 모두에 걸립니다. 10곳까지 무료로 진단합니다.</p>
+                        <div class="links"><a href="cordova.html">진단 신청</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>Mobile Production Retainer</h3></div>
+                        <p>Monthly production support for Ionic, Capacitor and Android WebView apps. Stabilizer is $1,200 a month; a Pilot month is $400.</p>
+                        <div class="links"><a href="retainer.html">Offer page</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>서비스·오퍼 카탈로그</h3></div>
+                        <p>진단부터 유지보수까지 지금 받는 일과 가격을 한곳에 정리했습니다. 작업 범위, 제외 항목, 응답 시간도 적어 두었습니다.</p>
+                        <div class="links"><a href="/sales/">서비스 보기</a><a href="/offers/">오퍼 카탈로그</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="band" id="archive">
+            <div class="wrap">
+                <div class="band-head"><h2 data-i18n="projects.archive">아카이브</h2><p data-i18n="projects.archiveNote">지금은 팔거나 운영하지 않는 예전 작업입니다. 소스 코드만 공개합니다.</p></div>
+                <ul class="plain">
+                    <li><a href="https://github.com/Hwemo-Chung/gesture-color-picker-app">Gesture Color Picker App</a> 제스처 기반 색상 선택 (Android)</li>
+                    <li><a href="https://github.com/Hwemo-Chung/submarine-commander-game">Submarine Commander</a> 잠수함 지휘 시뮬레이션</li>
+                    <li><a href="https://github.com/Hwemo-Chung/news_collector_android">News Collector</a> 뉴스 수집·큐레이션 (Android)</li>
+                    <li><a href="https://github.com/Hwemo-Chung/news_poster">News Poster</a> 뉴스 포스팅 자동화</li>
+                    <li><a href="https://github.com/Hwemo-Chung/sumiwake-app-project">Sumiwake</a> 스미와케 관리 앱</li>
+                    <li><a href="https://github.com/Hwemo-Chung/media-organizer">Media Organizer</a> 미디어 파일 정리 도구</li>
+                    <li><a href="https://github.com/Hwemo-Chung/elder_tel">Elder Tel</a> 고령자용 간편 전화 앱</li>
+                    <li><a href="https://github.com/Hwemo-Chung/SecretClipDiary">Secret Clip Diary</a> 개인 클립보드 일기</li>
+                    <li><a href="https://childscreen.netlify.app/">Child Screen</a> 아동 스크린 타임 관리</li>
+                    <li><a href="https://github.com/Hwemo-Chung/Dice_Story">Dice Story</a> 주사위 스토리텔링 게임</li>
+                    <li><a href="https://github.com/Hwemo-Chung/for-soccer">For Soccer</a> 축구 정보 플랫폼</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="band" id="stack">
+            <div class="wrap">
+                <div class="band-head"><h2 data-i18n="about.skills">Tech Stack</h2></div>
+                <ul class="stack">
+                    <li>출시해 운영한 기술: Angular, Ionic, Capacitor, TypeScript, Node.js, Swift, AWS</li>
+                    <li>레거시 작업: Cordova, Android WebView, Firebase Dynamic Links 이전</li>
+                    <li>그 밖에 써 본 기술: React, Vue, Python, Java/Spring Boot, Kotlin, PostgreSQL, Docker</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="dark" id="contact">
+            <div class="wrap">
+                <h2 data-i18n="contact.title">연락</h2>
+                <p data-i18n="contact.description">스토어 업로드가 막혔다면 진단부터 받아 보세요.</p>
+                <div class="cta">
+                    <a class="btn" href="/cordova.html" data-i18n="contact.ctaPrimary">무료 진단 신청</a>
+                    <a class="btn ghost" href="/sales/" data-i18n="contact.ctaSecondary">서비스와 가격 보기</a>
+                </div>
+                <div class="contact-lines">
+                    <div>Email: <a href="mailto:tolaria@naver.com">tolaria@naver.com</a></div>
+                    <div>GitHub: <a href="https://github.com/Hwemo-Chung">@Hwemo-Chung</a></div>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -542,6 +413,7 @@
             <a href="/cordova.html" data-i18n="nav.diagnosis">진단</a>
             <a href="/retainer.html" data-i18n="nav.retainer">유지보수</a>
             <a href="/threads-analyzer.html" data-i18n="nav.threads">스레드</a>
+            <a href="/tools/">도구</a>
             <a href="/pp.html" data-i18n="footer.privacy">개인정보처리방침</a>
             <a href="/tokushoho.html">特定商取引法に基づく表記</a>
             <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>

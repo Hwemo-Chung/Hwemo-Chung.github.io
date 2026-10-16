@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advertisements - Lumos</title>
+    <title>광고 요금제 | Lumos</title>
 
-    <meta name="description" content="Lumos 광고 서비스 - 효과적인 광고 솔루션">
+    <meta name="description" content="Lumos 광고 요금제입니다. Basic은 월 ₩99,000에 월 1,000회 노출, Professional은 월 ₩299,000에 월 5,000회 노출, Enterprise는 맞춤 견적입니다.">
     <meta name="keywords" content="광고, 마케팅, 디지털 광고, 온라인 광고">
     <meta name="author" content="Hwemo Chung">
 
-    <meta property="og:title" content="Lumos - 광고 서비스">
-    <meta property="og:description" content="효과적인 광고 솔루션을 제공합니다">
+    <meta property="og:title" content="Lumos 광고 요금제">
+    <meta property="og:description" content="월 노출 수에 따라 세 가지 요금제가 있습니다. 문의는 메일로 받습니다.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hwemo-chung.github.io/ads.html">
     <link rel="canonical" href="https://hwemo-chung.github.io/ads.html">
@@ -20,161 +20,15 @@
     <link rel="stylesheet" href="sales/components.css">
     
     <style>
-        .ads-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .ads-hero {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: var(--ls-bg-elevated);
-            color: var(--ls-text);
-            border: 1px solid var(--ls-border);
-            border-radius: var(--ls-radius);
-            margin-bottom: 3rem;
-        }
-        
-        .ads-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .ads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .ad-card {
-            background: var(--ls-card);
-            border: 1px solid var(--ls-border);
-            border-radius: var(--ls-radius);
-            padding: 2rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .ad-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--ls-border-strong);
-        }
-        
-        .ad-card h3 {
-            color: var(--ls-text);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .ad-card p {
-            color: var(--ls-muted);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        .ad-price {
-            font-size: 1.8rem;
-            color: var(--ls-text);
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        .ad-period {
-            color: var(--ls-muted);
-            font-size: 0.9rem;
-        }
-        
-        .ad-features {
-            list-style: none;
-            padding: 0;
-            margin: 1.5rem 0;
-        }
-        
-        .ad-features li {
-            padding: 0.5rem 0;
-            color: var(--ls-muted);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        
-        .ad-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--ls-ok);
-        }
-        
-        .ad-btn {
-            display: inline-block;
-            background: var(--ls-accent);
-            color: var(--ls-accent-ink);
-            padding: 0.8rem 2rem;
-            border-radius: var(--ls-radius-sm);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            text-align: center;
-            width: 100%;
-        }
-        
-        .ad-btn:hover {
-            filter: brightness(1.06);
-        }
-        
-        .contact-section {
-            background: var(--ls-card);
-            border: 1px solid var(--ls-border);
-            border-radius: var(--ls-radius);
-            padding: 3rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
-        .contact-section h2 {
-            color: var(--ls-text);
-            margin-bottom: 1.5rem;
-        }
-        
-        .back-home {
-            display: inline-block;
-            margin: 2rem 0;
-            color: var(--ls-link);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .back-home:hover {
-            color: var(--ls-link-hover);
-            transform: translateX(-5px);
-        }
-        
-        .back-home::before {
-            content: "← ";
-        }
-
+        .ads-plans td div + div { margin-top: 2px; }
+        .ads-plans td:nth-child(2) { white-space: nowrap; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        
         @keyframes fadeOut {
-            from { opacity: 1; transform: translateY(0); }
-            to { opacity: 0; transform: translateY(-10px); }
-        }
-        
-        @media (max-width: 768px) {
-            .ads-hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .ads-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .ad-card {
-                padding: 1.5rem;
-            }
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
     </style>
 
@@ -188,9 +42,12 @@
   <link rel="stylesheet" href="sales/site-unified.css" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
         crossorigin="anonymous"></script>
+    <meta property="og:site_name" content="Lumos">
+    <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="ls page-ads">
+<body class="ls">
     <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
     <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
         <div class="ls-nav__inner">
@@ -213,75 +70,60 @@
         </div>
     </div>
 
-    <main id="main">
-        <div class="ads-container">
-            <a href="index.html" class="back-home" data-i18n="ads.back">홈으로 돌아가기</a>
-            
-            <div class="ads-hero">
-                <h1 data-i18n="ads.title">광고 서비스</h1>
-                <p data-i18n="ads.subtitle">귀하의 비즈니스를 위한 효과적인 광고 솔루션</p>
-            </div>
+    <main id="main" class="ls-wrap">
+        <h1 data-i18n="ads.title">광고 요금제</h1>
+        <p class="ls-lead" data-i18n="ads.subtitle">월 노출 수에 따라 세 가지 요금제가 있습니다. 원하는 요금제를 정해 메일로 문의해 주세요.</p>
 
-            <div class="ads-grid">
-                <div class="ad-card">
-                    <h3 data-i18n="ads.basic.title">Basic Plan</h3>
-                    <p data-i18n="ads.basic.desc">소규모 비즈니스를 위한 기본 광고 패키지</p>
-                    <div class="ad-price">₩99,000</div>
-                    <div class="ad-period" data-i18n="ads.period.month">/월</div>
-                    <ul class="ad-features">
-                        <li data-i18n="ads.basic.feature1">월 1,000회 노출</li>
-                        <li data-i18n="ads.basic.feature2">기본 분석 리포트</li>
-                        <li data-i18n="ads.basic.feature3">이메일 지원</li>
-                    </ul>
-                    <a href="mailto:tolaria@naver.com?subject=Basic Plan 문의" class="ad-btn" data-i18n="ads.cta">문의하기</a>
-                </div>
-
-                <div class="ad-card">
-                    <h3 data-i18n="ads.pro.title">Professional Plan</h3>
-                    <p data-i18n="ads.pro.desc">성장하는 비즈니스를 위한 프로 패키지</p>
-                    <div class="ad-price">₩299,000</div>
-                    <div class="ad-period" data-i18n="ads.period.month">/월</div>
-                    <ul class="ad-features">
-                        <li data-i18n="ads.pro.feature1">월 5,000회 노출</li>
-                        <li data-i18n="ads.pro.feature2">상세 분석 리포트</li>
-                        <li data-i18n="ads.pro.feature3">A/B 테스팅</li>
-                        <li data-i18n="ads.pro.feature4">전담 매니저 지원</li>
-                    </ul>
-                    <a href="mailto:tolaria@naver.com?subject=Professional Plan 문의" class="ad-btn" data-i18n="ads.cta">문의하기</a>
-                </div>
-
-                <div class="ad-card">
-                    <h3 data-i18n="ads.enterprise.title">Enterprise Plan</h3>
-                    <p data-i18n="ads.enterprise.desc">대규모 비즈니스를 위한 맞춤형 솔루션</p>
-                    <div class="ad-price" data-i18n="ads.enterprise.price">맞춤 견적</div>
-                    <div class="ad-period" data-i18n="ads.enterprise.contact">상담 필요</div>
-                    <ul class="ad-features">
-                        <li data-i18n="ads.enterprise.feature1">무제한 노출</li>
-                        <li data-i18n="ads.enterprise.feature2">실시간 분석 대시보드</li>
-                        <li data-i18n="ads.enterprise.feature3">맞춤형 광고 전략</li>
-                        <li data-i18n="ads.enterprise.feature4">24/7 프리미엄 지원</li>
-                        <li data-i18n="ads.enterprise.feature5">전용 API 제공</li>
-                    </ul>
-                    <a href="mailto:tolaria@naver.com?subject=Enterprise Plan 문의" class="ad-btn" data-i18n="ads.cta">문의하기</a>
-                </div>
-            </div>
-
-            <div class="contact-section">
-                <h2 data-i18n="ads.contact.title">광고 문의</h2>
-                <p data-i18n="ads.contact.desc">귀하의 비즈니스 목표에 맞는 최적의 광고 솔루션을 제공합니다.</p>
-                <div class="contact-box">
-                    <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">
-                        <span data-i18n="ads.contact.email">Email: </span>
-                        <span id="email-copy">tolaria@naver.com</span>
-                    </p>
-                    <p data-i18n="ads.contact.phone">전화 상담을 원하시면 이메일로 연락 주세요.</p>
-                    <div id="copy-notification" style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); background: #4CAF50; color: white; padding: 8px 16px; border-radius: 5px; display: none; font-size: 14px; white-space: nowrap;">
-                        <span data-i18n="ads.contact.copied">이메일 주소가 복사되었습니다!</span>
-                    </div>
-                </div>
-                <p class="ls-fine" data-i18n="ads.contact.hours">업무시간: 평일 09:00 - 18:00 (KST)</p>
-            </div>
+        <div class="ls-table-scroll">
+            <table class="ls-table ads-plans">
+                <thead>
+                    <tr><th>요금제</th><th>월 비용</th><th>노출</th><th>포함</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong data-i18n="ads.basic.title">Basic Plan</strong><div data-i18n="ads.basic.desc">소규모 사업자용 기본 요금제</div></td>
+                        <td>₩99,000<span data-i18n="ads.period.month">/월</span></td>
+                        <td data-i18n="ads.basic.feature1">월 1,000회 노출</td>
+                        <td>
+                            <div data-i18n="ads.basic.feature2">기본 분석 리포트</div>
+                            <div data-i18n="ads.basic.feature3">이메일 지원</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="ads.pro.title">Professional Plan</strong><div data-i18n="ads.pro.desc">규모가 커지는 사업자용</div></td>
+                        <td>₩299,000<span data-i18n="ads.period.month">/월</span></td>
+                        <td data-i18n="ads.pro.feature1">월 5,000회 노출</td>
+                        <td>
+                            <div data-i18n="ads.pro.feature2">상세 분석 리포트</div>
+                            <div data-i18n="ads.pro.feature3">A/B 테스트</div>
+                            <div data-i18n="ads.pro.feature4">전담 매니저</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong data-i18n="ads.enterprise.title">Enterprise Plan</strong><div data-i18n="ads.enterprise.desc">대규모 사업자용, 조건은 협의해 정합니다</div></td>
+                        <td><span data-i18n="ads.enterprise.price">맞춤 견적</span><div data-i18n="ads.enterprise.contact">상담 후 결정</div></td>
+                        <td data-i18n="ads.enterprise.feature1">무제한 노출</td>
+                        <td>
+                            <div data-i18n="ads.enterprise.feature2">실시간 분석 대시보드</div>
+                            <div data-i18n="ads.enterprise.feature3">맞춤 광고 전략</div>
+                            <div data-i18n="ads.enterprise.feature4">24시간 연중무휴 지원</div>
+                            <div data-i18n="ads.enterprise.feature5">전용 API</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
+        <h2 data-i18n="ads.contact.title">문의</h2>
+        <p data-i18n="ads.contact.desc">요금제, 광고할 내용, 희망 시작일을 적어 보내 주세요.</p>
+        <div class="ls-cta">
+            <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EA%B4%91%EA%B3%A0%20%EB%AC%B8%EC%9D%98&amp;body=%EC%9A%94%EA%B8%88%EC%A0%9C%28Basic%20/%20Professional%20/%20Enterprise%29%3A%0A%EA%B4%91%EA%B3%A0%ED%95%A0%20%EB%82%B4%EC%9A%A9%3A%0A%ED%9D%AC%EB%A7%9D%20%EC%8B%9C%EC%9E%91%EC%9D%BC%3A%0A" data-i18n="ads.cta">광고 문의 메일 보내기</a>
+            <button class="ls-btn" type="button" id="email-copy">메일 주소 복사</button>
+        </div>
+        <p role="status" aria-live="polite" class="ls-fine"><span id="copy-notification" style="display:none" data-i18n="ads.contact.copied">메일 주소를 복사했습니다.</span></p>
+        <p><span data-i18n="ads.contact.email">메일: </span><a href="mailto:tolaria@naver.com">tolaria@naver.com</a></p>
+        <p data-i18n="ads.contact.phone">전화 상담을 원하시면 먼저 메일로 연락해 주세요.</p>
+        <p class="ls-fine" data-i18n="ads.contact.hours">업무 시간: 평일 09:00~18:00 (KST)</p>
     </main>
 
     <footer class="ls-foot">
@@ -309,46 +151,45 @@
                     privacy: "개인정보처리방침"
                 },
                 ads: {
-                    back: "홈으로 돌아가기",
-                    title: "광고 서비스",
-                    subtitle: "귀하의 비즈니스를 위한 효과적인 광고 솔루션",
+                    title: "광고 요금제",
+                    subtitle: "월 노출 수에 따라 세 가지 요금제가 있습니다. 원하는 요금제를 정해 메일로 문의해 주세요.",
                     basic: {
                         title: "Basic Plan",
-                        desc: "소규모 비즈니스를 위한 기본 광고 패키지",
+                        desc: "소규모 사업자용 기본 요금제",
                         feature1: "월 1,000회 노출",
                         feature2: "기본 분석 리포트",
                         feature3: "이메일 지원"
                     },
                     pro: {
                         title: "Professional Plan",
-                        desc: "성장하는 비즈니스를 위한 프로 패키지",
+                        desc: "규모가 커지는 사업자용",
                         feature1: "월 5,000회 노출",
                         feature2: "상세 분석 리포트",
-                        feature3: "A/B 테스팅",
-                        feature4: "전담 매니저 지원"
+                        feature3: "A/B 테스트",
+                        feature4: "전담 매니저"
                     },
                     enterprise: {
                         title: "Enterprise Plan",
-                        desc: "대규모 비즈니스를 위한 맞춤형 솔루션",
+                        desc: "대규모 사업자용, 조건은 협의해 정합니다",
                         price: "맞춤 견적",
-                        contact: "상담 필요",
+                        contact: "상담 후 결정",
                         feature1: "무제한 노출",
                         feature2: "실시간 분석 대시보드",
-                        feature3: "맞춤형 광고 전략",
-                        feature4: "24/7 프리미엄 지원",
-                        feature5: "전용 API 제공"
+                        feature3: "맞춤 광고 전략",
+                        feature4: "24시간 연중무휴 지원",
+                        feature5: "전용 API"
                     },
                     period: {
                         month: "/월"
                     },
-                    cta: "문의하기",
+                    cta: "광고 문의 메일 보내기",
                     contact: {
-                        title: "광고 문의",
-                        desc: "귀하의 비즈니스 목표에 맞는 최적의 광고 솔루션을 제공합니다.",
-                        email: "Email: ",
-                        phone: "전화 상담을 원하시면 이메일로 연락 주세요.",
-                        hours: "업무시간: 평일 09:00 - 18:00 (KST)",
-                        copied: "이메일 주소가 복사되었습니다!"
+                        title: "문의",
+                        desc: "요금제, 광고할 내용, 희망 시작일을 적어 보내 주세요.",
+                        email: "메일: ",
+                        phone: "전화 상담을 원하시면 먼저 메일로 연락해 주세요.",
+                        hours: "업무 시간: 평일 09:00~18:00 (KST)",
+                        copied: "메일 주소를 복사했습니다."
                     }
                 }
             },
@@ -361,46 +202,45 @@
                     privacy: "Privacy Policy"
                 },
                 ads: {
-                    back: "Back to Home",
-                    title: "Advertising Services",
-                    subtitle: "Effective advertising solutions for your business",
+                    title: "Advertising plans",
+                    subtitle: "Three plans, priced by monthly impressions. Pick one and send an email.",
                     basic: {
                         title: "Basic Plan",
-                        desc: "Basic advertising package for small businesses",
+                        desc: "Entry plan for small businesses",
                         feature1: "1,000 impressions/month",
                         feature2: "Basic analytics report",
                         feature3: "Email support"
                     },
                     pro: {
                         title: "Professional Plan",
-                        desc: "Pro package for growing businesses",
+                        desc: "For growing businesses",
                         feature1: "5,000 impressions/month",
                         feature2: "Detailed analytics report",
                         feature3: "A/B testing",
-                        feature4: "Dedicated manager support"
+                        feature4: "Dedicated manager"
                     },
                     enterprise: {
                         title: "Enterprise Plan",
-                        desc: "Custom solutions for large businesses",
-                        price: "Custom Quote",
-                        contact: "Contact Required",
+                        desc: "For large businesses, terms agreed case by case",
+                        price: "Custom quote",
+                        contact: "Set after a consultation",
                         feature1: "Unlimited impressions",
                         feature2: "Real-time analytics dashboard",
-                        feature3: "Custom advertising strategy",
-                        feature4: "24/7 premium support",
-                        feature5: "Dedicated API access"
+                        feature3: "Custom ad strategy",
+                        feature4: "24/7 support",
+                        feature5: "Dedicated API"
                     },
                     period: {
                         month: "/month"
                     },
-                    cta: "Contact Us",
+                    cta: "Email about advertising",
                     contact: {
-                        title: "Contact Us",
-                        desc: "We provide optimal advertising solutions tailored to your business goals.",
+                        title: "Contact",
+                        desc: "Tell me the plan, what you want to advertise and when you want to start.",
                         email: "Email: ",
-                        phone: "For phone consultation, please contact us via email.",
-                        hours: "Business Hours: Weekdays 09:00 - 18:00 (KST)",
-                        copied: "Email address copied!"
+                        phone: "If you prefer a phone call, email first to set it up.",
+                        hours: "Hours: weekdays 09:00-18:00 (KST)",
+                        copied: "Email address copied."
                     }
                 }
             },
@@ -413,46 +253,45 @@
                     privacy: "プライバシーポリシー"
                 },
                 ads: {
-                    back: "ホームに戻る",
-                    title: "広告サービス",
-                    subtitle: "あなたのビジネスのための効果的な広告ソリューション",
+                    title: "広告プラン",
+                    subtitle: "月間表示回数に応じて3つのプランがあります。プランを決めてメールでお問い合わせください。",
                     basic: {
                         title: "ベーシックプラン",
-                        desc: "小規模ビジネス向けの基本広告パッケージ",
+                        desc: "小規模事業者向けの基本プラン",
                         feature1: "月間1,000回表示",
                         feature2: "基本分析レポート",
                         feature3: "メールサポート"
                     },
                     pro: {
                         title: "プロフェッショナルプラン",
-                        desc: "成長ビジネス向けのプロパッケージ",
+                        desc: "成長中の事業者向け",
                         feature1: "月間5,000回表示",
                         feature2: "詳細分析レポート",
                         feature3: "A/Bテスト",
-                        feature4: "専任マネージャーサポート"
+                        feature4: "専任マネージャー"
                     },
                     enterprise: {
                         title: "エンタープライズプラン",
-                        desc: "大規模ビジネス向けのカスタムソリューション",
-                        price: "カスタム見積もり",
-                        contact: "相談必要",
+                        desc: "大規模事業者向け。条件は個別に相談して決めます",
+                        price: "個別見積もり",
+                        contact: "相談のうえ決定",
                         feature1: "無制限表示",
                         feature2: "リアルタイム分析ダッシュボード",
-                        feature3: "カスタム広告戦略",
-                        feature4: "24/7プレミアムサポート",
-                        feature5: "専用API提供"
+                        feature3: "広告戦略のカスタマイズ",
+                        feature4: "24時間365日サポート",
+                        feature5: "専用API"
                     },
                     period: {
                         month: "/月"
                     },
-                    cta: "お問い合わせ",
+                    cta: "広告についてメールする",
                     contact: {
                         title: "お問い合わせ",
-                        desc: "お客様のビジネス目標に合わせた最適な広告ソリューションを提供します。",
+                        desc: "プラン、広告の内容、開始希望日を書いてお送りください。",
                         email: "メール: ",
-                        phone: "電話相談をご希望の場合は、メールでご連絡ください。",
-                        hours: "営業時間: 平日 09:00 - 18:00 (JST)",
-                        copied: "メールアドレスがコピーされました！"
+                        phone: "電話での相談をご希望の場合も、まずメールでご連絡ください。",
+                        hours: "営業時間: 平日 09:00〜18:00 (JST)",
+                        copied: "メールアドレスをコピーしました。"
                     }
                 }
             }

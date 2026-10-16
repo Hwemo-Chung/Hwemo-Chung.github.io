@@ -1,5 +1,0 @@
-:HL["/tools/receipt-line/_next/static/chunks/06zvrm1bm44gz.css","style"]
-:HL["/tools/receipt-line/_next/static/chunks/1k4bt9y-so9-p.css","style"]
-2:[["children",{"s":"__PAGE__","h":160}]]
-1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"Gu234QQk4GVo0Bh2_ZIIo","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

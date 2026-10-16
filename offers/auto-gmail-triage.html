@@ -3,19 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gmail 라벨·보관 자동화 — Lumos Deep</title>
-  <meta name="description" content="규칙 기반 분류 + 일 1회 크론 정리 (Apps Script / TS) · ₩200,000 ~ ₩600,000 · 3~7영업일" />
+  <title>Gmail 라벨·보관 자동화 | Lumos</title>
+  <meta name="description" content="규칙에 따라 Gmail 메일에 라벨을 붙이고, 하루 한 번 보관과 정리를 자동으로 합니다. 가격 ₩200,000 ~ ₩600,000, 납기 3~7영업일." />
   <link rel="canonical" href="https://hwemo-chung.github.io/offers/auto-gmail-triage.html" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="stylesheet" href="../sales/tokens.css" />
   <link rel="stylesheet" href="../sales/components.css" />
   <link rel="stylesheet" href="../sales/product-extras.css" />
   <link rel="stylesheet" href="../sales/site-unified.css" />
-  <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","@id":"https://hwemo-chung.github.io/offers/auto-gmail-triage.html#service","name":"Gmail 라벨·보관 자동화","alternateName":"Gmail Triage Bot","serviceType":"Workflow automation","description":"규칙 기반 분류 + 일 1회 크론 정리 (Apps Script / TS)","disambiguatingDescription":"수신 메일을 라벨·보관·스프레드시트 로그로 정리합니다. 완전 AI 분류가 아니라 규칙+선택적 LLM 보조로 비용을 통제합니다.","url":"https://hwemo-chung.github.io/offers/auto-gmail-triage.html","provider":{"@id":"https://hwemo-chung.github.io/#person"},"offers":{"@type":"Offer","url":"https://hwemo-chung.github.io/offers/auto-gmail-triage.html","availability":"https://schema.org/InStock","deliveryLeadTime":"3~7영업일","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"KRW","minPrice":200000,"maxPrice":600000},"additionalProperty":[{"@type":"PropertyValue","name":"requiredInput","value":"대상 Gmail(Workspace 가능 여부) + 규칙 초안"}]},"serviceOutput":[{"@type":"Thing","name":"라벨 규칙 세트"},{"@type":"Thing","name":"시간 트리거(크론) 정리 잡"},{"@type":"Thing","name":"처리 로그 시트"},{"@type":"Thing","name":"오분류 예외 목록"}],"potentialAction":{"@type":"OrderAction","name":"메일로 견적 문의","target":{"@type":"EntryPoint","urlTemplate":"mailto:tolaria@naver.com?subject=Gmail%20%EB%9D%BC%EB%B2%A8%C2%B7%EB%B3%B4%EA%B4%80%20%EC%9E%90%EB%8F%99%ED%99%94%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20Gmail%20Triage%20Bot%20/%20Gmail%20%EB%9D%BC%EB%B2%A8%C2%B7%EB%B3%B4%EA%B4%80%20%EC%9E%90%EB%8F%99%ED%99%94%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/auto-gmail-triage.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A"}}}
-  </script>
+  <style>.facts{min-width:0}.facts th{width:7.5rem;white-space:nowrap}.facts .ls-price{font-size:17px}</style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
         crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","@id":"https://hwemo-chung.github.io/offers/auto-gmail-triage.html#service","name":"Gmail 라벨·보관 자동화","alternateName":"Gmail Triage Bot","serviceType":"Workflow automation","description":"규칙에 따라 Gmail 메일에 라벨을 붙이고, 하루 한 번 보관과 정리를 자동으로 합니다.","disambiguatingDescription":"Apps Script나 TypeScript로 받은 메일을 라벨, 보관, 스프레드시트 기록으로 나눕니다. 분류는 규칙으로 하고 필요할 때만 LLM을 보조로 써서 비용이 늘지 않게 합니다.","url":"https://hwemo-chung.github.io/offers/auto-gmail-triage.html","provider":{"@id":"https://hwemo-chung.github.io/#person"},"offers":{"@type":"Offer","url":"https://hwemo-chung.github.io/offers/auto-gmail-triage.html","availability":"https://schema.org/InStock","deliveryLeadTime":"3~7영업일","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"KRW","minPrice":200000,"maxPrice":600000},"additionalProperty":[{"@type":"PropertyValue","name":"requiredInput","value":"대상 Gmail 계정(Workspace 사용 여부 포함)과 규칙 초안"}]},"serviceOutput":[{"@type":"Thing","name":"라벨 규칙 세트"},{"@type":"Thing","name":"하루 한 번 도는 정리 작업"},{"@type":"Thing","name":"처리 기록 시트"},{"@type":"Thing","name":"잘못 분류된 메일을 위한 예외 목록"}],"potentialAction":{"@type":"OrderAction","name":"메일로 견적 문의","target":{"@type":"EntryPoint","urlTemplate":"mailto:tolaria@naver.com?subject=Gmail%20%EB%9D%BC%EB%B2%A8%C2%B7%EB%B3%B4%EA%B4%80%20%EC%9E%90%EB%8F%99%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=%EC%83%81%ED%92%88%3A%20Gmail%20Triage%20Bot%20/%20Gmail%20%EB%9D%BC%EB%B2%A8%C2%B7%EB%B3%B4%EA%B4%80%20%EC%9E%90%EB%8F%99%ED%99%94%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/auto-gmail-triage.html%0A%0A%ED%9A%8C%EC%82%AC%3A%0A%EC%A0%80%EC%9E%A5%EC%86%8C/%EC%8A%A4%ED%83%9D%3A%0A%EB%AC%B8%EC%A0%9C%3A%0A%ED%9D%AC%EB%A7%9D%20%EC%9D%BC%EC%A0%95%3A%0A%EC%98%88%EC%82%B0%3A%0A"}}}
+  </script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lumos">
+  <meta property="og:title" content="Gmail 라벨·보관 자동화 | Lumos">
+  <meta property="og:description" content="규칙에 따라 Gmail 메일에 라벨을 붙이고, 하루 한 번 보관과 정리를 자동으로 합니다. 가격 ₩200,000 ~ ₩600,000, 납기 3~7영업일.">
+  <meta property="og:url" content="https://hwemo-chung.github.io/offers/auto-gmail-triage.html">
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="ls">
   <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
@@ -33,40 +41,22 @@
     </div>
   </nav>
   <main id="main" class="ls-wrap">
-    <div class="ls-badge-row">
-      <span class="ls-badge ls-badge--ok"><span class="ls-badge__dot"></span> 자동화 · Angular/TS/Cron</span>
-      <span class="ls-badge">auto-gmail-triage</span>
-    </div>
-    <p class="ls-kicker">Gmail Triage Bot</p>
     <h1>Gmail 라벨·보관 자동화</h1>
-    <p class="ls-lead">규칙 기반 분류 + 일 1회 크론 정리 (Apps Script / TS)</p>
-    <p>수신 메일을 라벨·보관·스프레드시트 로그로 정리합니다. 완전 AI 분류가 아니라 규칙+선택적 LLM 보조로 비용을 통제합니다.</p>
-    
-    <div class="ls-grid ls-grid--2">
-      <article class="ls-card ls-card--featured">
-        <span class="ls-card__tag">가격</span>
-        <div class="ls-price">₩200,000 ~ ₩600,000</div>
-        <p class="ls-fine">납기: 3~7영업일 · 입금 후 착수</p>
-      </article>
-      <article class="ls-card">
-        <strong class="ls-card__title">필요 자료</strong>
-        <p class="ls-muted" style="margin:0">대상 Gmail(Workspace 가능 여부) + 규칙 초안</p>
-      </article>
-    </div>
-    <h2>납품물</h2>
-    <ul class="ls-trust"><li>라벨 규칙 세트</li><li>시간 트리거(크론) 정리 잡</li><li>처리 로그 시트</li><li>오분류 예외 목록</li></ul>
-    <h2>예시</h2><ul class="ls-dash"><li>청구서/영수증 분리</li><li>채용 메일 라벨</li><li>고객 도메인별 분류</li></ul>
-    <h2>시장 포지션</h2>
-    <p class="ls-muted">개인/SMB 생산성 자동화. 구독보다 구축비 선호 구간.</p>
-    <div class="ls-out">
-      <p><strong>제외:</strong> 전량 구현 보증 없이 범위 무한 확장, 침투 테스트 전체, 인프라 전면 재구축.
-      구현 스프린트는 별도 SOW.</p>
-    </div>
-    <div class="ls-cta">
-      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=Gmail%20%EB%9D%BC%EB%B2%A8%C2%B7%EB%B3%B4%EA%B4%80%20%EC%9E%90%EB%8F%99%ED%99%94%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20Gmail%20Triage%20Bot%20/%20Gmail%20%EB%9D%BC%EB%B2%A8%C2%B7%EB%B3%B4%EA%B4%80%20%EC%9E%90%EB%8F%99%ED%99%94%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/auto-gmail-triage.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A">메일로 심화 견적 문의</a>
-      
-      <a class="ls-btn ls-btn--ghost" href="index.html#deep">심화 목록</a>
-    </div>
+    <p class="ls-lead">규칙에 따라 Gmail 메일에 라벨을 붙이고, 하루 한 번 보관과 정리를 자동으로 합니다.</p>
+    <p>Apps Script나 TypeScript로 받은 메일을 라벨, 보관, 스프레드시트 기록으로 나눕니다. 분류는 규칙으로 하고 필요할 때만 LLM을 보조로 써서 비용이 늘지 않게 합니다.</p>
+    <div class="ls-table-scroll"><table class="ls-table facts"><tbody>
+      <tr><th scope="row">가격</th><td><span class="ls-price">₩200,000 ~ ₩600,000</span></td></tr>
+      <tr><th scope="row">납기</th><td>3~7영업일, 입금 확인 후 시작</td></tr>
+      <tr><th scope="row">준비할 것</th><td>대상 Gmail 계정(Workspace 사용 여부 포함)과 규칙 초안</td></tr>
+    </tbody></table></div>
+    <div class="ls-cta"><a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=Gmail%20%EB%9D%BC%EB%B2%A8%C2%B7%EB%B3%B4%EA%B4%80%20%EC%9E%90%EB%8F%99%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&amp;body=%EC%83%81%ED%92%88%3A%20Gmail%20Triage%20Bot%20/%20Gmail%20%EB%9D%BC%EB%B2%A8%C2%B7%EB%B3%B4%EA%B4%80%20%EC%9E%90%EB%8F%99%ED%99%94%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/auto-gmail-triage.html%0A%0A%ED%9A%8C%EC%82%AC%3A%0A%EC%A0%80%EC%9E%A5%EC%86%8C/%EC%8A%A4%ED%83%9D%3A%0A%EB%AC%B8%EC%A0%9C%3A%0A%ED%9D%AC%EB%A7%9D%20%EC%9D%BC%EC%A0%95%3A%0A%EC%98%88%EC%82%B0%3A%0A">견적 메일 보내기</a></div>
+    <h2>받는 것</h2>
+    <ul class="ls-dash"><li>라벨 규칙 세트</li><li>하루 한 번 도는 정리 작업</li><li>처리 기록 시트</li><li>잘못 분류된 메일을 위한 예외 목록</li></ul>
+    <h2>이런 작업에 맞습니다</h2>
+    <ul class="ls-dash"><li>청구서와 영수증 분리</li><li>채용 메일 라벨</li><li>고객 도메인별 분류</li></ul>
+    <h2>주문 방법</h2>
+    <p>위 버튼을 누르면 제목과 양식이 채워진 메일이 열립니다. 회사, 저장소나 스택, 겪고 있는 문제, 희망 일정, 예산을 적어 보내 주세요. 범위를 확인해 금액과 일정을 회신하고, 입금이 확인되면 시작합니다. 합의한 범위를 넘는 작업은 따로 견적을 드립니다. 메일 앱이 열리지 않으면 <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>으로 직접 보내 주세요.</p>
+    <div class="ls-cta"><a class="ls-btn" href="index.html#automation">다른 상품 보기</a></div>
     <footer class="ls-foot">
       <nav data-i18n-aria-label="common.footerNav">
         <a href="/" data-i18n="nav.home">홈</a>
@@ -81,12 +71,6 @@
       <p data-i18n="common.disclaimer"></p>
     </footer>
   </main>
-  <div class="ls-sticky">
-    <div class="ls-sticky__inner">
-      <span class="ls-sticky__hint">Gmail 라벨·보관 자동화</span>
-      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=Gmail%20%EB%9D%BC%EB%B2%A8%C2%B7%EB%B3%B4%EA%B4%80%20%EC%9E%90%EB%8F%99%ED%99%94%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20Gmail%20Triage%20Bot%20/%20Gmail%20%EB%9D%BC%EB%B2%A8%C2%B7%EB%B3%B4%EA%B4%80%20%EC%9E%90%EB%8F%99%ED%99%94%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/auto-gmail-triage.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A">문의 메일</a>
-    </div>
-  </div>
-    <script src="/i18n.js"></script>
+  <script src="/i18n.js"></script>
 </body>
 </html>

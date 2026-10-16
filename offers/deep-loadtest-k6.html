@@ -3,19 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>API 부하 테스트 팩 (k6) — Lumos Deep</title>
-  <meta name="description" content="핵심 API 시나리오 스크립트 + 기준선 리포트 · ₩500,000 ~ ₩1,300,000 · 5~10영업일" />
+  <title>API 부하 테스트 팩 (k6) | Lumos</title>
+  <meta name="description" content="핵심 API 시나리오를 k6 스크립트로 만들고, 기준이 되는 성능 수치를 리포트로 남깁니다. 가격 ₩500,000 ~ ₩1,300,000, 납기 5~10영업일." />
   <link rel="canonical" href="https://hwemo-chung.github.io/offers/deep-loadtest-k6.html" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="stylesheet" href="../sales/tokens.css" />
   <link rel="stylesheet" href="../sales/components.css" />
   <link rel="stylesheet" href="../sales/product-extras.css" />
   <link rel="stylesheet" href="../sales/site-unified.css" />
-  <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","@id":"https://hwemo-chung.github.io/offers/deep-loadtest-k6.html#service","name":"API 부하 테스트 팩 (k6)","alternateName":"API Load Test Pack (k6)","serviceType":"Software engineering","description":"핵심 API 시나리오 스크립트 + 기준선 리포트","disambiguatingDescription":"프론트만이 아니라 BFF/API 한도를 숫자로 남깁니다. k6 시나리오 2~3개와 결과 해석 문서를 납품합니다. 인프라 튜닝 자체는 별도.","url":"https://hwemo-chung.github.io/offers/deep-loadtest-k6.html","provider":{"@id":"https://hwemo-chung.github.io/#person"},"offers":{"@type":"Offer","url":"https://hwemo-chung.github.io/offers/deep-loadtest-k6.html","availability":"https://schema.org/InStock","deliveryLeadTime":"5~10영업일","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"KRW","minPrice":500000,"maxPrice":1300000},"additionalProperty":[{"@type":"PropertyValue","name":"requiredInput","value":"스테이징 API + 테스트 계정 + 한도 합의"}]},"serviceOutput":[{"@type":"Thing","name":"시나리오 스크립트"},{"@type":"Thing","name":"환경별 실행 방법"},{"@type":"Thing","name":"p95/에러율 리포트"},{"@type":"Thing","name":"병목 가설"}],"potentialAction":{"@type":"OrderAction","name":"메일로 견적 문의","target":{"@type":"EntryPoint","urlTemplate":"mailto:tolaria@naver.com?subject=API%20%EB%B6%80%ED%95%98%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8C%A9%20%28k6%29%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20API%20Load%20Test%20Pack%20%28k6%29%20/%20API%20%EB%B6%80%ED%95%98%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8C%A9%20%28k6%29%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/deep-loadtest-k6.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A"}}}
-  </script>
+  <style>.facts{min-width:0}.facts th{width:7.5rem;white-space:nowrap}.facts .ls-price{font-size:17px}</style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
         crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","@id":"https://hwemo-chung.github.io/offers/deep-loadtest-k6.html#service","name":"API 부하 테스트 팩 (k6)","alternateName":"API Load Test Pack (k6)","serviceType":"Software engineering","description":"핵심 API 시나리오를 k6 스크립트로 만들고, 기준이 되는 성능 수치를 리포트로 남깁니다.","disambiguatingDescription":"프론트엔드만 보지 않고 BFF와 API가 어느 정도까지 버티는지 숫자로 남깁니다. k6 시나리오 2~3개와 결과 해석 문서를 드립니다. 출시 전 부하 검증이나 성능 SLA 협의 자료로 쓸 수 있습니다.","url":"https://hwemo-chung.github.io/offers/deep-loadtest-k6.html","provider":{"@id":"https://hwemo-chung.github.io/#person"},"offers":{"@type":"Offer","url":"https://hwemo-chung.github.io/offers/deep-loadtest-k6.html","availability":"https://schema.org/InStock","deliveryLeadTime":"5~10영업일","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"KRW","minPrice":500000,"maxPrice":1300000},"additionalProperty":[{"@type":"PropertyValue","name":"requiredInput","value":"스테이징 API, 테스트 계정, 부하 한도 합의"}]},"serviceOutput":[{"@type":"Thing","name":"시나리오 스크립트"},{"@type":"Thing","name":"환경별 실행 방법"},{"@type":"Thing","name":"p95 응답 시간과 오류율 리포트"},{"@type":"Thing","name":"병목 가설"}],"potentialAction":{"@type":"OrderAction","name":"메일로 견적 문의","target":{"@type":"EntryPoint","urlTemplate":"mailto:tolaria@naver.com?subject=API%20%EB%B6%80%ED%95%98%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8C%A9%20%28k6%29%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=%EC%83%81%ED%92%88%3A%20API%20Load%20Test%20Pack%20%28k6%29%20/%20API%20%EB%B6%80%ED%95%98%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8C%A9%20%28k6%29%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/deep-loadtest-k6.html%0A%0A%ED%9A%8C%EC%82%AC%3A%0A%EC%A0%80%EC%9E%A5%EC%86%8C/%EC%8A%A4%ED%83%9D%3A%0A%EB%AC%B8%EC%A0%9C%3A%0A%ED%9D%AC%EB%A7%9D%20%EC%9D%BC%EC%A0%95%3A%0A%EC%98%88%EC%82%B0%3A%0A"}}}
+  </script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lumos">
+  <meta property="og:title" content="API 부하 테스트 팩 (k6) | Lumos">
+  <meta property="og:description" content="핵심 API 시나리오를 k6 스크립트로 만들고, 기준이 되는 성능 수치를 리포트로 남깁니다. 가격 ₩500,000 ~ ₩1,300,000, 납기 5~10영업일.">
+  <meta property="og:url" content="https://hwemo-chung.github.io/offers/deep-loadtest-k6.html">
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="ls">
   <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
@@ -33,40 +41,24 @@
     </div>
   </nav>
   <main id="main" class="ls-wrap">
-    <div class="ls-badge-row">
-      <span class="ls-badge ls-badge--ok"><span class="ls-badge__dot"></span> 심화 · 아키텍처/성능/보안</span>
-      <span class="ls-badge">deep-loadtest-k6</span>
-    </div>
-    <p class="ls-kicker">API Load Test Pack (k6)</p>
     <h1>API 부하 테스트 팩 (k6)</h1>
-    <p class="ls-lead">핵심 API 시나리오 스크립트 + 기준선 리포트</p>
-    <p>프론트만이 아니라 BFF/API 한도를 숫자로 남깁니다. k6 시나리오 2~3개와 결과 해석 문서를 납품합니다. 인프라 튜닝 자체는 별도.</p>
-    
-    <div class="ls-grid ls-grid--2">
-      <article class="ls-card ls-card--featured">
-        <span class="ls-card__tag">가격</span>
-        <div class="ls-price">₩500,000 ~ ₩1,300,000</div>
-        <p class="ls-fine">납기: 5~10영업일 · 입금 후 착수</p>
-      </article>
-      <article class="ls-card">
-        <strong class="ls-card__title">필요 자료</strong>
-        <p class="ls-muted" style="margin:0">스테이징 API + 테스트 계정 + 한도 합의</p>
-      </article>
-    </div>
-    <h2>납품물</h2>
-    <ul class="ls-trust"><li>시나리오 스크립트</li><li>환경별 실행 방법</li><li>p95/에러율 리포트</li><li>병목 가설</li></ul>
-    <h2>예시</h2><ul class="ls-dash"><li>로그인+목록</li><li>검색</li><li>웹훅 수신</li></ul>
-    <h2>시장 포지션</h2>
-    <p class="ls-muted">출시 전 부하 검증. 성능 SLA 협의 자료.</p>
-    <div class="ls-out">
-      <p><strong>제외:</strong> 전량 구현 보증 없이 범위 무한 확장, 침투 테스트 전체, 인프라 전면 재구축.
-      구현 스프린트는 별도 SOW.</p>
-    </div>
-    <div class="ls-cta">
-      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=API%20%EB%B6%80%ED%95%98%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8C%A9%20%28k6%29%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20API%20Load%20Test%20Pack%20%28k6%29%20/%20API%20%EB%B6%80%ED%95%98%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8C%A9%20%28k6%29%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/deep-loadtest-k6.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A">메일로 심화 견적 문의</a>
-      
-      <a class="ls-btn ls-btn--ghost" href="index.html#deep">심화 목록</a>
-    </div>
+    <p class="ls-lead">핵심 API 시나리오를 k6 스크립트로 만들고, 기준이 되는 성능 수치를 리포트로 남깁니다.</p>
+    <p>프론트엔드만 보지 않고 BFF와 API가 어느 정도까지 버티는지 숫자로 남깁니다. k6 시나리오 2~3개와 결과 해석 문서를 드립니다. 출시 전 부하 검증이나 성능 SLA 협의 자료로 쓸 수 있습니다.</p>
+    <div class="ls-table-scroll"><table class="ls-table facts"><tbody>
+      <tr><th scope="row">가격</th><td><span class="ls-price">₩500,000 ~ ₩1,300,000</span></td></tr>
+      <tr><th scope="row">납기</th><td>5~10영업일, 입금 확인 후 시작</td></tr>
+      <tr><th scope="row">준비할 것</th><td>스테이징 API, 테스트 계정, 부하 한도 합의</td></tr>
+    </tbody></table></div>
+    <div class="ls-cta"><a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=API%20%EB%B6%80%ED%95%98%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8C%A9%20%28k6%29%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&amp;body=%EC%83%81%ED%92%88%3A%20API%20Load%20Test%20Pack%20%28k6%29%20/%20API%20%EB%B6%80%ED%95%98%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8C%A9%20%28k6%29%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/deep-loadtest-k6.html%0A%0A%ED%9A%8C%EC%82%AC%3A%0A%EC%A0%80%EC%9E%A5%EC%86%8C/%EC%8A%A4%ED%83%9D%3A%0A%EB%AC%B8%EC%A0%9C%3A%0A%ED%9D%AC%EB%A7%9D%20%EC%9D%BC%EC%A0%95%3A%0A%EC%98%88%EC%82%B0%3A%0A">견적 메일 보내기</a></div>
+    <h2>받는 것</h2>
+    <ul class="ls-dash"><li>시나리오 스크립트</li><li>환경별 실행 방법</li><li>p95 응답 시간과 오류율 리포트</li><li>병목 가설</li></ul>
+    <h2>이런 작업에 맞습니다</h2>
+    <ul class="ls-dash"><li>로그인 후 목록 조회</li><li>검색</li><li>웹훅 수신</li></ul>
+    <h2>알아 두실 점</h2>
+    <p>인프라 튜닝은 포함하지 않습니다.</p>
+    <h2>주문 방법</h2>
+    <p>위 버튼을 누르면 제목과 양식이 채워진 메일이 열립니다. 회사, 저장소나 스택, 겪고 있는 문제, 희망 일정, 예산을 적어 보내 주세요. 범위를 확인해 금액과 일정을 회신하고, 입금이 확인되면 시작합니다. 합의한 범위를 넘는 작업은 따로 견적을 드립니다. 메일 앱이 열리지 않으면 <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>으로 직접 보내 주세요.</p>
+    <div class="ls-cta"><a class="ls-btn" href="index.html#deep">다른 상품 보기</a></div>
     <footer class="ls-foot">
       <nav data-i18n-aria-label="common.footerNav">
         <a href="/" data-i18n="nav.home">홈</a>
@@ -81,12 +73,6 @@
       <p data-i18n="common.disclaimer"></p>
     </footer>
   </main>
-  <div class="ls-sticky">
-    <div class="ls-sticky__inner">
-      <span class="ls-sticky__hint">API 부하 테스트 팩 (k6)</span>
-      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=API%20%EB%B6%80%ED%95%98%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8C%A9%20%28k6%29%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20API%20Load%20Test%20Pack%20%28k6%29%20/%20API%20%EB%B6%80%ED%95%98%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%ED%8C%A9%20%28k6%29%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/deep-loadtest-k6.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A">문의 메일</a>
-    </div>
-  </div>
-    <script src="/i18n.js"></script>
+  <script src="/i18n.js"></script>
 </body>
 </html>

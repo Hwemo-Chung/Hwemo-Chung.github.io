@@ -1,0 +1,37 @@
+# 사진
+image-shrink
+white-background
+id-photo
+image-upscale
+brush-erase
+item-removal
+colorize-photo
+logo-svg
+# 집·상품 사진
+wall-color
+day-to-dusk
+room-stage
+lifestyle-scene
+promo-template
+thumb-card
+shot-frame
+device-mockup
+# 영상
+silence-cut
+vertical-clip
+burned-captions
+video-cutout
+waveform-video
+# 소리
+vocal-split
+voice-denoise
+# 자막
+subtitle-file
+subtitle-translate
+# 문서
+pdf-to-doc
+statement-sheet
+receipt-line
+# 웹·개발
+page-shot
+copilot-usage-monitor

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Threads Analyzer — 스레드 계정 12시트 분석 리포트</title>
-<meta name="description" content="Meta Threads API로 전체 게시물을 수집해 12시트 엑셀 리포트를 만듭니다. 조회수 중앙값, 시간대별 데드율, 글자수별 성과, 팔로워 인구통계까지." />
+<title>Threads Analyzer | 스레드 계정 분석 12시트 엑셀 리포트</title>
+<meta name="description" content="Meta Threads API로 스레드 계정의 전체 게시물을 모아 12시트 엑셀 리포트를 만듭니다. 조회수 중앙값, 시간대별 데드율, 글자수별 성과, 팔로워 인구통계를 봅니다. CLI는 무료입니다." />
 <link rel="canonical" href="https://hwemo-chung.github.io/threads-analyzer.html" />
-<meta property="og:title" content="Threads Analyzer — 스레드 계정 12시트 분석 리포트" />
-<meta property="og:description" content="평균값은 거짓말을 합니다. 중앙값으로 보면 언제 올려야 하는지가 바뀝니다." />
+<meta property="og:title" content="Threads Analyzer | 스레드 계정 분석 12시트 엑셀 리포트" />
+<meta property="og:description" content="스레드 게시물 전체를 중앙값으로 다시 봅니다. 언제 올린 글이 덜 묻히는지 시간대별로 확인합니다." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://hwemo-chung.github.io/threads-analyzer.html" />
 <meta property="og:locale" content="ko_KR" />
@@ -16,8 +16,12 @@
 <link rel="stylesheet" href="sales/components.css" />
 <link rel="stylesheet" href="sales/product-extras.css" />
   <link rel="stylesheet" href="sales/site-unified.css" />
+<style>.ls-section > h2:first-child { margin-top: 0; } .ls-section h3 { margin-top: 28px; } .ls-table td:first-child { white-space: nowrap; }</style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
         crossorigin="anonymous"></script>
+<meta property="og:site_name" content="Lumos">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="ls">
 <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
@@ -33,171 +37,163 @@
 </ul></div></nav>
 <main id="main" class="ls-wrap ls-wrap--product">
 
-
 <header class="ls-hero-center">
-  <div class="ls-kicker">Threads Analyzer</div>
-  <h1>스레드 계정을 12시트로 해부합니다</h1>
-  <p class="ls-lead">평균 조회수는 거짓말을 합니다. 바이럴 한 개가 전체 평균을 끌어올리기 때문입니다. 중앙값으로 다시 보면, 언제 올려야 하는지가 바뀝니다.</p>
+  <h1>Threads Analyzer</h1>
+  <p class="ls-lead">스레드 계정의 게시물 전체를 Meta Threads API로 가져와 12시트짜리 엑셀 리포트로 만듭니다. 평균 대신 중앙값으로 계산해서, 바이럴 글 하나에 가려진 시간대별 성과가 보입니다.</p>
+  <p>명령줄로 쓰는 CLI는 무료 오픈소스이고 지금 쓸 수 있습니다. 설치 없이 클릭으로 쓰는 데스크톱 앱은 준비 중이며, 출시가는 <b>$29</b>(정가 $39) 1회 결제입니다. 대기자 명단에 등록하면 $19에 살 수 있습니다.</p>
+  <div class="ls-cta">
+    <a class="ls-btn ls-btn--primary" href="https://forms.gle/FkerkjkHwJzRmHGb6"
+       target="_blank" rel="noopener" data-waitlist>출시 알림 받기</a>
+    <a class="ls-btn" href="https://github.com/Hwemo-Chung/threads-analytics">무료 CLI 받기</a>
+  </div>
+  <div id="pay-threads" class="ls-cta" hidden></div>
+  <p class="ls-fine">출시 알림 메일은 한 통만 보냅니다. 다른 메일은 보내지 않습니다.</p>
 </header>
 
 <section class="ls-section">
-  <h2><span class="ls-kicker-n">01</span>제작자 계정으로 먼저 돌려봤습니다</h2>
-  <p class="ls-lead">게시물 1,954개, 누적 조회 440만. 아래는 전부 이 도구가 뽑아낸 실제 숫자입니다.</p>
+  <h2>제작자 계정으로 먼저 돌려 본 결과</h2>
+  <p>게시물 1,954개, 누적 조회 440만 회인 계정입니다. 아래 숫자는 모두 이 도구가 뽑았습니다.</p>
 
   <div class="ls-stats">
     <div class="ls-stat"><div class="ls-stat__v">412</div><div class="ls-stat__l">조회수 중앙값</div></div>
-    <div class="ls-stat"><div class="ls-stat__v">2,254</div><div class="ls-stat__l">조회수 평균 — 5.5배 괴리</div></div>
+    <div class="ls-stat"><div class="ls-stat__v">2,254</div><div class="ls-stat__l">조회수 평균(중앙값의 5.5배)</div></div>
     <div class="ls-stat"><div class="ls-stat__v">48.3%</div><div class="ls-stat__l">상위 1% 글이 가져간 조회 비중</div></div>
-    <div class="ls-stat"><div class="ls-stat__v">56.5%</div><div class="ls-stat__l">500회도 못 넘은 글</div></div>
+    <div class="ls-stat"><div class="ls-stat__v">56.5%</div><div class="ls-stat__l">조회 500회를 못 넘은 글</div></div>
   </div>
 
-  <div class="ls-card">
-    <p><b>발견 1 — 가장 많이 올리던 시간이 가장 나쁜 시간이었습니다.</b></p>
-    <div class="ls-table-scroll">
-    <table class="ls-table">
-      <thead><tr><th>시간대</th><th class="ls-num">올린 글</th><th class="ls-num">조회 중앙값</th><th class="ls-num">500회 미만 비율</th></tr></thead>
-      <tbody>
-        <tr><td>오전 10시</td><td class="ls-num">170</td><td class="ls-num ls-bad">278</td><td class="ls-num ls-bad">70.0%</td></tr>
-        <tr><td>새벽 1시</td><td class="ls-num">48</td><td class="ls-num ls-good">666</td><td class="ls-num ls-good">43.8%</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p class="ls-note">평균으로 보면 오전 10시가 1,173회로 더 좋아 보입니다. 바이럴 한 개 때문입니다. 중앙값으로 보면 정반대입니다.</p>
+  <h3>가장 많이 올리던 시간이 가장 안 좋은 시간이었습니다</h3>
+  <div class="ls-table-scroll">
+  <table class="ls-table">
+    <thead><tr><th>시간대</th><th class="ls-num">올린 글</th><th class="ls-num">조회 중앙값</th><th class="ls-num">500회 미만 비율</th></tr></thead>
+    <tbody>
+      <tr><td>오전 10시</td><td class="ls-num">170</td><td class="ls-num ls-bad">278</td><td class="ls-num ls-bad">70.0%</td></tr>
+      <tr><td>새벽 1시</td><td class="ls-num">48</td><td class="ls-num ls-good">666</td><td class="ls-num ls-good">43.8%</td></tr>
+    </tbody>
+  </table>
   </div>
+  <p>평균으로 보면 오전 10시가 1,173회로 더 나아 보입니다. 바이럴 글 하나가 평균을 끌어올렸기 때문이고, 중앙값으로 보면 순서가 뒤집힙니다.</p>
 
-  <div class="ls-card">
-    <p><b>발견 2 — 조회수와 참여율이 정반대로 움직입니다.</b></p>
-    <div class="ls-table-scroll">
-    <table class="ls-table">
-      <thead><tr><th>글자수</th><th class="ls-num">조회 중앙값</th><th class="ls-num">인게이지먼트율</th></tr></thead>
-      <tbody>
-        <tr><td>50–100자</td><td class="ls-num ls-good">618</td><td class="ls-num">0.84%</td></tr>
-        <tr><td>400–500자</td><td class="ls-num ls-bad">186</td><td class="ls-num ls-good">1.70%</td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p class="ls-note">도달 3.3배를 내주고 참여율 2배를 삽니다. 팔로워를 늘릴 것인가 반응을 얻을 것인가 — 어느 쪽을 고르든, 고르고 있다는 사실은 알아야 합니다.</p>
+  <h3>짧은 글은 많이 보이고, 긴 글은 반응이 많습니다</h3>
+  <div class="ls-table-scroll">
+  <table class="ls-table">
+    <thead><tr><th>글자수</th><th class="ls-num">조회 중앙값</th><th class="ls-num">인게이지먼트율</th></tr></thead>
+    <tbody>
+      <tr><td>50~100자</td><td class="ls-num ls-good">618</td><td class="ls-num">0.84%</td></tr>
+      <tr><td>400~500자</td><td class="ls-num ls-bad">186</td><td class="ls-num ls-good">1.70%</td></tr>
+    </tbody>
+  </table>
   </div>
+  <p>긴 글은 도달이 3.3배 줄고 참여율이 2배 오릅니다. 팔로워를 늘리는 쪽과 반응을 얻는 쪽 중 어느 것을 고를지는 계정 주인이 정할 일입니다. 리포트는 지금 어느 쪽을 고르고 있는지 보여 줍니다.</p>
 </section>
 
 <section class="ls-section">
-  <h2><span class="ls-kicker-n">02</span>엑셀 12시트</h2>
-  <p class="ls-lead">한 번 실행하면 엑셀 파일 하나가 나옵니다. 계정 하나를 통째로 담습니다.</p>
+  <h2>리포트에 들어 있는 12개 시트</h2>
+  <p>한 번 실행하면 계정 하나를 담은 엑셀 파일 하나가 나옵니다.</p>
   <ul class="ls-dash">
-    <li><b>전체 게시물</b> · 날짜·조회·좋아요·인게이지먼트 전량, 필터 가능</li>
-    <li><b>인사이트 랭킹</b> · 조회·인게이지먼트·좋아요율·바이럴 각 TOP 30</li>
-    <li><b>시간대 분석</b> · 24시간 × 요일별 중앙값과 데드율</li>
-    <li><b>일별 조회수 추이</b> · 최대 730일 일별 시계열, 7일 이동평균</li>
-    <li><b>스냅샷 성장추이</b> · 실행할 때마다 쌓이는 팔로워 이력 — API가 주지 않는 데이터</li>
-    <li><b>바이럴 심층분석</b> · 상위 1% 기준을 계정 규모에 맞춰 자동 계산</li>
-    <li><b>콘텐츠 최적화</b> · 글자수·토픽 태그별 성과</li>
-    <li><b>좋아요율 · 월별 트렌드 · 팔로워 인구통계 · 성장 인사이트 · 성장전략</b></li>
+    <li><b>전체 게시물</b>: 날짜, 조회, 좋아요, 인게이지먼트를 게시물마다 모두 담고 필터로 거를 수 있습니다.</li>
+    <li><b>인사이트 랭킹</b>: 조회, 인게이지먼트, 좋아요율, 바이럴 기준으로 각각 TOP 30을 뽑습니다.</li>
+    <li><b>시간대 분석</b>: 24시간과 요일을 교차해 중앙값과 데드율을 냅니다.</li>
+    <li><b>일별 조회수 추이</b>: 최대 730일치 일별 시계열과 7일 이동평균입니다.</li>
+    <li><b>스냅샷 성장추이</b>: 실행할 때마다 팔로워 수를 쌓아 둡니다. API가 이력을 주지 않아서 직접 기록합니다.</li>
+    <li><b>바이럴 심층분석</b>: 상위 1% 기준을 계정 규모에 맞춰 계산합니다.</li>
+    <li><b>콘텐츠 최적화</b>: 글자수와 토픽 태그별 성과입니다.</li>
+    <li>나머지 다섯 시트는 좋아요율, 월별 트렌드, 팔로워 인구통계, 성장 인사이트, 성장전략입니다.</li>
   </ul>
 
 <!-- PREVIEW:START -->
-  <p class="ls-lead">아래는 동봉된 샘플 데이터로 만든 실제 리포트입니다. 서식까지 그대로 옮겼습니다.</p>
+  <h3>샘플 리포트 일부</h3>
+  <p>동봉된 샘플 데이터로 만든 리포트에서 세 시트를 옮겼습니다. 엑셀에서 노란색으로 강조한 행은 여기서 배경을 달리 표시했습니다.</p>
 <figure class="ls-xl">
 <figcaption>Time of Day</figcaption>
 <div class="ls-table-scroll"><table class="ls-table">
-<thead><tr><th style="background:#2f5496;color:#ffffff;font-weight:700">Hour</th><th style="background:#2f5496;color:#ffffff;font-weight:700">Posts</th><th style="background:#2f5496;color:#ffffff;font-weight:700">Median Views</th><th style="background:#2f5496;color:#ffffff;font-weight:700">Avg Views</th><th style="background:#2f5496;color:#ffffff;font-weight:700">Dead Rate (%)</th><th style="background:#2f5496;color:#ffffff;font-weight:700">Median Likes</th><th style="background:#2f5496;color:#ffffff;font-weight:700">Avg Engagement</th><th style="background:#2f5496;color:#ffffff;font-weight:700">Verdict</th></tr></thead>
+<thead><tr><th>Hour</th><th>Posts</th><th>Median Views</th><th>Avg Views</th><th>Dead Rate (%)</th><th>Median Likes</th><th>Avg Engagement</th><th>Verdict</th></tr></thead>
 <tbody>
-<tr><td style="background:#fff2cc;color:#1a1a1a">08:00</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">39</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">521</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">6200</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">48.72</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">3</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">14</td><td style="background:#fff2cc;color:#1a1a1a">🟢 Strong</td></tr>
-<tr><td style="">09:00</td><td style="text-align:right;font-variant-numeric:tabular-nums">95</td><td style="text-align:right;font-variant-numeric:tabular-nums">312</td><td style="text-align:right;font-variant-numeric:tabular-nums">2682</td><td style="text-align:right;font-variant-numeric:tabular-nums">67.37</td><td style="text-align:right;font-variant-numeric:tabular-nums">3</td><td style="text-align:right;font-variant-numeric:tabular-nums">37</td><td style="">🔴 Avoid</td></tr>
-<tr><td style="">10:00</td><td style="text-align:right;font-variant-numeric:tabular-nums">75</td><td style="text-align:right;font-variant-numeric:tabular-nums">277</td><td style="text-align:right;font-variant-numeric:tabular-nums">1608</td><td style="text-align:right;font-variant-numeric:tabular-nums">69.33</td><td style="text-align:right;font-variant-numeric:tabular-nums">3</td><td style="text-align:right;font-variant-numeric:tabular-nums">8.8</td><td style="">🔴 Avoid</td></tr>
-<tr><td style="">11:00</td><td style="text-align:right;font-variant-numeric:tabular-nums">68</td><td style="text-align:right;font-variant-numeric:tabular-nums">272</td><td style="text-align:right;font-variant-numeric:tabular-nums">3370</td><td style="text-align:right;font-variant-numeric:tabular-nums">66.18</td><td style="text-align:right;font-variant-numeric:tabular-nums">3</td><td style="text-align:right;font-variant-numeric:tabular-nums">50</td><td style="">🔴 Avoid</td></tr>
-<tr><td style="">12:00</td><td style="text-align:right;font-variant-numeric:tabular-nums">52</td><td style="text-align:right;font-variant-numeric:tabular-nums">340</td><td style="text-align:right;font-variant-numeric:tabular-nums">2426</td><td style="text-align:right;font-variant-numeric:tabular-nums">55.77</td><td style="text-align:right;font-variant-numeric:tabular-nums">3</td><td style="text-align:right;font-variant-numeric:tabular-nums">14</td><td style="">⚪ Average</td></tr>
-<tr><td style="">13:00</td><td style="text-align:right;font-variant-numeric:tabular-nums">42</td><td style="text-align:right;font-variant-numeric:tabular-nums">428</td><td style="text-align:right;font-variant-numeric:tabular-nums">4785</td><td style="text-align:right;font-variant-numeric:tabular-nums">52.38</td><td style="text-align:right;font-variant-numeric:tabular-nums">4.5</td><td style="text-align:right;font-variant-numeric:tabular-nums">147.3</td><td style="">⚪ Average</td></tr>
-<tr><td style="">14:00</td><td style="text-align:right;font-variant-numeric:tabular-nums">53</td><td style="text-align:right;font-variant-numeric:tabular-nums">380</td><td style="text-align:right;font-variant-numeric:tabular-nums">21201</td><td style="text-align:right;font-variant-numeric:tabular-nums">58.49</td><td style="text-align:right;font-variant-numeric:tabular-nums">5</td><td style="text-align:right;font-variant-numeric:tabular-nums">60.8</td><td style="">⚪ Average</td></tr>
-<tr><td style="">15:00</td><td style="text-align:right;font-variant-numeric:tabular-nums">51</td><td style="text-align:right;font-variant-numeric:tabular-nums">455</td><td style="text-align:right;font-variant-numeric:tabular-nums">2219</td><td style="text-align:right;font-variant-numeric:tabular-nums">54.9</td><td style="text-align:right;font-variant-numeric:tabular-nums">5</td><td style="text-align:right;font-variant-numeric:tabular-nums">16.3</td><td style="">⚪ Average</td></tr>
-<tr><td style="background:#fff2cc;color:#1a1a1a">16:00</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">47</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">633</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">1640</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">42.55</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">4</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">12</td><td style="background:#fff2cc;color:#1a1a1a">🟢 Strong</td></tr>
+<tr class="is-primary"><td>08:00</td><td class="ls-num">39</td><td class="ls-num">521</td><td class="ls-num">6200</td><td class="ls-num">48.72</td><td class="ls-num">3</td><td class="ls-num">14</td><td>Strong</td></tr>
+<tr><td>09:00</td><td class="ls-num">95</td><td class="ls-num">312</td><td class="ls-num">2682</td><td class="ls-num">67.37</td><td class="ls-num">3</td><td class="ls-num">37</td><td>Avoid</td></tr>
+<tr><td>10:00</td><td class="ls-num">75</td><td class="ls-num">277</td><td class="ls-num">1608</td><td class="ls-num">69.33</td><td class="ls-num">3</td><td class="ls-num">8.8</td><td>Avoid</td></tr>
+<tr><td>11:00</td><td class="ls-num">68</td><td class="ls-num">272</td><td class="ls-num">3370</td><td class="ls-num">66.18</td><td class="ls-num">3</td><td class="ls-num">50</td><td>Avoid</td></tr>
+<tr><td>12:00</td><td class="ls-num">52</td><td class="ls-num">340</td><td class="ls-num">2426</td><td class="ls-num">55.77</td><td class="ls-num">3</td><td class="ls-num">14</td><td>Average</td></tr>
+<tr><td>13:00</td><td class="ls-num">42</td><td class="ls-num">428</td><td class="ls-num">4785</td><td class="ls-num">52.38</td><td class="ls-num">4.5</td><td class="ls-num">147.3</td><td>Average</td></tr>
+<tr><td>14:00</td><td class="ls-num">53</td><td class="ls-num">380</td><td class="ls-num">21201</td><td class="ls-num">58.49</td><td class="ls-num">5</td><td class="ls-num">60.8</td><td>Average</td></tr>
+<tr><td>15:00</td><td class="ls-num">51</td><td class="ls-num">455</td><td class="ls-num">2219</td><td class="ls-num">54.9</td><td class="ls-num">5</td><td class="ls-num">16.3</td><td>Average</td></tr>
+<tr class="is-primary"><td>16:00</td><td class="ls-num">47</td><td class="ls-num">633</td><td class="ls-num">1640</td><td class="ls-num">42.55</td><td class="ls-num">4</td><td class="ls-num">12</td><td>Strong</td></tr>
 </tbody></table></div></figure>
 <figure class="ls-xl">
 <figcaption>Content Optimization</figcaption>
 <div class="ls-table-scroll"><table class="ls-table">
-<thead><tr><th style="">All media types included: TEXT_POST 782, IMAGE 107, CAROUSEL_ALBUM 8, VIDEO 3 / dead rate = share under 500 views</th><th style=""></th><th style=""></th><th style=""></th><th style=""></th><th style=""></th></tr></thead>
+<thead><tr><th>Length Range</th><th>Posts</th><th>Median Views</th><th>Avg Views</th><th>Median ER (%)</th><th>Dead Rate (%)</th></tr></thead>
 <tbody>
-<tr><td style="background:#2f5496;color:#ffffff;font-weight:700">Length Range</td><td style="background:#2f5496;color:#ffffff;font-weight:700">Posts</td><td style="background:#2f5496;color:#ffffff;font-weight:700">Median Views</td><td style="background:#2f5496;color:#ffffff;font-weight:700">Avg Views</td><td style="background:#2f5496;color:#ffffff;font-weight:700">Median ER (%)</td><td style="background:#2f5496;color:#ffffff;font-weight:700">Dead Rate (%)</td></tr>
-<tr><td style="">0-50 chars</td><td style="text-align:right;font-variant-numeric:tabular-nums">216</td><td style="text-align:right;font-variant-numeric:tabular-nums">392</td><td style="text-align:right;font-variant-numeric:tabular-nums">2525</td><td style="text-align:right;font-variant-numeric:tabular-nums">0.8</td><td style="text-align:right;font-variant-numeric:tabular-nums">56.94</td></tr>
-<tr><td style="background:#fff2cc;color:#1a1a1a">50-100 chars</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">215</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">674</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">4617</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">0.86</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">40</td></tr>
-<tr><td style="">100-150 chars</td><td style="text-align:right;font-variant-numeric:tabular-nums">125</td><td style="text-align:right;font-variant-numeric:tabular-nums">494</td><td style="text-align:right;font-variant-numeric:tabular-nums">4197</td><td style="text-align:right;font-variant-numeric:tabular-nums">0.88</td><td style="text-align:right;font-variant-numeric:tabular-nums">52.8</td></tr>
-<tr><td style="background:#fff2cc;color:#1a1a1a">150-200 chars</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">64</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">554</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">2942</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">1.07</td><td style="background:#fff2cc;color:#1a1a1a;text-align:right;font-variant-numeric:tabular-nums">46.88</td></tr>
-<tr><td style="">200-300 chars</td><td style="text-align:right;font-variant-numeric:tabular-nums">96</td><td style="text-align:right;font-variant-numeric:tabular-nums">301</td><td style="text-align:right;font-variant-numeric:tabular-nums">615</td><td style="text-align:right;font-variant-numeric:tabular-nums">1.5</td><td style="text-align:right;font-variant-numeric:tabular-nums">77.08</td></tr>
-<tr><td style="">300-400 chars</td><td style="text-align:right;font-variant-numeric:tabular-nums">71</td><td style="text-align:right;font-variant-numeric:tabular-nums">389</td><td style="text-align:right;font-variant-numeric:tabular-nums">14189</td><td style="text-align:right;font-variant-numeric:tabular-nums">1.71</td><td style="text-align:right;font-variant-numeric:tabular-nums">60.56</td></tr>
-<tr><td style="">400-500 chars</td><td style="text-align:right;font-variant-numeric:tabular-nums">109</td><td style="text-align:right;font-variant-numeric:tabular-nums">181</td><td style="text-align:right;font-variant-numeric:tabular-nums">413</td><td style="text-align:right;font-variant-numeric:tabular-nums">1.71</td><td style="text-align:right;font-variant-numeric:tabular-nums">82.57</td></tr>
-<tr><td style="">500+ chars</td><td style="text-align:right;font-variant-numeric:tabular-nums">4</td><td style="text-align:right;font-variant-numeric:tabular-nums">144</td><td style="text-align:right;font-variant-numeric:tabular-nums">200</td><td style="text-align:right;font-variant-numeric:tabular-nums">2.39</td><td style="text-align:right;font-variant-numeric:tabular-nums">100</td></tr>
-<tr><td style="">Longer posts raise engagement rate but collapse reach (300-400 chars: ER 1.71% / 389 views, 50-100 chars: ER 0.86% / 674 views) — 1.7x reach gap</td></tr>
+<tr><td>0-50 chars</td><td class="ls-num">216</td><td class="ls-num">392</td><td class="ls-num">2525</td><td class="ls-num">0.8</td><td class="ls-num">56.94</td></tr>
+<tr class="is-primary"><td>50-100 chars</td><td class="ls-num">215</td><td class="ls-num">674</td><td class="ls-num">4617</td><td class="ls-num">0.86</td><td class="ls-num">40</td></tr>
+<tr><td>100-150 chars</td><td class="ls-num">125</td><td class="ls-num">494</td><td class="ls-num">4197</td><td class="ls-num">0.88</td><td class="ls-num">52.8</td></tr>
+<tr class="is-primary"><td>150-200 chars</td><td class="ls-num">64</td><td class="ls-num">554</td><td class="ls-num">2942</td><td class="ls-num">1.07</td><td class="ls-num">46.88</td></tr>
+<tr><td>200-300 chars</td><td class="ls-num">96</td><td class="ls-num">301</td><td class="ls-num">615</td><td class="ls-num">1.5</td><td class="ls-num">77.08</td></tr>
+<tr><td>300-400 chars</td><td class="ls-num">71</td><td class="ls-num">389</td><td class="ls-num">14189</td><td class="ls-num">1.71</td><td class="ls-num">60.56</td></tr>
+<tr><td>400-500 chars</td><td class="ls-num">109</td><td class="ls-num">181</td><td class="ls-num">413</td><td class="ls-num">1.71</td><td class="ls-num">82.57</td></tr>
+<tr><td>500+ chars</td><td class="ls-num">4</td><td class="ls-num">144</td><td class="ls-num">200</td><td class="ls-num">2.39</td><td class="ls-num">100</td></tr>
 </tbody></table></div></figure>
+<p class="ls-fine">All media types included: TEXT_POST 782, IMAGE 107, CAROUSEL_ALBUM 8, VIDEO 3. Dead rate is the share of posts under 500 views. Longer posts raise engagement rate but collapse reach (300-400 chars: ER 1.71%, 389 views; 50-100 chars: ER 0.86%, 674 views), a 1.7x reach gap.</p>
 <figure class="ls-xl">
-<figcaption>Viral Deep Dive — view concentration</figcaption>
+<figcaption>Viral Deep Dive: view concentration</figcaption>
 <div class="ls-table-scroll"><table class="ls-table">
-<thead><tr><th style="background:#2f5496;color:#ffffff;font-weight:700">Rank</th><th style="background:#2f5496;color:#ffffff;font-weight:700">Posted</th><th style="background:#2f5496;color:#ffffff;font-weight:700">Media Type</th></tr></thead>
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
 <tbody>
-<tr><td style="font-weight:700">6. View Concentration</td></tr>
-<tr><td style="background:#2f5496;color:#ffffff;font-weight:700">Metric</td><td style="background:#2f5496;color:#ffffff;font-weight:700">Value</td></tr>
-<tr><td style="">Original Posts</td><td style="text-align:right;font-variant-numeric:tabular-nums">900</td></tr>
-<tr><td style="">Avg Views</td><td style="text-align:right;font-variant-numeric:tabular-nums">3737</td></tr>
-<tr><td style="">Median Views</td><td style="text-align:right;font-variant-numeric:tabular-nums">398</td></tr>
-<tr><td style="">Mean / Median Ratio</td><td style="text-align:right;font-variant-numeric:tabular-nums">9.38</td></tr>
-<tr><td style="">P50</td><td style="text-align:right;font-variant-numeric:tabular-nums">398</td></tr>
-<tr><td style="">P75</td><td style="text-align:right;font-variant-numeric:tabular-nums">1016</td></tr>
-<tr><td style="">P90</td><td style="text-align:right;font-variant-numeric:tabular-nums">3490</td></tr>
-<tr><td style="">P99</td><td style="text-align:right;font-variant-numeric:tabular-nums">54317</td></tr>
-<tr><td style="">Viral Threshold (applied)</td><td style="text-align:right;font-variant-numeric:tabular-nums">54317</td></tr>
+<tr><td>Original Posts</td><td class="ls-num">900</td></tr>
+<tr><td>Avg Views</td><td class="ls-num">3737</td></tr>
+<tr><td>Median Views</td><td class="ls-num">398</td></tr>
+<tr><td>Mean / Median Ratio</td><td class="ls-num">9.38</td></tr>
+<tr><td>P50</td><td class="ls-num">398</td></tr>
+<tr><td>P75</td><td class="ls-num">1016</td></tr>
+<tr><td>P90</td><td class="ls-num">3490</td></tr>
+<tr><td>P99</td><td class="ls-num">54317</td></tr>
+<tr><td>Viral Threshold (applied)</td><td class="ls-num">54317</td></tr>
 </tbody></table></div></figure>
   <!-- PREVIEW:END -->
 
-  <div class="ls-card">
-    <p><b>실물을 먼저 보십시오.</b></p>
-    <p class="ls-note">
-      각 시트가 실제로 어떻게 생겼는지 발췌해 뒀습니다. Meta 앱 없이 샘플 데이터로 직접 만들어 보실 수도 있습니다.<br>
-      <a href="https://github.com/Hwemo-Chung/threads-analytics/blob/main/docs/SAMPLE.md">시트 발췌 보기 →</a>
-    </p>
-  </div>
+  <p>시트마다 실제 모양을 발췌한 문서가 GitHub에 있습니다. Meta 앱 없이 샘플 데이터로 리포트를 직접 만들어 볼 수도 있습니다. <a href="https://github.com/Hwemo-Chung/threads-analytics/blob/main/docs/SAMPLE.md">시트 발췌 보기</a></p>
 </section>
 
 <section class="ls-section">
-  <h2><span class="ls-kicker-n">03</span>두 가지 버전</h2>
-  <div class="ls-card">
-    <p><b>CLI · 무료 · 오픈소스</b></p>
-    <p class="ls-note">Python을 쓰실 줄 알면 지금 바로 무료로 쓰실 수 있습니다. 기능 제한 없습니다. 기간 제한도 없습니다.<br>
-    <a href="https://github.com/Hwemo-Chung/threads-analytics">github.com/Hwemo-Chung/threads-analytics</a></p>
+  <h2>가격</h2>
+  <div class="ls-table-scroll">
+  <table class="ls-table">
+    <thead><tr><th>버전</th><th>가격</th><th>쓰는 방법</th><th>상태</th></tr></thead>
+    <tbody>
+      <tr><td>CLI</td><td>무료, 오픈소스. 기능 제한과 기간 제한이 없습니다.</td><td>Python으로 실행합니다. <a href="https://github.com/Hwemo-Chung/threads-analytics">github.com/Hwemo-Chung/threads-analytics</a></td><td>지금 사용 가능</td></tr>
+      <tr class="is-primary"><td>데스크톱 앱</td><td>$29(정가 $39), 1회 결제로 평생 사용. 대기자 명단 등록자는 $19.</td><td>Mac, Windows. 터미널과 Python 설치 없이 클릭으로 씁니다.</td><td>준비 중</td></tr>
+    </tbody>
+  </table>
   </div>
-
-  <div class="ls-cta-box" id="threads-cta-box">
-    <p class="ls-note">데스크톱 앱 · 준비 중</p>
-    <div class="ls-price"><s>$39</s>$29</div>
-    <p class="ls-note">터미널 없이. Python 설치 없이. 클릭만으로.<br>Mac · Windows · 평생 사용 · 1회 결제</p>
-
-    <div id="pay-threads" class="ls-cta" hidden style="justify-content:center"></div>
-    <a class="ls-btn ls-btn--primary" href="https://forms.gle/FkerkjkHwJzRmHGb6"
-       target="_blank" rel="noopener" data-waitlist>출시 알림 받기</a>
-
-    <p class="ls-note">출시 시 알림 한 통만 보냅니다. 그 외 메일은 보내지 않습니다.<br>대기자 명단 등록자는 <b>$19</b>에 구매하실 수 있습니다.</p>
-  </div>
+  <p>두 버전의 분석 엔진은 같습니다. 앱 가격은 터미널, Python, 인증서 설정을 대신 해 주는 값입니다. 그 설정이 어렵지 않다면 무료 CLI로 충분합니다.</p>
 </section>
 
 <section class="ls-section">
-  <h2><span class="ls-kicker-n">04</span>먼저 확인하실 것</h2>
+  <h2>쓰기 전에 필요한 것</h2>
+  <ul class="ls-dash">
+    <li>Meta 개발자 앱을 본인이 직접 만들어야 합니다. Meta는 계정 주인이 만든 앱으로만 인사이트를 열어 줍니다. 데스크톱 앱을 사도 이 단계는 남고, 화면 안내 마법사를 따라 10분쯤 걸립니다. 이 과정이 부담스럽다면 사지 않기를 권합니다.</li>
+    <li>팔로워 인구통계 시트는 Meta 정책상 팔로워가 100명 이상일 때만 나옵니다. 나머지 11개 시트는 게시물만 있으면 됩니다.</li>
+    <li>시간대와 글자수 분석은 표본이 30건 이상인 구간에만 판정을 냅니다.</li>
+  </ul>
+</section>
+
+<section class="ls-section">
+  <h2>자주 묻는 질문</h2>
   <div class="ls-faq">
   <details>
-    <summary>Meta 개발자 앱을 직접 만들어야 합니까?</summary>
-    <p>네. 이건 데스크톱 앱을 사셔도 피할 수 없습니다. Meta가 계정 소유자 본인의 앱을 통해서만 인사이트 접근을 허용하기 때문입니다. 앱에 화면 안내 마법사가 들어가지만, 약 10분 정도는 직접 하셔야 합니다. 이 부분이 부담되신다면 구매하지 마시길 권합니다.</p>
-  </details>
-  <details>
     <summary>제 데이터는 어디로 갑니까?</summary>
-    <p>아무 데도 가지 않습니다. 서버가 없습니다. 컴퓨터 안에서 Meta API를 직접 호출하고, 결과 엑셀도 컴퓨터에만 저장됩니다. 토큰은 로컬 <code>.env</code>에 보관되며 권한 600으로 잠깁니다.</p>
+    <p>어디로도 보내지 않습니다. 서버가 없고, 내 컴퓨터에서 Meta API를 직접 호출해 결과 엑셀도 내 컴퓨터에만 저장합니다. 토큰은 로컬 <code>.env</code> 파일에 두고 권한을 600으로 잠급니다.</p>
   </details>
   <details>
     <summary>얼마나 걸립니까?</summary>
-    <p>게시물 2,000개 기준 첫 수집에 약 10분입니다. 두 번째부터는 캐시가 있어 1~2분입니다.</p>
+    <p>게시물 2,000개 기준으로 첫 수집에 10분쯤 걸립니다. 두 번째부터는 캐시를 써서 1~2분이면 끝납니다.</p>
   </details>
   <details>
-    <summary>팔로워가 적어도 쓸모가 있습니까?</summary>
-    <p>팔로워 인구통계 시트는 Meta 정책상 팔로워 100명 이상부터 나옵니다. 나머지 11개 시트는 게시물만 있으면 동작합니다. 다만 시간대·글자수 분석은 표본이 30건 이상이어야 판정을 냅니다.</p>
+    <summary>팔로워가 적어도 쓸 수 있습니까?</summary>
+    <p>네. 팔로워 100명 미만이면 팔로워 인구통계 시트만 비고, 나머지 11개 시트는 그대로 나옵니다.</p>
   </details>
   <details>
-    <summary>CLI가 무료면 앱은 왜 유료입니까?</summary>
-    <p>엔진은 같습니다. 파는 것은 터미널·Python·인증서 설정을 없앤 시간입니다. 그게 필요 없으시면 무료 버전이 정답입니다.</p>
+    <summary>CLI가 무료인데 앱은 왜 유료입니까?</summary>
+    <p>엔진은 같고, 앱은 터미널과 Python, 인증서 설정을 하지 않아도 되게 만든 것입니다. 그 시간이 아깝지 않다면 무료 버전을 쓰시면 됩니다.</p>
   </details>
 </div>
 </section>

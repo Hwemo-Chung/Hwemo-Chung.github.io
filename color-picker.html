@@ -4,353 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Picker - Lumos</title>
-    <meta name="description" content="HEX, RGB, HSL 값을 실시간으로 확인하고 복사할 수 있는 웹 색상 선택기입니다.">
+    <title>Color Picker 색상 선택기 | Lumos</title>
+    <meta name="description" content="색상환에서 색을 고르면 HEX, RGB, HSL 값이 바로 나오고, 값을 누르면 복사됩니다.">
     <link rel="canonical" href="https://hwemo-chung.github.io/color-picker.html">
     <link rel="stylesheet" href="sales/tokens.css">
     <link rel="stylesheet" href="sales/components.css">
+    <link rel="stylesheet" href="sales/site-unified.css" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: var(--ls-bg);
-            min-height: 100vh;
-            padding: 0;
-            position: relative;
-            transition: background 1.5s ease;
-        }
-        .tool-stage {
-            display: grid;
-            min-height: calc(100dvh - 70px);
-            place-items: center;
-            padding: 32px 16px;
-        }
-
-        .app-container {
-            background: var(--ls-card);
-            border: 1px solid var(--ls-border);
-            border-radius: var(--ls-radius);
-            width: 100%;
-            max-width: 440px;
-            padding: clamp(20px, 6vw, 40px);
-            animation: slideUp 0.5s ease-out;
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .app-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .app-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--ls-text);
-            margin-bottom: 8px;
-        }
-
-        .app-subtitle {
-            color: var(--ls-muted);
-            font-size: 14px;
-        }
-
-        .color-wheel-container {
-            position: relative;
-            width: min(280px, 100%);
-            aspect-ratio: 1;
-            margin: 0 auto 30px;
-        }
-
-        #colorWheel {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            cursor: crosshair;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .color-picker-cursor {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            border: 3px solid white;
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            transition: all 0.2s ease;
-        }
-
-        .brightness-slider {
-            margin: 30px 0;
-        }
-
-        .slider-label {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .slider-label span {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--ls-muted);
-        }
-
-        .slider-value {
-            background: var(--ls-bg-elevated);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--ls-text);
-        }
-
-        input[type="range"] {
-            width: 100%;
-            height: 8px;
-            border-radius: 10px;
-            background: linear-gradient(to right, #2d3748, #ffffff);
-            outline: none;
-            -webkit-appearance: none;
-            cursor: pointer;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--ls-text);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-        }
-
-        .selected-color {
-            background: var(--ls-card-2);
-            border: 1px solid var(--ls-border);
-            border-radius: var(--ls-radius);
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .color-preview {
-            width: 100%;
-            height: 120px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .color-values {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .color-value {
-            text-align: center;
-        }
-
-        .value-label {
-            font-size: 11px;
-            color: var(--ls-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
-
-        .value-input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--ls-border);
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .value-input:focus {
-            outline: none;
-            border-color: var(--ls-accent);
-            background: var(--ls-bg-elevated);
-        }
-
-        .color-history {
-            margin-top: 25px;
-        }
-
-        .history-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--ls-muted);
-            margin-bottom: 12px;
-        }
-
-        .history-colors {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .history-color {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .history-color:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .history-color::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .history-color:hover::after {
-            opacity: 1;
-        }
-
-        .action-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        .btn {
-            padding: 14px;
-            border: none;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: var(--ls-accent);
-            color: var(--ls-accent-ink);
-        }
-
-        .btn-primary:hover {
-            filter: brightness(1.06);
-        }
-
-        .btn-secondary {
-            background: var(--ls-bg-elevated);
-            color: var(--ls-text);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--ls-border-strong);
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--ls-card-2);
-            color: var(--ls-text);
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 14px;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
-        .back-link {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .back-link:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateX(-5px);
-        }
-
-        .back-link::before {
-            content: "← ";
-        }
-
-        @media (max-width: 768px) {
-            .back-link {
-                position: fixed;
-                top: 10px;
-                left: 10px;
-            }
-        }
+        .tool-stage { display: grid; min-height: calc(100dvh - 70px); place-items: start center; padding: 40px 16px; }
+        .app-container { width: 100%; max-width: 440px; padding: clamp(20px, 6vw, 32px); }
+        .app-header { margin-bottom: 24px; }
+        .app-title { font-size: 28px; line-height: 36px; font-weight: 600; letter-spacing: -0.8px; color: var(--ls-text); margin: 0 0 8px; }
+        .app-subtitle { color: var(--ls-muted); font-size: 15px; margin: 0; }
+        .color-wheel-container { position: relative; width: min(280px, 100%); aspect-ratio: 1; margin: 0 auto 24px; }
+        #colorWheel { width: 100%; height: 100%; border-radius: 50%; cursor: crosshair; }
+        .color-picker-cursor { position: absolute; width: 24px; height: 24px; border: 3px solid #fff; border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4); }
+        .brightness-slider { margin: 24px 0; }
+        .slider-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 14px; color: var(--ls-muted); }
+        .slider-value { padding: 2px 10px; border-radius: var(--ls-radius-pill); font-size: 12px; font-variant-numeric: tabular-nums; }
+        input[type="range"] { width: 100%; height: 8px; border-radius: var(--ls-radius-pill); background: linear-gradient(to right, #000, #fff); box-shadow: var(--ls-ring); -webkit-appearance: none; appearance: none; cursor: pointer; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--ls-text); border: 2px solid #fff; cursor: pointer; }
+        body.ls.page-color-picker .selected-color { margin-bottom: 24px; padding: 0; background: none; box-shadow: none; }
+        .color-preview { width: 100%; height: 96px; border-radius: var(--ls-radius-sm); margin-bottom: 16px; box-shadow: var(--ls-ring); }
+        .color-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .value-label { font-size: 12px; margin-bottom: 6px; }
+        .value-input { width: 100%; padding: 8px; border: 1px solid var(--ls-border); border-radius: var(--ls-radius-sm); font: 500 13px var(--ls-font-mono); text-align: center; cursor: pointer; }
+        .value-input:focus-visible { border-color: var(--ls-text); }
+        .history-title { font-size: 14px; margin-bottom: 10px; }
+        .history-colors { display: flex; gap: 8px; flex-wrap: wrap; min-height: 36px; }
+        .history-color { width: 36px; height: 36px; border-radius: var(--ls-radius-sm); cursor: pointer; box-shadow: var(--ls-ring); }
+        .action-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
+        .btn { height: 40px; padding: 0 12px; border: 0; border-radius: var(--ls-radius-sm); font: 500 14px var(--ls-font); cursor: pointer; }
+        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); padding: 10px 16px; font-size: 14px; opacity: 0; transition: opacity 0.2s ease; z-index: 1000; pointer-events: none; }
+        .toast.show { opacity: 1; }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8998804759171463"
         crossorigin="anonymous"></script>
         <meta name="google-adsense-account" content="ca-pub-8998804759171463">
-  <link rel="stylesheet" href="sales/site-unified.css" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
         crossorigin="anonymous"></script>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lumos">
+    <meta property="og:title" content="Color Picker 색상 선택기 | Lumos">
+    <meta property="og:description" content="색상환에서 색을 고르면 HEX, RGB, HSL 값이 바로 나오고, 값을 누르면 복사됩니다.">
+    <meta property="og:url" content="https://hwemo-chung.github.io/color-picker.html">
+    <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="ls page-color-picker">
@@ -379,7 +78,7 @@
       <div class="app-container">
         <div class="app-header">
             <h1 class="app-title" data-i18n="colorpicker.title">Color Picker</h1>
-            <p class="app-subtitle" data-i18n="colorpicker.subtitle">완벽한 색상을 선택하세요</p>
+            <p class="app-subtitle" data-i18n="colorpicker.subtitle">원 안을 눌러 색을 고르세요. 값 칸을 누르면 복사됩니다.</p>
         </div>
 
         <div class="color-wheel-container">
@@ -392,7 +91,7 @@
                 <span data-i18n="colorpicker.brightness">밝기</span>
                 <span class="slider-value">100%</span>
             </div>
-            <input type="range" id="brightnessSlider" min="0" max="100" value="100">
+            <input type="range" id="brightnessSlider" aria-label="밝기" min="0" max="100" value="100">
         </div>
 
         <div class="selected-color">
@@ -419,11 +118,11 @@
         </div>
 
         <div class="action-buttons">
-            <button class="btn btn-primary" onclick="copyToClipboard()">
+            <button class="btn btn-primary" type="button" onclick="copyToClipboard()">
                 <span data-i18n="colorpicker.copy">HEX 복사</span>
             </button>
-            <button class="btn btn-secondary" onclick="randomColor()">
-                <span data-i18n="colorpicker.random">랜덤</span>
+            <button class="btn btn-secondary" type="button" onclick="randomColor()">
+                <span data-i18n="colorpicker.random">무작위 색</span>
             </button>
         </div>
       </div>
@@ -442,7 +141,7 @@
         <p data-i18n="common.disclaimer"></p>
     </footer>
 
-    <div class="toast" id="toast"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script>
         // i18n translations
@@ -451,39 +150,39 @@
                 colorpicker: {
                     back: "홈으로 돌아가기",
                     title: "Color Picker",
-                    subtitle: "완벽한 색상을 선택하세요",
+                    subtitle: "원 안을 눌러 색을 고르세요. 값 칸을 누르면 복사됩니다.",
                     brightness: "밝기",
                     recent: "최근 색상",
                     copy: "HEX 복사",
-                    random: "랜덤",
-                    colorCopied: "색상이 복사되었습니다!",
-                    valueCopied: "복사되었습니다!"
+                    random: "무작위 색",
+                    colorCopied: "HEX 값을 복사했습니다.",
+                    valueCopied: "값을 복사했습니다."
                 }
             },
             en: {
                 colorpicker: {
                     back: "Back to Home",
                     title: "Color Picker",
-                    subtitle: "Pick your perfect color",
+                    subtitle: "Click inside the wheel to pick a color. Click a value to copy it.",
                     brightness: "Brightness",
                     recent: "Recent Colors",
                     copy: "Copy HEX",
-                    random: "Random",
-                    colorCopied: "Color copied!",
-                    valueCopied: "copied!"
+                    random: "Random color",
+                    colorCopied: "HEX value copied.",
+                    valueCopied: "value copied."
                 }
             },
             ja: {
                 colorpicker: {
                     back: "ホームに戻る",
                     title: "カラーピッカー",
-                    subtitle: "完璧な色を選択してください",
+                    subtitle: "円の中をクリックして色を選びます。値をクリックするとコピーできます。",
                     brightness: "明度",
                     recent: "最近の色",
                     copy: "HEXコピー",
-                    random: "ランダム",
-                    colorCopied: "色がコピーされました！",
-                    valueCopied: "コピーされました！"
+                    random: "ランダムな色",
+                    colorCopied: "HEX値をコピーしました。",
+                    valueCopied: "の値をコピーしました。"
                 }
             }
         };
@@ -648,6 +347,7 @@
                 const div = document.createElement('div');
                 div.className = 'history-color';
                 div.style.backgroundColor = color;
+                div.title = color;
                 div.onclick = () => applyHistoryColor(color);
                 container.appendChild(div);
             });

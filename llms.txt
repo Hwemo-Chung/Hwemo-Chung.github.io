@@ -1,48 +1,76 @@
 # Lumos
 
-Lumos is the site of full-stack developer Hwemo Chung. Two lines of work: (1) diagnosing and maintaining neglected hybrid mobile apps — Cordova, Ionic, Capacitor, Android WebView — that can no longer ship to the App Store or Google Play, and (2) small native macOS and web utilities. Shared navigation supports Korean, English, and Japanese.
+Lumos is the site of developer Hwemo Chung. It covers three things: fixing and maintaining Cordova, Ionic, Capacitor and Android WebView apps that can no longer ship to the App Store or Google Play; small macOS and web products; and free browser tools that process files on the user's device. Pages are in Korean, with English and Japanese available through the language switch.
 
 ## Services
 
-- Legacy hybrid-app triple-blockade diagnosis (iOS 26 SDK requirement, Play target API, Firebase Dynamic Links shutdown). Free for the first 10 apps: https://hwemo-chung.github.io/cordova.html
-- Mobile production retainer — Ionic / Capacitor / Android WebView. Pilot $400 one week, Stabilizer $1,200/month: https://hwemo-chung.github.io/retainer.html
-- Services and pricing overview: https://hwemo-chung.github.io/sales/
-- Offer catalog: https://hwemo-chung.github.io/offers/
+- Legacy hybrid app diagnosis for apps blocked by the iOS 26 SDK requirement, the Play target API deadline or the Firebase Dynamic Links shutdown. Free for the first 10 apps: https://hwemo-chung.github.io/cordova.html
+- Mobile production retainer for Ionic, Capacitor and Android WebView apps. Pilot $400 for one week, Stabilizer $1,200 a month: https://hwemo-chung.github.io/retainer.html
+- Services and prices: https://hwemo-chung.github.io/sales/
+- Fixed-scope offers (42 items): https://hwemo-chung.github.io/offers/
 
 ## Products
 
-- HotLauncher — macOS 26 (Tahoe) removed Launchpad; bind up to 20 apps to one global hotkey. Free, open source: https://hwemo-chung.github.io/hot-launcher.html (English: ?lang=en)
-- LumosZipForMac — AES-256 password-protected ZIP for macOS, universal native app: https://hwemo-chung.github.io/lumoszip.html
-- Pebblez — quiet social PWA, no ads or recommendation algorithm: https://pebblez.teagarden-earlgrey.workers.dev
-- Burnline — local-first AI cost control (in development): https://hwemo-chung.github.io/burnline.html
+- HotLauncher: assigns a global hotkey to each of up to 20 Mac apps (macOS 26 removed Launchpad). Free, open source: https://hwemo-chung.github.io/hot-launcher.html
+- LumosZipForMac: AES-256 password-protected ZIP files on the Mac, universal native app: https://hwemo-chung.github.io/lumoszip.html
+- Threads Analyzer: turns a Threads account into a 12-sheet Excel report. Free CLI, $29 desktop app: https://hwemo-chung.github.io/threads-analyzer.html
+- Pebblez: small social PWA without ads or a recommendation algorithm: https://pebblez.teagarden-earlgrey.workers.dev
+- Burnline: local-first AI cost tracking (in development): https://hwemo-chung.github.io/burnline.html
 
-## Free tools
+## Free browser tools
 
-- Threads analyzer (browser-only, no upload): https://hwemo-chung.github.io/threads-analyzer.html
+All tools: https://hwemo-chung.github.io/tools/
+
+<!-- TOOLS:START -->
+- 이미지 용량 줄이기: 사진을 올리면 화질을 고르고 크기를 줄여 더 작은 JPG나 WebP로 받습니다. 여러 장을 한 번에 처리합니다. https://hwemo-chung.github.io/tools/image-shrink/
+- 상품 사진 흰 배경: 상품 사진의 배경을 지우고 흰색, 투명, 원하는 색 바탕의 정사각형 이미지로 만듭니다. 쇼핑몰용 1000×1000 크기와 여백을 고르고 PNG나 JPG로 받습니다. https://hwemo-chung.github.io/tools/white-background/
+- 증명사진 만들기: 얼굴 사진을 올리면 여권(3.5×4.5cm, 머리 3.2~3.6cm), 증명, 반명함, 미국 비자 규격에 맞게 잘라 300dpi JPG와 4×6 인화용 사진으로 만듭니다. https://hwemo-chung.github.io/tools/id-photo/
+- 사진 해상도 키우기: 작은 사진이나 흐릿한 캡처를 ESRGAN 초해상도 모델로 2배 또는 4배 키워 PNG로 받습니다. 원본과 결과를 100% 크기로 나란히 비교합니다. https://hwemo-chung.github.io/tools/image-upscale/
+- 붓으로 잡티 지우기: 사진의 잡티, 먼지, 전선, 작은 물체를 붓으로 문지르면 손을 뗄 때 주변 색으로 메웁니다. 되돌리기를 지원하고 결과를 바로 받습니다. https://hwemo-chung.github.io/tools/brush-erase/
+- 흩어진 물건만 지우기: 합성 방 사진에서 바닥에 놓인 잡동사니만 로컬 인페인팅으로 지웁니다. 벽, 창문, 전선은 그대로입니다. https://hwemo-chung.github.io/tools/item-removal/
+- 흑백 초상에 색 입히기: 직접 그린 흑백 초상 한 장에 밝기와 위치로 고른 추정 색을 올립니다. https://hwemo-chung.github.io/tools/colorize-photo/
+- 로고 SVG 변환: PNG나 JPG 로고를 올리면 색을 줄여 곡선으로 다시 그린 SVG 파일로 바꿉니다. 원본과 결과를 같은 배율로 확대해 비교합니다. https://hwemo-chung.github.io/tools/logo-svg/
+- 벽 색 바꾸기: 방 사진을 올리면 벽, 바닥, 천장을 자동으로 찾아 고른 페인트 색으로 바꿔 보여 줍니다. 그림자와 조명은 사진 그대로 남습니다. https://hwemo-chung.github.io/tools/wall-color/
+- 색 보정: 낮에 찍은 주택 외관의 하늘과 창만 저녁으로 바꿉니다. https://hwemo-chung.github.io/tools/day-to-dusk/
+- 빈 방에 가구 놓아 보기: 빈 방 사진에 가구 사진을 올리면 배경을 지워 방 안에 놓습니다. 위치, 크기, 회전, 순서를 바꾸고 그림자를 넣어 PNG나 JPG로 받습니다. https://hwemo-chung.github.io/tools/room-stage/
+- 제품 연출 사진 만들기: 제품 사진의 배경을 지우고 책상, 테이블, 창틀 같은 배경 사진 위에 놓습니다. 위치와 크기, 그림자, 밝기와 색온도를 맞춰 PNG나 JPG로 받습니다. https://hwemo-chung.github.io/tools/lifestyle-scene/
+- 상품 홍보 카드 만들기: 상품 사진과 이름, 가격, 할인율을 넣으면 1080×1350, 1080×1080, 1080×1920 SNS 홍보 이미지를 만듭니다. 상품 배경을 지우고 PNG로 받습니다. https://hwemo-chung.github.io/tools/promo-template/
+- 유튜브 썸네일 만들기: 사진을 올리고 제목을 쓰면 1280×720 유튜브 썸네일을 만듭니다. 글자 테두리와 강조 박스, 레이아웃과 색을 고르고 2MB 아래 JPG나 PNG로 받습니다. https://hwemo-chung.github.io/tools/thumb-card/
+- 스크린샷 꾸미기: 스크린샷에 macOS 창이나 브라우저 주소창 테두리, 배경색, 여백, 둥근 모서리, 그림자를 넣고 16:9, 1:1, 4:5 비율의 2배 해상도 PNG로 받습니다. https://hwemo-chung.github.io/tools/shot-frame/
+- 기기 목업 만들기: 앱이나 웹 스크린샷을 휴대폰, 태블릿, 노트북, 브라우저 창 프레임 안에 넣고 배경이 투명한 2배 해상도 PNG로 받습니다. https://hwemo-chung.github.io/tools/device-mockup/
+- 무음 구간 자르기: 말하는 영상이나 녹음을 올리면 말 없는 구간을 찾아 잘라 낸 MP4나 WAV와 컷 목록 CSV를 받습니다. 기준 음량, 최소 길이, 여유 시간을 직접 정합니다. https://hwemo-chung.github.io/tools/silence-cut/
+- 세로 영상으로 자르기: 가로 영상을 9:16 세로 영상으로 자릅니다. 구간을 고르고 화면 위치를 직접 옮기거나 얼굴을 따라가게 한 뒤 소리까지 담긴 MP4로 받습니다. https://hwemo-chung.github.io/tools/vertical-clip/
+- 영상에 자막 입히기: 영상의 말을 받아 적거나 SRT 파일을 불러와 자막을 화면에 새깁니다. 글자 크기와 위치, 상자나 외곽선 스타일을 고른 뒤 소리까지 담긴 MP4로 받습니다. https://hwemo-chung.github.io/tools/burned-captions/
+- 영상 배경 바꾸기: 사람이 나오는 영상에서 배경만 골라 단색이나 사진으로 바꾸거나 흐리게 합니다. 소리까지 담긴 MP4로 받습니다. https://hwemo-chung.github.io/tools/video-cutout/
+- 오디오 파형 영상: 음성이나 음악 파일을 올리면 소리에 맞춰 움직이는 파형 영상을 MP4로 만듭니다. 제목, 커버 이미지, 배경색을 넣고 릴스·쇼츠·유튜브 비율로 받습니다. https://hwemo-chung.github.io/tools/waveform-video/
+- 보컬 분리: 노래 파일을 올리면 HTDemucs 모델로 보컬과 반주를 나눠 각각 WAV로 받습니다. 3~4분짜리 곡 전체를 처리합니다. https://hwemo-chung.github.io/tools/vocal-split/
+- 음성 잡음 제거: 말소리 녹음에서 배경 소음을 RNNoise로 줄이고 저역 울림과 50/60Hz 험을 걸러 음량을 맞춘 WAV를 받습니다. 원본과 바꿔 들어 볼 수 있습니다. https://hwemo-chung.github.io/tools/voice-denoise/
+- 자막 파일 만들기: 영상이나 음성 파일의 말을 Whisper로 받아 적어 시간이 맞춰진 자막을 만듭니다. 한국어, 영어, 일본어를 지원하고 고친 뒤 SRT나 VTT로 받습니다. https://hwemo-chung.github.io/tools/subtitle-file/
+- 자막 번역: SRT나 VTT 자막 파일을 올리면 각 줄을 다른 언어로 번역하고 시간은 그대로 둔 새 자막 파일을 만듭니다. 한국어, 영어, 일본어, 중국어, 스페인어 등을 지원합니다. https://hwemo-chung.github.io/tools/subtitle-translate/
+- PDF를 Word 문서로 바꾸기: PDF를 Word 문서(DOCX)로 바꿉니다. 제목, 문단, 굵은 글씨, 목록, 간단한 표, 그림을 살리고 스캔한 쪽은 글자 인식으로 읽습니다. https://hwemo-chung.github.io/tools/pdf-to-doc/
+- 통장 거래내역 엑셀로 옮기기: 은행에서 받은 거래내역 PDF, CSV, 엑셀 파일에서 날짜, 내용, 출금, 입금, 잔액을 표로 뽑아 XLSX나 CSV로 받습니다. 비밀번호가 걸린 PDF도 열 수 있습니다. https://hwemo-chung.github.io/tools/statement-sheet/
+- 영수증 사진을 표로 정리하기: 영수증 사진을 여러 장 올리면 글자를 읽어 날짜, 상호, 합계 금액, 결제 수단을 한 줄씩 표로 정리합니다. 고친 뒤 CSV나 엑셀로 받습니다. https://hwemo-chung.github.io/tools/receipt-line/
+- 웹페이지 전체 캡처: 웹페이지 주소를 넣으면 페이지 맨 아래까지 한 장으로 캡처해 PNG로 받습니다. PC, 태블릿, 모바일 화면 크기를 고를 수 있습니다. https://hwemo-chung.github.io/tools/page-shot/
+- Copilot 사용량: GitHub 토큰이나 결제 페이지에서 받은 사용량 CSV로 내 Copilot 프리미엄 요청·AI 크레딧 사용량을 날짜별, 모델별로 보고 월 예산 대비 비용을 확인합니다. https://hwemo-chung.github.io/tools/copilot-usage-monitor/
+<!-- TOOLS:END -->
+
 - Color picker: https://hwemo-chung.github.io/color-picker.html
-- Micro SaaS experiments: https://hwemo-chung.github.io/micro-saas-mvps/
+- Public search exposure check: https://hwemo-chung.github.io/public-search-exposure.html
 
 ## Machine-readable catalog
 
-- Offer catalog feed (42 items, JSON): https://hwemo-chung.github.io/offers/products.json
-- Field map: `id` → page `https://hwemo-chung.github.io/offers/{id}.html` · `price_min`/`price_max`/`price_currency` → price band · `delivery` → lead time in Korean business days · `needs` → what the buyer must supply before work starts · `bullets` → deliverables.
-- Every offer page carries schema.org `Service` + `Offer` JSON-LD with the same values; the catalog index at /offers/ carries an `ItemList` of all 42.
-- There is no cart or automated checkout. The order action on each offer page is a `mailto:` inquiry to tolaria@naver.com pre-filled with product, URL, and the fields needed for a quote.
+- Offer catalog (JSON): https://hwemo-chung.github.io/offers/products.json. `id` maps to https://hwemo-chung.github.io/offers/{id}.html; `price_min`, `price_max`, `price_currency` give the price range; `delivery` is lead time in Korean business days; `needs` lists what the buyer supplies; `bullets` lists deliverables.
+- Each offer page carries schema.org `Service` and `Offer` JSON-LD with the same values. /offers/ carries an `ItemList` of all offers.
+- There is no cart. Ordering is an email to tolaria@naver.com from the offer page.
 
-## Policies (as published)
+## Policies
 
-- Payment: the retainer Pilot ($400 USD) can be paid instantly via PayPal.me. Everything else is invoiced by email and prepaid. The 42 KRW-priced offers have no self-serve checkout — email tolaria@naver.com for a quote and invoice. LumosZipForMac is sold through Gumroad.
-- Retainer: work starts after payment. No mid-week refund once hours are used.
-- Free diagnosis: limited to the first 10 apps, status report only — no code changes.
-- Scope: audit/report products deliver documents (PDF/Markdown); code changes are quoted separately. Signing and store submission are recommended to stay with the client.
-- No refund policy is published for one-off audit products; ask by email before ordering.
-
-## Other
-
-- Home: https://hwemo-chung.github.io/
-- Privacy: https://hwemo-chung.github.io/pp.html
+- The retainer Pilot ($400) can be paid through PayPal.me. Other work is invoiced by email and paid before work starts. LumosZipForMac is sold through Gumroad.
+- The free diagnosis covers the first 10 apps and is a status report without code changes.
+- Audit products deliver documents; code changes are quoted separately.
 
 ## Contact
 
 - Email: tolaria@naver.com
 - GitHub: https://github.com/Hwemo-Chung
+- Privacy policy: https://hwemo-chung.github.io/pp.html

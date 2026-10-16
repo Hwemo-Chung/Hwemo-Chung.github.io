@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Burnline Dashboard — local AI cost</title>
-  <meta name="description" content="Local-first Burnline dashboard: spend by model and day, budget cap, load your events.csv. Data stays in the browser." />
+  <title>Burnline dashboard | Local AI cost by model and day</title>
+  <meta name="description" content="Load a Burnline events.csv to see AI spend by model and day against a monthly budget. The file stays in your browser." />
   <link rel="canonical" href="https://hwemo-chung.github.io/burnline-dashboard.html" />
   <meta name="theme-color" content="#ffffff" />
   <meta property="og:title" content="Burnline Dashboard" />
-  <meta property="og:description" content="See AI burn by model and day. Load CSV locally. No prompt upload." />
+  <meta property="og:description" content="See AI spend by model and day. The CSV is read locally and prompts are never uploaded." />
   <meta property="og:url" content="https://hwemo-chung.github.io/burnline-dashboard.html" />
   <meta name="twitter:card" content="summary" />
   <link rel="stylesheet" href="sales/tokens.css" />
@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="sales/site-unified.css" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
         crossorigin="anonymous"></script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lumos">
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
 </head>
 <body class="ls">
   <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
@@ -39,28 +42,29 @@
   <main id="main" class="wrap ls-wrap--app">
     <header class="page-head">
       <div>
-        <h1>Cost dashboard</h1>
+        <h1>Burnline dashboard</h1>
         <p class="sub">
-          Local-first view of AI spend. Load a Burnline <code>events.csv</code> — nothing is uploaded.
+          Shows AI spend by model and day from a Burnline <code>events.csv</code>.
+          The file is read in your browser and never uploaded.
+          Burnline is not for sale yet; <a href="burnline.html#waitlist">join the waitlist</a> for launch notes.
         </p>
         <div class="ls-badge-row">
-          <span class="ls-badge ls-badge--ok">Browser only</span>
           <span class="ls-badge" id="data-badge">Sample fixtures</span>
         </div>
       </div>
       <div class="actions">
-        <label class="ls-btn ls-btn--ghost btn-file">
+        <label class="ls-btn btn-file">
           Load CSV
           <input id="file-input" type="file" accept=".csv,text/csv" />
         </label>
-        <button type="button" class="ls-btn ls-btn--ghost" id="btn-sample">Reset sample</button>
+        <button type="button" class="ls-btn" id="btn-sample">Use sample data</button>
         <button type="button" class="ls-btn ls-btn--primary" id="btn-export">Export CSV</button>
       </div>
     </header>
 
     <div class="drop" id="drop" tabindex="0" data-i18n-aria-label="aria.dropCsv">
-      <p><strong>Drop events.csv</strong> from <code>npm run report:* -- --out …</code> or use Load CSV.</p>
-      <p class="status-line" id="status">Using built-in sample (3 events · $47.88).</p>
+      <p><strong>Drop events.csv here</strong> or use Load CSV. Create the file with <code>npm run report:* -- --out …</code></p>
+      <p class="status-line" id="status">Showing the built-in sample: 3 events, $47.88.</p>
     </div>
 
     <section class="toolbar" data-i18n-aria-label="aria.filters">
@@ -76,12 +80,8 @@
         <label for="cap-input">Monthly budget (USD)</label>
         <div class="cap-row">
           <input id="cap-input" type="number" min="0" step="1" value="40" inputmode="decimal" />
-          <span class="status-line" style="margin:0">80% warn · 100% over</span>
+          <span class="status-line">Warns at 80%, flags at 100%</span>
         </div>
-      </div>
-      <div class="field">
-        <label>&nbsp;</label>
-        <a class="ls-btn ls-btn--ghost" href="burnline.html#waitlist">Waitlist</a>
       </div>
     </section>
 
@@ -450,7 +450,7 @@
     state.events = events;
     state.sourceLabel = label;
     render();
-    setStatus(label + " · " + events.length + " events · " + money(aggregate(events).total) + " total.", "ok");
+    setStatus(label + ": " + events.length + " events, " + money(aggregate(events).total) + " total.", "ok");
     toast("Loaded " + events.length + " events");
   }
 

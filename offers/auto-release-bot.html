@@ -3,19 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>릴리스 노트 자동 초안 봇 — Lumos Deep</title>
-  <meta name="description" content="태그/머지 시 커밋 로그 → CHANGELOG 초안 PR · ₩200,000 ~ ₩450,000 · 2~5영업일" />
+  <title>릴리스 노트 자동 초안 봇 | Lumos</title>
+  <meta name="description" content="태그를 달거나 머지하면 커밋 기록으로 CHANGELOG 초안을 만들어 PR로 올립니다. 가격 ₩200,000 ~ ₩450,000, 납기 2~5영업일." />
   <link rel="canonical" href="https://hwemo-chung.github.io/offers/auto-release-bot.html" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="stylesheet" href="../sales/tokens.css" />
   <link rel="stylesheet" href="../sales/components.css" />
   <link rel="stylesheet" href="../sales/product-extras.css" />
   <link rel="stylesheet" href="../sales/site-unified.css" />
-  <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","@id":"https://hwemo-chung.github.io/offers/auto-release-bot.html#service","name":"릴리스 노트 자동 초안 봇","alternateName":"Release Notes Bot","serviceType":"Workflow automation","description":"태그/머지 시 커밋 로그 → CHANGELOG 초안 PR","disambiguatingDescription":"TypeScript 액션 또는 스크립트가 conventional commits를 모아 릴리스 노트 초안을 만듭니다. 사람이 다듬는 전제(완전 자동 배포 아님).","url":"https://hwemo-chung.github.io/offers/auto-release-bot.html","provider":{"@id":"https://hwemo-chung.github.io/#person"},"offers":{"@type":"Offer","url":"https://hwemo-chung.github.io/offers/auto-release-bot.html","availability":"https://schema.org/InStock","deliveryLeadTime":"2~5영업일","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"KRW","minPrice":200000,"maxPrice":450000},"additionalProperty":[{"@type":"PropertyValue","name":"requiredInput","value":"커밋 컨벤션 유무 + 저장소 권한"}]},"serviceOutput":[{"@type":"Thing","name":"태그/릴리스 트리거"},{"@type":"Thing","name":"CHANGELOG 섹션 템플릿"},{"@type":"Thing","name":"PR 본문 초안"},{"@type":"Thing","name":"스킵 라벨 규칙"}],"potentialAction":{"@type":"OrderAction","name":"메일로 견적 문의","target":{"@type":"EntryPoint","urlTemplate":"mailto:tolaria@naver.com?subject=%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8%20%EC%9E%90%EB%8F%99%20%EC%B4%88%EC%95%88%20%EB%B4%87%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20Release%20Notes%20Bot%20/%20%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8%20%EC%9E%90%EB%8F%99%20%EC%B4%88%EC%95%88%20%EB%B4%87%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/auto-release-bot.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A"}}}
-  </script>
+  <style>.facts{min-width:0}.facts th{width:7.5rem;white-space:nowrap}.facts .ls-price{font-size:17px}</style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
         crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","@id":"https://hwemo-chung.github.io/offers/auto-release-bot.html#service","name":"릴리스 노트 자동 초안 봇","alternateName":"Release Notes Bot","serviceType":"Workflow automation","description":"태그를 달거나 머지하면 커밋 기록으로 CHANGELOG 초안을 만들어 PR로 올립니다.","disambiguatingDescription":"TypeScript 액션이나 스크립트가 conventional commits를 모아 릴리스 노트 초안을 씁니다. 사람이 다듬는 것을 전제로 하며, 배포까지 자동으로 하지는 않습니다.","url":"https://hwemo-chung.github.io/offers/auto-release-bot.html","provider":{"@id":"https://hwemo-chung.github.io/#person"},"offers":{"@type":"Offer","url":"https://hwemo-chung.github.io/offers/auto-release-bot.html","availability":"https://schema.org/InStock","deliveryLeadTime":"2~5영업일","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"KRW","minPrice":200000,"maxPrice":450000},"additionalProperty":[{"@type":"PropertyValue","name":"requiredInput","value":"커밋 컨벤션 사용 여부, 저장소 권한"}]},"serviceOutput":[{"@type":"Thing","name":"태그와 릴리스 트리거"},{"@type":"Thing","name":"CHANGELOG 섹션 템플릿"},{"@type":"Thing","name":"PR 본문 초안"},{"@type":"Thing","name":"노트에서 뺄 커밋을 고르는 라벨 규칙"}],"potentialAction":{"@type":"OrderAction","name":"메일로 견적 문의","target":{"@type":"EntryPoint","urlTemplate":"mailto:tolaria@naver.com?subject=%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8%20%EC%9E%90%EB%8F%99%20%EC%B4%88%EC%95%88%20%EB%B4%87%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=%EC%83%81%ED%92%88%3A%20Release%20Notes%20Bot%20/%20%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8%20%EC%9E%90%EB%8F%99%20%EC%B4%88%EC%95%88%20%EB%B4%87%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/auto-release-bot.html%0A%0A%ED%9A%8C%EC%82%AC%3A%0A%EC%A0%80%EC%9E%A5%EC%86%8C/%EC%8A%A4%ED%83%9D%3A%0A%EB%AC%B8%EC%A0%9C%3A%0A%ED%9D%AC%EB%A7%9D%20%EC%9D%BC%EC%A0%95%3A%0A%EC%98%88%EC%82%B0%3A%0A"}}}
+  </script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lumos">
+  <meta property="og:title" content="릴리스 노트 자동 초안 봇 | Lumos">
+  <meta property="og:description" content="태그를 달거나 머지하면 커밋 기록으로 CHANGELOG 초안을 만들어 PR로 올립니다. 가격 ₩200,000 ~ ₩450,000, 납기 2~5영업일.">
+  <meta property="og:url" content="https://hwemo-chung.github.io/offers/auto-release-bot.html">
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="ls">
   <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
@@ -33,40 +41,22 @@
     </div>
   </nav>
   <main id="main" class="ls-wrap">
-    <div class="ls-badge-row">
-      <span class="ls-badge ls-badge--ok"><span class="ls-badge__dot"></span> 자동화 · Angular/TS/Cron</span>
-      <span class="ls-badge">auto-release-bot</span>
-    </div>
-    <p class="ls-kicker">Release Notes Bot</p>
     <h1>릴리스 노트 자동 초안 봇</h1>
-    <p class="ls-lead">태그/머지 시 커밋 로그 → CHANGELOG 초안 PR</p>
-    <p>TypeScript 액션 또는 스크립트가 conventional commits를 모아 릴리스 노트 초안을 만듭니다. 사람이 다듬는 전제(완전 자동 배포 아님).</p>
-    
-    <div class="ls-grid ls-grid--2">
-      <article class="ls-card ls-card--featured">
-        <span class="ls-card__tag">가격</span>
-        <div class="ls-price">₩200,000 ~ ₩450,000</div>
-        <p class="ls-fine">납기: 2~5영업일 · 입금 후 착수</p>
-      </article>
-      <article class="ls-card">
-        <strong class="ls-card__title">필요 자료</strong>
-        <p class="ls-muted" style="margin:0">커밋 컨벤션 유무 + 저장소 권한</p>
-      </article>
-    </div>
-    <h2>납품물</h2>
-    <ul class="ls-trust"><li>태그/릴리스 트리거</li><li>CHANGELOG 섹션 템플릿</li><li>PR 본문 초안</li><li>스킵 라벨 규칙</li></ul>
-    <h2>예시</h2><ul class="ls-dash"><li>버전 태그 시 노트</li><li>주간 요약 이슈</li><li>스토어 릴리스 문구 초안</li></ul>
-    <h2>시장 포지션</h2>
-    <p class="ls-muted">DX 자동화. 팀 규모 커질수록 반복 가치.</p>
-    <div class="ls-out">
-      <p><strong>제외:</strong> 전량 구현 보증 없이 범위 무한 확장, 침투 테스트 전체, 인프라 전면 재구축.
-      구현 스프린트는 별도 SOW.</p>
-    </div>
-    <div class="ls-cta">
-      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8%20%EC%9E%90%EB%8F%99%20%EC%B4%88%EC%95%88%20%EB%B4%87%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20Release%20Notes%20Bot%20/%20%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8%20%EC%9E%90%EB%8F%99%20%EC%B4%88%EC%95%88%20%EB%B4%87%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/auto-release-bot.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A">메일로 심화 견적 문의</a>
-      
-      <a class="ls-btn ls-btn--ghost" href="index.html#deep">심화 목록</a>
-    </div>
+    <p class="ls-lead">태그를 달거나 머지하면 커밋 기록으로 CHANGELOG 초안을 만들어 PR로 올립니다.</p>
+    <p>TypeScript 액션이나 스크립트가 conventional commits를 모아 릴리스 노트 초안을 씁니다. 사람이 다듬는 것을 전제로 하며, 배포까지 자동으로 하지는 않습니다.</p>
+    <div class="ls-table-scroll"><table class="ls-table facts"><tbody>
+      <tr><th scope="row">가격</th><td><span class="ls-price">₩200,000 ~ ₩450,000</span></td></tr>
+      <tr><th scope="row">납기</th><td>2~5영업일, 입금 확인 후 시작</td></tr>
+      <tr><th scope="row">준비할 것</th><td>커밋 컨벤션 사용 여부, 저장소 권한</td></tr>
+    </tbody></table></div>
+    <div class="ls-cta"><a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8%20%EC%9E%90%EB%8F%99%20%EC%B4%88%EC%95%88%20%EB%B4%87%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&amp;body=%EC%83%81%ED%92%88%3A%20Release%20Notes%20Bot%20/%20%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8%20%EC%9E%90%EB%8F%99%20%EC%B4%88%EC%95%88%20%EB%B4%87%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/auto-release-bot.html%0A%0A%ED%9A%8C%EC%82%AC%3A%0A%EC%A0%80%EC%9E%A5%EC%86%8C/%EC%8A%A4%ED%83%9D%3A%0A%EB%AC%B8%EC%A0%9C%3A%0A%ED%9D%AC%EB%A7%9D%20%EC%9D%BC%EC%A0%95%3A%0A%EC%98%88%EC%82%B0%3A%0A">견적 메일 보내기</a></div>
+    <h2>받는 것</h2>
+    <ul class="ls-dash"><li>태그와 릴리스 트리거</li><li>CHANGELOG 섹션 템플릿</li><li>PR 본문 초안</li><li>노트에서 뺄 커밋을 고르는 라벨 규칙</li></ul>
+    <h2>이런 작업에 맞습니다</h2>
+    <ul class="ls-dash"><li>버전 태그 때 릴리스 노트</li><li>주간 변경 요약 이슈</li><li>스토어 업데이트 문구 초안</li></ul>
+    <h2>주문 방법</h2>
+    <p>위 버튼을 누르면 제목과 양식이 채워진 메일이 열립니다. 회사, 저장소나 스택, 겪고 있는 문제, 희망 일정, 예산을 적어 보내 주세요. 범위를 확인해 금액과 일정을 회신하고, 입금이 확인되면 시작합니다. 합의한 범위를 넘는 작업은 따로 견적을 드립니다. 메일 앱이 열리지 않으면 <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>으로 직접 보내 주세요.</p>
+    <div class="ls-cta"><a class="ls-btn" href="index.html#automation">다른 상품 보기</a></div>
     <footer class="ls-foot">
       <nav data-i18n-aria-label="common.footerNav">
         <a href="/" data-i18n="nav.home">홈</a>
@@ -81,12 +71,6 @@
       <p data-i18n="common.disclaimer"></p>
     </footer>
   </main>
-  <div class="ls-sticky">
-    <div class="ls-sticky__inner">
-      <span class="ls-sticky__hint">릴리스 노트 자동 초안 봇</span>
-      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8%20%EC%9E%90%EB%8F%99%20%EC%B4%88%EC%95%88%20%EB%B4%87%20%E2%80%94%20%EC%8B%AC%ED%99%94%20%EA%B2%AC%EC%A0%81%20%EB%AC%B8%EC%9D%98&body=Product%3A%20Release%20Notes%20Bot%20/%20%EB%A6%B4%EB%A6%AC%EC%8A%A4%20%EB%85%B8%ED%8A%B8%20%EC%9E%90%EB%8F%99%20%EC%B4%88%EC%95%88%20%EB%B4%87%0AURL%3A%20https%3A//hwemo-chung.github.io/offers/auto-release-bot.html%0A%0ACompany%3A%0ARepo/stack%3A%0AProblem%3A%0ATimeline%3A%0ABudget%3A%0A">문의 메일</a>
-    </div>
-  </div>
-    <script src="/i18n.js"></script>
+  <script src="/i18n.js"></script>
 </body>
 </html>

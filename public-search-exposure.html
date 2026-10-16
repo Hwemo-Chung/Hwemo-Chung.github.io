@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공개 검색 노출 범위 — Lumos</title>
-    <meta name="description" content="본인 이름, 회사, 주소를 입력하면 그 글이 공개 검색에 어디까지 보이는지 보여주고, 같은 글의 검색 링크를 만듭니다. 입력은 이 브라우저 안에만 있습니다.">
+    <title>공개 검색 노출 범위 확인 | Lumos</title>
+    <meta name="description" content="이름, 회사, 주소를 넣으면 공개 검색에 어디까지 드러나는지 단계로 보여 주고, 같은 내용을 그대로 찾는 Google 검색 링크를 만듭니다. 입력한 값은 이 브라우저 밖으로 나가지 않습니다.">
     <meta name="author" content="Hwemo Chung">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://hwemo-chung.github.io/public-search-exposure.html">
     <meta property="og:site_name" content="Lumos">
-    <meta property="og:title" content="공개 검색 노출 범위 — Lumos">
-    <meta property="og:description" content="본인 이름, 회사, 주소를 입력하면 그 글이 공개 검색에 어디까지 보이는지 보여주고, 같은 글의 검색 링크를 만듭니다.">
+    <meta property="og:title" content="공개 검색 노출 범위 확인 | Lumos">
+    <meta property="og:description" content="이름, 회사, 주소를 넣으면 공개 검색에 어디까지 드러나는지 단계로 보여 주고, 같은 내용을 그대로 찾는 Google 검색 링크를 만듭니다.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hwemo-chung.github.io/public-search-exposure.html">
     <meta property="og:locale" content="ko_KR">
@@ -19,84 +19,15 @@
     <link rel="stylesheet" href="sales/components.css">
     <link rel="stylesheet" href="sales/site-unified.css">
     <style>
-        .exposure {
-            max-width: var(--ls-wrap);
-            margin: 0 auto;
-            padding: 40px 20px 24px;
-        }
-
-        .exposure h1 {
-            font-size: clamp(1.7rem, 4vw, 2.15rem);
-            line-height: var(--ls-lh-tight);
-            margin: 0 0 12px;
-        }
-
-        .exposure .lead,
-        .exposure .fine {
-            color: var(--ls-muted);
-            margin: 0;
-        }
-
-        .exposure-form {
-            display: grid;
-            gap: 14px;
-            margin-top: 24px;
-        }
-
-        .exposure-form label {
-            display: grid;
-            gap: 6px;
-            font-weight: 700;
-        }
-
-        .exposure-form input {
-            font: inherit;
-            color: var(--ls-text);
-            background: var(--ls-card);
-            border: 1px solid var(--ls-border);
-            border-radius: var(--ls-radius-sm);
-            min-height: 44px;
-            padding: 10px 12px;
-        }
-
-        .exposure-note {
-            margin: 8px 0 0;
-        }
-
-        .exposure-result {
-            margin-top: 28px;
-        }
-
-        .exposure-level {
-            font-size: 1.35rem;
-            line-height: var(--ls-lh-tight);
-            margin: 0 0 8px;
-        }
-
-        .exposure-query {
-            font-family: var(--ls-font-mono);
-            font-size: 0.95rem;
-            margin: 8px 0 0;
-        }
-
-        .exposure-scale {
-            display: grid;
-            gap: 8px;
-            margin: 12px 0 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .exposure-scale li {
-            border: 1px solid var(--ls-border);
-            border-radius: var(--ls-radius-sm);
-            padding: 10px 12px;
-            background: var(--ls-card);
-        }
-
-        .exposure-scale li[aria-current="true"] {
-            border-color: var(--ls-text);
-        }
+        .exposure-form { display: grid; gap: 14px; margin-top: 24px; }
+        .exposure-form label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; color: var(--ls-text); }
+        .exposure-form input { font: inherit; color: var(--ls-text); background: var(--ls-card); border: 1px solid var(--ls-border); border-radius: var(--ls-radius-sm); min-height: 44px; padding: 10px 12px; }
+        .exposure-form .ls-cta { margin: 4px 0 0; }
+        .exposure-level { font-size: 20px; line-height: 28px; font-weight: 600; color: var(--ls-text) !important; margin: 0 0 8px; }
+        .exposure-query { font-family: var(--ls-font-mono); font-size: 15px; color: var(--ls-text) !important; overflow-wrap: anywhere; }
+        .exposure [hidden] { display: none; }
+        #exposure-scale tr[aria-current="true"] td { color: var(--ls-text); background: var(--ls-bg); }
+        #exposure-scale tr[aria-current="true"] td:first-child { font-weight: 600; }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
         crossorigin="anonymous"></script>
@@ -108,6 +39,8 @@
         gtag('js', new Date());
         gtag('config', 'G-L16K8WDDBP');
     </script>
+    <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="ls page-public-search">
@@ -134,9 +67,9 @@
     </div>
 
     <main id="main">
-        <article class="exposure">
+        <article class="ls-wrap exposure">
             <h1>공개 검색 노출 범위</h1>
-            <p class="lead">본인의 이름, 회사, 주소를 넣으면 그 글이 공개 검색어로 어디까지 이어지는지 바로 보여 줍니다. 사람 찾기 서비스나 유출 자료는 쓰지 않고, 전화번호와 주민등록번호도 받지 않습니다.</p>
+            <p class="ls-lead">본인 이름, 회사, 주소를 넣으면 공개 검색에 어디까지 드러나는지 단계로 보여 주고, 그 내용을 그대로 찾는 Google 검색 링크를 만듭니다. 사람 찾기 서비스나 유출 자료는 쓰지 않습니다. 전화번호와 주민등록번호는 받지 않습니다.</p>
 
             <form id="exposure-form" class="exposure-form" autocomplete="off">
                 <label for="person-name">이름
@@ -149,31 +82,36 @@
                     <input id="address" type="text" maxlength="120" autocomplete="street-address" placeholder="예시: 예시시 예시구 예시로 1" enterkeyhint="done">
                 </label>
                 <div class="ls-cta">
-                    <button id="fill-sample" class="ls-btn ls-btn--ghost" type="button">예시 넣기</button>
+                    <button id="fill-sample" class="ls-btn ls-btn--sm" type="button">예시 값 넣기</button>
                 </div>
-                <p id="sample-note" class="exposure-note" hidden><strong>예시</strong> 방금 넣은 값은 만든 예시입니다. 실존 인물이 아닙니다.</p>
+                <p id="sample-note" class="ls-fine" hidden>방금 넣은 값은 지어낸 예시입니다. 실존 인물이 아닙니다.</p>
             </form>
 
             <section class="exposure-result" aria-live="polite">
-                <h2>이 글의 범위</h2>
+                <h2>드러나는 범위</h2>
                 <p id="exposure-level" class="exposure-level">거의 없음</p>
-                <p id="exposure-detail">글자나 숫자가 있는 항목이 없습니다. 공개 검색에 올릴 글이 거의 없습니다.</p>
+                <p id="exposure-detail">글자나 숫자를 넣은 칸이 없습니다. 검색할 내용이 거의 없습니다.</p>
                 <p id="blocked-note" hidden>전화번호나 주민등록번호로 보이는 숫자는 검색 링크로 만들지 않습니다.</p>
 
-                <h2>공개 검색 링크</h2>
-                <p id="exposure-query" class="exposure-query">아직 검색할 글이 없습니다.</p>
-                <p><a id="search-link" href="https://www.google.com/search" hidden rel="noopener noreferrer">이 글 그대로 검색</a></p>
-                <p class="fine">링크를 열 때만 위 글이 검색 사이트로 넘어갑니다. 이 페이지는 그 글을 서버에 저장하지 않습니다.</p>
+                <h2>검색 링크</h2>
+                <p id="exposure-query" class="exposure-query">아직 검색할 내용이 없습니다.</p>
+                <p><a id="search-link" class="ls-btn ls-btn--primary" href="https://www.google.com/search" hidden rel="noopener noreferrer">Google에서 검색하기</a></p>
+                <p class="ls-fine">링크를 열 때만 위 내용이 Google로 넘어갑니다. 이 페이지는 입력한 값을 서버에 저장하지 않습니다.</p>
             </section>
 
             <section>
-                <h2>범위는 이렇게 나눕니다</h2>
-                <ul class="exposure-scale" id="exposure-scale">
-                    <li data-level="none" aria-current="true"><strong>거의 없음</strong> — 글자나 숫자가 있는 항목이 없을 때</li>
-                    <li data-level="name"><strong>이름만</strong> — 이름만 있을 때</li>
-                    <li data-level="company"><strong>회사와 함께</strong> — 회사가 있고 주소는 없을 때</li>
-                    <li data-level="address"><strong>주소까지</strong> — 주소가 있을 때</li>
-                </ul>
+                <h2>단계 기준</h2>
+                <div class="ls-table-scroll">
+                    <table class="ls-table">
+                        <thead><tr><th scope="col">단계</th><th scope="col">기준</th></tr></thead>
+                        <tbody id="exposure-scale">
+                            <tr data-level="none" aria-current="true"><td>거의 없음</td><td>글자나 숫자를 넣은 칸이 없을 때</td></tr>
+                            <tr data-level="name"><td>이름만</td><td>이름만 넣었을 때</td></tr>
+                            <tr data-level="company"><td>회사와 함께</td><td>회사를 넣고 주소는 비웠을 때</td></tr>
+                            <tr data-level="address"><td>주소까지</td><td>주소를 넣었을 때</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </article>
     </main>
@@ -239,18 +177,18 @@
 
             function detailFor(level, name, company) {
                 if (level === "address") {
-                    return "주소가 공개 검색어에 들어갑니다. 이름이나 회사를 함께 적었다면 그 글도 같은 검색어에 붙습니다.";
+                    return "주소가 검색어에 들어갑니다. 이름이나 회사를 함께 적었다면 그 값도 같은 검색어에 붙습니다.";
                 }
                 if (level === "company" && hasToken(name)) {
-                    return "이름과 회사가 함께 공개 검색어에 들어갑니다. 주소는 빠집니다.";
+                    return "이름과 회사가 함께 검색어에 들어갑니다. 주소는 빠집니다.";
                 }
                 if (level === "company") {
-                    return "회사명이 공개 검색어에 들어갑니다. 사람 이름과 주소는 빠집니다.";
+                    return "회사명이 검색어에 들어갑니다. 이름과 주소는 빠집니다.";
                 }
                 if (level === "name") {
-                    return "이름만 공개 검색어에 들어갑니다. 회사와 주소는 빠집니다.";
+                    return "이름만 검색어에 들어갑니다. 회사와 주소는 빠집니다.";
                 }
-                return "글자나 숫자가 있는 항목이 없습니다. 공개 검색에 올릴 글이 거의 없습니다.";
+                return "글자나 숫자를 넣은 칸이 없습니다. 검색할 내용이 거의 없습니다.";
             }
 
             function phraseFrom(name, company, address) {
@@ -275,7 +213,7 @@
 
                 levelNode.textContent = LABELS[level];
                 detailNode.textContent = refuses
-                    ? "전화번호나 주민등록번호로 보이는 숫자는 검색어에서 빼 주세요. 그 숫자는 검색 링크로 만들지 않습니다."
+                    ? "전화번호나 주민등록번호로 보이는 숫자가 있습니다. 그 숫자를 지우면 검색 링크를 만듭니다."
                     : detailFor(level, name, company);
                 blockedNote.hidden = !refuses;
                 sampleNote.hidden = !isSample();
@@ -288,7 +226,7 @@
                 if (!phrase) {
                     queryNode.textContent = refuses
                         ? "전화번호나 주민등록번호는 검색어로 넣지 않습니다."
-                        : "아직 검색할 글이 없습니다.";
+                        : "아직 검색할 내용이 없습니다.";
                     searchLink.hidden = true;
                     searchLink.removeAttribute("href");
                     return;

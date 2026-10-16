@@ -1,228 +1,224 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hwemo-chung.github.io/ads.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/burnline-dashboard.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/burnline-demo.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/burnline.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/color-picker.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/cordova.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
     <loc>https://hwemo-chung.github.io/</loc>
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
-    <loc>https://hwemo-chung.github.io/hot-launcher.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://hwemo-chung.github.io/ads.html</loc>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
-    <loc>https://hwemo-chung.github.io/lumos-fireworks/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <loc>https://hwemo-chung.github.io/burnline-dashboard.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/burnline.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/color-picker.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/cordova.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/hot-launcher.html</loc>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/lumoszip.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/micro-saas-mvps/</loc>
-    <lastmod>2026-09-06</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/auto-angular-ci.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/auto-cron-worker.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/auto-e2e-nightly.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/auto-form-webhook.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/auto-gmail-triage.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/auto-health-cron.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/auto-i18n-sync.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/auto-release-bot.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/auto-rss-pipeline.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/auto-sheet-sync.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/caphealth.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-a11y-wcag.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-auth-session.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-bundle-perf.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-design-tokens.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-feature-flags.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-loadtest-k6.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-monorepo-nx.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-ng-major-migrate.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-offline-sync.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-openapi-client.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-rxjs-leak-audit.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/deep-webview-bridge.html</loc>
-    <lastmod>2026-08-12</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/offers/hybridquote.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/auto-angular-ci.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/auto-cron-worker.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/auto-e2e-nightly.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/auto-form-webhook.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/auto-gmail-triage.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/auto-health-cron.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/auto-i18n-sync.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/auto-release-bot.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/auto-rss-pipeline.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/auto-sheet-sync.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/caphealth.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-a11y-wcag.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-auth-session.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-bundle-perf.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-design-tokens.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-feature-flags.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-loadtest-k6.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-monorepo-nx.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-ng-major-migrate.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-offline-sync.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-openapi-client.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-rxjs-leak-audit.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/deep-webview-bridge.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/offers/hybridquote.html</loc>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/iosgate.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/linkmortem.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/nightwatch.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/plugmap.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/policypulse.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/releasegate.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/social-approval-slack.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/social-calendar-sheet.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/social-comment-mod-queue.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/social-crosspost-draft.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/social-draft-queue.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/social-mention-digest.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/social-newsletter-digest.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/social-seo-check-cron.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/social-threads-schedule-assist.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/social-utm-tracker.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/targetscan.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/offers/threadsmith.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/picbatch-privacy.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/pixeldiary-privacy.html</loc>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/pp.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/public-search-exposure.html</loc>
@@ -230,26 +226,90 @@
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/retainer.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/sales/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/sealcard-privacy.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/secretclipdiary-privacy.html</loc>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/threads-analyzer.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
-    <loc>https://hwemo-chung.github.io/where-privacy.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <loc>https://hwemo-chung.github.io/tokushoho.html</loc>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://hwemo-chung.github.io/tools/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/brush-erase/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/burned-captions/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/copilot-usage-monitor/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/device-mockup/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/id-photo/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/image-shrink/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/image-upscale/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/lifestyle-scene/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/logo-svg/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/page-shot/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/pdf-to-doc/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/promo-template/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/receipt-line/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/room-stage/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hwemo-chung.github.io/tools/shot-frame/</loc>
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
@@ -261,19 +321,15 @@
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
-    <loc>https://hwemo-chung.github.io/tools/room-stage/</loc>
+    <loc>https://hwemo-chung.github.io/tools/subtitle-file/</loc>
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
-    <loc>https://hwemo-chung.github.io/tools/logo-svg/</loc>
+    <loc>https://hwemo-chung.github.io/tools/subtitle-translate/</loc>
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
-    <loc>https://hwemo-chung.github.io/tools/id-photo/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/image-upscale/</loc>
+    <loc>https://hwemo-chung.github.io/tools/thumb-card/</loc>
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
@@ -281,31 +337,7 @@
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
-    <loc>https://hwemo-chung.github.io/tools/burned-captions/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/white-background/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/item-removal/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/day-to-dusk/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/wall-color/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/lifestyle-scene/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/receipt-line/</loc>
+    <loc>https://hwemo-chung.github.io/tools/video-cutout/</loc>
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
@@ -317,59 +349,19 @@
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
+    <loc>https://hwemo-chung.github.io/tools/wall-color/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
     <loc>https://hwemo-chung.github.io/tools/waveform-video/</loc>
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
-    <loc>https://hwemo-chung.github.io/tools/colorize-photo/</loc>
+    <loc>https://hwemo-chung.github.io/tools/white-background/</loc>
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
-    <loc>https://hwemo-chung.github.io/tools/shot-frame/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/thumb-card/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/subtitle-translate/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/subtitle-file/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/device-mockup/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/pdf-to-doc/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/brush-erase/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/video-cutout/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/image-shrink/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/promo-template/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/page-shot/</loc>
-    <lastmod>2026-10-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hwemo-chung.github.io/tools/copilot-usage-monitor/</loc>
+    <loc>https://hwemo-chung.github.io/where-privacy.html</loc>
     <lastmod>2026-10-16</lastmod>
   </url>
 </urlset>

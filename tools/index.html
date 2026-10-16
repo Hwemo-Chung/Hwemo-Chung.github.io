@@ -1,99 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>도구</title>
-  <meta name="description" content="브라우저에서 바로 쓰는 작업 화면 30개.">
-  <style>
-    :root { color-scheme: light; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
-      background: #f4f1ea;
-      color: #1c1917;
-    }
-    main {
-      width: min(880px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 40px 0 64px;
-    }
-    h1 {
-      margin: 0 0 8px;
-      font-size: 32px;
-      font-weight: 650;
-      letter-spacing: -0.03em;
-    }
-    .lead {
-      margin: 0 0 28px;
-      color: #57534e;
-      line-height: 1.5;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-    a {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding: 16px 18px;
-      border: 1px solid #e7e0d6;
-      border-radius: 14px;
-      background: #fffdf8;
-      color: inherit;
-      text-decoration: none;
-    }
-    a:hover { border-color: #1c1917; }
-    .name { font-weight: 650; letter-spacing: -0.02em; }
-    .desc { color: #57534e; font-size: 14px; line-height: 1.45; }
-    @media (max-width: 640px) {
-      h1 { font-size: 26px; }
-      main { padding-top: 28px; }
-    }
-  </style>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>도구 | 사진·영상·자막·문서 작업을 브라우저에서</title>
+<meta name="description" content="사진 용량 줄이기, 배경 지우기, 증명사진, 무음 자르기, 자동 자막, PDF를 워드로 바꾸기 등 브라우저에서 바로 쓰는 도구 모음.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/">
+<link rel="stylesheet" href="common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .group { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding: 32px 0; border-top: 1px solid var(--line); }
+  .group h2 { margin: 0; font-size: 14px; line-height: 24px; font-weight: 500; color: var(--body); }
+  .group ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 32px; }
+  .group a { display: block; padding: 8px 0; text-decoration: none; }
+  .group strong { display: block; font-weight: 500; font-size: 15px; letter-spacing: -0.2px; }
+  .group a:hover strong { color: var(--link); }
+  .group span { display: block; color: var(--body); font-size: 13px; line-height: 20px; margin-top: 2px; }
+  @media (max-width: 860px) {
+    .group { grid-template-columns: 1fr; gap: 8px; }
+    .group ul { grid-template-columns: 1fr; }
+  }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="도구 | 사진·영상·자막·문서 작업을 브라우저에서">
+<meta property="og:description" content="사진 용량 줄이기, 배경 지우기, 증명사진, 무음 자르기, 자동 자막, PDF를 워드로 바꾸기 등 브라우저에서 바로 쓰는 도구 모음.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-  <main>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><span class="here">도구</span>
+</header>
+<main class="page">
+  <div class="head">
     <h1>도구</h1>
-    <p class="lead">브라우저 안에서 예시를 열고 결과를 확인하는 화면 30개입니다.</p>
-    <ul>
-      <li><a href="silence-cut/"><span class="name">말 사이 자르기</span><span class="desc">말하는 영상에서 무음 공백을 잘라 짧은 파일과 컷 타임라인을 만듭니다.</span></a></li>
-      <li><a href="statement-sheet/"><span class="name">통장 시트</span><span class="desc">한강은행 입출금 거래내역서(서식 HG-STMT-V1)를 날짜, 적요, 금액 표와 엑셀 파일로 바꿉니다.</span></a></li>
-      <li><a href="room-stage/"><span class="name">빈 방 가구 배치</span><span class="desc">직접 그린 빈 방 위에 가구를 올려 두고, 놓기 전과 후를 슬라이더로 비교합니다.</span></a></li>
-      <li><a href="logo-svg/"><span class="name">로고 SVG 변환</span><span class="desc">여러 색 PNG 로고를 확대해도 부드러운 SVG로 바꿉니다.</span></a></li>
-      <li><a href="id-photo/"><span class="name">증명사진</span><span class="desc">인물 사진을 3.5×4.5cm 비율의 흰 배경 사진으로 맞춥니다.</span></a></li>
-      <li><a href="image-upscale/"><span class="name">작은 글자 키우기</span><span class="desc">작은 이미지 속 글자를 브라우저에서 4배로 늘려 같은 위치를 비교합니다.</span></a></li>
-      <li><a href="vertical-clip/"><span class="name">세로 한 컷</span><span class="desc">넓은 영상의 10초를 가운데 9:16 클립으로 자릅니다.</span></a></li>
-      <li><a href="burned-captions/"><span class="name">글자 새기기</span><span class="desc">짧은 영상에 대본을 맞춰 글자를 프레임에 굽고 파일로 보냅니다.</span></a></li>
-      <li><a href="white-background/"><span class="name">흰 바탕 컷</span><span class="desc">상품 사진 한 장의 배경을 걷어 내고 흰 배경 PNG로 저장합니다.</span></a></li>
-      <li><a href="item-removal/"><span class="name">흩어진 물건만 지우기</span><span class="desc">합성 방 사진에서 바닥에 놓인 잡동사니만 로컬 인페인팅으로 지웁니다. 벽, 창문, 전선은 그대로입니다.</span></a></li>
-      <li><a href="day-to-dusk/"><span class="name">색 보정</span><span class="desc">낮에 찍은 주택 외관의 하늘과 창만 저녁으로 바꿉니다.</span></a></li>
-      <li><a href="wall-color/"><span class="name">벽·바닥만 다시 칠하기</span><span class="desc">합성 거실에서 벽이나 바닥 색만 바꿉니다. 가구와 창은 그대로 둡니다.</span></a></li>
-      <li><a href="lifestyle-scene/"><span class="name">책상 위에 상품 놓기</span><span class="desc">합성 세럼 보틀을 머그와 노트가 있는 창가 책상 위에 올립니다. 흰 배경 누끼가 아닙니다.</span></a></li>
-      <li><a href="receipt-line/"><span class="name">영수증 한 줄</span><span class="desc">영수증 사진 한 장에서 날짜, 가게, 금액을 한 줄로 정리합니다.</span></a></li>
-      <li><a href="vocal-split/"><span class="name">보컬과 반주 나누기</span><span class="desc">짧은 합성 믹스를 보컬 파일과 반주 파일로 나눕니다.</span></a></li>
-      <li><a href="voice-denoise/"><span class="name">말소리 정리</span><span class="desc">녹음의 바람 소리와 전원 험을 줄이고 더 깨끗한 음성 파일을 받습니다.</span></a></li>
-      <li><a href="waveform-video/"><span class="name">말소리 파형</span><span class="desc">음성 파일을 9:16 움직이는 파형 영상으로 미리 보고 WebM으로 저장합니다.</span></a></li>
-      <li><a href="colorize-photo/"><span class="name">흑백 초상에 색 입히기</span><span class="desc">직접 그린 흑백 초상 한 장에 밝기와 위치로 고른 추정 색을 올립니다.</span></a></li>
-      <li><a href="shot-frame/"><span class="name">샷프레임</span><span class="desc">스크린샷을 창 테두리와 그림자가 있는 이미지로 만듭니다. 합성은 브라우저 안에서만 이루어집니다.</span></a></li>
-      <li><a href="thumb-card/"><span class="name">썸네일 카드</span><span class="desc">제목으로 1280×720 유튜브 썸네일을 만들어 PNG로 내려받습니다.</span></a></li>
-      <li><a href="subtitle-translate/"><span class="name">자막만 옮기기</span><span class="desc">SRT 자막의 대사만 한국어로 바꿉니다. 타임코드는 유지하고 영상은 다시 인코딩하지 않습니다.</span></a></li>
-      <li><a href="subtitle-file/"><span class="name">대본 정렬</span><span class="desc">짧은 영상의 알려진 대본을 시간 코드에 맞춰 SRT 파일로 받습니다. 영상에 자막을 굽지 않습니다.</span></a></li>
-      <li><a href="device-mockup/"><span class="name">액자 — 앱 화면을 기기에 넣기</span><span class="desc">스크린샷을 휴대폰·노트북 목업 안에 합성하고 PNG로 저장합니다. 합성과 저장은 이 브라우저 안에서만 이루어집니다.</span></a></li>
-      <li><a href="pdf-to-doc/"><span class="name">텍스트 PDF를 문서로</span><span class="desc">글자를 선택할 수 있는 PDF를 고쳐 쓰고 docx로 받습니다.</span></a></li>
-      <li><a href="brush-erase/"><span class="name">붓으로 지우기</span><span class="desc">사진에서 물체를 붓으로 칠하면 그 자리를 주변 색으로 채웁니다. 브라우저 안에서만 처리합니다.</span></a></li>
-      <li><a href="video-cutout/"><span class="name">영상 배경 제거</span><span class="desc">3초 샘플 영상에서 평평한 배경을 걷어내고, 단색 배경을 입혀 저장합니다.</span></a></li>
-      <li><a href="image-shrink/"><span class="name">용량 줄이기</span><span class="desc">사진 파일의 바이트만 줄이고, 그림은 알아볼 수 있게 둡니다.</span></a></li>
-      <li><a href="promo-template/"><span class="name">프로모 카드</span><span class="desc">상품명과 가격을 고정 레이아웃 템플릿에 넣고 PNG로 받습니다.</span></a></li>
-      <li><a href="page-shot/"><span class="name">페이지 한 장</span><span class="desc">페이지 주소를 넣으면 그 화면 전체를 이미지 한 장으로 받습니다.</span></a></li>
-      <li><a href="copilot-usage-monitor/"><span class="name">코파일럿 사용량</span><span class="desc">코파일럿 토큰 사용량과 추정 비용을 보는 계기판. 실시간 계정은 연결되어 있지 않습니다.</span></a></li>
-    </ul>
-  </main>
+    <p>파일을 올리면 이 브라우저 안에서 바로 처리합니다.</p>
+  </div>
+  <input type="search" id="q" placeholder="도구 찾기: 배경, 자막, PDF…" aria-label="도구 찾기" style="max-width:420px;margin-bottom:24px">
+<!-- TOOLS:START -->
+<section class="group"><h2>사진</h2><ul>
+<li><a href="image-shrink/"><strong>이미지 용량 줄이기</strong><span>사진을 올리면 화질을 고르고 크기를 줄여 더 작은 JPG나 WebP로 받습니다. 여러 장을 한 번에 처리합니다.</span></a></li>
+<li><a href="white-background/"><strong>상품 사진 흰 배경</strong><span>상품 사진의 배경을 지우고 흰색, 투명, 원하는 색 바탕의 정사각형 이미지로 만듭니다. 쇼핑몰용 1000×1000 크기와 여백을 고르고 PNG나 JPG로 받습니다.</span></a></li>
+<li><a href="id-photo/"><strong>증명사진 만들기</strong><span>얼굴 사진을 올리면 여권(3.5×4.5cm, 머리 3.2~3.6cm), 증명, 반명함, 미국 비자 규격에 맞게 잘라 300dpi JPG와 4×6 인화용 사진으로 만듭니다.</span></a></li>
+<li><a href="image-upscale/"><strong>사진 해상도 키우기</strong><span>작은 사진이나 흐릿한 캡처를 ESRGAN 초해상도 모델로 2배 또는 4배 키워 PNG로 받습니다. 원본과 결과를 100% 크기로 나란히 비교합니다.</span></a></li>
+<li><a href="brush-erase/"><strong>붓으로 잡티 지우기</strong><span>사진의 잡티, 먼지, 전선, 작은 물체를 붓으로 문지르면 손을 뗄 때 주변 색으로 메웁니다. 되돌리기를 지원하고 결과를 바로 받습니다.</span></a></li>
+<li><a href="item-removal/"><strong>흩어진 물건만 지우기</strong><span>합성 방 사진에서 바닥에 놓인 잡동사니만 로컬 인페인팅으로 지웁니다. 벽, 창문, 전선은 그대로입니다.</span></a></li>
+<li><a href="colorize-photo/"><strong>흑백 초상에 색 입히기</strong><span>직접 그린 흑백 초상 한 장에 밝기와 위치로 고른 추정 색을 올립니다.</span></a></li>
+<li><a href="logo-svg/"><strong>로고 SVG 변환</strong><span>PNG나 JPG 로고를 올리면 색을 줄여 곡선으로 다시 그린 SVG 파일로 바꿉니다. 원본과 결과를 같은 배율로 확대해 비교합니다.</span></a></li>
+</ul></section>
+<section class="group"><h2>집·상품 사진</h2><ul>
+<li><a href="wall-color/"><strong>벽 색 바꾸기</strong><span>방 사진을 올리면 벽, 바닥, 천장을 자동으로 찾아 고른 페인트 색으로 바꿔 보여 줍니다. 그림자와 조명은 사진 그대로 남습니다.</span></a></li>
+<li><a href="day-to-dusk/"><strong>색 보정</strong><span>낮에 찍은 주택 외관의 하늘과 창만 저녁으로 바꿉니다.</span></a></li>
+<li><a href="room-stage/"><strong>빈 방에 가구 놓아 보기</strong><span>빈 방 사진에 가구 사진을 올리면 배경을 지워 방 안에 놓습니다. 위치, 크기, 회전, 순서를 바꾸고 그림자를 넣어 PNG나 JPG로 받습니다.</span></a></li>
+<li><a href="lifestyle-scene/"><strong>제품 연출 사진 만들기</strong><span>제품 사진의 배경을 지우고 책상, 테이블, 창틀 같은 배경 사진 위에 놓습니다. 위치와 크기, 그림자, 밝기와 색온도를 맞춰 PNG나 JPG로 받습니다.</span></a></li>
+<li><a href="promo-template/"><strong>상품 홍보 카드 만들기</strong><span>상품 사진과 이름, 가격, 할인율을 넣으면 1080×1350, 1080×1080, 1080×1920 SNS 홍보 이미지를 만듭니다. 상품 배경을 지우고 PNG로 받습니다.</span></a></li>
+<li><a href="thumb-card/"><strong>유튜브 썸네일 만들기</strong><span>사진을 올리고 제목을 쓰면 1280×720 유튜브 썸네일을 만듭니다. 글자 테두리와 강조 박스, 레이아웃과 색을 고르고 2MB 아래 JPG나 PNG로 받습니다.</span></a></li>
+<li><a href="shot-frame/"><strong>스크린샷 꾸미기</strong><span>스크린샷에 macOS 창이나 브라우저 주소창 테두리, 배경색, 여백, 둥근 모서리, 그림자를 넣고 16:9, 1:1, 4:5 비율의 2배 해상도 PNG로 받습니다.</span></a></li>
+<li><a href="device-mockup/"><strong>기기 목업 만들기</strong><span>앱이나 웹 스크린샷을 휴대폰, 태블릿, 노트북, 브라우저 창 프레임 안에 넣고 배경이 투명한 2배 해상도 PNG로 받습니다.</span></a></li>
+</ul></section>
+<section class="group"><h2>영상</h2><ul>
+<li><a href="silence-cut/"><strong>무음 구간 자르기</strong><span>말하는 영상이나 녹음을 올리면 말 없는 구간을 찾아 잘라 낸 MP4나 WAV와 컷 목록 CSV를 받습니다. 기준 음량, 최소 길이, 여유 시간을 직접 정합니다.</span></a></li>
+<li><a href="vertical-clip/"><strong>세로 영상으로 자르기</strong><span>가로 영상을 9:16 세로 영상으로 자릅니다. 구간을 고르고 화면 위치를 직접 옮기거나 얼굴을 따라가게 한 뒤 소리까지 담긴 MP4로 받습니다.</span></a></li>
+<li><a href="burned-captions/"><strong>영상에 자막 입히기</strong><span>영상의 말을 받아 적거나 SRT 파일을 불러와 자막을 화면에 새깁니다. 글자 크기와 위치, 상자나 외곽선 스타일을 고른 뒤 소리까지 담긴 MP4로 받습니다.</span></a></li>
+<li><a href="video-cutout/"><strong>영상 배경 바꾸기</strong><span>사람이 나오는 영상에서 배경만 골라 단색이나 사진으로 바꾸거나 흐리게 합니다. 소리까지 담긴 MP4로 받습니다.</span></a></li>
+<li><a href="waveform-video/"><strong>오디오 파형 영상</strong><span>음성이나 음악 파일을 올리면 소리에 맞춰 움직이는 파형 영상을 MP4로 만듭니다. 제목, 커버 이미지, 배경색을 넣고 릴스·쇼츠·유튜브 비율로 받습니다.</span></a></li>
+</ul></section>
+<section class="group"><h2>소리</h2><ul>
+<li><a href="vocal-split/"><strong>보컬 분리</strong><span>노래 파일을 올리면 HTDemucs 모델로 보컬과 반주를 나눠 각각 WAV로 받습니다. 3~4분짜리 곡 전체를 처리합니다.</span></a></li>
+<li><a href="voice-denoise/"><strong>음성 잡음 제거</strong><span>말소리 녹음에서 배경 소음을 RNNoise로 줄이고 저역 울림과 50/60Hz 험을 걸러 음량을 맞춘 WAV를 받습니다. 원본과 바꿔 들어 볼 수 있습니다.</span></a></li>
+</ul></section>
+<section class="group"><h2>자막</h2><ul>
+<li><a href="subtitle-file/"><strong>자막 파일 만들기</strong><span>영상이나 음성 파일의 말을 Whisper로 받아 적어 시간이 맞춰진 자막을 만듭니다. 한국어, 영어, 일본어를 지원하고 고친 뒤 SRT나 VTT로 받습니다.</span></a></li>
+<li><a href="subtitle-translate/"><strong>자막 번역</strong><span>SRT나 VTT 자막 파일을 올리면 각 줄을 다른 언어로 번역하고 시간은 그대로 둔 새 자막 파일을 만듭니다. 한국어, 영어, 일본어, 중국어, 스페인어 등을 지원합니다.</span></a></li>
+</ul></section>
+<section class="group"><h2>문서</h2><ul>
+<li><a href="pdf-to-doc/"><strong>PDF를 Word 문서로 바꾸기</strong><span>PDF를 Word 문서(DOCX)로 바꿉니다. 제목, 문단, 굵은 글씨, 목록, 간단한 표, 그림을 살리고 스캔한 쪽은 글자 인식으로 읽습니다.</span></a></li>
+<li><a href="statement-sheet/"><strong>통장 거래내역 엑셀로 옮기기</strong><span>은행에서 받은 거래내역 PDF, CSV, 엑셀 파일에서 날짜, 내용, 출금, 입금, 잔액을 표로 뽑아 XLSX나 CSV로 받습니다. 비밀번호가 걸린 PDF도 열 수 있습니다.</span></a></li>
+<li><a href="receipt-line/"><strong>영수증 사진을 표로 정리하기</strong><span>영수증 사진을 여러 장 올리면 글자를 읽어 날짜, 상호, 합계 금액, 결제 수단을 한 줄씩 표로 정리합니다. 고친 뒤 CSV나 엑셀로 받습니다.</span></a></li>
+</ul></section>
+<section class="group"><h2>웹·개발</h2><ul>
+<li><a href="page-shot/"><strong>웹페이지 전체 캡처</strong><span>웹페이지 주소를 넣으면 페이지 맨 아래까지 한 장으로 캡처해 PNG로 받습니다. PC, 태블릿, 모바일 화면 크기를 고를 수 있습니다.</span></a></li>
+<li><a href="copilot-usage-monitor/"><strong>Copilot 사용량</strong><span>GitHub 토큰이나 결제 페이지에서 받은 사용량 CSV로 내 Copilot 프리미엄 요청·AI 크레딧 사용량을 날짜별, 모델별로 보고 월 예산 대비 비용을 확인합니다.</span></a></li>
+</ul></section>
+<!-- TOOLS:END -->
+</main>
+<script>
+  const q = document.getElementById('q');
+  q.addEventListener('input', () => {
+    const v = q.value.trim().toLowerCase();
+    for (const g of document.querySelectorAll('.group')) {
+      let any = false;
+      for (const li of g.querySelectorAll('li')) {
+        const hit = !v || li.textContent.toLowerCase().includes(v);
+        li.hidden = !hit;
+        any ||= hit;
+      }
+      g.hidden = !any;
+    }
+  });
+</script>
+<footer class="foot">
+  <a href="/">Lumos</a>
+  <a href="/pp.html">개인정보처리방침</a>
+  <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+</footer>
 </body>
 </html>

@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Burnline · sample report (fixtures)</title>
-  <meta name="description" content="Sample Burnline cost report from fixture data. Not live product checkout." />
+  <title>Burnline sample report (fixture data)</title>
+  <meta name="description" content="A sample Burnline AI cost report built from fixture data. Burnline is not for sale yet." />
   <link rel="canonical" href="https://hwemo-chung.github.io/burnline-demo.html" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="robots" content="noindex" />
   <link rel="stylesheet" href="sales/tokens.css" />
   <link rel="stylesheet" href="sales/components.css" />
   <link rel="stylesheet" href="sales/product-extras.css" />
-  <link rel="stylesheet" href="sales/burnline-app.css" />
   <link rel="stylesheet" href="sales/site-unified.css" />
+  <style>.ls-table th, .ls-table td { white-space: nowrap; }</style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
         crossorigin="anonymous"></script>
 </head>
@@ -32,20 +32,15 @@
     </div>
   </nav>
 
-  <div class="ls-callout ls-callout--warn" role="status" style="border-radius:0;margin:0">
-    <strong>Sample fixtures only</strong>
-    <p>Not your logs · not a paid product · estimates for demo.</p>
-  </div>
-
   <main id="main" class="ls-wrap ls-wrap--wide">
-    <h1>Burnline · sample report</h1>
-    <p class="ls-lead">Local-first AI cost report · tier: <strong>free</strong> · fixture data</p>
+    <h1>Burnline sample report</h1>
+    <p class="ls-lead">This is what a Burnline cost report looks like on the free tier. It was built from fixture data, not from anyone's real logs, and the dollar figures are estimates.</p>
 
     <div class="ls-stats">
       <div class="ls-stat"><div class="ls-stat__v">$47.88</div><div class="ls-stat__l">Estimated spend</div></div>
       <div class="ls-stat"><div class="ls-stat__v">3</div><div class="ls-stat__l">Events</div></div>
       <div class="ls-stat"><div class="ls-stat__v">2</div><div class="ls-stat__l">Days</div></div>
-      <div class="ls-stat"><div class="ls-stat__v ls-bad">OVER</div><div class="ls-stat__l">$47.88 / $40.00 cap</div></div>
+      <div class="ls-stat"><div class="ls-stat__v ls-bad">OVER</div><div class="ls-stat__l">$47.88 of a $40.00 cap</div></div>
     </div>
 
     <h2>By model</h2>
@@ -60,13 +55,13 @@
             <td><code>claude-opus-4</code></td>
             <td class="ls-num">1</td><td class="ls-num">1</td>
             <td class="ls-num">2,000,000</td><td class="ls-num">200,000</td>
-            <td class="ls-num"><strong style="color:var(--ls-accent)">$45.00</strong></td>
+            <td class="ls-num ls-good">$45.00</td>
           </tr>
           <tr>
             <td><code>claude-sonnet-4-default</code></td>
             <td class="ls-num">2</td><td class="ls-num">2</td>
             <td class="ls-num">640,000</td><td class="ls-num">64,000</td>
-            <td class="ls-num"><strong style="color:var(--ls-accent)">$2.88</strong></td>
+            <td class="ls-num ls-good">$2.88</td>
           </tr>
         </tbody>
       </table>
@@ -84,28 +79,29 @@
             <td>2026-07-28</td>
             <td class="ls-num">2</td><td class="ls-num">640,000</td>
             <td class="ls-num">64,000</td><td class="ls-num">0</td>
-            <td class="ls-num"><strong style="color:var(--ls-accent)">$2.88</strong></td>
+            <td class="ls-num ls-good">$2.88</td>
           </tr>
           <tr>
             <td>2026-07-29</td>
             <td class="ls-num">1</td><td class="ls-num">2,000,000</td>
             <td class="ls-num">200,000</td><td class="ls-num">0</td>
-            <td class="ls-num"><strong style="color:var(--ls-accent)">$45.00</strong></td>
+            <td class="ls-num ls-good">$45.00</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <p class="ls-fine">
-      Estimates only. Cache write priced at input rate unless catalog overrides.
-      Reconcile against vendor invoices. No prompts are stored in this report.
+      Cache writes are priced at the input rate unless the catalog says otherwise.
+      Check the totals against your vendor invoices. The report stores no prompts.
+      Burnline is not a paid product yet.
     </p>
 
     <div class="ls-cta">
-      <a class="ls-btn ls-btn--primary" href="burnline-dashboard.html">Open interactive dashboard</a>
-      <a class="ls-btn ls-btn--ghost" href="burnline.html">Back to Burnline</a>
-      <a class="ls-btn ls-btn--ghost" href="retainer.html">Mobile retainer (live offer)</a>
+      <a class="ls-btn ls-btn--primary" href="burnline-dashboard.html">Open the dashboard</a>
+      <a class="ls-btn" href="burnline.html">About Burnline</a>
     </div>
+    <p class="ls-fine">Looking for help you can buy today? See the <a href="retainer.html">mobile retainer</a>.</p>
 
     <footer class="ls-foot">
       <nav data-i18n-aria-label="common.footerNav">

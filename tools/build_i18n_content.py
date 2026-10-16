@@ -23,7 +23,7 @@ SKIP = {"script", "style", "code", "pre", "kbd", "samp", "svg"}
 MARK = re.compile(r"\[\[\[I(\d+)\]\]\]")
 
 NEVER_TRANSLATE = {
-    "Lumos", "Burnline", "LUMOS!", "Lumos!",
+    "Lumos", "Burnline", "LUMOS!", "Lumos!", "Threads Analyzer", "HotLauncher", "LumosZipForMac", "Pebblez",
     "Angular", "Ionic", "Capacitor", "Cordova", "Firebase", "React",
     "Supabase", "WebSocket", "localStorage", "Android", "Ghost",
     "Apple", "Monaco Editor", "Stabilizer", "Scale", "Pilot",
@@ -63,6 +63,8 @@ class VisibleText(HTMLParser):
             return
         if any("data-i18n" in attrs for _, attrs in self.stack):
             return
+        if any("data-no-i18n" in attrs for _, attrs in self.stack):
+            return
         if any(tag == "section" and attrs.get("id") in LANGS for tag, attrs in self.stack):
             return
         self.add(data)
@@ -84,7 +86,7 @@ def pages() -> list[Path]:
         source = path.read_text()
         if relative.startswith((".omo/", "mocks/")):
             continue
-        if relative.startswith("google") or "site-unified.css" not in source:
+        if relative.startswith("google") or relative == "tokushoho.html" or "i18n.js" not in source:
             continue
         result.append(path)
     return result
@@ -99,7 +101,8 @@ def source_language(value: str) -> str:
 
 
 def translate(values: list[str], source: str, lang: str) -> dict[str, str]:
-    if source == lang:
+    # English-only pages stay English for Korean readers unless a curated override exists.
+    if source == lang or (source == "en" and lang == "ko"):
         return dict(zip(values, values, strict=True))
     translated: dict[str, str] = {}
     for start in range(0, len(values), 20):
