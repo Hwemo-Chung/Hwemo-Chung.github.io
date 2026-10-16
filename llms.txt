@@ -27,8 +27,8 @@ All tools: https://hwemo-chung.github.io/tools/
 - 증명사진 만들기: 얼굴 사진을 올리면 여권(3.5×4.5cm, 머리 3.2~3.6cm), 증명, 반명함, 미국 비자 규격에 맞게 잘라 300dpi JPG와 4×6 인화용 사진으로 만듭니다. https://hwemo-chung.github.io/tools/id-photo/
 - 사진 해상도 키우기: 작은 사진이나 흐릿한 캡처를 ESRGAN 초해상도 모델로 2배 또는 4배 키워 PNG로 받습니다. 원본과 결과를 100% 크기로 나란히 비교합니다. https://hwemo-chung.github.io/tools/image-upscale/
 - 붓으로 잡티 지우기: 사진의 잡티, 먼지, 전선, 작은 물체를 붓으로 문지르면 손을 뗄 때 주변 색으로 메웁니다. 되돌리기를 지원하고 결과를 바로 받습니다. https://hwemo-chung.github.io/tools/brush-erase/
-- 흩어진 물건만 지우기: 합성 방 사진에서 바닥에 놓인 잡동사니만 로컬 인페인팅으로 지웁니다. 벽, 창문, 전선은 그대로입니다. https://hwemo-chung.github.io/tools/item-removal/
-- 흑백 초상에 색 입히기: 직접 그린 흑백 초상 한 장에 밝기와 위치로 고른 추정 색을 올립니다. https://hwemo-chung.github.io/tools/colorize-photo/
+- 사진 속 물체 지우기: 사진에서 지우고 싶은 사람이나 물건을 붓으로 칠하면 LaMa 인페인팅 모델이 그 자리를 주변 배경으로 채웁니다. 되돌리기와 원본 비교를 지원합니다. https://hwemo-chung.github.io/tools/item-removal/
+- 흑백 사진 컬러로 바꾸기: 흑백 사진이나 빛바랜 옛날 사진을 올리면 DDColor 모델이 색을 입혀 컬러 사진으로 바꿉니다. 원본과 나란히 비교하고 색 진하기를 조절해 받습니다. https://hwemo-chung.github.io/tools/colorize-photo/
 - 로고 SVG 변환: PNG나 JPG 로고를 올리면 색을 줄여 곡선으로 다시 그린 SVG 파일로 바꿉니다. 원본과 결과를 같은 배율로 확대해 비교합니다. https://hwemo-chung.github.io/tools/logo-svg/
 - 벽 색 바꾸기: 방 사진을 올리면 벽, 바닥, 천장을 자동으로 찾아 고른 페인트 색으로 바꿔 보여 줍니다. 그림자와 조명은 사진 그대로 남습니다. https://hwemo-chung.github.io/tools/wall-color/
 - 낮 사진을 저녁 사진으로: 낮에 찍은 집 외관 사진을 올리면 하늘을 노을로 바꾸고 창에 불을 켠 저녁 사진으로 만듭니다. 강도와 창 불빛을 조절해 JPG로 받습니다. https://hwemo-chung.github.io/tools/day-to-dusk/

@@ -36,10 +36,10 @@ function loadCv() {
       document.head.append(Object.assign(document.createElement('script'), { src: url, onload: ok, onerror: fail }));
     });
     const cv = window.cv;
-    // The emscripten module has a broken thenable; wait for the runtime flag instead of awaiting it.
+    // The emscripten module is a broken thenable: never await it or resolve a promise with it.
     if (!cv.Mat) await new Promise((r) => { cv.onRuntimeInitialized = r; });
     progress(bar, null);
-    return cv;
+    return { cv };
   })().catch((e) => {
     cvReady = null;
     progress(bar, null);
@@ -139,7 +139,7 @@ async function finish() {
   refresh();
   try {
     if (!window.cv?.Mat) status(statusEl, '지우개를 준비하는 중…');
-    const cv = await loadCv();
+    const { cv } = await loadCv();
     erase(cv, x, y, w, h);
     status(statusEl, '');
   } catch (e) {

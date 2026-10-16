@@ -1,5 +1,0 @@
-:HL["/tools/colorize-photo/_next/static/chunks/0wspy6onnzua0.css","style"]
-:HL["/tools/colorize-photo/_next/static/media/NotoSansKR_400-s.p.3w7728tmxv2za.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/tools/colorize-photo/_next/static/media/NotoSansKR_700-s.p.39zi32-211-cg.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"gMEJqa5jWsp63VY3UAbt_","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
