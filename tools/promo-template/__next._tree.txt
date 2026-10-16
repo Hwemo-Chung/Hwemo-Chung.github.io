@@ -1,0 +1,4 @@
+:HL["/tools/promo-template/_next/static/chunks/1cbtqt0_er5gm.css","style"]
+:HC["/",""]
+1:[["children",{"s":"__PAGE__","h":160}]]
+0:{"b":"hFvcDkQaGroagmrzOfoN3","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
