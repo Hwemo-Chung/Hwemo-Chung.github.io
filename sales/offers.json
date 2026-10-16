@@ -1,0 +1,1022 @@
+{
+  "brand": "Lumos",
+  "contact": "tolaria@naver.com",
+  "updated": "2026-08-09",
+  "sources": {
+    "apple_sdk": "https://developer.apple.com/news/upcoming-requirements/",
+    "play_target_api": "https://support.google.com/googleplay/android-developer/answer/11926878",
+    "firebase_dl": "https://firebase.google.com/support/dynamic-links-faq"
+  },
+  "offers": [
+    {
+      "id": "diag-free",
+      "status": "active",
+      "lang": [
+        "ko",
+        "ja"
+      ],
+      "name": "레거시 앱 진단 리포트",
+      "price": "0 KRW",
+      "price_band": "free",
+      "limit": "10 slots",
+      "page": "/cordova.html",
+      "includes": [
+        "공개 APK/스토어 기준 상태",
+        "iOS 업로드 위험",
+        "Play 타겟",
+        "딥링크 404 유무"
+      ],
+      "excludes": [
+        "상세 패치 절차",
+        "소스 접근 요구"
+      ],
+      "cta_subject": "레거시 앱 무료 진단 신청",
+      "priority": 1
+    },
+    {
+      "id": "play-extension",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Play 연장·정책 대응 안내",
+      "price": "500000-1500000 KRW",
+      "price_band": "entry",
+      "page": "/cordova.html#price",
+      "includes": [
+        "11/1 연장 체크리스트",
+        "콘솔 문구 정리",
+        "로드맵 1p"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "android-target-bump",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "긴급 타겟 API 상향",
+      "price": "3000000-6000000 KRW",
+      "price_band": "mid",
+      "page": "/cordova.html#price",
+      "includes": [
+        "이전 없이 가능한 경우만",
+        "빌드·제출 준비",
+        "실기기 회귀"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "capacitor-migrate",
+      "status": "active",
+      "lang": [
+        "ko",
+        "ja",
+        "en"
+      ],
+      "name": "Capacitor 이전",
+      "price": "8000000-20000000 KRW",
+      "price_band": "high",
+      "page": "/cordova.html#price",
+      "includes": [
+        "런타임 교체",
+        "플러그인 대체",
+        "코드 납품",
+        "서명키 고객 보유 가능"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "deeplink-repair",
+      "status": "conditional",
+      "lang": [
+        "ko"
+      ],
+      "name": "딥링크 복구",
+      "price": "1500000-4000000 KRW",
+      "price_band": "mid",
+      "page": "/cordova.html#price",
+      "includes": [
+        "page.link 수집",
+        "서버 리다이렉트",
+        "App Links 전환"
+      ],
+      "priority": 5
+    },
+    {
+      "id": "retainer-pilot",
+      "status": "active",
+      "lang": [
+        "en"
+      ],
+      "name": "Mobile Production Pilot",
+      "price": "400 USD",
+      "price_band": "entry",
+      "page": "/retainer.html",
+      "includes": [
+        "~6h one week",
+        "one failure class",
+        "written diagnosis"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "retainer-monthly",
+      "status": "active",
+      "lang": [
+        "en"
+      ],
+      "name": "Stabilizer Retainer",
+      "price": "1200 USD/mo",
+      "price_band": "mid",
+      "page": "/retainer.html",
+      "includes": [
+        "8h async/mo",
+        "release-week support"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "threads-app",
+      "status": "waitlist",
+      "lang": [
+        "ko",
+        "en"
+      ],
+      "name": "Threads Analyzer desktop",
+      "price": "29 USD",
+      "price_band": "product",
+      "page": "/threads-analyzer.html",
+      "priority": 6
+    },
+    {
+      "id": "threads-report-svc",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Threads 12시트 리포트 대행",
+      "price": "50000-100000 KRW",
+      "price_band": "entry",
+      "page": "/threads-analyzer.html",
+      "includes": [
+        "OAuth 세션 후 리포트 생성"
+      ],
+      "priority": 5
+    },
+    {
+      "id": "burnline",
+      "status": "waitlist",
+      "lang": [
+        "en"
+      ],
+      "name": "Burnline",
+      "price": "TBD",
+      "price_band": "product",
+      "page": "/burnline.html",
+      "priority": 9
+    },
+    {
+      "id": "prod-targetscan",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "APK 타겟 SDK 감사 리포트",
+      "price": "₩99,000 ~ ₩199,000",
+      "price_band": "mid",
+      "page": "/offers/targetscan.html",
+      "category": "core",
+      "delivery": "2영업일",
+      "includes": [
+        "targetSdk / minSdk / compile 관련 공개 메타",
+        "Play 공식 문구 기준 영향 요약 (과장 없음)",
+        "권한·FGS 등 스토어 심사 리스크 메모",
+        "후속 옵션: 긴급 상향 / Capacitor 이전 밴드"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "prod-linkmortem",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "딥링크·page.link 생존 감사",
+      "price": "₩99,000 ~ ₩250,000",
+      "price_band": "mid",
+      "page": "/offers/linkmortem.html",
+      "category": "core",
+      "delivery": "2~4영업일",
+      "includes": [
+        "URL 목록 HTTP 상태 표",
+        "page.link / 커스텀 도메인 분류",
+        "복구 필요 여부 판정 (유입 가정 명시)",
+        "후속: 리다이렉트 구현 견적"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "prod-caphealth",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Capacitor/Ionic 건강 점수 진단",
+      "price": "₩200,000 ~ ₩400,000",
+      "price_band": "mid",
+      "page": "/offers/caphealth.html",
+      "category": "core",
+      "delivery": "3~5영업일",
+      "includes": [
+        "0–100 건강 점수 + 근거",
+        "플러그인 교체 우선순위",
+        "iOS/Android 제출 블로커 목록",
+        "90일 로드맵 초안 1p"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "prod-policypulse",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "스토어 정책 마감 브리핑 (앱 포트폴리오)",
+      "price": "₩150,000 ~ ₩350,000 (앱 3개 기준, 추가 협의)",
+      "price_band": "mid",
+      "page": "/offers/policypulse.html",
+      "category": "core",
+      "delivery": "3~5영업일",
+      "includes": [
+        "앱별 마감·리스크 표",
+        "연장 가능 여부 메모",
+        "권장 대응 순서",
+        "경영/보안 공유용 1페이지 요약"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "prod-releasegate",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "릴리스 주 게이트 리뷰",
+      "price": "₩300,000 ~ ₩500,000 또는 Pilot $400",
+      "price_band": "mid",
+      "page": "/offers/releasegate.html",
+      "category": "core",
+      "delivery": "1주 이내 (일정 합의)",
+      "includes": [
+        "제출 Go/No-Go",
+        "실기기 시나리오 결과",
+        "스토어 설문·권한 리스크",
+        "막힌 항목 → pilot 범위 제안"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "prod-hybridquote",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Cordova→Capacitor 스코프 워크숍",
+      "price": "₩300,000 (고정)",
+      "price_band": "mid",
+      "page": "/offers/hybridquote.html",
+      "category": "core",
+      "delivery": "워크숍 90분 + 문서 2영업일",
+      "includes": [
+        "범위·비범위 합의서",
+        "공수 밴드 + 가정 목록",
+        "단계 계약 제안 (진단→긴급→이전)",
+        "서명키 고객 보유 전제"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "prod-plugmap",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Cordova 플러그인 대체 맵",
+      "price": "₩200,000 ~ ₩500,000",
+      "price_band": "mid",
+      "page": "/offers/plugmap.html",
+      "category": "core",
+      "delivery": "3~7영업일 (플러그인 수에 비례)",
+      "includes": [
+        "플러그인별 대체 1~3안",
+        "위험도 (막힘/대체가능/재작성)",
+        "예상 공수 상대 비교",
+        "이전 프로젝트 착수 여부 권고"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "prod-nightwatch",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "릴리스 주 프로덕션 파일럿",
+      "price": "$400 (약 6h / 1주)",
+      "price_band": "mid",
+      "page": "/offers/nightwatch.html",
+      "category": "core",
+      "delivery": "결제 후 7일 이내",
+      "includes": [
+        "이슈 클래스 1개 한정",
+        "실기기 재현 우선",
+        "진단 문서 + 패치 방향",
+        "유용하면 Stabilizer $1,200/mo"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "prod-threadsmith",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Threads 12시트 분석 리포트",
+      "price": "₩50,000 ~ ₩100,000",
+      "price_band": "mid",
+      "page": "/offers/threadsmith.html",
+      "category": "core",
+      "delivery": "1~3일 (협조 완료 후)",
+      "includes": [
+        "12시트 엑셀 1부",
+        "중앙값 vs 평균 괴리 요약",
+        "시간대·글자수 인사이트",
+        "팔로워 100 미만 시 인구통계 제외 명시"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "prod-iosgate",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "iOS 26 SDK 업로드 봉쇄 진단",
+      "price": "₩150,000 ~ ₩300,000",
+      "price_band": "mid",
+      "page": "/offers/iosgate.html",
+      "category": "core",
+      "delivery": "2~4영업일",
+      "includes": [
+        "업로드 봉쇄 여부 판정",
+        "툴체인/플러그인 원인 후보",
+        "긴급 패치 vs 이전 분기",
+        "경영 공유용 한 줄 요약"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "prod-auto-cron-worker",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "TypeScript 크론 워커 구축",
+      "price": "₩400,000 ~ ₩1,200,000",
+      "price_band": "mid",
+      "page": "/offers/auto-cron-worker.html",
+      "category": "automation",
+      "delivery": "3~10영업일 (잡 복잡도)",
+      "includes": [
+        "잡 스펙 1페이지 (입력·출력·실패 정책)",
+        "TypeScript 구현 + 환경변수 목록",
+        "cron / Actions / Workers cron 등록",
+        "실패 알림(이메일 또는 웹훅) 1채널"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "prod-auto-angular-ci",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Angular/TypeScript CI 파이프라인",
+      "price": "₩300,000 ~ ₩800,000",
+      "price_band": "mid",
+      "page": "/offers/auto-angular-ci.html",
+      "category": "automation",
+      "delivery": "2~5영업일",
+      "includes": [
+        "push/PR 워크플로 YAML",
+        "npm ci + lint + test + build",
+        "Node 버전 매트릭스 또는 고정",
+        "README 실행/트러블슈팅 절"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "prod-auto-sheet-sync",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Google 시트 ↔ API 양방향 동기화",
+      "price": "₩500,000 ~ ₩1,500,000",
+      "price_band": "mid",
+      "page": "/offers/auto-sheet-sync.html",
+      "category": "automation",
+      "delivery": "1~2주",
+      "includes": [
+        "매핑 표 (열 ↔ 필드)",
+        "증분 동기 / 전체 동기 선택",
+        "충돌 정책(시트 우선 vs API 우선)",
+        "스케줄 + 실패 로그 시트"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "prod-auto-gmail-triage",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Gmail 라벨·보관 자동화",
+      "price": "₩200,000 ~ ₩600,000",
+      "price_band": "mid",
+      "page": "/offers/auto-gmail-triage.html",
+      "category": "automation",
+      "delivery": "3~7영업일",
+      "includes": [
+        "라벨 규칙 세트",
+        "시간 트리거(크론) 정리 잡",
+        "처리 로그 시트",
+        "오분류 예외 목록"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "prod-auto-rss-pipeline",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "RSS/뉴스 → 초안 파이프라인",
+      "price": "₩400,000 ~ ₩1,000,000",
+      "price_band": "mid",
+      "page": "/offers/auto-rss-pipeline.html",
+      "category": "automation",
+      "delivery": "1~2주",
+      "includes": [
+        "소스 목록 + 필터 규칙",
+        "크론 수집 잡",
+        "초안 저장소(시트/노션/MD)",
+        "중복 URL 제거"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "prod-auto-health-cron",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "API·웹 헬스체크 크론",
+      "price": "₩150,000 ~ ₩400,000",
+      "price_band": "mid",
+      "page": "/offers/auto-health-cron.html",
+      "category": "automation",
+      "delivery": "2~4영업일",
+      "includes": [
+        "체크 대상 URL 목록",
+        "스케줄(크론 식)",
+        "알림 채널 1개",
+        "최근 결과 로그(시트 또는 JSON)"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "prod-auto-i18n-sync",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Angular i18n 키 동기화 봇",
+      "price": "₩200,000 ~ ₩500,000",
+      "price_band": "mid",
+      "page": "/offers/auto-i18n-sync.html",
+      "category": "automation",
+      "delivery": "2~5영업일",
+      "includes": [
+        "키 diff 스크립트(TS)",
+        "CI 스텝 통합",
+        "리포트 아티팩트",
+        "베이스 로케일 설정"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "prod-auto-e2e-nightly",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "야간 E2E(Playwright/Cypress) 크론",
+      "price": "₩500,000 ~ ₩1,500,000",
+      "price_band": "mid",
+      "page": "/offers/auto-e2e-nightly.html",
+      "category": "automation",
+      "delivery": "1~3주",
+      "includes": [
+        "스모크 시나리오 1~3",
+        "CI 야간 크론",
+        "스크린샷/트레이스 아티팩트",
+        "실패 알림 1채널"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "prod-auto-release-bot",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "릴리스 노트 자동 초안 봇",
+      "price": "₩200,000 ~ ₩450,000",
+      "price_band": "mid",
+      "page": "/offers/auto-release-bot.html",
+      "category": "automation",
+      "delivery": "2~5영업일",
+      "includes": [
+        "태그/릴리스 트리거",
+        "CHANGELOG 섹션 템플릿",
+        "PR 본문 초안",
+        "스킵 라벨 규칙"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "prod-auto-form-webhook",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "문의 폼 → 시트/슬랙/CRM 웹훅",
+      "price": "₩250,000 ~ ₩700,000",
+      "price_band": "mid",
+      "page": "/offers/auto-form-webhook.html",
+      "category": "automation",
+      "delivery": "3~7영업일",
+      "includes": [
+        "수신 API(서버리스/Workers)",
+        "시트 또는 메일 전달",
+        "레이트리밋/허니팟",
+        "문의 알림 1채널"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "prod-social-calendar-sheet",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "콘텐츠 캘린더(시트) 운영 자동화",
+      "price": "₩300,000 ~ ₩800,000",
+      "price_band": "mid",
+      "page": "/offers/social-calendar-sheet.html",
+      "category": "social",
+      "delivery": "5~10영업일",
+      "includes": [
+        "시트 스키마(채널·본문·미디어·상태)",
+        "상태머신: draft → review → approved → done",
+        "크론으로 리마인더/마감 알림 1채널",
+        "게시 실행은 수동 또는 공식 API(별도 범위)"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "prod-social-draft-queue",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "블로그 초안 큐 자동화",
+      "price": "₩400,000 ~ ₩1,000,000",
+      "price_band": "mid",
+      "page": "/offers/social-draft-queue.html",
+      "category": "social",
+      "delivery": "1~2주",
+      "includes": [
+        "소스 2종까지 (RSS/시트/폴더)",
+        "중복 URL 제거",
+        "초안 저장(레포/노션/CMS draft API)",
+        "편집 체크리스트 템플릿"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "prod-social-utm-tracker",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "UTM·캠페인 링크 관리 자동화",
+      "price": "₩200,000 ~ ₩500,000",
+      "price_band": "mid",
+      "page": "/offers/social-utm-tracker.html",
+      "category": "social",
+      "delivery": "3~7영업일",
+      "includes": [
+        "UTM 빌더(시트 또는 소형 웹폼)",
+        "캠페인 마스터 시트",
+        "주 1회 링크 200/404 점검",
+        "깨진 링크 알림"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "prod-social-mention-digest",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "브랜드 멘션 일일 다이제스트",
+      "price": "₩300,000 ~ ₩900,000",
+      "price_band": "mid",
+      "page": "/offers/social-mention-digest.html",
+      "category": "social",
+      "delivery": "1~2주",
+      "includes": [
+        "키워드/핸들 목록",
+        "일 1회 크론 수집",
+        "다이제스트 메일 또는 시트",
+        "출처 링크 포함"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "prod-social-approval-slack",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "게시 승인 봇 (슬랙/메일)",
+      "price": "₩350,000 ~ ₩800,000",
+      "price_band": "mid",
+      "page": "/offers/social-approval-slack.html",
+      "category": "social",
+      "delivery": "5~10영업일",
+      "includes": [
+        "초안 수신 채널",
+        "승인/반려 액션",
+        "감사 로그(누가 언제)",
+        "반려 사유 필드"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "prod-social-newsletter-digest",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "자사 블로그 → 뉴스레터 초안",
+      "price": "₩250,000 ~ ₩600,000",
+      "price_band": "mid",
+      "page": "/offers/social-newsletter-digest.html",
+      "category": "social",
+      "delivery": "3~7영업일",
+      "includes": [
+        "자사 RSS 1~3개",
+        "주간 크론",
+        "HTML/MD 초안",
+        "제목·요약 템플릿"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "prod-social-seo-check-cron",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "블로그 SEO 헬스 크론",
+      "price": "₩200,000 ~ ₩550,000",
+      "price_band": "mid",
+      "page": "/offers/social-seo-check-cron.html",
+      "category": "social",
+      "delivery": "3~7영업일",
+      "includes": [
+        "URL 목록 또는 사이트맵",
+        "title/description/og 누락 리포트",
+        "내부 404 샘플",
+        "주간 메일 리포트"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "prod-social-crosspost-draft",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "원문 1개 → 채널별 초안 패키지",
+      "price": "₩150,000 ~ ₩400,000 (템플릿) / 건당 운영은 별도",
+      "price_band": "mid",
+      "page": "/offers/social-crosspost-draft.html",
+      "category": "social",
+      "delivery": "템플릿 구축 3~5일",
+      "includes": [
+        "채널별 글자 수 템플릿",
+        "UTM 자동 부착 옵션",
+        "초안 출력(시트/MD)",
+        "금지 표현 체크리스트"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "prod-social-threads-schedule-assist",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Threads 게시 시간 도우미",
+      "price": "₩100,000 ~ ₩250,000 (리포트 연동 시)",
+      "price_band": "mid",
+      "page": "/offers/social-threads-schedule-assist.html",
+      "category": "social",
+      "delivery": "2~4영업일",
+      "includes": [
+        "추천 시간대 TOP",
+        "피해야 할 슬롯",
+        "4주 캘린더 시트",
+        "글자수 밴드 메모"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "prod-social-comment-mod-queue",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "댓글·문의 모더레이션 큐",
+      "price": "₩300,000 ~ ₩900,000",
+      "price_band": "mid",
+      "page": "/offers/social-comment-mod-queue.html",
+      "category": "social",
+      "delivery": "1~2주",
+      "includes": [
+        "금칙어/패턴 목록",
+        "수집 어댑터(가능한 공식 경로)",
+        "처리 상태 워크플로",
+        "처리 로그"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "prod-deep-ng-major-migrate",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Angular 메이저 마이그레이션 실행 계획",
+      "price": "₩800,000 ~ ₩2,500,000",
+      "price_band": "high",
+      "page": "/offers/deep-ng-major-migrate.html",
+      "category": "deep",
+      "delivery": "1~2주",
+      "includes": [
+        "현재→목표 버전 경로표",
+        "차단 패키지·대체안",
+        "PR 단위 마이그레이션 순서",
+        "리스크/공수 밴드 + 스파이크 결과(옵션)"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-rxjs-leak-audit",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "RxJS 구독·메모리 릭 감사",
+      "price": "₩500,000 ~ ₩1,200,000",
+      "price_band": "high",
+      "page": "/offers/deep-rxjs-leak-audit.html",
+      "category": "deep",
+      "delivery": "5~10영업일",
+      "includes": [
+        "위험 패턴 목록(파일:라인)",
+        "우선순위 P0–P2",
+        "권장 패턴 치트시트",
+        "수정 견적 밴드"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-bundle-perf",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "번들·런타임 성능 심층 분석",
+      "price": "₩600,000 ~ ₩1,500,000",
+      "price_band": "high",
+      "page": "/offers/deep-bundle-perf.html",
+      "category": "deep",
+      "delivery": "1주",
+      "includes": [
+        "번들 상위 모듈 Top N",
+        "라우트 레이지 기회",
+        "메인 스레드 병목 가설",
+        "2주 개선 백로그"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-webview-bridge",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "WebView·Capacitor 브리지 장애 심층 디버그",
+      "price": "₩700,000 ~ ₩2,000,000",
+      "price_band": "high",
+      "page": "/offers/deep-webview-bridge.html",
+      "category": "deep",
+      "delivery": "1~2주 (기기 협조 필요)",
+      "includes": [
+        "재현 시나리오 문서",
+        "로그/크롬 인스펙트 포인트",
+        "원인 후보 순위",
+        "수정 방향 + 공수 밴드"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-auth-session",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "인증·세션 위협 모델링 리뷰",
+      "price": "₩800,000 ~ ₩2,000,000",
+      "price_band": "high",
+      "page": "/offers/deep-auth-session.html",
+      "category": "deep",
+      "delivery": "1~2주",
+      "includes": [
+        "플로우 다이어그램",
+        "위협 시나리오 표",
+        "수정 권고 P0–P2",
+        "회귀 테스트 체크리스트"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-offline-sync",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "오프라인 우선 동기화 설계",
+      "price": "₩1,000,000 ~ ₩3,000,000",
+      "price_band": "high",
+      "page": "/offers/deep-offline-sync.html",
+      "category": "deep",
+      "delivery": "2~3주",
+      "includes": [
+        "동기 상태머신",
+        "충돌 정책 결정 로그",
+        "실패 재시도/데드레터",
+        "최소 스파이크 범위 제안"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-monorepo-nx",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "Nx·모노레포 분리/통합 설계",
+      "price": "₩900,000 ~ ₩2,500,000",
+      "price_band": "high",
+      "page": "/offers/deep-monorepo-nx.html",
+      "category": "deep",
+      "delivery": "1~3주",
+      "includes": [
+        "현재 구조 진단",
+        "목표 라이브러리 경계",
+        "CI affected 전략",
+        "이주 단계 로드맵"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-design-tokens",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "디자인 토큰·공유 UI 추출",
+      "price": "₩700,000 ~ ₩1,800,000",
+      "price_band": "high",
+      "page": "/offers/deep-design-tokens.html",
+      "category": "deep",
+      "delivery": "1~2주",
+      "includes": [
+        "토큰 JSON/CSS 초안",
+        "핵심 컴포넌트 목록",
+        "안티패턴(복붙 스타일) 목록",
+        "도입 PR 가이드"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-a11y-wcag",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "접근성(WCAG) 감사 + 수정 백로그",
+      "price": "₩600,000 ~ ₩1,500,000",
+      "price_band": "high",
+      "page": "/offers/deep-a11y-wcag.html",
+      "category": "deep",
+      "delivery": "1~2주",
+      "includes": [
+        "플로우별 이슈 표",
+        "심각도·재현 절차",
+        "수정 가이드 링크",
+        "재감사 범위 제안"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-openapi-client",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "OpenAPI 타입 클라이언트 생성 파이프라인",
+      "price": "₩400,000 ~ ₩1,000,000",
+      "price_band": "high",
+      "page": "/offers/deep-openapi-client.html",
+      "category": "deep",
+      "delivery": "3~7영업일",
+      "includes": [
+        "생성 스크립트",
+        "CI 스텝",
+        "사용 가이드 (import 경로)",
+        "브레이킹 변경 감지 전략"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-feature-flags",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "피처 플래그 아키텍처 도입",
+      "price": "₩500,000 ~ ₩1,400,000",
+      "price_band": "high",
+      "page": "/offers/deep-feature-flags.html",
+      "category": "deep",
+      "delivery": "1~2주",
+      "includes": [
+        "플래그 분류(릴리스/실험/권한)",
+        "Angular 프로바이더 샘플",
+        "킬스위치 운영 절차",
+        "감사 로그 권고"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "prod-deep-loadtest-k6",
+      "status": "active",
+      "lang": [
+        "ko"
+      ],
+      "name": "API 부하 테스트 팩 (k6)",
+      "price": "₩500,000 ~ ₩1,300,000",
+      "price_band": "high",
+      "page": "/offers/deep-loadtest-k6.html",
+      "category": "deep",
+      "delivery": "5~10영업일",
+      "includes": [
+        "시나리오 스크립트",
+        "환경별 실행 방법",
+        "p95/에러율 리포트",
+        "병목 가설"
+      ],
+      "priority": 1
+    }
+  ],
+  "catalog": "/offers/"
+}
