@@ -47,10 +47,10 @@
     <main id="main" class="ls-wrap ls-policy">
     <section id="ko">
     <h1>PicBatch 개인정보처리방침</h1>
-    <p class="meta">최종 업데이트: 2026-07-10</p>
+    <p class="meta">최종 업데이트: 2026-10-18</p>
     <p>PicBatch는 Android용 일괄 사진 처리 앱입니다. 이 방침은 앱이 처리하는 데이터와 처리하지 않는 데이터를 설명합니다.</p>
     <h2>요약</h2>
-    <p>모든 처리는 기기 안에서 합니다. 서버와 계정이 없고, 어떤 데이터도 전송하지 않습니다.</p>
+    <p>모든 처리는 기기 안에서 합니다. PicBatch에는 서버와 계정이 없으며, 개발자는 어떤 데이터도 받지 않습니다. 다만 얼굴 감지 섹션에 설명된 ML Kit 진단 정보는 예외입니다.</p>
     <h2>사진</h2>
     <ul>
       <li>Android Photo Picker에서 직접 선택한 사진에만 접근합니다. 저장소 권한이 없으며 사진 보관함을 임의로 탐색할 수 없습니다.</li>
@@ -62,29 +62,35 @@
       <li>얼굴 가리기(선택 기능)는 앱에 포함된 모델로 Google ML Kit를 기기에서 오프라인으로 실행합니다.</li>
       <li>얼굴 위치 정보는 모자이크를 입히는 동안 메모리에서만 쓰고 바로 버립니다. 생체 정보를 저장하거나 신원을 식별하지 않습니다.</li>
     </ul>
+    <p>Google ML Kit 라이브러리는 ML Kit API의 성능과 사용에 관한 제한적인 진단 정보를 Google에 전송할 수 있으며, 버그 수정이나 모델 업데이트 등을 위해 Google 서버에 접속할 수 있습니다. 자세한 내용은 <a href="https://developers.google.com/ml-kit/terms">Google ML Kit 약관</a>에 설명되어 있습니다. 이 진단 정보에는 사진이나 얼굴 감지 결과가 포함되지 않으며, 개발자도 이를 받지 않습니다.</p>
     <h2>사진 메타데이터(EXIF)</h2>
     <ul>
       <li>메타데이터 유지를 켜면 촬영 정보를 기기 안에서 결과 파일로 복사합니다.</li>
       <li>위치(GPS) 정보는 기본으로 제거합니다. 사용자가 위치 포함을 직접 켠 경우에만 남깁니다.</li>
     </ul>
+    <h2>알림</h2>
+    <p>알림 및 포그라운드 서비스 권한은 일괄 처리 진행 중 진행 상황을 표시하는 데에만 사용됩니다.</p>
+    <h2>백업</h2>
+    <p>시스템 설정에서 Android 백업이 활성화되어 있으면 앱 설정과 저장된 프리셋이 사용자의 Google 기기 백업에 포함될 수 있습니다. 이 백업은 사용자 계정 아래에서 Android와 Google이 관리하며, 개발자는 접근할 수 없습니다.</p>
     <h2>수집하는 정보</h2>
-    <p>없습니다. 개인정보, 사용 분석, 비정상 종료 보고서, 식별자 또는 원격 측정 정보를 수집·저장·전송하지 않습니다.</p>
+    <p>개발자는 개인정보, 사용 분석, 비정상 종료 보고서, 식별자 또는 원격 측정 정보를 수집·저장·수신하지 않습니다.</p>
     <p>향후 광고나 구매 기능을 추가하면 출시 전에 이 방침과 앱 내 고지를 갱신합니다.</p>
     <h2>문의</h2>
-    <p>문의: <a href="https://github.com/Hwemo-Chung/PicBatch/issues">GitHub Issues</a></p>
+    <p>문의: <a href="mailto:tolaria@naver.com">tolaria@naver.com</a></p>
     </section>
 
     <section id="en">
     <h1>PicBatch Privacy Policy</h1>
-    <p class="meta">Last updated: 2026-07-10</p>
+    <p class="meta">Last updated: 2026-10-18</p>
 
     <p>PicBatch is a batch photo processing app for Android. This policy explains
     what data the app handles and, more importantly, what it never does with
     that data.</p>
 
     <h2>The short version</h2>
-    <p>Everything happens on your device. PicBatch has no servers, no accounts,
-    and transmits nothing.</p>
+    <p>Everything happens on your device. PicBatch has no servers or accounts,
+    and the developer receives no data, except for the limited ML Kit
+    diagnostics described in the Face detection section.</p>
 
     <h2>Photos</h2>
     <ul>
@@ -111,6 +117,13 @@
             are.</li>
     </ul>
 
+    <p>Google's ML Kit library may send limited diagnostics about the performance
+    and usage of the ML Kit APIs to Google, and may contact Google servers for
+    things like bug fixes and model updates, as described in
+    <a href="https://developers.google.com/ml-kit/terms">Google's ML Kit terms</a>.
+    These diagnostics do not include your photos or face detection results, and
+    the developer does not receive them.</p>
+
     <h2>Photo metadata (EXIF)</h2>
     <ul>
         <li>If you enable "Keep photo metadata", capture metadata (date, camera
@@ -120,24 +133,33 @@
             only preserved if you explicitly turn on "Include location".</li>
     </ul>
 
+    <h2>Notifications</h2>
+    <p>The notification and foreground service permissions are used only to show
+    the progress of batch processing while it runs.</p>
+
+    <h2>Backup</h2>
+    <p>App settings and saved presets may be included in your own Google device
+    backup if Android backup is enabled in your system settings. This backup is
+    managed by Android and Google under your account; the developer cannot
+    access it.</p>
+
     <h2>What we collect</h2>
-    <p>Nothing. PicBatch does not collect, store, or transmit personal data,
-    usage analytics, crash reports, identifiers, or telemetry of any kind.</p>
+    <p>The developer does not collect, store, or receive personal data, usage
+    analytics, crash reports, identifiers, or telemetry.</p>
     <p>If a future version adds advertising or purchases, this policy will be
     updated before that version ships, and the in-app disclosure will change
     accordingly.</p>
 
     <h2>Contact</h2>
-    <p>Questions about this policy: open an issue at
-    <a href="https://github.com/Hwemo-Chung/PicBatch/issues">https://github.com/Hwemo-Chung/PicBatch/issues</a></p>
+    <p>Questions about this policy: <a href="mailto:tolaria@naver.com">tolaria@naver.com</a></p>
     </section>
 
     <section id="ja">
     <h1>PicBatch プライバシーポリシー</h1>
-    <p class="meta">最終更新日: 2026-07-10</p>
+    <p class="meta">最終更新日: 2026-10-18</p>
     <p>PicBatch は Android 向けの写真一括処理アプリです。本ポリシーでは、アプリが取り扱うデータと取り扱わないデータについて説明します。</p>
     <h2>要約</h2>
-    <p>すべての処理は端末上で行われます。サーバーやアカウントはなく、データを送信しません。</p>
+    <p>すべての処理は端末上で行われます。PicBatch にはサーバーやアカウントがなく、開発者がデータを受け取ることはありません。ただし、顔検出セクションに記載されている限定的な ML Kit の診断情報は例外です。</p>
     <h2>写真</h2>
     <ul>
       <li>Android Photo Picker で明示的に選択した写真だけにアクセスします。ストレージ権限はなく、ライブラリを勝手に閲覧できません。</li>
@@ -149,16 +171,21 @@
       <li>任意の顔マスク機能は、同梱モデルを使用する Google ML Kit により端末上でオフライン実行されます。</li>
       <li>顔の位置情報はモザイク処理中のメモリでのみ使用し、直後に破棄します。生体情報の保存や個人識別は行いません。</li>
     </ul>
+    <p>Google ML Kit ライブラリは、ML Kit API のパフォーマンスと使用状況に関する限定的な診断情報を Google に送信することがあり、バグ修正やモデルの更新などのために Google のサーバーに接続することがあります。詳細は <a href="https://developers.google.com/ml-kit/terms">Google ML Kit の利用規約</a>に記載されています。この診断情報には写真や顔検出の結果は含まれず、開発者もこれを受け取りません。</p>
     <h2>写真メタデータ（EXIF）</h2>
     <ul>
       <li>メタデータ保持を有効にした場合、撮影情報は端末上で結果ファイルへコピーされます。</li>
       <li><strong>位置情報（GPS）は標準で削除され、</strong>「位置情報を含める」を明示的に有効にした場合だけ保持されます。</li>
     </ul>
+    <h2>通知</h2>
+    <p>通知およびフォアグラウンド サービスの権限は、一括処理の実行中に進行状況を表示するためだけに使用されます。</p>
+    <h2>バックアップ</h2>
+    <p>システム設定で Android バックアップが有効になっている場合、アプリの設定や保存されたプリセットがお客様自身の Google デバイス バックアップに含まれることがあります。このバックアップはお客様のアカウントの下で Android と Google によって管理され、開発者はアクセスできません。</p>
     <h2>収集する情報</h2>
-    <p>ありません。個人データ、利用分析、クラッシュレポート、識別子、テレメトリーを収集、保存、送信しません。</p>
+    <p>開発者は、個人データ、利用分析、クラッシュレポート、識別子、テレメトリーを収集、保存、受信しません。</p>
     <p>将来、広告または購入機能を追加する場合は、リリース前に本ポリシーとアプリ内表示を更新します。</p>
     <h2>お問い合わせ</h2>
-    <p>お問い合わせ: <a href="https://github.com/Hwemo-Chung/PicBatch/issues">GitHub Issues</a></p>
+    <p>お問い合わせ: <a href="mailto:tolaria@naver.com">tolaria@naver.com</a></p>
     </section>
     </main>
     <footer class="ls-foot">
