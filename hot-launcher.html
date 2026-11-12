@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HotLauncher | macOS 26 런치패드 대신 단축키로 앱 열기</title>
   <meta name="description" content="macOS 26에서 런치패드가 없어졌습니다. 자주 쓰는 앱 최대 20개를 전역 단축키에 붙여 바로 여는 무료 메뉴바 앱입니다. 광고와 구독이 없습니다." />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://hwemo-chung.github.io/hot-launcher.html" />
   <link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/hot-launcher.html" />
   <link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/hot-launcher.html?lang=en" />
@@ -115,23 +115,6 @@
               "text": "앱은 무료입니다. PayPal로 $1.99를 기부할 수 있지만, 기부 여부와 기능은 관계가 없습니다."
             }
           }
-        ]
-      },
-      {
-        "@type": "HowTo",
-        "@id": "https://hwemo-chung.github.io/hot-launcher.html#install",
-        "name": "HotLauncher 소스 빌드 설치",
-        "description": "macOS 26에서 소스를 내려받아 빌드하고 Applications 폴더에 설치합니다.",
-        "tool": [
-          { "@type": "HowToTool", "name": "macOS 26" },
-          { "@type": "HowToTool", "name": "Swift 6.3" },
-          { "@type": "HowToTool", "name": "Xcode Command Line Tools" }
-        ],
-        "step": [
-          { "@type": "HowToStep", "name": "소스 내려받기", "text": "git clone https://github.com/Hwemo-Chung/HotLauncher.git" },
-          { "@type": "HowToStep", "name": "디렉터리 이동", "text": "cd HotLauncher/HotLauncher" },
-          { "@type": "HowToStep", "name": "앱 번들 빌드", "text": "bash scripts/bundle.sh" },
-          { "@type": "HowToStep", "name": "설치", "text": "bash scripts/install.sh 를 실행하면 Applications 폴더에 HotLauncher로 설치됩니다." }
         ]
       }
     ]

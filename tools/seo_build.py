@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
-"""Fill missing Open Graph / Twitter tags from each page's own <title>, description and canonical,
+"""Fill missing Open Graph / Twitter / robots tags from each page's own <title>, description and canonical,
+add a WebApplication JSON-LD block to each tool page that has no JSON-LD,
 then rebuild sitemap.xml from the indexable pages. Idempotent: existing tags are left alone.
 Usage: python3 tools/seo_build.py"""
-import datetime, html, pathlib, re, subprocess
+import datetime, html, json, pathlib, re, subprocess
 
 root = pathlib.Path(__file__).resolve().parent.parent
 BASE = 'https://hwemo-chung.github.io/'
 SKIP_DIRS = {'.git', '.omo', '.playwright-cli', '.playwright-mcp', '.claude', 'node_modules', 'lumos-fireworks', 'assets'}
 NOINDEX = {'404.html', 'hotlauncher.html', 'hot-launcher/index.html', 'HotLauncher/index.html',
            'google91df428475f19f42.html', }
+# Same pattern as site_check.py. Legal pages keep whatever robots tag they have.
+LEGAL = re.compile(r'^(pp|tokushoho|[a-z]+-privacy)\.html$')
+ROBOTS = 'index, follow, max-image-preview:large'
+MEDIA, UTIL = 'MultimediaApplication', 'UtilitiesApplication'
+# tools/ORDER group -> schema.org applicationCategory. A new group fails here until it is given one.
+CATEGORY = {'사진': MEDIA, '집·상품 사진': MEDIA, '영상': MEDIA, '소리': MEDIA, '자막': MEDIA, '문서': UTIL, '웹·개발': UTIL}
 
 
 def og_image(rel):
@@ -25,6 +32,14 @@ def lastmod(path):
     dirty = subprocess.run(['git', 'status', '--porcelain', '--', str(path)], cwd=root, capture_output=True, text=True).stdout.strip()
     return datetime.date.today().isoformat() if dirty or not out else out
 
+
+category, group = {}, None
+for line in (root / 'tools' / 'ORDER').read_text(encoding='utf-8').splitlines():
+    line = line.strip()
+    if line.startswith('#'):
+        group = line.lstrip('# ')
+    elif line:
+        category[line] = CATEGORY[group]
 
 urls = []
 for p in sorted(root.rglob('*.html')):
@@ -52,11 +67,23 @@ for p in sorted(root.rglob('*.html')):
         'property="og:image"': f'<meta property="og:image" content="{og_image(rel)}">',
         'name="twitter:card"': '<meta name="twitter:card" content="summary_large_image">',
     }
+    if not LEGAL.match(rel):
+        head = head.replace('<meta name="robots" content="index, follow"', f'<meta name="robots" content="{ROBOTS}"')
+        tags['name="robots"'] = f'<meta name="robots" content="{ROBOTS}">'
+    tool = re.fullmatch(r'tools/([^/]+)/index\.html', rel)
+    if tool:
+        # No offers: the tool pages do not state a price.
+        ld = {'@context': 'https://schema.org', '@type': 'WebApplication', 'name': t.split(' | ')[0], 'url': u,
+              'description': d, 'applicationCategory': category[tool.group(1)]}
+        tags['application/ld+json'] = ('<script type="application/ld+json">'
+                                       + json.dumps(ld, ensure_ascii=False).replace('</', '<\\/') + '</script>')
     add = [tag for key, tag in tags.items() if key not in head]
     if add:
         indent = re.search(r'\n([ \t]*)<link rel="canonical"', head)
         pad = indent.group(1) if indent else ''
-        p.write_text(head.rstrip() + '\n' + '\n'.join(pad + a for a in add) + '\n' + sep + rest, encoding='utf-8')
+        head = head.rstrip() + '\n' + '\n'.join(pad + a for a in add) + '\n'
+    if head + sep + rest != src:
+        p.write_text(head + sep + rest, encoding='utf-8')
 
 seen, rows = set(), []
 for u, d in sorted(urls, key=lambda x: (x[0] != BASE, x[0])):
