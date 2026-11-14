@@ -15,6 +15,7 @@ Lumos is the site of developer Hwemo Chung. It covers three things: fixing and m
 - LumosZipForMac: AES-256 password-protected ZIP files on the Mac, universal native app: https://hwemo-chung.github.io/lumoszip.html
 - Threads Analyzer: turns a Threads account into a 12-sheet Excel report. Free CLI, $29 desktop app: https://hwemo-chung.github.io/threads-analyzer.html
 - Pebblez: small social PWA without ads or a recommendation algorithm: https://pebblez.teagarden-earlgrey.workers.dev
+- Color Vision Lab: colour vision deficiency simulator and 13-plate screening test that runs in the browser: https://color-vision-lab.vercel.app/
 - Burnline: local-first AI cost tracking (in development): https://hwemo-chung.github.io/burnline.html
 
 ## Free browser tools

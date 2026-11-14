@@ -23,7 +23,7 @@ SKIP = {"script", "style", "code", "pre", "kbd", "samp", "svg"}
 MARK = re.compile(r"\[\[\[I(\d+)\]\]\]")
 
 NEVER_TRANSLATE = {
-    "Lumos", "Burnline", "LUMOS!", "Lumos!", "Threads Analyzer", "HotLauncher", "LumosZipForMac", "Pebblez",
+    "Lumos", "Burnline", "LUMOS!", "Lumos!", "Threads Analyzer", "HotLauncher", "LumosZipForMac", "Pebblez", "Color Vision Lab",
     "Angular", "Ionic", "Capacitor", "Cordova", "Firebase", "React",
     "Supabase", "WebSocket", "localStorage", "Android", "Ghost",
     "Apple", "Monaco Editor", "Stabilizer", "Scale", "Pilot",

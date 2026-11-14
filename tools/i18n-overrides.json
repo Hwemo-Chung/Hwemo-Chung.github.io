@@ -184,5 +184,9 @@
   "릴리스 주 프로덕션 파일럿": {
     "ko": "릴리스 주 프로덕션 Pilot",
     "ja": "リリースメインプロダクションPilot"
+  },
+  "색약 유형별로 사진이 어떻게 보이는지 체험할 수 있으며, 13장의 도판으로 색각을 선별하는 테스트도 제공합니다. 사진은 브라우저 안에서만 처리되며 서버로 전송되지 않습니다. 선별용이며 진단이 아닙니다.": {
+    "en": "Preview how photos look under eight types of colour vision deficiency, with a severity slider, and take a 13-plate screening test. Photos are processed only in your browser and never uploaded, and this is a screening aid, not a diagnosis.",
+    "ja": "8種類の色覚特性ごとに写真の見え方を強度スライダーで確かめられ、13枚の図版による色覚スクリーニングテストも利用できます。写真はブラウザ内でのみ処理され、アップロードされません。スクリーニングの補助であり、診断ではありません。"
   }
 }
