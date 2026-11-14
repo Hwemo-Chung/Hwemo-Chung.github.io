@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>벽 색 바꾸기 | 방 사진으로 페인트 색 미리 보기</title>
+<meta name="description" content="방 사진을 올리면 벽, 바닥, 천장을 자동으로 찾아 고른 페인트 색으로 바꿔 보여 줍니다. 그림자와 조명은 사진 그대로 남습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/wall-color/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .stage.has { display: flex; align-items: center; justify-content: center; padding: 12px; background: var(--soft-2); }
+  .view { position: relative; display: inline-block; line-height: 0; cursor: crosshair; touch-action: manipulation; }
+  .view canvas { display: block; max-width: 100%; max-height: 74vh; }
+  .view .over { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .view .split { position: absolute; top: 0; bottom: 0; width: 1px; background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); pointer-events: none; }
+  .classes { display: flex; flex-wrap: wrap; gap: 6px; }
+  .classes button { height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--canvas); font-size: 13px; color: var(--body); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .classes button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
+  .classes i { width: 10px; height: 10px; border-radius: 2px; box-shadow: var(--ring); }
+  .classes small { font-family: var(--mono); font-size: 11px; color: var(--mute); }
+  .swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .swatches button { aspect-ratio: 1; border: 0; border-radius: 6px; box-shadow: var(--ring); cursor: pointer; padding: 0; }
+  .swatches button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--canvas), 0 0 0 3px var(--ink); }
+  .pick { display: flex; gap: 8px; align-items: center; }
+  .pick .meta { flex: 1; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="벽 색 바꾸기 | 방 사진으로 페인트 색 미리 보기">
+<meta property="og:description" content="방 사진을 올리면 벽, 바닥, 천장을 자동으로 찾아 고른 페인트 색으로 바꿔 보여 줍니다. 그림자와 조명은 사진 그대로 남습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/wall-color/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "벽 색 바꾸기", "url": "https://hwemo-chung.github.io/tools/wall-color/", "description": "방 사진을 올리면 벽, 바닥, 천장을 자동으로 찾아 고른 페인트 색으로 바꿔 보여 줍니다. 그림자와 조명은 사진 그대로 남습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>벽 색 바꾸기</h1>
+    <p>방 사진을 올리고 칠할 곳을 누른 다음 색을 고르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <h2>칠할 곳</h2>
+        <div class="classes" id="classes"></div>
+        <p class="hint" id="classHint">사진을 올리면 벽, 바닥, 천장을 찾습니다. 사진을 눌러서 골라도 됩니다.</p>
+      </section>
+      <section class="panel">
+        <h2>색</h2>
+        <div class="swatches" id="swatches"></div>
+        <div class="pick" style="margin-top:12px">
+          <input type="color" id="custom" value="#b5bfa6" aria-label="직접 고른 색">
+          <span class="meta" id="hex">#B5BFA6</span>
+          <button class="btn" id="reset" disabled>원래 색</button>
+        </div>
+      </section>
+      <section class="panel">
+        <label class="field">
+          <span>원본과 비교 <output id="cmpOut">0%</output></span>
+          <input type="range" id="cmp" min="0" max="100" value="0" disabled>
+        </label>
+        <div class="row">
+          <button class="btn primary" id="save" disabled>JPG로 받기</button>
+          <button class="btn" id="again" disabled>다른 사진</button>
+        </div>
+        <p class="status" id="status"></p>
+        <div class="progress" id="prog" hidden><i></i></div>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>방 사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG, WebP · 처음 한 번 분석 모델 29MB를 받습니다</small>
+        <!-- 예시 사진: Jarosław Ceborski, "Living room (Unsplash).jpg", CC0, https://commons.wikimedia.org/wiki/File:Living_room_(Unsplash).jpg -->
+        <button class="btn" type="button" id="sample">예시 사진으로 해 보기</button>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <div class="view" id="view" hidden>
+        <canvas id="out"></canvas>
+        <canvas class="over" id="orig"></canvas>
+        <canvas class="over" id="hover"></canvas>
+        <div class="split" id="split" hidden></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

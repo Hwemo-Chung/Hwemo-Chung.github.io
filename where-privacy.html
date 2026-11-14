@@ -4,48 +4,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>개인정보처리방침 — 지금어디 (where)</title>
+    <title>지금어디(where) 개인정보처리방침</title>
 
-    <meta name="description" content="지금어디(where) 개인정보처리방침 — 기기 내 GPS 지하철 알람, 서버 전송 없음">
+    <meta name="description" content="지금어디(where) 개인정보처리방침. 지하철 알람용 GPS 위치는 기기 안에서만 처리하고 서버로 보내지 않습니다.">
     <meta name="author" content="Hwemo Chung">
     <link rel="canonical" href="https://hwemo-chung.github.io/where-privacy.html">
     <link rel="stylesheet" href="sales/tokens.css">
     <link rel="stylesheet" href="sales/components.css">
 
     <style>
-        h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
-        h2 { margin-top: 2.25rem; font-size: 1.2rem; }
-        h3 { margin-top: 1.5rem; font-size: 1.05rem; }
-        em { opacity: 0.7; }
-        code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            font-size: 0.95rem;
-        }
-        th, td {
-            border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
-            padding: 0.5rem 0.65rem;
-            text-align: left;
-            vertical-align: top;
-        }
-        th { font-weight: 600; }
-        hr {
-            margin: 3rem 0;
-            border: none;
-            border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
-        }
-        .meta { opacity: 0.75; margin-bottom: 1.5rem; }
-        .lang-switch { margin: 1rem 0 2rem; font-size: 0.95rem; }
-        .lang-switch a { margin-right: 1rem; }
-        .short {
-            padding: 0.9rem 1rem;
-            border-left: 3px solid color-mix(in srgb, currentColor 40%, transparent);
-            margin: 1rem 0 1.5rem;
-        }
+        .ls-policy h2 { font-size: 20px; line-height: 28px; letter-spacing: -0.4px; margin: 40px 0 12px; }
+        .ls-policy ul { padding-left: 20px; }
+        .ls-policy li { margin: 6px 0; }
+        .ls-policy table { margin: 16px 0 20px; }
+        .ls-policy .meta { font-size: 14px; color: var(--ls-faint); }
     </style>
   <link rel="stylesheet" href="sales/site-unified.css" />
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lumos">
+    <meta property="og:title" content="지금어디(where) 개인정보처리방침">
+    <meta property="og:description" content="지금어디(where) 개인정보처리방침. 지하철 알람용 GPS 위치는 기기 안에서만 처리하고 서버로 보내지 않습니다.">
+    <meta property="og:url" content="https://hwemo-chung.github.io/where-privacy.html">
+    <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="ls">
@@ -70,21 +51,19 @@
     </p>
 
     <section id="ko">
-        <h1>개인정보처리방침 — 지금어디</h1>
+        <h1>지금어디 개인정보처리방침</h1>
         <p class="meta">
             앱: 지금어디 (<code>com.subway.where</code>)<br>
             최종 업데이트: 2026-07-13<br>
             제공자: Hwemo Chung
         </p>
 
-        <div class="short">
-            <strong>요약:</strong> 위치·알람 설정은 <strong>기기 안에서만</strong> 처리됩니다.
-            계정·서버 전송·광고·분석 SDK가 없습니다.
-        </div>
+        <p class="ls-lead">위치와 알람 설정은 기기 안에서만 처리합니다.
+            계정, 서버 전송, 광고·분석 SDK가 없습니다.</p>
 
         <h2>1. 개요</h2>
-        <p>「지금어디」는 기기의 위치 정보를 이용해 지하철 역 근접·도착 알람을 제공하는 Android 앱입니다.
-            핵심 처리는 기기 로컬에서 수행되며, 운영자가 위치 좌표를 수집·저장하는 백엔드를 두지 않습니다.</p>
+        <p>「지금어디」는 기기의 위치 정보로 지하철역에 가까워지거나 도착할 때 알람을 울리는 Android 앱입니다.
+            주요 처리는 기기 안에서 하며, 운영자는 위치 좌표를 수집하거나 저장하는 백엔드를 두지 않습니다.</p>
 
         <h2>2. 수집·사용하는 정보</h2>
         <table>
@@ -123,25 +102,25 @@
                 </tr>
             </tbody>
         </table>
-        <p><strong>수집하지 않는 것:</strong> 계정, 이름, 이메일(앱 내 입력), 연락처, 사진, 광고 ID,
-            분석·행동 로그, 결제 정보.</p>
+        <p>계정, 이름, 이메일(앱 내 입력), 연락처, 사진, 광고 ID,
+            분석·행동 로그, 결제 정보는 수집하지 않습니다.</p>
 
         <h2>3. 권한</h2>
         <ul>
-            <li><strong>위치 (대략/정확):</strong> 지하철 추적 및 알람. 거부 시 추적·알람 불가.</li>
-            <li><strong>알림:</strong> 도착·정거장 전 경고. 거부 시 알림 미표시.</li>
-            <li><strong>포그라운드 서비스 (위치):</strong> 이동 중 위치 추적. 진행 중 알림으로 표시됩니다.</li>
+            <li>위치(대략/정확): 지하철 추적과 알람에 씁니다. 거부하면 추적과 알람을 쓸 수 없습니다.</li>
+            <li>알림: 도착과 정거장 전 경고에 씁니다. 거부하면 알림이 표시되지 않습니다.</li>
+            <li>포그라운드 서비스(위치): 이동 중 위치를 추적합니다. 진행 중 알림으로 표시됩니다.</li>
         </ul>
 
         <h2>4. 보관 및 삭제</h2>
         <ul>
-            <li>위치 좌표는 알람 판별용으로만 일시 사용합니다. 별도 클라우드 저장소를 운영하지 않습니다.</li>
-            <li>알람·언어 설정은 기기 내에만 저장됩니다. 앱 삭제 또는 앱 데이터 삭제로 제거됩니다.</li>
+            <li>위치 좌표는 알람을 판별할 때만 잠시 씁니다. 별도 클라우드 저장소를 운영하지 않습니다.</li>
+            <li>알람과 언어 설정은 기기 안에만 저장합니다. 앱을 삭제하거나 앱 데이터를 지우면 함께 지워집니다.</li>
         </ul>
 
         <h2>5. 제3자 및 SDK</h2>
         <ul>
-            <li>Google Play 서비스 위치 API(Fused Location)를 기기 상에서 사용합니다.</li>
+            <li>기기에서 Google Play 서비스 위치 API(Fused Location)를 사용합니다.</li>
             <li>광고·분석·크래시 리포팅 SDK를 포함하지 않습니다.</li>
         </ul>
 
@@ -149,7 +128,7 @@
         <p>만 13세 미만을 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다.</p>
 
         <h2>7. 변경</h2>
-        <p>본 방침을 변경하는 경우 본 페이지의 「최종 업데이트」 날짜를 갱신합니다.</p>
+        <p>이 방침을 바꾸면 이 페이지의 「최종 업데이트」 날짜를 고칩니다.</p>
 
         <h2>8. 문의</h2>
         <p>개인정보 관련 문의:
@@ -157,20 +136,16 @@
         </p>
     </section>
 
-    <hr>
-
     <section id="en">
-        <h1>Privacy Policy — Jigeumeodi (지금어디)</h1>
+        <h1>Jigeumeodi (지금어디) Privacy Policy</h1>
         <p class="meta">
             App: Jigeumeodi / 지금어디 (<code>com.subway.where</code>)<br>
             Last updated: 2026-07-13<br>
             Provider: Hwemo Chung
         </p>
 
-        <div class="short">
-            <strong>Short version:</strong> Location and alarm settings stay
-            <strong>on your device</strong>. No account, no backend upload, no ads or analytics SDKs.
-        </div>
+        <p class="ls-lead">Location and alarm settings stay on your device.
+            No account, no backend upload, no ads or analytics SDKs.</p>
 
         <h2>1. Overview</h2>
         <p>Jigeumeodi alerts you when you approach a selected subway station using device location.
@@ -213,7 +188,7 @@
                 </tr>
             </tbody>
         </table>
-        <p>We do <strong>not</strong> collect accounts, names, in-app emails, contacts, photos,
+        <p>We do not collect accounts, names, in-app emails, contacts, photos,
             advertising IDs, analytics streams, or payment data.</p>
 
         <h2>3. Permissions</h2>
@@ -245,16 +220,14 @@
     </section>
 
     <section id="ja">
-        <h1>プライバシーポリシー — Jigeumeodi（지금어디）</h1>
+        <h1>Jigeumeodi（지금어디）プライバシーポリシー</h1>
         <p class="meta">
             アプリ: Jigeumeodi / 지금어디（<code>com.subway.where</code>）<br>
             最終更新日: 2026-07-13<br>
             提供者: Hwemo Chung
         </p>
-        <div class="short">
-            <strong>要約:</strong> 位置情報とアラーム設定は<strong>端末上だけ</strong>で処理されます。
-            アカウント、サーバー送信、広告、分析 SDK はありません。
-        </div>
+        <p class="ls-lead">位置情報とアラーム設定は端末上だけで処理されます。
+            アカウント、サーバー送信、広告、分析 SDK はありません。</p>
         <h2>1. 概要</h2>
         <p>Jigeumeodi は端末の位置情報を利用し、選択した地下鉄駅への接近・到着を通知する Android アプリです。処理は端末上で行われ、位置座標やアラーム設定を受信するバックエンドは運用していません。</p>
         <h2>2. 利用するデータ</h2>

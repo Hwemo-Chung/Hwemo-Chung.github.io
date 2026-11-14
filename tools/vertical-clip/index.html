@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세로 영상으로 자르기 | 가로 영상을 9:16 쇼츠·릴스 MP4로</title>
+<meta name="description" content="가로 영상을 9:16 세로 영상으로 자릅니다. 구간을 고르고 화면 위치를 직접 옮기거나 얼굴을 따라가게 한 뒤 소리까지 담긴 MP4로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/vertical-clip/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .editor { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; padding: 16px; align-items: start; }
+  .editor[hidden] { display: none; }
+  .frame { position: relative; overflow: hidden; border-radius: 6px; background: var(--ink); line-height: 0; touch-action: none; }
+  .frame video { width: 100%; display: block; }
+  .box { position: absolute; top: 0; height: 100%; border: 2px solid #fff; outline: 2000px solid rgba(0, 0, 0, 0.55); cursor: grab; }
+  .box:active { cursor: grabbing; }
+  .vert { width: 180px; }
+  .vert canvas { width: 100%; aspect-ratio: 9 / 16; display: block; background: var(--ink); border-radius: 6px; }
+  .vert p { margin: 8px 0 0; }
+  .transport { grid-column: 1 / -1; display: flex; gap: 12px; align-items: center; }
+  .transport input { flex: 1; }
+  @media (max-width: 860px) { .editor { grid-template-columns: minmax(0, 1fr); } .vert { width: 140px; } }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="세로 영상으로 자르기 | 가로 영상을 9:16 쇼츠·릴스 MP4로">
+<meta property="og:description" content="가로 영상을 9:16 세로 영상으로 자릅니다. 구간을 고르고 화면 위치를 직접 옮기거나 얼굴을 따라가게 한 뒤 소리까지 담긴 MP4로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/vertical-clip/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "세로 영상으로 자르기", "url": "https://hwemo-chung.github.io/tools/vertical-clip/", "description": "가로 영상을 9:16 세로 영상으로 자릅니다. 구간을 고르고 화면 위치를 직접 옮기거나 얼굴을 따라가게 한 뒤 소리까지 담긴 MP4로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>세로 영상으로 자르기</h1>
+    <p>가로 영상을 놓고 남길 구간과 화면 위치를 고르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <h2>구간</h2>
+        <label class="field">
+          <span>시작 <output id="startOut">0:00.0</output></span>
+          <input type="range" id="start" min="0" max="1" step="0.1" value="0" disabled>
+        </label>
+        <label class="field">
+          <span>끝 <output id="endOut">0:00.0</output></span>
+          <input type="range" id="end" min="0" max="1" step="0.1" value="1" disabled>
+        </label>
+        <p class="hint" id="lenOut"></p>
+      </section>
+      <section class="panel">
+        <h2>화면 위치</h2>
+        <div class="field">
+          <div class="seg" id="mode">
+            <button type="button" data-v="manual" aria-pressed="true">직접 옮기기</button>
+            <button type="button" data-v="face" aria-pressed="false">얼굴 따라가기</button>
+          </div>
+        </div>
+        <p class="hint" id="modeHint">영상 위의 밝은 상자를 끌어 위치를 정하세요.</p>
+        <div class="progress" id="faceBar" hidden><i></i></div>
+      </section>
+      <section class="panel">
+        <button class="btn primary block" id="save" disabled>MP4로 받기</button>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>영상을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>MP4, MOV, WebM · 가로 영상</small>
+      </div>
+      <input type="file" id="file" accept="video/*,.mp4,.mov,.webm,.mkv" hidden>
+      <div class="editor" id="editor" hidden>
+        <div class="frame" id="frame">
+          <video id="video" playsinline preload="auto"></video>
+          <div class="box" id="box"></div>
+        </div>
+        <div class="vert">
+          <canvas id="out" width="270" height="480"></canvas>
+          <p class="meta" id="dims"></p>
+        </div>
+        <div class="transport">
+          <button class="btn" id="play" type="button">재생</button>
+          <input type="range" id="seek" min="0" max="1" step="0.01" value="0" aria-label="재생 위치">
+          <span class="meta" id="time">0:00.0</span>
+          <button class="btn" id="other" type="button">다른 영상</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>영상은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

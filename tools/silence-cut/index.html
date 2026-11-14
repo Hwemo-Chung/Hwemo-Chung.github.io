@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>무음 구간 자르기 | 영상·녹음에서 말 없는 부분 자동 컷 편집</title>
+<meta name="description" content="말하는 영상이나 녹음을 올리면 말 없는 구간을 찾아 잘라 낸 MP4나 WAV와 컷 목록 CSV를 받습니다. 기준 음량, 최소 길이, 여유 시간을 직접 정합니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/silence-cut/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .view { padding: 20px; display: grid; gap: 16px; }
+  .view video, .view audio { width: 100%; max-height: 360px; background: var(--soft-2); border-radius: 6px; }
+  .view audio { background: none; }
+  .timeline { width: 100%; height: 96px; display: block; border-radius: 6px; background: var(--soft); cursor: pointer; }
+  .legend { display: flex; gap: 16px; font-size: 12px; color: var(--body); align-items: center; flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border-radius: 6px; overflow: hidden; }
+  .stats div { background: var(--canvas); padding: 10px 12px; }
+  .stats dt { font-size: 12px; color: var(--mute); }
+  .stats dd { margin: 0; font: 400 15px/22px var(--mono); color: var(--ink); }
+  label.check { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="무음 구간 자르기 | 영상·녹음에서 말 없는 부분 자동 컷 편집">
+<meta property="og:description" content="말하는 영상이나 녹음을 올리면 말 없는 구간을 찾아 잘라 낸 MP4나 WAV와 컷 목록 CSV를 받습니다. 기준 음량, 최소 길이, 여유 시간을 직접 정합니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/silence-cut/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "무음 구간 자르기", "url": "https://hwemo-chung.github.io/tools/silence-cut/", "description": "말하는 영상이나 녹음을 올리면 말 없는 구간을 찾아 잘라 낸 MP4나 WAV와 컷 목록 CSV를 받습니다. 기준 음량, 최소 길이, 여유 시간을 직접 정합니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>무음 구간 자르기</h1>
+    <p>말하는 영상이나 녹음을 올리세요. 말 없는 구간을 찾아 잘라 낸 파일과 컷 목록을 받습니다.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <label class="field">
+          <span>무음 기준 <output id="thOut">-40 dB</output></span>
+          <input type="range" id="th" min="-60" max="-20" step="1" value="-40">
+        </label>
+        <label class="field">
+          <span>이보다 긴 무음만 자르기 <output id="minOut">0.5초</output></span>
+          <input type="range" id="min" min="0.2" max="3" step="0.1" value="0.5">
+        </label>
+        <label class="field">
+          <span>말 앞뒤 여유 <output id="padOut">0.15초</output></span>
+          <input type="range" id="pad" min="0" max="0.5" step="0.05" value="0.15">
+        </label>
+        <p class="hint" id="noise"></p>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="export" disabled>잘라서 받기</button>
+          <button class="btn" id="csv" disabled>CSV 받기</button>
+        </div>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>영상이나 녹음 파일을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>MP4, MOV, WebM, MP3, WAV, M4A · 최대 1시간</small>
+      </div>
+      <input type="file" id="file" accept="video/*,audio/*,.mov,.m4a,.mkv,.oga,.ogg,.flac" hidden>
+      <div class="view" id="view" hidden>
+        <video id="video" controls playsinline hidden></video>
+        <audio id="audio" controls hidden></audio>
+        <label class="check"><input type="checkbox" id="skip" checked> 재생할 때 잘릴 구간 건너뛰기</label>
+        <canvas class="timeline" id="tl" width="1600" height="192"></canvas>
+        <div class="legend">
+          <span><i style="background: var(--ink)"></i>남는 부분</span>
+          <span><i style="background: var(--error-soft)"></i>잘리는 무음</span>
+          <span>타임라인을 누르면 그 위치로 갑니다</span>
+        </div>
+        <dl class="stats">
+          <div><dt>원래 길이</dt><dd id="sIn">-</dd></div>
+          <div><dt>자른 뒤</dt><dd id="sOut">-</dd></div>
+          <div><dt>잘린 구간</dt><dd id="sCuts">-</dd></div>
+        </dl>
+        <div class="row"><button class="btn" id="pick">다른 파일</button><span class="meta" id="info"></span></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>파일은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

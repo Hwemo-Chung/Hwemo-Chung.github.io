@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>자막 파일 만들기 | 영상·음성 받아쓰기로 SRT·VTT 자막 생성</title>
+<meta name="description" content="영상이나 음성 파일의 말을 Whisper로 받아 적어 시간이 맞춰진 자막을 만듭니다. 한국어, 영어, 일본어를 지원하고 고친 뒤 SRT나 VTT로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/subtitle-file/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .player { padding: 16px; border-bottom: 1px solid var(--line); }
+  .player[hidden], .cues[hidden] { display: none; }
+  .player video { width: 100%; max-height: 360px; display: block; background: var(--ink); border-radius: 6px; }
+  .player audio { width: 100%; display: block; }
+  .now { min-height: 44px; margin: 12px 0 0; font-size: 16px; line-height: 22px; color: var(--ink); white-space: pre-line; }
+  .cues { max-height: 520px; overflow: auto; }
+  .cues table { table-layout: fixed; }
+  .cues td { vertical-align: top; padding: 6px 8px; }
+  .cues th { padding: 8px; }
+  .cues input[type="text"] { height: 30px; font-family: var(--mono); font-size: 12px; padding: 0 6px; }
+  .cues textarea { min-height: 30px; field-sizing: content; resize: none; font-family: var(--sans); font-size: 14px; padding: 4px 8px; line-height: 20px; }
+  .cues tr.on td { background: var(--soft-2); }
+  .cues .n { color: var(--mute); font-family: var(--mono); font-size: 12px; padding-top: 14px; cursor: pointer; }
+  .cues .x { height: 30px; padding: 0 10px; }
+  #other { margin-left: auto; }
+  .cues input.bad { border-color: var(--error); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="자막 파일 만들기 | 영상·음성 받아쓰기로 SRT·VTT 자막 생성">
+<meta property="og:description" content="영상이나 음성 파일의 말을 Whisper로 받아 적어 시간이 맞춰진 자막을 만듭니다. 한국어, 영어, 일본어를 지원하고 고친 뒤 SRT나 VTT로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/subtitle-file/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "자막 파일 만들기", "url": "https://hwemo-chung.github.io/tools/subtitle-file/", "description": "영상이나 음성 파일의 말을 Whisper로 받아 적어 시간이 맞춰진 자막을 만듭니다. 한국어, 영어, 일본어를 지원하고 고친 뒤 SRT나 VTT로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>자막 파일 만들기</h1>
+    <p>영상이나 음성 파일을 놓고 말하는 언어를 고르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <div class="field">
+          <span>언어</span>
+          <div class="seg" id="lang">
+            <button type="button" data-v="" aria-pressed="false">자동</button>
+            <button type="button" data-v="korean" aria-pressed="true">한국어</button>
+            <button type="button" data-v="english" aria-pressed="false">English</button>
+            <button type="button" data-v="japanese" aria-pressed="false">日本語</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>정확도</span>
+          <div class="seg" id="model">
+            <button type="button" data-v="base" aria-pressed="true">빠르게 · 100 MB</button>
+            <button type="button" data-v="small" aria-pressed="false">정확하게 · 300 MB</button>
+          </div>
+        </div>
+        <p class="hint">모델은 처음 한 번 받고 나면 브라우저에 남습니다. 한국어는 정확하게가 더 잘 맞습니다.</p>
+      </section>
+      <section class="panel">
+        <button class="btn primary block" id="run" disabled>자막 만들기</button>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn" id="srt" disabled>SRT로 받기</button>
+          <button class="btn" id="vtt" disabled>VTT로 받기</button>
+        </div>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>영상이나 음성 파일을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>MP4, MOV, WebM, MP3, M4A, WAV</small>
+      </div>
+      <input type="file" id="file" accept="video/*,audio/*,.mp4,.mov,.webm,.mkv,.mp3,.m4a,.wav,.ogg,.flac" hidden>
+      <div class="player" id="player" hidden>
+        <div id="media"></div>
+        <p class="now" id="now"></p>
+        <div class="row"><span class="meta" id="fileName"></span><button class="btn" id="other" type="button">다른 파일</button></div>
+      </div>
+      <div class="cues" id="cues" hidden>
+        <table class="data">
+          <colgroup><col style="width:44px"><col style="width:128px"><col style="width:128px"><col><col style="width:84px"></colgroup>
+          <thead><tr><th>#</th><th>시작</th><th>끝</th><th>내용</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>파일은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

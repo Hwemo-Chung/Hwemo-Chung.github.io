@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>웹페이지 전체 캡처 | URL로 긴 스크린샷 PNG 받기 (PC·모바일 화면)</title>
+<meta name="description" content="웹페이지 주소를 넣으면 페이지 맨 아래까지 한 장으로 캡처해 PNG로 받습니다. PC, 태블릿, 모바일 화면 크기를 고를 수 있습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/page-shot/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  #empty { cursor: default; }
+  #result { padding: 16px; }
+  #result .shot { max-height: 760px; overflow: auto; background: var(--soft); border-radius: 6px; box-shadow: var(--ring); }
+  #result img { display: block; width: 100%; height: auto; }
+  #result .meta { margin: 0 0 12px; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="웹페이지 전체 캡처 | URL로 긴 스크린샷 PNG 받기 (PC·모바일 화면)">
+<meta property="og:description" content="웹페이지 주소를 넣으면 페이지 맨 아래까지 한 장으로 캡처해 PNG로 받습니다. PC, 태블릿, 모바일 화면 크기를 고를 수 있습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/page-shot/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "웹페이지 전체 캡처", "url": "https://hwemo-chung.github.io/tools/page-shot/", "description": "웹페이지 주소를 넣으면 페이지 맨 아래까지 한 장으로 캡처해 PNG로 받습니다. PC, 태블릿, 모바일 화면 크기를 고를 수 있습니다.", "applicationCategory": "UtilitiesApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>웹페이지 전체 캡처</h1>
+    <p>페이지 주소를 넣고 화면 크기를 고른 뒤 찍기를 누르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <form class="panel" id="form" novalidate>
+        <label class="field">
+          <span>페이지 주소</span>
+          <input type="url" id="url" placeholder="https://example.com" inputmode="url" autocomplete="url" required>
+        </label>
+        <div class="field">
+          <span>화면</span>
+          <div class="seg" id="device">
+            <button type="button" data-v="Macbook Pro 13" aria-pressed="true">PC</button>
+            <button type="button" data-v="iPad" aria-pressed="false">태블릿</button>
+            <button type="button" data-v="iPhone 15" aria-pressed="false">모바일</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>범위</span>
+          <div class="seg" id="range">
+            <button type="button" data-v="full" aria-pressed="true">페이지 전체</button>
+            <button type="button" data-v="view" aria-pressed="false">첫 화면만</button>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn primary" type="submit" id="go">찍기</button>
+          <button class="btn" type="button" id="save" disabled>PNG로 받기</button>
+        </div>
+        <div class="progress" id="prog" hidden><i></i></div>
+        <p class="status" id="status"></p>
+        <p class="hint">페이지는 Microlink 캡처 서버가 열어서 찍습니다. 로그인 없이 열리는 공개 페이지만 찍을 수 있습니다.</p>
+      </form>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="empty">
+        <strong>캡처한 화면이 여기에 나옵니다</strong>
+        <small>긴 페이지는 30초쯤 걸립니다</small>
+      </div>
+      <div id="result" hidden>
+        <p class="meta" id="info"></p>
+        <div class="shot"><img id="shot" alt="캡처한 웹페이지"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>입력한 주소는 캡처를 위해 Microlink(microlink.io)로 보내집니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

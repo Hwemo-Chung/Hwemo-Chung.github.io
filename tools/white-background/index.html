@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>상품 사진 흰 배경 만들기 | 배경 제거·누끼·정사각형 1000px</title>
+<meta name="description" content="상품 사진의 배경을 지우고 흰색, 투명, 원하는 색 바탕의 정사각형 이미지로 만듭니다. 쇼핑몰용 1000×1000 크기와 여백을 고르고 PNG나 JPG로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/white-background/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  [hidden] { display: none !important; }
+  .box { height: 440px; display: flex; align-items: center; justify-content: center; }
+  .box > img, .box > canvas { display: block; max-width: 100%; max-height: 100%; box-shadow: var(--ring); }
+  .colorrow { display: flex; gap: 8px; align-items: center; }
+  @media (max-width: 860px) { .box { height: 300px; } }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="상품 사진 흰 배경 만들기 | 배경 제거·누끼·정사각형 1000px">
+<meta property="og:description" content="상품 사진의 배경을 지우고 흰색, 투명, 원하는 색 바탕의 정사각형 이미지로 만듭니다. 쇼핑몰용 1000×1000 크기와 여백을 고르고 PNG나 JPG로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/white-background/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "상품 사진 흰 배경 만들기", "url": "https://hwemo-chung.github.io/tools/white-background/", "description": "상품 사진의 배경을 지우고 흰색, 투명, 원하는 색 바탕의 정사각형 이미지로 만듭니다. 쇼핑몰용 1000×1000 크기와 여백을 고르고 PNG나 JPG로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>상품 사진 흰 배경</h1>
+    <p>상품 사진을 놓고 바탕색과 크기를 고른 뒤 받으세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <div class="field">
+          <span>바탕</span>
+          <div class="colorrow">
+            <div class="seg" id="bg">
+              <button type="button" data-v="#ffffff" aria-pressed="true">흰색</button>
+              <button type="button" data-v="none" aria-pressed="false">투명</button>
+              <button type="button" data-v="custom" aria-pressed="false">색 지정</button>
+            </div>
+            <input type="color" id="color" value="#f2f2f2" aria-label="바탕색">
+          </div>
+        </div>
+        <div class="field">
+          <span>크기</span>
+          <div class="seg" id="size">
+            <button type="button" data-v="1000" aria-pressed="true">1000</button>
+            <button type="button" data-v="1500" aria-pressed="false">1500</button>
+            <button type="button" data-v="2000" aria-pressed="false">2000</button>
+            <button type="button" data-v="0" aria-pressed="false">상품 크기대로</button>
+          </div>
+        </div>
+        <label class="field">
+          <span>여백 <output id="mOut">8%</output></span>
+          <input type="range" id="margin" min="0" max="30" value="8">
+        </label>
+        <div class="field">
+          <span>형식</span>
+          <div class="seg" id="format">
+            <button type="button" data-v="image/jpeg" aria-pressed="true">JPG</button>
+            <button type="button" data-v="image/png" aria-pressed="false">PNG</button>
+          </div>
+        </div>
+        <p class="hint" id="pngHint" hidden>투명 바탕은 PNG로 받습니다.</p>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="save" disabled>받기</button>
+          <button class="btn" id="other" disabled>다른 사진</button>
+        </div>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>상품 사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG, WebP · 처음 한 번은 배경 인식 모델(약 88MB)을 받습니다</small>
+        <!-- sample.jpg: "Wenger backpack.jpg", CC0, https://commons.wikimedia.org/wiki/File:Wenger_backpack.jpg -->
+        <button class="btn" type="button" id="sample">예시 사진으로 해 보기</button>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <div class="compare" id="result" hidden>
+        <figure><figcaption id="capA">원본</figcaption><div class="box"><img id="imgA" alt="원본 사진"></div></figure>
+        <figure><figcaption id="capB">결과</figcaption><div class="box"><canvas id="outCanvas" class="checker"></canvas></div></figure>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>낮 사진을 저녁 사진으로 | 부동산 외관 트와일라잇 보정</title>
+<meta name="description" content="낮에 찍은 집 외관 사진을 올리면 하늘을 노을로 바꾸고 창에 불을 켠 저녁 사진으로 만듭니다. 강도와 창 불빛을 조절해 JPG로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/day-to-dusk/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .stage.has { display: flex; align-items: center; justify-content: center; padding: 12px; background: var(--soft-2); }
+  .view { position: relative; display: inline-block; line-height: 0; cursor: crosshair; touch-action: none; }
+  .view canvas { display: block; max-width: 100%; max-height: 74vh; }
+  .view .over { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .view .split { position: absolute; top: 0; bottom: 0; width: 1px; background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); pointer-events: none; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="낮 사진을 저녁 사진으로 | 부동산 외관 트와일라잇 보정">
+<meta property="og:description" content="낮에 찍은 집 외관 사진을 올리면 하늘을 노을로 바꾸고 창에 불을 켠 저녁 사진으로 만듭니다. 강도와 창 불빛을 조절해 JPG로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/day-to-dusk/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "낮 사진을 저녁 사진으로", "url": "https://hwemo-chung.github.io/tools/day-to-dusk/", "description": "낮에 찍은 집 외관 사진을 올리면 하늘을 노을로 바꾸고 창에 불을 켠 저녁 사진으로 만듭니다. 강도와 창 불빛을 조절해 JPG로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>낮 사진을 저녁 사진으로</h1>
+    <p>집 외관 사진을 올리면 하늘은 노을로, 창은 불 켠 모습으로 바꿉니다.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <div class="field">
+          <span>하늘</span>
+          <div class="seg" id="sky">
+            <button type="button" data-v="dusk" aria-pressed="true">노을</button>
+            <button type="button" data-v="sunset" aria-pressed="false">짙은 노을</button>
+            <button type="button" data-v="blue" aria-pressed="false">푸른 저녁</button>
+          </div>
+        </div>
+        <label class="field">
+          <span>강도 <output id="amountOut">100%</output></span>
+          <input type="range" id="amount" min="0" max="100" value="100" disabled>
+        </label>
+        <label class="field">
+          <span>창 불빛 <output id="glowOut">70%</output></span>
+          <input type="range" id="glow" min="0" max="100" value="70" disabled>
+        </label>
+        <label class="field">
+          <span>창 칠하는 붓 크기 <output id="brushOut">30%</output></span>
+          <input type="range" id="brush" min="10" max="100" value="30" disabled>
+        </label>
+        <p class="hint" style="margin:-8px 0 16px">불을 켤 창을 사진 위에 문질러 칠하세요. <button class="btn" type="button" id="clearWin" style="height:24px;padding:0 8px;font-size:12px" disabled>칠한 창 지우기</button></p>
+        <label class="field">
+          <span>원본과 비교 <output id="cmpOut">0%</output></span>
+          <input type="range" id="cmp" min="0" max="100" value="0" disabled>
+        </label>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="save" disabled>JPG로 받기</button>
+          <button class="btn" id="again" disabled>다른 사진</button>
+        </div>
+        <p class="status" id="status"></p>
+        <div class="progress" id="prog" hidden><i></i></div>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>집 외관 사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG, WebP · 하늘이 보이는 사진 · 처음 한 번 분석 모델 29MB를 받습니다</small>
+        <!-- 예시 사진: "Cozy white house (Unsplash).jpg", CC0, https://commons.wikimedia.org/wiki/File:Cozy_white_house_(Unsplash).jpg -->
+        <button class="btn" type="button" id="sample">예시 사진으로 해 보기</button>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <div class="view" id="view" hidden>
+        <canvas id="out"></canvas>
+        <canvas class="over" id="orig"></canvas>
+        <div class="split" id="split" hidden></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

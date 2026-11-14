@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>상품 홍보 카드 만들기 | 인스타그램 피드·스토리 할인 이미지</title>
+<meta name="description" content="상품 사진과 이름, 가격, 할인율을 넣으면 1080×1350, 1080×1080, 1080×1920 SNS 홍보 이미지를 만듭니다. 상품 배경을 지우고 PNG로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/promo-template/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .stage.has { display: flex; align-items: center; justify-content: center; padding: 16px; background: var(--soft-2); }
+  #card { display: block; max-width: 100%; max-height: 76vh; width: auto; height: auto; touch-action: none; box-shadow: var(--lift); }
+  .colors { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .colors button { width: 28px; height: 28px; border: 0; border-radius: 6px; box-shadow: var(--ring); cursor: pointer; padding: 0; }
+  .colors button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--canvas), 0 0 0 3px var(--ink); }
+  .colors input[type="color"] { width: 28px; height: 28px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .check { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="상품 홍보 카드 만들기 | 인스타그램 피드·스토리 할인 이미지">
+<meta property="og:description" content="상품 사진과 이름, 가격, 할인율을 넣으면 1080×1350, 1080×1080, 1080×1920 SNS 홍보 이미지를 만듭니다. 상품 배경을 지우고 PNG로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/promo-template/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "상품 홍보 카드 만들기", "url": "https://hwemo-chung.github.io/tools/promo-template/", "description": "상품 사진과 이름, 가격, 할인율을 넣으면 1080×1350, 1080×1080, 1080×1920 SNS 홍보 이미지를 만듭니다. 상품 배경을 지우고 PNG로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>상품 홍보 카드 만들기</h1>
+    <p>상품 사진을 올리고 이름과 가격을 쓰세요. 할인율은 정가를 넣으면 계산됩니다.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <label class="field"><span>상품 이름</span><input type="text" id="name" maxlength="60" placeholder="예: 리넨 쿠션 커버 45cm"></label>
+        <div class="two">
+          <label class="field"><span>판매가</span><input type="text" id="price" inputmode="numeric" placeholder="29900"></label>
+          <label class="field"><span>정가</span><input type="text" id="orig" inputmode="numeric" placeholder="39900"></label>
+        </div>
+        <p class="hint" style="margin:-8px 0 16px">할인율 <output id="pct">정가를 넣으면 표시됩니다</output></p>
+        <label class="field"><span>배지 문구</span><input type="text" id="badge" maxlength="14" placeholder="예: 오늘만, 신상품"></label>
+      </section>
+      <section class="panel">
+        <div class="field">
+          <span>크기</span>
+          <div class="seg" id="size">
+            <button type="button" data-v="1350" aria-pressed="true">피드 4:5</button>
+            <button type="button" data-v="1080" aria-pressed="false">정사각</button>
+            <button type="button" data-v="1920" aria-pressed="false">스토리 9:16</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>템플릿</span>
+          <div class="seg" id="tpl">
+            <button type="button" data-v="clean" aria-pressed="true">여백</button>
+            <button type="button" data-v="color" aria-pressed="false">색 면</button>
+            <button type="button" data-v="photo" aria-pressed="false">사진 위주</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>바탕 색</span>
+          <div class="colors" id="bgc"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="cut"> 상품 배경 지우기</label>
+        <p class="hint" style="margin:6px 0 12px">처음 한 번 모델 약 55MB를 받습니다.</p>
+        <label class="field">
+          <span>상품 크기 <output id="pzOut">100%</output></span>
+          <input type="range" id="pz" min="40" max="160" value="100">
+        </label>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="save" disabled>PNG로 받기</button>
+          <button class="btn" id="again" disabled>사진 바꾸기</button>
+        </div>
+        <p class="status" id="status"></p>
+        <div class="progress" id="prog" hidden><i></i></div>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>상품 사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG, WebP · 배경을 지운 PNG도 됩니다</small>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <canvas id="card" width="1080" height="1350" hidden></canvas>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

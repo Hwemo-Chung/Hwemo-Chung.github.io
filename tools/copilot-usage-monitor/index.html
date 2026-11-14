@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub Copilot 사용량 보기 | 프리미엄 요청·AI 크레딧 일별·모델별 비용과 예산</title>
+<meta name="description" content="GitHub 토큰이나 결제 페이지에서 받은 사용량 CSV로 내 Copilot 프리미엄 요청·AI 크레딧 사용량을 날짜별, 모델별로 보고 월 예산 대비 비용을 확인합니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/copilot-usage-monitor/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .view { padding: 20px; display: grid; gap: 20px; }
+  .view h2 { margin: 0 0 8px; font-size: 14px; font-weight: 600; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border-radius: 6px; overflow: hidden; }
+  .stats div { background: var(--canvas); padding: 10px 12px; }
+  .stats dt { font-size: 12px; color: var(--mute); }
+  .stats dd { margin: 0; font: 400 16px/24px var(--mono); color: var(--ink); }
+  .budget { display: grid; gap: 6px; }
+  .budget .track { height: 8px; background: var(--soft-2); border-radius: 4px; overflow: hidden; position: relative; }
+  .budget .track i { display: block; height: 100%; background: var(--ink); }
+  .budget .track b { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--line-strong); }
+  .budget .track.over i { background: var(--error); }
+  .budget p { margin: 0; font-size: 13px; color: var(--body); }
+  .days { display: flex; align-items: flex-end; gap: 2px; height: 140px; border-bottom: 1px solid var(--line); }
+  .days span { flex: 1; background: var(--ink); min-height: 1px; border-radius: 2px 2px 0 0; }
+  .days span.zero { background: var(--line); }
+  .axis { display: flex; justify-content: space-between; font: 400 11px/16px var(--mono); color: var(--mute); margin-top: 4px; }
+  td .share { height: 6px; background: var(--soft-2); border-radius: 3px; min-width: 60px; }
+  td .share i { display: block; height: 100%; background: var(--ink); border-radius: 3px; }
+  label.check { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+  .or { text-align: center; font-size: 12px; color: var(--mute); margin: 12px 0; }
+  .empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 32px; text-align: center; color: var(--body); }
+  .empty strong { color: var(--ink); font-weight: 500; font-size: 16px; }
+  .empty small { color: var(--mute); font-size: 13px; max-width: 460px; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="GitHub Copilot 사용량 보기 | 프리미엄 요청·AI 크레딧 일별·모델별 비용과 예산">
+<meta property="og:description" content="GitHub 토큰이나 결제 페이지에서 받은 사용량 CSV로 내 Copilot 프리미엄 요청·AI 크레딧 사용량을 날짜별, 모델별로 보고 월 예산 대비 비용을 확인합니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/copilot-usage-monitor/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "GitHub Copilot 사용량 보기", "url": "https://hwemo-chung.github.io/tools/copilot-usage-monitor/", "description": "GitHub 토큰이나 결제 페이지에서 받은 사용량 CSV로 내 Copilot 프리미엄 요청·AI 크레딧 사용량을 날짜별, 모델별로 보고 월 예산 대비 비용을 확인합니다.", "applicationCategory": "UtilitiesApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>Copilot 사용량</h1>
+    <p>GitHub 토큰을 넣거나 결제 페이지에서 받은 사용량 CSV를 올리세요. 날짜별, 모델별 사용량과 비용을 보여 줍니다.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <h2>GitHub에서 불러오기</h2>
+        <div class="field">
+          <span>계정</span>
+          <div class="seg" id="kind">
+            <button type="button" data-v="user" aria-pressed="true">개인</button>
+            <button type="button" data-v="org" aria-pressed="false">조직</button>
+          </div>
+        </div>
+        <label class="field" id="orgField" hidden>
+          <span>조직 이름</span>
+          <input type="text" id="org" autocomplete="off" spellcheck="false" placeholder="my-company">
+        </label>
+        <label class="field">
+          <span>토큰</span>
+          <input type="password" id="token" autocomplete="off" spellcheck="false" placeholder="github_pat_… 또는 ghp_…">
+        </label>
+        <label class="field">
+          <span>달</span>
+          <input type="month" id="month" placeholder="2026-10" style="height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--canvas)">
+        </label>
+        <label class="check"><input type="checkbox" id="remember"> 이 브라우저에 토큰 기억하기</label>
+        <p class="hint" style="margin-top: 8px">개인 계정은 Plan 읽기 권한, 조직은 Administration 읽기 권한이 있는 fine-grained 토큰을 쓰세요. <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">토큰 만들기</a></p>
+        <div class="row" style="margin-top: 12px"><button class="btn primary" id="load">불러오기</button></div>
+        <p class="or">또는</p>
+        <button class="btn block" id="csvPick">사용량 CSV 올리기</button>
+        <input type="file" id="csvFile" accept=".csv,text/csv" hidden>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+      <section class="panel">
+        <label class="field">
+          <span>월 예산 (USD)</span>
+          <input type="number" id="budget" min="0" step="1" placeholder="예: 20">
+        </label>
+        <p class="hint">예산은 이 브라우저에만 저장됩니다.</p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="empty" id="empty">
+        <strong>토큰이나 CSV로 사용량을 불러오세요</strong>
+        <small>CSV는 GitHub 설정의 Billing and licensing에서 Usage 또는 AI usage 화면의 Get usage report로 받을 수 있습니다. CSV 파일을 여기에 끌어다 놓아도 됩니다.</small>
+      </div>
+      <div class="view" id="view" hidden>
+        <div class="row" style="justify-content: space-between">
+          <span class="meta" id="source"></span>
+          <select id="monthSel" style="width: auto"></select>
+        </div>
+        <dl class="stats">
+          <div><dt id="qtyLabel">사용량</dt><dd id="sQty">-</dd></div>
+          <div><dt>정가 금액</dt><dd id="sGross">-</dd></div>
+          <div><dt>포함분 할인</dt><dd id="sDisc">-</dd></div>
+          <div><dt>청구액</dt><dd id="sNet">-</dd></div>
+        </dl>
+        <div class="budget" id="budgetBox">
+          <div class="track" id="track"><i id="spent"></i><b id="pace" hidden></b></div>
+          <p id="budgetText"></p>
+        </div>
+        <div>
+          <h2>날짜별 사용량</h2>
+          <div class="days" id="days"></div>
+          <div class="axis"><span id="axis0"></span><span id="axis1"></span></div>
+        </div>
+        <div>
+          <h2>모델별</h2>
+          <table class="data" id="models">
+            <thead><tr><th>모델</th><th class="num">사용량</th><th class="num">정가</th><th class="num">청구액</th><th>비중</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>토큰과 사용량 데이터는 이 브라우저와 GitHub API 사이에서만 오갑니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

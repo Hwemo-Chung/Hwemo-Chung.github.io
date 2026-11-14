@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>영상 배경 바꾸기 | 사람 영상 배경 지우기·흐리게·색 바꾸기 MP4</title>
+<meta name="description" content="사람이 나오는 영상에서 배경만 골라 단색이나 사진으로 바꾸거나 흐리게 합니다. 소리까지 담긴 MP4로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/video-cutout/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .view { padding: 16px; }
+  .view[hidden] { display: none; }
+  .view canvas { width: 100%; max-height: 520px; object-fit: contain; display: block; background: var(--soft-2); border-radius: 6px; }
+  .view { position: relative; }
+  .view video { position: absolute; width: 2px; height: 2px; opacity: 0; pointer-events: none; }
+  .transport { display: flex; gap: 12px; align-items: center; margin-top: 12px; }
+  .transport input { flex: 1; }
+  .panel [data-for][hidden] { display: none; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="영상 배경 바꾸기 | 사람 영상 배경 지우기·흐리게·색 바꾸기 MP4">
+<meta property="og:description" content="사람이 나오는 영상에서 배경만 골라 단색이나 사진으로 바꾸거나 흐리게 합니다. 소리까지 담긴 MP4로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/video-cutout/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "영상 배경 바꾸기", "url": "https://hwemo-chung.github.io/tools/video-cutout/", "description": "사람이 나오는 영상에서 배경만 골라 단색이나 사진으로 바꾸거나 흐리게 합니다. 소리까지 담긴 MP4로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>영상 배경 바꾸기</h1>
+    <p>사람이 나오는 영상을 놓고 새 배경을 고르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <div class="field">
+          <span>배경</span>
+          <div class="seg" id="bg">
+            <button type="button" data-v="blur" aria-pressed="true">흐리게</button>
+            <button type="button" data-v="color" aria-pressed="false">단색</button>
+            <button type="button" data-v="image" aria-pressed="false">사진</button>
+          </div>
+        </div>
+        <label class="field" data-for="blur">
+          <span>흐림 정도 <output id="blurOut">12</output></span>
+          <input type="range" id="blur" min="2" max="40" value="12">
+        </label>
+        <label class="field" data-for="color" hidden>
+          <span>색</span>
+          <input type="color" id="color" value="#00b140">
+        </label>
+        <div class="field" data-for="image" hidden>
+          <button class="btn" type="button" id="pickImg">사진 고르기</button>
+          <input type="file" id="imgFile" accept="image/*" hidden>
+          <span class="hint" id="imgName"></span>
+        </div>
+        <label class="field">
+          <span>가장자리 <output id="edgeOut">보통</output></span>
+          <input type="range" id="edge" min="0" max="2" step="1" value="1">
+        </label>
+      </section>
+      <section class="panel">
+        <button class="btn primary block" id="save" disabled>MP4로 받기</button>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>영상을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>MP4, MOV, WebM · 사람이 크게 나오는 영상</small>
+      </div>
+      <input type="file" id="file" accept="video/*,.mp4,.mov,.webm,.mkv" hidden>
+      <div class="view" id="view" hidden>
+        <canvas id="out"></canvas>
+        <video id="video" playsinline preload="auto"></video>
+        <div class="transport">
+          <button class="btn" id="play" type="button">재생</button>
+          <input type="range" id="seek" min="0" max="1" step="0.01" value="0" aria-label="재생 위치">
+          <span class="meta" id="time">0:00.0</span>
+          <button class="btn" id="other" type="button">다른 영상</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>영상은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

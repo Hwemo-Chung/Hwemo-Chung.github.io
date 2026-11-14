@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>붓으로 잡티 지우기 | 사진 얼룩·먼지·작은 물체 지우개</title>
+<meta name="description" content="사진의 잡티, 먼지, 전선, 작은 물체를 붓으로 문지르면 손을 뗄 때 주변 색으로 메웁니다. 되돌리기를 지원하고 결과를 바로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/brush-erase/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .edit { padding: 12px; }
+  .edit[hidden] { display: none; }
+  .wrap { position: relative; margin: 0 auto; touch-action: none; cursor: none; line-height: 0; }
+  .wrap canvas { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; }
+  .wrap .cursor { position: absolute; border: 1px solid var(--canvas); border-radius: 50%; box-shadow: 0 0 0 1px var(--ink); pointer-events: none; transform: translate(-50%, -50%); }
+  #mask { opacity: 0.5; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="붓으로 잡티 지우기 | 사진 얼룩·먼지·작은 물체 지우개">
+<meta property="og:description" content="사진의 잡티, 먼지, 전선, 작은 물체를 붓으로 문지르면 손을 뗄 때 주변 색으로 메웁니다. 되돌리기를 지원하고 결과를 바로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/brush-erase/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "붓으로 잡티 지우기", "url": "https://hwemo-chung.github.io/tools/brush-erase/", "description": "사진의 잡티, 먼지, 전선, 작은 물체를 붓으로 문지르면 손을 뗄 때 주변 색으로 메웁니다. 되돌리기를 지원하고 결과를 바로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>붓으로 잡티 지우기</h1>
+    <p>사진을 올리고 잡티를 붓으로 문지르면 손을 떼는 순간 메워집니다.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <label class="field">
+          <span>붓 크기 <output id="sizeOut">24px</output></span>
+          <input type="range" id="size" min="6" max="80" value="24">
+        </label>
+        <p class="hint">먼지, 잡티, 전선처럼 작은 것에 맞습니다. 사람이나 차처럼 큰 물체는 <a href="/tools/item-removal/">물체 지우기</a>가 더 자연스럽습니다.</p>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="save" disabled>받기</button>
+          <button class="btn" id="undo" disabled>되돌리기</button>
+          <button class="btn" id="hold" disabled>누르는 동안 원본</button>
+        </div>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG, WebP · 붙여넣기도 됩니다</small>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <div class="edit" id="edit" hidden>
+        <div class="wrap" id="wrap">
+          <canvas id="img"></canvas>
+          <canvas id="orig" hidden></canvas>
+          <canvas id="mask"></canvas>
+          <div class="cursor" id="cursor" hidden></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

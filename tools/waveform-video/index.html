@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오디오 파형 영상 만들기 | 음성·음악을 MP4 오디오그램으로 (9:16·1:1·16:9)</title>
+<meta name="description" content="음성이나 음악 파일을 올리면 소리에 맞춰 움직이는 파형 영상을 MP4로 만듭니다. 제목, 커버 이미지, 배경색을 넣고 릴스·쇼츠·유튜브 비율로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/waveform-video/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .view { padding: 20px; display: grid; gap: 12px; justify-items: center; }
+  .view canvas { max-height: 560px; width: auto; max-width: 100%; border-radius: 6px; box-shadow: var(--ring); }
+  .view audio { width: 100%; }
+  .colors { display: flex; gap: 16px; }
+  .colors label { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+  .cover { display: flex; gap: 8px; align-items: center; }
+  .cover span { font-size: 13px; color: var(--body); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="오디오 파형 영상 만들기 | 음성·음악을 MP4 오디오그램으로 (9:16·1:1·16:9)">
+<meta property="og:description" content="음성이나 음악 파일을 올리면 소리에 맞춰 움직이는 파형 영상을 MP4로 만듭니다. 제목, 커버 이미지, 배경색을 넣고 릴스·쇼츠·유튜브 비율로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/waveform-video/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "오디오 파형 영상 만들기", "url": "https://hwemo-chung.github.io/tools/waveform-video/", "description": "음성이나 음악 파일을 올리면 소리에 맞춰 움직이는 파형 영상을 MP4로 만듭니다. 제목, 커버 이미지, 배경색을 넣고 릴스·쇼츠·유튜브 비율로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>오디오 파형 영상</h1>
+    <p>음성이나 음악 파일을 올리고 비율과 제목을 고르세요. 소리에 맞춰 움직이는 MP4를 받습니다.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <div class="field">
+          <span>비율</span>
+          <div class="seg" id="ratio">
+            <button type="button" data-v="1080x1920" aria-pressed="true">9:16</button>
+            <button type="button" data-v="1080x1080" aria-pressed="false">1:1</button>
+            <button type="button" data-v="1920x1080" aria-pressed="false">16:9</button>
+          </div>
+        </div>
+        <label class="field">
+          <span>제목</span>
+          <input type="text" id="title" maxlength="80" placeholder="비워 두면 제목 없이 만듭니다">
+        </label>
+        <div class="field">
+          <span>커버 이미지</span>
+          <div class="cover">
+            <button class="btn" type="button" id="coverPick">고르기</button>
+            <span id="coverName">없음</span>
+            <button class="btn" type="button" id="coverClear" hidden>빼기</button>
+          </div>
+          <input type="file" id="coverFile" accept="image/*" hidden>
+        </div>
+        <div class="field">
+          <span>색</span>
+          <div class="colors">
+            <label><input type="color" id="bg" value="#171717"> 배경</label>
+            <label><input type="color" id="fg" value="#ffffff"> 파형·글자</label>
+          </div>
+        </div>
+      </section>
+      <section class="panel">
+        <button class="btn primary block" id="export" disabled>MP4로 받기</button>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>오디오 파일을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>MP3, WAV, M4A, OGG · 최대 15분</small>
+      </div>
+      <input type="file" id="file" accept="audio/*,.m4a,.oga,.ogg,.flac" hidden>
+      <div class="view" id="view" hidden>
+        <canvas id="cv" width="1080" height="1920"></canvas>
+        <audio id="player" controls></audio>
+        <div class="row"><button class="btn" id="pick">다른 오디오</button><span class="meta" id="info"></span></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>오디오와 이미지는 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

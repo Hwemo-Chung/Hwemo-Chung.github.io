@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Allow: /public-search-exposure.html
 
 Sitemap: https://hwemo-chung.github.io/sitemap.xml

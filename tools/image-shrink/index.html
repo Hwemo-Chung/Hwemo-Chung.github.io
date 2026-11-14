@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이미지 용량 줄이기 | JPG·PNG·WebP 압축</title>
+<meta name="description" content="사진을 올리면 화질을 고르고 크기를 줄여 더 작은 JPG나 WebP로 받습니다. 여러 장을 한 번에 처리합니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/image-shrink/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="이미지 용량 줄이기 | JPG·PNG·WebP 압축">
+<meta property="og:description" content="사진을 올리면 화질을 고르고 크기를 줄여 더 작은 JPG나 WebP로 받습니다. 여러 장을 한 번에 처리합니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/image-shrink/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "이미지 용량 줄이기", "url": "https://hwemo-chung.github.io/tools/image-shrink/", "description": "사진을 올리면 화질을 고르고 크기를 줄여 더 작은 JPG나 WebP로 받습니다. 여러 장을 한 번에 처리합니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>이미지 용량 줄이기</h1>
+    <p>사진을 끌어다 놓고 형식과 화질을 고르세요. 바뀐 용량이 바로 보입니다.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <div class="field">
+          <span>형식</span>
+          <div class="seg" id="format">
+            <button type="button" data-v="image/webp" aria-pressed="true">WebP</button>
+            <button type="button" data-v="image/jpeg" aria-pressed="false">JPG</button>
+            <button type="button" data-v="image/png" aria-pressed="false">PNG</button>
+          </div>
+        </div>
+        <label class="field">
+          <span>화질 <output id="qOut">75</output></span>
+          <input type="range" id="quality" min="30" max="95" value="75">
+        </label>
+        <label class="field">
+          <span>긴 변 최대 <output id="sOut">2000px</output></span>
+          <input type="range" id="size" min="400" max="4000" step="100" value="2000">
+        </label>
+        <p class="hint" id="pngHint" hidden>PNG는 화질 값을 쓰지 않고 크기만 줄입니다.</p>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="saveAll" disabled>모두 받기</button>
+          <button class="btn" id="clear" disabled>비우기</button>
+        </div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG, WebP, GIF · 여러 장 가능 · 붙여넣기도 됩니다</small>
+        <button class="btn" type="button" id="sample">예시 사진으로 해 보기</button>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden>
+      <table class="data" id="list" hidden>
+        <thead><tr><th>파일</th><th>크기</th><th class="num">원본</th><th class="num">결과</th><th class="num">변화</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="compare" id="preview" hidden>
+        <figure><figcaption id="capA">원본</figcaption><img id="imgA" alt="원본"></figure>
+        <figure><figcaption id="capB">결과</figcaption><img id="imgB" alt="줄인 결과"></figure>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

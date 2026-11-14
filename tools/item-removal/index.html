@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사진 속 물체 지우기 | 사람·차·물건 지우고 배경 채우기 (LaMa)</title>
+<meta name="description" content="사진에서 지우고 싶은 사람이나 물건을 붓으로 칠하면 LaMa 인페인팅 모델이 그 자리를 주변 배경으로 채웁니다. 되돌리기와 원본 비교를 지원합니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/item-removal/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .edit { padding: 12px; }
+  .edit[hidden] { display: none; }
+  .wrap { position: relative; margin: 0 auto; touch-action: none; cursor: none; line-height: 0; }
+  .wrap canvas { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; }
+  .wrap .cursor { position: absolute; border: 1px solid var(--canvas); border-radius: 50%; box-shadow: 0 0 0 1px var(--ink); pointer-events: none; transform: translate(-50%, -50%); }
+  #mask { opacity: 0.5; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="사진 속 물체 지우기 | 사람·차·물건 지우고 배경 채우기 (LaMa)">
+<meta property="og:description" content="사진에서 지우고 싶은 사람이나 물건을 붓으로 칠하면 LaMa 인페인팅 모델이 그 자리를 주변 배경으로 채웁니다. 되돌리기와 원본 비교를 지원합니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/item-removal/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "사진 속 물체 지우기", "url": "https://hwemo-chung.github.io/tools/item-removal/", "description": "사진에서 지우고 싶은 사람이나 물건을 붓으로 칠하면 LaMa 인페인팅 모델이 그 자리를 주변 배경으로 채웁니다. 되돌리기와 원본 비교를 지원합니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>사진 속 물체 지우기</h1>
+    <p>사진을 올리고 지울 사람이나 물건을 붓으로 넉넉히 칠한 뒤 지우기를 누르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <label class="field">
+          <span>붓 크기 <output id="sizeOut">40px</output></span>
+          <input type="range" id="size" min="10" max="120" value="40">
+        </label>
+        <p class="hint">물체보다 조금 크게, 그림자까지 칠하면 자연스럽습니다. 작은 점은 <a href="/tools/brush-erase/">붓으로 잡티 지우기</a>가 빠릅니다.</p>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="run" disabled>지우기</button>
+          <button class="btn" id="undo" disabled>되돌리기</button>
+        </div>
+        <div class="row" style="margin-top: 8px">
+          <button class="btn" id="hold" disabled>누르는 동안 원본</button>
+          <button class="btn" id="save" disabled>받기</button>
+        </div>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+        <p class="hint">처음 한 번은 모델(약 92MB)을 받습니다. 한 번 지우는 데 10초에서 1분쯤 걸립니다.</p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG, WebP · 붙여넣기도 됩니다</small>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <div class="edit" id="edit" hidden>
+        <div class="wrap" id="wrap">
+          <canvas id="img"></canvas>
+          <canvas id="orig" hidden></canvas>
+          <canvas id="mask"></canvas>
+          <div class="cursor" id="cursor" hidden></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

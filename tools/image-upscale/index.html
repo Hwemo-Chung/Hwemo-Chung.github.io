@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사진 해상도 키우기 | 저해상도 이미지 2배·4배 업스케일 (ESRGAN)</title>
+<meta name="description" content="작은 사진이나 흐릿한 캡처를 ESRGAN 초해상도 모델로 2배 또는 4배 키워 PNG로 받습니다. 원본과 결과를 100% 크기로 나란히 비교합니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/image-upscale/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .view { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; height: 640px; }
+  .view[hidden] { display: none; }
+  .viewhead { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  .viewport { overflow: auto; background: var(--soft-2); }
+  .pane { position: relative; margin: 0 auto; line-height: 0; }
+  .pane canvas, .pane img { display: block; max-width: none; width: 100%; height: 100%; }
+  .pane .before { position: absolute; inset: 0; }
+  .pane .line { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--canvas); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25); pointer-events: none; }
+  .viewbar { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 12px; border-top: 1px solid var(--line); }
+  @media (max-width: 860px) { .view { height: 70vh; } }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="사진 해상도 키우기 | 저해상도 이미지 2배·4배 업스케일 (ESRGAN)">
+<meta property="og:description" content="작은 사진이나 흐릿한 캡처를 ESRGAN 초해상도 모델로 2배 또는 4배 키워 PNG로 받습니다. 원본과 결과를 100% 크기로 나란히 비교합니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/image-upscale/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "사진 해상도 키우기", "url": "https://hwemo-chung.github.io/tools/image-upscale/", "description": "작은 사진이나 흐릿한 캡처를 ESRGAN 초해상도 모델로 2배 또는 4배 키워 PNG로 받습니다. 원본과 결과를 100% 크기로 나란히 비교합니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>사진 해상도 키우기</h1>
+    <p>작은 사진을 올리고 배율을 고른 뒤 키우기를 누르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <div class="field">
+          <span>배율</span>
+          <div class="seg" id="scale">
+            <button type="button" data-v="2" aria-pressed="false">2배</button>
+            <button type="button" data-v="4" aria-pressed="true">4배</button>
+          </div>
+        </div>
+        <p class="hint" id="limit"></p>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="run" disabled>키우기</button>
+          <button class="btn" id="save" disabled>PNG로 받기</button>
+        </div>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+        <p class="hint">처음 한 번은 모델(약 27MB)을 받습니다.</p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG, WebP · 붙여넣기도 됩니다</small>
+        <!-- Ben Shahn, 1935, FSA/OWI, Library of Congress (public domain): https://commons.wikimedia.org/wiki/File:Natchez_MS_October_1935_-_S_H_Money_Saving_Barber_Shop_crop.jpg (330px thumbnail) -->
+        <button class="btn" type="button" id="sample">예시 사진으로 해 보기</button>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <div class="view" id="view" hidden>
+        <div class="viewhead">
+          <span class="meta" id="info"></span>
+          <div class="seg" id="zoom">
+            <button type="button" data-v="fit" aria-pressed="false">맞춤</button>
+            <button type="button" data-v="1" aria-pressed="true">100%</button>
+          </div>
+        </div>
+        <div class="viewport" id="vp">
+          <div class="pane" id="pane">
+            <canvas id="after"></canvas>
+            <img class="before" id="before" alt="원본">
+            <div class="line" id="line"></div>
+          </div>
+        </div>
+        <div class="viewbar">
+          <span class="meta">원본</span>
+          <input type="range" id="cmp" min="0" max="100" value="50" aria-label="원본과 결과 경계">
+          <span class="meta">결과</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

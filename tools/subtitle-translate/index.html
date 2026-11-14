@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>자막 번역 | SRT·VTT 자막 파일을 시간 그대로 다른 언어로</title>
+<meta name="description" content="SRT나 VTT 자막 파일을 올리면 각 줄을 다른 언어로 번역하고 시간은 그대로 둔 새 자막 파일을 만듭니다. 한국어, 영어, 일본어, 중국어, 스페인어 등을 지원합니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/subtitle-translate/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .cues { max-height: 640px; overflow: auto; }
+  .cues[hidden] { display: none; }
+  .cues table { table-layout: fixed; }
+  .cues td { vertical-align: top; padding: 8px; }
+  .cues th { padding: 8px; }
+  .cues .src { color: var(--body); white-space: pre-line; padding-top: 13px; }
+  .cues textarea { min-height: 30px; field-sizing: content; resize: none; font-family: var(--sans); font-size: 14px; padding: 4px 8px; line-height: 20px; }
+  .cues .tm { padding-top: 14px; }
+  .head-row { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .head-row[hidden] { display: none; }
+  .head-row .btn { margin-left: auto; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="자막 번역 | SRT·VTT 자막 파일을 시간 그대로 다른 언어로">
+<meta property="og:description" content="SRT나 VTT 자막 파일을 올리면 각 줄을 다른 언어로 번역하고 시간은 그대로 둔 새 자막 파일을 만듭니다. 한국어, 영어, 일본어, 중국어, 스페인어 등을 지원합니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/subtitle-translate/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "자막 번역", "url": "https://hwemo-chung.github.io/tools/subtitle-translate/", "description": "SRT나 VTT 자막 파일을 올리면 각 줄을 다른 언어로 번역하고 시간은 그대로 둔 새 자막 파일을 만듭니다. 한국어, 영어, 일본어, 중국어, 스페인어 등을 지원합니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>자막 번역</h1>
+    <p>SRT나 VTT 파일을 놓고 바꿀 언어를 고르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <label class="field">
+          <span>원래 언어</span>
+          <select id="from"></select>
+        </label>
+        <label class="field">
+          <span>바꿀 언어</span>
+          <select id="to"></select>
+        </label>
+        <button class="btn primary block" id="run" disabled>번역하기</button>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+        <p class="hint" id="engine"></p>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn" id="srt" disabled>SRT로 받기</button>
+          <button class="btn" id="vtt" disabled>VTT로 받기</button>
+        </div>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>자막 파일을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>SRT, VTT</small>
+      </div>
+      <input type="file" id="file" accept=".srt,.vtt,text/vtt,application/x-subrip" hidden>
+      <div class="head-row" id="info" hidden><span class="meta" id="fileName"></span><button class="btn" id="other" type="button">다른 파일</button></div>
+      <div class="cues" id="cues" hidden>
+        <table class="data">
+          <colgroup><col style="width:44px"><col style="width:120px"><col><col></colgroup>
+          <thead><tr><th>#</th><th>시작</th><th>원문</th><th>번역</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>자막은 이 브라우저에서 번역하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

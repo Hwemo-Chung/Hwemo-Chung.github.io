@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유튜브 썸네일 만들기 | 1280×720 제목 썸네일 편집기</title>
+<meta name="description" content="사진을 올리고 제목을 쓰면 1280×720 유튜브 썸네일을 만듭니다. 글자 테두리와 강조 박스, 레이아웃과 색을 고르고 2MB 아래 JPG나 PNG로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/thumb-card/">
+<link rel="stylesheet" href="../common/tool.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .stage.has { display: flex; align-items: center; justify-content: center; padding: 12px; background: var(--soft-2); }
+  #thumb { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; touch-action: none; cursor: grab; border-radius: 4px; }
+  #thumb:active { cursor: grabbing; }
+  #title { font-family: var(--sans); font-size: 15px; min-height: 84px; }
+  .colors { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .colors button { width: 28px; height: 28px; border: 0; border-radius: 6px; box-shadow: var(--ring); cursor: pointer; padding: 0; }
+  .colors button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--canvas), 0 0 0 3px var(--ink); }
+  .colors input[type="color"] { width: 28px; height: 28px; }
+  .check { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="유튜브 썸네일 만들기 | 1280×720 제목 썸네일 편집기">
+<meta property="og:description" content="사진을 올리고 제목을 쓰면 1280×720 유튜브 썸네일을 만듭니다. 글자 테두리와 강조 박스, 레이아웃과 색을 고르고 2MB 아래 JPG나 PNG로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/thumb-card/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "유튜브 썸네일 만들기", "url": "https://hwemo-chung.github.io/tools/thumb-card/", "description": "사진을 올리고 제목을 쓰면 1280×720 유튜브 썸네일을 만듭니다. 글자 테두리와 강조 박스, 레이아웃과 색을 고르고 2MB 아래 JPG나 PNG로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>유튜브 썸네일 만들기</h1>
+    <p>배경 사진을 올리고 제목을 쓰세요. 사진은 끌어서 위치를 맞춥니다.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <label class="field">
+          <span>제목 <output>줄바꿈 Enter</output></span>
+          <textarea id="title" rows="3" placeholder="제목을 쓰세요"></textarea>
+        </label>
+        <div class="field">
+          <span>레이아웃</span>
+          <div class="seg" id="layout">
+            <button type="button" data-v="left" aria-pressed="true">왼쪽 아래</button>
+            <button type="button" data-v="center" aria-pressed="false">가운데</button>
+            <button type="button" data-v="band" aria-pressed="false">아래 띠</button>
+            <button type="button" data-v="tag" aria-pressed="false">줄마다 박스</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>글꼴</span>
+          <div class="seg" id="font">
+            <button type="button" data-v="pretendard" aria-pressed="true">프리텐다드</button>
+            <button type="button" data-v="blackhan" aria-pressed="false">검은고딕</button>
+          </div>
+        </div>
+        <label class="field">
+          <span>글자 크기 <output id="fsOut">104px</output></span>
+          <input type="range" id="fs" min="48" max="200" value="104">
+        </label>
+      </section>
+      <section class="panel">
+        <div class="field">
+          <span>글자 색</span>
+          <div class="colors" id="ink"></div>
+        </div>
+        <div class="field">
+          <span>강조할 줄 <output>강조 색으로 칠함</output></span>
+          <div class="seg" id="hiLine">
+            <button type="button" data-v="-1" aria-pressed="false">없음</button>
+            <button type="button" data-v="0" aria-pressed="false">1</button>
+            <button type="button" data-v="1" aria-pressed="true">2</button>
+            <button type="button" data-v="2" aria-pressed="false">3</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>강조 색</span>
+          <div class="colors" id="accent"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="stroke" checked> 글자 테두리</label>
+        <label class="field" style="margin-top:8px">
+          <span>사진 확대 <output id="zOut">100%</output></span>
+          <input type="range" id="zoom" min="100" max="300" value="100" disabled>
+        </label>
+        <label class="field">
+          <span>사진 어둡게 <output id="dimOut">20</output></span>
+          <input type="range" id="dim" min="0" max="70" value="20">
+        </label>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="saveJpg" disabled>JPG로 받기</button>
+          <button class="btn" id="savePng" disabled>PNG로 받기</button>
+          <button class="btn" id="again" disabled>사진 바꾸기</button>
+        </div>
+        <p class="status" id="status">JPG는 유튜브 제한에 맞춰 2MB 아래로 저장합니다.</p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>배경 사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG, WebP · 1280×720으로 맞춰 자릅니다</small>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <canvas id="thumb" width="1280" height="720" hidden></canvas>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

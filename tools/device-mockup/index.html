@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기기 목업 만들기 | 스크린샷을 휴대폰·태블릿·노트북 화면에 넣어 투명 PNG로</title>
+<meta name="description" content="앱이나 웹 스크린샷을 휴대폰, 태블릿, 노트북, 브라우저 창 프레임 안에 넣고 배경이 투명한 2배 해상도 PNG로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/device-mockup/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  [hidden] { display: none !important; }
+  .view { padding: 24px; display: flex; align-items: center; justify-content: center; min-height: 420px; }
+  .view canvas { display: block; max-width: 100%; max-height: 560px; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="기기 목업 만들기 | 스크린샷을 휴대폰·태블릿·노트북 화면에 넣어 투명 PNG로">
+<meta property="og:description" content="앱이나 웹 스크린샷을 휴대폰, 태블릿, 노트북, 브라우저 창 프레임 안에 넣고 배경이 투명한 2배 해상도 PNG로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/device-mockup/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "기기 목업 만들기", "url": "https://hwemo-chung.github.io/tools/device-mockup/", "description": "앱이나 웹 스크린샷을 휴대폰, 태블릿, 노트북, 브라우저 창 프레임 안에 넣고 배경이 투명한 2배 해상도 PNG로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>기기 목업 만들기</h1>
+    <p>스크린샷을 놓고 기기를 고르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <div class="field">
+          <span>기기</span>
+          <div class="seg" id="device">
+            <button type="button" data-v="phone" aria-pressed="true">휴대폰</button>
+            <button type="button" data-v="tablet" aria-pressed="false">태블릿</button>
+            <button type="button" data-v="laptop" aria-pressed="false">노트북</button>
+            <button type="button" data-v="browser" aria-pressed="false">브라우저</button>
+          </div>
+        </div>
+        <div class="field" id="orientField">
+          <span>방향</span>
+          <div class="seg" id="orient">
+            <button type="button" data-v="portrait" aria-pressed="true">세로</button>
+            <button type="button" data-v="landscape" aria-pressed="false">가로</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>화면 채우기</span>
+          <div class="seg" id="fit">
+            <button type="button" data-v="fill" aria-pressed="true">꽉 채우기</button>
+            <button type="button" data-v="fit" aria-pressed="false">전체 보이기</button>
+          </div>
+          <p class="hint" id="aspect"></p>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="save" disabled>PNG로 받기</button>
+          <button class="btn" id="other" disabled>다른 스크린샷</button>
+        </div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>스크린샷을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>PNG, JPG, WebP · 붙여넣기도 됩니다</small>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <div class="view checker" id="view" hidden><canvas id="preview"></canvas></div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>이미지는 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

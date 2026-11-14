@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>증명사진·여권사진 만들기 | 3.5×4.5 여권, 반명함, 미국 비자 2×2 인화용 4×6</title>
+<meta name="description" content="얼굴 사진을 올리면 여권(3.5×4.5cm, 머리 3.2~3.6cm), 증명, 반명함, 미국 비자 규격에 맞게 잘라 300dpi JPG와 4×6 인화용 사진으로 만듭니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/id-photo/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  [hidden] { display: none !important; }
+  .compare { grid-template-columns: 2fr 3fr; }
+  .box { height: 460px; display: flex; align-items: center; justify-content: center; }
+  .box > canvas { display: block; max-width: 100%; max-height: 100%; box-shadow: var(--ring); }
+  #single { cursor: grab; touch-action: none; }
+  #single:active { cursor: grabbing; }
+  .check { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+  #whiteHint { margin: -8px 0 16px; }
+  @media (max-width: 860px) { .compare { grid-template-columns: 1fr; } .box { height: 340px; } }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="증명사진·여권사진 만들기 | 3.5×4.5 여권, 반명함, 미국 비자 2×2 인화용 4×6">
+<meta property="og:description" content="얼굴 사진을 올리면 여권(3.5×4.5cm, 머리 3.2~3.6cm), 증명, 반명함, 미국 비자 규격에 맞게 잘라 300dpi JPG와 4×6 인화용 사진으로 만듭니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/id-photo/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "증명사진·여권사진 만들기", "url": "https://hwemo-chung.github.io/tools/id-photo/", "description": "얼굴 사진을 올리면 여권(3.5×4.5cm, 머리 3.2~3.6cm), 증명, 반명함, 미국 비자 규격에 맞게 잘라 300dpi JPG와 4×6 인화용 사진으로 만듭니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>증명사진 만들기</h1>
+    <p>정면 얼굴 사진을 놓고 규격을 고르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <div class="field">
+          <span>규격</span>
+          <div class="seg" id="preset">
+            <button type="button" data-v="passport" aria-pressed="true">여권</button>
+            <button type="button" data-v="id" aria-pressed="false">증명</button>
+            <button type="button" data-v="half" aria-pressed="false">반명함</button>
+            <button type="button" data-v="us" aria-pressed="false">미국 비자</button>
+          </div>
+          <p class="hint" id="spec"></p>
+        </div>
+        <label class="check field"><input type="checkbox" id="white"> 배경을 흰색으로</label>
+        <p class="hint" id="whiteHint" hidden>여권과 비자는 배경을 지운 사진을 반려할 수 있습니다. 흰 벽 앞에서 찍은 사진을 쓰세요.</p>
+        <label class="field">
+          <span>얼굴 크기 <output id="zOut">100%</output></span>
+          <input type="range" id="zoom" min="85" max="115" value="100">
+        </label>
+        <div class="field">
+          <p class="hint">사진을 끌어서 위치를 옮기세요. 파란 선이 정수리와 턱입니다.</p>
+          <div class="row"><button class="btn" type="button" id="reset" disabled>처음 위치로</button></div>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="saveOne" disabled>사진 받기</button>
+          <button class="btn" id="saveSheet" disabled>4×6 인화용 받기</button>
+        </div>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>얼굴 사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG · 정면, 무표정, 어깨까지 나온 사진</small>
+        <!-- sample.jpg: "Jonny Kim official portrait.jpg", NASA, public domain, https://commons.wikimedia.org/wiki/File:Jonny_Kim_official_portrait.jpg -->
+        <button class="btn" type="button" id="sample">예시 사진으로 해 보기</button>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <div class="compare" id="result" hidden>
+        <figure><figcaption id="capA">사진</figcaption><div class="box"><canvas id="single"></canvas></div></figure>
+        <figure><figcaption id="capB">4×6 인화지</figcaption><div class="box"><canvas id="sheet"></canvas></div></figure>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

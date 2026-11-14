@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>은행 거래내역 PDF 엑셀 변환 | 통장 거래내역 표 추출 XLSX·CSV</title>
+<meta name="description" content="은행에서 받은 거래내역 PDF, CSV, 엑셀 파일에서 날짜, 내용, 출금, 입금, 잔액을 표로 뽑아 XLSX나 CSV로 받습니다. 비밀번호가 걸린 PDF도 열 수 있습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/statement-sheet/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  #sheet { max-height: 720px; overflow: auto; }
+  #sheet table.data th { position: sticky; top: 0; }
+  #sheet td[contenteditable] { outline: none; }
+  #sheet td[contenteditable]:focus { background: var(--soft-2); }
+  #sheet td.date { white-space: nowrap; font-family: var(--mono); font-size: 12px; }
+  #sheet td.x { width: 1%; padding: 4px 8px; }
+  #sheet td.x button { height: 24px; padding: 0 8px; font-size: 12px; }
+  #sheet table.data th.num { text-align: right; }
+  @media (hover: hover) { #sheet tr:not(:hover):not(:focus-within) td.x button { opacity: 0; } }
+  .sum { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; font-size: 13px; }
+  .sum dt { color: var(--mute); }
+  .sum dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="은행 거래내역 PDF 엑셀 변환 | 통장 거래내역 표 추출 XLSX·CSV">
+<meta property="og:description" content="은행에서 받은 거래내역 PDF, CSV, 엑셀 파일에서 날짜, 내용, 출금, 입금, 잔액을 표로 뽑아 XLSX나 CSV로 받습니다. 비밀번호가 걸린 PDF도 열 수 있습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/statement-sheet/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "은행 거래내역 PDF 엑셀 변환", "url": "https://hwemo-chung.github.io/tools/statement-sheet/", "description": "은행에서 받은 거래내역 PDF, CSV, 엑셀 파일에서 날짜, 내용, 출금, 입금, 잔액을 표로 뽑아 XLSX나 CSV로 받습니다. 비밀번호가 걸린 PDF도 열 수 있습니다.", "applicationCategory": "UtilitiesApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>통장 거래내역 엑셀로 옮기기</h1>
+    <p>은행에서 받은 거래내역 PDF나 CSV, 엑셀 파일을 놓고 표를 확인한 뒤 받으세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel" id="pwPanel" hidden>
+        <form id="pwForm">
+          <label class="field">
+            <span>PDF 비밀번호</span>
+            <input type="password" id="pw" autocomplete="off" inputmode="numeric">
+          </label>
+          <p class="hint" id="pwHint">은행 거래내역서는 보통 생년월일 6자리입니다.</p>
+          <div class="row" style="margin-top:12px"><button class="btn primary" type="submit">열기</button></div>
+        </form>
+      </section>
+      <section class="panel" id="sumPanel" hidden>
+        <h2 id="fileName"></h2>
+        <dl class="sum">
+          <dt>거래</dt><dd id="sCount"></dd>
+          <dt>기간</dt><dd id="sRange"></dd>
+          <dt>출금 합계</dt><dd id="sOut"></dd>
+          <dt>입금 합계</dt><dd id="sIn"></dd>
+          <dt>잔액 검산</dt><dd id="sCheck"></dd>
+        </dl>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="xlsx" disabled>XLSX로 받기</button>
+          <button class="btn" id="csv" disabled>CSV로 받기</button>
+          <button class="btn" id="clear" disabled>비우기</button>
+        </div>
+        <div class="progress" id="prog" hidden><i></i></div>
+        <p class="status" id="status"></p>
+        <p class="hint">칸을 눌러 바로 고칠 수 있습니다. 잔액 검산은 앞뒤 거래의 잔액이 출금, 입금과 맞는지 셉니다.</p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>거래내역 파일을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>PDF, CSV, XLSX, XLS · PDF는 글자를 선택할 수 있는 파일이어야 합니다</small>
+      </div>
+      <input type="file" id="file" accept=".pdf,.csv,.xlsx,.xls,application/pdf,text/csv" hidden>
+      <div id="sheet" hidden>
+        <table class="data">
+          <thead><tr><th>날짜</th><th>내용</th><th class="num">출금</th><th class="num">입금</th><th class="num">잔액</th><th>메모</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>파일은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

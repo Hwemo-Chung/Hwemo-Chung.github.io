@@ -1,46 +1,52 @@
 /**
- * Lumos Sales Design Tokens
- * Source: shadcn/ui default neutral theme.
- * Product pages do not introduce brand colors; semantic/data colors are functional only.
+ * Lumos design tokens (Vercel-style: ink on near-white, hairlines, stacked soft shadows).
+ * Legacy variable names are kept so every page and helper stylesheet keeps resolving.
  */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
 :root {
+  color-scheme: light;
+
   /* Surfaces */
-  --ls-bg: oklch(1 0 0);
-  --ls-bg-elevated: oklch(0.97 0 0);
-  --ls-card: oklch(1 0 0);
-  --ls-card-2: oklch(0.97 0 0);
+  --ls-bg: #fafafa;
+  --ls-bg-elevated: #f5f5f5;
+  --ls-card: #ffffff;
+  --ls-card-2: #f5f5f5;
 
   /* Text */
-  --ls-text: oklch(0.145 0 0);
-  --ls-text-lead: oklch(0.205 0 0);
-  --ls-muted: oklch(0.556 0 0);
-  --ls-faint: oklch(0.708 0 0);
+  --ls-text: #171717;
+  --ls-text-lead: #171717;
+  --ls-muted: #4d4d4d;
+  --ls-faint: #888888;
 
-  /* Brand actions */
-  --ls-accent: oklch(0.205 0 0);
-  --ls-accent-hover: oklch(0.269 0 0);
-  --ls-accent-ink: oklch(0.985 0 0);
-  --ls-accent-soft: oklch(0.97 0 0);
-  --ls-link: oklch(0.205 0 0);
-  --ls-link-hover: oklch(0.145 0 0);
+  /* Actions */
+  --ls-accent: #171717;
+  --ls-accent-hover: #383838;
+  --ls-accent-ink: #ffffff;
+  --ls-accent-soft: #f5f5f5;
+  --ls-link: #0070f3;
+  --ls-link-hover: #0761d1;
 
-  /* Semantic */
-  --ls-ok: oklch(0.52 0.12 145);
-  --ls-warn: oklch(0.62 0.15 70);
-  --ls-warn-soft: oklch(0.97 0.02 85);
-  --ls-danger: oklch(0.577 0.245 27.325);
-  --ls-code: oklch(0.205 0 0);
+  /* Semantic (status only) */
+  --ls-ok: #0070f3;
+  --ls-warn: #ab570a;
+  --ls-warn-soft: #ffefcf;
+  --ls-danger: #c50000;
+  --ls-code: #171717;
 
-  /* Lines & chrome */
-  --ls-border: oklch(0.922 0 0);
-  --ls-border-strong: oklch(0.708 0 0);
+  /* Lines */
+  --ls-border: #ebebeb;
+  --ls-border-strong: #a1a1a1;
   --ls-glow: transparent;
+  --ls-ring: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --ls-lift: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 1px 1px rgba(0, 0, 0, 0.02), 0 2px 2px rgba(0, 0, 0, 0.04);
 
   /* Layout */
   --ls-wrap: 760px;
-  --ls-wrap-wide: 960px;
-  --ls-radius: 0.625rem;
-  --ls-radius-sm: 0.5rem;
+  --ls-wrap-wide: 1120px;
+  --ls-radius: 8px;
+  --ls-radius-sm: 6px;
   --ls-radius-pill: 999px;
   --ls-space-1: 4px;
   --ls-space-2: 8px;
@@ -51,15 +57,14 @@
   --ls-safe-bottom: env(safe-area-inset-bottom, 0px);
 
   /* Type */
-  --ls-font: ui-sans-serif, system-ui, -apple-system, "Apple SD Gothic Neo",
-    "Malgun Gothic", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --ls-font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ls-font: "Geist", "Pretendard Variable", Pretendard, -apple-system, system-ui, sans-serif;
+  --ls-font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --ls-lh: 1.65;
-  --ls-lh-tight: 1.28;
+  --ls-lh-tight: 1.25;
 
   /* Motion */
   --ls-ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --ls-duration: 160ms;
+  --ls-duration: 120ms;
 
   /* Z */
   --ls-z-nav: 40;

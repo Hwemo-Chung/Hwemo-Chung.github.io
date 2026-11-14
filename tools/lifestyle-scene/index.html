@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제품 연출 사진 만들기 | 제품 누끼 따서 배경 사진에 놓기</title>
+<meta name="description" content="제품 사진의 배경을 지우고 책상, 테이블, 창틀 같은 배경 사진 위에 놓습니다. 위치와 크기, 그림자, 밝기와 색온도를 맞춰 PNG나 JPG로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/lifestyle-scene/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .stage.has { display: flex; align-items: center; justify-content: center; padding: 12px; background: var(--soft-2); }
+  #scene { display: block; max-width: 100%; max-height: 74vh; touch-action: none; }
+  .bgs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-bottom: 8px; }
+  .bgs button { aspect-ratio: 3 / 2; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; cursor: pointer; background: var(--soft); }
+  .bgs button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--canvas), 0 0 0 3px var(--ink); }
+  .bgs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  fieldset:disabled { opacity: 0.45; }
+  .credit { font-size: 12px; color: var(--mute); margin: 8px 0 0; line-height: 18px; }
+  .credit a { color: var(--mute); }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="제품 연출 사진 만들기 | 제품 누끼 따서 배경 사진에 놓기">
+<meta property="og:description" content="제품 사진의 배경을 지우고 책상, 테이블, 창틀 같은 배경 사진 위에 놓습니다. 위치와 크기, 그림자, 밝기와 색온도를 맞춰 PNG나 JPG로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/lifestyle-scene/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "제품 연출 사진 만들기", "url": "https://hwemo-chung.github.io/tools/lifestyle-scene/", "description": "제품 사진의 배경을 지우고 책상, 테이블, 창틀 같은 배경 사진 위에 놓습니다. 위치와 크기, 그림자, 밝기와 색온도를 맞춰 PNG나 JPG로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>제품 연출 사진 만들기</h1>
+    <p>제품 사진을 올리고 배경을 고른 다음 제품을 끌어 자리를 잡으세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <h2>배경</h2>
+        <div class="bgs" id="bgs"></div>
+        <button class="btn block" id="bgBtn">배경 사진 올리기</button>
+        <input type="file" id="bgFile" accept="image/png,image/jpeg,image/webp" hidden>
+        <p class="credit">기본 배경(CC0): <a href="https://commons.wikimedia.org/wiki/File:Wood_table_in_front_of_white_wall_(Unsplash).jpg">Crew</a>, <a href="https://commons.wikimedia.org/wiki/File:The_quiet_corner_(Unsplash).jpg">Joseph Chan</a>, <a href="https://commons.wikimedia.org/wiki/File:Porcelain_teapot_on_windowsill_(Unsplash).jpg">Nathan Fertig</a>, <a href="https://commons.wikimedia.org/wiki/File:Workspace_1_(Unsplash).jpg">Pineapple Supply Co.</a></p>
+      </section>
+      <section class="panel">
+        <h2>제품</h2>
+        <fieldset id="adj" disabled>
+          <label class="field">
+            <span>크기 <output id="sizeOut">100%</output></span>
+            <input type="range" id="size" min="10" max="300" value="100">
+          </label>
+          <label class="field">
+            <span>그림자 <output id="shOut">55</output></span>
+            <input type="range" id="shadow" min="0" max="100" value="55">
+          </label>
+          <label class="field">
+            <span>밝기 <output id="brOut">0</output></span>
+            <input type="range" id="bright" min="-60" max="60" value="0">
+          </label>
+          <label class="field">
+            <span>색온도 <output id="wmOut">0</output></span>
+            <input type="range" id="warm" min="-50" max="50" value="0">
+          </label>
+          <div class="row">
+            <button class="btn" id="match">배경에 맞추기</button>
+            <button class="btn" id="flip">좌우 뒤집기</button>
+            <button class="btn" id="other">다른 제품</button>
+          </div>
+        </fieldset>
+      </section>
+      <section class="panel">
+        <div class="field">
+          <span>형식</span>
+          <div class="seg" id="format">
+            <button type="button" data-v="image/jpeg" aria-pressed="true">JPG</button>
+            <button type="button" data-v="image/png" aria-pressed="false">PNG</button>
+          </div>
+        </div>
+        <button class="btn primary" id="save" disabled>받기</button>
+        <p class="status" id="status"></p>
+        <div class="progress" id="prog" hidden><i></i></div>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>제품 사진을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>JPG, PNG, WebP · 처음 한 번 배경 지우기 모델 약 55MB를 받습니다</small>
+        <!-- 예시 제품: Ryan Holloway, "Coffee Mug (Unsplash).jpg", CC0, https://commons.wikimedia.org/wiki/File:Coffee_Mug_(Unsplash).jpg (잘라 냄) -->
+        <button class="btn" type="button" id="sample">예시 머그컵으로 해 보기</button>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden>
+      <canvas id="scene" hidden></canvas>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>사진은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

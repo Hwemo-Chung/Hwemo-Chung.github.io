@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>로고 SVG 변환 | PNG·JPG 로고를 벡터 SVG로</title>
+<meta name="description" content="PNG나 JPG 로고를 올리면 색을 줄여 곡선으로 다시 그린 SVG 파일로 바꿉니다. 원본과 결과를 같은 배율로 확대해 비교합니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/logo-svg/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  [hidden] { display: none !important; }
+  .zoombar { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  .zoombar .meta { margin-left: auto; }
+  .compare > figure { min-width: 0; }
+  .view { height: 520px; overflow: auto; background: var(--soft); border-radius: 4px; display: flex; }
+  .view > * { display: block; margin: auto; flex: none; }
+  .view img { image-rendering: pixelated; }
+  .swatches { display: flex; flex-wrap: wrap; gap: 4px; }
+  .swatches i { width: 18px; height: 18px; border-radius: 4px; box-shadow: var(--ring); }
+  .check { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+  @media (max-width: 860px) { .view { height: 320px; } }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="로고 SVG 변환 | PNG·JPG 로고를 벡터 SVG로">
+<meta property="og:description" content="PNG나 JPG 로고를 올리면 색을 줄여 곡선으로 다시 그린 SVG 파일로 바꿉니다. 원본과 결과를 같은 배율로 확대해 비교합니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/logo-svg/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "로고 SVG 변환", "url": "https://hwemo-chung.github.io/tools/logo-svg/", "description": "PNG나 JPG 로고를 올리면 색을 줄여 곡선으로 다시 그린 SVG 파일로 바꿉니다. 원본과 결과를 같은 배율로 확대해 비교합니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>로고 SVG 변환</h1>
+    <p>로고 이미지를 놓고 색 수를 맞춘 뒤 SVG로 받으세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <label class="field">
+          <span>최대 색 수 <output id="cOut">4</output></span>
+          <input type="range" id="colors" min="2" max="16" value="4">
+        </label>
+        <div class="field">
+          <span>디테일</span>
+          <div class="seg" id="detail">
+            <button type="button" data-v="low" aria-pressed="false">단순</button>
+            <button type="button" data-v="mid" aria-pressed="true">보통</button>
+            <button type="button" data-v="high" aria-pressed="false">세밀</button>
+          </div>
+        </div>
+        <label class="check field"><input type="checkbox" id="dropBg" checked> 바탕색 지우기</label>
+        <div class="field">
+          <span>쓰인 색</span>
+          <div class="swatches" id="swatches"></div>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="save" disabled>SVG로 받기</button>
+          <button class="btn" id="clear" disabled>다른 파일</button>
+        </div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>로고 이미지를 여기에 놓거나 눌러서 고르세요</strong>
+        <small>PNG, JPG, WebP · 배경이 단색인 로고가 잘 나옵니다</small>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+      <div id="result" hidden>
+        <div class="zoombar">
+          <div class="seg" id="zoom">
+            <button type="button" data-v="1" aria-pressed="true">맞춤</button>
+            <button type="button" data-v="2" aria-pressed="false">2배</button>
+            <button type="button" data-v="4" aria-pressed="false">4배</button>
+            <button type="button" data-v="8" aria-pressed="false">8배</button>
+          </div>
+          <span class="meta" id="info"></span>
+        </div>
+        <div class="compare">
+          <figure><figcaption id="capA">원본</figcaption><div class="view checker" id="viewA"><img id="imgA" alt="원본 로고"></div></figure>
+          <figure><figcaption id="capB">SVG</figcaption><div class="view checker" id="viewB"><img id="imgB" alt="변환한 SVG"></div></figure>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>이미지는 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

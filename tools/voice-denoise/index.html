@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>음성 잡음 제거 | 녹음 배경 소음·험 노이즈 줄이기, WAV 받기</title>
+<meta name="description" content="말소리 녹음에서 배경 소음을 RNNoise로 줄이고 저역 울림과 50/60Hz 험을 걸러 음량을 맞춘 WAV를 받습니다. 원본과 바꿔 들어 볼 수 있습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/voice-denoise/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .result { padding: 20px; display: grid; gap: 16px; }
+  .result .row { justify-content: space-between; }
+  .result strong { font-weight: 500; }
+  .result audio { width: 100%; }
+  .wave { display: grid; gap: 4px; }
+  .wave canvas { width: 100%; height: 72px; display: block; background: var(--soft); border-radius: 6px; }
+  .wave span { font: 400 12px/16px var(--mono); color: var(--mute); }
+  label.check { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="음성 잡음 제거 | 녹음 배경 소음·험 노이즈 줄이기, WAV 받기">
+<meta property="og:description" content="말소리 녹음에서 배경 소음을 RNNoise로 줄이고 저역 울림과 50/60Hz 험을 걸러 음량을 맞춘 WAV를 받습니다. 원본과 바꿔 들어 볼 수 있습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/voice-denoise/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "음성 잡음 제거", "url": "https://hwemo-chung.github.io/tools/voice-denoise/", "description": "말소리 녹음에서 배경 소음을 RNNoise로 줄이고 저역 울림과 50/60Hz 험을 걸러 음량을 맞춘 WAV를 받습니다. 원본과 바꿔 들어 볼 수 있습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>음성 잡음 제거</h1>
+    <p>말소리 녹음을 올리세요. 배경 소음을 줄인 결과를 원본과 바꿔 들어 보고 WAV로 받습니다.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <label class="field">
+          <span>잡음 제거 강도 <output id="mixOut">100%</output></span>
+          <input type="range" id="mix" min="0" max="100" step="5" value="100">
+        </label>
+        <label class="field">
+          <span>저역 자르기 <output id="hpOut">80 Hz</output></span>
+          <input type="range" id="hp" min="0" max="200" step="10" value="80">
+        </label>
+        <div class="field">
+          <span>전원 험 제거</span>
+          <div class="seg" id="hum">
+            <button type="button" data-v="0" aria-pressed="true">끔</button>
+            <button type="button" data-v="60" aria-pressed="false">60 Hz</button>
+            <button type="button" data-v="50" aria-pressed="false">50 Hz</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>음량 맞추기</span>
+          <select id="lufs">
+            <option value="">끔</option>
+            <option value="-19">-19 LUFS · 방송·내레이션</option>
+            <option value="-16" selected>-16 LUFS · 팟캐스트</option>
+            <option value="-14">-14 LUFS · 유튜브</option>
+          </select>
+        </div>
+        <p class="hint">한국 전기는 60 Hz입니다. 웅 하는 소리가 들릴 때만 켜세요.</p>
+      </section>
+      <section class="panel">
+        <div class="row">
+          <button class="btn primary" id="save" disabled>WAV 받기</button>
+          <button class="btn" id="pick" disabled>다른 파일</button>
+        </div>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>녹음 파일을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>WAV, MP3, M4A, OGG, 영상 속 소리(MP4)도 됩니다 · 최대 20분 · 결과는 모노</small>
+      </div>
+      <input type="file" id="file" accept="audio/*,video/mp4,video/quicktime,video/webm,.m4a,.oga,.ogg,.flac" hidden>
+      <div class="result" id="result" hidden>
+        <div class="row">
+          <div class="seg" id="ab">
+            <button type="button" data-v="a" aria-pressed="false">원본</button>
+            <button type="button" data-v="b" aria-pressed="true">정리본</button>
+          </div>
+          <span class="meta" id="info"></span>
+        </div>
+        <audio id="player" controls></audio>
+        <div class="wave"><span>원본</span><canvas id="wA" width="1200" height="72"></canvas></div>
+        <div class="wave"><span>정리본</span><canvas id="wB" width="1200" height="72"></canvas></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>녹음은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다. 잡음 제거: RNNoise (Xiph, BSD).</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

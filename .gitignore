@@ -74,3 +74,5 @@ HANDOFF-*.md
 #----------------------------------------------------------------
 # package-lock.json  # Ensures consistent dependency versions across the team.
 # tests/             # Test code is typically part of the source and should be committed.
+
+.playwright-mcp/

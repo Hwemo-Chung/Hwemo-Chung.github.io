@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Claude Code 導入研修｜止まる場所を、先に知る 3 時間</title>
+  <meta name="description" content="法人向けの Claude Code 導入研修です。インストール、CLAUDE.md、権限、使用制限、自動実行で止まる場面を、再現デモと演習で扱います。オンライン 3 時間、最大 10 名。" />
+  <link rel="canonical" href="https://hwemo-chung.github.io/claude-code-kenshu.html" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hwemo-chung.github.io/claude-code-kenshu.html" />
+  <meta property="og:title" content="Claude Code 導入研修｜止まる場所を、先に知る 3 時間" />
+  <meta property="og:description" content="入門は公式ドキュメントで足ります。この研修は、止まる場面だけを扱います。オンライン 3 時間、最大 10 名。" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="Lumos" />
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png" />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Claude Code 導入研修",
+    "url": "https://hwemo-chung.github.io/claude-code-kenshu.html",
+    "description": "法人向けの Claude Code 導入研修。止まる場面を、再現デモと演習で扱う 3 時間。",
+    "areaServed": "JP",
+    "availableLanguage": "ja",
+    "email": "tolaria@naver.com",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "オンライン 3 時間（最大 10 名）",
+        "price": "150000",
+        "priceCurrency": "JPY"
+      },
+      {
+        "@type": "Offer",
+        "name": "対面・都内 3 時間（最大 20 名）",
+        "price": "250000",
+        "priceCurrency": "JPY"
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="sales/tokens.css" />
+  <link rel="stylesheet" href="sales/components.css" />
+  <link rel="stylesheet" href="sales/site-unified.css" />
+  <style>
+    /* 日本語のページ: サイト共通の keep-all（韓国語向け）を戻す */
+    .ls :is(h1, h2, h3, p, li, span, td, th, a) { word-break: normal; line-break: strict; }
+    .kn-num { display: block; font-size: 28px; line-height: 36px; font-weight: 600; letter-spacing: -0.8px; color: var(--ls-text); margin: 0 0 8px; }
+    .kn-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .kn-list li { display: grid; grid-template-columns: 2em 1fr; gap: 4px; }
+    .kn-list li > span:first-child { color: var(--ls-faint); font-variant-numeric: tabular-nums; }
+    @media (min-width: 640px) { .kn-list--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 32px; } }
+    .ls-table td.kn-price { white-space: nowrap; font-weight: 600; color: var(--ls-text); text-align: right; }
+    .ls-table th.kn-price { text-align: right; }
+    .ls-table { min-width: 0; }
+  </style>
+</head>
+<body class="ls">
+  <a class="ls-skip" href="#main">本文へ</a>
+  <nav class="ls-nav" aria-label="メイン">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="/">Lumos</a>
+      <ul>
+        <li><a href="/claude-code-kenshu.html" aria-current="page">Claude Code 導入研修</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="ls-wrap">
+    <h1>Claude Code 導入研修</h1>
+    <p class="ls-lead">
+      止まる場所を、先に知る 3 時間。<br />
+      入門は公式ドキュメントで足ります。この研修は、止まる場面だけを扱います。
+    </p>
+
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=Claude%20Code%20%E5%B0%8E%E5%85%A5%E7%A0%94%E4%BF%AE%E3%81%AE%E7%9B%B8%E8%AB%87&amp;body=%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A%0A%E5%8F%82%E5%8A%A0%E4%BA%BA%E6%95%B0%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E3%81%AE%E6%99%82%E6%9C%9F%EF%BC%9A%0A%E3%81%84%E3%81%BE%E5%9B%B0%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%EF%BC%9A%0A">メールで相談する</a>
+    </div>
+
+    <h2 id="demo">再現デモ 2 つ</h2>
+    <p>どちらも手元で実行した記録の数字です。研修では、この場で再現します。</p>
+    <div class="ls-grid ls-grid--2">
+      <div class="ls-card">
+        <span class="kn-num">終了コード 0。ファイルは変わらない。</span>
+        <p><code>claude -p</code> にファイルの書き換えを頼みます。権限モードが Manual でツールの許可がないと、操作が 3 件こばまれ、何も書き込まれません。それでも終了コードは 0 です。</p>
+        <p class="ls-fine">権限モードを auto にした設定では通りました。1 台の PC で、モードを指定して再現しています。</p>
+      </div>
+      <div class="ls-card">
+        <span class="kn-num">「OK」の一言に 41,640 トークン。</span>
+        <p>「OK」と返すだけの依頼で、最初の 1 回に 41,640 トークンを送っていました。拡張をすべてオフにすると 18,825 です。</p>
+        <p class="ls-fine">スキルのフォルダ 104 個、プラグイン 7 個の PC での実測です。平均の値ではありません。</p>
+      </div>
+    </div>
+
+    <h2 id="curriculum">カリキュラム</h2>
+    <p>講義 60 分、ハンズオン 90 分、質疑 30 分。</p>
+    <ol class="kn-list kn-list--2">
+      <li><span>1</span><span>インストールとログイン</span></li>
+      <li><span>2</span><span>効かない CLAUDE.md</span></li>
+      <li><span>3</span><span>止まる承認</span></li>
+      <li><span>4</span><span>使用制限</span></li>
+      <li><span>5</span><span>成功に見える失敗</span></li>
+      <li><span>6</span><span>効かない設定</span></li>
+      <li><span>7</span><span>演習 3 つ（練習用リポジトリ）</span></li>
+      <li><span>8</span><span>質疑 30 分</span></li>
+    </ol>
+
+    <h2 id="deliverables">お渡しするもの</h2>
+    <ul class="ls-dash">
+      <li>研修スライド（PDF）</li>
+      <li>練習用リポジトリ</li>
+      <li>チーム用 CLAUDE.md テンプレート</li>
+      <li>事前チェック表</li>
+      <li>研修後 2 週間のメール質問</li>
+    </ul>
+
+    <h2 id="price">料金</h2>
+    <div class="ls-table-scroll">
+      <table class="ls-table">
+        <thead>
+          <tr><th>形式</th><th>人数</th><th class="kn-price">1 回あたり</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>オンライン 3 時間</td><td>最大 10 名</td><td class="kn-price">¥150,000</td></tr>
+          <tr><td>対面（都内）3 時間</td><td>最大 20 名</td><td class="kn-price">¥250,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ls-fine">対面は交通費を別にいただきます。お支払いは請求書払いです。税の扱いはお見積もりでご案内します。</p>
+
+    <h2 id="flow">進め方</h2>
+    <ul class="ls-dash">
+      <li><strong>1. ヒアリング（30 分・無料）</strong>　いまの使い方と、止まっている場面を伺います。</li>
+      <li><strong>2. お見積もりと日程</strong>　内容と日程を書面で確定します。</li>
+      <li><strong>3. 研修と、2 週間の質問対応</strong></li>
+    </ul>
+
+    <h2 id="contact">お問い合わせ</h2>
+    <p>会社名、参加人数、希望の時期を書いてお送りください。講師はチョンです。</p>
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=Claude%20Code%20%E5%B0%8E%E5%85%A5%E7%A0%94%E4%BF%AE%E3%81%AE%E7%9B%B8%E8%AB%87&amp;body=%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A%0A%E5%8F%82%E5%8A%A0%E4%BA%BA%E6%95%B0%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E3%81%AE%E6%99%82%E6%9C%9F%EF%BC%9A%0A%E3%81%84%E3%81%BE%E5%9B%B0%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%EF%BC%9A%0A">メールで相談する</a>
+      <a class="ls-btn" href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+    </div>
+    <p class="ls-fine">デモはすべて架空データのサンプルです。導入事例ではありません。</p>
+    <p class="ls-fine">非公式の研修です。Anthropic とは関係ありません。Claude および Claude Code は Anthropic の商標です。</p>
+  </main>
+
+  <footer class="ls-foot">
+    <nav aria-label="フッター">
+      <a href="/">ホーム</a>
+      <a href="/pp.html">プライバシーポリシー</a>
+      <a href="/tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+    </nav>
+  </footer>
+</body>
+</html>

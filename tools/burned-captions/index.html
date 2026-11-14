@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>영상에 자막 입히기 | 자동 받아쓰기·SRT 자막을 MP4에 하드코딩</title>
+<meta name="description" content="영상의 말을 받아 적거나 SRT 파일을 불러와 자막을 화면에 새깁니다. 글자 크기와 위치, 상자나 외곽선 스타일을 고른 뒤 소리까지 담긴 MP4로 받습니다.">
+<link rel="canonical" href="https://hwemo-chung.github.io/tools/burned-captions/">
+<link rel="stylesheet" href="../common/tool.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<style>
+  .player { padding: 16px; border-bottom: 1px solid var(--line); }
+  .player[hidden], .cues[hidden] { display: none; }
+  .screen { position: relative; line-height: 0; background: var(--ink); border-radius: 6px; overflow: hidden; aspect-ratio: var(--ar, 16 / 9); width: min(100%, calc(420px * var(--ar, 1.78))); margin: 0 auto; }
+  .screen video { width: 100%; height: 100%; display: block; }
+  .screen canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .player .row { margin-top: 12px; }
+  #other { margin-left: auto; }
+  .cues { max-height: 480px; overflow: auto; }
+  .cues table { table-layout: fixed; }
+  .cues td { vertical-align: top; padding: 6px 8px; }
+  .cues th { padding: 8px; }
+  .cues input[type="text"] { height: 30px; font-family: var(--mono); font-size: 12px; padding: 0 6px; }
+  .cues input.bad { border-color: var(--error); }
+  .cues textarea { min-height: 30px; field-sizing: content; resize: none; font-family: var(--sans); font-size: 14px; padding: 4px 8px; line-height: 20px; }
+  .cues tr.on td { background: var(--soft-2); }
+  .cues .n { color: var(--mute); font-family: var(--mono); font-size: 12px; padding-top: 14px; cursor: pointer; }
+  .cues .x { height: 30px; padding: 0 10px; }
+  .panel .row + .row { margin-top: 8px; }
+</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumos">
+<meta property="og:title" content="영상에 자막 입히기 | 자동 받아쓰기·SRT 자막을 MP4에 하드코딩">
+<meta property="og:description" content="영상의 말을 받아 적거나 SRT 파일을 불러와 자막을 화면에 새깁니다. 글자 크기와 위치, 상자나 외곽선 스타일을 고른 뒤 소리까지 담긴 MP4로 받습니다.">
+<meta property="og:url" content="https://hwemo-chung.github.io/tools/burned-captions/">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-tools.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "영상에 자막 입히기", "url": "https://hwemo-chung.github.io/tools/burned-captions/", "description": "영상의 말을 받아 적거나 SRT 파일을 불러와 자막을 화면에 새깁니다. 글자 크기와 위치, 상자나 외곽선 스타일을 고른 뒤 소리까지 담긴 MP4로 받습니다.", "applicationCategory": "MultimediaApplication"}</script>
+</head>
+<body>
+<header class="bar">
+  <a class="home" href="/">Lumos</a><span class="sep">/</span><a class="here" href="/tools/">도구</a>
+</header>
+
+<main class="page">
+  <div class="head">
+    <h1>영상에 자막 입히기</h1>
+    <p>영상을 놓고 말을 받아 적거나 SRT 파일을 불러온 뒤 자막 모양을 고르세요.</p>
+  </div>
+
+  <div class="work">
+    <aside>
+      <section class="panel">
+        <h2>자막</h2>
+        <div class="field">
+          <span>언어</span>
+          <div class="seg" id="lang">
+            <button type="button" data-v="" aria-pressed="false">자동</button>
+            <button type="button" data-v="korean" aria-pressed="true">한국어</button>
+            <button type="button" data-v="english" aria-pressed="false">English</button>
+            <button type="button" data-v="japanese" aria-pressed="false">日本語</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>정확도</span>
+          <div class="seg" id="model">
+            <button type="button" data-v="base" aria-pressed="true">빠르게 · 100 MB</button>
+            <button type="button" data-v="small" aria-pressed="false">정확하게 · 300 MB</button>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn primary" id="run" disabled>받아쓰기</button>
+          <button class="btn" id="srtBtn" disabled>SRT 불러오기</button>
+          <button class="btn" id="add" disabled>줄 추가</button>
+        </div>
+        <input type="file" id="srtFile" accept=".srt,.vtt,text/vtt" hidden>
+        <div class="progress" id="asrBar" hidden><i></i></div>
+      </section>
+      <section class="panel">
+        <h2>모양</h2>
+        <div class="field">
+          <span>스타일</span>
+          <div class="seg" id="look">
+            <button type="button" data-v="box" aria-pressed="true">검은 상자</button>
+            <button type="button" data-v="outline" aria-pressed="false">외곽선</button>
+            <button type="button" data-v="yellow" aria-pressed="false">노란 글씨</button>
+          </div>
+        </div>
+        <div class="field">
+          <span>위치</span>
+          <div class="seg" id="pos">
+            <button type="button" data-v="bottom" aria-pressed="true">아래</button>
+            <button type="button" data-v="middle" aria-pressed="false">가운데</button>
+            <button type="button" data-v="top" aria-pressed="false">위</button>
+          </div>
+        </div>
+        <label class="field">
+          <span>글자 크기 <output id="sizeOut">5.5%</output></span>
+          <input type="range" id="size" min="3" max="10" step="0.5" value="5.5">
+        </label>
+      </section>
+      <section class="panel">
+        <button class="btn primary block" id="save" disabled>MP4로 받기</button>
+        <div class="progress" id="bar" hidden><i></i></div>
+        <p class="status" id="status"></p>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <strong>영상을 여기에 놓거나 눌러서 고르세요</strong>
+        <small>MP4, MOV, WebM</small>
+      </div>
+      <input type="file" id="file" accept="video/*,.mp4,.mov,.webm,.mkv" hidden>
+      <div class="player" id="player" hidden>
+        <div class="screen"><video id="video" controls playsinline preload="auto"></video><canvas id="overlay"></canvas></div>
+        <div class="row"><span class="meta" id="fileName"></span><button class="btn" id="other" type="button">다른 영상</button></div>
+      </div>
+      <div class="cues" id="cues" hidden>
+        <table class="data">
+          <colgroup><col style="width:44px"><col style="width:128px"><col style="width:128px"><col><col style="width:84px"></colgroup>
+          <thead><tr><th>#</th><th>시작</th><th>끝</th><th>내용</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>영상은 이 브라우저에서 처리하며 어디에도 올라가지 않습니다.</span>
+  <a href="/tools/">다른 도구</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

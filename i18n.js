@@ -21,7 +21,7 @@ const siteTranslations = {
             language: "언어 선택",
             quickContact: "빠른 문의",
             quickNavigation: "빠른 이동",
-            scrollTable: "가로로 스크롤 →",
+            scrollTable: "가로로 밀어 보세요",
             disclaimer: "독립 계약 서비스이며 어떠한 고용주와도 제휴하지 않습니다."
         },
         aria: {
@@ -36,15 +36,15 @@ const siteTranslations = {
             privacy: "개인정보처리방침"
         },
         error404: {
-            message: "요청하신 페이지를 찾을 수 없습니다.",
+            message: "이 주소에는 페이지가 없습니다. 주소를 확인하거나 위 메뉴에서 찾아 주세요.",
             home: "홈으로 돌아가기"
         },
         hero: {
-            tagline: "iOS 26 SDK 의무화 · Play 타겟 API · Dynamic Links 종료. 방치된 하이브리드 앱의 3중 봉쇄를 풉니다.",
-            sub: "Cordova · Ionic · Capacitor · Android WebView 프로덕션 전문. 진단 리포트는 영업일 2일 안에 회신하고, 10곳 한정 무료입니다.",
-            ctaPrimary: "무료 진단 신청 →",
+            tagline: "업데이트가 막힌 Cordova·Ionic 앱을 다시 스토어에 올립니다.",
+            sub: "2026년 4월 28일부터 App Store Connect는 iOS 26 SDK로 빌드한 앱만 받습니다. 같은 앱에 Play 타깃 API 기한과 Firebase Dynamic Links 종료도 겹칩니다. 무엇이 막혔는지 영업일 2일 안에 보고서로 알려 드리며, 10곳까지는 무료입니다.",
+            ctaPrimary: "무료 진단 신청",
             ctaSecondary: "제품 보기",
-            fine: "독립 계약입니다. 신규 앱 개발과 전면 리라이트는 하지 않습니다."
+            fine: "독립 계약으로 일합니다. 새 앱 개발과 전면 재작성은 맡지 않습니다."
         },
         about: {
             title: "About Me",
@@ -56,13 +56,13 @@ const siteTranslations = {
             services: "서비스",
             tools: "무료 도구",
             archive: "아카이브",
-            archiveNote: "판매·운영하지 않는 과거 작업입니다. 소스만 공개해 둡니다.",
+            archiveNote: "지금은 팔거나 운영하지 않는 예전 작업입니다. 소스 코드만 공개합니다.",
             viewGithub: "GitHub에서 보기 →"
         },
         contact: {
-            title: "Contact",
-            description: "앱이 스토어에 못 올라가는 상태라면, 진단부터 시작하는 편이 빠릅니다",
-            ctaPrimary: "무료 진단 신청 →",
+            title: "연락",
+            description: "스토어 업로드가 막혔다면 진단부터 받아 보세요.",
+            ctaPrimary: "무료 진단 신청",
             ctaSecondary: "서비스와 가격 보기"
         }
     },
@@ -88,7 +88,7 @@ const siteTranslations = {
             language: "Language selection",
             quickContact: "Quick contact",
             quickNavigation: "Quick navigation",
-            scrollTable: "Scroll horizontally →",
+            scrollTable: "Scroll sideways",
             disclaimer: "Independent contractor offer. Not affiliated with any employer."
         },
         aria: {
@@ -103,15 +103,15 @@ const siteTranslations = {
             privacy: "Privacy"
         },
         error404: {
-            message: "The page you requested could not be found.",
+            message: "There is no page at this address. Check the URL or use the menu above.",
             home: "Return home"
         },
         hero: {
-            tagline: "iOS 26 SDK required · Play target API · Dynamic Links shut down. Unblocking neglected hybrid apps on all three fronts.",
-            sub: "Cordova · Ionic · Capacitor · Android WebView production work. Diagnosis reports come back within 2 business days, free for the first 10 apps.",
-            ctaPrimary: "Request a free diagnosis →",
+            tagline: "I get stuck Cordova and Ionic apps back into the App Store and Google Play.",
+            sub: "From April 28, 2026, App Store Connect only accepts apps built with the iOS 26 SDK. The Play target API deadline and the Firebase Dynamic Links shutdown hit the same apps. You get a report on what is blocking your app within 2 business days, free for the first 10 apps.",
+            ctaPrimary: "Request a free diagnosis",
             ctaSecondary: "See the products",
-            fine: "Independent contractor. No greenfield apps, no full rewrites."
+            fine: "I work as an independent contractor and don't take on new app builds or full rewrites."
         },
         about: {
             title: "About Me",
@@ -123,13 +123,13 @@ const siteTranslations = {
             services: "Services",
             tools: "Free tools",
             archive: "Archive",
-            archiveNote: "Past work that is neither sold nor maintained. Source is left public.",
+            archiveNote: "Older work I no longer sell or run. Only the source code is public.",
             viewGithub: "View on GitHub →"
         },
         contact: {
             title: "Contact",
-            description: "If your app can no longer reach the store, start with the diagnosis",
-            ctaPrimary: "Request a free diagnosis →",
+            description: "If your store upload is blocked, start with the diagnosis.",
+            ctaPrimary: "Request a free diagnosis",
             ctaSecondary: "See services and pricing"
         }
     },
@@ -155,7 +155,7 @@ const siteTranslations = {
             language: "言語選択",
             quickContact: "クイックお問い合わせ",
             quickNavigation: "クイックナビゲーション",
-            scrollTable: "横にスクロール →",
+            scrollTable: "横にスクロールできます",
             disclaimer: "独立請負サービスであり、いかなる雇用主とも提携していません。"
         },
         aria: {
@@ -170,15 +170,15 @@ const siteTranslations = {
             privacy: "プライバシー"
         },
         error404: {
-            message: "お探しのページが見つかりませんでした。",
+            message: "このアドレスにはページがありません。URLを確認するか、上のメニューからお探しください。",
             home: "ホームに戻る"
         },
         hero: {
-            tagline: "iOS 26 SDK 必須・Play ターゲットAPI・Dynamic Links 終了。放置されたハイブリッドアプリの3重封鎖を解きます。",
-            sub: "Cordova・Ionic・Capacitor・Android WebView のプロダクション専門。診断レポートは営業日2日以内に返信、10件限定で無料です。",
-            ctaPrimary: "無料診断を申し込む →",
+            tagline: "更新が止まった Cordova・Ionic アプリを、再びストアに出せる状態に戻します。",
+            sub: "2026年4月28日から App Store Connect は iOS 26 SDK でビルドしたアプリしか受け付けません。同じアプリに Play のターゲット API 期限と Firebase Dynamic Links の終了も重なります。何が止めているかを2営業日以内にレポートでお伝えし、10件までは無料です。",
+            ctaPrimary: "無料診断を申し込む",
             ctaSecondary: "製品を見る",
-            fine: "独立請負です。新規アプリ開発と全面リライトは行いません。"
+            fine: "独立契約で請け負います。新規アプリ開発と全面的な書き直しはお受けしていません。"
         },
         about: {
             title: "About Me",
@@ -190,13 +190,13 @@ const siteTranslations = {
             services: "サービス",
             tools: "無料ツール",
             archive: "アーカイブ",
-            archiveNote: "販売・運用していない過去の作業です。ソースのみ公開しています。",
+            archiveNote: "現在は販売・運用していない過去の作品です。ソースコードのみ公開しています。",
             viewGithub: "GitHubで見る →"
         },
         contact: {
-            title: "Contact",
-            description: "アプリがストアに上げられない状態なら、診断から始めるのが早道です",
-            ctaPrimary: "無料診断を申し込む →",
+            title: "お問い合わせ",
+            description: "ストアへのアップロードが止まっているなら、まず診断を受けてください。",
+            ctaPrimary: "無料診断を申し込む",
             ctaSecondary: "サービスと価格を見る"
         }
     }
@@ -234,7 +234,7 @@ function translateSitePage(lang) {
         if (!siteOriginalText.has(node)) siteOriginalText.set(node, node.textContent);
         const original = siteOriginalText.get(node);
         const source = original?.trim().replace(/\s+/g, ' ');
-        if (source && parent && !parent.closest('script, style, code, pre, [data-i18n], .ls-nav, .ls-foot, .language-toolbar')) {
+        if (source && parent && !parent.closest('script, style, code, pre, [data-i18n], [data-no-i18n], .ls-nav, .ls-foot, .language-toolbar')) {
             const translated = translations[source];
             // 원문의 앞뒤 공백은 인접 인라인 요소와의 간격이다 — 치환 시 되살린다
             if (translated) node.textContent = original.match(/^\s*/)[0] + translated + original.match(/\s*$/)[0];
