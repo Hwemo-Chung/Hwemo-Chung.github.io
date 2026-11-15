@@ -66,6 +66,12 @@
         <a href="../retainer.html">유지보수 안내 (영문)</a>
       </li>
       <li>
+        <strong>Claude Code 도입 연수 (일본 법인, 일본어).</strong>
+        설치, CLAUDE.md, 권한, 사용 제한, 자동 실행에서 실제로 멈추는 장면만 다루는 3시간 연수입니다.
+        온라인은 최대 10명 ¥150,000, 도쿄 대면은 최대 20명 ¥250,000이고, 히어링 30분은 무료입니다.
+        <a href="../claude-code-kenshu.html">연수 안내 (일본어)</a>
+      </li>
+      <li>
         <strong>상품화한 작업 42종.</strong>
         Angular 마이그레이션, RxJS, 성능, WebView, 인증, 오프라인 같은 심화 작업 12종과 소셜·블로그 10종, TypeScript·크론 자동화 10종, 모바일 코어 10종입니다.
         <a href="../offers/">전체 목록</a>
@@ -147,10 +153,10 @@
 
       // offers.json mixes "500000-1500000 KRW", "1200 USD/mo" and preformatted strings.
       function formatPrice(p) {
-        var m = /^(\d+)(?:-(\d+))? (KRW|USD)(\/mo)?$/.exec(p);
+        var m = /^(\d+)(?:-(\d+))? (KRW|USD|JPY)(\/mo)?$/.exec(p);
         if (!m) return p === "TBD" ? "미정" : p;
         if (m[1] === "0") return "무료";
-        var sign = m[3] === "KRW" ? "₩" : "$";
+        var sign = m[3] === "KRW" ? "₩" : m[3] === "JPY" ? "¥" : "$";
         var f = function (n) { return sign + Number(n).toLocaleString("en-US"); };
         return f(m[1]) + (m[2] ? " ~ " + f(m[2]) : "") + (m[4] ? " / 월" : "");
       }

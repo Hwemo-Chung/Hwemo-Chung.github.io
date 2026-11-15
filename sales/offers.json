@@ -9,6 +9,30 @@
   },
   "offers": [
     {
+      "id": "claude-code-kenshu",
+      "status": "active",
+      "lang": [
+        "ja"
+      ],
+      "name": "Claude Code 도입 연수 (일본·법인, 일본어 진행)",
+      "price": "150000-250000 JPY",
+      "price_band": "paid",
+      "page": "/claude-code-kenshu.html",
+      "includes": [
+        "온라인 3시간 최대 10명",
+        "대면 도쿄 3시간 최대 20명",
+        "재현 데모 2종",
+        "연습용 리포지토리와 팀 CLAUDE.md 템플릿",
+        "연수 후 2주 메일 질문"
+      ],
+      "excludes": [
+        "교통비(대면의 경우 별도)",
+        "수강생 개인 환경의 개별 구축"
+      ],
+      "cta_subject": "Claude Code 導入研修の相談",
+      "priority": 2
+    },
+    {
       "id": "diag-free",
       "status": "active",
       "lang": [
