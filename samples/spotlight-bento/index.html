@@ -1,0 +1,961 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumos | 막힌 앱은 다시 올리고, 필요한 도구는 직접 만듭니다</title>
+<meta name="description" content="Lumos는 전문 스튜디오입니다. 업데이트가 막힌 Cordova·Ionic 앱을 진단해 다시 스토어에 올리고, Mac 앱과 브라우저 도구 30개, 전자책을 만듭니다.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://hwemo-chung.github.io/web-design.html">
+<style>
+/* Lumos sample bar: fixed strip above the sample; the page and its own header are pushed down by --sbar. */
+:root{--sbar:40px}
+body{padding-top:var(--sbar)}
+.lsbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--sbar);display:flex;align-items:center;justify-content:center;gap:14px;padding:0 12px;box-sizing:border-box;background:#0b0b10;color:#e9e9ef;border-bottom:1px solid rgba(255,255,255,.16);font:500 13px/1 "Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;letter-spacing:-.01em;white-space:nowrap}
+.lsbar a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+a.skip:focus{top:calc(var(--sbar) + 12px)}
+.lsbar a:focus-visible{outline:2px solid #8cc2ff;outline-offset:3px}
+@media (max-width:420px){.lsbar{gap:10px;font-size:12px}}
+@media print{.lsbar{display:none}body{padding-top:0}}
+</style>
+<meta name="theme-color" content="#070708">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070708'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23f4f4f5' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23c9ff3b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#070708;
+  --bg-raise:#0c0c0e;
+  --surface-a:rgba(21,21,25,.96);
+  --surface-b:rgba(11,11,13,.97);
+  --line:rgba(255,255,255,.09);
+  --line-2:rgba(255,255,255,.16);
+  --text:#f4f4f5;
+  --text-2:#b4b4bd;
+  --text-3:#9b9ba4;
+  --accent:#c9ff3b;
+  --accent-ink:#0b0d02;
+  --accent-soft:rgba(201,255,59,.14);
+  --r-lg:22px;
+  --r-md:14px;
+  --r-sm:10px;
+  --gap:16px;
+  --wrap:1200px;
+  --gutter:24px;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(88px + var(--sbar))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;word-break:keep-all;overflow-wrap:break-word;overflow-x:hidden}
+h1,h2,h3,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+::selection{background:var(--accent);color:var(--accent-ink)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-60px;z-index:100;background:var(--accent);color:var(--accent-ink);padding:10px 14px;border-radius:10px;font-weight:600}
+.skip:focus{top:12px}
+.wrap{width:100%;max-width:calc(var(--wrap) + var(--gutter)*2);margin-inline:auto;padding-inline:var(--gutter)}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.mono{font-family:var(--mono);font-feature-settings:"tnum" 1,"zero" 0;letter-spacing:0}
+
+/* ---------- ambient ---------- */
+.aura{position:fixed;left:-520px;top:-520px;width:1040px;height:1040px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(closest-side,rgba(255,255,255,.045),rgba(255,255,255,.015) 50%,transparent);
+  opacity:0;transition:opacity .6s;transform:translate3d(50vw,30vh,0);will-change:transform}
+.is-spot .aura{opacity:1}
+main,header,footer{position:relative;z-index:1}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:var(--sbar);z-index:50;background:rgba(7,7,8,.72);-webkit-backdrop-filter:saturate(150%) blur(16px);backdrop-filter:saturate(150%) blur(16px);border-bottom:1px solid var(--line)}
+.nav__in{display:flex;align-items:center;height:64px;gap:32px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:-.02em}
+.brand svg{width:24px;height:24px}
+.nav__links{display:flex;gap:4px;margin-left:8px}
+.nav__links a{padding:8px 12px;border-radius:9px;font-size:14.5px;color:var(--text-2);position:relative}
+.nav__links a::before{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(255,255,255,.06);opacity:0;transition:opacity .2s}
+.nav__links a:hover{color:var(--text)}
+.nav__links a:hover::before{opacity:1}
+.nav__cta{margin-left:auto}
+
+/* ---------- buttons ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:12px;font-weight:600;font-size:15px;letter-spacing:-.01em;white-space:nowrap;transition:transform .2s var(--ease)}
+.btn .ic{width:18px;height:18px;transition:transform .25s var(--ease)}
+.btn:hover .ic{transform:translateX(3px)}
+.btn:active{transform:scale(.98)}
+.btn--primary{background:var(--accent);color:var(--accent-ink)}
+.btn--primary::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#fff;opacity:0;transition:opacity .2s}
+.btn--primary:hover::after{opacity:.22}
+.btn--primary>*{position:relative;z-index:1}
+.btn--ghost{color:var(--text);border:1px solid var(--line-2);background:rgba(255,255,255,.03)}
+.btn--ghost::after{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(255,255,255,.06);opacity:0;transition:opacity .2s}
+.btn--ghost:hover::after{opacity:1}
+.btn--sm{height:38px;padding:0 14px;font-size:14px;border-radius:10px}
+
+/* ---------- tiles + spotlight ---------- */
+.tile{position:relative;display:grid;padding:1px;border-radius:var(--r-lg);background:var(--line);overflow:hidden;isolation:isolate;min-width:0;--gx:-700px;--gy:-700px}
+/* static sheen: a fixed key light on the top-left edge of every tile */
+.tile::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(440px 240px at 16% 0%,rgba(255,255,255,.2),transparent 72%)}
+/* pointer light, seen through the 1px gap as a lit border */
+.tile__glow{position:absolute;left:-280px;top:-280px;width:560px;height:560px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(closest-side,rgba(230,255,150,1),rgba(201,255,59,.7) 24%,rgba(201,255,59,.2) 56%,transparent);
+  opacity:0;transform:translate3d(var(--gx),var(--gy),0);transition:opacity .5s;will-change:transform}
+.tile__in{position:relative;z-index:1;min-width:0;overflow:hidden;border-radius:calc(var(--r-lg) - 1px);
+  background:linear-gradient(180deg,var(--surface-a),var(--surface-b));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045)}
+/* the same light, fainter, on the glass surface */
+.tile__in::before{content:"";position:absolute;z-index:0;left:-241px;top:-241px;width:480px;height:480px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(201,255,59,.09),rgba(201,255,59,.035) 50%,transparent);
+  opacity:0;transform:translate3d(var(--gx),var(--gy),0);transition:opacity .5s}
+.is-spot .tile__glow,.is-spot .tile__in::before{opacity:1}
+html:not(.is-spot) .tile[data-spot-default]{--gx:210px;--gy:0px}
+html:not(.is-spot) .tile[data-spot-default] .tile__glow,html:not(.is-spot) .tile[data-spot-default] .tile__in::before{opacity:.92}
+.pad{padding:28px}
+
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-2);font-weight:500;letter-spacing:-.005em}
+.eyebrow .mono{font-size:12px;color:var(--accent)}
+.eyebrow--plain .mono{color:var(--text-3)}
+
+.badge{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 8px 0 7px;border-radius:999px;border:1px solid var(--line-2);font-size:12px;line-height:1;color:var(--text-2);white-space:nowrap;flex:none}
+.badge i{width:6px;height:6px;border-radius:50%;background:var(--text-3)}
+.badge--on{color:var(--text)}
+.badge--on i{background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.badge--wip i{background:transparent;box-shadow:inset 0 0 0 1.5px var(--text-3)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:44px 0 0}
+.hero::before{content:"";position:absolute;inset:-64px 0 auto 0;height:620px;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(52% 60% at 50% 0%,rgba(201,255,59,.075),transparent 70%),
+    radial-gradient(rgba(255,255,255,.075) 1px,transparent 1.5px) 0 0/28px 28px;
+  -webkit-mask-image:radial-gradient(70% 90% at 50% 0%,#000 20%,transparent 78%);mask-image:radial-gradient(70% 90% at 50% 0%,#000 20%,transparent 78%)}
+.hero__head{display:grid;grid-template-columns:minmax(0,1fr) 384px;gap:48px;align-items:end;margin-bottom:34px}
+.hero h1{font-size:clamp(34px,4.3vw,60px);line-height:1.12;letter-spacing:-.038em;font-weight:700;margin-top:18px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent);white-space:nowrap}
+.hero__sub{color:var(--text-2);font-size:16px;line-height:1.7}
+.hero__cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.status{display:inline-flex;align-items:center;gap:9px;height:30px;padding:0 12px 0 10px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.03);font-size:13px;color:var(--text-2)}
+.status i{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.status b{color:var(--text);font-weight:600}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:minmax(174px,auto) minmax(174px,auto) auto;gap:var(--gap)}
+.d-rescue{grid-column:1/6;grid-row:1/3}
+.d-product{grid-column:6/13;grid-row:1/3}
+.d-tools{grid-column:1/8;grid-row:3}
+.d-books{grid-column:8/13;grid-row:3}
+.door{display:flex;flex-direction:column;height:100%;padding:24px 28px 12px}
+.door__top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.door__go{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--line-2);color:var(--text-2);transition:transform .25s var(--ease)}
+.door__go .ic{width:16px;height:16px}
+.door__go:hover{color:var(--accent-ink);background:var(--accent);border-color:var(--accent);transform:rotate(45deg)}
+.door h2{font-size:23px;line-height:1.3;letter-spacing:-.03em;font-weight:650;margin-top:14px;text-wrap:balance}
+.door__list{margin-top:auto;padding-top:16px}
+.item{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto 16px;align-items:center;column-gap:12px;min-height:50px;padding:7px 0;border-top:1px solid var(--line)}
+.item::before{content:"";position:absolute;inset:1px -12px 0;border-radius:10px;background:rgba(255,255,255,.055);opacity:0;transition:opacity .2s}
+.item:hover::before{opacity:1}
+.item>*{position:relative}
+.item h3{font-size:15px;line-height:1.35;font-weight:600;letter-spacing:-.015em}
+.item p{font-size:13px;line-height:1.4;color:var(--text-3);margin-top:1px}
+.item .ic{width:16px;height:16px;color:var(--text-3);transition:transform .25s var(--ease)}
+.item:hover .ic{color:var(--accent);transform:translateX(3px)}
+.item .price{font-size:13.5px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--text-2);white-space:nowrap}
+.item--tight{min-height:40px;padding:6px 0}
+
+.blockers{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:12.5px;color:var(--text-2);white-space:nowrap}
+.chip.mono{font-size:12px}
+
+.d-product .tile__in{display:grid;grid-template-columns:minmax(0,1fr) 46%;overflow:hidden}
+.shot{position:relative;margin:30px 0 0 4px;border-radius:14px 0 0 0;border:1px solid rgba(255,255,255,.2);border-right:0;border-bottom:0;overflow:hidden;background:#f3f3f3;box-shadow:-28px 28px 70px rgba(0,0,0,.55)}
+.shot img{position:absolute;left:0;top:0;width:500px;max-width:none;height:auto}
+.d-tools .tile__in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:stretch}
+.d-tools .door{padding-bottom:24px}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:16px}
+.links a{position:relative;display:inline-flex;align-items:center;height:30px;padding:0 11px;border-radius:9px;border:1px solid var(--line-2);font-size:13px;color:var(--text)}
+.links a::before{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(255,255,255,.07);opacity:0;transition:opacity .2s}
+.links a:hover::before{opacity:1}
+.icongrid{display:grid;grid-template-columns:repeat(6,44px);grid-auto-rows:44px;gap:8px;align-content:center;padding:26px 28px 26px 8px}
+.icongrid a{display:grid;place-items:center;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.025);color:var(--text-2);transition:transform .25s var(--ease)}
+.icongrid a:hover{color:var(--accent);border-color:rgba(201,255,59,.45);transform:translateY(-2px)}
+.icongrid a:nth-child(3),.icongrid a:nth-child(10){color:var(--accent);border-color:rgba(201,255,59,.3);background:rgba(201,255,59,.06)}
+
+/* ---------- sections ---------- */
+.section{padding:132px 0 0}
+.section__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:48px;align-items:end;margin-bottom:40px}
+.section__head h2{font-size:clamp(28px,3.1vw,42px);line-height:1.18;letter-spacing:-.035em;font-weight:680;margin-top:16px;text-wrap:balance}
+.section__head p{color:var(--text-2);font-size:16px}
+.section__head .more{justify-self:end}
+.grid{display:grid;gap:var(--gap)}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g12{grid-template-columns:repeat(12,minmax(0,1fr))}
+.s2{grid-column:span 2}
+.mt{margin-top:var(--gap)}
+.textlink{position:relative;display:inline-flex;align-items:center;gap:6px;font-size:14.5px;font-weight:600;color:var(--text)}
+.textlink .ic{width:16px;height:16px;transition:transform .25s var(--ease)}
+.textlink:hover{color:var(--accent)}
+.textlink:hover .ic{transform:translateX(3px)}
+.textlink--muted{font-weight:500;color:var(--text-2)}
+
+/* blockers */
+.cause{display:flex;flex-direction:column;height:100%;min-height:236px}
+.cause__src{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text-3)}
+.cause__src .mono{font-size:12px}
+.cause h3{font-size:26px;line-height:1.2;letter-spacing:-.03em;font-weight:680;margin-top:auto;padding-top:40px}
+.cause__state{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:13.5px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--accent)}
+.cause__state::before{content:"";width:14px;height:1px;background:currentColor}
+.cause p{margin-top:14px;font-size:15px;color:var(--text-2)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.step{position:relative;padding:28px}
+.step+.step{border-left:1px solid var(--line)}
+.step__n{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;color:var(--text-3)}
+.step__n::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line-2),transparent)}
+.step h3{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:20px;letter-spacing:-.025em;font-weight:650;margin-top:22px;line-height:1.3}
+.step p{margin-top:8px;font-size:14.5px;color:var(--text-2);line-height:1.6}
+.tag{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:6px;background:var(--accent);color:var(--accent-ink);font-size:12px;font-weight:650;letter-spacing:0}
+
+/* cta */
+.cta{display:flex;flex-direction:column;height:100%;padding:36px}
+.tile--cta .tile__in{background:radial-gradient(64% 130% at 100% 112%,rgba(201,255,59,.13),transparent 64%),linear-gradient(180deg,var(--surface-a),var(--surface-b))}
+.cta h3{font-size:clamp(23px,2.7vw,34px);line-height:1.25;letter-spacing:-.03em;font-weight:680;max-width:18em;text-wrap:balance}
+.cta__row{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:32px}
+.cta__note{margin-top:14px;font-size:15.5px;color:var(--text-2);max-width:31em}
+.offer{display:flex;flex-direction:column;height:100%}
+.offer h3{font-size:19px;letter-spacing:-.02em;font-weight:650;margin-top:14px;line-height:1.3}
+.offer p{font-size:14.5px;color:var(--text-2);margin-top:8px}
+.kv{margin-top:auto;padding-top:20px}
+.kv div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:14px;color:var(--text-2)}
+.kv dt{min-width:0}
+.kv dd{margin:0;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--text);white-space:nowrap}
+.stack{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;font-size:13.5px;color:var(--text-3)}
+.stack span:first-child{margin-right:6px}
+
+/* products */
+.prod{display:flex;flex-direction:column;height:100%}
+.prod__top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.prod h3{font-size:21px;letter-spacing:-.028em;font-weight:680;line-height:1.25}
+.prod p{margin-top:12px;font-size:14.5px;line-height:1.65;color:var(--text-2)}
+.prod__links{display:flex;flex-wrap:wrap;gap:18px;margin-top:auto;padding-top:22px}
+.prod--wide .prod__body{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:start;margin-top:0}
+.keys{display:flex;gap:6px;align-self:center}
+.key{display:grid;place-items:center;width:46px;height:46px;border-radius:11px;border:1px solid var(--line-2);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));box-shadow:inset 0 -3px 0 rgba(0,0,0,.45),0 1px 0 rgba(255,255,255,.04);font-family:var(--sans);font-weight:500;font-size:18px;color:var(--text)}
+.key--on{border-color:rgba(201,255,59,.55);color:var(--accent)}
+.specs{display:grid;gap:0;min-width:200px;align-self:center}
+.specs div{display:flex;justify-content:space-between;gap:20px;padding:9px 0;border-top:1px solid var(--line);font-size:13.5px;color:var(--text-2)}
+.specs div:last-child{border-bottom:1px solid var(--line)}
+.specs b{font-weight:600;font-variant-numeric:tabular-nums;color:var(--text)}
+
+/* tools strip */
+.toolgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.tool .tile__in{display:flex;flex-direction:column;gap:22px;padding:18px 18px 16px;height:100%;min-height:148px}
+.tool{border-radius:18px}
+.tool .tile__in{border-radius:17px}
+.tool__ic{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;border:1px solid var(--line-2);background:rgba(255,255,255,.035);color:var(--text)}
+.tool:hover .tool__ic{color:var(--accent);border-color:rgba(201,255,59,.45)}
+.tool h3{font-size:14.5px;line-height:1.4;font-weight:600;letter-spacing:-.015em;margin-top:auto}
+.tool span.cat{display:block;margin-top:4px;font-size:12.5px;color:var(--text-3)}
+.tool a::after{content:"";position:absolute;inset:0;z-index:2}
+.cats{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.cats .chip b{margin-left:7px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--text)}
+.minis .tile__in{padding:22px 24px}
+.minis h3{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:16px;font-weight:650;letter-spacing:-.02em}
+.minis h3 .ic{width:16px;height:16px;color:var(--text-3);transition:transform .25s var(--ease)}
+.minis .tile:hover h3 .ic{color:var(--accent);transform:translateX(3px)}
+.minis p{margin-top:8px;font-size:14px;color:var(--text-2);line-height:1.6}
+.minis a::after{content:"";position:absolute;inset:0;z-index:2}
+
+/* books */
+.books{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.shelf{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:24px}
+.shelf a{position:relative;display:block;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.14);aspect-ratio:434/770;background:#101a30;transition:transform .3s var(--ease)}
+.shelf a:hover{transform:translateY(-4px)}
+.shelf img{width:100%;height:100%;object-fit:cover;object-position:top}
+.plist{margin-top:24px}
+.plist .item{grid-template-columns:minmax(0,1fr) auto 16px;min-height:60px}
+.plist .item h3{font-size:15.5px}
+.plist .price{font-size:15px;font-weight:600;color:var(--text)}
+.fine{margin-top:18px;font-size:13px;line-height:1.6;color:var(--text-3)}
+.fine a{color:var(--text-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-2)}
+.fine a:hover{color:var(--accent)}
+.train{display:flex;flex-direction:column;height:100%}
+.train h3{font-size:26px;letter-spacing:-.03em;font-weight:680;line-height:1.25;margin-top:18px}
+.train .sub{margin-top:6px;font-size:14px;color:var(--text-3)}
+.train p.body{margin-top:16px;font-size:15px;color:var(--text-2)}
+.train .blockers{margin-top:18px}
+.train .btn{align-self:flex-start;margin-top:24px}
+
+/* footer */
+.foot{margin-top:132px;border-top:1px solid var(--line);padding:56px 0 48px}
+.foot__grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:40px}
+.foot p{margin-top:14px;font-size:14.5px;color:var(--text-2);max-width:26em}
+.foot h2{font-size:13px;font-weight:500;color:var(--text-3);letter-spacing:0}
+.foot ul{margin-top:14px;display:grid;gap:10px}
+.foot li a{font-size:14.5px;color:var(--text-2)}
+.foot li a:hover{color:var(--accent)}
+.foot__base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--text-3)}
+.foot__base a:hover{color:var(--accent)}
+.foot__base nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+
+/* ---------- motion ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .8s var(--ease) both}
+  .rise.d1{animation-delay:.06s}.rise.d2{animation-delay:.14s}.rise.d3{animation-delay:.22s}
+  @keyframes rise{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1120px){
+  .hero__head{grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
+  .hero__sub{max-width:36em}
+  .bento{grid-template-rows:none}
+  .d-rescue{grid-column:1/7;grid-row:auto}
+  .d-product{grid-column:7/13;grid-row:auto}
+  .d-tools,.d-books{grid-column:1/13;grid-row:auto}
+  .d-product .tile__in{grid-template-columns:minmax(0,1fr)}
+  .shot{height:230px;margin:6px 0 0 28px}
+  .shot img{width:560px}
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .toolgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .step:nth-child(3){border-left:0}
+  .step:nth-child(n+3){border-top:1px solid var(--line)}
+  .books{grid-template-columns:minmax(0,1fr)}
+  .cta-row{grid-template-columns:minmax(0,1fr)!important}
+  .cta-row>*{grid-column:auto!important}
+}
+@media (max-width:760px){
+  :root{--gutter:16px;--gap:12px;--r-lg:20px}
+  .nav__links{display:none}
+  .nav__in{height:58px}
+  .hero{padding-top:36px}
+  .hero__head{margin-bottom:28px}
+  .hero h1{font-size:clamp(31px,9vw,40px);line-height:1.16;margin-top:16px}
+  .hero__sub{font-size:15.5px}
+  .hero__cta .btn{flex:1 1 auto}
+  .bento{grid-template-columns:minmax(0,1fr)}
+  .d-rescue,.d-product,.d-tools,.d-books{grid-column:auto}
+  .door{padding:22px 20px 10px}
+  .door h2{font-size:21px}
+  .shot{margin-left:20px;height:216px}
+  .d-tools .tile__in{grid-template-columns:minmax(0,1fr)}
+  .d-tools .door{padding-bottom:6px}
+  .icongrid{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:auto;padding:14px 20px 22px}
+  .icongrid a{aspect-ratio:1}
+  .section{padding-top:88px}
+  .section__head{grid-template-columns:minmax(0,1fr);gap:14px;margin-bottom:28px;align-items:start}
+  .section__head .more{justify-self:start}
+  .g3,.g4{grid-template-columns:minmax(0,1fr)}
+  .s2{grid-column:auto}
+  .pad{padding:22px 20px}
+  .cause{min-height:0}
+  .cause h3{padding-top:28px;font-size:24px}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .step{padding:22px 20px}
+  .step+.step{border-left:0;border-top:1px solid var(--line)}
+  .step h3{margin-top:14px}
+  .cta{padding:26px 20px}
+  .cta__row .btn{flex:1 1 auto}
+  .prod{min-height:0}
+  .prod--wide .prod__body{grid-template-columns:minmax(0,1fr);gap:20px}
+  .keys,.specs{align-self:start}
+  .toolgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .tool .tile__in{min-height:136px;padding:16px 16px 14px;gap:18px}
+  .shelf{gap:6px}
+  .shelf a{border-radius:5px}
+  .foot{margin-top:88px;padding-top:44px}
+  .foot__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px}
+  .foot__grid>div:first-child{grid-column:1/-1}
+}
+@media (hover:none){
+  .aura{display:none}
+  /* touch: no pointer to follow, so the four doors keep a fixed light */
+  .bento .tile{--gx:236px;--gy:0px}
+  .bento .tile .tile__glow,.bento .tile .tile__in::before{opacity:.66}
+  .bento .tile[data-spot-default] .tile__glow,.bento .tile[data-spot-default] .tile__in::before{opacity:.92}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로</a>
+<div class="aura" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
+    <symbol id="i-shrink" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M10 7v3H7M14 17v-3h3"/></symbol>
+    <symbol id="i-whitebg" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3" stroke-dasharray="2.6 2.6"/><circle cx="12" cy="12" r="3.8"/></symbol>
+    <symbol id="i-idphoto" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.5"/><circle cx="12" cy="9.8" r="2.6"/><path d="M7.6 17.6c.6-2.3 2.2-3.5 4.4-3.5s3.8 1.2 4.4 3.5"/></symbol>
+    <symbol id="i-upscale" viewBox="0 0 24 24"><rect x="3.5" y="12.5" width="8" height="8" rx="1.5"/><path d="M3.5 9V6A2.5 2.5 0 0 1 6 3.5h12A2.5 2.5 0 0 1 20.5 6v12a2.5 2.5 0 0 1-2.5 2.5h-3"/><path d="M12 12l5-5M13.2 7H17v3.8"/></symbol>
+    <symbol id="i-erase" viewBox="0 0 24 24"><path d="M9 19.5 4.3 14.8a1.5 1.5 0 0 1 0-2.1l8-8a1.5 1.5 0 0 1 2.1 0l4.9 4.9a1.5 1.5 0 0 1 0 2.1l-7.8 7.8z"/><path d="M8.3 8.7l6.6 6.6M9 19.5h11"/></symbol>
+    <symbol id="i-vector" viewBox="0 0 24 24"><path d="M5 17C5 10.5 10 7 17 7"/><rect x="3.5" y="17" width="3" height="3" rx=".7"/><rect x="17" y="5.5" width="3" height="3" rx=".7"/><path d="M5 17v-6.5"/><circle cx="5" cy="9" r="1.5"/></symbol>
+    <symbol id="i-silence" viewBox="0 0 24 24"><path d="M3 11v2M5.8 8.5v7M8.6 6v12M11.2 12h2.6M15.4 6v12M18.2 8.5v7M21 11v2"/></symbol>
+    <symbol id="i-captions" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M7 15h6M15.5 15H17M7 12h3"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></symbol>
+    <symbol id="i-translate" viewBox="0 0 24 24"><path d="M3.5 6h8.5M7.7 4v2M10.3 6c-.6 3-2.9 5.6-6.3 7M6 9c1 1.8 2.9 3.2 5 4"/><path d="M12.5 20l4-9 4 9M13.9 17h5.2"/></symbol>
+    <symbol id="i-pdfdoc" viewBox="0 0 24 24"><path d="M13 3H7.5A2.5 2.5 0 0 0 5 5.5v13A2.5 2.5 0 0 0 7.5 21h9a2.5 2.5 0 0 0 2.5-2.5V9z"/><path d="M13 3v6h6M9 15h6M13 12.8l2.2 2.2-2.2 2.2"/></symbol>
+    <symbol id="i-pageshot" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 8.5h18M8 13.5v3h3M16 14.5v-3h-3"/></symbol>
+  </defs>
+</svg>
+
+<div class="lsbar" role="note" aria-label="디자인 샘플 안내"><span>디자인 샘플 · Lumos 제작</span><a href="/web-design.html#contact">이 스타일로 제작 문의 →</a></div>
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="/" aria-label="Lumos 홈">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2" fill="none" stroke="#f4f4f5" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" fill="#c9ff3b"/></svg>
+      Lumos
+    </a>
+    <nav class="nav__links" aria-label="주요 메뉴">
+      <a href="/sales/">서비스</a>
+      <a href="/offers/">상품</a>
+      <a href="/cordova.html">진단</a>
+      <a href="/retainer.html">유지보수</a>
+      <a href="/threads-analyzer.html">스레드</a>
+      <a href="/tools/">도구</a>
+    </nav>
+    <a class="btn btn--primary btn--sm nav__cta" href="/cordova.html"><span>무료 진단 신청</span></a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO : studio hub ================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero__head">
+      <div class="rise">
+        <p class="status"><i aria-hidden="true"></i><span><b>Lumos</b> · 전문 스튜디오</span></p>
+        <h1 id="hero-title">막힌 앱은 다시 올리고,<br>필요한 도구는 <em>직접 만듭니다.</em></h1>
+      </div>
+      <div class="rise d1">
+        <p class="hero__sub">업데이트가 막힌 Cordova·Ionic 앱을 진단해 다시 스토어에 올립니다. 그 사이에 Mac 앱과 브라우저 도구 30개, 전자책을 만들어 내놓습니다.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="/cordova.html"><span>무료 진단 신청</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--ghost" href="#products"><span>제품 보기</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento rise d2" id="doors">
+
+      <!-- door 1 -->
+      <article class="tile d-rescue" aria-labelledby="door-1">
+        <span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in">
+          <div class="door">
+            <div class="door__top">
+              <p class="eyebrow"><span class="mono">01</span>앱 구조·유지보수</p>
+              <a class="door__go" href="#rescue" aria-label="앱 구조·유지보수 섹션으로"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+            </div>
+            <h2 id="door-1">업데이트가 막힌 Cordova·Ionic 앱을 다시 스토어에 올립니다.</h2>
+            <ul class="blockers" aria-label="막히는 지점">
+              <li class="chip">iOS 26 SDK</li>
+              <li class="chip">Play 타깃 API</li>
+              <li class="chip">Firebase Dynamic Links</li>
+            </ul>
+            <ul class="door__list">
+              <li><a class="item" href="/cordova.html">
+                <div><h3>레거시 하이브리드 앱 진단</h3><p>10곳까지 무료 · 보고서는 영업일 2일</p></div>
+                <span class="badge badge--on"><i aria-hidden="true"></i>모집 중</span>
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="item" href="/retainer.html">
+                <div><h3>Mobile Production Retainer</h3><p>Ionic·Capacitor·Android WebView 월간 지원</p></div>
+                <span class="price">$1,200/월</span>
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="item" href="/sales/">
+                <div><h3>서비스·오퍼 카탈로그</h3><p>범위, 제외 항목, 응답 시간, 가격</p></div>
+                <span></span>
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- door 2 : largest -->
+      <article class="tile d-product" data-spot-default aria-labelledby="door-2">
+        <span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in">
+          <div class="door">
+            <div class="door__top">
+              <p class="eyebrow"><span class="mono">02</span>제품</p>
+              <a class="door__go" href="#products" aria-label="제품 섹션으로"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+            </div>
+            <h2 id="door-2">광고도 구독도 없는 Mac 앱과 작은 웹 서비스.</h2>
+            <ul class="door__list">
+              <li><a class="item" href="/hot-launcher.html">
+                <div><h3>HotLauncher</h3><p>앱 20개를 전역 단축키로</p></div>
+                <span class="badge"><i aria-hidden="true"></i>무료</span>
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="item" href="/lumoszip.html">
+                <div><h3>LumosZipForMac</h3><p>AES-256 비밀번호 ZIP</p></div>
+                <span class="badge badge--on"><i aria-hidden="true"></i>판매 중</span>
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="item" href="https://pebblez.teagarden-earlgrey.workers.dev" rel="noopener">
+                <div><h3>Pebblez</h3><p>알고리즘 없는 소셜 PWA</p></div>
+                <span class="badge badge--on"><i aria-hidden="true"></i>라이브</span>
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </div>
+          <figure class="shot">
+            <img src="/assets/hot-launcher-settings.webp" width="1000" height="1195" alt="HotLauncher 설정 화면. 앱마다 전역 단축키가 하나씩 붙어 있습니다." decoding="async" fetchpriority="high">
+            <figcaption class="sr">HotLauncher 설정 화면</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- door 3 -->
+      <article class="tile d-tools" aria-labelledby="door-3">
+        <span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in">
+          <div class="door">
+            <div class="door__top">
+              <p class="eyebrow"><span class="mono">03</span>무료 도구</p>
+              <a class="door__go" href="#tools" aria-label="도구 섹션으로"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+            </div>
+            <h2 id="door-3">브라우저에서 바로 쓰는 도구 30개.</h2>
+            <div class="links">
+              <a href="/tools/image-shrink/"><span>이미지 용량 줄이기</span></a>
+              <a href="/tools/silence-cut/"><span>무음 구간 자르기</span></a>
+              <a href="/tools/pdf-to-doc/"><span>PDF를 Word 문서로</span></a>
+            </div>
+          </div>
+          <div class="icongrid" aria-hidden="true">
+            <a href="/tools/image-shrink/" tabindex="-1"><svg class="ic"><use href="#i-shrink"/></svg></a>
+            <a href="/tools/white-background/" tabindex="-1"><svg class="ic"><use href="#i-whitebg"/></svg></a>
+            <a href="/tools/id-photo/" tabindex="-1"><svg class="ic"><use href="#i-idphoto"/></svg></a>
+            <a href="/tools/image-upscale/" tabindex="-1"><svg class="ic"><use href="#i-upscale"/></svg></a>
+            <a href="/tools/item-removal/" tabindex="-1"><svg class="ic"><use href="#i-erase"/></svg></a>
+            <a href="/tools/logo-svg/" tabindex="-1"><svg class="ic"><use href="#i-vector"/></svg></a>
+            <a href="/tools/silence-cut/" tabindex="-1"><svg class="ic"><use href="#i-silence"/></svg></a>
+            <a href="/tools/burned-captions/" tabindex="-1"><svg class="ic"><use href="#i-captions"/></svg></a>
+            <a href="/tools/vocal-split/" tabindex="-1"><svg class="ic"><use href="#i-mic"/></svg></a>
+            <a href="/tools/subtitle-translate/" tabindex="-1"><svg class="ic"><use href="#i-translate"/></svg></a>
+            <a href="/tools/pdf-to-doc/" tabindex="-1"><svg class="ic"><use href="#i-pdfdoc"/></svg></a>
+            <a href="/tools/page-shot/" tabindex="-1"><svg class="ic"><use href="#i-pageshot"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- door 4 -->
+      <article class="tile d-books" aria-labelledby="door-4">
+        <span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in">
+          <div class="door">
+            <div class="door__top">
+              <p class="eyebrow"><span class="mono">04</span>전자책·연수</p>
+              <a class="door__go" href="#books" aria-label="전자책·연수 섹션으로"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+            </div>
+            <h2 id="door-4">결제하면 바로 받는 PDF와 3시간 연수.</h2>
+            <ul class="door__list">
+              <li><a class="item item--tight" href="https://teagarden5.gumroad.com/l/cxhiny" rel="noopener">
+                <h3>AI 코딩 에이전트 완전판</h3><span class="price">₩139,000</span>
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="item item--tight" href="https://teagarden5.gumroad.com/l/zibxvl" rel="noopener">
+                <h3>도쿄 첫 여행 실전팩</h3><span class="price">₩12,900</span>
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+              <li><a class="item item--tight" href="/claude-code-kenshu.html">
+                <h3>Claude Code <span lang="ja">導入研修</span></h3><span class="price">온라인 ¥150,000</span>
+                <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= 01 RESCUE ================= -->
+<section class="section" id="rescue" aria-labelledby="rescue-title">
+  <div class="wrap">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow"><span class="mono">01</span>앱 구조·유지보수</p>
+        <h2 id="rescue-title">오래 손대지 않은 하이브리드 앱은 세 군데에서 막힙니다.</h2>
+      </div>
+      <p>Cordova·Ionic으로 만든 뒤 오래 둔 앱은 아래 셋 모두에 걸립니다. 무엇이 막혔는지부터 확인합니다.</p>
+    </div>
+
+    <div class="grid g3">
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="cause">
+          <p class="cause__src"><span>App Store Connect</span><span class="mono">01</span></p>
+          <h3>iOS 26 SDK</h3>
+          <p class="cause__state">2026.04.28부터</p>
+          <p>2026년 4월 28일부터 App Store Connect는 iOS 26 SDK로 빌드한 앱만 받습니다.</p>
+        </div></div>
+      </article>
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="cause">
+          <p class="cause__src"><span>Google Play</span><span class="mono">02</span></p>
+          <h3>타깃 API 기한</h3>
+          <p class="cause__state">기한 지남 · 연장 신청 가능</p>
+          <p>Play 타깃 API 기한은 지났지만 연장 신청은 아직 할 수 있습니다.</p>
+        </div></div>
+      </article>
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="cause">
+          <p class="cause__src"><span>Firebase</span><span class="mono">03</span></p>
+          <h3>Dynamic Links</h3>
+          <p class="cause__state">종료</p>
+          <p>Firebase Dynamic Links는 종료됐습니다.</p>
+        </div></div>
+      </article>
+    </div>
+
+    <div class="tile mt"><span class="tile__glow" aria-hidden="true"></span>
+      <div class="tile__in">
+        <ol class="steps" aria-label="진행 순서">
+          <li class="step"><p class="step__n">STEP 1</p><h3>진단</h3><p>무엇이 막혔는지 확인합니다. 10곳까지는 무료입니다.</p></li>
+          <li class="step"><p class="step__n">STEP 2</p><h3>보고서 <span class="tag">영업일 2일</span></h3><p>막힌 지점을 영업일 2일 안에 보고서로 알려 드립니다.</p></li>
+          <li class="step"><p class="step__n">STEP 3</p><h3>수정</h3><p>보고서에서 짚은 항목을 고칩니다.</p></li>
+          <li class="step"><p class="step__n">STEP 4</p><h3>스토어 재등록</h3><p>앱을 다시 스토어에 올립니다.</p></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="grid g12 mt cta-row">
+      <div class="tile tile--cta" style="grid-column:span 8"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in"><div class="cta">
+          <h3>스토어 업로드가 막혔다면 진단부터 받아 보세요.</h3>
+          <p class="cta__note">10곳까지는 무료로 진단합니다. 새 앱 개발과 전면 재작성은 맡지 않습니다.</p>
+          <div class="cta__row">
+            <a class="btn btn--primary" href="/cordova.html"><span>무료 진단 신청</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost" href="/sales/"><span>서비스와 가격 보기</span></a>
+          </div>
+        </div></div>
+      </div>
+      <article class="tile" style="grid-column:span 4"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="offer">
+          <p class="eyebrow eyebrow--plain">유지보수</p>
+          <h3>Mobile Production Retainer</h3>
+          <p>Ionic, Capacitor, Android WebView 앱의 월간 운영 지원입니다.</p>
+          <dl class="kv">
+            <div><dt>Stabilizer</dt><dd>$1,200/월</dd></div>
+            <div><dt>Pilot 한 달</dt><dd>$400</dd></div>
+          </dl>
+          <a class="textlink" href="/retainer.html" style="margin-top:14px"><span>오퍼 보기</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div></div>
+      </article>
+    </div>
+
+    <ul class="stack" aria-label="출시해 운영한 기술">
+      <li><span>출시해 운영한 기술</span></li>
+      <li class="chip mono">Angular</li><li class="chip mono">Ionic</li><li class="chip mono">Capacitor</li><li class="chip mono">TypeScript</li><li class="chip mono">Node.js</li><li class="chip mono">Swift</li><li class="chip mono">AWS</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 02 PRODUCTS ================= -->
+<section class="section" id="products" aria-labelledby="products-title">
+  <div class="wrap">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow"><span class="mono">02</span>제품</p>
+        <h2 id="products-title">직접 만든 제품 여섯 가지.</h2>
+      </div>
+      <p>무료로 푼 것, 팔고 있는 것, 아직 만드는 중인 것이 섞여 있습니다. 뱃지가 지금 상태입니다.</p>
+    </div>
+
+    <div class="grid g4">
+      <article class="tile s2"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="prod prod--wide">
+          <div class="prod__body">
+            <div>
+              <div class="prod__top"><h3>HotLauncher</h3></div>
+              <p>macOS 26(Tahoe)에서 런치패드가 사라졌습니다. 자주 쓰는 앱을 최대 20개까지 전역 단축키에 하나씩 붙여 두고 바로 엽니다. 광고와 구독이 없고 소스를 공개했습니다.</p>
+            </div>
+            <div style="display:grid;gap:18px;justify-items:end">
+              <span class="badge"><i aria-hidden="true"></i>무료</span>
+              <div class="keys" aria-hidden="true"><span class="key">⌥</span><span class="key">⇧</span><span class="key key--on">1</span></div>
+            </div>
+          </div>
+          <div class="prod__links">
+            <a class="textlink" href="/hot-launcher.html"><span>제품 페이지</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="textlink textlink--muted" href="https://github.com/Hwemo-Chung/HotLauncher" rel="noopener"><span>GitHub</span><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="prod">
+          <div class="prod__top"><h3>LumosZipForMac</h3><span class="badge badge--on"><i aria-hidden="true"></i>판매 중</span></div>
+          <p>Mac에서 AES-256 비밀번호 ZIP을 터미널 없이 다룹니다. 광고와 구독이 없고, Apple Silicon과 Intel에서 모두 돌아가는 네이티브 앱입니다. 지금은 베타 할인가로 팝니다.</p>
+          <div class="prod__links">
+            <a class="textlink" href="/lumoszip.html"><span>제품 페이지</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="textlink textlink--muted" href="https://teagarden5.gumroad.com/l/qhyxm" rel="noopener"><span>지금 구매</span><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="prod">
+          <div class="prod__top"><h3>Pebblez</h3><span class="badge badge--on"><i aria-hidden="true"></i>라이브</span></div>
+          <p>광고와 추천 알고리즘이 없는 작은 소셜 PWA입니다. 한 줄(페블)을 남기면 아는 사람들 사이로 퍼집니다. 오프라인에서도 쓸 수 있고 무료입니다.</p>
+          <div class="prod__links">
+            <a class="textlink" href="https://pebblez.teagarden-earlgrey.workers.dev" rel="noopener"><span>서비스 열기</span><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="prod">
+          <div class="prod__top"><h3>Color Vision Lab</h3><span class="badge"><i aria-hidden="true"></i>무료</span></div>
+          <p>색약 유형별로 사진이 어떻게 보이는지 체험하고, 13장의 도판으로 색각을 선별합니다. 사진은 브라우저 안에서만 처리됩니다. 선별용이며 진단이 아닙니다.</p>
+          <div class="prod__links">
+            <a class="textlink" href="https://color-vision-lab.vercel.app/" rel="noopener"><span>서비스 열기</span><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+            <a class="textlink textlink--muted" href="https://github.com/Hwemo-Chung/color-vision-lab" rel="noopener"><span>GitHub</span><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="tile s2"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="prod prod--wide">
+          <div class="prod__body">
+            <div>
+              <div class="prod__top"><h3>Threads Analyzer</h3></div>
+              <p>스레드 계정의 글 전체를 12시트짜리 엑셀 리포트로 정리합니다. 평균 대신 중앙값과 데드율로 봅니다.</p>
+            </div>
+            <div style="display:grid;gap:18px;justify-items:end">
+              <span class="badge badge--wip"><i aria-hidden="true"></i>대기자 모집</span>
+              <div class="specs">
+                <div><span>엑셀 리포트</span><b>12시트</b></div>
+                <div><span>CLI · 오픈소스</span><b>무료</b></div>
+                <div><span>데스크톱 앱</span><b>$29</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="prod__links">
+            <a class="textlink" href="/threads-analyzer.html"><span>제품 페이지</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="prod">
+          <div class="prod__top"><h3>Burnline</h3><span class="badge badge--wip"><i aria-hidden="true"></i>Building</span></div>
+          <p>로컬 우선 AI 비용 추적 도구입니다. 모델별, 날짜별 지출을 보고 월 한도를 정합니다. 프롬프트는 내 컴퓨터에 남습니다.</p>
+          <div class="prod__links">
+            <a class="textlink" href="/burnline.html"><span>제품 페이지</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="textlink textlink--muted" href="/burnline-dashboard.html"><span>대시보드</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 TOOLS ================= -->
+<section class="section" id="tools" aria-labelledby="tools-title">
+  <div class="wrap">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow"><span class="mono">03</span>도구</p>
+        <h2 id="tools-title">브라우저에서 바로 쓰는 도구 30개.</h2>
+      </div>
+      <a class="textlink more" href="/tools/"><span>30개 전체 보기</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div class="toolgrid">
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-shrink"/></svg></span><div><h3><a href="/tools/image-shrink/">이미지 용량 줄이기</a></h3><span class="cat">사진</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-whitebg"/></svg></span><div><h3><a href="/tools/white-background/">상품 사진 흰 배경</a></h3><span class="cat">사진</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-idphoto"/></svg></span><div><h3><a href="/tools/id-photo/">증명사진 만들기</a></h3><span class="cat">사진</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-upscale"/></svg></span><div><h3><a href="/tools/image-upscale/">사진 해상도 키우기</a></h3><span class="cat">사진</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-erase"/></svg></span><div><h3><a href="/tools/item-removal/">사진 속 물체 지우기</a></h3><span class="cat">사진</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-vector"/></svg></span><div><h3><a href="/tools/logo-svg/">로고 SVG 변환</a></h3><span class="cat">사진</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-silence"/></svg></span><div><h3><a href="/tools/silence-cut/">무음 구간 자르기</a></h3><span class="cat">영상</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-captions"/></svg></span><div><h3><a href="/tools/burned-captions/">영상에 자막 입히기</a></h3><span class="cat">영상</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg></span><div><h3><a href="/tools/vocal-split/">보컬 분리</a></h3><span class="cat">소리</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-translate"/></svg></span><div><h3><a href="/tools/subtitle-translate/">자막 번역</a></h3><span class="cat">자막</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-pdfdoc"/></svg></span><div><h3><a href="/tools/pdf-to-doc/">PDF를 Word 문서로 바꾸기</a></h3><span class="cat">문서</span></div></div></article>
+      <article class="tile tool"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in"><span class="tool__ic"><svg class="ic" aria-hidden="true"><use href="#i-pageshot"/></svg></span><div><h3><a href="/tools/page-shot/">웹페이지 전체 캡처</a></h3><span class="cat">웹·개발</span></div></div></article>
+    </div>
+
+    <ul class="cats" aria-label="분야별 도구 수">
+      <li class="chip">사진<b>8</b></li>
+      <li class="chip">집·상품 사진<b>8</b></li>
+      <li class="chip">영상<b>5</b></li>
+      <li class="chip">문서<b>3</b></li>
+      <li class="chip">소리<b>2</b></li>
+      <li class="chip">자막<b>2</b></li>
+      <li class="chip">웹·개발<b>2</b></li>
+    </ul>
+
+    <div class="grid g3 minis" style="margin-top:40px">
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in">
+        <h3><a href="/color-picker.html">Color Picker</a><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></h3>
+        <p>색을 고르고 HEX, RGB 같은 형식으로 바꾸는 브라우저 도구입니다.</p></div></article>
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in">
+        <h3><a href="/public-search-exposure.html">공개 검색 노출 범위</a><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></h3>
+        <p>이름, 회사, 주소가 공개 검색에 어디까지 보이는지 확인합니다. 입력한 내용은 브라우저 밖으로 나가지 않습니다.</p></div></article>
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span><div class="tile__in">
+        <h3><a href="/micro-saas-mvps/">Micro SaaS 실험실</a><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></h3>
+        <p>작게 만들어 빨리 시험해 본 도구들입니다. 반응이 있던 것을 위에 둡니다.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 BOOKS + TRAINING ================= -->
+<section class="section" id="books" aria-labelledby="books-title">
+  <div class="wrap">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow"><span class="mono">04</span>전자책·연수</p>
+        <h2 id="books-title">PDF 전자책과 Claude Code 연수.</h2>
+      </div>
+      <p>Gumroad에서 결제하면 바로 PDF를 받습니다. 한국어판과 일본어판이 따로 있습니다.</p>
+    </div>
+
+    <div class="grid books">
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad">
+          <div class="prod__top">
+            <p class="eyebrow eyebrow--plain">전자책 · 한국어</p>
+            <a class="textlink textlink--muted" href="https://teagarden5.gumroad.com/" rel="noopener"><span>전체 스토어 보기</span><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+          </div>
+          <div class="shelf">
+            <a href="https://teagarden5.gumroad.com/l/ai-work-ko" rel="noopener"><img src="/assets/images/ebooks/ai-work-guide-ko.jpg" width="434" height="770" loading="lazy" decoding="async" alt="ChatGPT·Claude·Gemini 업무 활용 입문 2026 표지"></a>
+            <a href="https://teagarden5.gumroad.com/l/zibxvl" rel="noopener"><img src="/assets/images/ebooks/tokyo-first-trip-pack.jpg" width="800" height="1423" loading="lazy" decoding="async" alt="도쿄 첫 여행 실전팩 표지"></a>
+            <a href="https://teagarden5.gumroad.com/l/lbezhq" rel="noopener"><img src="/assets/images/ebooks/tokyo-nearby-pack.jpg" width="434" height="770" loading="lazy" decoding="async" alt="도쿄에서 당일치기·1박 근교 여행 실전팩 표지"></a>
+            <a href="https://teagarden5.gumroad.com/l/mfhchf" rel="noopener"><img src="/assets/images/ebooks/tokyo-autumn-2026.jpg" width="434" height="770" loading="lazy" decoding="async" alt="도쿄 가을 단풍 여행 2026 표지"></a>
+            <a href="https://teagarden5.gumroad.com/l/tokyo-kids" rel="noopener"><img src="/assets/images/ebooks/tokyo-kids.jpg" width="434" height="770" loading="lazy" decoding="async" alt="도쿄 아이와 함께 여행 실전팩 표지"></a>
+            <a href="https://teagarden5.gumroad.com/l/japan-taxfree" rel="noopener"><img src="/assets/images/ebooks/japan-taxfree-2026.jpg" width="434" height="770" loading="lazy" decoding="async" alt="일본 면세 쇼핑 완전 가이드 2026 표지"></a>
+          </div>
+          <ul class="plist">
+            <li><a class="item" href="https://teagarden5.gumroad.com/l/cxhiny" rel="noopener"><div><h3>AI 코딩 에이전트 완전판</h3><p>PDF · 95쪽 · 1년 업데이트 보장</p></div><span class="price">₩139,000</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="item" href="https://teagarden5.gumroad.com/l/jbqeaw" rel="noopener"><div><h3>Shorts·블로그·SEO 자동화 완전판</h3><p>PDF · 94쪽 · 1년 업데이트 보장</p></div><span class="price">₩169,000</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="item" href="https://teagarden5.gumroad.com/l/ai-work-ko" rel="noopener"><div><h3>ChatGPT·Claude·Gemini 업무 활용 입문 2026</h3><p>PDF · 42쪽</p></div><span class="price">₩139,000</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="item" href="https://teagarden5.gumroad.com/l/awnihs" rel="noopener"><div><h3>자동화 처리 응용편(고급) 1년 구독</h3><p>매주 레슨 1개, 모두 52개 · 연 결제, 자동 갱신</p></div><span class="price">₩1,000,000/년</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="item" href="https://teagarden5.gumroad.com/l/ufehcd" rel="noopener"><div><h3>도쿄 여행 묶음</h3><p>첫 여행 실전팩 + 근교 당일치기·1박 실전팩 · PDF 2권</p></div><span class="price">₩19,900</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+          </ul>
+          <p class="fine">결제할 때 세금이 더해질 수 있습니다. · <a href="/tokushoho.html" lang="ja">特定商取引法に基づく表記</a></p>
+        </div>
+      </article>
+
+      <article class="tile"><span class="tile__glow" aria-hidden="true"></span>
+        <div class="tile__in pad"><div class="train">
+          <div class="prod__top">
+            <p class="eyebrow eyebrow--plain">연수 · 일본 법인 · 일본어</p>
+            <span class="badge badge--on"><i aria-hidden="true"></i>판매 중</span>
+          </div>
+          <h3>Claude Code <span lang="ja">導入研修</span></h3>
+          <p class="sub">3시간 · 30분 히어링은 무료</p>
+          <p class="body">실제로 멈추는 장면만 다루는 연수입니다. 재현 데모 2종과 연습용 리포지토리, 팀용 CLAUDE.md 템플릿을 드립니다.</p>
+          <ul class="blockers" aria-label="다루는 장면">
+            <li class="chip">설치</li><li class="chip">CLAUDE.md</li><li class="chip">권한</li><li class="chip">사용 제한</li><li class="chip">자동 실행</li>
+          </ul>
+          <dl class="kv">
+            <div><dt>온라인 · 최대 10명</dt><dd>¥150,000</dd></div>
+            <div><dt>도쿄 대면 · 최대 20명</dt><dd>¥250,000</dd></div>
+            <div><dt>사전 히어링 30분</dt><dd>무료</dd></div>
+          </dl>
+          <a class="btn btn--ghost" href="/claude-code-kenshu.html"><span>연수 안내 (일본어)</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="brand" href="/" aria-label="Lumos 홈">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2" fill="none" stroke="#f4f4f5" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" fill="#c9ff3b"/></svg>
+          Lumos
+        </a>
+        <p>스토어 업로드가 막혔다면 진단부터 받아 보세요.</p>
+      </div>
+      <div>
+        <h2>서비스</h2>
+        <ul>
+          <li><a href="/sales/">서비스</a></li>
+          <li><a href="/offers/">상품</a></li>
+          <li><a href="/cordova.html">진단</a></li>
+          <li><a href="/retainer.html">유지보수</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>제품·도구</h2>
+        <ul>
+          <li><a href="/hot-launcher.html">HotLauncher</a></li>
+          <li><a href="/lumoszip.html">LumosZipForMac</a></li>
+          <li><a href="/threads-analyzer.html">스레드</a></li>
+          <li><a href="/tools/">도구</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>연락</h2>
+        <ul>
+          <li><a href="mailto:tolaria@naver.com">tolaria@naver.com</a></li>
+          <li><a href="https://github.com/Hwemo-Chung" rel="noopener">GitHub @Hwemo-Chung</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__base">
+      <span>Lumos</span>
+      <nav aria-label="약관">
+        <a href="/pp.html">개인정보처리방침</a>
+        <a href="/tokushoho.html" lang="ja">特定商取引法に基づく表記</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var fine=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!fine||reduce||!window.requestAnimationFrame) return; // static glow stays as authored
+
+  var tiles=Array.prototype.slice.call(document.querySelectorAll('.tile'));
+  var aura=document.querySelector('.aura');
+  var px=0,py=0,raf=0,on=false;
+
+  function paint(){
+    raf=0;
+    var vh=window.innerHeight;
+    for(var i=0;i<tiles.length;i++){
+      var r=tiles[i].getBoundingClientRect();
+      if(r.bottom<-320||r.top>vh+320) continue;
+      tiles[i].style.setProperty('--gx',(px-r.left).toFixed(1)+'px');
+      tiles[i].style.setProperty('--gy',(py-r.top).toFixed(1)+'px');
+    }
+    if(aura) aura.style.transform='translate3d('+px+'px,'+py+'px,0)';
+  }
+  function queue(){ if(!raf) raf=window.requestAnimationFrame(paint); }
+
+  window.addEventListener('pointermove',function(e){
+    if(e.pointerType==='touch') return;
+    px=e.clientX; py=e.clientY;
+    if(!on){ on=true; root.classList.add('is-spot'); }
+    queue();
+  },{passive:true});
+  window.addEventListener('scroll',function(){ if(on) queue(); },{passive:true});
+  root.addEventListener('pointerleave',function(){
+    on=false; root.classList.remove('is-spot');
+    for(var i=0;i<tiles.length;i++){ tiles[i].style.removeProperty('--gx'); tiles[i].style.removeProperty('--gy'); }
+  });
+})();
+</script>
+</body>
+</html>

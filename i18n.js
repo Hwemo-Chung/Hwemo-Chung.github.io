@@ -22,7 +22,7 @@ const siteTranslations = {
             quickContact: "빠른 문의",
             quickNavigation: "빠른 이동",
             scrollTable: "가로로 밀어 보세요",
-            disclaimer: "독립 계약 서비스이며 어떠한 고용주와도 제휴하지 않습니다."
+            disclaimer: "어떠한 고용주와도 제휴하지 않습니다."
         },
         aria: {
             sampleReport: "샘플 리포트 요약",
@@ -44,7 +44,13 @@ const siteTranslations = {
             sub: "2026년 4월 28일부터 App Store Connect는 iOS 26 SDK로 빌드한 앱만 받습니다. 같은 앱에 Play 타깃 API 기한과 Firebase Dynamic Links 종료도 겹칩니다. 무엇이 막혔는지 영업일 2일 안에 보고서로 알려 드리며, 10곳까지는 무료입니다.",
             ctaPrimary: "무료 진단 신청",
             ctaSecondary: "제품 보기",
-            fine: "독립 계약으로 일합니다. 새 앱 개발과 전면 재작성은 맡지 않습니다."
+            fine: "새 앱 개발과 전면 재작성은 맡지 않습니다."
+        },
+        hub: {
+            eyebrow: "Lumos · 전문 스튜디오",
+            doors: "스튜디오 안내",
+            rescue: "앱 구조·유지보수",
+            learn: "전자책·연수"
         },
         about: {
             title: "About Me",
@@ -89,7 +95,7 @@ const siteTranslations = {
             quickContact: "Quick contact",
             quickNavigation: "Quick navigation",
             scrollTable: "Scroll sideways",
-            disclaimer: "Independent contractor offer. Not affiliated with any employer."
+            disclaimer: "Not affiliated with any employer."
         },
         aria: {
             sampleReport: "Sample report summary",
@@ -111,7 +117,13 @@ const siteTranslations = {
             sub: "From April 28, 2026, App Store Connect only accepts apps built with the iOS 26 SDK. The Play target API deadline and the Firebase Dynamic Links shutdown hit the same apps. You get a report on what is blocking your app within 2 business days, free for the first 10 apps.",
             ctaPrimary: "Request a free diagnosis",
             ctaSecondary: "See the products",
-            fine: "I work as an independent contractor and don't take on new app builds or full rewrites."
+            fine: "I don't take on new app builds or full rewrites."
+        },
+        hub: {
+            eyebrow: "Lumos · Professional studio",
+            doors: "Studio guide",
+            rescue: "App rescue & maintenance",
+            learn: "E-books & training"
         },
         about: {
             title: "About Me",
@@ -156,7 +168,7 @@ const siteTranslations = {
             quickContact: "クイックお問い合わせ",
             quickNavigation: "クイックナビゲーション",
             scrollTable: "横にスクロールできます",
-            disclaimer: "独立請負サービスであり、いかなる雇用主とも提携していません。"
+            disclaimer: "いかなる雇用主とも提携していません。"
         },
         aria: {
             sampleReport: "サンプルレポートの概要",
@@ -178,7 +190,13 @@ const siteTranslations = {
             sub: "2026年4月28日から App Store Connect は iOS 26 SDK でビルドしたアプリしか受け付けません。同じアプリに Play のターゲット API 期限と Firebase Dynamic Links の終了も重なります。何が止めているかを2営業日以内にレポートでお伝えし、10件までは無料です。",
             ctaPrimary: "無料診断を申し込む",
             ctaSecondary: "製品を見る",
-            fine: "独立契約で請け負います。新規アプリ開発と全面的な書き直しはお受けしていません。"
+            fine: "新規アプリ開発と全面的な書き直しはお受けしていません。"
+        },
+        hub: {
+            eyebrow: "Lumos · 専門スタジオ",
+            doors: "スタジオ案内",
+            rescue: "アプリ救済・保守",
+            learn: "電子書籍・研修"
         },
         about: {
             title: "About Me",

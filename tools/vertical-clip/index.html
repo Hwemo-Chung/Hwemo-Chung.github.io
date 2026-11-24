@@ -11,12 +11,12 @@
 <style>
   .editor { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; padding: 16px; align-items: start; }
   .editor[hidden] { display: none; }
-  .frame { position: relative; overflow: hidden; border-radius: 6px; background: var(--ink); line-height: 0; touch-action: none; }
+  .frame { position: relative; overflow: hidden; border-radius: 6px; background: #000; line-height: 0; touch-action: none; }
   .frame video { width: 100%; display: block; }
   .box { position: absolute; top: 0; height: 100%; border: 2px solid #fff; outline: 2000px solid rgba(0, 0, 0, 0.55); cursor: grab; }
   .box:active { cursor: grabbing; }
   .vert { width: 180px; }
-  .vert canvas { width: 100%; aspect-ratio: 9 / 16; display: block; background: var(--ink); border-radius: 6px; }
+  .vert canvas { width: 100%; aspect-ratio: 9 / 16; display: block; background: #000; border-radius: 6px; }
   .vert p { margin: 8px 0 0; }
   .transport { grid-column: 1 / -1; display: flex; gap: 12px; align-items: center; }
   .transport input { flex: 1; }

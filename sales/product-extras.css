@@ -3,12 +3,12 @@
  */
 .ls-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; margin: 24px 0; background: var(--ls-border); border-radius: var(--ls-radius); overflow: hidden; box-shadow: var(--ls-ring); }
 .ls-stat { background: var(--ls-card); padding: 18px 20px; }
-.ls-stat__v { font: 500 26px/1.2 var(--ls-font-mono); letter-spacing: -0.6px; color: var(--ls-text); font-variant-numeric: tabular-nums; }
+.ls-stat__v { font: 700 27px/1.2 var(--ls-font); letter-spacing: -0.03em; color: var(--ls-text); font-variant-numeric: tabular-nums; }
 .ls-stat__l { color: var(--ls-muted); font-size: 13px; margin-top: 6px; }
 
 .ls-section { padding: 48px 0 0; margin-top: 48px; border-top: 1px solid var(--ls-border); }
 .ls-section:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
-.ls-kicker-n { font: 400 13px var(--ls-font-mono); color: var(--ls-faint); margin-right: 10px; }
+.ls-kicker-n { font: italic 400 22px/1 var(--ls-font-serif), var(--ls-font); color: var(--ls-violet); margin-right: 10px; }
 
 .ls-num { text-align: right; font-variant-numeric: tabular-nums; }
 .ls-good { color: var(--ls-text); font-weight: 600; }
@@ -17,7 +17,7 @@ ul.ls-dash b { color: var(--ls-text); font-weight: 600; }
 
 .ls-hero-center { padding: 8px 0 0; }
 
-.ls-cta-box { margin: 24px 0; padding: 32px; border-radius: var(--ls-radius); background: var(--ls-card); box-shadow: 0 0 0 1px var(--ls-text), 0 8px 16px -4px rgba(0, 0, 0, 0.06); }
+.ls-cta-box { margin: 24px 0; padding: 36px; border-radius: 28px; background: radial-gradient(60% 80% at 10% 110%, rgba(255, 79, 163, 0.32), transparent 70%), radial-gradient(70% 90% at 60% 120%, rgba(125, 92, 255, 0.5), transparent 70%), radial-gradient(50% 70% at 100% 100%, rgba(47, 214, 195, 0.24), transparent 70%), #0b0914; box-shadow: 0 0 0 1px var(--ls-border-strong); }
 .ls-cta-box .ls-price { font-size: 30px; }
 .ls-note { color: var(--ls-faint); font-size: 13px; margin-top: 12px; }
 
@@ -37,7 +37,7 @@ ul.ls-dash b { color: var(--ls-text); font-weight: 600; }
 .ls-xl .ls-table-scroll { box-shadow: none; margin: 0; border-radius: 0; }
 .ls-xl table { border-collapse: collapse; font-size: 13px; width: 100%; min-width: 420px; }
 .ls-xl th, .ls-xl td { padding: 7px 12px; border-bottom: 1px solid var(--ls-border); white-space: nowrap; text-align: left; }
-.ls-xl th { color: var(--ls-faint); font-weight: 500; background: var(--ls-bg); }
+.ls-xl th { color: var(--ls-faint); font-weight: 600; background: rgba(255, 255, 255, 0.04); }
 .ls-xl tbody tr:last-child td { border-bottom: 0; }
 
 .ls-wrap--product { max-width: 840px; }

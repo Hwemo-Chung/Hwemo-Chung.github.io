@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>홈페이지·랜딩페이지 제작 | 디자인 샘플 5종 | Lumos</title>
+  <meta name="description" content="디자인 샘플 5종 가운데 스타일을 골라 홈페이지나 랜딩페이지 제작을 맡길 수 있습니다. 프레임워크 없는 정적 HTML·CSS로 만들고, 가격과 일정은 견적 문의로 안내합니다." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://hwemo-chung.github.io/web-design.html" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lumos" />
+  <meta property="og:url" content="https://hwemo-chung.github.io/web-design.html" />
+  <meta property="og:title" content="홈페이지·랜딩페이지 제작 | 디자인 샘플 5종 | Lumos" />
+  <meta property="og:description" content="디자인 샘플 5종 가운데 스타일을 고르면 그 스타일로 홈페이지나 랜딩페이지를 만듭니다. 가격과 일정은 견적 문의." />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="홈페이지·랜딩페이지 제작 | 디자인 샘플 5종 | Lumos" />
+  <meta name="twitter:description" content="디자인 샘플 5종 가운데 스타일을 고르면 그 스타일로 홈페이지나 랜딩페이지를 만듭니다. 가격과 일정은 견적 문의." />
+  <meta name="twitter:image" content="https://hwemo-chung.github.io/assets/og-lumos.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://hwemo-chung.github.io/web-design.html#service",
+        "name": "홈페이지·랜딩페이지 제작",
+        "serviceType": "Website and landing page design and development",
+        "url": "https://hwemo-chung.github.io/web-design.html",
+        "description": "디자인 샘플 5종 가운데 스타일을 골라 홈페이지나 랜딩페이지 제작을 맡길 수 있습니다. 프레임워크 없는 정적 HTML·CSS로 만들고, 가격과 일정은 견적 문의로 안내합니다.",
+        "provider": { "@type": "Person", "@id": "https://hwemo-chung.github.io/#person", "name": "정휘모" }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="sales/tokens.css" />
+  <link rel="stylesheet" href="sales/components.css" />
+  <link rel="stylesheet" href="sales/site-unified.css" />
+  <style>
+    /* Page-specific rules for web-design.html only. Colours and radii come from sales/tokens.css. */
+    .wd-main [id] { scroll-margin-top: 76px; }
+    .wd-narrow { max-width: 760px; }
+    .wd-hero h1 .wd-prism { background: var(--ls-prism); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    .wd-samples { display: grid; gap: 16px; margin-top: 20px; grid-template-columns: minmax(0, 1fr); }
+    @media (min-width: 680px) { .wd-samples { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 960px) {
+      .wd-samples { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .wd-card { grid-column: span 2; }
+      .wd-card:nth-child(-n+2) { grid-column: span 3; }
+    }
+    .wd-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+    .wd-card:focus-within { box-shadow: 0 0 0 2px var(--ls-sky); }
+    .wd-thumb { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 750; object-fit: cover; object-position: top; background: var(--ls-card); border-bottom: 1px solid var(--ls-border); }
+    .wd-card__body { display: flex; flex-direction: column; flex: 1; padding: 20px 22px 22px; }
+    .wd-card__body h3 { font-size: 19px; }
+    .wd-card__body p { font-size: 15px; }
+    .wd-card__body .ls-card__tag { align-self: flex-start; }
+    .wd-open { margin: auto 0 0 !important; padding-top: 6px; }
+    /* One link per card; its ::after stretches over the whole card so the thumbnail is clickable too. */
+    .wd-open a::after { content: ""; position: absolute; inset: 0; }
+    .wd-open a:focus-visible { outline: none; }
+
+    .wd-incl li strong { display: block; font-size: 16px; }
+    .wd-steps { list-style: none; padding: 0; }
+    @media (min-width: 960px) { .ls-funnel.wd-steps { grid-template-columns: repeat(5, 1fr); } }
+  </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514"
+        crossorigin="anonymous"></script>
+</head>
+<body class="ls">
+  <a class="ls-skip" href="#main" data-i18n="common.skip">본문으로</a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="/">Lumos</a>
+      <ul>
+        <li><a href="/" data-i18n="nav.home">홈</a></li>
+        <li><a href="/sales/" data-i18n="nav.sales">서비스</a></li>
+        <li><a href="/offers/" data-i18n="nav.offers">상품</a></li>
+        <li><a href="/cordova.html" data-i18n="nav.diagnosis">진단</a></li>
+        <li><a href="/retainer.html" data-i18n="nav.retainer">유지보수</a></li>
+        <li><a href="/threads-analyzer.html" data-i18n="nav.threads">스레드</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="ls-wrap ls-wrap--wide wd-main">
+    <div class="wd-hero wd-narrow">
+      <p class="ls-kicker">Lumos · 전문 스튜디오</p>
+      <h1>홈페이지·<span class="wd-prism">랜딩페이지</span> 제작</h1>
+      <p class="ls-lead">아래 디자인 샘플 5종 가운데 스타일을 고르시면, 그 스타일로 홈페이지나 랜딩페이지를 만들어 드립니다. 샘플은 모두 직접 열어 볼 수 있는 페이지입니다.</p>
+      <div class="ls-cta">
+        <a class="ls-btn ls-btn--primary" href="#contact">견적 문의</a>
+        <a class="ls-btn" href="#samples">샘플 보기</a>
+      </div>
+      <p class="ls-fine">가격과 일정은 견적 문의로 안내합니다.</p>
+    </div>
+
+    <h2 id="samples">디자인 샘플 5종</h2>
+    <p class="wd-narrow">같은 내용을 다섯 가지 스타일로 만든 페이지입니다. 썸네일은 1440px 화면에서 본 첫 화면입니다.</p>
+    <div class="wd-samples">
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="assets/images/samples/aurora-glass.webp" width="1200" height="750" decoding="async"
+             alt="Aurora Glass 샘플의 첫 화면. 어두운 남색 배경에 청록과 보라 빛이 번지고, 반투명 유리 카드 네 장이 나란히 놓여 있습니다." />
+        <div class="wd-card__body">
+          <h3>Aurora Glass</h3>
+          <p>어두운 배경에 오로라처럼 번지는 빛과 반투명 유리 카드를 겹친 스타일입니다. 앱이나 SaaS처럼 기술 제품을 차분하게 소개하는 페이지에 어울립니다.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/aurora-glass/" aria-label="Aurora Glass 샘플 열기">샘플 열기</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="assets/images/samples/spotlight-bento.webp" width="1200" height="750" decoding="async"
+             alt="Spotlight Bento 샘플의 첫 화면. 검은 배경에 라임색 버튼과 강조 글자가 있고, 크기가 다른 칸 네 개에 내용이 나뉘어 있습니다." />
+        <div class="wd-card__body">
+          <h3>Spotlight Bento</h3>
+          <p>검은 바탕에 라임색 포인트를 두고, 크기가 다른 칸에 내용을 나눠 담는 벤토 그리드 스타일입니다. 제품이나 기능이 여러 개라 한 화면에서 훑어보게 하고 싶을 때 어울립니다.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/spotlight-bento/" aria-label="Spotlight Bento 샘플 열기">샘플 열기</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="assets/images/samples/frost-light.webp" width="1200" height="750" loading="lazy" decoding="async"
+             alt="Frost Light 샘플의 첫 화면. 밝은 배경에 옅은 파스텔 빛이 번지고, 가운데 정렬한 큰 제목 아래 흰 카드 네 장이 있습니다." />
+        <div class="wd-card__body">
+          <h3>Frost Light</h3>
+          <p>밝은 바탕에 옅은 파스텔 빛과 흰 유리 카드를 쓴 라이트 스타일입니다. 상담, 교육, 생활 서비스처럼 밝고 깨끗한 인상이 필요한 페이지에 어울립니다.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/frost-light/" aria-label="Frost Light 샘플 열기">샘플 열기</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="assets/images/samples/terminal-editorial.webp" width="1200" height="750" loading="lazy" decoding="async"
+             alt="Terminal Editorial 샘플의 첫 화면. 모눈 무늬가 있는 검은 배경에 큰 제목과 터미널 창 모양의 패널이 있습니다." />
+        <div class="wd-card__body">
+          <h3>Terminal Editorial</h3>
+          <p>모눈 배경과 고정폭 글꼴, 터미널 창을 큰 제목과 함께 쓴 스타일입니다. 개발 도구나 API 문서처럼 개발자가 읽는 페이지에 어울립니다.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/terminal-editorial/" aria-label="Terminal Editorial 샘플 열기">샘플 열기</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="assets/images/samples/prism-mesh.webp" width="1200" height="750" loading="lazy" decoding="async"
+             alt="Prism Mesh 샘플의 첫 화면. 프리즘 빛깔 그라데이션 배경에 유리 질감의 고리와 기둥 도형이 떠 있습니다." />
+        <div class="wd-card__body">
+          <span class="ls-card__tag">현재 Lumos 홈에 적용</span>
+          <h3>Prism Mesh</h3>
+          <p>프리즘 빛깔 그라데이션 배경에 유리 질감의 입체 도형을 올린 스타일입니다. 스튜디오나 브랜드 소개처럼 첫 화면의 인상이 중요한 페이지에 어울립니다.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/prism-mesh/" aria-label="Prism Mesh 샘플 열기">샘플 열기</a></p>
+        </div>
+      </article>
+    </div>
+
+    <h2 id="includes">모든 제작물에 들어가는 것</h2>
+    <p class="wd-narrow">위 샘플과 이 페이지에서 확인한 것만 적었습니다.</p>
+    <ul class="ls-dash wd-incl wd-narrow">
+      <li><strong>프레임워크 없는 정적 HTML·CSS</strong>샘플은 각각 HTML 파일 하나입니다. 프레임워크와 빌드 과정 없이 정적 호스팅에 그대로 올릴 수 있습니다.</li>
+      <li><strong>390px 모바일 레이아웃 확인</strong>다섯 샘플 모두 폭 390px 화면에서 가로로 넘치지 않는지 확인했습니다.</li>
+      <li><strong>검색용 head 구성</strong>제목, 설명, canonical, Open Graph, JSON-LD를 넣습니다. 지금 보시는 이 페이지의 구성이 그 예입니다. 샘플 페이지는 검색 결과에 나오지 않도록 noindex로 막아 두었습니다.</li>
+      <li><strong>동작 줄이기 설정 반영</strong>기기에서 동작 줄이기(prefers-reduced-motion)를 켜면 애니메이션을 끄거나 멈춥니다.</li>
+      <li><strong>WCAG AA 글자 대비 확인</strong>글자와 배경의 명도 대비가 WCAG AA 기준(보통 글자 4.5:1, 큰 글자 3:1)을 넘는지 샘플마다 측정했습니다.</li>
+    </ul>
+
+    <h2 id="process">진행 순서</h2>
+    <ol class="ls-funnel wd-steps">
+      <li class="ls-funnel__step"><span class="ls-funnel__n">1</span><strong>문의</strong><p>만들 페이지와 마음에 드는 샘플을 메일로 알려 주십시오.</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">2</span><strong>스타일 선택</strong><p>다섯 샘플 가운데 하나를 고릅니다.</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">3</span><strong>초안</strong><p>고른 스타일에 받은 내용을 넣어 초안을 보여 드립니다.</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">4</span><strong>수정</strong><p>초안을 보고 고칠 곳을 알려 주시면 반영합니다.</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">5</span><strong>납품</strong><p>완성한 HTML·CSS 파일을 전달합니다.</p></li>
+    </ol>
+
+    <h2 id="price">가격과 일정</h2>
+    <div class="ls-callout wd-narrow">
+      <strong>견적 문의</strong>
+      <p>가격과 일정은 견적 문의로 안내합니다.</p>
+    </div>
+
+    <h2 id="contact">문의</h2>
+    <p class="wd-narrow">제작 문의는 <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>으로 보내 주십시오. 마음에 드는 샘플 이름과 만들 페이지를 적어 주시면 견적을 보내 드립니다.</p>
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com">메일로 견적 문의</a>
+    </div>
+
+    <footer class="ls-foot">
+      <nav data-i18n-aria-label="common.footerNav">
+        <a href="/" data-i18n="nav.home">홈</a>
+        <a href="/sales/" data-i18n="nav.sales">서비스</a>
+        <a href="/offers/" data-i18n="nav.offers">상품</a>
+        <a href="/retainer.html" data-i18n="nav.retainer">유지보수</a>
+        <a href="/pp.html" data-i18n="footer.privacy">개인정보처리방침</a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+      <p data-i18n="common.disclaimer"></p>
+    </footer>
+  </main>
+
+  <script src="/i18n.js"></script>
+</body>
+</html>

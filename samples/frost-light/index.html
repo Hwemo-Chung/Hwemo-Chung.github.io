@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumos | 막힌 앱은 다시 스토어로, 필요한 도구는 직접 만듭니다</title>
+<meta name="description" content="Lumos는 전문 스튜디오입니다. 업데이트가 막힌 Cordova·Ionic 앱의 진단과 유지보수, Mac 앱과 웹 서비스, 브라우저 도구 30개, 전자책과 Claude Code 연수를 한곳에서 안내합니다.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://hwemo-chung.github.io/web-design.html">
+<style>
+/* Lumos sample bar: fixed strip above the sample; the page and its own header are pushed down by --sbar. */
+:root{--sbar:40px}
+body{padding-top:var(--sbar)}
+.lsbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--sbar);display:flex;align-items:center;justify-content:center;gap:14px;padding:0 12px;box-sizing:border-box;background:#0b0b10;color:#e9e9ef;border-bottom:1px solid rgba(255,255,255,.16);font:500 13px/1 "Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;letter-spacing:-.01em;white-space:nowrap}
+.lsbar a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+a.skip:focus{top:calc(var(--sbar) + 12px)}
+.lsbar a:focus-visible{outline:2px solid #8cc2ff;outline-offset:3px}
+@media (max-width:420px){.lsbar{gap:10px;font-size:12px}}
+@media print{.lsbar{display:none}body{padding-top:0}}
+</style>
+<meta name="theme-color" content="#F5F4F0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%2314151B' stroke-width='2.4'/%3E%3Ccircle cx='19.5' cy='12.5' r='4.6' fill='%234636E8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* ───────── Tokens ───────── */
+:root{
+  --canvas:#F5F4F0;
+  --ink:#14151B;
+  --ink-2:#414454;
+  --ink-3:#545868;
+  --line:rgba(20,21,27,.08);
+  --line-2:rgba(20,21,27,.14);
+  --accent:#4636E8;
+  --accent-deep:#3526C9;
+  --accent-soft:rgba(70,54,232,.09);
+  --lilac:#DCD0FF;
+  --sky:#CBE5FF;
+  --peach:#FFDAC6;
+  --frost:rgba(255,255,255,.64);
+  --frost-strong:rgba(255,255,255,.82);
+  --hairline:rgba(255,255,255,.92);
+  --shadow-sm:0 1px 2px rgba(24,22,60,.04),0 4px 12px -4px rgba(24,22,60,.06);
+  --shadow-md:0 1px 2px rgba(24,22,60,.04),0 10px 28px -10px rgba(40,36,110,.10),0 36px 72px -36px rgba(60,50,140,.16);
+  --shadow-lg:0 1px 2px rgba(24,22,60,.04),0 18px 40px -16px rgba(40,36,110,.14),0 64px 120px -48px rgba(60,50,140,.24);
+  --r-sm:12px; --r-md:20px; --r-lg:28px; --r-xl:36px; --r-pill:999px;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Hiragino Sans","Noto Sans KR","Noto Sans JP",system-ui,sans-serif;
+  --jp:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",var(--sans);
+  --serif:"Instrument Serif","Iowan Old Style","Times New Roman",serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --wrap:1160px;
+  --gutter:24px;
+  --sec:144px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--canvas);-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(96px + var(--sbar))}
+body{
+  margin:0;position:relative;z-index:0;overflow-x:clip;
+  font-family:var(--sans);font-size:16px;line-height:1.65;color:var(--ink);
+  font-feature-settings:"ss06","case";letter-spacing:-.008em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  word-break:keep-all;overflow-wrap:break-word;
+}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+:lang(ja){font-family:var(--jp)}
+.serif{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;font-feature-settings:normal}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-80px;z-index:100;padding:10px 16px;border-radius:12px;background:var(--ink);color:#fff;font-weight:600}
+.skip:focus{top:16px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.wrap{width:min(var(--wrap),calc(100% - var(--gutter)*2));margin-inline:auto}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ───────── Pastel wash ───────── */
+.wash{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;width:var(--s,820px);height:var(--s,820px);border-radius:50%;
+  background:radial-gradient(closest-side,var(--c) 0%,color-mix(in srgb,var(--c) 55%,transparent) 42%,transparent 100%);
+  animation:drift var(--t,44s) ease-in-out infinite alternate;will-change:transform}
+.blob:nth-child(even){animation-direction:alternate-reverse}
+@keyframes drift{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(46px,-28px,0) scale(1.07)}
+  100%{transform:translate3d(-34px,36px,0) scale(.96)}
+}
+
+/* ───────── Nav ───────── */
+.nav{position:sticky;top:calc(14px + var(--sbar));z-index:50;margin:14px auto 0;width:min(var(--wrap),calc(100% - 32px));
+  height:58px;display:flex;align-items:center;gap:8px;padding:0 9px 0 22px;border-radius:var(--r-pill);
+  background:rgba(255,255,255,.8);border:1px solid var(--hairline);
+  -webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);
+  box-shadow:var(--shadow-md)}
+.brand{display:inline-flex;align-items:center;gap:9px;margin-right:auto;padding:6px 4px}
+.brand svg{width:22px;height:22px}
+.brand b{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1;letter-spacing:-.015em}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{padding:8px 13px;border-radius:var(--r-pill);font-size:14.5px;font-weight:500;color:var(--ink-2)}
+.nav-links a:hover{background:rgba(20,21,27,.05);color:var(--ink)}
+.nav .btn{height:40px;padding:0 17px;font-size:14.5px;margin-left:8px}
+.menu-btn{display:none;width:40px;height:40px;border:0;border-radius:50%;background:rgba(20,21,27,.05);color:var(--ink);cursor:pointer;place-items:center}
+
+/* ───────── Buttons / badges ───────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 24px;border-radius:var(--r-pill);
+  font-size:16px;font-weight:600;letter-spacing:-.012em;white-space:nowrap;transition:transform .25s var(--ease)}
+.btn .ico{width:18px;height:18px;transition:transform .25s var(--ease)}
+.btn:hover .ico{transform:translateX(3px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 1px 2px rgba(53,38,201,.4),0 10px 24px -8px rgba(70,54,232,.55)}
+.btn-primary:hover{background:var(--accent-deep);transform:translateY(-1px)}
+.btn-ghost{background:var(--frost-strong);color:var(--ink);border:1px solid var(--hairline);box-shadow:var(--shadow-sm),0 0 0 1px var(--line)}
+.btn-ghost:hover{background:#fff;transform:translateY(-1px)}
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px 0 9px;border-radius:var(--r-pill);background:rgba(255,255,255,.9);
+  box-shadow:0 0 0 1px var(--line);font-size:12.5px;font-weight:600;line-height:1;color:var(--ink-2);white-space:nowrap;flex:none}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--d,var(--accent))}
+.b-free{--d:#0E9488}.b-live{--d:#1E9E57}.b-sale,.b-open{--d:var(--accent)}.b-wait{--d:#D98314}.b-build{--d:#8A8E9C}
+.tlink{display:inline-flex;align-items:center;gap:5px;font-size:14.5px;font-weight:600;color:var(--accent-deep)}
+.tlink .ico{width:16px;height:16px;transition:transform .25s var(--ease)}
+.tlink:hover .ico{transform:translate(2px,-2px)}
+.tlink.plain{color:var(--ink-2)}
+.tlink.plain:hover{color:var(--ink)}
+
+/* ───────── Cards ───────── */
+.card{position:relative;border-radius:var(--r-lg);background:var(--frost);border:1px solid var(--hairline);box-shadow:var(--shadow-md)}
+.lift{transition:transform .35s var(--ease)}
+.lift:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);background:var(--frost-strong)}
+
+/* ───────── Hero ───────── */
+.hero{padding:54px 0 0;text-align:center}
+br.m{display:none}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 15px 0 12px;border-radius:var(--r-pill);
+  background:rgba(255,255,255,.6);border:1px solid var(--hairline);box-shadow:var(--shadow-sm);font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.hero h1{margin-top:26px;font-size:clamp(34px,5.05vw,70px);line-height:1.13;font-weight:700;letter-spacing:-.04em;text-wrap:balance}
+.hero h1 .serif{font-size:1.2em;line-height:.9;letter-spacing:-.02em;font-style:italic;margin-right:.04em}
+.hero .lead{max-width:640px;margin:24px auto 0;font-size:18.5px;line-height:1.66;color:var(--ink-2);text-wrap:balance}
+.cta-row{display:flex;justify-content:center;gap:12px;margin-top:32px;flex-wrap:wrap}
+.hero-note{margin-top:16px;font-size:13.5px;color:var(--ink-3)}
+
+.doors{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:50px;text-align:left}
+.door{display:flex;flex-direction:column;padding:22px 22px 14px;border-radius:var(--r-lg);
+  background:rgba(255,255,255,.56);border:1px solid var(--hairline);
+  -webkit-backdrop-filter:blur(26px) saturate(160%);backdrop-filter:blur(26px) saturate(160%);
+  box-shadow:var(--shadow-md);transition:transform .35s var(--ease)}
+.door:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);background:rgba(255,255,255,.74)}
+.door-top{display:flex;align-items:center;justify-content:space-between;color:var(--ink-3)}
+.door-no{font-size:22px;line-height:1;color:var(--ink-3)}
+.door-ico{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--tint);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
+.door h2{margin-top:16px;font-size:20px;line-height:1.3;font-weight:700;letter-spacing:-.028em}
+.door h2 a{display:inline-flex;align-items:center;gap:6px}
+.door h2 .ico{width:17px;height:17px;color:var(--ink-3);transition:transform .25s var(--ease)}
+.door:hover h2 .ico{transform:translateX(3px);color:var(--accent)}
+.door-desc{margin-top:6px;font-size:14px;line-height:1.55;color:var(--ink-2);min-height:44px}
+.door-items{margin-top:14px;border-top:1px solid var(--line)}
+.door-items li+li{border-top:1px solid var(--line)}
+.door-items a{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:42px;padding:8px 0;font-size:14px;font-weight:550;line-height:1.35;letter-spacing:-.015em}
+.door-items a:hover{color:var(--accent-deep)}
+.door-items .meta{font-size:12.5px;font-weight:500;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ───────── Sections ───────── */
+.section{padding-top:var(--sec)}
+.sec-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:56px;align-items:end;margin-bottom:48px}
+.kicker{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-bottom:18px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.kicker .serif{font-size:21px;line-height:1;color:var(--accent-deep)}
+.kicker::after{content:"";flex:1;height:1px;background:var(--line-2)}
+.sec-head h2{font-size:clamp(28px,3.5vw,46px);line-height:1.2;font-weight:700;letter-spacing:-.036em;text-wrap:balance}
+.sec-head h2 .serif{font-size:1.16em;line-height:.9;font-style:italic;letter-spacing:-.015em}
+.sec-lead{font-size:17px;line-height:1.7;color:var(--ink-2);text-wrap:pretty;padding-bottom:6px}
+.sec-lead .tlink{margin-top:12px}
+
+/* Rescue */
+.causes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cause{padding:28px 28px 26px;display:flex;flex-direction:column}
+.cause-tag{font-size:13px;font-weight:600;color:var(--ink-3)}
+.cause h3{margin-top:10px;font-family:var(--serif);font-weight:400;font-size:33px;line-height:1.08;letter-spacing:-.018em}
+.cause p{margin-top:14px;font-size:15.5px;line-height:1.68;color:var(--ink-2);flex:1}
+.cause-state{display:flex;align-items:center;gap:9px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;font-weight:600;color:var(--ink)}
+.cause-state i{width:8px;height:8px;border-radius:50%;background:var(--d);box-shadow:0 0 0 4px color-mix(in srgb,var(--d) 16%,transparent)}
+
+.process{margin-top:16px;padding:36px 36px 0;overflow:hidden}
+.process-title{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.process-title h3{font-size:21px;font-weight:700;letter-spacing:-.028em}
+.process-title p{font-size:14.5px;color:var(--ink-3)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:30px;counter-reset:s}
+.step{position:relative;padding:26px 28px 34px 0}
+.step::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line-2)}
+.step::after{content:"";position:absolute;left:0;top:-5px;width:11px;height:11px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px var(--line-2),inset 0 0 0 3px #fff,inset 0 0 0 6px var(--accent)}
+.step-no{font-family:var(--serif);font-size:44px;line-height:1;color:var(--ink);letter-spacing:-.02em}
+.step h4{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:16px 0 0;font-size:19px;font-weight:700;letter-spacing:-.028em}
+.pill{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:var(--r-pill);background:var(--accent-soft);color:var(--accent-deep);font-size:12.5px;font-weight:700;letter-spacing:-.01em}
+.step p{margin-top:8px;font-size:15px;line-height:1.65;color:var(--ink-2);max-width:230px}
+.process-cta{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:0 -36px;padding:22px 36px;border-top:1px solid var(--line);background:rgba(255,255,255,.5)}
+.process-cta p{font-size:16.5px;font-weight:600;letter-spacing:-.02em}
+.process-cta p span{display:block;margin-top:2px;font-size:14px;font-weight:400;color:var(--ink-3);letter-spacing:-.008em}
+.process-cta .btns{display:flex;gap:10px;flex-wrap:wrap}
+.process-cta .btn{height:46px;padding:0 20px;font-size:15px}
+
+/* Products */
+.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(264px,auto);gap:16px}
+.prod{display:flex;flex-direction:column;padding:26px 26px 24px}
+.prod-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mono{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--tint);box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),0 4px 10px -4px rgba(40,36,110,.18);
+  font-family:var(--serif);font-size:27px;line-height:1;color:var(--ink);padding-bottom:2px}
+.prod h3{margin-top:18px;font-family:var(--serif);font-weight:400;font-size:31px;line-height:1.1;letter-spacing:-.018em}
+.prod-kind{margin-top:5px;font-size:13px;font-weight:600;color:var(--ink-3)}
+.prod p.desc{margin-top:12px;font-size:15px;line-height:1.68;color:var(--ink-2);flex:1;text-wrap:pretty}
+.prod-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px}
+.prod.feature{grid-column:span 2;grid-row:span 2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;padding:0;overflow:hidden}
+.feature-text{display:flex;flex-direction:column;padding:34px 12px 32px 34px}
+.feature-text h3{font-size:46px;margin-top:26px}
+.feature-text p.desc{font-size:16px;flex:0}
+.feature-facts{display:grid;gap:9px;margin-top:22px;font-size:14.5px;font-weight:550;color:var(--ink)}
+.feature-facts li{display:flex;align-items:center;gap:10px}
+.feature-facts .ico{width:18px;height:18px;color:var(--accent)}
+.feature-text .prod-links{margin-top:auto;padding-top:28px}
+.feature-shot{position:relative;margin:34px -40px -70px 0;border-radius:18px 0 0 0;overflow:hidden;box-shadow:0 0 0 1px rgba(20,21,27,.08),0 30px 60px -20px rgba(40,36,110,.3);align-self:start;background:#f3f3f5}
+.feature-shot img{width:100%;height:auto}
+
+/* Tools */
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.cats li{display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 13px;border-radius:var(--r-pill);background:rgba(255,255,255,.6);border:1px solid var(--hairline);box-shadow:0 0 0 1px var(--line);font-size:13.5px;font-weight:550;color:var(--ink-2)}
+.cats li b{font-family:var(--serif);font-weight:400;font-size:17px;line-height:1;color:var(--ink)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tile{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:var(--r-md);background:var(--frost);border:1px solid var(--hairline);box-shadow:var(--shadow-sm);min-height:78px}
+.tile-ico{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--tint);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(255,255,255,.75);flex:none}
+.tile b{display:block;font-size:15px;font-weight:600;line-height:1.35;letter-spacing:-.022em}
+.tile small{display:block;margin-top:2px;font-size:12.5px;font-weight:500;color:var(--ink-3)}
+.tiles-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:20px;font-size:14.5px;color:var(--ink-3)}
+.extras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:40px;padding:6px 0}
+.extra{padding:22px 28px}
+.extra+.extra{border-left:1px solid var(--line)}
+.extra h4{margin:0;font-size:16.5px;font-weight:700;letter-spacing:-.024em}
+.extra h4 a{display:inline-flex;align-items:center;gap:6px}
+.extra h4 .ico{width:16px;height:16px;color:var(--ink-3)}
+.extra p{margin-top:6px;font-size:14.5px;line-height:1.62;color:var(--ink-2)}
+.extras-label{margin-top:48px;font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink-2)}
+.extras-label+.extras{margin-top:12px}
+
+/* Learn */
+.books{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.books li{display:flex}
+.book{display:flex;flex-direction:column;flex:1;min-width:0;padding:10px 10px 18px;border-radius:var(--r-lg)}
+.book-cover{aspect-ratio:16/10;border-radius:19px;overflow:hidden;background:#e9eaf0;box-shadow:inset 0 0 0 1px rgba(20,21,27,.06)}
+.book-cover img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s var(--ease)}
+.book:hover .book-cover img{transform:scale(1.03)}
+.book-body{display:flex;flex-direction:column;flex:1;padding:16px 10px 0}
+.book h3{font-size:16px;line-height:1.45;font-weight:650;letter-spacing:-.024em}
+.book .meta{margin-top:6px;font-size:13px;color:var(--ink-3)}
+.book-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:16px}
+.price{font-size:17px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.price small{font-size:13px;font-weight:500;color:var(--ink-3)}
+.learn-row{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:16px;margin-top:16px}
+.shelf{padding:30px 32px 26px;display:flex;flex-direction:column}
+.shelf-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.shelf-head h3,.train h3{font-size:21px;font-weight:700;letter-spacing:-.028em}
+.rows{margin-top:16px}
+.rows li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;column-gap:20px;padding:16px 0;border-top:1px solid var(--line)}
+.rows h4{margin:0;font-size:16px;font-weight:650;letter-spacing:-.024em;line-height:1.4}
+.rows .meta{margin-top:3px;font-size:13.5px;line-height:1.55;color:var(--ink-3)}
+.rows .meta a{color:var(--accent-deep);font-weight:600}
+.buy{display:inline-flex;align-items:center;gap:4px;height:36px;padding:0 14px;border-radius:var(--r-pill);background:rgba(255,255,255,.9);box-shadow:0 0 0 1px var(--line-2);font-size:13.5px;font-weight:600}
+.buy:hover{background:var(--accent);color:#fff;box-shadow:0 0 0 1px var(--accent)}
+.fine{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-size:13px;line-height:1.7;color:var(--ink-3)}
+.fine a{color:var(--ink-2);font-weight:600;text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+.train{padding:30px 32px 30px;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.78),rgba(255,255,255,.5))}
+.train-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.train-top span{font-size:13px;font-weight:600;color:var(--ink-3)}
+.train h3{margin-top:18px;font-size:30px;line-height:1.2;font-weight:700;letter-spacing:-.02em}
+.train h3 .serif{font-size:1.22em;line-height:.9}
+.train p.desc{margin-top:12px;font-size:15px;line-height:1.7;color:var(--ink-2)}
+.fees{margin-top:20px;border-top:1px solid var(--line)}
+.fees div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.fees dt{font-size:14.5px;font-weight:550;color:var(--ink-2)}
+.fees dd{font-size:18px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.train .gives{margin-top:16px;font-size:14px;line-height:1.7;color:var(--ink-2)}
+.train .btn{margin-top:22px;align-self:flex-start;height:46px;padding:0 20px;font-size:15px}
+
+/* Closing */
+.closing{position:relative;margin-top:var(--sec);padding:76px 72px;border-radius:var(--r-xl);background:var(--ink);color:#fff;overflow:hidden;isolation:isolate;
+  box-shadow:0 40px 90px -40px rgba(30,24,90,.55)}
+.closing::before,.closing::after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none}
+.closing::before{width:620px;height:620px;left:-180px;top:-330px;background:radial-gradient(closest-side,rgba(150,128,255,.42),transparent)}
+.closing::after{width:600px;height:600px;right:-180px;bottom:-380px;background:radial-gradient(closest-side,rgba(110,170,255,.34),transparent)}
+.closing-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:56px;align-items:end}
+.closing h2{font-size:clamp(28px,3.6vw,48px);line-height:1.2;font-weight:700;letter-spacing:-.038em;text-wrap:balance}
+.closing .sub{margin-top:16px;font-size:17px;line-height:1.7;color:rgba(255,255,255,.74);max-width:520px}
+.closing .cta-row{justify-content:flex-start;margin-top:34px}
+.btn-light{background:#fff;color:var(--ink);box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.btn-light:hover{transform:translateY(-1px)}
+.btn-line{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+.contact{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.16)}
+.contact div{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.contact dt{font-size:13.5px;color:rgba(255,255,255,.74)}
+.contact dd{font-size:15.5px;font-weight:600}
+.contact a:hover{text-decoration:underline;text-underline-offset:4px}
+
+.stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.stack div{padding:22px 26px;border-radius:var(--r-md);background:rgba(255,255,255,.5);border:1px solid var(--hairline);box-shadow:var(--shadow-sm)}
+.stack dt{font-size:13px;font-weight:600;color:var(--ink-3)}
+.stack dd{margin-top:6px;font-size:15px;font-weight:550;line-height:1.6;letter-spacing:-.016em;color:var(--ink)}
+
+/* Footer */
+.foot{margin-top:96px;padding:36px 0 44px;border-top:1px solid var(--line-2)}
+.foot-grid{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.foot .brand{margin:0;padding:0}
+.foot-tag{margin-top:10px;font-size:14px;color:var(--ink-3);max-width:320px}
+.foot nav ul{display:flex;flex-wrap:wrap;gap:6px 22px;max-width:520px;justify-content:flex-end}
+.foot nav a{font-size:14.5px;font-weight:500;color:var(--ink-2)}
+.foot nav a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.legal{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;margin-top:32px;font-size:13.5px;color:var(--ink-3)}
+.legal ul{display:flex;gap:6px 20px;flex-wrap:wrap}
+.legal a:hover{color:var(--ink)}
+
+/* ───────── Reveal ───────── */
+.js [data-r]{opacity:0;transform:translate3d(0,16px,0);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--rd,0ms)}
+.js [data-r].in{opacity:1;transform:none}
+
+/* ───────── Responsive ───────── */
+@media (max-width:1100px){
+  .doors{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .door-desc{min-height:0}
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .prod.feature{grid-column:span 2;grid-row:auto}
+  .tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .closing{padding:60px 48px}
+}
+@media (max-width:920px){
+  :root{--sec:104px}
+  .nav-links{display:none;position:absolute;left:0;right:0;top:68px;flex-direction:column;align-items:stretch;gap:0;padding:10px;border-radius:24px;
+    background:#fff;border:1px solid var(--hairline);box-shadow:var(--shadow-lg)}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:13px 16px;font-size:16px;border-radius:14px}
+  .menu-btn{display:grid;order:3}
+  .nav .btn{margin-left:0}
+  .sec-head{grid-template-columns:1fr;row-gap:16px;margin-bottom:36px}
+  .causes{grid-template-columns:1fr}
+  .steps{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .books{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .learn-row,.closing-grid{grid-template-columns:1fr}
+  .closing-grid{gap:40px}
+  .stack{grid-template-columns:1fr}
+  .extras{grid-template-columns:1fr}
+  .extra+.extra{border-left:0;border-top:1px solid var(--line)}
+  .foot nav ul{justify-content:flex-start}
+}
+@media (max-width:640px){
+  :root{--gutter:18px;--sec:88px}
+  body{font-size:15.5px}
+  .nav{top:calc(10px + var(--sbar));margin-top:10px;height:54px;padding:0 7px 0 16px;width:calc(100% - 20px)}
+  .brand b{font-size:25px}
+  .nav .btn{height:40px;padding:0 15px;font-size:14px}
+  .hero{padding-top:40px}
+  br.m{display:inline}
+  br.d{display:none}
+  .eyebrow{height:32px;font-size:13px}
+  .hero h1{margin-top:20px;font-size:35px;line-height:1.2;letter-spacing:-.042em}
+  .hero .lead{margin-top:18px;font-size:16.5px;line-height:1.68}
+  .cta-row{margin-top:26px;gap:10px}
+  .hero .cta-row .btn{flex:1 1 0;padding:0 14px;font-size:15.5px}
+  .doors{grid-template-columns:1fr;gap:12px;margin-top:40px}
+  .door{padding:20px 20px 10px;border-radius:24px}
+  .door-top{position:absolute;right:20px;top:20px}
+  .door{position:relative}
+  .door-no{display:none}
+  .door h2{margin-top:0;padding-right:48px}
+  .door-desc{padding-right:48px}
+  .sec-head h2{font-size:29px;line-height:1.26}
+  .sec-lead{font-size:16px}
+  .cause{padding:24px 22px 22px}
+  .cause h3{font-size:30px}
+  .process{padding:26px 22px 0}
+  .steps{grid-template-columns:1fr;margin-top:24px}
+  .step{padding:0 0 26px 30px}
+  .step::before{left:5px;right:auto;top:6px;bottom:-6px;width:1px;height:auto}
+  .step:last-child::before{display:none}
+  .step::after{top:6px}
+  .step-no{font-size:32px;position:absolute;right:0;top:-4px;color:var(--ink-3)}
+  .step h4{margin-top:0;padding-right:44px}
+  .step p{max-width:none;padding-right:8px}
+  .process-cta{margin:0 -22px;padding:20px 22px}
+  .process-cta .btns{width:100%}
+  .process-cta .btn{flex:1 1 auto}
+  .bento{grid-template-columns:1fr;grid-auto-rows:auto}
+  .prod.feature{grid-column:auto;grid-template-columns:1fr}
+  .feature-text{padding:26px 24px 8px}
+  .feature-text h3{font-size:40px;margin-top:20px}
+  .feature-text .prod-links{padding-top:22px}
+  .feature-shot{margin:22px -30px -120px 24px;max-height:330px}
+  .prod{padding:24px 22px 22px}
+  .tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+  .tile{flex-direction:column;align-items:flex-start;gap:12px;padding:14px 14px 15px;min-height:0;border-radius:18px}
+  .tile-ico{width:36px;height:36px;border-radius:11px}
+  .tile b{font-size:14.5px}
+  .extra{padding:18px 22px}
+  .books{gap:10px}
+  .book{padding:8px 8px 14px;border-radius:22px}
+  .book-cover{border-radius:15px}
+  .book-body{padding:12px 6px 0}
+  .book h3{font-size:14.5px}
+  .book-foot{flex-direction:column;align-items:flex-start;gap:8px}
+  .price{font-size:16px}
+  .shelf,.train{padding:24px 22px}
+  .rows li{grid-template-columns:minmax(0,1fr) auto;row-gap:10px}
+  .rows li>div{grid-column:1/-1}
+  .train h3{font-size:26px}
+  .closing{padding:44px 26px 40px;border-radius:28px}
+  .closing h2{font-size:29px;line-height:1.26}
+  .closing .sub{font-size:16px}
+  .closing .cta-row .btn{flex:1 1 100%}
+  .foot{margin-top:72px}
+  .legal{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .blob{animation:none}
+  .js [data-r]{opacity:1;transform:none;transition:none}
+  *,*::before,*::after{transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로</a>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M5 8.5h14M5 15.5h14"/></symbol>
+    <symbol id="i-rescue" viewBox="0 0 24 24"><path d="M12 15V4.5M7.8 8.6 12 4.4l4.2 4.2M5 14.5v3A2.5 2.5 0 0 0 7.5 20h9a2.5 2.5 0 0 0 2.5-2.5v-3"/></symbol>
+    <symbol id="i-product" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><path d="M9 12h6M12 9v6"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4.5" y="4.5" width="6" height="6" rx="1.8"/><rect x="13.5" y="4.5" width="6" height="6" rx="1.8"/><rect x="4.5" y="13.5" width="6" height="6" rx="1.8"/><rect x="13.5" y="13.5" width="6" height="6" rx="1.8"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.6C10 5.2 7 5 4 5.5v12.6c3-.5 6-.3 8 1.1 2-1.4 5-1.6 8-1.1V5.5c-3-.5-6-.3-8 1.1ZM12 6.6v12.6"/></symbol>
+    <symbol id="i-photo" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="3.5"/><circle cx="9" cy="10" r="1.6"/><path d="m4.5 17 4.8-4.6 3.4 3.2 2.6-2.4 4.2 3.9"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4.5 11 12 4.8l7.5 6.2v7a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 18ZM9.8 19.5v-5h4.4v5"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="3.5"/><path d="m10.4 9.4 4.4 2.6-4.4 2.6Z"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M5 10.5v3M8.5 7.5v9M12 4.8v14.4M15.5 8v8M19 10.5v3"/></symbol>
+    <symbol id="i-caption" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="3.5"/><path d="M7 14.8h4M13.5 14.8H17M7 11.6h2.5M12 11.6h5"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7.5 3.8h6.2l4.8 4.8v9.9a1.8 1.8 0 0 1-1.8 1.8H7.5a1.8 1.8 0 0 1-1.8-1.8V5.6a1.8 1.8 0 0 1 1.8-1.8ZM13.5 4v4.8h4.8M9 13h6M9 16.3h4"/></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><rect x="3.5" y="4.8" width="17" height="14.4" rx="3.5"/><path d="M3.5 9.4h17M6.6 7.1h.01M9.2 7.1h.01"/></symbol>
+  </defs>
+</svg>
+
+<div class="wash" aria-hidden="true">
+  <span class="blob" style="--c:var(--lilac);--s:900px;left:-240px;top:-300px;--t:46s"></span>
+  <span class="blob" style="--c:var(--sky);--s:880px;right:-200px;top:-180px;--t:52s"></span>
+  <span class="blob" style="--c:var(--peach);--s:760px;left:28%;top:330px;--t:58s"></span>
+  <span class="blob" style="--c:var(--sky);--s:820px;left:-280px;top:17%;--t:50s"></span>
+  <span class="blob" style="--c:var(--lilac);--s:840px;right:-300px;top:30%;--t:56s"></span>
+  <span class="blob" style="--c:var(--peach);--s:780px;left:-240px;top:46%;--t:48s"></span>
+  <span class="blob" style="--c:var(--sky);--s:860px;right:-260px;top:60%;--t:54s"></span>
+  <span class="blob" style="--c:var(--lilac);--s:860px;left:-260px;top:76%;--t:50s"></span>
+  <span class="blob" style="--c:var(--peach);--s:700px;right:-200px;top:90%;--t:60s"></span>
+</div>
+
+<div class="lsbar" role="note" aria-label="디자인 샘플 안내"><span>디자인 샘플 · Lumos 제작</span><a href="/web-design.html#contact">이 스타일로 제작 문의 →</a></div>
+<header class="nav">
+  <a class="brand" href="/" aria-label="Lumos 홈">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11.5" fill="none" stroke="#14151B" stroke-width="2.2"/><circle cx="19.6" cy="12.4" r="4.7" fill="#4636E8"/></svg>
+    <b>Lumos</b>
+  </a>
+  <nav class="nav-links" id="nav-links" aria-label="주요 메뉴">
+    <a href="/sales/">서비스</a>
+    <a href="/offers/">상품</a>
+    <a href="/cordova.html">진단</a>
+    <a href="/retainer.html">유지보수</a>
+    <a href="/threads-analyzer.html">스레드</a>
+    <a href="/tools/">도구</a>
+  </nav>
+  <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links"><svg class="ico"><use href="#i-menu"/></svg></button>
+  <a class="btn btn-primary" href="/cordova.html">무료 진단 신청</a>
+</header>
+
+<main id="main">
+
+<!-- ═════ Hero · studio hub ═════ -->
+<section class="hero wrap" aria-labelledby="hero-title">
+  <p class="eyebrow" data-r><i></i>Lumos · 전문 스튜디오</p>
+  <h1 id="hero-title" data-r style="--rd:60ms"><span class="serif">Lumos</span>는 막힌 앱을 <br class="m">다시 올리고,<br class="d"> <br class="m">필요한 도구를 <br class="m">직접 만듭니다.</h1>
+  <p class="lead" data-r style="--rd:120ms">업데이트가 막힌 Cordova·Ionic 앱의 진단과 유지보수, Mac 앱과 웹 서비스, 브라우저 도구 30개, 전자책과 Claude Code 연수까지 한곳에 모았습니다.</p>
+  <div class="cta-row" data-r style="--rd:180ms">
+    <a class="btn btn-primary" href="/cordova.html">무료 진단 신청<svg class="ico"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-ghost" href="#products">제품 보기</a>
+  </div>
+
+  <ul class="doors" aria-label="Lumos가 하는 일 네 가지">
+    <li class="door" data-r style="--rd:220ms">
+      <div class="door-top"><span class="door-no serif">01</span><span class="door-ico" style="--tint:linear-gradient(140deg,#E7DEFF,#D5E6FF)"><svg class="ico"><use href="#i-rescue"/></svg></span></div>
+      <h2><a href="#rescue">앱 구조·유지보수<svg class="ico"><use href="#i-arrow"/></svg></a></h2>
+      <p class="door-desc">업데이트가 막힌 Cordova·Ionic 앱을 다시 스토어에 올립니다.</p>
+      <ul class="door-items">
+        <li><a href="/cordova.html"><span>레거시 하이브리드 앱 진단</span><span class="badge b-open">모집 중</span></a></li>
+        <li><a href="/retainer.html"><span>Mobile Production Retainer</span><span class="meta">월 단위</span></a></li>
+        <li><a href="/sales/"><span>서비스·오퍼 카탈로그</span><span class="meta">가격 공개</span></a></li>
+      </ul>
+    </li>
+    <li class="door" data-r style="--rd:280ms">
+      <div class="door-top"><span class="door-no serif">02</span><span class="door-ico" style="--tint:linear-gradient(140deg,#D3E8FF,#E3DCFF)"><svg class="ico"><use href="#i-product"/></svg></span></div>
+      <h2><a href="#products">제품<svg class="ico"><use href="#i-arrow"/></svg></a></h2>
+      <p class="door-desc">광고와 구독 없이 쓰는 Mac 앱과 작은 웹 서비스입니다.</p>
+      <ul class="door-items">
+        <li><a href="/hot-launcher.html"><span>HotLauncher</span><span class="badge b-free">무료</span></a></li>
+        <li><a href="/lumoszip.html"><span>LumosZipForMac</span><span class="badge b-sale">판매 중</span></a></li>
+        <li><a href="https://pebblez.teagarden-earlgrey.workers.dev" rel="noopener"><span>Pebblez</span><span class="badge b-live">라이브</span></a></li>
+      </ul>
+    </li>
+    <li class="door" data-r style="--rd:340ms">
+      <div class="door-top"><span class="door-no serif">03</span><span class="door-ico" style="--tint:linear-gradient(140deg,#FFE1D0,#FBE3F0)"><svg class="ico"><use href="#i-grid"/></svg></span></div>
+      <h2><a href="#tools">무료 도구<svg class="ico"><use href="#i-arrow"/></svg></a></h2>
+      <p class="door-desc">사진·영상·자막·문서 작업을 브라우저에서 바로 끝내는 도구 30개.</p>
+      <ul class="door-items">
+        <li><a href="/tools/image-shrink/"><span>이미지 용량 줄이기</span><span class="meta">사진</span></a></li>
+        <li><a href="/tools/burned-captions/"><span>영상에 자막 입히기</span><span class="meta">영상</span></a></li>
+        <li><a href="/tools/pdf-to-doc/"><span>PDF를 Word 문서로 바꾸기</span><span class="meta">문서</span></a></li>
+      </ul>
+    </li>
+    <li class="door" data-r style="--rd:400ms">
+      <div class="door-top"><span class="door-no serif">04</span><span class="door-ico" style="--tint:linear-gradient(140deg,#FFDFD0,#E6DDFF)"><svg class="ico"><use href="#i-book"/></svg></span></div>
+      <h2><a href="#learn">전자책·연수<svg class="ico"><use href="#i-arrow"/></svg></a></h2>
+      <p class="door-desc">결제하면 바로 받는 PDF와 일본 법인 대상 3시간 연수입니다.</p>
+      <ul class="door-items">
+        <li><a href="https://teagarden5.gumroad.com/l/cxhiny" rel="noopener"><span>AI 코딩 에이전트 완전판</span><span class="meta">₩139,000</span></a></li>
+        <li><a href="https://teagarden5.gumroad.com/l/awnihs" rel="noopener"><span>자동화 처리 응용편(고급)</span><span class="meta">1년 구독</span></a></li>
+        <li><a href="/claude-code-kenshu.html"><span>Claude Code <span lang="ja">導入研修</span></span><span class="badge b-sale">판매 중</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<!-- ═════ 01 · Rescue ═════ -->
+<section class="section wrap" id="rescue" aria-labelledby="rescue-title">
+  <header class="sec-head" data-r>
+    <p class="kicker"><span class="serif">01</span>앱 구조·유지보수</p>
+    <h2 id="rescue-title">오래 손대지 않은 하이브리드 앱은 세 가지에 한꺼번에 걸립니다.</h2>
+    <p class="sec-lead">무엇이 막혔는지 영업일 2일 안에 보고서로 알려 드립니다. 10곳까지는 무료입니다.</p>
+  </header>
+
+  <ol class="causes">
+    <li class="card cause" data-r>
+      <span class="cause-tag">iOS 빌드</span>
+      <h3>App Store Connect</h3>
+      <p>2026년 4월 28일부터 App Store Connect는 iOS 26 SDK로 빌드한 앱만 받습니다.</p>
+      <span class="cause-state" style="--d:#E0483D"><i></i>iOS 26 SDK 빌드만 접수</span>
+    </li>
+    <li class="card cause" data-r style="--rd:80ms">
+      <span class="cause-tag">Android 타깃 API</span>
+      <h3>Play target API</h3>
+      <p>Play 타깃 API 기한은 이미 지났습니다. 다만 연장 신청은 아직 할 수 있습니다.</p>
+      <span class="cause-state" style="--d:#D98314"><i></i>기한 경과 · 연장 신청 가능</span>
+    </li>
+    <li class="card cause" data-r style="--rd:160ms">
+      <span class="cause-tag">딥링크</span>
+      <h3>Firebase Dynamic Links</h3>
+      <p>Firebase Dynamic Links는 종료됐습니다. Dynamic Links 이전은 레거시 작업으로 다룹니다.</p>
+      <span class="cause-state" style="--d:#E0483D"><i></i>서비스 종료</span>
+    </li>
+  </ol>
+
+  <div class="card process" data-r>
+    <div class="process-title">
+      <h3>진단에서 스토어 재등록까지, 네 단계</h3>
+      <p>새 앱 개발과 전면 재작성은 맡지 않습니다.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><span class="step-no" aria-hidden="true">01</span><h4>진단</h4><p>무엇이 업데이트를 막고 있는지 앱을 살펴봅니다.</p></li>
+      <li class="step"><span class="step-no" aria-hidden="true">02</span><h4>보고서<span class="pill">영업일 2일</span></h4><p>막힌 지점을 보고서로 정리해 알려 드립니다.</p></li>
+      <li class="step"><span class="step-no" aria-hidden="true">03</span><h4>수정</h4><p>보고서에서 짚은 항목을 고칩니다.</p></li>
+      <li class="step"><span class="step-no" aria-hidden="true">04</span><h4>스토어 재등록</h4><p>고친 앱을 다시 스토어에 올립니다.</p></li>
+    </ol>
+    <div class="process-cta">
+      <p>스토어 업로드가 막혔다면 진단부터 받아 보세요.<span>매달 이어지는 운영 지원은 Mobile Production Retainer로 받습니다. Stabilizer 월 $1,200, Pilot 한 달 $400.</span></p>
+      <div class="btns">
+        <a class="btn btn-primary" href="/cordova.html">무료 진단 신청<svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="/sales/">서비스와 가격 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════ 02 · Products ═════ -->
+<section class="section wrap" id="products" aria-labelledby="products-title">
+  <header class="sec-head" data-r>
+    <p class="kicker"><span class="serif">02</span>제품</p>
+    <h2 id="products-title">Mac 앱부터 웹 서비스까지,<br>제품 여섯 개.</h2>
+    <p class="sec-lead">Mac 앱 둘, 웹 서비스 둘, 그리고 준비 중인 것 둘입니다. 상태는 카드마다 적어 두었습니다.</p>
+  </header>
+
+  <div class="bento">
+    <article class="card prod feature lift" data-r>
+      <div class="feature-text">
+        <div class="prod-top"><span class="mono" style="--tint:linear-gradient(140deg,#E4DAFF,#CFE5FF)">H</span><span class="badge b-free">무료</span></div>
+        <h3>HotLauncher</h3>
+        <p class="prod-kind">macOS 앱 · 오픈소스</p>
+        <p class="desc">macOS 26(Tahoe)에서 런치패드가 사라졌습니다. 자주 쓰는 앱을 전역 단축키에 하나씩 붙여 두고 바로 엽니다.</p>
+        <ul class="feature-facts">
+          <li><svg class="ico"><use href="#i-check"/></svg>앱 최대 20개에 전역 단축키</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>광고와 구독 없음</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>소스 공개</li>
+        </ul>
+        <div class="prod-links">
+          <a class="tlink" href="/hot-launcher.html">제품 페이지<svg class="ico"><use href="#i-up"/></svg></a>
+          <a class="tlink plain" href="https://github.com/Hwemo-Chung/HotLauncher" rel="noopener">GitHub<svg class="ico"><use href="#i-up"/></svg></a>
+        </div>
+      </div>
+      <figure class="feature-shot"><img src="/assets/hot-launcher-settings.webp" width="1000" height="1195" alt="HotLauncher 설정 화면. 앱마다 전역 단축키가 하나씩 붙어 있다." loading="eager" decoding="async"></figure>
+    </article>
+
+    <article class="card prod lift" data-r style="--rd:80ms">
+      <div class="prod-top"><span class="mono" style="--tint:linear-gradient(140deg,#CFE7FF,#DDF3EC)">Z</span><span class="badge b-sale">판매 중</span></div>
+      <h3>LumosZipForMac</h3>
+      <p class="prod-kind">macOS 앱 · 베타 할인가</p>
+      <p class="desc">Mac에서 AES-256 비밀번호 ZIP을 터미널 없이 다룹니다. Apple Silicon과 Intel에서 모두 돌아가는 네이티브 앱입니다.</p>
+      <div class="prod-links">
+        <a class="tlink" href="/lumoszip.html">제품 페이지<svg class="ico"><use href="#i-up"/></svg></a>
+        <a class="tlink plain" href="https://teagarden5.gumroad.com/l/qhyxm" rel="noopener">지금 구매<svg class="ico"><use href="#i-up"/></svg></a>
+      </div>
+    </article>
+
+    <article class="card prod lift" data-r style="--rd:140ms">
+      <div class="prod-top"><span class="mono" style="--tint:linear-gradient(140deg,#FFE0CF,#FCE4EE)">P</span><span class="badge b-live">라이브</span></div>
+      <h3>Pebblez</h3>
+      <p class="prod-kind">소셜 PWA · 무료</p>
+      <p class="desc">광고와 추천 알고리즘이 없는 작은 소셜입니다. 한 줄(페블)을 남기면 아는 사람들 사이로 퍼지고, 오프라인에서도 씁니다.</p>
+      <div class="prod-links">
+        <a class="tlink" href="https://pebblez.teagarden-earlgrey.workers.dev" rel="noopener">서비스 열기<svg class="ico"><use href="#i-up"/></svg></a>
+      </div>
+    </article>
+
+    <article class="card prod lift" data-r>
+      <div class="prod-top"><span class="mono" style="--tint:linear-gradient(140deg,#DCF2E6,#D2E7FF)">C</span><span class="badge b-free">무료</span></div>
+      <h3>Color Vision Lab</h3>
+      <p class="prod-kind">웹 서비스 · 선별용, 진단 아님</p>
+      <p class="desc">색약 유형별로 사진이 어떻게 보이는지 체험하고, 도판 13장으로 색각을 선별합니다. 사진은 브라우저 안에서만 처리됩니다.</p>
+      <div class="prod-links">
+        <a class="tlink" href="https://color-vision-lab.vercel.app/" rel="noopener">서비스 열기<svg class="ico"><use href="#i-up"/></svg></a>
+        <a class="tlink plain" href="https://github.com/Hwemo-Chung/color-vision-lab" rel="noopener">GitHub<svg class="ico"><use href="#i-up"/></svg></a>
+      </div>
+    </article>
+
+    <article class="card prod lift" data-r style="--rd:80ms">
+      <div class="prod-top"><span class="mono" style="--tint:linear-gradient(140deg,#E6DCFF,#FBE1EC)">T</span><span class="badge b-wait">대기자 모집</span></div>
+      <h3>Threads Analyzer</h3>
+      <p class="prod-kind">CLI 무료 오픈소스 · 데스크톱 앱 $29</p>
+      <p class="desc">스레드 계정의 글 전체를 12시트짜리 엑셀 리포트로 정리합니다. 평균 대신 중앙값과 데드율로 봅니다.</p>
+      <div class="prod-links">
+        <a class="tlink" href="/threads-analyzer.html">제품 페이지<svg class="ico"><use href="#i-up"/></svg></a>
+      </div>
+    </article>
+
+    <article class="card prod lift" data-r style="--rd:140ms">
+      <div class="prod-top"><span class="mono" style="--tint:linear-gradient(140deg,#ECECF1,#DDE3F2)">B</span><span class="badge b-build">Building</span></div>
+      <h3>Burnline</h3>
+      <p class="prod-kind">로컬 우선 AI 비용 추적</p>
+      <p class="desc">모델별·날짜별 지출을 보고 월 한도를 정합니다. 프롬프트는 내 컴퓨터 밖으로 나가지 않습니다.</p>
+      <div class="prod-links">
+        <a class="tlink" href="/burnline.html">제품 페이지<svg class="ico"><use href="#i-up"/></svg></a>
+        <a class="tlink plain" href="/burnline-dashboard.html">대시보드<svg class="ico"><use href="#i-up"/></svg></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ═════ 03 · Tools ═════ -->
+<section class="section wrap" id="tools" aria-labelledby="tools-title">
+  <header class="sec-head" data-r>
+    <p class="kicker"><span class="serif">03</span>도구</p>
+    <h2 id="tools-title">브라우저에서 바로 쓰는 도구 <span class="serif">30</span>개.</h2>
+    <p class="sec-lead">사진, 영상, 소리, 자막, 문서 작업을 주제별로 나눴습니다. 아래는 그중 열두 개입니다.</p>
+  </header>
+
+  <ul class="cats" aria-label="분류별 도구 수" data-r>
+    <li>사진<b>8</b></li><li>집·상품 사진<b>8</b></li><li>영상<b>5</b></li><li>소리<b>2</b></li><li>자막<b>2</b></li><li>문서<b>3</b></li><li>웹·개발<b>2</b></li>
+  </ul>
+
+  <ul class="tiles" data-r>
+    <li><a class="tile lift" href="/tools/image-shrink/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#E4DAFF,#D3E6FF)"><svg class="ico"><use href="#i-photo"/></svg></span><span><b>이미지 용량 줄이기</b><small>사진</small></span></a></li>
+    <li><a class="tile lift" href="/tools/white-background/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#E4DAFF,#D3E6FF)"><svg class="ico"><use href="#i-photo"/></svg></span><span><b>상품 사진 흰 배경</b><small>사진</small></span></a></li>
+    <li><a class="tile lift" href="/tools/id-photo/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#E4DAFF,#D3E6FF)"><svg class="ico"><use href="#i-photo"/></svg></span><span><b>증명사진 만들기</b><small>사진</small></span></a></li>
+    <li><a class="tile lift" href="/tools/item-removal/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#E4DAFF,#D3E6FF)"><svg class="ico"><use href="#i-photo"/></svg></span><span><b>사진 속 물체 지우기</b><small>사진</small></span></a></li>
+    <li><a class="tile lift" href="/tools/thumb-card/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#FFE1D0,#FBE3EE)"><svg class="ico"><use href="#i-home"/></svg></span><span><b>유튜브 썸네일 만들기</b><small>집·상품 사진</small></span></a></li>
+    <li><a class="tile lift" href="/tools/device-mockup/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#FFE1D0,#FBE3EE)"><svg class="ico"><use href="#i-home"/></svg></span><span><b>기기 목업 만들기</b><small>집·상품 사진</small></span></a></li>
+    <li><a class="tile lift" href="/tools/silence-cut/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#D2E7FF,#DDF1F4)"><svg class="ico"><use href="#i-video"/></svg></span><span><b>무음 구간 자르기</b><small>영상</small></span></a></li>
+    <li><a class="tile lift" href="/tools/burned-captions/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#D2E7FF,#DDF1F4)"><svg class="ico"><use href="#i-video"/></svg></span><span><b>영상에 자막 입히기</b><small>영상</small></span></a></li>
+    <li><a class="tile lift" href="/tools/vocal-split/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#DDF2E7,#D4E8FF)"><svg class="ico"><use href="#i-sound"/></svg></span><span><b>보컬 분리</b><small>소리</small></span></a></li>
+    <li><a class="tile lift" href="/tools/subtitle-translate/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#E8DEFF,#FBE2EC)"><svg class="ico"><use href="#i-caption"/></svg></span><span><b>자막 번역</b><small>자막</small></span></a></li>
+    <li><a class="tile lift" href="/tools/pdf-to-doc/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#FFE3CF,#FFF0D6)"><svg class="ico"><use href="#i-doc"/></svg></span><span><b>PDF를 Word 문서로 바꾸기</b><small>문서</small></span></a></li>
+    <li><a class="tile lift" href="/tools/page-shot/"><span class="tile-ico" style="--tint:linear-gradient(140deg,#ECECF2,#DCE3F3)"><svg class="ico"><use href="#i-web"/></svg></span><span><b>웹페이지 전체 캡처</b><small>웹·개발</small></span></a></li>
+  </ul>
+  <div class="tiles-foot" data-r>
+    <span>나머지 열여덟 개는 도구 페이지에 있습니다.</span>
+    <a class="btn btn-ghost" href="/tools/" style="height:46px;padding:0 20px;font-size:15px">도구 30개 전체 보기<svg class="ico"><use href="#i-arrow"/></svg></a>
+  </div>
+
+  <h3 class="extras-label" data-r>무료 도구</h3>
+  <div class="card extras" data-r>
+    <div class="extra"><h4><a href="/color-picker.html">Color Picker<svg class="ico"><use href="#i-up"/></svg></a></h4><p>색을 고르고 HEX, RGB 같은 형식으로 바꾸는 브라우저 도구입니다.</p></div>
+    <div class="extra"><h4><a href="/public-search-exposure.html">공개 검색 노출 범위<svg class="ico"><use href="#i-up"/></svg></a></h4><p>이름, 회사, 주소가 공개 검색에 어디까지 보이는지 확인합니다. 입력한 내용은 브라우저 밖으로 나가지 않습니다.</p></div>
+    <div class="extra"><h4><a href="/micro-saas-mvps/">Micro SaaS 실험실<svg class="ico"><use href="#i-up"/></svg></a></h4><p>작게 만들어 빨리 시험해 본 도구들입니다. 반응이 있던 것을 위에 둡니다.</p></div>
+  </div>
+</section>
+
+<!-- ═════ 04 · Learn ═════ -->
+<section class="section wrap" id="learn" aria-labelledby="learn-title">
+  <header class="sec-head" data-r>
+    <p class="kicker"><span class="serif">04</span>전자책·연수</p>
+    <h2 id="learn-title">바로 받는 PDF 전자책, 그리고 팀을 위한 <span class="serif">Claude Code</span> 연수.</h2>
+    <p class="sec-lead">Gumroad에서 결제하면 바로 PDF를 받습니다. 한국어판과 일본어판이 있습니다. 연수는 일본 법인을 대상으로 일본어로 진행합니다.</p>
+  </header>
+
+  <ul class="books">
+    <li data-r><a class="card book lift" href="https://teagarden5.gumroad.com/l/ai-work-ko" rel="noopener">
+      <div class="book-cover"><img src="/assets/images/ebooks/ai-work-guide-ko.jpg" width="434" height="770" alt="" loading="lazy" decoding="async"></div>
+      <div class="book-body"><h3>ChatGPT·<wbr>Claude·<wbr>Gemini 업무 활용 입문 2026</h3><p class="meta">한국어 PDF · 42쪽</p>
+      <div class="book-foot"><span class="price">₩139,000</span><span class="buy">구매하기</span></div></div></a></li>
+    <li data-r style="--rd:70ms"><a class="card book lift" href="https://teagarden5.gumroad.com/l/zibxvl" rel="noopener">
+      <div class="book-cover"><img src="/assets/images/ebooks/tokyo-first-trip-pack.jpg" width="800" height="1423" alt="" loading="lazy" decoding="async"></div>
+      <div class="book-body"><h3>도쿄 첫 여행 실전팩: 전철·짐·현금·예약 체크리스트</h3><p class="meta">한국어 PDF · 27쪽</p>
+      <div class="book-foot"><span class="price">₩12,900</span><span class="buy">구매하기</span></div></div></a></li>
+    <li data-r style="--rd:140ms"><a class="card book lift" href="https://teagarden5.gumroad.com/l/mfhchf" rel="noopener">
+      <div class="book-cover"><img src="/assets/images/ebooks/tokyo-autumn-2026.jpg" width="434" height="770" alt="" loading="lazy" decoding="async"></div>
+      <div class="book-body"><h3>도쿄 가을 단풍 여행 2026: 정원·은행나무길·다카오산</h3><p class="meta">한국어 PDF · 36쪽</p>
+      <div class="book-foot"><span class="price">₩12,900</span><span class="buy">구매하기</span></div></div></a></li>
+    <li data-r style="--rd:210ms"><a class="card book lift" href="https://teagarden5.gumroad.com/l/japan-taxfree" rel="noopener">
+      <div class="book-cover"><img src="/assets/images/ebooks/japan-taxfree-2026.jpg" width="434" height="770" alt="" loading="lazy" decoding="async"></div>
+      <div class="book-body"><h3>일본 면세 쇼핑 완전 가이드 2026: 11월 1일 리펀드 방식 전환 대응</h3><p class="meta">한국어 PDF · 31쪽</p>
+      <div class="book-foot"><span class="price">₩14,900</span><span class="buy">구매하기</span></div></div></a></li>
+  </ul>
+
+  <div class="learn-row">
+    <div class="card shelf" data-r>
+      <div class="shelf-head"><h3>완전판·구독·묶음</h3><a class="tlink" href="https://teagarden5.gumroad.com/" rel="noopener">전체 스토어 보기<svg class="ico"><use href="#i-up"/></svg></a></div>
+      <ul class="rows">
+        <li><div><h4>AI 코딩 에이전트 완전판</h4><p class="meta">한국어 PDF · 95쪽 · 1년 업데이트 보장</p></div><span class="price">₩139,000</span><a class="buy" href="https://teagarden5.gumroad.com/l/cxhiny" rel="noopener" aria-label="AI 코딩 에이전트 완전판 구매하기">구매하기</a></li>
+        <li><div><h4>Shorts·블로그·SEO 자동화 완전판</h4><p class="meta">한국어 PDF · 94쪽 · 1년 업데이트 보장</p></div><span class="price">₩169,000</span><a class="buy" href="https://teagarden5.gumroad.com/l/jbqeaw" rel="noopener" aria-label="Shorts·블로그·SEO 자동화 완전판 구매하기">구매하기</a></li>
+        <li><div><h4>자동화 처리 응용편(고급) 1년 구독</h4><p class="meta">매주 레슨 1개, 모두 52개 · 중도 해지 시 비례 환불 · <a href="https://teagarden5.gumroad.com/l/udxhyj" rel="noopener">무료 샘플(8쪽)</a></p></div><span class="price">₩1,000,000<small>/년</small></span><a class="buy" href="https://teagarden5.gumroad.com/l/awnihs" rel="noopener" aria-label="자동화 처리 응용편 1년 구독하기">구독하기</a></li>
+        <li><div><h4>도쿄 여행 묶음: 첫 여행 실전팩 + 근교 <span style="white-space:nowrap">당일치기·1박</span> 실전팩</h4><p class="meta">한국어 PDF 2권 세트</p></div><span class="price">₩19,900</span><a class="buy" href="https://teagarden5.gumroad.com/l/ufehcd" rel="noopener" aria-label="도쿄 여행 묶음 구매하기">구매하기</a></li>
+      </ul>
+      <p class="fine">결제할 때 세금이 더해질 수 있습니다. <span lang="ja">決済時に税が加算される場合があります。</span><br><a href="/tokushoho.html"><span lang="ja">特定商取引法に基づく表記</span> / 특정상거래법 표기</a></p>
+    </div>
+
+    <article class="card train" data-r style="--rd:90ms">
+      <div class="train-top"><span>일본 법인 · 일본어 진행 · 3시간</span><span class="badge b-sale">판매 중</span></div>
+      <h3><span class="serif">Claude Code</span> <span lang="ja">導入研修</span></h3>
+      <p class="desc">설치, CLAUDE.md, 권한, 사용 제한, 자동 실행에서 실제로 멈추는 장면만 다룹니다. 재현 데모 2종과 연습용 리포지토리, 팀용 CLAUDE.md 템플릿을 드립니다.</p>
+      <dl class="fees">
+        <div><dt>온라인 · 최대 10명</dt><dd>¥150,000</dd></div>
+        <div><dt>도쿄 대면 · 최대 20명</dt><dd>¥250,000</dd></div>
+        <div><dt>30분 히어링</dt><dd>무료</dd></div>
+      </dl>
+      <a class="btn btn-primary" href="/claude-code-kenshu.html">연수 안내 (일본어)<svg class="ico"><use href="#i-arrow"/></svg></a>
+    </article>
+  </div>
+</section>
+
+<!-- ═════ Closing ═════ -->
+<section class="wrap" aria-labelledby="closing-title">
+  <div class="closing" data-r>
+    <div class="closing-grid">
+      <div>
+        <h2 id="closing-title">스토어 업로드가 막혔다면 진단부터 받아 보세요.</h2>
+        <p class="sub">무엇이 막혔는지 영업일 2일 안에 보고서로 알려 드립니다. 10곳까지는 무료입니다.</p>
+        <div class="cta-row">
+          <a class="btn btn-light" href="/cordova.html">무료 진단 신청<svg class="ico"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="/sales/">서비스와 가격 보기</a>
+        </div>
+      </div>
+      <dl class="contact">
+        <div><dt>Email</dt><dd><a href="mailto:tolaria@naver.com">tolaria@naver.com</a></dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/Hwemo-Chung" rel="noopener">@Hwemo-Chung</a></dd></div>
+        
+      </dl>
+    </div>
+  </div>
+  <dl class="stack" data-r>
+    <div><dt>출시해 운영한 기술</dt><dd>Angular, Ionic, Capacitor, TypeScript, Node.js, Swift, AWS</dd></div>
+    <div><dt>레거시 작업</dt><dd>Cordova, Android WebView, Firebase Dynamic Links 이전</dd></div>
+    <div><dt>그 밖에 써 본 기술</dt><dd>React, Vue, Python, Java/Spring Boot, Kotlin, PostgreSQL, Docker</dd></div>
+  </dl>
+</section>
+</main>
+
+<footer class="foot wrap">
+  <div class="foot-grid">
+    <div>
+      <a class="brand" href="/" aria-label="Lumos 홈">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11.5" fill="none" stroke="#14151B" stroke-width="2.2"/><circle cx="19.6" cy="12.4" r="4.7" fill="#4636E8"/></svg>
+        <b>Lumos</b>
+      </a>
+      <p class="foot-tag">Cordova·Ionic 앱 진단과 유지보수, 그리고 직접 만든 제품과 도구.</p>
+    </div>
+    <nav aria-label="바닥 메뉴">
+      <ul>
+        <li><a href="/">홈</a></li>
+        <li><a href="/sales/">서비스</a></li>
+        <li><a href="/offers/">상품</a></li>
+        <li><a href="/cordova.html">진단</a></li>
+        <li><a href="/retainer.html">유지보수</a></li>
+        <li><a href="/threads-analyzer.html">스레드</a></li>
+        <li><a href="/tools/">도구</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="legal">
+    <ul>
+      <li><a href="/pp.html">개인정보처리방침</a></li>
+      <li><a href="/tokushoho.html" lang="ja">特定商取引法に基づく表記</a></li>
+    </ul>
+    <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // mobile menu
+  var btn=document.querySelector('.menu-btn'),links=document.getElementById('nav-links');
+  if(btn&&links){
+    btn.addEventListener('click',function(){
+      var open=links.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      btn.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기');
+    });
+    links.addEventListener('click',function(e){if(e.target.closest('a')){links.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&links.classList.contains('open')){links.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.focus();}});
+  }
+  // reveal
+  if(reduce||!('IntersectionObserver' in window))return;
+  root.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{rootMargin:'0px 0px -6% 0px',threshold:.06});
+  document.querySelectorAll('[data-r]').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
