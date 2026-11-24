@@ -33,9 +33,10 @@ const siteTranslations = vm.runInNewContext(
 
 // 대상: 번역이 있고 색인되는 페이지. noindex 는 만들지 않는다.
 const pages = Object.keys(content).filter(key => {
-  if (SKIP.has(key) || !LANGS.every(l => content[key][l])) return false;
   const file = key.slice(1);
-  if (!fs.existsSync(path.join(ROOT, file))) return false;
+  if (SKIP.has(key) || !fs.existsSync(path.join(ROOT, file))) return false;
+  const src = ((read(file).match(/<html[^>]*\blang="([a-z]{2})/i) || [])[1] || 'ko').toLowerCase();
+  if (!LANGS.filter(l => l !== src).every(l => content[key][l])) return false;
   return !/<meta[^>]+name="robots"[^>]+noindex/i.test(read(file));
 });
 
@@ -156,32 +157,44 @@ function updateSourceHead(key, alternates) {
   fs.writeFileSync(path.join(ROOT, file), s);
 }
 
+function clearSourceHead(key) {
+  const file = key.slice(1), s = read(file);
+  const t = s.replace(/[ \t]*<!-- i18n-alternates -->[\s\S]*?<!-- \/i18n-alternates -->\n?/, '');
+  if (t !== s) fs.writeFileSync(path.join(ROOT, file), t);
+}
+
 function updateSitemap(urls) {
   let s = read('sitemap.xml');
+  // 이번에 만들지 않은 /en/·/ja/ 항목은 뺀다
+  s = s.replace(new RegExp(`  <url>\\n    <loc>${ORIGIN.replace(/[.]/g, '\\.')}/(${LANGS.join('|')})/[^<]*</loc>[\\s\\S]*?</url>\\n`, 'g'), m => urls.some(u => m.includes(`<loc>${u}</loc>`)) ? m : '');
   const today = new Date().toISOString().slice(0, 10);
   const add = urls.filter(u => !s.includes(`<loc>${u}</loc>`));
-  if (!add.length) return 0;
   s = s.replace('</urlset>', add.map(u => `  <url>\n    <loc>${u}</loc>\n    <lastmod>${today}</lastmod>\n  </url>\n`).join('') + '</urlset>');
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), s);
   return add.length;
 }
 
-async function build(browser, base) {
+/** 원본 언어(<html lang>)를 뺀 나머지 언어로 번역본을 만든다. 영어 원문 페이지는 /ja/ 만 생긴다. */
+const srcLangOf = key => ((read(key.slice(1)).match(/<html[^>]*\blang="([a-z]{2})/i) || [])[1] || 'ko').toLowerCase();
+const langsOf = key => LANGS.filter(l => l !== srcLangOf(key));
+
+async function build(browser, base, candidates = pages) {
   const ctx = await browser.newContext({ javaScriptEnabled: false });
-  const made = [], skipped = [];
   const results = {};
-  for (const key of pages) {
+  const has = (key, lang) => candidates.includes(key) && langsOf(key).includes(lang);
+  for (const key of candidates) {
     const cp = canonicalPath(key);
     const canonRoot = ORIGIN + cp;
-    const alternates = [['ko', canonRoot], ...LANGS.map(l => [l, `${ORIGIN}/${l}${cp}`]), ['x-default', canonRoot]];
+    const src = srcLangOf(key), langs = langsOf(key);
+    const alternates = [...['ko', 'en', 'ja'].flatMap(l => l === src ? [[l, canonRoot]] : langs.includes(l) ? [[l, `${ORIGIN}/${l}${cp}`]] : []), ['x-default', canonRoot]];
+    const doctype = (read(key.slice(1)).match(/^<!DOCTYPE[^>]*>/i) || ['<!DOCTYPE html>'])[0];
     results[key] = {};
-    for (const lang of LANGS) {
+    for (const lang of langs) {
       const page = await ctx.newPage();
       await page.goto(base + key, { waitUntil: 'load' });
-      const doctype = (read(key.slice(1)).match(/^<!DOCTYPE[^>]*>/i) || ['<!DOCTYPE html>'])[0];
       const out = await page.evaluate(transform, {
-        lang, map: content[key][lang], st: siteTranslations[lang], variantPaths: pages, origin: ORIGIN, canonRoot,
-        variantUrl: `${ORIGIN}/${lang}${cp}`, locale: LOCALE[lang], otherLocales: ['ko', ...LANGS].filter(l => l !== lang).map(l => LOCALE[l]), alternates,
+        lang, map: content[key][lang], st: siteTranslations[lang], variantPaths: candidates.filter(k => has(k, lang)), origin: ORIGIN, canonRoot,
+        variantUrl: `${ORIGIN}/${lang}${cp}`, locale: LOCALE[lang], otherLocales: alternates.filter(([l]) => l !== lang && l !== 'x-default').map(([l]) => LOCALE[l]), alternates,
       });
       await page.close();
       results[key][lang] = { ...out, doctype, alternates, cp };
@@ -189,27 +202,42 @@ async function build(browser, base) {
   }
   await ctx.close();
   // 한 언어라도 한글이 남으면 그 페이지는 만들지 않는다(반쪽 번역본이 색인되는 것을 막는다).
-  const ok = pages.filter(key => LANGS.every(l => results[key][l].left.length === 0));
-  for (const key of pages) {
-    if (!ok.includes(key)) { skipped.push([key, LANGS.flatMap(l => results[key][l].left.map(t => `${l}: ${t}`)), results[key].en.missing]); continue; }
-  }
+  const ok = candidates.filter(key => langsOf(key).every(l => results[key][l].left.length === 0));
+  const skipped = candidates.filter(key => !ok.includes(key)).map(key =>
+    [key, langsOf(key).flatMap(l => results[key][l].left.map(t => `${l}: ${t}`)), langsOf(key).flatMap(l => results[key][l].missing)]);
   // 링크 대상은 실제로 만드는 페이지만: 빠진 페이지가 있으면 그 집합으로 다시 만든다.
-  if (ok.length !== pages.length) {
-    pages.splice(0, pages.length, ...ok);
-    return build(browser, base).then(r => ({ ...r, skipped: [...skipped, ...r.skipped] }));
+  if (ok.length !== candidates.length) {
+    const r = await build(browser, base, ok);
+    return { ...r, skipped: [...skipped, ...r.skipped] };
   }
+  const made = [];
   for (const key of ok) {
-    for (const lang of LANGS) {
+    for (const lang of langsOf(key)) {
       const r = results[key][lang];
       const file = path.join(ROOT, lang, key.slice(1));
       fs.mkdirSync(path.dirname(file), { recursive: true });
       fs.writeFileSync(file, `${r.doctype}\n<!-- 생성 파일: scripts/build-i18n-pages.cjs 가 ${key} 와 i18n-content.json 으로 만든다. 직접 고치지 말 것. -->\n${r.html}\n`);
       made.push(`/${lang}${key}`);
     }
-    updateSourceHead(key, results[key].en.alternates);
+    updateSourceHead(key, results[key][langsOf(key)[0]].alternates);
   }
-  const added = updateSitemap(ok.flatMap(key => LANGS.map(l => `${ORIGIN}/${l}${results[key][l].cp}`)));
-  return { made, skipped, added };
+  // 이번에 만들지 않은 번역본·hreflang·sitemap 항목은 지운다(대상에서 빠진 페이지가 남지 않게).
+  const removed = [];
+  for (const lang of LANGS) {
+    const dir = path.join(ROOT, lang);
+    if (!fs.existsSync(dir)) continue;
+    const walk = d => fs.readdirSync(d, { withFileTypes: true }).forEach(e => {
+      const f = path.join(d, e.name);
+      if (e.isDirectory()) return walk(f);
+      const rel = '/' + path.relative(ROOT, f);
+      if (e.name.endsWith('.html') && !made.includes(rel)) { fs.unlinkSync(f); removed.push(rel); }
+    });
+    walk(dir);
+  }
+  for (const key of Object.keys(content)) if (!ok.includes(key) && fs.existsSync(path.join(ROOT, key.slice(1)))) clearSourceHead(key);
+  const urls = ok.flatMap(key => langsOf(key).map(l => `${ORIGIN}/${l}${results[key][l].cp}`));
+  const added = updateSitemap(urls);
+  return { made, skipped, added, removed };
 }
 
 /** JS 를 켠 상태로 번역본을 열어 확인한다. 실패 목록만 출력한다(판정은 사람이). */
@@ -249,6 +277,10 @@ async function check(browser, base) {
     const dead = [...new Set(info.links.map(h => h.split('#')[0].split('?')[0]).filter(h => h && !exists(h)))];
     if (dead.length) issues.push('죽은 링크: ' + dead.join(' '));
     if (hreflangOf(file) !== hreflangOf(src)) issues.push('hreflang 이 원본과 다름');
+    const raw = read(file.slice(1));
+    const nCanon = (raw.match(/<link rel="canonical"/g) || []).length, nAlt = (raw.match(/<link rel="alternate" hreflang=/g) || []).length;
+    const srcAlt = (read(src.slice(1)).match(/<link rel="alternate" hreflang=/g) || []).length;
+    if (nCanon !== 1 || nAlt !== srcAlt || nAlt < 3) issues.push(`canonical ${nCanon}개, alternate ${nAlt}개(원본 ${srcAlt}개)`);
     if (issues.length) problems.push([file, issues]);
   }
   // 언어 버튼: 번역본으로 이동하는지 한 페이지에서 확인
@@ -277,7 +309,7 @@ async function check(browser, base) {
   try {
     if (!CHECK_ONLY) {
       const r = await build(browser, base);
-      console.log(`생성 ${r.made.length}개 (페이지 ${r.made.length / LANGS.length}), sitemap 추가 ${r.added}`);
+      console.log(`생성 ${r.made.length}개, sitemap 추가 ${r.added}, 지운 옛 번역본 ${r.removed.length}개 ${r.removed.join(' ')}`);
       fs.writeFileSync(path.join(ROOT, '_qa', 'i18n-missing.json'), JSON.stringify(Object.fromEntries(r.skipped.map(([k, , nodes]) => [k, nodes])), null, 1));
       for (const [key, left] of r.skipped) console.log(`건너뜀 ${key}: 한글 ${left.length}줄 — ${left.slice(0, 2).join(' | ')}`);
     }

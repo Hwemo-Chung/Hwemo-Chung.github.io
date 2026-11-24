@@ -115,7 +115,7 @@ const siteTranslations = {
             home: "Return home"
         },
         hero: {
-            tagline: "We get stuck Cordova and Ionic apps back into the App Store and Google Play.",
+            tagline: "We bring stalled Cordova and Ionic apps back to the App Store and Google Play.",
             sub: "From April 28, 2026, App Store Connect only accepts apps built with the iOS 26 SDK. The Play target API deadline and the Firebase Dynamic Links shutdown hit the same apps. You get a report on what is blocking your app within 2 business days, free for the first 10 apps.",
             ctaPrimary: "Request a free diagnosis",
             ctaSecondary: "See the products",
@@ -232,7 +232,9 @@ function readSiteLang() {
     if (queryLang && siteTranslations[queryLang]) return queryLang;
     const stored = localStorage.getItem('language');
     if (stored && siteTranslations[stored]) return stored;
-    return 'ko';
+    // 고른 언어가 없으면 페이지 원문 언어 그대로(영어 원문 페이지가 반쯤 한국어로 바뀌지 않게)
+    const ownLang = document.documentElement.lang;
+    return siteTranslations[ownLang] ? ownLang : 'ko';
 }
 
 let siteCurrentLang = readSiteLang();
