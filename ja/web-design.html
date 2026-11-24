@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- 생성 파일: scripts/build-i18n-pages.cjs 가 /web-design.html 와 i18n-content.json 으로 만든다. 직접 고치지 말 것. -->
+<html lang="ja"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ホームページ・ランディングページ制作 | デザインサンプル9種 | Lumos</title>
+  <meta name="description" content="デザインサンプル9種（日本語の業種別4種を含む）からスタイルを選び、1ページのサイトや10ページ以下のサイトの制作をご依頼いただけます。フレームワークを使わない静的な HTML・CSS で作り、料金はご相談のうえ決めます。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://hwemo-chung.github.io/ja/web-design.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/web-design.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/web-design.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/web-design.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/web-design.html">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lumos">
+  <meta property="og:url" content="https://hwemo-chung.github.io/ja/web-design.html">
+  <meta property="og:title" content="ホームページ・ランディングページ制作 | デザインサンプル9種 | Lumos"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="en_US">
+  <meta property="og:description" content="デザインサンプル9種からスタイルを選ぶと、そのスタイルで1ページのサイトや10ページ以下のサイトを制作します。有料、料金はご相談。">
+  
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ホームページ・ランディングページ制作 | デザインサンプル9種 | Lumos">
+  <meta name="twitter:description" content="デザインサンプル9種からスタイルを選ぶと、そのスタイルで1ページのサイトや10ページ以下のサイトを制作します。有料、料金はご相談。">
+  <meta name="twitter:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://hwemo-chung.github.io/web-design.html#service",
+      "name": "홈페이지·랜딩페이지 제작",
+      "serviceType": "Website and landing page design and development",
+      "url": "https://hwemo-chung.github.io/ja/web-design.html",
+      "description": "디자인 샘플 9종(일본어 업종별 4종 포함) 가운데 스타일을 골라 원페이지나 10페이지 이하 사이트 제작을 맡길 수 있습니다. 프레임워크 없는 정적 HTML·CSS로 만들고, 가격은 협의해 정합니다.",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://hwemo-chung.github.io/#person",
+        "name": "정휘모"
+      }
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/sales/tokens.css">
+  <link rel="stylesheet" href="/sales/components.css">
+  <link rel="stylesheet" href="/sales/site-unified.css">
+  <style>
+    /* Page-specific rules for web-design.html only. Colours and radii come from sales/tokens.css. */
+    .wd-main [id] { scroll-margin-top: 76px; }
+    .wd-narrow { max-width: 760px; }
+    .wd-hero h1 .wd-prism { background: var(--ls-prism); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    .wd-samples { display: grid; gap: 16px; margin-top: 20px; grid-template-columns: minmax(0, 1fr); }
+    @media (min-width: 680px) { .wd-samples { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 960px) {
+      .wd-samples { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .wd-card { grid-column: span 2; }
+      .wd-card:nth-child(-n+2) { grid-column: span 3; }
+      .wd-samples--4 .wd-card { grid-column: span 3; }
+    }
+    .wd-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+    .wd-card:focus-within { box-shadow: 0 0 0 2px var(--ls-sky); }
+    .wd-thumb { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 750; object-fit: cover; object-position: top; background: var(--ls-card); border-bottom: 1px solid var(--ls-border); }
+    .wd-card__body { display: flex; flex-direction: column; flex: 1; padding: 20px 22px 22px; }
+    .wd-card__body h3 { font-size: 19px; }
+    .wd-card__body p { font-size: 15px; }
+    .wd-card__body .ls-card__tag { align-self: flex-start; }
+    .wd-open { margin: auto 0 0 !important; padding-top: 6px; }
+    /* One link per card; its ::after stretches over the whole card so the thumbnail is clickable too. */
+    .wd-open a::after { content: ""; position: absolute; inset: 0; }
+    .wd-open a:focus-visible { outline: none; }
+
+    .wd-plans .ls-card { display: flex; flex-direction: column; }
+    .wd-plans .ls-dash { margin-bottom: 16px; }
+    .wd-plan-cta { margin: auto 0 0 !important; }
+    .wd-incl li strong { display: block; font-size: 16px; }
+    .wd-steps { list-style: none; padding: 0; }
+    @media (min-width: 960px) { .ls-funnel.wd-steps { grid-template-columns: repeat(5, 1fr); } }
+  </style>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+</head>
+<body class="ls">
+  <a class="ls-skip" href="#main" data-i18n="common.skip">本文へ移動</a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav" aria-label="メインナビゲーション">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="/ja/">Lumos</a>
+      <ul>
+        <li><a href="/ja/" data-i18n="nav.home">ホーム</a></li>
+        <li><a href="/ja/sales/" data-i18n="nav.sales">サービス</a></li>
+        <li><a href="/ja/offers/" data-i18n="nav.offers">商品</a></li>
+        <li><a href="/ja/cordova.html" data-i18n="nav.diagnosis">診断</a></li>
+        <li><a href="/ja/retainer.html" data-i18n="nav.retainer">保守</a></li>
+        <li><a href="/ja/threads-analyzer.html" data-i18n="nav.threads">スレッド</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="ls-wrap ls-wrap--wide wd-main">
+    <div class="wd-hero wd-narrow">
+      <p class="ls-kicker">Lumos · 制作スタジオ</p>
+      <h1>ホームページ・<span class="wd-prism">ランディングページ</span> 制作</h1>
+      <p class="ls-lead">下のデザインサンプルからスタイルを選んでいただくと、そのスタイルでホームページやランディングページを制作します。サンプルはどれも実際に開いて確かめられるページです。</p>
+      <div class="ls-cta">
+        <a class="ls-btn ls-btn--primary" href="#contact">お見積りの相談</a>
+        <a class="ls-btn" href="#samples">サンプルを見る</a>
+      </div>
+      <p class="ls-fine">1ページのサイトと、10ページ以下のサイトを制作します。有料で、価格はご相談のうえ決めます。</p>
+    </div>
+
+    <h2 id="samples">デザインサンプル 5種</h2>
+    <p class="wd-narrow">同じ内容を5つのスタイルで作ったページです（韓国語）。サムネイルは幅1440pxの画面で見た最初の画面です。</p>
+    <div class="wd-samples">
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/aurora-glass.webp" width="1200" height="750" decoding="async" alt="Aurora Glass サンプルの最初の画面。濃い紺色の背景に青緑と紫の光がにじみ、半透明のガラスカード4枚が並んでいます。">
+        <div class="wd-card__body">
+          <h3>Aurora Glass</h3>
+          <p>暗い背景にオーロラのような光がにじみ、半透明のガラスカードを重ねたスタイルです。アプリや SaaS など、技術系の製品を落ち着いて紹介するページに向いています。</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/aurora-glass/" aria-label="Aurora Glass のサンプルを開く">サンプルを開く</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/spotlight-bento.webp" width="1200" height="750" decoding="async" alt="Spotlight Bento サンプルの最初の画面。黒い背景にライム色のボタンと強調文字があり、大きさの違う4つのマスに内容が分かれています。">
+        <div class="wd-card__body">
+          <h3>Spotlight Bento</h3>
+          <p>黒地にライムの差し色を置き、大きさの違うマスに内容を分けて入れるベントーグリッドのスタイルです。製品や機能が多く、一画面で見渡してほしいときに向いています。</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/spotlight-bento/" aria-label="Spotlight Bento のサンプルを開く">サンプルを開く</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/frost-light.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Frost Light サンプルの最初の画面。明るい背景にやわらかなパステルの光がにじみ、中央の大きな見出しの下に白いカード4枚があります。">
+        <div class="wd-card__body">
+          <h3>Frost Light</h3>
+          <p>明るい地にやわらかなパステルの光と白いガラスカードを使ったライトスタイルです。相談、教育、暮らしのサービスなど、明るく清潔な印象が大切なページに向いています。</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/frost-light/" aria-label="Frost Light のサンプルを開く">サンプルを開く</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/terminal-editorial.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Terminal Editorial サンプルの最初の画面。方眼模様の黒い背景に、大きな見出しとターミナル風のパネルがあります。">
+        <div class="wd-card__body">
+          <h3>Terminal Editorial</h3>
+          <p>方眼の背景と等幅フォント、ターミナル風のウィンドウを大きな見出しと組み合わせたスタイルです。開発ツールや API ドキュメントなど、開発者が読むページに向いています。</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/terminal-editorial/" aria-label="Terminal Editorial のサンプルを開く">サンプルを開く</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/prism-mesh.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Prism Mesh サンプルの最初の画面。プリズム色のグラデーションの背景に、ガラスの質感の輪と柱の形が浮かんでいます。">
+        <div class="wd-card__body">
+          <span class="ls-card__tag">Lumos のトップページで使用中</span>
+          <h3>Prism Mesh</h3>
+          <p>プリズム色のグラデーションに、ガラスの質感の立体を浮かべたスタイルです。スタジオやブランドの紹介など、最初の画面の印象が大切なページに向いています。</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/prism-mesh/" aria-label="Prism Mesh のサンプルを開く">サンプルを開く</a></p>
+        </div>
+      </article>
+    </div>
+
+    <h2 id="samples-ja">業種別サンプル 4種（日本語）</h2>
+    <p class="wd-narrow">架空の店舗・事務所で作った日本語の1ページサイトです。名前、住所、電話番号、価格はすべて例です。</p>
+    <div class="wd-samples wd-samples--4">
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/ja-dental.webp" width="1200" height="750" loading="lazy" decoding="async" alt="歯科医院サンプルの最初の画面。明るい青緑の背景に「ご家族みんなで通える、まちの歯医者さんです。」という見出し、電話予約のボタン、医院の建物のイラスト、診療時間・予約・所在地のカードがあります。">
+        <div class="wd-card__body">
+          <h3>歯科医院</h3>
+          <p>診療時間表、診療内容、初めての方へのご案内、アクセスを1ページにまとめました。治療の効果を言い切る表現や、ほかの医院と比べる表現は入れていません。</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/ja-dental/" aria-label="歯科医院のサンプルを開く">サンプルを開く</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/ja-salon.webp" width="1200" height="750" loading="lazy" decoding="async" alt="美容室サンプルの最初の画面。ベージュの背景に筆記体の見出し「quiet &amp; soft.」と縦書きの文、アーチの中に流れる髪のイラストがあります。">
+        <div class="wd-card__body">
+          <h3>美容室</h3>
+          <p>コンセプト、メニューと料金、スタイリスト紹介、ご予約とアクセスを載せました。</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/ja-salon/" aria-label="美容室のサンプルを開く">サンプルを開く</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/ja-koumuten.webp" width="1200" height="750" loading="lazy" decoding="async" alt="工務店・リフォームサンプルの最初の画面。あたたかいベージュの背景に太字の見出し「住まいの小さな修理から、新しい家づくりまで。」、無料相談のボタン、木の家のイラストがあります。">
+        <div class="wd-card__body">
+          <h3>工務店・リフォーム</h3>
+          <p>施工事例、家づくり・リフォームの流れ、会社概要、無料相談を載せました。</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/ja-koumuten/" aria-label="工務店・リフォームのサンプルを開く">サンプルを開く</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/ja-zeirishi.webp" width="1200" height="750" loading="lazy" decoding="async" alt="税理士事務所サンプルの最初の画面。方眼紙の背景に紺色の見出し「数字のことを、落ち着いて相談できる場所に。」、初回相談の予約ボタン、書類と電卓のイラストがあります。">
+        <div class="wd-card__body">
+          <h3>税理士事務所</h3>
+          <p>業務内容、料金の目安、ご相談の流れ、よくある質問、事務所概要を載せました。</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/ja-zeirishi/" aria-label="税理士事務所のサンプルを開く">サンプルを開く</a></p>
+        </div>
+      </article>
+    </div>
+
+    <h2 id="includes">すべての制作物に含まれるもの</h2>
+    <p class="wd-narrow">上のサンプルとこのページで確かめられることだけを書いています。</p>
+    <ul class="ls-dash wd-incl wd-narrow">
+      <li><strong>フレームワークを使わない静的な HTML・CSS</strong>サンプルはそれぞれ HTML ファイル1つです。フレームワークやビルドの手順なしで、静的なホスティングにそのまま置けます。</li>
+      <li><strong>幅390pxのスマートフォン表示を確認</strong>9つのサンプルすべてで、幅390pxの画面で横にはみ出さないことを確認しました。</li>
+      <li><strong>検索向けの head 設定</strong>タイトル、説明文、canonical、Open Graph、JSON-LD を入れます。いまご覧のこのページがその例です。サンプルページは検索結果に出ないよう noindex にしています。</li>
+      <li><strong>「視差効果を減らす」設定に対応</strong>端末で動きを減らす設定（prefers-reduced-motion）をオンにすると、アニメーションを止めます。</li>
+      <li><strong>WCAG AA の文字コントラストを確認</strong>文字と背景のコントラストが WCAG AA の基準（通常の文字 4.5:1、大きな文字 3:1）を超えているか、サンプルごとに測定しました。</li>
+    </ul>
+
+    <h2 id="process">制作の流れ</h2>
+    <ol class="ls-funnel wd-steps">
+      <li class="ls-funnel__step"><span class="ls-funnel__n">1</span><strong>お問い合わせ</strong><p>作りたいページと気に入ったサンプルを、メールでお知らせください。</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">2</span><strong>スタイルを選ぶ</strong><p>サンプルから1つを選びます。</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">3</span><strong>初稿</strong><p>選んだスタイルにいただいた内容を入れ、初稿をお見せします。</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">4</span><strong>修正</strong><p>初稿をご覧になって直したい点をお知らせいただければ、反映します。</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">5</span><strong>納品</strong><p>完成した HTML・CSS ファイルをお渡しします。</p></li>
+    </ol>
+
+    <h2 id="price">料金と日程</h2>
+    <p class="wd-narrow">2つの規模で制作します。どちらも有料で、料金と日程は内容を伺ってからご相談のうえ決めます。</p>
+    <div class="ls-grid ls-grid--2 wd-plans">
+      <article class="ls-card" id="plan-one">
+        <span class="ls-card__title">1ページ</span>
+        <p>1ページで完結する紹介ページやランディングページです。</p>
+        <p class="ls-price">有料 · 料金はご相談</p>
+        <ul class="ls-dash">
+          <li>サンプルのスタイルから1つを元に制作</li>
+          <li>スマートフォンで横にはみ出さないことを確認</li>
+          <li>検索向けの head（タイトル、説明文、canonical、Open Graph）</li>
+        </ul>
+        <p class="wd-plan-cta"><a class="ls-btn ls-btn--sm" href="#contact">お見積りの相談</a></p>
+      </article>
+      <article class="ls-card" id="plan-site">
+        <span class="ls-card__title">小規模サイト</span>
+        <p>10ページ以下の、お店・事務所・会社のサイトです。</p>
+        <p class="ls-price">有料 · 料金はご相談</p>
+        <ul class="ls-dash">
+          <li>サンプルのスタイルから1つを元に制作</li>
+          <li>すべてのページに共通のメニューとフッター</li>
+          <li>ページごとの検索向け head と sitemap.xml</li>
+        </ul>
+        <p class="wd-plan-cta"><a class="ls-btn ls-btn--sm" href="#contact">お見積りの相談</a></p>
+      </article>
+    </div>
+
+    <h2 id="contact">お問い合わせ</h2>
+    <p class="wd-narrow">制作のご相談は <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>までお送りください。気に入ったサンプルの名前と作りたいページを書いていただければ、お見積りをお送りします。</p>
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com">メールで見積りを相談</a>
+    </div>
+
+    <footer class="ls-foot">
+      <nav data-i18n-aria-label="common.footerNav" aria-label="フッターナビゲーション">
+        <a href="/ja/" data-i18n="nav.home">ホーム</a>
+        <a href="/ja/sales/" data-i18n="nav.sales">サービス</a>
+        <a href="/ja/offers/" data-i18n="nav.offers">商品</a>
+        <a href="/ja/retainer.html" data-i18n="nav.retainer">保守</a>
+        <a href="/pp.html" data-i18n="footer.privacy">プライバシー</a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+      <p data-i18n="common.disclaimer">いかなる雇用主とも提携していません。</p>
+    </footer>
+  </main>
+
+  <script src="/i18n.js"></script>
+
+
+</body></html>

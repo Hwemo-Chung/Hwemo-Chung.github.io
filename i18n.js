@@ -269,10 +269,10 @@ function translateSitePage(lang) {
         node = walker.nextNode();
     }
 
-    for (const element of document.querySelectorAll('[placeholder], [title], [aria-label]')) {
+    for (const element of document.querySelectorAll('[placeholder], [title], [aria-label], img[alt]')) {
         if (!siteOriginalAttributes.has(element)) siteOriginalAttributes.set(element, {});
         const originals = siteOriginalAttributes.get(element);
-        for (const attribute of ['placeholder', 'title', 'aria-label']) {
+        for (const attribute of ['placeholder', 'title', 'aria-label', 'alt']) {
             if (!(attribute in originals)) originals[attribute] = element.getAttribute(attribute);
             const source = originals[attribute];
             if (source && translations[source]) element.setAttribute(attribute, translations[source]);

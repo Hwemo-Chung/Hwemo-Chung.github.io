@@ -75,8 +75,8 @@ function transform({ lang, map, st, variantPaths, origin, canonRoot, variantUrl,
     if (map[source]) n.textContent = original.match(/^\s*/)[0] + map[source] + original.match(/\s*$/)[0];
     else if (/[가-힣]/.test(source)) missing.add(source);
   }
-  for (const el of document.querySelectorAll('[placeholder], [title], [aria-label]'))
-    for (const a of ['placeholder', 'title', 'aria-label']) { const v = el.getAttribute(a); if (v && map[v]) el.setAttribute(a, map[v]); }
+  for (const el of document.querySelectorAll('[placeholder], [title], [aria-label], img[alt]'))
+    for (const a of ['placeholder', 'title', 'aria-label', 'alt']) { const v = el.getAttribute(a); if (v && map[v]) el.setAttribute(a, map[v]); }
   for (const m of document.querySelectorAll('meta[name="description"], meta[property="og:title"], meta[property="og:description"], meta[name="twitter:title"], meta[name="twitter:description"]')) {
     const v = m.getAttribute('content'); if (v && map[v]) m.setAttribute('content', map[v]);
   }

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- 생성 파일: scripts/build-i18n-pages.cjs 가 /web-design.html 와 i18n-content.json 으로 만든다. 직접 고치지 말 것. -->
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Website &amp; landing page production | 9 design samples | Lumos</title>
+  <meta name="description" content="Pick one of 9 design samples (including 4 Japanese industry samples) and have a one-page site or a site of up to 10 pages built in that style. Static HTML and CSS, no framework; the price is agreed with you.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://hwemo-chung.github.io/en/web-design.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/web-design.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/web-design.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/web-design.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/web-design.html">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lumos">
+  <meta property="og:url" content="https://hwemo-chung.github.io/en/web-design.html">
+  <meta property="og:title" content="Website &amp; landing page production | 9 design samples | Lumos"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:description" content="Pick one of 9 design samples and we build a one-page site or a site of up to 10 pages in that style. Paid; price by agreement.">
+  
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Website &amp; landing page production | 9 design samples | Lumos">
+  <meta name="twitter:description" content="Pick one of 9 design samples and we build a one-page site or a site of up to 10 pages in that style. Paid; price by agreement.">
+  <meta name="twitter:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://hwemo-chung.github.io/web-design.html#service",
+      "name": "홈페이지·랜딩페이지 제작",
+      "serviceType": "Website and landing page design and development",
+      "url": "https://hwemo-chung.github.io/en/web-design.html",
+      "description": "디자인 샘플 9종(일본어 업종별 4종 포함) 가운데 스타일을 골라 원페이지나 10페이지 이하 사이트 제작을 맡길 수 있습니다. 프레임워크 없는 정적 HTML·CSS로 만들고, 가격은 협의해 정합니다.",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://hwemo-chung.github.io/#person",
+        "name": "정휘모"
+      }
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/sales/tokens.css">
+  <link rel="stylesheet" href="/sales/components.css">
+  <link rel="stylesheet" href="/sales/site-unified.css">
+  <style>
+    /* Page-specific rules for web-design.html only. Colours and radii come from sales/tokens.css. */
+    .wd-main [id] { scroll-margin-top: 76px; }
+    .wd-narrow { max-width: 760px; }
+    .wd-hero h1 .wd-prism { background: var(--ls-prism); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    .wd-samples { display: grid; gap: 16px; margin-top: 20px; grid-template-columns: minmax(0, 1fr); }
+    @media (min-width: 680px) { .wd-samples { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 960px) {
+      .wd-samples { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .wd-card { grid-column: span 2; }
+      .wd-card:nth-child(-n+2) { grid-column: span 3; }
+      .wd-samples--4 .wd-card { grid-column: span 3; }
+    }
+    .wd-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+    .wd-card:focus-within { box-shadow: 0 0 0 2px var(--ls-sky); }
+    .wd-thumb { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 750; object-fit: cover; object-position: top; background: var(--ls-card); border-bottom: 1px solid var(--ls-border); }
+    .wd-card__body { display: flex; flex-direction: column; flex: 1; padding: 20px 22px 22px; }
+    .wd-card__body h3 { font-size: 19px; }
+    .wd-card__body p { font-size: 15px; }
+    .wd-card__body .ls-card__tag { align-self: flex-start; }
+    .wd-open { margin: auto 0 0 !important; padding-top: 6px; }
+    /* One link per card; its ::after stretches over the whole card so the thumbnail is clickable too. */
+    .wd-open a::after { content: ""; position: absolute; inset: 0; }
+    .wd-open a:focus-visible { outline: none; }
+
+    .wd-plans .ls-card { display: flex; flex-direction: column; }
+    .wd-plans .ls-dash { margin-bottom: 16px; }
+    .wd-plan-cta { margin: auto 0 0 !important; }
+    .wd-incl li strong { display: block; font-size: 16px; }
+    .wd-steps { list-style: none; padding: 0; }
+    @media (min-width: 960px) { .ls-funnel.wd-steps { grid-template-columns: repeat(5, 1fr); } }
+  </style>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+</head>
+<body class="ls">
+  <a class="ls-skip" href="#main" data-i18n="common.skip">Skip to content</a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav" aria-label="Main navigation">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="/en/">Lumos</a>
+      <ul>
+        <li><a href="/en/" data-i18n="nav.home">Home</a></li>
+        <li><a href="/en/sales/" data-i18n="nav.sales">Sales</a></li>
+        <li><a href="/en/offers/" data-i18n="nav.offers">Offers</a></li>
+        <li><a href="/en/cordova.html" data-i18n="nav.diagnosis">Diagnosis</a></li>
+        <li><a href="/retainer.html" data-i18n="nav.retainer">Retainer</a></li>
+        <li><a href="/en/threads-analyzer.html" data-i18n="nav.threads">Threads</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="ls-wrap ls-wrap--wide wd-main">
+    <div class="wd-hero wd-narrow">
+      <p class="ls-kicker">Lumos · Professional studio</p>
+      <h1>Website &amp; <span class="wd-prism">landing page</span>  production</h1>
+      <p class="ls-lead">Pick a style from the design samples below and we build your website or landing page in that style. Every sample is a live page you can open.</p>
+      <div class="ls-cta">
+        <a class="ls-btn ls-btn--primary" href="#contact">Request a quote</a>
+        <a class="ls-btn" href="#samples">See samples</a>
+      </div>
+      <p class="ls-fine">We build one-page sites and sites of up to 10 pages. Paid work; the price is agreed with you.</p>
+    </div>
+
+    <h2 id="samples">Five design samples</h2>
+    <p class="wd-narrow">The same content built in five styles (in Korean). Thumbnails show the first screen at 1440px wide.</p>
+    <div class="wd-samples">
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/aurora-glass.webp" width="1200" height="750" decoding="async" alt="First screen of the Aurora Glass sample: teal and violet light spreading over a dark navy background, with four translucent glass cards side by side.">
+        <div class="wd-card__body">
+          <h3>Aurora Glass</h3>
+          <p>Aurora-like light spreading over a dark background, with translucent glass cards. Suits calm introductions of technical products such as apps or SaaS.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/aurora-glass/" aria-label="Open the Aurora Glass sample">Open sample</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/spotlight-bento.webp" width="1200" height="750" decoding="async" alt="First screen of the Spotlight Bento sample: a black background with lime buttons and highlighted words, content split into four boxes of different sizes.">
+        <div class="wd-card__body">
+          <h3>Spotlight Bento</h3>
+          <p>A bento-grid style: lime accents on black, with content split into boxes of different sizes. Suits several products or features that people should scan on one screen.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/spotlight-bento/" aria-label="Open the Spotlight Bento sample">Open sample</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/frost-light.webp" width="1200" height="750" loading="lazy" decoding="async" alt="First screen of the Frost Light sample: soft pastel light on a bright background, a large centered heading and four white cards below it.">
+        <div class="wd-card__body">
+          <h3>Frost Light</h3>
+          <p>A light style with soft pastel light and white glass cards. Suits pages that need a bright, clean impression: consulting, education, everyday services.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/frost-light/" aria-label="Open the Frost Light sample">Open sample</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/terminal-editorial.webp" width="1200" height="750" loading="lazy" decoding="async" alt="First screen of the Terminal Editorial sample: a large heading and a terminal-window panel on a black background with a grid pattern.">
+        <div class="wd-card__body">
+          <h3>Terminal Editorial</h3>
+          <p>Grid background, monospaced type and terminal windows next to large headings. Suits pages developers read, such as dev tools or API docs.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/terminal-editorial/" aria-label="Open the Terminal Editorial sample">Open sample</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/prism-mesh.webp" width="1200" height="750" loading="lazy" decoding="async" alt="First screen of the Prism Mesh sample: glassy ring and pillar shapes floating over a prism-colored gradient.">
+        <div class="wd-card__body">
+          <span class="ls-card__tag">Used on the Lumos home page</span>
+          <h3>Prism Mesh</h3>
+          <p>Glassy 3D shapes over a prism-colored gradient. Suits pages where the first impression matters, such as studio or brand introductions.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/prism-mesh/" aria-label="Open the Prism Mesh sample">Open sample</a></p>
+        </div>
+      </article>
+    </div>
+
+    <h2 id="samples-ja">Four industry samples (in Japanese)</h2>
+    <p class="wd-narrow">Japanese one-page sites for fictional shops and offices. Names, addresses, phone numbers and prices are all examples.</p>
+    <div class="wd-samples wd-samples--4">
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/ja-dental.webp" width="1200" height="750" loading="lazy" decoding="async" alt="First screen of the dental clinic sample: a light teal background with the heading &quot;ご家族みんなで通える、まちの歯医者さんです。&quot;, a call-to-book button, a clinic building illustration and cards for hours, booking and location.">
+        <div class="wd-card__body">
+          <h3>Dental clinic</h3>
+          <p>Opening-hours table, treatments, a guide for first visits and directions on one page. No wording that promises results or compares the clinic with others.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/ja-dental/" aria-label="Open the dental clinic sample">Open sample</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/ja-salon.webp" width="1200" height="750" loading="lazy" decoding="async" alt="First screen of the hair salon sample: a beige background with the script heading &quot;quiet &amp; soft.&quot;, vertical Japanese text and flowing hair lines inside an arch.">
+        <div class="wd-card__body">
+          <h3>Hair salon</h3>
+          <p>Concept, menu and prices, stylists, booking and directions.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/ja-salon/" aria-label="Open the hair salon sample">Open sample</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/ja-koumuten.webp" width="1200" height="750" loading="lazy" decoding="async" alt="First screen of the builder &amp; renovation sample: a warm beige background with the bold heading &quot;住まいの小さな修理から、新しい家づくりまで。&quot;, a free-consultation button and a wooden house illustration.">
+        <div class="wd-card__body">
+          <h3>Builder &amp; renovation</h3>
+          <p>Project examples, the steps of building and renovating, company profile and a free consultation.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/ja-koumuten/" aria-label="Open the builder &amp; renovation sample">Open sample</a></p>
+        </div>
+      </article>
+      <article class="ls-card wd-card">
+        <img class="wd-thumb" src="/assets/images/samples/ja-zeirishi.webp" width="1200" height="750" loading="lazy" decoding="async" alt="First screen of the tax accountant office sample: a graph-paper background with the navy heading &quot;数字のことを、落ち着いて相談できる場所に。&quot;, a first-consultation button and an illustration of documents and a calculator.">
+        <div class="wd-card__body">
+          <h3>Tax accountant office</h3>
+          <p>Services, fee guide, consultation steps, FAQ and office profile.</p>
+          <p class="wd-open"><a class="ls-btn ls-btn--sm" href="/samples/ja-zeirishi/" aria-label="Open the tax accountant office sample">Open sample</a></p>
+        </div>
+      </article>
+    </div>
+
+    <h2 id="includes">Included in every project</h2>
+    <p class="wd-narrow">Only what you can check in the samples above and on this page.</p>
+    <ul class="ls-dash wd-incl wd-narrow">
+      <li><strong>Static HTML &amp; CSS, no framework</strong>Each sample is a single HTML file. It goes straight onto static hosting, with no framework or build step.</li>
+      <li><strong>Mobile layout checked at 390px</strong>All nine samples were checked on a 390px-wide screen for horizontal overflow.</li>
+      <li><strong>Search-ready head</strong>Title, description, canonical, Open Graph and JSON-LD. This page is an example. The sample pages are set to noindex so they stay out of search results.</li>
+      <li><strong>Respects reduced motion</strong>When reduced motion (prefers-reduced-motion) is on, animations are turned off or paused.</li>
+      <li><strong>WCAG AA text contrast checked</strong>Text-to-background contrast was measured in every sample against WCAG AA (4.5:1 for normal text, 3:1 for large text).</li>
+    </ul>
+
+    <h2 id="process">How it works</h2>
+    <ol class="ls-funnel wd-steps">
+      <li class="ls-funnel__step"><span class="ls-funnel__n">1</span><strong>Contact</strong><p>Email us the pages you need and the sample you like.</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">2</span><strong>Pick a style</strong><p>Choose one of the samples.</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">3</span><strong>Draft</strong><p>We put your content into the chosen style and show you a draft.</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">4</span><strong>Revisions</strong><p>Tell us what to change after seeing the draft and we apply it.</p></li>
+      <li class="ls-funnel__step"><span class="ls-funnel__n">5</span><strong>Delivery</strong><p>We hand over the finished HTML and CSS files.</p></li>
+    </ol>
+
+    <h2 id="price">Price and schedule</h2>
+    <p class="wd-narrow">We build at two sizes. Both are paid; the price and schedule are agreed after we hear what you need.</p>
+    <div class="ls-grid ls-grid--2 wd-plans">
+      <article class="ls-card" id="plan-one">
+        <span class="ls-card__title">One page</span>
+        <p>A single-page introduction or landing page.</p>
+        <p class="ls-price">Paid · Price by agreement</p>
+        <ul class="ls-dash">
+          <li>Built on one of the sample styles</li>
+          <li>Checked on mobile for horizontal overflow</li>
+          <li>Search-ready head (title, description, canonical, Open Graph)</li>
+        </ul>
+        <p class="wd-plan-cta"><a class="ls-btn ls-btn--sm" href="#contact">Request a quote</a></p>
+      </article>
+      <article class="ls-card" id="plan-site">
+        <span class="ls-card__title">Small site</span>
+        <p>A site of up to 10 pages for a shop, office or company.</p>
+        <p class="ls-price">Paid · Price by agreement</p>
+        <ul class="ls-dash">
+          <li>Built on one of the sample styles</li>
+          <li>The same menu and footer on every page</li>
+          <li>A search-ready head on every page, plus sitemap.xml</li>
+        </ul>
+        <p class="wd-plan-cta"><a class="ls-btn ls-btn--sm" href="#contact">Request a quote</a></p>
+      </article>
+    </div>
+
+    <h2 id="contact">Contact</h2>
+    <p class="wd-narrow">Send project inquiries to <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>. Include the sample you like and the pages you need, and we will send a quote.</p>
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com">Request a quote by email</a>
+    </div>
+
+    <footer class="ls-foot">
+      <nav data-i18n-aria-label="common.footerNav" aria-label="Footer navigation">
+        <a href="/en/" data-i18n="nav.home">Home</a>
+        <a href="/en/sales/" data-i18n="nav.sales">Sales</a>
+        <a href="/en/offers/" data-i18n="nav.offers">Offers</a>
+        <a href="/retainer.html" data-i18n="nav.retainer">Retainer</a>
+        <a href="/pp.html" data-i18n="footer.privacy">Privacy</a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+      <p data-i18n="common.disclaimer">Not affiliated with any employer.</p>
+    </footer>
+  </main>
+
+  <script src="/i18n.js"></script>
+
+
+</body></html>
