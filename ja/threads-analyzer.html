@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!-- 생성 파일: scripts/build-i18n-pages.cjs 가 /threads-analyzer.html 와 i18n-content.json 으로 만든다. 직접 고치지 말 것. -->
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Threads Analyzer |スレッドアカウント分析12シートExcelレポート</title>
+<meta name="description" content="Meta Threads APIを使用してスレッドアカウントの投稿全体を集め、12シートのExcelレポートを作成します。視聴回数の中央値、時間帯別のデッドレート、文字数別の成果、フォロワーの人口統計を表示します。 CLIは無料です。">
+<link rel="canonical" href="https://hwemo-chung.github.io/ja/threads-analyzer.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/threads-analyzer.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/threads-analyzer.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/threads-analyzer.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/threads-analyzer.html">
+<!-- i18n-alternates -->
+    
+    
+    
+    
+    <!-- /i18n-alternates -->
+<meta property="og:title" content="Threads Analyzer |スレッドアカウント分析12シートExcelレポート"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="en_US">
+<meta property="og:description" content="スレッドの投稿全体を中央値に戻します。いつ投稿された投稿があまり埋まらないかを時間帯別に確認します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hwemo-chung.github.io/ja/threads-analyzer.html">
+
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="/sales/tokens.css">
+<link rel="stylesheet" href="/sales/components.css">
+<link rel="stylesheet" href="/sales/product-extras.css">
+  <link rel="stylesheet" href="/sales/site-unified.css">
+<style>.ls-section > h2:first-child { margin-top: 0; } .ls-section h3 { margin-top: 28px; } .ls-table td:first-child { white-space: nowrap; }</style>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<meta property="og:site_name" content="Lumos">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+</head>
+<body class="ls">
+<a class="ls-skip" href="#main" data-i18n="common.skip">本文へ移動</a>
+<nav class="ls-nav" data-i18n-aria-label="common.mainNav" aria-label="メインナビゲーション"><div class="ls-nav__inner">
+<a class="ls-brand" href="/ja/">Lumos</a>
+<ul>
+<li><a href="/ja/" data-i18n="nav.home">ホーム</a></li>
+<li><a href="/ja/sales/" data-i18n="nav.sales">サービス</a></li>
+<li><a href="/ja/offers/" data-i18n="nav.offers">商品</a></li>
+<li><a href="/ja/cordova.html" data-i18n="nav.diagnosis">診断</a></li>
+<li><a href="/ja/retainer.html" data-i18n="nav.retainer">保守</a></li>
+<li><a href="/ja/threads-analyzer.html" aria-current="page" data-i18n="nav.threads">スレッド</a></li>
+</ul></div></nav>
+<main id="main" class="ls-wrap ls-wrap--product">
+
+<header class="ls-hero-center">
+  <h1>Threads Analyzer</h1>
+  <p class="ls-lead">スレッドアカウントの投稿全体をMeta Threads APIにインポートし、12シートのExcelレポートにします。平均ではなく中央値で計算して、バイラル文一つに隠された時間帯別成果が見えます。</p>
+  <p>コマンドラインで書くCLIは無料のオープンソースで、今書くことができます。インストールせずにクリックで書き込むデスクトップアプリは準備中です。 <b>$29</b>(定価 $39) 1 回のお支払いです。待機リストに登録すると、19ドルで購入できます。</p>
+  <div class="ls-cta">
+    <a class="ls-btn ls-btn--primary" href="https://forms.gle/FkerkjkHwJzRmHGb6" target="_blank" rel="noopener" data-waitlist="">リリース通知を受け取る</a>
+    <a class="ls-btn" href="https://github.com/Hwemo-Chung/threads-analytics">無料CLIを取得</a>
+  </div>
+  <div id="pay-threads" class="ls-cta" hidden=""></div>
+  <p class="ls-fine">リリース通知メールは 1 通のみ送信します。他のメールは送信しません。</p>
+</header>
+
+<section class="ls-section">
+  <h2>クリエイターのアカウントに最初に返した結果</h2>
+  <p>投稿 1,954 件、累積照会 440 万人の会員アカウントです。下の数字はすべてこのツールが選びました。</p>
+
+  <div class="ls-stats">
+    <div class="ls-stat"><div class="ls-stat__v">412</div><div class="ls-stat__l">視聴回数の中央値</div></div>
+    <div class="ls-stat"><div class="ls-stat__v">2,254</div><div class="ls-stat__l">再生回数平均（中央値の5.5倍）</div></div>
+    <div class="ls-stat"><div class="ls-stat__v">48.3%</div><div class="ls-stat__l">上位1％の投稿のヒット</div></div>
+    <div class="ls-stat"><div class="ls-stat__v">56.5%</div><div class="ls-stat__l">再生回数500回を超えた投稿</div></div>
+  </div>
+
+  <h3>一番上がった時間が一番いい時間ではありませんでした</h3>
+  <div class="ls-table-scroll">
+  <table class="ls-table">
+    <thead><tr><th>タイムゾーン</th><th class="ls-num">投稿</th><th class="ls-num">照会の中央値</th><th class="ls-num">500回未満の割合</th></tr></thead>
+    <tbody>
+      <tr><td>午前10時</td><td class="ls-num">170</td><td class="ls-num ls-bad">278</td><td class="ls-num ls-bad">70.0%</td></tr>
+      <tr><td>夜明け1時</td><td class="ls-num">48</td><td class="ls-num ls-good">666</td><td class="ls-num ls-good">43.8%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>平均すると、午前 10 時が 1,173 回になります。バイラル文の一つが平均を引き上げたためであり、中央値で見ると順序が反転します。</p>
+
+  <h3>短い文章はたくさん見え、長い文章は反応が多い</h3>
+  <div class="ls-table-scroll">
+  <table class="ls-table">
+    <thead><tr><th>文字数</th><th class="ls-num">照会の中央値</th><th class="ls-num">エンゲージメント率</th></tr></thead>
+    <tbody>
+      <tr><td>50～100文字</td><td class="ls-num ls-good">618</td><td class="ls-num">0.84%</td></tr>
+      <tr><td>400～500文字</td><td class="ls-num ls-bad">186</td><td class="ls-num ls-good">1.70%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>長い文章はリーチが3.3倍減少し、参加率が2倍になります。フォロワーを増やす方と反応を得る方のどちらを選ぶかアカウントのオーナーが決める事です。レポートは今どちらを選んでいるかを示しています。</p>
+</section>
+
+<section class="ls-section">
+  <h2>レポートに含まれる12枚のシート</h2>
+  <p>一度実行すると、アカウントを 1 つ含む Excel ファイルが 1 つ表示されます。</p>
+  <ul class="ls-dash">
+    <li><b>全投稿</b>: 日付、照会、いいね、エンゲージメントを投稿ごとにすべて埋め込み、フィルタで絞り込むことができます。</li>
+    <li><b>インサイトランキング</b>: ルックアップ、エンゲージメント、グッドレート、バイラルベースでそれぞれ TOP 30 を選びます。</li>
+    <li><b>タイムゾーンの分析</b>: 24時間と曜日を交差して中央値とデッド率を出します。</li>
+    <li><b>毎日の視聴回数の推移</b>: 最大 730 日毎日時系列と 7 日移動平均です。</li>
+    <li><b>スナップショットの成長推移</b>: 実行するたびにフォロワー数を積み重ねます。 APIが履歴を与えていないため、直接記録します。</li>
+    <li><b>バイラル深層分析</b>: 上位 1% の基準をアカウントの規模に合わせて計算します。</li>
+    <li><b>コンテンツの最適化</b>: 文字数とトピックタグ別の成果です。</li>
+    <li>残りの5つのシートは、良いレート、毎月のトレンド、フォロワーの人口統計、成長の洞察、成長戦略です。</li>
+  </ul>
+
+<!-- PREVIEW:START -->
+  <h3>サンプルレポートの一部</h3>
+  <p>付属のサンプルデータで作成したレポートから3枚のシートを移動しました。エクセルで黄色に強調された行は、ここで背景を別にマークしました。</p>
+<figure class="ls-xl">
+<figcaption>時刻</figcaption>
+<div class="ls-table-scroll"><table class="ls-table">
+<thead><tr><th>時間</th><th>投稿</th><th>中央値ビュー</th><th>平均視聴数</th><th>死亡率 (%)</th><th>いいね!の中央値</th><th>平均エンゲージメント</th><th>評決</th></tr></thead>
+<tbody>
+<tr class="is-primary"><td>08:00</td><td class="ls-num">39</td><td class="ls-num">521</td><td class="ls-num">6200</td><td class="ls-num">48.72</td><td class="ls-num">3</td><td class="ls-num">14</td><td>強い</td></tr>
+<tr><td>09:00</td><td class="ls-num">95</td><td class="ls-num">312</td><td class="ls-num">2682</td><td class="ls-num">67.37</td><td class="ls-num">3</td><td class="ls-num">37</td><td>避けてください</td></tr>
+<tr><td>10:00</td><td class="ls-num">75</td><td class="ls-num">277</td><td class="ls-num">1608</td><td class="ls-num">69.33</td><td class="ls-num">3</td><td class="ls-num">8.8</td><td>避けてください</td></tr>
+<tr><td>11:00</td><td class="ls-num">68</td><td class="ls-num">272</td><td class="ls-num">3370</td><td class="ls-num">66.18</td><td class="ls-num">3</td><td class="ls-num">50</td><td>避けてください</td></tr>
+<tr><td>12:00</td><td class="ls-num">52</td><td class="ls-num">340</td><td class="ls-num">2426</td><td class="ls-num">55.77</td><td class="ls-num">3</td><td class="ls-num">14</td><td>平均</td></tr>
+<tr><td>13:00</td><td class="ls-num">42</td><td class="ls-num">428</td><td class="ls-num">4785</td><td class="ls-num">52.38</td><td class="ls-num">4.5</td><td class="ls-num">147.3</td><td>平均</td></tr>
+<tr><td>14:00</td><td class="ls-num">53</td><td class="ls-num">380</td><td class="ls-num">21201</td><td class="ls-num">58.49</td><td class="ls-num">5</td><td class="ls-num">60.8</td><td>平均</td></tr>
+<tr><td>15:00</td><td class="ls-num">51</td><td class="ls-num">455</td><td class="ls-num">2219</td><td class="ls-num">54.9</td><td class="ls-num">5</td><td class="ls-num">16.3</td><td>平均</td></tr>
+<tr class="is-primary"><td>16:00</td><td class="ls-num">47</td><td class="ls-num">633</td><td class="ls-num">1640</td><td class="ls-num">42.55</td><td class="ls-num">4</td><td class="ls-num">12</td><td>強い</td></tr>
+</tbody></table></div></figure>
+<figure class="ls-xl">
+<figcaption>コンテンツの最適化</figcaption>
+<div class="ls-table-scroll"><table class="ls-table">
+<thead><tr><th>長さの範囲</th><th>投稿</th><th>中央値ビュー</th><th>平均視聴数</th><th>ER 中央値 (%)</th><th>死亡率 (%)</th></tr></thead>
+<tbody>
+<tr><td>0 ～ 50 文字</td><td class="ls-num">216</td><td class="ls-num">392</td><td class="ls-num">2525</td><td class="ls-num">0.8</td><td class="ls-num">56.94</td></tr>
+<tr class="is-primary"><td>50 ～ 100 文字</td><td class="ls-num">215</td><td class="ls-num">674</td><td class="ls-num">4617</td><td class="ls-num">0.86</td><td class="ls-num">40</td></tr>
+<tr><td>100 ～ 150 文字</td><td class="ls-num">125</td><td class="ls-num">494</td><td class="ls-num">4197</td><td class="ls-num">0.88</td><td class="ls-num">52.8</td></tr>
+<tr class="is-primary"><td>150 ～ 200 文字</td><td class="ls-num">64</td><td class="ls-num">554</td><td class="ls-num">2942</td><td class="ls-num">1.07</td><td class="ls-num">46.88</td></tr>
+<tr><td>200 ～ 300 文字</td><td class="ls-num">96</td><td class="ls-num">301</td><td class="ls-num">615</td><td class="ls-num">1.5</td><td class="ls-num">77.08</td></tr>
+<tr><td>300 ～ 400 文字</td><td class="ls-num">71</td><td class="ls-num">389</td><td class="ls-num">14189</td><td class="ls-num">1.71</td><td class="ls-num">60.56</td></tr>
+<tr><td>400 ～ 500 文字</td><td class="ls-num">109</td><td class="ls-num">181</td><td class="ls-num">413</td><td class="ls-num">1.71</td><td class="ls-num">82.57</td></tr>
+<tr><td>500 文字以上</td><td class="ls-num">4</td><td class="ls-num">144</td><td class="ls-num">200</td><td class="ls-num">2.39</td><td class="ls-num">100</td></tr>
+</tbody></table></div></figure>
+<p class="ls-fine">すべてのメディア タイプが含まれます: TEXT_POST 782、IMAGE 107、CAROUSEL_ALBUM 8、VIDEO 3。デッド レートは、500 ビュー未満の投稿の割合です。投稿が長いとエンゲージメント率は上昇しますが、リーチは縮まり（300～400文字：ER 1.71%、閲覧数389、50～100文字：ER 0.86%、閲覧数674）、リーチの差は1.7倍になります。</p>
+<figure class="ls-xl">
+<figcaption>ウイルスの詳細調査: 集中度の表示</figcaption>
+<div class="ls-table-scroll"><table class="ls-table">
+<thead><tr><th>メトリック</th><th>値</th></tr></thead>
+<tbody>
+<tr><td>元の投稿</td><td class="ls-num">900</td></tr>
+<tr><td>平均視聴数</td><td class="ls-num">3737</td></tr>
+<tr><td>中央値ビュー</td><td class="ls-num">398</td></tr>
+<tr><td>平均値/中央値比</td><td class="ls-num">9.38</td></tr>
+<tr><td>P50</td><td class="ls-num">398</td></tr>
+<tr><td>P75</td><td class="ls-num">1016</td></tr>
+<tr><td>P90</td><td class="ls-num">3490</td></tr>
+<tr><td>P99</td><td class="ls-num">54317</td></tr>
+<tr><td>ウイルス閾値 (適用済み)</td><td class="ls-num">54317</td></tr>
+</tbody></table></div></figure>
+  <!-- PREVIEW:END -->
+
+  <p>シートごとに実際の外観を抜粋した文書はGitHubにあります。 Metaアプリなしでサンプルデータとしてレポートを直接作成することもできます。 <a href="https://github.com/Hwemo-Chung/threads-analytics/blob/main/docs/SAMPLE.md">シートの抜粋を見る</a></p>
+</section>
+
+<section class="ls-section">
+  <h2>価格</h2>
+  <div class="ls-table-scroll">
+  <table class="ls-table">
+    <thead><tr><th>バージョン</th><th>価格</th><th>の書き方</th><th>ステータス</th></tr></thead>
+    <tbody>
+      <tr><td>CLI</td><td>無料、オープンソース。機能制限と期間制限はありません。</td><td>Pythonとして実行します。 <a href="https://github.com/Hwemo-Chung/threads-analytics">github.com/Hwemo-Chung/threads-analytics</a></td><td>今すぐ利用可能</td></tr>
+      <tr class="is-primary"><td>デスクトップアプリ</td><td>$29(定価 $39)、1回決済で一生使用。待機リスト登録者は$19。</td><td>Mac、Windows。ターミナルとPythonをインストールせずにクリックで書き込みます。</td><td>準備中</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>両方のバージョンの分析エンジンは同じです。アプリの価格は、端末、Python、証明書の設定に代わる値です。その設定が難しくない場合は、無料のCLIで十分です。</p>
+</section>
+
+<section class="ls-section">
+  <h2>書く前に必要なもの</h2>
+  <ul class="ls-dash">
+    <li>Meta 開発者アプリを自分で作成する必要があります。 Metaは、アカウント所有者が作成したアプリでのみインサイトを開きます。デスクトップアプリを購入するこのステップは残り、画面上の案内ウィザードに従って10分かかります。このプロセスが負担であれば、購入しないことをお勧めします。</li>
+    <li>フォロワー 人口統計シートは、Meta ポリシー上のフォロワーが 100 人以上の場合にのみ表示されます。残りの11枚のシートは投稿だけで済みます。</li>
+    <li>時間帯と文字数分析は、標本が 30 件以上の区間にのみ判定を行います。</li>
+  </ul>
+</section>
+
+<section class="ls-section">
+  <h2>よくある質問</h2>
+  <div class="ls-faq">
+  <details>
+    <summary>私のデータはどこに行きますか？</summary>
+    <p>どこにも送信しません。サーバーがなく、マイコンピュータからMeta APIを直接呼び出し、結果のExcelもマイコンピュータにのみ保存します。トークンはローカルです <code>.env</code> ファイルに入れ、権限を 600 にロックします。</p>
+  </details>
+  <details>
+    <summary>どのくらいかかりますか？</summary>
+    <p>投稿 2,000 件目で初回の収集に 10 分ほどかかります。 2番目からはキャッシュを書いて1〜2分で終わります。</p>
+  </details>
+  <details>
+    <summary>フォロワーは少なくとも書くことができますか？</summary>
+    <p>はい。フォロワーが100人未満の場合、フォロワーの人口統計シートのみが備わり、残りの11枚のシートはそのまま出てきます。</p>
+  </details>
+  <details>
+    <summary>CLIは無料ですが、なぜアプリは有料ですか？</summary>
+    <p>エンジンは同じで、アプリは端末と Python、証明書の設定をする必要がないようにしたものです。その時間が惜しくない場合は、無料版を使ってください。</p>
+  </details>
+</div>
+</section>
+
+<footer class="ls-foot">
+  <nav data-i18n-aria-label="common.footerNav" aria-label="フッターナビゲーション">
+    <a href="/ja/" data-i18n="nav.home">ホーム</a>
+    <a href="/ja/sales/" data-i18n="nav.sales">サービス</a>
+    <a href="/ja/offers/" data-i18n="nav.offers">商品</a>
+    <a href="/ja/cordova.html" data-i18n="nav.diagnosis">診断</a>
+    <a href="/ja/retainer.html" data-i18n="nav.retainer">保守</a>
+    <a href="/ja/threads-analyzer.html" data-i18n="nav.threads">スレッド</a>
+    <a href="/pp.html" data-i18n="footer.privacy">プライバシー</a>
+    <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+  </nav>
+  <p data-i18n="common.disclaimer">いかなる雇用主とも提携していません。</p>
+</footer>
+
+</main>
+<script src="/sales/payment.js" defer=""></script>
+    <script src="/i18n.js"></script>
+
+
+</body></html>

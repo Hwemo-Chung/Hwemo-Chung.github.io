@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!-- 생성 파일: scripts/build-i18n-pages.cjs 가 /threads-analyzer.html 와 i18n-content.json 으로 만든다. 직접 고치지 말 것. -->
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Threads Analyzer | Thread account analysis 12-sheet Excel report</title>
+<meta name="description" content="Collect all posts from a thread account using the Meta Threads API and create a 12-sheet Excel report. View median views, dead rate by time of day, performance by character count, and follower demographics. The CLI is free.">
+<link rel="canonical" href="https://hwemo-chung.github.io/en/threads-analyzer.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/threads-analyzer.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/threads-analyzer.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/threads-analyzer.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/threads-analyzer.html">
+<!-- i18n-alternates -->
+    
+    
+    
+    
+    <!-- /i18n-alternates -->
+<meta property="og:title" content="Threads Analyzer | Thread account analysis 12-sheet Excel report"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:description" content="Re-view all thread posts by median. Check by time zone to see when posts are less likely to be buried.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hwemo-chung.github.io/en/threads-analyzer.html">
+
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="/sales/tokens.css">
+<link rel="stylesheet" href="/sales/components.css">
+<link rel="stylesheet" href="/sales/product-extras.css">
+  <link rel="stylesheet" href="/sales/site-unified.css">
+<style>.ls-section > h2:first-child { margin-top: 0; } .ls-section h3 { margin-top: 28px; } .ls-table td:first-child { white-space: nowrap; }</style>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+<meta property="og:site_name" content="Lumos">
+<meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+</head>
+<body class="ls">
+<a class="ls-skip" href="#main" data-i18n="common.skip">Skip to content</a>
+<nav class="ls-nav" data-i18n-aria-label="common.mainNav" aria-label="Main navigation"><div class="ls-nav__inner">
+<a class="ls-brand" href="/en/">Lumos</a>
+<ul>
+<li><a href="/en/" data-i18n="nav.home">Home</a></li>
+<li><a href="/en/sales/" data-i18n="nav.sales">Sales</a></li>
+<li><a href="/en/offers/" data-i18n="nav.offers">Offers</a></li>
+<li><a href="/en/cordova.html" data-i18n="nav.diagnosis">Diagnosis</a></li>
+<li><a href="/en/retainer.html" data-i18n="nav.retainer">Retainer</a></li>
+<li><a href="/en/threads-analyzer.html" aria-current="page" data-i18n="nav.threads">Threads</a></li>
+</ul></div></nav>
+<main id="main" class="ls-wrap ls-wrap--product">
+
+<header class="ls-hero-center">
+  <h1>Threads Analyzer</h1>
+  <p class="ls-lead">Import all posts from the thread account into the Meta Threads API and create a 12-sheet Excel report. By calculating the median instead of the average, you can see the performance over time hidden by a single viral post.</p>
+  <p>The command line CLI is free and open source and is available now. A desktop app that can be used with a click without installation is being prepared, and the launch price is <b>$29</b>(Regular price $39) This is a one-time payment. You can get it for $19 if you join the waitlist.</p>
+  <div class="ls-cta">
+    <a class="ls-btn ls-btn--primary" href="https://forms.gle/FkerkjkHwJzRmHGb6" target="_blank" rel="noopener" data-waitlist="">Get a release notification</a>
+    <a class="ls-btn" href="https://github.com/Hwemo-Chung/threads-analytics">Get the free CLI</a>
+  </div>
+  <div id="pay-threads" class="ls-cta" hidden=""></div>
+  <p class="ls-fine">Only one release notification email will be sent. No other emails will be sent.</p>
+</header>
+
+<section class="ls-section">
+  <h2>Result of first running with the creator's account</h2>
+  <p>This account has 1,954 posts and 4.4 million cumulative views. The numbers below were all picked by this tool.</p>
+
+  <div class="ls-stats">
+    <div class="ls-stat"><div class="ls-stat__v">412</div><div class="ls-stat__l">Median number of views</div></div>
+    <div class="ls-stat"><div class="ls-stat__v">2,254</div><div class="ls-stat__l">Average number of views (5.5 times the median)</div></div>
+    <div class="ls-stat"><div class="ls-stat__v">48.3%</div><div class="ls-stat__l">Share of views received by top 1% posts</div></div>
+    <div class="ls-stat"><div class="ls-stat__v">56.5%</div><div class="ls-stat__l">Posts that did not exceed 500 views</div></div>
+  </div>
+
+  <h3>The times I posted the most were the worst times.</h3>
+  <div class="ls-table-scroll">
+  <table class="ls-table">
+    <thead><tr><th>Time zone</th><th class="ls-num">Posted by</th><th class="ls-num">Median Views</th><th class="ls-num">Rate less than 500</th></tr></thead>
+    <tbody>
+      <tr><td>10 AM</td><td class="ls-num">170</td><td class="ls-num ls-bad">278</td><td class="ls-num ls-bad">70.0%</td></tr>
+      <tr><td>1 AM</td><td class="ls-num">48</td><td class="ls-num ls-good">666</td><td class="ls-num ls-good">43.8%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>On average, 10 a.m. looks better with 1,173 hits. This is because one viral post raises the average, and when looking at the median, the order is reversed.</p>
+
+  <h3>Short posts are seen a lot, and long posts get a lot of responses.</h3>
+  <div class="ls-table-scroll">
+  <table class="ls-table">
+    <thead><tr><th>Number of characters</th><th class="ls-num">Median Views</th><th class="ls-num">Engagement rate</th></tr></thead>
+    <tbody>
+      <tr><td>50 to 100 characters</td><td class="ls-num ls-good">618</td><td class="ls-num">0.84%</td></tr>
+      <tr><td>400~500 characters</td><td class="ls-num ls-bad">186</td><td class="ls-num ls-good">1.70%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Longer posts have 3.3 times less reach and 2 times more engagement. It is up to the account owner to decide whether to increase followers or get responses. The report shows which side you are currently choosing.</p>
+</section>
+
+<section class="ls-section">
+  <h2>12 sheets in the report</h2>
+  <p>Once you run it, an Excel file containing one account will appear.</p>
+  <ul class="ls-dash">
+    <li><b>All Posts</b>: Date, views, likes, and engagement are all included in each post and can be filtered.</li>
+    <li><b>Insight Ranking</b>: Top 30 are selected based on views, engagement, like rate, and virality.</li>
+    <li><b>Time zone analysis</b>: Crosses 24 hours and the day of the week to produce the median and dead rate.</li>
+    <li><b>Daily view count trend</b>: Daily time series of up to 730 days and 7-day moving average.</li>
+    <li><b>Snapshot growth trend</b>: Saves the follower count on every run. The API keeps no history, so the app records it itself.</li>
+    <li><b>Viral in-depth analysis</b>: Calculate the top 1% based on account size.</li>
+    <li><b>Content Optimization</b>: Performance by number of characters and topic tags.</li>
+    <li>The remaining five sheets are Like Rate, Monthly Trends, Follower Demographics, Growth Insights, and Growth Strategy.</li>
+  </ul>
+
+<!-- PREVIEW:START -->
+  <h3>Part of sample report</h3>
+  <p>These three sheets come from a report built from the bundled sample data. Rows highlighted in yellow in Excel have a different background here.</p>
+<figure class="ls-xl">
+<figcaption>Time of Day</figcaption>
+<div class="ls-table-scroll"><table class="ls-table">
+<thead><tr><th>Hour</th><th>Posts</th><th>Median Views</th><th>Avg Views</th><th>Dead Rate (%)</th><th>Median Likes</th><th>Avg Engagement</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr class="is-primary"><td>08:00</td><td class="ls-num">39</td><td class="ls-num">521</td><td class="ls-num">6200</td><td class="ls-num">48.72</td><td class="ls-num">3</td><td class="ls-num">14</td><td>Strong</td></tr>
+<tr><td>09:00</td><td class="ls-num">95</td><td class="ls-num">312</td><td class="ls-num">2682</td><td class="ls-num">67.37</td><td class="ls-num">3</td><td class="ls-num">37</td><td>Avoid</td></tr>
+<tr><td>10:00</td><td class="ls-num">75</td><td class="ls-num">277</td><td class="ls-num">1608</td><td class="ls-num">69.33</td><td class="ls-num">3</td><td class="ls-num">8.8</td><td>Avoid</td></tr>
+<tr><td>11:00</td><td class="ls-num">68</td><td class="ls-num">272</td><td class="ls-num">3370</td><td class="ls-num">66.18</td><td class="ls-num">3</td><td class="ls-num">50</td><td>Avoid</td></tr>
+<tr><td>12:00</td><td class="ls-num">52</td><td class="ls-num">340</td><td class="ls-num">2426</td><td class="ls-num">55.77</td><td class="ls-num">3</td><td class="ls-num">14</td><td>Average</td></tr>
+<tr><td>13:00</td><td class="ls-num">42</td><td class="ls-num">428</td><td class="ls-num">4785</td><td class="ls-num">52.38</td><td class="ls-num">4.5</td><td class="ls-num">147.3</td><td>Average</td></tr>
+<tr><td>14:00</td><td class="ls-num">53</td><td class="ls-num">380</td><td class="ls-num">21201</td><td class="ls-num">58.49</td><td class="ls-num">5</td><td class="ls-num">60.8</td><td>Average</td></tr>
+<tr><td>15:00</td><td class="ls-num">51</td><td class="ls-num">455</td><td class="ls-num">2219</td><td class="ls-num">54.9</td><td class="ls-num">5</td><td class="ls-num">16.3</td><td>Average</td></tr>
+<tr class="is-primary"><td>16:00</td><td class="ls-num">47</td><td class="ls-num">633</td><td class="ls-num">1640</td><td class="ls-num">42.55</td><td class="ls-num">4</td><td class="ls-num">12</td><td>Strong</td></tr>
+</tbody></table></div></figure>
+<figure class="ls-xl">
+<figcaption>Content Optimization</figcaption>
+<div class="ls-table-scroll"><table class="ls-table">
+<thead><tr><th>Length Range</th><th>Posts</th><th>Median Views</th><th>Avg Views</th><th>Median ER (%)</th><th>Dead Rate (%)</th></tr></thead>
+<tbody>
+<tr><td>0-50 chars</td><td class="ls-num">216</td><td class="ls-num">392</td><td class="ls-num">2525</td><td class="ls-num">0.8</td><td class="ls-num">56.94</td></tr>
+<tr class="is-primary"><td>50-100 chars</td><td class="ls-num">215</td><td class="ls-num">674</td><td class="ls-num">4617</td><td class="ls-num">0.86</td><td class="ls-num">40</td></tr>
+<tr><td>100-150 chars</td><td class="ls-num">125</td><td class="ls-num">494</td><td class="ls-num">4197</td><td class="ls-num">0.88</td><td class="ls-num">52.8</td></tr>
+<tr class="is-primary"><td>150-200 chars</td><td class="ls-num">64</td><td class="ls-num">554</td><td class="ls-num">2942</td><td class="ls-num">1.07</td><td class="ls-num">46.88</td></tr>
+<tr><td>200-300 chars</td><td class="ls-num">96</td><td class="ls-num">301</td><td class="ls-num">615</td><td class="ls-num">1.5</td><td class="ls-num">77.08</td></tr>
+<tr><td>300-400 chars</td><td class="ls-num">71</td><td class="ls-num">389</td><td class="ls-num">14189</td><td class="ls-num">1.71</td><td class="ls-num">60.56</td></tr>
+<tr><td>400-500 chars</td><td class="ls-num">109</td><td class="ls-num">181</td><td class="ls-num">413</td><td class="ls-num">1.71</td><td class="ls-num">82.57</td></tr>
+<tr><td>500+ chars</td><td class="ls-num">4</td><td class="ls-num">144</td><td class="ls-num">200</td><td class="ls-num">2.39</td><td class="ls-num">100</td></tr>
+</tbody></table></div></figure>
+<p class="ls-fine">All media types included: TEXT_POST 782, IMAGE 107, CAROUSEL_ALBUM 8, VIDEO 3. Dead rate is the share of posts under 500 views. Longer posts raise engagement rate but collapse reach (300-400 chars: ER 1.71%, 389 views; 50-100 chars: ER 0.86%, 674 views), a 1.7x reach gap.</p>
+<figure class="ls-xl">
+<figcaption>Viral Deep Dive: view concentration</figcaption>
+<div class="ls-table-scroll"><table class="ls-table">
+<thead><tr><th>Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Original Posts</td><td class="ls-num">900</td></tr>
+<tr><td>Avg Views</td><td class="ls-num">3737</td></tr>
+<tr><td>Median Views</td><td class="ls-num">398</td></tr>
+<tr><td>Mean / Median Ratio</td><td class="ls-num">9.38</td></tr>
+<tr><td>P50</td><td class="ls-num">398</td></tr>
+<tr><td>P75</td><td class="ls-num">1016</td></tr>
+<tr><td>P90</td><td class="ls-num">3490</td></tr>
+<tr><td>P99</td><td class="ls-num">54317</td></tr>
+<tr><td>Viral Threshold (applied)</td><td class="ls-num">54317</td></tr>
+</tbody></table></div></figure>
+  <!-- PREVIEW:END -->
+
+  <p>There is an excerpt of what each sheet actually looks like on GitHub. You can also create a report directly with sample data without the Meta app. <a href="https://github.com/Hwemo-Chung/threads-analytics/blob/main/docs/SAMPLE.md">View sheet excerpt</a></p>
+</section>
+
+<section class="ls-section">
+  <h2>Price</h2>
+  <div class="ls-table-scroll">
+  <table class="ls-table">
+    <thead><tr><th>version
+How to write</th><th>Price</th><th>How to write</th><th>status</th></tr></thead>
+    <tbody>
+      <tr><td>CLI</td><td>Free, open source. There are no feature limitations or time limits.</td><td>Run with Python. <a href="https://github.com/Hwemo-Chung/threads-analytics">github.com/Hwemo-Chung/threads-analytics</a></td><td>Available Now</td></tr>
+      <tr class="is-primary"><td>Desktop App</td><td>$29 (regular price $39), one-time payment for lifetime use. Waitlist registrants pay $19.</td><td>Mac, Windows. Write with a click without installing a terminal or Python.</td><td>Preparing</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The analysis engine in both versions is the same. The price of the app is for terminal, Python, and certificate settings. If the setup isn't difficult, the free CLI is sufficient.</p>
+</section>
+
+<section class="ls-section">
+  <h2>What you need before writing</h2>
+  <ul class="ls-dash">
+    <li>You must create the Meta developer app yourself. Meta opens insights only through apps created by the account owner. Buying the desktop app does not remove this step; it takes about 10 minutes with the on-screen wizard. If that sounds like too much, we recommend not buying it.</li>
+    <li>The follower demographics sheet only appears when you have more than 100 followers due to Meta policy. The remaining 11 sheets just need posts.</li>
+    <li>Time zone and character count analysis only makes decisions on sections with more than 30 samples.</li>
+  </ul>
+</section>
+
+<section class="ls-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="ls-faq">
+  <details>
+    <summary>Where does my data go?</summary>
+    <p>Does not send anywhere. There is no server, and the Meta API is called directly from your computer and the resulting Excel file is saved only on your computer. Token is local
+Place it in the file <code>.env</code> and lock the permissions to 600.</p>
+  </details>
+  <details>
+    <summary>How long does it take?</summary>
+    <p>The first collection takes about 10 minutes for 2,000 posts. From the second time, it uses the cache and takes 1 to 2 minutes.</p>
+  </details>
+  <details>
+    <summary>Can your followers at least write?</summary>
+    <p>Yes. If you have less than 100 followers, only the Follower Demographics sheet will be blank, and the remaining 11 sheets will remain as is.</p>
+  </details>
+  <details>
+    <summary>Why is the app paid when the CLI is free?</summary>
+    <p>The engine is the same, and the app was created so that there is no need to set up a terminal, Python, or certificate. If you don't want to waste your time, you can use the free version.</p>
+  </details>
+</div>
+</section>
+
+<footer class="ls-foot">
+  <nav data-i18n-aria-label="common.footerNav" aria-label="Footer navigation">
+    <a href="/en/" data-i18n="nav.home">Home</a>
+    <a href="/en/sales/" data-i18n="nav.sales">Sales</a>
+    <a href="/en/offers/" data-i18n="nav.offers">Offers</a>
+    <a href="/en/cordova.html" data-i18n="nav.diagnosis">Diagnosis</a>
+    <a href="/en/retainer.html" data-i18n="nav.retainer">Retainer</a>
+    <a href="/en/threads-analyzer.html" data-i18n="nav.threads">Threads</a>
+    <a href="/pp.html" data-i18n="footer.privacy">Privacy</a>
+    <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+  </nav>
+  <p data-i18n="common.disclaimer">Not affiliated with any employer.</p>
+</footer>
+
+</main>
+<script src="/sales/payment.js" defer=""></script>
+    <script src="/i18n.js"></script>
+
+
+</body></html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- 생성 파일: scripts/build-i18n-pages.cjs 가 /burnline.html 와 i18n-content.json 으로 만든다. 직접 고치지 말 것. -->
+<html lang="ja"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>バーンライン |ローカルファーストの AI コスト追跡と予算上限</title>
+  <meta name="description" content="AI トークンの使用量をモデル別および日別に確認し、月ごとの上限を設定し、マシン上でプロンプトを表示し続けます。ウェイティングリストはオープンしていますが、まだ販売されていません。">
+  <link rel="canonical" href="https://hwemo-chung.github.io/ja/burnline.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/burnline.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/burnline.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/burnline.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/burnline.html">
+  <!-- i18n-alternates -->
+    
+    
+    
+    
+    <!-- /i18n-alternates -->
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hwemo-chung.github.io/ja/burnline.html">
+  <meta property="og:title" content="バーンライン |ローカルファーストの AI コスト追跡"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="en_US">
+  <meta property="og:description" content="マシン上の AI 使用ログを読み取り、月次予算に対するモデル別および日別のコストを表示します。">
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Burnline">
+  <meta name="twitter:description" content="ローカルファースト AI のモデル別および日別の支出レポート。ウェイティングリストが開いています。">
+  <link rel="stylesheet" href="/sales/tokens.css">
+  <link rel="stylesheet" href="/sales/components.css">
+  <link rel="stylesheet" href="/sales/product-extras.css">
+  <link rel="stylesheet" href="/sales/site-unified.css">
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+  <meta property="og:site_name" content="Lumos">
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+</head>
+<body class="ls">
+  <a class="ls-skip" href="#main" data-i18n="common.skip">本文へ移動</a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav" aria-label="メインナビゲーション">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="/ja/">Lumos</a>
+      <ul>
+        <li><a href="/ja/" data-i18n="nav.home">ホーム</a></li>
+        <li><a href="/ja/sales/" data-i18n="nav.sales">サービス</a></li>
+        <li><a href="/ja/offers/" data-i18n="nav.offers">商品</a></li>
+        <li><a href="/ja/cordova.html" data-i18n="nav.diagnosis">診断</a></li>
+        <li><a href="/ja/retainer.html" data-i18n="nav.retainer">保守</a></li>
+        <li><a href="/ja/threads-analyzer.html" data-i18n="nav.threads">スレッド</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="ls-wrap">
+    <h1>Burnline</h1>
+    <p class="ls-lead">
+      Burnline は、自分のマシン上の AI エージェントと API 使用ログを読み取り、月次予算に対するコストをモデル別、日別に表示します。プロンプトはマシン上に残ります。
+    </p>
+    <p>
+      まだ販売されていません。 CLI と HTML レポートはプロトタイプとして存在します。チェックアウトやクラウド ログインはありません。マルチモデルのコーディング エージェントを実行していて、起動メモが必要な場合は、待機リストに参加してください。今日は Burnline に送金しないでください。
+    </p>
+
+    <div class="ls-cta" id="waitlist">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=Burnline%20waitlist&amp;body=I%20want%20Burnline%20updates.%0A%0AHow%20I%20use%20AI%20today%3A%0ATools%20%28Claude%20Code%20%2F%20Cursor%20%2F%20API%29%3A%0AApprox%20monthly%20AI%20spend%3A%0A">メールで待機リストに参加する</a>
+      <a class="ls-btn" href="/ja/burnline-dashboard.html">ダッシュボードを試してみる</a>
+    </div>
+    <p class="ls-fine">
+      ボタンをクリックすると、tolaria@naver.com への件名の電子メールが開きます。 <code>Burnline waitlist</code>。現在の AI の使用方法について 1 段落追加します。チェックアウト (ストライプまたはフォーム) は、実際の需要がある場合にのみ追加されます。
+    </p>
+
+    <div class="ls-demo" data-i18n-aria-label="aria.sampleReport" aria-label="サンプルレポートの概要">
+      <div class="ls-demo__head">
+        <span><strong>サンプルレポート</strong>、フィクスチャ データから構築</span>
+        <a href="/burnline-demo.html">完全なサンプルを見る</a>
+      </div>
+      <div class="ls-demo__stats">
+        <div>
+          <div class="ls-demo__label">推定支出額</div>
+          <div class="ls-demo__value">$47.88</div>
+        </div>
+        <div>
+          <div class="ls-demo__label">イベント</div>
+          <div class="ls-demo__value">3</div>
+        </div>
+        <div>
+          <div class="ls-demo__label">日</div>
+          <div class="ls-demo__value">2</div>
+        </div>
+        <div>
+          <div class="ls-demo__label">予算 (上限 $40)</div>
+          <div class="ls-demo__value ls-demo__value--hot">以上</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="how">仕組み</h2>
+    <h3>ログをローカルにインポートする</h3>
+    <p>Burnline をクロード コードまたは JSONL 使用ログにポイントします。コスト数値を取得するためにプロンプ​​トをアップロードする必要はありません。</p>
+    <h3>各通話の料金</h3>
+    <p>レートが文書化されたオフライン モデル カタログは、トークンをドルに変換します。合計は実際の請求額と照合するためのものです。</p>
+    <h3>月間上限を設定する</h3>
+    <p>予算を米ドルで設定します。バーンラインは 80% で警告し、100% でフラグを立てます。記録用にデータを CSV としてエクスポートします。</p>
+
+    <h2>予定価格</h2>
+    <p>これらは、後で使用する予定の有料レベルです。どれもライブではなく、購入ボタンもありません。</p>
+    <div class="ls-table-scroll">
+      <table class="ls-table">
+        <thead><tr><th>計画</th><th>価格</th><th>含まれるもの</th><th>ステータス</th></tr></thead>
+        <tbody>
+          <tr><td>無料</td><td>$0</td><td>7 日間のウィンドウ、1 つのソース、コア チャート</td><td>計画済み</td></tr>
+          <tr><td>プロ</td><td>$19 / 月</td><td>無制限の履歴、予算、CSV、カタログの更新</td><td>計画済み</td></tr>
+          <tr><td>チーム</td><td>$49 / 月</td><td>小規模チームの共有集計。 v0.1にはありません。</td><td>後で</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>それは何ではないのか</h2>
+    <p>
+      Burnline は完全なプロンプト可観測性クラウドではなく、v1 にはエンタープライズ SSO がありません。ヘリコン規模のパイプラインが必要な場合は、それらを使用してください。 Burnline は、ほとんどセットアップせずに正確なコスト数値を求めるビルダー向けです。
+    </p>
+    <p>今すぐ実稼働モバイル アプリに関するサポートが必要ですか?を参照してください。 <a href="/ja/retainer.html">モバイルリテーナー</a>.</p>
+
+    <footer class="ls-foot">
+      <nav data-i18n-aria-label="common.footerNav" aria-label="フッターナビゲーション">
+        <a href="/ja/" data-i18n="nav.home">ホーム</a>
+        <a href="/ja/sales/" data-i18n="nav.sales">サービス</a>
+        <a href="/ja/offers/" data-i18n="nav.offers">商品</a>
+        <a href="/ja/cordova.html" data-i18n="nav.diagnosis">診断</a>
+        <a href="/ja/retainer.html" data-i18n="nav.retainer">保守</a>
+        <a href="/ja/threads-analyzer.html" data-i18n="nav.threads">スレッド</a>
+        <a href="/pp.html" data-i18n="footer.privacy">プライバシー</a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+      <p data-i18n="common.disclaimer">いかなる雇用主とも提携していません。</p>
+    </footer>
+  </main>
+    <script src="/i18n.js"></script>
+
+
+</body></html>

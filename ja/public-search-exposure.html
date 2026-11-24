@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!-- 생성 파일: scripts/build-i18n-pages.cjs 가 /public-search-exposure.html 와 i18n-content.json 으로 만든다. 직접 고치지 말 것. -->
+<html lang="ja"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公開検索インプレッション範囲を確認| Lumos</title>
+    <meta name="description" content="名前、会社、住所を入れると、公開検索でどのように表示されるかが表示され、同じ内容をそのまま検索する Google 検索リンクが作成されます。入力した値はこのブラウザからは出ません。">
+    <meta name="author" content="Hwemo Chung">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://hwemo-chung.github.io/ja/public-search-exposure.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/public-search-exposure.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/public-search-exposure.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/public-search-exposure.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/public-search-exposure.html">
+    <!-- i18n-alternates -->
+    
+    
+    
+    
+    <!-- /i18n-alternates -->
+    <meta property="og:site_name" content="Lumos">
+    <meta property="og:title" content="公開検索インプレッション範囲を確認| Lumos"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="en_US">
+    <meta property="og:description" content="名前、会社、住所を入れると、公開検索でどのように表示されるかが表示され、同じ内容をそのまま検索する Google 検索リンクが作成されます。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hwemo-chung.github.io/ja/public-search-exposure.html">
+    
+    <link rel="stylesheet" href="/sales/tokens.css">
+    <link rel="stylesheet" href="/sales/components.css">
+    <link rel="stylesheet" href="/sales/site-unified.css">
+    <style>
+        .exposure-form { display: grid; gap: 14px; margin-top: 24px; }
+        .exposure-form label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; color: var(--ls-text); }
+        .exposure-form input { font: inherit; color: var(--ls-text); background: var(--ls-card); border: 1px solid var(--ls-border); border-radius: var(--ls-radius-sm); min-height: 44px; padding: 10px 12px; }
+        .exposure-form .ls-cta { margin: 4px 0 0; }
+        .exposure-level { font-size: 20px; line-height: 28px; font-weight: 600; color: var(--ls-text) !important; margin: 0 0 8px; }
+        .exposure-query { font-family: var(--ls-font-mono); font-size: 15px; color: var(--ls-text) !important; overflow-wrap: anywhere; }
+        .exposure [hidden] { display: none; }
+        #exposure-scale tr[aria-current="true"] td { color: var(--ls-text); background: var(--ls-bg); }
+        #exposure-scale tr[aria-current="true"] td:first-child { font-weight: 600; }
+    </style>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-3498371918924514">
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-L16K8WDDBP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-L16K8WDDBP');
+    </script>
+    <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="ls page-public-search">
+    <a class="ls-skip" href="#main" data-i18n="common.skip">本文へ移動</a>
+    <nav class="ls-nav" data-i18n-aria-label="common.mainNav" aria-label="メインナビゲーション">
+        <div class="ls-nav__inner">
+            <a class="ls-brand" href="/ja/">Lumos</a>
+            <ul>
+                <li><a href="/ja/" data-i18n="nav.home">ホーム</a></li>
+                <li><a href="/ja/sales/" data-i18n="nav.sales">サービス</a></li>
+                <li><a href="/ja/offers/" data-i18n="nav.offers">商品</a></li>
+                <li><a href="/ja/cordova.html" data-i18n="nav.diagnosis">診断</a></li>
+                <li><a href="/ja/retainer.html" data-i18n="nav.retainer">保守</a></li>
+                <li><a href="/ja/threads-analyzer.html" data-i18n="nav.threads">スレッド</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="language-toolbar" data-i18n-aria-label="common.language" aria-label="言語選択">
+        <div class="language-selector">
+            <button class="lang-btn active" type="button" data-lang="ko">한</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ja">日</button>
+        </div>
+    </div>
+
+    <main id="main">
+        <article class="ls-wrap exposure">
+            <h1>公開検索インプレッション範囲</h1>
+            <p class="ls-lead">あなたの名前、会社、住所を入れると、公開検索でどのように見えるかがわかります。その内容をそのまま見つけるGoogle検索リンクを作成します。人探しサービスや流出資料は使用しません。電話番号と住民登録番号は受け付けません。</p>
+
+            <form id="exposure-form" class="exposure-form" autocomplete="off">
+                <label for="person-name">名前
+                    <input id="person-name" type="text" maxlength="80" autocomplete="name" placeholder="例: ホン・ギルドン" enterkeyhint="next">
+                </label>
+                <label for="company">会社
+                    <input id="company" type="text" maxlength="80" autocomplete="organization" placeholder="例: 例示上司" enterkeyhint="next">
+                </label>
+                <label for="address">アドレス
+                    <input id="address" type="text" maxlength="120" autocomplete="street-address" placeholder="例: 例では、例文例として 1" enterkeyhint="done">
+                </label>
+                <div class="ls-cta">
+                    <button id="fill-sample" class="ls-btn ls-btn--sm" type="button">例の値を入れる</button>
+                </div>
+                <p id="sample-note" class="ls-fine" hidden="">先ほど入れた値は、作成した例です。存在人物ではありません。</p>
+            </form>
+
+            <section class="exposure-result" aria-live="polite">
+                <h2>現れる範囲</h2>
+                <p id="exposure-level" class="exposure-level">ほとんどなし</p>
+                <p id="exposure-detail">文字や数字を入れた欄はありません。検索する内容はほとんどありません。</p>
+                <p id="blocked-note" hidden="">電話番号や住民登録番号で表示される数字は検索リンクではありません。</p>
+
+                <h2>検索リンク</h2>
+                <p id="exposure-query" class="exposure-query">まだ検索する内容がありません。</p>
+                <p><a id="search-link" class="ls-btn ls-btn--primary" href="https://www.google.com/search" hidden="" rel="noopener noreferrer">Google で検索</a></p>
+                <p class="ls-fine">リンクを開くと、上記の内容がGoogleに移動します。このページは入力した値をサーバーに保存しません。</p>
+            </section>
+
+            <section>
+                <h2>ステージ基準</h2>
+                <div class="ls-table-scroll">
+                    <table class="ls-table">
+                        <thead><tr><th scope="col">ステップ</th><th scope="col">基準</th></tr></thead>
+                        <tbody id="exposure-scale">
+                            <tr data-level="none" aria-current="true"><td>ほとんどなし</td><td>文字や数字を入れた欄がない場合</td></tr>
+                            <tr data-level="name"><td>名前のみ</td><td>名前だけ入れたとき</td></tr>
+                            <tr data-level="company"><td>会社と共に</td><td>会社を入れて住所が空になったとき</td></tr>
+                            <tr data-level="address"><td>アドレスまで</td><td>住所を入れたとき</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="ls-foot">
+        <nav data-i18n-aria-label="common.footerNav" aria-label="フッターナビゲーション">
+            <a href="/ja/" data-i18n="nav.home">ホーム</a>
+            <a href="/ja/sales/" data-i18n="nav.sales">サービス</a>
+            <a href="/ja/offers/" data-i18n="nav.offers">商品</a>
+            <a href="/ja/cordova.html" data-i18n="nav.diagnosis">診断</a>
+            <a href="/ja/retainer.html" data-i18n="nav.retainer">保守</a>
+            <a href="/ja/threads-analyzer.html" data-i18n="nav.threads">スレッド</a>
+            <a href="/pp.html" data-i18n="footer.privacy">プライバシー</a>
+            <a href="/tokushoho.html">特定商取引法に基づく表記</a>
+            <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+        </nav>
+        <p data-i18n="common.disclaimer">いかなる雇用主とも提携していません。</p>
+    </footer>
+    <script src="/i18n.js"></script>
+    <script>
+        (function () {
+            var SAMPLE = {
+                name: "홍길동",
+                company: "예시상사",
+                address: "예시시 예시구 예시로 1"
+            };
+            var LABELS = {
+                none: "거의 없음",
+                name: "이름만",
+                company: "회사와 함께",
+                address: "주소까지"
+            };
+            var nameInput = document.getElementById("person-name");
+            var companyInput = document.getElementById("company");
+            var addressInput = document.getElementById("address");
+            var sampleNote = document.getElementById("sample-note");
+            var levelNode = document.getElementById("exposure-level");
+            var detailNode = document.getElementById("exposure-detail");
+            var blockedNote = document.getElementById("blocked-note");
+            var queryNode = document.getElementById("exposure-query");
+            var searchLink = document.getElementById("search-link");
+            var scale = document.getElementById("exposure-scale");
+
+            function hasToken(value) {
+                return /[\p{L}\p{N}]/u.test(value);
+            }
+
+            function blocked(value) {
+                var digits = value.replace(/\D/g, "");
+                if (/^\d{6}-?[1-4]\d{6}$/.test(value.replace(/\s/g, ""))) return true;
+                if (digits.length === 13 && /^\d{6}[1-4]\d{6}$/.test(digits)) return true;
+                if (/01[016789]-?\d{3,4}-?\d{4}/.test(value)) return true;
+                if (digits.length >= 10 && digits.length <= 11 && /^01[016789]/.test(digits)) return true;
+                return false;
+            }
+
+            function classify(name, company, address) {
+                if (hasToken(address)) return "address";
+                if (hasToken(company)) return "company";
+                if (hasToken(name)) return "name";
+                return "none";
+            }
+
+            function detailFor(level, name, company) {
+                if (level === "address") {
+                    return "주소가 검색어에 들어갑니다. 이름이나 회사를 함께 적었다면 그 값도 같은 검색어에 붙습니다.";
+                }
+                if (level === "company" && hasToken(name)) {
+                    return "이름과 회사가 함께 검색어에 들어갑니다. 주소는 빠집니다.";
+                }
+                if (level === "company") {
+                    return "회사명이 검색어에 들어갑니다. 이름과 주소는 빠집니다.";
+                }
+                if (level === "name") {
+                    return "이름만 검색어에 들어갑니다. 회사와 주소는 빠집니다.";
+                }
+                return "글자나 숫자를 넣은 칸이 없습니다. 검색할 내용이 거의 없습니다.";
+            }
+
+            function phraseFrom(name, company, address) {
+                return [name, company, address].map(function (part) {
+                    return part.trim().replace(/"/g, "");
+                }).filter(Boolean).join(" ");
+            }
+
+            function isSample() {
+                return nameInput.value === SAMPLE.name
+                    && companyInput.value === SAMPLE.company
+                    && addressInput.value === SAMPLE.address;
+            }
+
+            function render() {
+                var name = nameInput.value;
+                var company = companyInput.value;
+                var address = addressInput.value;
+                var level = classify(name, company, address);
+                var refuses = blocked(name) || blocked(company) || blocked(address);
+                var phrase = refuses ? "" : phraseFrom(name, company, address);
+
+                levelNode.textContent = LABELS[level];
+                detailNode.textContent = refuses
+                    ? "전화번호나 주민등록번호로 보이는 숫자가 있습니다. 그 숫자를 지우면 검색 링크를 만듭니다."
+                    : detailFor(level, name, company);
+                blockedNote.hidden = !refuses;
+                sampleNote.hidden = !isSample();
+                scale.querySelectorAll("[data-level]").forEach(function (item) {
+                    var current = item.getAttribute("data-level") === level;
+                    if (current) item.setAttribute("aria-current", "true");
+                    else item.removeAttribute("aria-current");
+                });
+
+                if (!phrase) {
+                    queryNode.textContent = refuses
+                        ? "전화번호나 주민등록번호는 검색어로 넣지 않습니다."
+                        : "아직 검색할 내용이 없습니다.";
+                    searchLink.hidden = true;
+                    searchLink.removeAttribute("href");
+                    return;
+                }
+
+                var url = "https://www.google.com/search?q=" + encodeURIComponent('"' + phrase + '"');
+                queryNode.textContent = '"' + phrase + '"';
+                searchLink.href = url;
+                searchLink.hidden = false;
+            }
+
+            document.getElementById("exposure-form").addEventListener("submit", function (event) {
+                event.preventDefault();
+                render();
+            });
+            [nameInput, companyInput, addressInput].forEach(function (input) {
+                input.addEventListener("input", render);
+            });
+            document.getElementById("fill-sample").addEventListener("click", function () {
+                nameInput.value = SAMPLE.name;
+                companyInput.value = SAMPLE.company;
+                addressInput.value = SAMPLE.address;
+                render();
+            });
+            render();
+        })();
+    </script>
+
+
+
+</body></html>

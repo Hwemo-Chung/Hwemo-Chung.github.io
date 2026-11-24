@@ -7,6 +7,7 @@ const siteTranslations = {
             diagnosis: "진단",
             retainer: "유지보수",
             threads: "스레드",
+            tools: "도구",
             about: "소개",
             projects: "프로젝트",
             contact: "연락처",
@@ -80,6 +81,7 @@ const siteTranslations = {
             diagnosis: "Diagnosis",
             retainer: "Retainer",
             threads: "Threads",
+            tools: "Tools",
             about: "About",
             projects: "Projects",
             contact: "Contact",
@@ -113,11 +115,11 @@ const siteTranslations = {
             home: "Return home"
         },
         hero: {
-            tagline: "I get stuck Cordova and Ionic apps back into the App Store and Google Play.",
+            tagline: "We get stuck Cordova and Ionic apps back into the App Store and Google Play.",
             sub: "From April 28, 2026, App Store Connect only accepts apps built with the iOS 26 SDK. The Play target API deadline and the Firebase Dynamic Links shutdown hit the same apps. You get a report on what is blocking your app within 2 business days, free for the first 10 apps.",
             ctaPrimary: "Request a free diagnosis",
             ctaSecondary: "See the products",
-            fine: "I don't take on new app builds or full rewrites."
+            fine: "We don't take on new app builds or full rewrites."
         },
         hub: {
             eyebrow: "Lumos · Professional studio",
@@ -127,7 +129,7 @@ const siteTranslations = {
         },
         about: {
             title: "About Me",
-            description: "As a developer, I create services that help users.",
+            description: "We build services that help users.",
             skills: "Tech Stack"
         },
         projects: {
@@ -135,7 +137,7 @@ const siteTranslations = {
             services: "Services",
             tools: "Free tools",
             archive: "Archive",
-            archiveNote: "Older work I no longer sell or run. Only the source code is public.",
+            archiveNote: "Older work we no longer sell or run. Only the source code is public.",
             viewGithub: "View on GitHub →"
         },
         contact: {
@@ -153,6 +155,7 @@ const siteTranslations = {
             diagnosis: "診断",
             retainer: "保守",
             threads: "スレッド",
+            tools: "ツール",
             about: "紹介",
             projects: "プロジェクト",
             contact: "連絡先",
@@ -220,7 +223,11 @@ const siteTranslations = {
     }
 };
 
+// /en/·/ja/ 정적 번역본은 주소가 언어를 정한다 (scripts/build-i18n-pages.cjs 가 만든다)
+const SITE_PATH_LANG = (location.pathname.match(/^\/(en|ja)\//) || [])[1] || null;
+
 function readSiteLang() {
+    if (SITE_PATH_LANG) return SITE_PATH_LANG;
     const queryLang = new URLSearchParams(location.search).get('lang');
     if (queryLang && siteTranslations[queryLang]) return queryLang;
     const stored = localStorage.getItem('language');
@@ -235,7 +242,7 @@ const siteOriginalAttributes = new WeakMap();
 const siteOriginalTitle = document.title;
 
 function getSitePageKey() {
-    const path = window.location.pathname;
+    const path = SITE_PATH_LANG ? window.location.pathname.slice(3) : window.location.pathname;
     if (path === '/') return '/index.html';
     if (path.endsWith('/')) return `${path}index.html`;
     return path;
@@ -252,7 +259,7 @@ function translateSitePage(lang) {
         if (!siteOriginalText.has(node)) siteOriginalText.set(node, node.textContent);
         const original = siteOriginalText.get(node);
         const source = original?.trim().replace(/\s+/g, ' ');
-        if (source && parent && !parent.closest('script, style, code, pre, [data-i18n], [data-no-i18n], .ls-nav, .ls-foot, .language-toolbar')) {
+        if (source && parent && !parent.closest('script, style, code, pre, [data-i18n], [data-no-i18n], .ls-nav, .language-toolbar')) {
             const translated = translations[source];
             // 원문의 앞뒤 공백은 인접 인라인 요소와의 간격이다 — 치환 시 되살린다
             if (translated) node.textContent = original.match(/^\s*/)[0] + translated + original.match(/\s*$/)[0];
@@ -348,6 +355,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.getAttribute('data-lang');
+            // 번역본 주소가 있으면 그리로 이동하고, 없으면 이 페이지에서 바꾼다
+            const alternate = document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`);
+            const samePage = p => p.replace(/index\.html$/, '');
+            if (alternate && samePage(new URL(alternate.href).pathname) !== samePage(location.pathname)) {
+                localStorage.setItem('language', lang);
+                location.href = new URL(alternate.href).pathname + location.hash;
+                return;
+            }
             setSiteLanguage(lang);
         });
     });

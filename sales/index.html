@@ -6,6 +6,12 @@
   <title>서비스와 가격 | 레거시 앱 진단, Capacitor 이전, 프로덕션 유지보수 | Lumos</title>
   <meta name="description" content="Lumos가 제공하는 서비스와 가격입니다. 레거시 하이브리드 앱 진단, Capacitor 이전, 프로덕션 리테이너, Threads 리포트. 진단은 10곳까지 무료이고 무엇이 막혔는지만 정리합니다." />
   <link rel="canonical" href="https://hwemo-chung.github.io/sales/" />
+  <!-- i18n-alternates -->
+    <link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/sales/">
+    <link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/sales/">
+    <link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/sales/">
+    <link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/sales/">
+    <!-- /i18n-alternates -->
   <meta property="og:title" content="Lumos 서비스와 가격" />
   <meta property="og:description" content="레거시 앱 진단, Capacitor 이전, 프로덕션 리테이너. 정책 설명은 Apple, Google Play, Firebase 공식 문서를 기준으로 합니다." />
   <meta property="og:url" content="https://hwemo-chung.github.io/sales/" />
@@ -161,7 +167,7 @@
         return f(m[1]) + (m[2] ? " ~ " + f(m[2]) : "") + (m[4] ? " / 월" : "");
       }
 
-      fetch("offers.json")
+      fetch("/sales/offers.json")
         .then(function (r) {
           return r.json();
         })

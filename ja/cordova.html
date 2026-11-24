@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!-- 생성 파일: scripts/build-i18n-pages.cjs 가 /cordova.html 와 i18n-content.json 으로 만든다. 직접 고치지 말 것. -->
+<html lang="ja"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iOSアップデートがブロックされたCordova・Ionicアプリ診断（Xcode 26、iOS 26 SDK）| Lumos</title>
+  <meta name="description" content="2026年4月28日以降、App Store ConnectのアップロードにはXcode 26とiOS 26 SDKが必要です。 Cordova・Ionicアプリがこの要件、PlayターゲットAPI、終了したFirebase Dynamic Linksにかかるかどうか公開資料と診断します。診断は10ヶ所まで無料で、修正作業は有料です。">
+  <meta name="keywords" content="Cordova, Capacitor, Ionic, iOS 26 SDK, Xcode 26, App Store Connect, targetSdkVersion, 구글 플레이, Firebase Dynamic Links, 레거시 앱">
+  <link rel="canonical" href="https://hwemo-chung.github.io/ja/cordova.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/cordova.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/cordova.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/cordova.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/cordova.html">
+  <!-- i18n-alternates -->
+    
+    
+    
+    
+    <!-- /i18n-alternates -->
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hwemo-chung.github.io/ja/cordova.html">
+  <meta property="og:title" content="iOSアップデートがブロックされたCordova・Ionicアプリ診断"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="en_US">
+  <meta property="og:description" content="2026年4月28日以降、App Store ConnectのアップロードにはXcode 26とiOS 26 SDKが必要です。レガシーハイブリッドアプリの診断は10ヶ所まで無料です。">
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="iOS アップロードがブロックされたレガシーアプリ診断">
+  <meta name="twitter:description" content="Xcode 26、iOS 26 SDKの要件を満たしているかどうかを無料で確認します。何が詰まっているのか整理します。">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "레거시 하이브리드 앱 스토어 업로드·정책 진단",
+  "url": "https://hwemo-chung.github.io/ja/cordova.html",
+  "description": "Cordova/Ionic 앱의 iOS SDK 요건, Play 타겟 API, 종료된 딥링크 서비스 상태를 공개 자료로 진단하고, 수정 작업은 범위별 유료로 진행합니다.",
+  "areaServed": "KR",
+  "availableLanguage": [
+    "ko",
+    "ja",
+    "en"
+  ],
+  "email": "tolaria@naver.com",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "진단 리포트 (상태만)",
+      "price": "0",
+      "priceCurrency": "KRW",
+      "description": "공개 자료 기준 상태 진단. 10곳 한정 무료. 상세 패치 절차는 포함하지 않습니다.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://hwemo-chung.github.io/ja/cordova.html"
+    },
+    {
+      "@type": "Offer",
+      "name": "Play 연장·정책 대응 안내",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "KRW",
+        "minPrice": 500000,
+        "maxPrice": 1500000,
+        "valueAddedTaxIncluded": false
+      },
+      "description": "연장 신청 체크리스트, 콘솔 증빙 정리, 로드맵 1페이지.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://hwemo-chung.github.io/ja/cordova.html"
+    },
+    {
+      "@type": "Offer",
+      "name": "긴급 타겟 API 상향 (Android)",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "KRW",
+        "minPrice": 3000000,
+        "maxPrice": 6000000,
+        "valueAddedTaxIncluded": false
+      },
+      "description": "Capacitor 이전 없이 빌드 통과와 제출 준비까지.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://hwemo-chung.github.io/ja/cordova.html"
+    },
+    {
+      "@type": "Offer",
+      "name": "Capacitor 이전 (iOS·Android)",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "KRW",
+        "minPrice": 8000000,
+        "maxPrice": 20000000,
+        "valueAddedTaxIncluded": false
+      },
+      "description": "Cordova 런타임을 Capacitor로 교체하고 플러그인을 대체해 검증합니다. 인수인계 문서 포함.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://hwemo-chung.github.io/ja/cordova.html"
+    },
+    {
+      "@type": "Offer",
+      "name": "딥링크 복구 (유입 확인 후)",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "KRW",
+        "minPrice": 1500000,
+        "maxPrice": 4000000,
+        "valueAddedTaxIncluded": false
+      },
+      "description": "죽은 공개 URL을 모아 서버 리다이렉트나 App Links로 전환합니다.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://hwemo-chung.github.io/ja/cordova.html"
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/sales/tokens.css">
+  <link rel="stylesheet" href="/sales/components.css">
+  <link rel="stylesheet" href="/sales/site-unified.css">
+  <style>
+    .ls-wrap p + h3 { margin-top: 24px; }
+    .ls-wrap ul.ls-dash + p { margin-top: 14px; }
+    .ls-wrap h3 .ls-fine { font-weight: 400; margin-left: 6px; white-space: nowrap; }
+  </style>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+  <meta property="og:site_name" content="Lumos">
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+</head>
+<body class="ls">
+  <a class="ls-skip" href="#main" data-i18n="common.skip">本文へ移動</a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav" aria-label="メインナビゲーション">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="/ja/">Lumos</a>
+      <ul>
+        <li><a href="/ja/" data-i18n="nav.home">ホーム</a></li>
+        <li><a href="/ja/sales/" data-i18n="nav.sales">サービス</a></li>
+        <li><a href="/ja/offers/" data-i18n="nav.offers">商品</a></li>
+        <li><a href="/ja/cordova.html" aria-current="page" data-i18n="nav.diagnosis">診断</a></li>
+        <li><a href="/ja/retainer.html" data-i18n="nav.retainer">保守</a></li>
+        <li><a href="/ja/threads-analyzer.html" data-i18n="nav.threads">スレッド</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="ls-wrap">
+    <h1>iOS アップデートがブロックされた Cordova・Ionic アプリを診断します</h1>
+
+    <p class="ls-lead">
+      2026年4月28日からApp Store Connectにアプリをアップロードするには、Xcode 26とiOS 26 SDKでビルドする必要があります。古いCordova・Ionicビルド環境は、この要件で最初にかかります。公開されたストア情報だけを見て、何が詰まったのかをまとめます。 10ヶ所まで無料で、営業日2日以内に返信します。
+    </p>
+
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD&amp;body=%EC%95%B1%20%EC%9D%B4%EB%A6%84%20%EB%98%90%EB%8A%94%20%EC%8A%A4%ED%86%A0%EC%96%B4%20%EB%A7%81%ED%81%AC%3A%0A%EC%B5%9C%EC%A2%85%20%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EC%8B%9C%EC%A0%90%28%EB%AA%A8%EB%A5%B4%EB%A9%B4%20%EC%83%9D%EB%9E%B5%29%3A%0A%EC%82%AC%EB%82%B4%20Android%20%EB%8B%B4%EB%8B%B9%EC%9E%90%20%EC%9C%A0%EB%AC%B4%3A%0A%EC%9B%90%20%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%99%80%20%EC%97%B0%EB%9D%BD%20%EA%B0%80%EB%8A%A5%20%EC%97%AC%EB%B6%80%3A%0A">無料診断を申請する</a>
+      <a class="ls-btn" href="#self">自分で確認する方法を見る</a>
+    </div>
+    <p class="ls-fine">
+      無料診断は何が詰まっているのかクリーンアップします。修正方法と作業は有料です。ソースコード、署名キー、ストアアカウントは必要ありません。
+    </p>
+
+    <h2>診断する3つのこと</h2>
+    <h3>Apple SDKの最小要件 <span class="ls-fine">2026-04-28から適用中</span></h3>
+    <p>
+      App Store ConnectのアップロードにはXcode 26以降とiOS 26 SDKが必要です。古い <code>cordova-ios</code>や古いビルドパイプラインでは、更新の送信自体がブロックされる可能性があります。既にインストールされているアプリは、ユーザーのデバイスから直接消去されません。
+    </p>
+    <h3>Google Play ターゲット API <span class="ls-fine">2026-08-31、延長申請は11/1まで</span></h3>
+    <p>
+      新しいアプリとアップデートはAndroid 16（API 36）以降をターゲットにする必要があります。フォームファクタ固有の例外があります。既存のアプリがAndroid 15（API 35）未満をターゲットにすると、アプリターゲットよりも高いOSデバイスを使用している新規ユーザーに提供が制限されます。すべてのユーザーとすべてのデバイスが詰まっているわけではありません。アプリによっては、Play Console から 2026-11-01 まで延長を申請できます。
+    </p>
+    <h3>Firebase ダイナミック リンク <span class="ls-fine">2025-08-25 サービス終了</span></h3>
+    <p>
+      Firebaseの公式FAQでサービスが終了しました。
+      <code>page.link</code> 同じアドレスが 404 を返すと、そのリンクは死んだ可能性が高くなります。 1年近く放置されたリンクなら、もともと流入がなかったかもしれません。だから診断では、死んだリンクがあるかどうかと、流入の規模を別々に見る。
+    </p>
+    <p>
+      Cordova・Ionicアプリはネイティブプラグインと旧型CLIに結びついており、最新のXcodeとPlayターゲットを一人で追いにくい場合が多いです。だからといって、Cordovaが公式アーカイブされたと断定するわけではありません。アプリごとに事情が異なります。
+    </p>
+
+    <h2>適合アプリと一致しないアプリ</h2>
+    <ul class="ls-dash">
+      <li>新規インストール、会員登録、採用が必要な B2C アプリや対外用アプリ</li>
+      <li>iOS ホットフィックスをアップロードする必要がありますが、ビルドが壊れたアプリ</li>
+      <li>ワン開発会社が手を離したCordova・Ionicアプリ</li>
+      <li>社内のモバイル担当者がいないか、1 人だけのチーム</li>
+    </ul>
+    <p>
+      現場の従業員のみを使用し、新規インストールがないアプリは Play ポリシーの影響が小さい可能性があります。そのような場合、診断でそのまま申し上げます。
+    </p>
+
+    <h2 id="price">コストと範囲</h2>
+    <p>
+      以下の金額は予想範囲で、税金は別途です。確定見積もりは無料診断の後に行います。アプリの規模、プラグインの数、ネイティブのカスタムコードの有無によって、金額が大きく異なります。
+    </p>
+    <ul class="ls-dash">
+      <li>
+        <strong>診断レポート（ステータスのみ）：0ウォン、10ヶ所限定。</strong>
+        公開APKとストアページに基づいて、iOSアップロードのリスク、Playターゲット、Cordovaトレイル、公開ディープリンクの404を表示します。予想工数は範囲のみでお知らせし、詳細パッチ手順は入れません。流入推定は別途です。
+      </li>
+      <li>
+        <strong>Play 延長・政策対応案内：50万～150万ウォン、件別。</strong>
+        11月1日延長申請チェックリストと代行範囲、コンソール文房具と証拠整理、マイグレーションロードマップ1ページをお届けします。実際の作業は数十分から数時間かかります。
+      </li>
+      <li>
+        <strong>緊急ターゲットAPIアップ（Android）：300万～600万ウォン、件別。</strong>
+        Capacitor これまでに進行できない場合のみ受け取ります。ビルド通過と提出準備、実機回帰確認までします。廃棄されたプラグインが多い場合は、この範囲外になる可能性があります。
+      </li>
+      <li>
+        <strong>Capacitor以前（iOS、Android）：800万～2,000万ウォン、件別。</strong>
+        Cordova ランタイムを Capacitor に置き換え、プラグインを現行バージョンに置き換えて検証します。引数引継ぎ文書を含みます。コード配達が中心であり、署名キーとストアアップロードは顧客の権限で置くことができます。
+      </li>
+      <li>
+        <strong>ディープリンク復旧（流入確認後）：150万～400万ウォン、件別。</strong>
+        死んだ <code>page.link</code> などの公開URLを集めてサーバーリダイレクトやApp Linksに置き換えます。印刷物とQRは回収できないため、リダイレクトが重要です。流入がなければお勧めしません、診断でまず判断します。
+      </li>
+    </ul>
+    <div id="pay-diag" class="ls-cta" hidden=""></div>
+
+    <h2>進行順</h2>
+    <ul class="ls-dash">
+      <li>
+        <strong>1. 無料診断。</strong> アプリ名やストアリンクを受け取り、iOS アップロードの可能性、Play ターゲット、Cordova トレイル、死んだ公開リンクを 1 枚にまとめます。修正方法の詳細設計は入れません。
+      </li>
+      <li>
+        <strong>2. 緊急対応。</strong> Play 延長申し込みをご案内または代理します。以前なしでターゲットAPIのみを上げる最小対応もできます。 iOSはSDKやビルドツールの問題で最小対応ができなくなったら、直前の見積もりをいたします。
+      </li>
+      <li>
+        <strong>3. Capacitorの移行。</strong> Cordova ランタイムとプラグイン階層を現在のバージョンに移動します。 Web UIコードはほとんどそのまま書き込みます。署名とストアのアップロードは、顧客の権利を維持するように設計できます。
+      </li>
+    </ul>
+    <p>
+      Angular、Ionic、Cordova アプリを Capacitor に移動し、Bluetooth プリンタなどのネイティブプラグインを扱った実務経験があります。特定の企業や雇用主と提携したとは言わず、顧客使命は公開しません。
+    </p>
+
+    <h2 id="self">自分で確認する方法</h2>
+    <p>
+      iOS 最近アップロードしたものを最初に確認し、次に Play ターゲット、該当する場合はディープリンク順で確認できます。ディープリンクは開発者なしで30秒で確認できますが、404万見て売上損失を断定しないでください。
+    </p>
+    <ul class="ls-dash">
+      <li>
+        <strong>iOS アップロード。</strong> App Storeまたはオンプレミスビルドで、2026-04-28以降のアップロードまたはデプロイに成功したことを確認します。成功した履歴がないと、アップロードがブロックされている可能性があります。影響が最大のアイテムです。
+      </li>
+      <li>
+        <strong>Cordovaかどうか。</strong> APKを解凍 <code>assets/www/cordova.js</code>や <code>cordova_plugins.js</code>があるかどうかを確認します。それがCordovaベースである可能性が高いです。
+      </li>
+      <li>
+        <strong>Play ターゲット API。</strong> <code>aapt dump badging app.apk</code> 結果から <code>targetSdkVersion</code>を表示します。 35未満の場合、8/31以降の上位OSデバイスの新規ユーザーに提供が制限される可能性があります。すでにインストールされている従業員のみを書くアプリは影響が小さい可能性があります。
+      </li>
+      <li>
+        <strong>ディープリンク。</strong> ホームページ、QR、文字、メールのアプリリンク <code>page.link</code> アドレスをブラウザに貼り付けます。 404ページのリンクが死んだのです。流入があったかどうかは別に確認する必要があります。
+      </li>
+      <li>
+        <strong>放置期間。</strong> ストアの最終更新日を表示します。古くなればなるほど、ビルド環境に手を加える場所が多いことがあります。日付だけでは判断しません。
+      </li>
+    </ul>
+    <p>自分で確認するのが難しい場合や社内担当者がいない場合は、無料診断を申請してください。該当しない場合は、該当なしと返信します。</p>
+
+    <h2>受け取らないこと</h2>
+    <p>
+      新規アプリ開発、全面リライト、iOS 審査代行、セキュリティ脆弱性診断はお受けしません。既存の雇用契約や秘密保持義務と抵触する作業もお受けしません。診断の段階で合わないと判断した場合は、その場で書面にてお断りします。
+    </p>
+
+    <h2 id="faq">よくある質問</h2>
+    <div class="ls-faq">
+      <details>
+        <summary>なぜ診断は無料ですか？</summary>
+        <p>
+          公開資料のみを表示するため、費用はかかりません。最初の10ヶ所はリファレンスを作ろうと無料にして、その後は有料です。該当しない場合は、該当なしと返信します。詳細な修正方法は有料段階でのみ行います。
+        </p>
+      </details>
+      <details>
+        <summary>ソースコードまたは署名キーを与える必要がありますか？</summary>
+        <p>
+          診断には必要ありません。実装段階ではリポジトリへのアクセスが必要になる場合がありますが、ストア署名キーとPlay・App Storeアカウントはお客様が引き続き保持するように設計できます。基本的には、コードを配送し、顧客のビルドパイプラインでビルドする方法をお勧めします。
+        </p>
+      </details>
+      <details>
+        <summary>現場の従業員だけを書くアプリも Play ポリシーの影響を受けますか？</summary>
+        <p>
+          新規インストールがほとんどなく、すでにインストールされているデバイスのみを使用している場合、新規ユーザー提供の制限の影響は小さい可能性があります。このようなアプリは、iOSホットフィックスとセキュリティパッチを上げられない方が大きな問題です。診断の際に社内MDMで配布するのか、ストアで新規インストールを受けるのか、ぜひ見てそれに合わせて申し上げます。
+        </p>
+      </details>
+      <details>
+        <summary>延長申請をしてもいいですか？</summary>
+        <p>
+          Play の延長は時間がかかります。公式案内賞2026-11-01まで申請できる場合があります。要件はなくなり、毎年上がります。 iOS SDKの要件には延長制度はありません。
+        </p>
+      </details>
+      <details>
+        <summary>Capacitorに移動したら、Webコードを再編成する必要がありますか？</summary>
+        <p>
+          ほとんどそのまま書き込みます。置き換えるターゲットはネイティブランタイムとプラグインです。古いAngularや廃棄されたプラグインがあると空手が増えます。かかる項目のリストは診断に入れ、修正方法は有料設計段階で行います。
+        </p>
+      </details>
+      <details>
+        <summary>外部のスタジオに署名キーまで任せてもいいですか？</summary>
+        <p>
+          お勧めできません。範囲を段階的に分け、署名とストアの提出は、顧客会社の権限で置く契約をお勧めします。
+        </p>
+      </details>
+      <details>
+        <summary>ディープリンクは新しいリンクに変更できますか？</summary>
+        <p>
+          今後エクスポートするリンクは変更できます。すでに配布されている印刷物、文字、外部サイトのURLは回収できないため、サーバーリダイレクトが必要です。流入がなければ、回復費用を要する理由がない可能性があります。
+        </p>
+      </details>
+      <details>
+        <summary>BranchやAppsFlyerを書くと解決しますか？</summary>
+        <p>
+          両方のサービスは新しいリンクを作成するツールです。すでに死んだ古い住所を自動的に生かすことはありません。リダイレクト設定とアプリコードのリンク生成部分の交換は別々の作業です。
+        </p>
+      </details>
+      <details>
+        <summary>日本企業も依頼できますか？</summary>
+        <p>日本語で実務対応ができます。お問い合わせメールも日本語でお送りください。</p>
+      </details>
+    </div>
+
+    <h2 id="contact">申し込み方法</h2>
+    <p>
+      <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>で以下の内容をお送りください。診断レポートは営業日2日以内にお送りします。
+    </p>
+    <ul class="ls-dash">
+      <li>アプリ名やPlayストアへのリンク（これだけでも診断できます）</li>
+      <li>最終更新時点（わからない場合は省略）</li>
+      <li>社内の Android 担当者がいるか</li>
+      <li>元開発会社と連絡が取れるか</li>
+    </ul>
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD&amp;body=%EC%95%B1%20%EC%9D%B4%EB%A6%84%20%EB%98%90%EB%8A%94%20%EC%8A%A4%ED%86%A0%EC%96%B4%20%EB%A7%81%ED%81%AC%3A%0A%EC%B5%9C%EC%A2%85%20%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EC%8B%9C%EC%A0%90%28%EB%AA%A8%EB%A5%B4%EB%A9%B4%20%EC%83%9D%EB%9E%B5%29%3A%0A%EC%82%AC%EB%82%B4%20Android%20%EB%8B%B4%EB%8B%B9%EC%9E%90%20%EC%9C%A0%EB%AC%B4%3A%0A%EC%9B%90%20%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%99%80%20%EC%97%B0%EB%9D%BD%20%EA%B0%80%EB%8A%A5%20%EC%97%AC%EB%B6%80%3A%0A">無料診断を申請する</a>
+    </div>
+    <p class="ls-fine">
+      運用中のIonic・Capacitorアプリの障害対応は <a href="/ja/retainer.html">メンテナンスページ（英語）</a>で、他のサービスと価格は <a href="/ja/sales/">サービスページ</a>にあります。
+    </p>
+
+    <footer class="ls-foot">
+      <nav data-i18n-aria-label="common.footerNav" aria-label="フッターナビゲーション">
+        <a href="/ja/" data-i18n="nav.home">ホーム</a>
+        <a href="/ja/sales/" data-i18n="nav.sales">サービス</a>
+        <a href="/ja/offers/" data-i18n="nav.offers">商品</a>
+        <a href="/ja/cordova.html" data-i18n="nav.diagnosis">診断</a>
+        <a href="/ja/retainer.html" data-i18n="nav.retainer">保守</a>
+        <a href="/ja/threads-analyzer.html" data-i18n="nav.threads">スレッド</a>
+        <a href="/pp.html" data-i18n="footer.privacy">プライバシー</a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+      <p>
+        <span data-i18n="common.disclaimer">いかなる雇用主とも提携していません。</span>
+        ポリシーの説明は、プラットフォームの公式文書をまとめたものです。原文が優先し、方針は変更される可能性があります。
+        <a href="https://developer.apple.com/news/upcoming-requirements/" rel="nofollow noopener" target="_blank">Apple の今後の要件</a>,
+        <a href="https://support.google.com/googleplay/android-developer/answer/11926878?hl=en" rel="nofollow noopener" target="_blank">Play ターゲット API レベル</a>,
+        <a href="https://firebase.google.com/support/dynamic-links-faq" rel="nofollow noopener" target="_blank">Firebase ダイナミック リンクに関するよくある質問</a>
+      </p>
+    </footer>
+  </main>
+
+  <script src="/sales/payment.js" defer=""></script>
+    <script src="/i18n.js"></script>
+
+
+</body></html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!-- 생성 파일: scripts/build-i18n-pages.cjs 가 /hot-launcher.html 와 i18n-content.json 으로 만든다. 직접 고치지 말 것. -->
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HotLauncher | macOS 26 Open apps with shortcuts instead of launchpad</title>
+  <meta name="description" content="Launchpad is missing in macOS 26. This is a free menu bar app that allows you to instantly open up to 20 frequently used apps by attaching them to a global shortcut key. No ads or subscriptions.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://hwemo-chung.github.io/en/hot-launcher.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/hot-launcher.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/hot-launcher.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/hot-launcher.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/hot-launcher.html">
+  <!-- i18n-alternates -->
+    
+    
+    
+    
+    <!-- /i18n-alternates -->
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Lumos">
+  <meta property="og:url" content="https://hwemo-chung.github.io/en/hot-launcher.html">
+  <meta property="og:title" content="HotLauncher | macOS 26 Open apps with shortcuts instead of launchpad"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:description" content="Open apps with global shortcuts instead of launchpad. 20 slots, resident menu bar, no ads or subscriptions.">
+  
+  
+  
+  <meta property="og:image" content="https://hwemo-chung.github.io/assets/hot-launcher-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="HotLauncher. macOS 26에서 없어진 런치패드 대신 전역 단축키로 앱을 여는 무료 메뉴바 런처. Free hotkey app launcher for macOS 26 after Launchpad was removed.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HotLauncher | macOS 26 Open apps with shortcuts instead of launchpad">
+  <meta name="twitter:description" content="Open apps with global shortcuts instead of launchpad. 20 slots, resident menu bar, no ads or subscriptions.">
+  <meta name="twitter:image" content="https://hwemo-chung.github.io/assets/hot-launcher-og.png">
+  <meta name="twitter:image:alt" content="HotLauncher. macOS 26에서 없어진 런치패드 대신 전역 단축키로 앱을 여는 무료 메뉴바 런처. Free hotkey app launcher for macOS 26 after Launchpad was removed.">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('language')) return;
+        var p = new URLSearchParams(location.search);
+        if (p.get('lang')) return;
+        var n = (navigator.language || '').slice(0, 2).toLowerCase();
+        if (n !== 'en' && n !== 'ja') return;
+        p.set('lang', n);
+        history.replaceState(null, '', location.pathname + '?' + p.toString() + location.hash);
+      } catch (e) {}
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://hwemo-chung.github.io/hot-launcher.html#app",
+      "name": "HotLauncher",
+      "operatingSystem": "macOS 26+",
+      "applicationCategory": "UtilitiesApplication",
+      "url": "https://hwemo-chung.github.io/en/hot-launcher.html",
+      "downloadUrl": "https://github.com/Hwemo-Chung/HotLauncher",
+      "image": "https://hwemo-chung.github.io/assets/hot-launcher-og.png",
+      "screenshot": "https://hwemo-chung.github.io/assets/hot-launcher-settings.webp",
+      "description": "macOS 26에서 런치패드가 없어졌습니다. 자주 쓰는 앱 최대 20개를 전역 단축키에 붙여 바로 여는 무료 메뉴바 앱입니다. 광고와 구독이 없습니다.",
+      "inLanguage": [
+        "en",
+        "ko",
+        "ja"
+      ],
+      "isAccessibleForFree": true,
+      "softwareRequirements": "macOS 26 이상, Apple Silicon, Xcode Command Line Tools(소스 빌드)",
+      "featureList": [
+        "전역 단축키로 지정한 앱을 실행하며 검색이나 인덱싱을 하지 않음",
+        "슬롯 20개, 한 화면에 10개(2열 5줄)씩 2페이지",
+        "메뉴바 상주, 독 아이콘 없음",
+        "로그인 시 자동 실행",
+        "설정은 기기 안 JSON 파일에 저장하고 네트워크는 기부 링크를 누를 때만 사용"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Hwemo Chung",
+        "url": "https://github.com/Hwemo-Chung"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hwemo-chung.github.io/hot-launcher.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "런치패드는 어디로 갔나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "macOS 26 Tahoe에서 없어졌고, Spotlight의 Apps가 대신합니다. HotLauncher는 아이콘 격자를 되살리지 않고, 자주 여는 앱에 단축키를 붙입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Alfred나 Raycast를 쓰는데요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "그렇다면 이 앱이 필요 없을 수도 있습니다. 런처 창 없이 앱 20개만 키에 붙여 두고 싶을 때 쓰는 앱입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "왜 다운로드 파일이 없나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Apple 공증을 받기 전의 바이너리는 사이트에 올리지 않습니다. GitHub 소스에서 빌드하면 내 Mac에서 서명한 앱이 만들어집니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "어떤 Mac에서 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "macOS 26 이상, Apple Silicon Mac입니다. macOS 26.6.2에서 테스트했습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "유료인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "앱은 무료입니다. PayPal로 $1.99를 기부할 수 있지만, 기부 여부와 기능은 관계가 없습니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/sales/tokens.css">
+  <link rel="stylesheet" href="/sales/components.css">
+  <link rel="stylesheet" href="/sales/site-unified.css">
+  <style>
+    .install-code { white-space: pre-wrap; font-size: 13px; line-height: 1.6; margin: 16px 0; padding: 16px; border-radius: var(--ls-radius); background: var(--ls-card); box-shadow: var(--ls-lift); }
+    .install-code code { background: none; padding: 0; }
+  </style>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+</head>
+<body class="ls">
+  <a class="ls-skip" href="#main" data-i18n="common.skip">Skip to content</a>
+  <nav class="ls-nav" data-i18n-aria-label="common.mainNav" aria-label="Main navigation">
+    <div class="ls-nav__inner">
+      <a class="ls-brand" href="/en/">Lumos</a>
+      <ul>
+        <li><a href="/en/" data-i18n="nav.home">Home</a></li>
+        <li><a href="/en/sales/" data-i18n="nav.sales">Sales</a></li>
+        <li><a href="/en/offers/" data-i18n="nav.offers">Offers</a></li>
+        <li><a href="/en/cordova.html" data-i18n="nav.diagnosis">Diagnosis</a></li>
+        <li><a href="/en/retainer.html" data-i18n="nav.retainer">Retainer</a></li>
+        <li><a href="/en/threads-analyzer.html" data-i18n="nav.threads">Threads</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="ls-wrap">
+    <h1>HotLauncher</h1>
+    <p class="ls-lead">This is a menu bar app that allows you to place up to 20 frequently used Mac apps one by one on a global shortcut key and open them immediately when you press the key. It's free and the source is open.</p>
+    <p>In macOS 26 (Tahoe), Launchpad is gone and the Apps launcher inside Spotlight takes its place. You can't put icons where you want, and launching an app often means waiting for search results. HotLauncher skips that screen.</p>
+
+    <div class="ls-cta">
+      <a class="ls-btn ls-btn--primary" href="https://github.com/Hwemo-Chung/HotLauncher">Get source from GitHub</a>
+      <a class="ls-btn" href="https://paypal.me/HWEMOCHUNG/1.99USD">Donate $1.99 with PayPal</a>
+    </div>
+    <p class="ls-fine">Runs on macOS 26 or later, Apple Silicon Mac. Since it has not yet been notarized by Apple, the app file will not be distributed, but will be built and installed from source.</p>
+
+    <figure class="ls-shot">
+      <img src="/assets/hot-launcher-settings.webp" width="1000" height="1195" decoding="async" alt="HotLauncher 설정 창. Safari, Android Studio, VS Code 등 10개 앱이 2열 5줄로 놓여 있고 각각 ⌥⇧1부터 ⌥⇧9 같은 단축키가 붙어 있으며, 아래에 로그인 시 자동 실행 토글이 있습니다. Screenshot of the HotLauncher settings window showing 10 apps in a 2x5 grid with global hotkeys assigned.">
+      <figcaption>This is the settings screen. 15 out of 20 slots are being used, and 1 of 2 pages (10 in 2 columns and 5 lines) per screen is visible.</figcaption>
+    </figure>
+
+    <h2>What we do
+Open the app with</h2>
+    <h3>shortcut key</h3>
+    <p>Even while using another app, pressing the specified key opens that app. There is no searching or indexing.</p>
+    <h3>20 slots</h3>
+    <p>Arrange 10 items (2 columns, 5 lines) per screen, divided into 2 pages.</p>
+    <h3>Only resides in the menu bar</h3>
+    <p>There is no dock icon. Select an app and key from Settings in the menu bar.</p>
+    <h3>Automatically runs upon login</h3>
+    <p>If you turn it on, it is registered as a system login item and appears on the menu bar after booting.</p>
+    <h3>Do not use network</h3>
+    <p>Settings are saved to a JSON file inside this Mac. The network only spends when you click the donation link.</p>
+
+    <h2 id="install">Installation</h2>
+    <p>Requires macOS 26, Swift 6.3, and Xcode Command Line Tools. Running the four lines below in your terminal will install HotLauncher in your Applications folder.</p>
+    <pre class="install-code"><code>git clone https://github.com/Hwemo-Chung/HotLauncher.git
+cd HotLauncher/HotLauncher
+bash scripts/bundle.sh
+bash scripts/install.sh</code></pre>
+    <p>This is an adhoc signature, so the system evaluation (spctl) result is rejected. If you copy the built app to another Mac, Gatekeeper may block it, so please build it directly on the Mac you will be using.</p>
+
+    <h2 id="faq">Frequently Asked Questions</h2>
+    <div class="ls-faq">
+      <details>
+        <summary>Where did Launchpad go?</summary>
+        <p>Gone in macOS 26 Tahoe, replaced by Apps in Spotlight. HotLauncher adds shortcuts to frequently opened apps, rather than bringing back the icon grid.</p>
+      </details>
+      <details>
+        <summary>Are you using Alfred or Raycast?</summary>
+        <p>Then you might not need this app. This app is used when you want to attach only 20 apps to the key without a launcher window.</p>
+      </details>
+      <details>
+        <summary>Why is there no download file?</summary>
+        <p>Binaries are not posted on the site until Apple has notarized them. Building from the GitHub source produces an app signed on your own Mac.</p>
+      </details>
+      <details>
+        <summary>Which Mac does this work on?</summary>
+        <p>macOS 26 or later, Apple Silicon Mac. Tested on macOS 26.6.2.</p>
+      </details>
+      <details>
+        <summary>Is it paid?</summary>
+        <p>The app is free. You can donate $1.99 via PayPal, but this has no effect on whether you donate or not.</p>
+      </details>
+    </div>
+
+    <h2 id="contact">Contact Us</h2>
+    <p>For installation inquiries and bug reports,
+Please send it to <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>. The sauce is <a href="https://github.com/Hwemo-Chung/HotLauncher">Hwemo-Chung/HotLauncher on GitHub</a>.</p>
+
+    <footer class="ls-foot">
+      <nav data-i18n-aria-label="common.footerNav" aria-label="Footer navigation">
+        <a href="/en/" data-i18n="nav.home">Home</a>
+        <a href="/en/sales/" data-i18n="nav.sales">Sales</a>
+        <a href="/en/offers/" data-i18n="nav.offers">Offers</a>
+        <a href="/en/retainer.html" data-i18n="nav.retainer">Retainer</a>
+        <a href="/pp.html" data-i18n="footer.privacy">Privacy</a>
+        <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+      </nav>
+      <p data-i18n="common.disclaimer">Not affiliated with any employer.</p>
+    </footer>
+  </main>
+
+  <script src="/i18n.js"></script>
+
+
+</body></html>

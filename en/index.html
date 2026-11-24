@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<!-- 생성 파일: scripts/build-i18n-pages.cjs 가 /index.html 와 i18n-content.json 으로 만든다. 직접 고치지 말 것. -->
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumos | Cordova·Ionic app diagnosis and maintenance</title>
+
+    <!-- 기본 메타 태그 -->
+    <meta name="description" content="Diagnose and maintain Cordova·Ionic·Capacitor apps that have blocked store uploads. We also create macOS apps and browser tools. Diagnosis is free for up to 10 locations.">
+    <meta name="keywords" content="Cordova 유지보수, Ionic 마이그레이션, Capacitor, iOS 26 SDK, Play 타겟 API, Dynamic Links 종료, 하이브리드 앱 진단, macOS 유틸리티, HotLauncher">
+    <meta name="author" content="Hwemo Chung">
+    <meta name="google-site-verification" content="fwt2bZacz-ljJVxCcpa48qI5niS_SQGM24Tz6RePrDU">
+
+    <!-- Open Graph (소셜 미디어용) -->
+    <meta property="og:site_name" content="Lumos">
+    <meta property="og:title" content="Lumos | Cordova·Ionic app diagnosis and maintenance"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:description" content="Apps that have been blocked from updating due to iOS 26 SDK requirements, Play Target API deadline, or termination of Dynamic Links are re-uploaded to the store. Diagnosis is free for up to 10 locations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hwemo-chung.github.io/en/">
+    
+    
+    
+    <meta property="og:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Lumos | Cordova·Ionic 앱 진단과 유지보수">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lumos | Cordova·Ionic app diagnosis and maintenance">
+    <meta name="twitter:description" content="Apps that have been blocked from updating due to iOS 26 SDK requirements, Play Target API deadline, or termination of Dynamic Links are re-uploaded to the store. Diagnosis is free for up to 10 locations.">
+    <meta name="twitter:image" content="https://hwemo-chung.github.io/assets/og-lumos.png">
+
+    <!-- 추가 SEO -->
+    <link rel="canonical" href="https://hwemo-chung.github.io/en/"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/">
+    <!-- i18n-alternates -->
+    
+    
+    
+    
+    <!-- /i18n-alternates -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" href="/assets/site.css">
+
+    <!-- 스키마 마크업 -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://hwemo-chung.github.io/#person",
+      "name": "정휘모",
+      "alternateName": "Hwemo Chung",
+      "jobTitle": "Full Stack Developer",
+      "url": "https://hwemo-chung.github.io/en/",
+      "email": "mailto:tolaria@naver.com",
+      "sameAs": [
+        "https://github.com/Hwemo-Chung",
+        "https://tolaria.tistory.com",
+        "https://tolaria0823.blogspot.com/",
+        "https://leplacika.blogspot.com/",
+        "https://www.threads.com/@chunghwemo",
+        "https://www.youtube.com/@tolaria0823"
+      ],
+      "knowsAbout": [
+        "Angular",
+        "TypeScript",
+        "Node.js",
+        "AWS",
+        "Ionic",
+        "Capacitor",
+        "Cordova",
+        "Swift"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hwemo-chung.github.io/#website",
+      "url": "https://hwemo-chung.github.io/en/",
+      "name": "Lumos",
+      "description": "풀스택 개발, 레거시 앱 진단, 프로덕션 지원과 자동화 서비스를 제공합니다.",
+      "inLanguage": [
+        "ko",
+        "en",
+        "ja"
+      ],
+      "publisher": {
+        "@id": "https://hwemo-chung.github.io/#person"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://hwemo-chung.github.io/hot-launcher.html#app",
+      "name": "HotLauncher",
+      "operatingSystem": "macOS 26+",
+      "applicationCategory": "UtilitiesApplication",
+      "url": "https://hwemo-chung.github.io/hot-launcher.html",
+      "downloadUrl": "https://github.com/Hwemo-Chung/HotLauncher",
+      "author": {
+        "@id": "https://hwemo-chung.github.io/#person"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://hwemo-chung.github.io/lumoszip.html#app",
+      "name": "LumosZipForMac",
+      "operatingSystem": "macOS 13+",
+      "applicationCategory": "UtilitiesApplication",
+      "url": "https://hwemo-chung.github.io/lumoszip.html",
+      "author": {
+        "@id": "https://hwemo-chung.github.io/#person"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "url": "https://teagarden5.gumroad.com/l/qhyxm",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://hwemo-chung.github.io/retainer.html#service",
+      "name": "Mobile Production Retainer",
+      "serviceType": "Ionic / Capacitor / Android WebView production support",
+      "url": "https://hwemo-chung.github.io/retainer.html",
+      "provider": {
+        "@id": "https://hwemo-chung.github.io/#person"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Pilot",
+          "price": "400",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Stabilizer",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "1200",
+            "priceCurrency": "USD",
+            "unitCode": "MON",
+            "billingDuration": 1,
+            "billingIncrement": 1
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://hwemo-chung.github.io/cordova.html#service",
+      "name": "레거시 하이브리드 앱 3중 봉쇄 진단",
+      "serviceType": "Legacy Cordova / Ionic app store-block diagnosis",
+      "url": "https://hwemo-chung.github.io/cordova.html",
+      "provider": {
+        "@id": "https://hwemo-chung.github.io/#person"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "진단 10곳 한정 무료"
+      }
+    }
+  ]
+}
+</script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-L16K8WDDBP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L16K8WDDBP');
+    </script>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8998804759171463" crossorigin="anonymous"></script>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498371918924514" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+    <a class="ls-skip" href="#main" data-i18n="common.skip">Skip to content</a>
+    <nav class="ls-nav" data-i18n-aria-label="common.mainNav" aria-label="Main navigation">
+        <div class="ls-nav__inner">
+            <a class="ls-brand" href="/en/">Lumos</a>
+            <ul>
+                <li><a href="/en/sales/" data-i18n="nav.sales">Sales</a></li>
+                <li><a href="/en/offers/" data-i18n="nav.offers">Offers</a></li>
+                <li><a href="/en/cordova.html" data-i18n="nav.diagnosis">Diagnosis</a></li>
+                <li><a href="/en/retainer.html" data-i18n="nav.retainer">Retainer</a></li>
+                <li><a href="/en/threads-analyzer.html" data-i18n="nav.threads">Threads</a></li>
+                <li><a href="/tools/" data-i18n="nav.tools">Tools</a></li>
+            </ul>
+            <div class="language-toolbar" data-i18n-aria-label="common.language" aria-label="Language selection">
+                <div class="language-selector">
+                    <button class="lang-btn active" type="button" data-lang="ko">한</button>
+                    <button class="lang-btn" type="button" data-lang="en">EN</button>
+                    <button class="lang-btn" type="button" data-lang="ja">日</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="hub" id="home">
+            <canvas class="hub__mesh" id="mesh" aria-hidden="true"></canvas>
+            <div class="hub__grain" aria-hidden="true"></div>
+            <div class="objs" aria-hidden="true">
+                <div class="obj obj--ring" data-depth=".5"><div class="float"><div class="ring"><i></i><i></i><i></i><i></i></div></div></div>
+                <div class="obj obj--prism" data-depth="1"><div class="float"><div class="prism"><i class="f f1"></i><i class="f f2"></i><i class="f f3"></i><i class="cap cap--t"></i><i class="cap cap--b"></i></div></div></div>
+                <div class="obj obj--pill" data-depth="1.6"><div class="float"><div class="pill"></div></div></div>
+            </div>
+            <div class="wrap hub__inner">
+                <div class="hub__copy">
+                    <p class="eyebrow" data-i18n="hub.eyebrow">Lumos · Professional studio</p>
+                    <h1 data-i18n="hero.tagline">We get stuck Cordova and Ionic apps back into the App Store and Google Play.</h1>
+                    <p class="lead" data-i18n="hero.sub">From April 28, 2026, App Store Connect only accepts apps built with the iOS 26 SDK. The Play target API deadline and the Firebase Dynamic Links shutdown hit the same apps. You get a report on what is blocking your app within 2 business days, free for the first 10 apps.</p>
+                    <div class="cta">
+                        <a class="btn primary" href="/en/cordova.html" data-i18n="hero.ctaPrimary">Request a free diagnosis</a>
+                        <a class="btn" href="#products" data-i18n="hero.ctaSecondary">See the products</a>
+                    </div>
+                    <p class="fine" data-i18n="hero.fine">We don't take on new app builds or full rewrites.</p>
+                </div>
+                <nav class="doors" data-i18n-aria-label="hub.doors" aria-label="Studio guide">
+                    <div class="door">
+                        <div class="door__top"><span class="num">01</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"></path></svg></div>
+                        <a class="door__title" href="#services" data-i18n="hub.rescue">App rescue &amp; maintenance</a>
+                        <ul>
+                            <li>Legacy Hybrid App Diagnosis <span>Recruiting</span></li>
+                            <li>Mobile Production Retainer</li>
+                            <li>Service/Offer Catalog</li>
+                        </ul>
+                    </div>
+                    <div class="door">
+                        <div class="door__top"><span class="num">02</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"></path></svg></div>
+                        <a class="door__title" href="#products" data-i18n="projects.products">Products</a>
+                        <ul>
+                            <li>HotLauncher <span>Free</span></li>
+                            <li>LumosZipForMac <span>On Sale</span></li>
+                            <li>Pebblez <span>Live</span></li>
+                        </ul>
+                    </div>
+                    <div class="door">
+                        <div class="door__top"><span class="num">03</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"></path></svg></div>
+                        <a class="door__title" href="#tools" data-i18n="projects.tools">Free tools</a>
+                        <ul>
+                            <li>Shrink image file size <span>Free</span></li>
+                            <li>Cut silent sections <span>Free</span></li>
+                            <li>Convert PDF to Word <span>Free</span></li>
+                        </ul>
+                    </div>
+                    <div class="door">
+                        <div class="door__top"><span class="num">04</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"></path></svg></div>
+                        <a class="door__title" href="#ebooks" data-i18n="hub.learn">E-books &amp; training</a>
+                        <ul>
+                            <li>AI Coding Agent Complete Edition</li>
+                            <li>1-year subscription to Automation Processing Application (Advanced)</li>
+                            <li>Claude Code onboarding training <span>On Sale</span></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+        <section class="band" id="products">
+            <div class="wrap">
+                <div class="band-head"><h2 data-i18n="projects.products">Products</h2></div>
+                <div class="rows">
+                    <div class="row-item">
+                        <div><h3>HotLauncher</h3><span class="badge">Free</span></div>
+                        <p>Launchpad disappeared in macOS 26 (Tahoe). Place up to 20 frequently used apps on a global shortcut and open them right away. There are no ads or subscriptions and the source is open.</p>
+                        <div class="links"><a href="/en/hot-launcher.html">Product Page</a><a href="https://github.com/Hwemo-Chung/HotLauncher">GitHub</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>LumosZipForMac</h3><span class="badge">On Sale</span></div>
+                        <p>Handles AES-256 encrypted ZIP on Mac without terminal. There are no ads or subscriptions, and it is a native app that runs on both Apple Silicon and Intel. Now selling it at a beta discount price.</p>
+                        <div class="links"><a href="/en/lumoszip.html">Product Page</a><a href="https://teagarden5.gumroad.com/l/qhyxm">Buy Now</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>Pebblez</h3><span class="badge">Live</span></div>
+                        <p>A small social PWA without ads and recommendation algorithms. If you leave a comment (pebble), it will spread among people you know. It can be used offline and is free.</p>
+                        <div class="links"><a href="https://pebblez.teagarden-earlgrey.workers.dev">Open Service</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>Color Vision Lab</h3><span class="badge">Free</span></div>
+                        <p>Preview how photos look under eight types of colour vision deficiency, with a severity slider, and take a 13-plate screening test. Photos are processed only in your browser and never uploaded, and this is a screening aid, not a diagnosis.</p>
+                        <div class="links"><a href="https://color-vision-lab.vercel.app/">Open Service</a><a href="https://github.com/Hwemo-Chung/color-vision-lab">GitHub</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>Threads Analyzer</h3><span class="badge">Recruitment of waiting list</span></div>
+                        <p>All posts in the thread account are organized into a 12-sheet Excel report. Look at median and dead rate instead of average. The CLI is free and open source, and the desktop app costs $29.</p>
+                        <div class="links"><a href="/en/threads-analyzer.html">Product Page</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>Burnline</h3><span class="badge">Building</span></div>
+                        <p>Local-first AI cost tracking. See spend by model and day, set monthly caps, and keep your prompts on your machine.</p>
+                        <div class="links"><a href="/en/burnline.html">Product page</a><a href="/en/burnline-dashboard.html">Dashboard</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="band" id="tools">
+            <div class="wrap">
+                <div class="band-head"><h2>Tools (Korean interface)</h2><a href="/tools/">See all</a></div>
+                <!-- TOOLS:START -->
+<ul class="tool-index" data-no-i18n="">
+<li><a href="/tools/image-shrink/">이미지 용량 줄이기<span>사진</span></a></li>
+<li><a href="/tools/white-background/">상품 사진 흰 배경<span>사진</span></a></li>
+<li><a href="/tools/id-photo/">증명사진 만들기<span>사진</span></a></li>
+<li><a href="/tools/image-upscale/">사진 해상도 키우기<span>사진</span></a></li>
+<li><a href="/tools/brush-erase/">붓으로 잡티 지우기<span>사진</span></a></li>
+<li><a href="/tools/item-removal/">사진 속 물체 지우기<span>사진</span></a></li>
+<li><a href="/tools/colorize-photo/">흑백 사진 컬러로 바꾸기<span>사진</span></a></li>
+<li><a href="/tools/logo-svg/">로고 SVG 변환<span>사진</span></a></li>
+<li><a href="/tools/wall-color/">벽 색 바꾸기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/day-to-dusk/">낮 사진을 저녁 사진으로<span>집·상품 사진</span></a></li>
+<li><a href="/tools/room-stage/">빈 방에 가구 놓아 보기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/lifestyle-scene/">제품 연출 사진 만들기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/promo-template/">상품 홍보 카드 만들기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/thumb-card/">유튜브 썸네일 만들기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/shot-frame/">스크린샷 꾸미기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/device-mockup/">기기 목업 만들기<span>집·상품 사진</span></a></li>
+<li><a href="/tools/silence-cut/">무음 구간 자르기<span>영상</span></a></li>
+<li><a href="/tools/vertical-clip/">세로 영상으로 자르기<span>영상</span></a></li>
+<li><a href="/tools/burned-captions/">영상에 자막 입히기<span>영상</span></a></li>
+<li><a href="/tools/video-cutout/">영상 배경 바꾸기<span>영상</span></a></li>
+<li><a href="/tools/waveform-video/">오디오 파형 영상<span>영상</span></a></li>
+<li><a href="/tools/vocal-split/">보컬 분리<span>소리</span></a></li>
+<li><a href="/tools/voice-denoise/">음성 잡음 제거<span>소리</span></a></li>
+<li><a href="/tools/subtitle-file/">자막 파일 만들기<span>자막</span></a></li>
+<li><a href="/tools/subtitle-translate/">자막 번역<span>자막</span></a></li>
+<li><a href="/tools/pdf-to-doc/">PDF를 Word 문서로 바꾸기<span>문서</span></a></li>
+<li><a href="/tools/statement-sheet/">통장 거래내역 엑셀로 옮기기<span>문서</span></a></li>
+<li><a href="/tools/receipt-line/">영수증 사진을 표로 정리하기<span>문서</span></a></li>
+<li><a href="/tools/page-shot/">웹페이지 전체 캡처<span>웹·개발</span></a></li>
+<li><a href="/tools/copilot-usage-monitor/">Copilot 사용량<span>웹·개발</span></a></li>
+</ul>
+<!-- TOOLS:END -->
+                <h3 class="group-title" style="margin-top:40px" data-i18n="projects.tools">Free tools</h3>
+                <ul class="plain">
+                    <li><a href="/color-picker.html">Color Picker</a><br>This is a browser tool that selects colors and converts them into formats such as HEX and RGB.</li>
+                    <li><a href="/en/public-search-exposure.html">Public Search Visibility</a><br>Enter your name, company, and address to see how visible that information is in public searches. The information you enter does not leave the browser.</li>
+                    <li><a href="/en/micro-saas-mvps/">Micro SaaS Lab</a><br>These are tools that were made small and tested quickly. Put the one that had a reaction on top.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="band" id="ebooks">
+            <div class="wrap">
+                <div class="band-head">
+                    <h2>E-books / E-books</h2>
+                    <a href="https://teagarden5.gumroad.com/" target="_blank" rel="noopener">View entire store / ストア一覧</a>
+                </div>
+                <p class="band-note" style="margin-bottom:32px">When you pay on Gumroad, you will receive the PDF immediately. / Gumroadで決済するとすぐにPDFをダウンロードできます。</p>
+
+                <h3 class="group-title" id="ebooks-ja" lang="ja">Japanese / For those living in Japan</h3>
+                <div class="shelf">
+                    <div class="book">
+                        <div class="cover type">AI coding agent complete version</div>
+                        <div class="body"><h3>AI coding agent complete version</h3><p>Japanese PDF · 99 pages · 1 year update guarantee</p>
+                        <div class="price"><strong>¥14,800</strong><a href="https://teagarden5.gumroad.com/l/xywavy" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover type">Shorts/Blog/SEO Automation Complete Version</div>
+                        <div class="body"><h3>Shorts/Blog/SEO Automation Complete Version</h3><p>Japanese PDF · 99 pages · 1 year update guarantee</p>
+                        <div class="price"><strong>¥19,800</strong><a href="https://teagarden5.gumroad.com/l/dvvsq" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="/assets/images/ebooks/ai-work-guide-ja.jpg" alt="ChatGPT・Claude・Gemini 仕事で使う入門 2026：メール・議事録・資料・表計算をAIと一緒に 表紙" loading="lazy" width="800"></div>
+                        <div class="body"><h3>ChatGPT・Claude・Gemini Introduction to use at work 2026</h3><p>Japanese PDF · 42 pages</p>
+                        <div class="price"><strong>¥14,800</strong><a href="https://teagarden5.gumroad.com/l/ai-work-ja" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="/assets/images/ebooks/automation-advanced-ja.jpg" alt="自動化処理 応用編（上級）1年間の購読 表紙" loading="lazy" width="800" height="450"></div>
+                        <div class="body"><h3>Automation Processing Advanced Edition (Advanced) 1 year subscription</h3><p>English · Gumroad membership (annual payment, automatic renewal) · 52 lessons in total, 1 lesson per week (including 104 pages of PDF of Volume 1) · If you cancel midway, you will receive a pro rata refund of the unused portion</p>
+                        <a class="extra" href="https://teagarden5.gumroad.com/l/lsvdhw" target="_blank" rel="noopener">Free sample (8 pages)</a>
+                        <div class="price"><strong>¥100,000/年</strong><a href="https://teagarden5.gumroad.com/l/lfzanl" target="_blank" rel="noopener">Subscribe</a></div></div>
+                    </div>
+                </div>
+
+                <h3 class="group-title" id="ebooks-ko" lang="ko" style="margin-top:48px">Korean / For Korean readers</h3>
+                <div class="shelf">
+                    <div class="book">
+                        <div class="cover type">AI Coding Agent Complete Edition</div>
+                        <div class="body"><h3>AI Coding Agent Complete Edition</h3><p>Korean PDF · 95 pages · 1 year update guaranteed</p>
+                        <div class="price"><strong>₩139,000</strong><a href="https://teagarden5.gumroad.com/l/cxhiny" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover type">Shorts·Blog·SEO Automation Complete Edition</div>
+                        <div class="body"><h3>Shorts·Blog·SEO Automation Complete Edition</h3><p>Korean PDF · 94 pages · 1 year update guaranteed</p>
+                        <div class="price"><strong>₩169,000</strong><a href="https://teagarden5.gumroad.com/l/jbqeaw" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="/assets/images/ebooks/ai-work-guide-ko.jpg" alt="ChatGPT·Claude·Gemini 업무 활용 입문 2026: 메일·회의록·문서·표 정리를 AI와 함께 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>Introduction to ChatGPT·Claude·Gemini Business Utilization 2026</h3><p>Korean PDF · 42 pages</p>
+                        <div class="price"><strong>₩139,000</strong><a href="https://teagarden5.gumroad.com/l/ai-work-ko" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="/assets/images/ebooks/automation-advanced-ko.jpg" alt="자동화 처리 응용편(고급) 1년 구독 표지" loading="lazy" width="800" height="450"></div>
+                        <div class="body"><h3>1-year subscription to Automation Processing Application (Advanced)</h3><p>Korean · Gumroad membership (annual payment, automatic renewal) · 1 lesson per week, 52 in total (including 99 pages of Volume 1 PDF) · In case of early cancellation, a proportional refund for the amount of lessons not received</p>
+                        <a class="extra" href="https://teagarden5.gumroad.com/l/udxhyj" target="_blank" rel="noopener">Free sample (8 pages)</a>
+                        <div class="price"><strong>₩1,000,000/year</strong><a href="https://teagarden5.gumroad.com/l/awnihs" target="_blank" rel="noopener">Subscribe</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="/assets/images/ebooks/tokyo-first-trip-pack.jpg" alt="도쿄 첫 여행 실전팩: 전철·짐·현금·예약 체크리스트 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>First trip to Tokyo practical pack: Train, luggage, cash, reservation checklist</h3><p>Korean PDF · 27 pages</p>
+                        <div class="price"><strong>₩12,900</strong><a href="https://teagarden5.gumroad.com/l/zibxvl" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="/assets/images/ebooks/tokyo-nearby-pack.jpg" alt="도쿄에서 당일치기·1박: 근교 여행 실전팩 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>Day trip/overnight in Tokyo: Suburban travel practical pack</h3><p>Korean PDF · 17 pages</p>
+                        <div class="price"><strong>₩9,900</strong><a href="https://teagarden5.gumroad.com/l/lbezhq" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="/assets/images/ebooks/tokyo-autumn-2026.jpg" alt="도쿄 가을 단풍 여행 2026: 정원·은행나무길·다카오산 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>Tokyo Fall Foliage Trip 2026: Garden, Ginkgo Tree Road, Mt. Takao</h3><p>Korean PDF · 36 pages</p>
+                        <div class="price"><strong>₩12,900</strong><a href="https://teagarden5.gumroad.com/l/mfhchf" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="/assets/images/ebooks/tokyo-kids.jpg" alt="도쿄 아이와 함께 여행 실전팩: 유모차·수유실·키즈 명소·티켓 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>Traveling with Tokyo Kids Practical Pack: Stroller, Nursing Room, Kids Attractions, Tickets</h3><p>Korean PDF · 31 pages</p>
+                        <div class="price"><strong>₩12,900</strong><a href="https://teagarden5.gumroad.com/l/tokyo-kids" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover"><img src="/assets/images/ebooks/japan-taxfree-2026.jpg" alt="일본 면세 쇼핑 완전 가이드 2026: 11월 1일 리펀드 방식 전환 대응 표지" loading="lazy" width="800"></div>
+                        <div class="body"><h3>Japan Tax-Free Shopping Guide 2026: The November 1 Switch to Refunds</h3><p>Korean PDF · 31 pages</p>
+                        <div class="price"><strong>₩14,900</strong><a href="https://teagarden5.gumroad.com/l/japan-taxfree" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                    <div class="book">
+                        <div class="cover type">Tokyo Travel Bundle: First trip to Tokyo practical pack + nearby day trip/1 night practical pack</div>
+                        <div class="body"><h3>Tokyo Travel Bundle: First trip to Tokyo practical pack + nearby day trip/1 night practical pack</h3><p>Korean PDF 2-volume set</p>
+                        <div class="price"><strong>₩19,900</strong><a href="https://teagarden5.gumroad.com/l/ufehcd" target="_blank" rel="noopener">Buy</a></div></div>
+                    </div>
+                </div>
+                <p class="band-note" style="margin-top:24px">Tax may be added when making payment. / When it is time to use it, it is time to use it. <a href="/tokushoho.html">Notation of specific business transaction law and specific transaction law</a></p>
+            </div>
+        </section>
+
+        <section class="band" id="services">
+            <div class="wrap">
+                <div class="band-head"><h2 data-i18n="projects.services">Services</h2></div>
+                <div class="rows">
+                    <div class="row-item">
+                        <div><h3>Legacy Hybrid App Diagnosis</h3><span class="badge">Recruiting</span></div>
+                        <p>App Store Connect will not accept apps not built with the iOS 26 SDK. The Play Target API deadline has passed, but you can still apply for an extension, and Firebase Dynamic Links has ended. Hybrid apps that haven't been touched in a long time will suffer from all three. Free diagnosis of up to 10 locations.</p>
+                        <div class="links"><a href="/en/cordova.html">Application for diagnosis</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>Mobile Production Retainer</h3></div>
+                        <p>Monthly production support for Ionic, Capacitor and Android WebView apps. Stabilizer is $1,200 a month; a Pilot month is $400.</p>
+                        <div class="links"><a href="/en/retainer.html">Offer page</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>Claude Code onboarding training (for companies in Japan, in Japanese)</h3><span class="badge">On Sale</span></div>
+                        <p>A three-hour session on the points where teams actually get stuck: installation, CLAUDE.md, permissions, usage limits and automated runs. You get two reproducible demos, a practice repository and a CLAUDE.md template for your team. Online for up to 10 people ¥150,000, in person in Tokyo for up to 20 people ¥250,000; the 30-minute hearing is free.</p>
+                        <div class="links"><a href="/claude-code-kenshu.html">Training details (in Japanese)</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>Website and landing page production</h3></div>
+                        <p>Pick a style from five design samples and we build your website or landing page in that style. Every sample is a live page you can open; pricing and schedule are provided on request.</p>
+                        <div class="links"><a href="/web-design.html">View samples</a></div>
+                    </div>
+                    <div class="row-item">
+                        <div><h3>Service/Offer Catalog</h3></div>
+                        <p>From diagnosis to maintenance, the work and prices we take on are in one place, along with the scope, exclusions and response times.</p>
+                        <div class="links"><a href="/en/sales/">View services</a><a href="/en/offers/">Offer Catalog</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="band" id="archive">
+            <div class="wrap">
+                <div class="band-head"><h2 data-i18n="projects.archive">Archive</h2><p data-i18n="projects.archiveNote">Older work we no longer sell or run. Only the source code is public.</p></div>
+                <ul class="plain">
+                    <li><a href="https://github.com/Hwemo-Chung/gesture-color-picker-app">Gesture Color Picker App</a> Gesture-based color selection (Android)</li>
+                    <li><a href="https://github.com/Hwemo-Chung/submarine-commander-game">Submarine Commander</a> Submarine Command Simulation</li>
+                    <li><a href="https://github.com/Hwemo-Chung/news_collector_android">News Collector</a> News collection/curation (Android)</li>
+                    <li><a href="https://github.com/Hwemo-Chung/news_poster">News Poster</a> Automate news posting</li>
+                    <li><a href="https://github.com/Hwemo-Chung/sumiwake-app-project">Sumiwake</a> Sumiwake Management App</li>
+                    <li><a href="https://github.com/Hwemo-Chung/media-organizer">Media Organizer</a> Media File Organizer</li>
+                    <li><a href="https://github.com/Hwemo-Chung/elder_tel">Elder Tel</a> Simple phone app for seniors</li>
+                    <li><a href="https://github.com/Hwemo-Chung/SecretClipDiary">Secret Clip Diary</a> Personal clipboard diary</li>
+                    <li><a href="https://childscreen.netlify.app/">Child Screen</a> Managing Children’s Screen Time</li>
+                    <li><a href="https://github.com/Hwemo-Chung/Dice_Story">Dice Story</a> Dice Storytelling Game</li>
+                    <li><a href="https://github.com/Hwemo-Chung/for-soccer">For Soccer</a> Soccer Information Platform</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="band" id="stack">
+            <div class="wrap">
+                <div class="band-head"><h2 data-i18n="about.skills">Tech Stack</h2></div>
+                <ul class="stack">
+                    <li>Technologies launched and operated: Angular, Ionic, Capacitor, TypeScript, Node.js, Swift, AWS</li>
+                    <li>Legacy operations: Cordova, Android WebView, Firebase Dynamic Links migration</li>
+                    <li>Other technologies used: React, Vue, Python, Java/Spring Boot, Kotlin, PostgreSQL, Docker</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="dark" id="contact">
+            <div class="wrap">
+                <h2 data-i18n="contact.title">Contact</h2>
+                <p data-i18n="contact.description">If your store upload is blocked, start with the diagnosis.</p>
+                <div class="cta">
+                    <a class="btn" href="/en/cordova.html" data-i18n="contact.ctaPrimary">Request a free diagnosis</a>
+                    <a class="btn ghost" href="/en/sales/" data-i18n="contact.ctaSecondary">See services and pricing</a>
+                </div>
+                <div class="contact-lines">
+                    <div>Email: <a href="mailto:tolaria@naver.com">tolaria@naver.com</a></div>
+                    <div>GitHub: <a href="https://github.com/Hwemo-Chung">@Hwemo-Chung</a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="ls-foot">
+        <nav data-i18n-aria-label="common.footerNav" aria-label="Footer navigation">
+            <a href="/en/" data-i18n="nav.home">Home</a>
+            <a href="/en/sales/" data-i18n="nav.sales">Sales</a>
+            <a href="/en/offers/" data-i18n="nav.offers">Offers</a>
+            <a href="/en/cordova.html" data-i18n="nav.diagnosis">Diagnosis</a>
+            <a href="/en/retainer.html" data-i18n="nav.retainer">Retainer</a>
+            <a href="/en/threads-analyzer.html" data-i18n="nav.threads">Threads</a>
+            <a href="/tools/">Tools (Korean interface)</a>
+            <a href="/pp.html" data-i18n="footer.privacy">Privacy</a>
+            <a href="/tokushoho.html">Description based on the Specified Commercial Transactions Law</a>
+            <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
+        </nav>
+        <p data-i18n="common.disclaimer">Not affiliated with any employer.</p>
+    </footer>
+    <script>
+    /* Home hero only: prism mesh on a low-res canvas, glass objects follow the pointer. */
+    (function () {
+        var cv = document.getElementById('mesh');
+        if (!cv || !cv.getContext) return;
+        var hero = cv.parentElement, ctx = cv.getContext('2d');
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var STILL_T = 21.5, W = 0, H = 0, narrow = false;
+        var WIDE = [
+            {c:[125,82,255], x:.60,y:.50,r:.50,sq:.62,rot:-.5, a:.80,ax:.05,ay:.06,sp:.13,ph:0},
+            {c:[255,72,160], x:.80,y:.26,r:.40,sq:.50,rot:.5,  a:.80,ax:.06,ay:.05,sp:.10,ph:1.7},
+            {c:[52,116,255], x:.90,y:.66,r:.42,sq:.66,rot:-.9, a:.85,ax:.05,ay:.07,sp:.09,ph:3.1},
+            {c:[34,210,188], x:.66,y:.90,r:.34,sq:.46,rot:.25, a:.62,ax:.07,ay:.04,sp:.12,ph:4.4},
+            {c:[255,186,88], x:.97,y:.14,r:.24,sq:.60,rot:-.3, a:.74,ax:.03,ay:.04,sp:.15,ph:.9},
+            {c:[255,150,205],x:.72,y:.44,r:.30,sq:.13,rot:-.62,a:.60,ax:.04,ay:.05,sp:.08,ph:2.3},
+            {c:[150,200,255],x:.86,y:.50,r:.26,sq:.10,rot:.95, a:.44,ax:.04,ay:.04,sp:.11,ph:5.2},
+            {c:[125,82,255], x:.24,y:.93,r:.44,sq:.34,rot:.10, a:.50,ax:.05,ay:.02,sp:.07,ph:1.1,late:1},
+            {c:[255,72,160], x:.06,y:.99,r:.26,sq:.40,rot:-.1, a:.40,ax:.04,ay:.02,sp:.09,ph:3.8,late:1},
+            {c:[34,210,188], x:.48,y:1.0,r:.24,sq:.36,rot:.05, a:.30,ax:.05,ay:.02,sp:.10,ph:2.9,late:1}
+        ];
+        var NARROW = [
+            {c:[125,82,255], x:.70,y:.20,r:.62,sq:.60,rot:-.5, a:.80,ax:.06,ay:.03,sp:.13,ph:0},
+            {c:[255,72,160], x:.98,y:.08,r:.46,sq:.52,rot:.5,  a:.80,ax:.05,ay:.02,sp:.10,ph:1.7},
+            {c:[52,116,255], x:1.0,y:.34,r:.50,sq:.60,rot:-.9, a:.80,ax:.05,ay:.03,sp:.09,ph:3.1},
+            {c:[255,186,88], x:1.02,y:.02,r:.24,sq:.60,rot:-.3,a:.70,ax:.03,ay:.02,sp:.15,ph:.9},
+            {c:[34,210,188], x:.86,y:.70,r:.46,sq:.46,rot:.3,  a:.50,ax:.06,ay:.03,sp:.12,ph:4.4},
+            {c:[125,82,255], x:.16,y:.86,r:.56,sq:.44,rot:.12, a:.50,ax:.05,ay:.02,sp:.07,ph:1.1},
+            {c:[255,72,160], x:.50,y:.98,r:.40,sq:.40,rot:-.1, a:.34,ax:.05,ay:.02,sp:.09,ph:3.8}
+        ];
+        function size() {
+            var r = hero.getBoundingClientRect();
+            narrow = r.width < 760;
+            W = cv.width = Math.max(48, Math.round(r.width / 4));
+            H = cv.height = Math.max(48, Math.round(r.height / 4));
+        }
+        function rgba(c, a) { return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')'; }
+        function shade(g, stops) { for (var i = 0; i < stops.length; i += 2) g.addColorStop(stops[i], 'rgba(7,6,11,' + stops[i + 1] + ')'); ctx.fillStyle = g; }
+        function blobs(B, D, t, late) {
+            ctx.globalCompositeOperation = 'screen';
+            for (var i = 0; i < B.length; i++) {
+                var b = B[i]; if ((b.late ? 1 : 0) !== late) continue;
+                var x = (b.x + Math.sin(t * b.sp + b.ph) * b.ax) * W, y = (b.y + Math.cos(t * b.sp * .8 + b.ph * 1.7) * b.ay) * H, r = b.r * D;
+                ctx.save(); ctx.translate(x, y); ctx.rotate(b.rot + Math.sin(t * b.sp * .6 + b.ph) * .4); ctx.scale(1, b.sq);
+                var g = ctx.createRadialGradient(0, 0, 0, 0, 0, r);
+                g.addColorStop(0, rgba(b.c, b.a)); g.addColorStop(.42, rgba(b.c, b.a * .5)); g.addColorStop(.75, rgba(b.c, b.a * .14)); g.addColorStop(1, rgba(b.c, 0));
+                ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, r, 0, 6.2832); ctx.fill(); ctx.restore();
+            }
+            ctx.globalCompositeOperation = 'source-over';
+        }
+        function draw(t) {
+            var B = narrow ? NARROW : WIDE, D = narrow ? Math.min(W * 1.5, H) : Math.max(W, H * 1.25);
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.fillStyle = '#07060b'; ctx.fillRect(0, 0, W, H);
+            blobs(B, D, t, 0);
+            /* scrims are painted into the canvas so the backdrop under the text stays dark */
+            if (narrow) {
+                shade(ctx.createLinearGradient(0, 0, W, 0), [0, .9, .62, .72, 1, .3]); ctx.fillRect(0, 0, W, H);
+                shade(ctx.createLinearGradient(0, H * .2, 0, H * .5), [0, 0, 1, .66]); ctx.fillRect(0, 0, W, H);
+            } else {
+                shade(ctx.createLinearGradient(0, 0, W, 0), [0, .94, .34, .78, .62, .34, .84, 0]); ctx.fillRect(0, 0, W, H);
+                ctx.save(); ctx.translate(W * .36, H * .42); ctx.scale(W * .52, H * .40);
+                shade(ctx.createRadialGradient(0, 0, 0, 0, 0, 1), [0, .72, .55, .62, .8, .34, 1, 0]);
+                ctx.beginPath(); ctx.arc(0, 0, 1, 0, 6.2832); ctx.fill(); ctx.restore();
+            }
+            blobs(B, D, t, 1);
+            shade(ctx.createLinearGradient(0, 0, 0, H * .16), [0, .6, 1, 0]); ctx.fillRect(0, 0, W, H * .16);
+            shade(ctx.createLinearGradient(0, H * .9, 0, H), [0, 0, 1, 1]); ctx.fillRect(0, H * .9, W, H * .1 + 1);
+        }
+        var t0 = performance.now(), last = 0, visible = true, raf = 0;
+        function now() { return STILL_T + (performance.now() - t0) / 1000; }
+        function tick(ts) {
+            raf = 0;
+            if (!visible || document.hidden) return;
+            if (ts - last > 32) { last = ts; draw(now()); }
+            raf = requestAnimationFrame(tick);
+        }
+        function start() { if (!raf && !reduce) raf = requestAnimationFrame(tick); }
+        size(); draw(STILL_T); start();
+        var rz = 0;
+        window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(function () { size(); draw(reduce ? STILL_T : now()); }, 120); });
+        document.addEventListener('visibilitychange', start);
+        if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; start(); }, {threshold: 0}).observe(hero);
+        if ('ResizeObserver' in window) new ResizeObserver(function () { clearTimeout(rz); rz = setTimeout(function () { size(); draw(reduce ? STILL_T : now()); }, 120); }).observe(hero);
+
+        var objs = [].slice.call(hero.querySelectorAll('.obj'));
+        var tx = 0, ty = 0, cx = 0, cy = 0, sy = 0, praf = 0;
+        function place() {
+            praf = 0;
+            cx += (tx - cx) * .08; cy += (ty - cy) * .08;
+            for (var i = 0; i < objs.length; i++) {
+                var d = parseFloat(objs[i].getAttribute('data-depth')) || 1;
+                objs[i].style.transform = 'translate3d(' + (cx * -22 * d).toFixed(2) + 'px,' + (cy * -16 * d + sy * .1 * d).toFixed(2) + 'px,0)';
+            }
+            if (Math.abs(tx - cx) > .001 || Math.abs(ty - cy) > .001) praf = requestAnimationFrame(place);
+        }
+        if (!reduce) {
+            hero.addEventListener('pointermove', function (e) {
+                if (e.pointerType === 'touch') return;
+                var r = hero.getBoundingClientRect();
+                tx = (e.clientX - r.left) / r.width - .5; ty = (e.clientY - r.top) / r.height - .5;
+                if (!praf) praf = requestAnimationFrame(place);
+            }, {passive: true});
+            window.addEventListener('scroll', function () {
+                if (!visible) return;
+                sy = window.scrollY; if (!praf) praf = requestAnimationFrame(place);
+            }, {passive: true});
+        }
+    })();
+    </script>
+    <script src="/i18n.js"></script>
+
+
+
+</body></html>
