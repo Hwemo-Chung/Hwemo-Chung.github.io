@@ -289,7 +289,7 @@ const siteObserver = new MutationObserver(() => translateSitePage(siteCurrentLan
 
 function setSiteLanguage(lang) {
     siteCurrentLang = siteTranslations[lang] ? lang : 'ko';
-    localStorage.setItem('language', siteCurrentLang);
+    // 저장은 사용자가 언어 버튼을 눌렀을 때만 한다(영어 원문 페이지를 한 번 본 것만으로 다른 페이지 언어가 바뀌지 않게)
     document.documentElement.style.setProperty('--ls-scroll-hint', `"${siteTranslations[siteCurrentLang].common.scrollTable}"`);
     
     document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -365,6 +365,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 location.href = new URL(alternate.href).pathname + location.hash;
                 return;
             }
+            localStorage.setItem('language', lang);
             setSiteLanguage(lang);
         });
     });
