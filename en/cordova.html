@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Diagnosing Cordova/Ionic apps with blocked iOS updates (Xcode 26, iOS 26 SDK) | Lumos</title>
-  <meta name="description" content="Starting April 28, 2026, App Store Connect uploads will require Xcode 26 and the iOS 26 SDK. We use public data to determine if your Cordova/Ionic app meets this requirement, the Play target API, or the discontinued Firebase Dynamic Links. Diagnosis is free for up to 10 locations, and correction work is chargeable.">
+  <meta name="description" content="Starting April 28, 2026, App Store Connect uploads will require Xcode 26 and the iOS 26 SDK. We use public data to determine if your Cordova/Ionic app meets this requirement, the Play target API, or the discontinued Firebase Dynamic Links. Diagnosis is free for the first 10 companies, and correction work is chargeable.">
   <meta name="keywords" content="Cordova, Capacitor, Ionic, iOS 26 SDK, Xcode 26, App Store Connect, targetSdkVersion, 구글 플레이, Firebase Dynamic Links, 레거시 앱">
   <link rel="canonical" href="https://hwemo-chung.github.io/en/cordova.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/cordova.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/cordova.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/cordova.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/cordova.html">
   <!-- i18n-alternates -->
@@ -17,7 +17,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hwemo-chung.github.io/en/cordova.html">
   <meta property="og:title" content="Diagnosis of Cordova/Ionic apps that are blocked from updating iOS"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="ja_JP">
-  <meta property="og:description" content="Starting April 28, 2026, App Store Connect uploads will require Xcode 26 and the iOS 26 SDK. Legacy hybrid app diagnostics are free for up to 10 locations.">
+  <meta property="og:description" content="Starting April 28, 2026, App Store Connect uploads will require Xcode 26 and the iOS 26 SDK. Legacy hybrid app diagnostics are free for the first 10 companies.">
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Diagnosis of legacy apps with blocked iOS uploads">
@@ -138,7 +138,7 @@
     <h1>Diagnose Cordova/Ionic apps that are blocked from updating iOS</h1>
 
     <p class="ls-lead">
-      Starting April 28, 2026, your app will need to be built with Xcode 26 and the iOS 26 SDK to be eligible for App Store Connect. Older Cordova/Ionic build environments fall prey to this requirement first. We will only look at the publicly available store information and explain what is blocked. It's free for up to 10 locations, and we'll respond within 2 business days.
+      Starting April 28, 2026, your app will need to be built with Xcode 26 and the iOS 26 SDK to be eligible for App Store Connect. Older Cordova/Ionic build environments fall prey to this requirement first. We will only look at the publicly available store information and explain what is blocked. It's free for the first 10 companies, and we'll respond within 2 business days.
     </p>
 
     <div class="ls-cta">
@@ -184,7 +184,7 @@
     </p>
     <ul class="ls-dash">
       <li>
-        <strong>Diagnostic report (status only): 0 won, limited to 10 locations.</strong>
+        <strong>Diagnostic report (status only): 0 won, first 10 companies only.</strong>
         View iOS upload risks, Play targets, Cordova traces, and 404s for public deep links based on public APKs and store pages. The estimated man-hours are provided only as a range and detailed patch procedures are not included. Inflow estimates are separate.
       </li>
       <li>
@@ -193,10 +193,10 @@
       </li>
       <li>
         <strong>Emergency target API increase (Android): 3 to 6 million won, per case.</strong>
-        Only cases that can proceed without capacitor transfer are accepted. We pass the build, prepare it for submission, and even check for actual device regression. If you have a lot of deprecated plugins, this may be out of scope.
+        Only cases that can proceed without a Capacitor migration are accepted. We pass the build, prepare it for submission, and even check for actual device regression. If you have a lot of deprecated plugins, this may be out of scope.
       </li>
       <li>
-        <strong>Capacitor transfer (iOS, Android): 8 to 20 million won, per case.</strong>
+        <strong>Migration to Capacitor (iOS, Android): 8 to 20 million won, per case.</strong>
         Verify by replacing the Cordova runtime with Capacitor and replacing the plugin with the current version. Includes handover documents. Code delivery is the focus, and signing keys and store uploads can be left to the customer's authority.
       </li>
       <li>
@@ -216,7 +216,7 @@ Collect public URLs such as <code>page.link</code> and turn them into server red
         <strong>2. Urgent response.</strong> We guide or act on your behalf to apply for Play extension. You can also provide a minimal response of only uploading the target API without any migration. For iOS, if the minimum response is not possible due to SDK or build tool issues, we will provide you with a previous quote immediately.
       </li>
       <li>
-        <strong>3. Before Capacitor.</strong> Move the Cordova runtime and plugin layer to the current version. Most of the web UI code is written as is. Signatures and store uploads can be designed to be left to the customer's authority.
+        <strong>3. Migration to Capacitor.</strong> Move the Cordova runtime and plugin layer to the current version. Most of the web UI code is written as is. Signatures and store uploads can be designed to be left to the customer's authority.
       </li>
     </ul>
     <p>
@@ -258,13 +258,13 @@ Paste the <code>page.link</code> address into your browser. If it's 404, the lin
       <details>
         <summary>Why is the diagnosis free?</summary>
         <p>
-          It costs very little because it only looks at public sources. The first 10 places are free to create references, after that there is a fee. If not applicable, reply as not applicable. Detailed editing instructions are provided only at the paid level.
+          It costs very little because it only looks at public sources. The first 10 companies are free, to build references, after that there is a fee. If not applicable, reply as not applicable. Detailed editing instructions are provided only at the paid level.
         </p>
       </details>
       <details>
         <summary>Do I need to give the source code or signing key?</summary>
         <p>
-          Not required for diagnosis. Storage access may be required during the implementation stage, but the store signing key and Play/App Store account can be designed to remain in the customer's possession. Basically, we recommend delivering the code and building it in the customer's build pipeline.
+          Not required for diagnosis. Repository access may be required during the implementation stage, but the store signing key and Play/App Store account can be designed to remain in the customer's possession. Basically, we recommend delivering the code and building it in the customer's build pipeline.
         </p>
       </details>
       <details>
