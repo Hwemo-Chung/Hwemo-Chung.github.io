@@ -56,6 +56,35 @@
     .ls-table td.kn-price { white-space: nowrap; font-weight: 600; color: var(--ls-text); text-align: right; }
     .ls-table th.kn-price { text-align: right; }
     .ls-table { min-width: 0; }
+
+    /* 見積もりビルダー: 素のフォーム部品に、サイトのトークンだけを当てる（外部ライブラリなし） */
+    .kn-form { margin: 16px 0 0; display: grid; gap: 16px; }
+    .kn-row { display: grid; gap: 16px; }
+    @media (min-width: 640px) { .kn-row { grid-template-columns: 1fr 1fr; } }
+    .kn-field { display: grid; gap: 6px; font-size: 15px; color: var(--ls-text); }
+    .kn-field > span { font-weight: 600; }
+    .kn-field input, .kn-field textarea {
+      width: 100%; box-sizing: border-box; padding: 10px 12px; font: inherit; color: var(--ls-text);
+      background: var(--ls-card); border: 1px solid var(--ls-border-strong); border-radius: var(--ls-radius-sm);
+    }
+    .kn-field textarea { resize: vertical; line-height: 1.6; }
+    .kn-field :is(input, textarea):focus-visible { outline: 2px solid var(--ls-text); outline-offset: 1px; }
+    .kn-group { margin: 0; padding: 0; border: 0; display: grid; gap: 8px; min-width: 0; }
+    .kn-group legend { padding: 0; margin-bottom: 6px; font-weight: 600; font-size: 15px; color: var(--ls-text); }
+    .kn-choices { display: grid; gap: 8px; }
+    @media (min-width: 640px) { .kn-choices { grid-template-columns: 1fr 1fr; } }
+    .kn-choice { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; background: var(--ls-card); border: 1px solid var(--ls-border); border-radius: var(--ls-radius-sm); cursor: pointer; }
+    .kn-choice:has(input:checked) { border-color: var(--ls-text); }
+    .kn-choice input { margin: 3px 0 0; }
+    .kn-choice > span > span { display: block; }
+    .kn-themes { display: grid; gap: 6px 16px; }
+    @media (min-width: 640px) { .kn-themes { grid-template-columns: 1fr 1fr; } }
+    .kn-themes label { display: flex; gap: 8px; align-items: center; font-size: 15px; color: var(--ls-muted); }
+    .kn-estimate { padding: 16px 20px; background: var(--ls-card); border-radius: var(--ls-radius); box-shadow: var(--ls-lift); }
+    .kn-estimate__price { margin: 0 0 4px; font-size: 26px; line-height: 1.2; font-weight: 600; letter-spacing: -0.5px; color: var(--ls-text); }
+    .kn-estimate__note { margin: 0; font-size: 14px; color: var(--ls-muted); }
+    .kn-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .kn-status { margin: 0; min-height: 1.4em; }
   </style>
 </head>
 <body class="ls">
@@ -65,6 +94,7 @@
       <a class="ls-brand" href="/">Lumos</a>
       <ul>
         <li><a href="/claude-code-kenshu.html" aria-current="page">Claude Code 導入研修</a></li>
+        <li><a href="#quote">見積もり</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
     </div>
@@ -79,6 +109,7 @@
 
     <div class="ls-cta">
       <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=Claude%20Code%20%E5%B0%8E%E5%85%A5%E7%A0%94%E4%BF%AE%E3%81%AE%E7%9B%B8%E8%AB%87&amp;body=%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0A%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E5%90%8D%EF%BC%9A%0A%E5%8F%82%E5%8A%A0%E4%BA%BA%E6%95%B0%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E3%81%AE%E6%99%82%E6%9C%9F%EF%BC%9A%0A%E3%81%84%E3%81%BE%E5%9B%B0%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%EF%BC%9A%0A">メールで相談する</a>
+      <a class="ls-btn" href="#quote">60 秒で見積もりを作る</a>
     </div>
 
     <h2 id="demo">再現デモ 2 つ</h2>
@@ -132,6 +163,74 @@
     </div>
     <p class="ls-fine">対面は交通費を別にいただきます。お支払いは請求書払いです。税の扱いはお見積もりでご案内します。</p>
 
+    <h2 id="quote">見積もりを作る</h2>
+    <p>人数と形式を選ぶと、概算とお問い合わせメールの下書きができます。内容はこの画面の中だけで作られ、送信されるのはメールソフトで送るときだけです。</p>
+    <form id="kn-quote" class="kn-form" novalidate>
+      <div class="kn-row">
+        <label class="kn-field">
+          <span>貴社名</span>
+          <input type="text" id="kn-company" autocomplete="organization" maxlength="80" placeholder="株式会社〇〇" />
+        </label>
+        <label class="kn-field">
+          <span>ご担当者名 <span class="ls-fine">（任意）</span></span>
+          <input type="text" id="kn-name" autocomplete="name" maxlength="40" placeholder="山田 太郎" />
+        </label>
+      </div>
+
+      <fieldset class="kn-group">
+        <legend>形式</legend>
+        <div class="kn-choices">
+          <label class="kn-choice"><input type="radio" name="format" value="online" checked /> <span><strong>オンライン 3 時間</strong><span class="ls-fine">最大 10 名・1 回 ¥150,000</span></span></label>
+          <label class="kn-choice"><input type="radio" name="format" value="onsite" /> <span><strong>対面（都内）3 時間</strong><span class="ls-fine">最大 20 名・1 回 ¥250,000</span></span></label>
+        </div>
+      </fieldset>
+
+      <div class="kn-row">
+        <label class="kn-field">
+          <span>参加人数</span>
+          <input type="number" id="kn-people" min="1" max="60" step="1" value="10" inputmode="numeric" />
+        </label>
+        <label class="kn-field">
+          <span>ご希望の時期 <span class="ls-fine">（任意）</span></span>
+          <input type="text" id="kn-when" maxlength="60" placeholder="12 月中旬・平日午後 など" />
+        </label>
+      </div>
+
+      <fieldset class="kn-group">
+        <legend>ご希望のテーマ <span class="ls-fine">（複数選択できます。未選択なら標準カリキュラムすべて）</span></legend>
+        <div class="kn-themes" id="kn-themes">
+          <label><input type="checkbox" name="theme" value="インストールとログイン" /> インストールとログイン</label>
+          <label><input type="checkbox" name="theme" value="効かない CLAUDE.md" /> 効かない CLAUDE.md</label>
+          <label><input type="checkbox" name="theme" value="止まる承認" /> 止まる承認</label>
+          <label><input type="checkbox" name="theme" value="使用制限" /> 使用制限</label>
+          <label><input type="checkbox" name="theme" value="成功に見える失敗" /> 成功に見える失敗</label>
+          <label><input type="checkbox" name="theme" value="効かない設定" /> 効かない設定</label>
+        </div>
+      </fieldset>
+
+      <label class="kn-field">
+        <span>いま困っていること <span class="ls-fine">（任意）</span></span>
+        <textarea id="kn-issue" rows="3" maxlength="400" placeholder="CLAUDE.md を置いても指示が効かない、承認で止まる、など"></textarea>
+      </label>
+
+      <div class="kn-estimate">
+        <p class="kn-estimate__price" id="kn-price">&#8212;</p>
+        <p class="kn-estimate__note" id="kn-note"></p>
+      </div>
+
+      <div class="kn-actions">
+        <a class="ls-btn ls-btn--primary" id="kn-send" href="mailto:tolaria@naver.com">この内容でメールを書く</a>
+        <button type="button" class="ls-btn" id="kn-copy">本文をコピー</button>
+      </div>
+      <p class="ls-fine kn-status" id="kn-status" role="status" aria-live="polite"></p>
+
+      <label class="kn-field">
+        <span>メール本文 <span class="ls-fine">（自由に直せます。上の項目を変えると作り直されます）</span></span>
+        <textarea id="kn-body" rows="14"></textarea>
+      </label>
+    </form>
+    <p class="ls-fine">金額はページの試算です。確定額ではなく、日程と内容を伺ったうえで書面でお見積もりします。メールソフトが開かない場合は、［本文をコピー］で本文をコピーし、tolaria@naver.com 宛にお送りください。</p>
+
     <h2 id="flow">進め方</h2>
     <ul class="ls-dash">
       <li><strong>1. ヒアリング（30 分・無料）</strong>　いまの使い方と、止まっている場面を伺います。</li>
@@ -157,5 +256,163 @@
       <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>
     </nav>
   </footer>
+  <script>
+  // 見積もりビルダー（外部ライブラリなし・通信なし）。料金と定員は上の表と同じ値をここに持つ。
+  // 定員を超える人数は回数を分けて試算する。確定額ではないので、表示も本文も「概算」と明記する。
+  (function () {
+    "use strict";
+    var PRICE = { online: 150000, onsite: 250000 };
+    var CAP = { online: 10, onsite: 20 };
+    var NAME = { online: "オンライン 3 時間", onsite: "対面（都内）3 時間" };
+    var MAIL = "tolaria@naver.com";
+    var MAX_PEOPLE = 60;
+
+    var form = document.getElementById("kn-quote");
+    if (!form) return;
+    var priceEl = document.getElementById("kn-price");
+    var noteEl = document.getElementById("kn-note");
+    var bodyEl = document.getElementById("kn-body");
+    var sendEl = document.getElementById("kn-send");
+    var statusEl = document.getElementById("kn-status");
+    var copyEl = document.getElementById("kn-copy");
+
+    function yen(n) { return "\u00a5" + n.toLocaleString("ja-JP"); }
+    function field(id) { var el = document.getElementById(id); return el ? el.value : ""; }
+    // 1 行に整える。本文に入れる前に改行と連続空白をつぶす。
+    function oneLine(s) { return String(s || "").replace(/\s+/g, " ").trim(); }
+
+    function read() {
+      var checked = form.querySelector('input[name="format"]:checked');
+      var format = checked && PRICE[checked.value] ? checked.value : "online";
+      var raw = parseInt(field("kn-people"), 10);
+      var over = !isNaN(raw) && raw > MAX_PEOPLE;
+      var people = isNaN(raw) || raw < 1 ? null : Math.min(raw, MAX_PEOPLE);
+      var themes = [];
+      form.querySelectorAll('input[name="theme"]:checked').forEach(function (c) { themes.push(c.value); });
+      return {
+        format: format,
+        people: people,
+        over: over,
+        themes: themes,
+        company: oneLine(field("kn-company")),
+        name: oneLine(field("kn-name")),
+        when: oneLine(field("kn-when")),
+        issue: oneLine(field("kn-issue")),
+      };
+    }
+
+    function sessions(f) { return f.people ? Math.max(1, Math.ceil(f.people / CAP[f.format])) : 1; }
+
+    function renderPrice(f) {
+      if (!f.people) {
+        priceEl.textContent = yen(PRICE[f.format]) + "〜";
+        noteEl.textContent = "参加人数を入力すると、回数を含めた概算を出します。1 回 " + yen(PRICE[f.format]) + "（" + NAME[f.format] + "）です。";
+        return;
+      }
+      var n = sessions(f);
+      priceEl.textContent = yen(PRICE[f.format] * n) + "（概算）";
+      var note = NAME[f.format] + " " + yen(PRICE[f.format]) + " × " + n + " 回";
+      if (n > 1) note += "（" + f.people + " 名・回数を分けた試算です。1 回の定員は " + CAP[f.format] + " 名）";
+      note += "。消費税と交通費の扱いは、正式なお見積もりでご案内します。";
+      if (f.over) note += "60 名を超える場合は、回数の分け方を含めてご相談ください。";
+      noteEl.textContent = note;
+    }
+
+    function buildSubject(f) {
+      var s = "Claude Code 導入研修のお見積もり依頼";
+      if (f.company) s += "（" + f.company + (f.people ? "・" + f.people + " 名" : "") + "）";
+      return s;
+    }
+
+    function buildBody(f) {
+      var L = [];
+      L.push("チョン 様");
+      L.push("");
+      var intro = "はじめてご連絡いたします。";
+      if (f.company && f.name) intro += f.company + "の" + f.name + "と申します。";
+      else if (f.company) intro += f.company + "の者と申します。";
+      else if (f.name) intro += f.name + "と申します。";
+      L.push(intro);
+      L.push("");
+      L.push("貴社の「Claude Code 導入研修」について、下記の内容でお見積もりをお願いしたく、ご連絡いたします。");
+      L.push("");
+      L.push("■ ご希望の内容");
+      L.push("・形式：" + NAME[f.format] + "（1 回の定員 " + CAP[f.format] + " 名）");
+      L.push("・参加人数：" + (f.people ? f.people + " 名" : "未定"));
+      L.push("・ご希望のテーマ：" + (f.themes.length ? f.themes.join("、") : "標準カリキュラム（8 項目）すべて"));
+      if (f.when) L.push("・ご希望の時期：" + f.when);
+      if (f.issue) L.push("・現在の状況：" + f.issue);
+      L.push("");
+      if (f.people) {
+        var n = sessions(f);
+        L.push("■ 概算");
+        L.push(yen(PRICE[f.format]) + " × " + n + " 回 = " + yen(PRICE[f.format] * n) + (n > 1 ? "（" + f.people + " 名のため " + n + " 回に分けた場合）" : ""));
+        L.push("※ サイトの試算です。消費税と交通費の扱い、日程の候補をあわせて、正式なお見積もりをいただけますでしょうか。");
+      } else {
+        L.push("※ 参加人数が決まりましたら、その人数でお見積もりをお願いいたします。");
+      }
+      L.push("");
+      L.push("お手数をおかけしますが、ご検討のほどよろしくお願いいたします。");
+      L.push("");
+      if (f.company || f.name) {
+        L.push("――――――――――――");
+        if (f.company) L.push(f.company);
+        if (f.name) L.push(f.name);
+      }
+      return L.join("\n");
+    }
+
+    // mailto: の本文はブラウザとメールソフトで長さに限りがある。長すぎるときはコピーを促す。
+    function hrefOf(subject, body) {
+      var url = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      if (url.length > 1800) {
+        statusEl.textContent = "本文が長いため、［本文をコピー］でコピーしてからメールソフトに貼り付けてください。";
+      }
+      return url;
+    }
+
+    function sync() {
+      var f = read();
+      renderPrice(f);
+      bodyEl.value = buildBody(f);
+      sendEl.href = hrefOf(buildSubject(f), bodyEl.value);
+      statusEl.textContent = "";
+    }
+
+    // 本文を直したときは、その文をそのままメールにする（項目を変えたときだけ作り直す）。
+    function keepEditedBody() {
+      sendEl.href = hrefOf(buildSubject(read()), bodyEl.value);
+    }
+
+    function onChange(e) {
+      if (e.target === bodyEl) keepEditedBody();
+      else sync();
+    }
+    form.addEventListener("input", onChange);
+    form.addEventListener("change", onChange);
+
+    copyEl.addEventListener("click", function () {
+      var text = bodyEl.value;
+      function done() { statusEl.textContent = "本文をコピーしました。宛先 " + MAIL + " に貼り付けてお送りください。"; }
+      function failed() { statusEl.textContent = "コピーできませんでした。本文を選んでコピーしてください。"; }
+      function legacy() {
+        try {
+          bodyEl.focus();
+          bodyEl.select();
+          if (document.execCommand("copy")) done(); else failed();
+        } catch (err) {
+          failed();
+        }
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, legacy);
+      } else {
+        legacy();
+      }
+    });
+
+    sync();
+  })();
+  </script>
 </body>
 </html>
