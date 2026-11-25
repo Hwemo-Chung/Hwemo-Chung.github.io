@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import url("/assets/fonts/pretendard-variable-dynamic-subset.css");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
 
 /* Lumos home — prism mesh on near-black, glass cards. Legacy token names are kept. */
@@ -71,6 +71,7 @@ h1, h2, h3 { text-wrap: balance; }
 .ls-nav ul a:hover, .ls-nav ul a[aria-current="page"] { color: var(--ink); }
 .language-selector { display: inline-flex; padding: 3px; gap: 2px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--line); border-radius: 999px; }
 .lang-btn { height: 32px; min-width: 36px; padding: 0 10px; border: 0; border-radius: 999px; background: transparent; color: var(--body); font: 600 12.5px var(--sans); cursor: pointer; }
+a.lang-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; text-decoration: none; }
 .lang-btn:hover { color: var(--ink); }
 .lang-btn.active { background: var(--ink); color: #0b0912; }
 
@@ -197,7 +198,7 @@ h1, h2, h3 { text-wrap: balance; }
 /* plain lists */
 .plain { margin: 0; padding: 0; list-style: none; columns: 2; column-gap: 32px; }
 .plain li { break-inside: avoid; border-top: 1px solid var(--line); padding: 12px 0; font-size: 14.5px; color: var(--body); }
-.plain a { text-decoration: none; color: var(--ink); font-weight: 600; }
+.plain a, .plain strong { text-decoration: none; color: var(--ink); font-weight: 600; }
 .plain a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .stack { margin: 0; padding: 0; list-style: none; }
 .stack li { border-top: 1px solid var(--line); padding: 14px 0; font-size: 15.5px; color: var(--body); }

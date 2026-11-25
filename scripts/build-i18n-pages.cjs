@@ -61,8 +61,43 @@ function serve() {
   return new Promise(r => server.listen(0, '127.0.0.1', () => r(server)));
 }
 
+/*
+ * 정적 언어 툴바: 번역본이 있는 언어는 <a href>(검색 로봇이 따라가는 링크), 없는 언어는 <button>(i18n.js 가 이 페이지에서 바꾼다).
+ * 원본 페이지와 번역본 모두 같은 마크업을 쓴다. 페이지에 툴바가 없으면 i18n.js 가 버튼 툴바를 끼워 넣는다.
+ */
+const TOOLBAR_LANGS = [['ko', '한'], ['en', 'EN'], ['ja', '日']];
+const TOOLBAR_RE = /([ \t]*)<div class="language-toolbar"[^>]*>\s*<div class="language-selector">[\s\S]*?<\/div>\s*<\/div>/;
+
+function toolbarHtml(current, alternates, ariaLabel, indent) {
+  const href = Object.fromEntries(alternates.filter(([l]) => l !== 'x-default').map(([l, u]) => [l, u.startsWith(ORIGIN) ? u.slice(ORIGIN.length) || '/' : u]));
+  const items = TOOLBAR_LANGS.map(([l, label]) => {
+    const active = l === current ? ' active' : '';
+    return href[l]
+      ? `<a class="lang-btn${active}" href="${href[l]}" hreflang="${l}" lang="${l}" data-lang="${l}"${active ? ' aria-current="page"' : ''}>${label}</a>`
+      : `<button class="lang-btn${active}" type="button" data-lang="${l}">${label}</button>`;
+  });
+  // aria-label 은 i18n.js 가 data-i18n-aria-label 로 넣는다(정적 값을 두면 번역 사전에 없는 새 문구가 된다).
+  return `${indent}<div class="language-toolbar" data-i18n-aria-label="common.language"${ariaLabel ? ` aria-label="${ariaLabel}"` : ''}>\n`
+    + `${indent}    <div class="language-selector">\n${items.map(i => `${indent}        ${i}`).join('\n')}\n${indent}    </div>\n${indent}</div>`;
+}
+
+/** 원본 페이지의 툴바를 링크 툴바로 바꾼다. 없으면 .ls-nav 바로 뒤에 넣는다. alternates 가 없으면(번역본이 빠진 페이지) 링크를 버튼으로 되돌린다. */
+function syncSourceToolbar(key, alternates) {
+  const file = key.slice(1), s = read(file);
+  const lang = srcLangOf(key);
+  const m = s.match(TOOLBAR_RE);
+  let t;
+  if (m) t = s.replace(TOOLBAR_RE, toolbarHtml(lang, alternates || [], null, m[1]));
+  else if (alternates) {
+    const nav = s.match(/([ \t]*)<nav class="ls-nav"[\s\S]*?<\/nav>/);
+    if (!nav) return;
+    t = s.replace(nav[0], nav[0] + '\n' + toolbarHtml(lang, alternates, null, nav[1]));
+  } else return;
+  if (t !== s) fs.writeFileSync(path.join(ROOT, file), t);
+}
+
 /** 브라우저 안에서 실행: 번역 적용, URL 절대화, head 교체, 남은 한글 수집. */
-function transform({ lang, map, st, variantPaths, origin, canonRoot, variantUrl, locale, otherLocales, alternates }) {
+function transform({ lang, map, st, variantPaths, origin, canonRoot, variantUrl, locale, otherLocales, alternates, toolbar }) {
   const norm = s => s.trim().replace(/\s+/g, ' ');
   const missing = new Set();
   const pick =(obj, dotted) => dotted.split('.').reduce((t, k) => t?.[k], obj);
@@ -97,7 +132,7 @@ function transform({ lang, map, st, variantPaths, origin, canonRoot, variantUrl,
     return (absolute ? origin : '') + p + u.search + u.hash;
   };
   for (const el of document.querySelectorAll('[href], [src], [action], [poster]')) {
-    if (el.matches('link[rel="canonical"], link[rel="alternate"][hreflang]')) continue;
+    if (el.matches('link[rel="canonical"], link[rel="alternate"][hreflang], .language-toolbar *')) continue;
     for (const a of ['href', 'src', 'action', 'poster']) {
       const v = el.getAttribute(a);
       if (v != null) el.setAttribute(a, rewrite(v, a === 'href' && el.matches('a, area')));
@@ -107,6 +142,11 @@ function transform({ lang, map, st, variantPaths, origin, canonRoot, variantUrl,
     el.setAttribute('srcset', el.getAttribute('srcset').split(',').map(part => {
       const [u, ...d] = part.trim().split(/\s+/); return [rewrite(u, false), ...d].join(' ');
     }).join(', '));
+
+  // 언어 툴바: 이 번역본 기준의 링크와 활성 표시로 바꾼다(원본 툴바의 링크를 그대로 두면 한 → /en/... 처럼 잘못 고쳐진다)
+  const oldToolbar = document.querySelector('.language-toolbar');
+  if (oldToolbar) oldToolbar.outerHTML = toolbar.trim();
+  else document.querySelector('.ls-nav')?.insertAdjacentHTML('afterend', '\n' + toolbar);
 
   // head: lang, canonical, og, hreflang, JSON-LD 의 자기 URL
   document.documentElement.lang = lang;
@@ -195,6 +235,7 @@ async function build(browser, base, candidates = pages) {
       const out = await page.evaluate(transform, {
         lang, map: content[key][lang], st: siteTranslations[lang], variantPaths: candidates.filter(k => has(k, lang)), origin: ORIGIN, canonRoot,
         variantUrl: `${ORIGIN}/${lang}${cp}`, locale: LOCALE[lang], otherLocales: alternates.filter(([l]) => l !== lang && l !== 'x-default').map(([l]) => LOCALE[l]), alternates,
+        toolbar: toolbarHtml(lang, alternates, null, '    '),
       });
       await page.close();
       results[key][lang] = { ...out, doctype, alternates, cp };
@@ -220,6 +261,7 @@ async function build(browser, base, candidates = pages) {
       made.push(`/${lang}${key}`);
     }
     updateSourceHead(key, results[key][langsOf(key)[0]].alternates);
+    syncSourceToolbar(key, results[key][langsOf(key)[0]].alternates);
   }
   // 이번에 만들지 않은 번역본·hreflang·sitemap 항목은 지운다(대상에서 빠진 페이지가 남지 않게).
   const removed = [];
@@ -234,7 +276,11 @@ async function build(browser, base, candidates = pages) {
     });
     walk(dir);
   }
-  for (const key of Object.keys(content)) if (!ok.includes(key) && fs.existsSync(path.join(ROOT, key.slice(1)))) clearSourceHead(key);
+  for (const key of Object.keys(content)) if (!ok.includes(key) && fs.existsSync(path.join(ROOT, key.slice(1)))) {
+    clearSourceHead(key);
+    // 번역본이 사라진 페이지: 남은 링크 툴바를 버튼으로 되돌린다(지운 번역본을 가리키는 죽은 링크가 남지 않게)
+    if (/<a class="lang-btn/.test(read(key.slice(1)))) syncSourceToolbar(key, null);
+  }
   const urls = ok.flatMap(key => langsOf(key).map(l => `${ORIGIN}/${l}${results[key][l].cp}`));
   const added = updateSitemap(urls);
   return { made, skipped, added, removed };
@@ -266,6 +312,8 @@ async function check(browser, base) {
       canon: document.querySelector('link[rel="canonical"]')?.href,
       left: [...new Set(document.body.innerText.split('\n').filter(s => /[가-힣]/.test(s) && !/^(한|EN|日)$/.test(s.trim())))].slice(0, 3),
       links: [...document.querySelectorAll('a[href]')].map(a => a.getAttribute('href')).filter(h => h.startsWith('/') && !h.startsWith('//')),
+      toolbar: [...document.querySelectorAll('.language-toolbar a.lang-btn')].map(a => [a.dataset.lang, a.getAttribute('href'), a.getAttribute('aria-current')]),
+      alts: [...document.querySelectorAll('link[rel="alternate"][hreflang]')].filter(l => l.hreflang !== 'x-default').map(l => [l.hreflang, new URL(l.href).pathname]),
     }));
     await page.close();
     const src = file.replace(/^\/(en|ja)\//, '/');
@@ -277,6 +325,10 @@ async function check(browser, base) {
     const dead = [...new Set(info.links.map(h => h.split('#')[0].split('?')[0]).filter(h => h && !exists(h)))];
     if (dead.length) issues.push('죽은 링크: ' + dead.join(' '));
     if (hreflangOf(file) !== hreflangOf(src)) issues.push('hreflang 이 원본과 다름');
+    // 정적 언어 툴바: 언어마다 hreflang 과 같은 주소의 <a>, 이 페이지 언어에 aria-current
+    const barWant = JSON.stringify(info.alts.sort()), barGot = JSON.stringify(info.toolbar.map(([l, h]) => [l, h]).sort());
+    if (barWant !== barGot) issues.push(`언어 툴바 링크 ${barGot} != hreflang ${barWant}`);
+    if (info.toolbar.filter(([, , c]) => c === 'page').map(([l]) => l).join() !== lang) issues.push('언어 툴바 aria-current 가 페이지 언어와 다름');
     const raw = read(file.slice(1));
     const nCanon = (raw.match(/<link rel="canonical"/g) || []).length, nAlt = (raw.match(/<link rel="alternate" hreflang=/g) || []).length;
     const srcAlt = (read(src.slice(1)).match(/<link rel="alternate" hreflang=/g) || []).length;
@@ -297,6 +349,8 @@ async function check(browser, base) {
     await Promise.all([page.waitForNavigation(), page.click('.lang-btn[data-lang="ko"]')]);
     nav.push('ja→ko ' + new URL(page.url()).pathname);
     await page.close();
+    const expected = [`ko→en /en${sample}`, `en→ja /ja${sample}`, `ja→ko ${sample}`];
+    if (nav.join() !== expected.join()) problems.push(['언어 버튼', [`${nav.join(', ')} (기대: ${expected.join(', ')})`]]);
   }
   await ctx.close();
   return { checked: variants.length, problems, nav };

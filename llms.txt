@@ -4,63 +4,63 @@ Lumos is the site of developer Hwemo Chung. It covers three things: fixing and m
 
 ## Services
 
-- Legacy hybrid app diagnosis for apps blocked by the iOS 26 SDK requirement, the Play target API deadline or the Firebase Dynamic Links shutdown. Free for the first 10 apps: https://hwemo-chung.github.io/cordova.html
-- Mobile production retainer for Ionic, Capacitor and Android WebView apps. Pilot $400 for one week, Stabilizer $1,200 a month: https://hwemo-chung.github.io/retainer.html
-- Services and prices: https://hwemo-chung.github.io/sales/
-- Fixed-scope offers (42 items): https://hwemo-chung.github.io/offers/
+- [Legacy hybrid app diagnosis](https://hwemo-chung.github.io/cordova.html): for apps blocked by the iOS 26 SDK requirement, the Play target API deadline or the Firebase Dynamic Links shutdown. Free for the first 10 apps.
+- [Mobile production retainer](https://hwemo-chung.github.io/retainer.html): for Ionic, Capacitor and Android WebView apps. Pilot $400 for one week, Stabilizer $1,200 a month.
+- [Services and prices](https://hwemo-chung.github.io/sales/)
+- [Fixed-scope offers](https://hwemo-chung.github.io/offers/): 42 items
 
 ## Products
 
-- HotLauncher: assigns a global hotkey to each of up to 20 Mac apps (macOS 26 removed Launchpad). Free, open source: https://hwemo-chung.github.io/hot-launcher.html
-- LumosZipForMac: AES-256 password-protected ZIP files on the Mac, universal native app: https://hwemo-chung.github.io/lumoszip.html
-- Threads Analyzer: turns a Threads account into a 12-sheet Excel report. Free CLI, $29 desktop app: https://hwemo-chung.github.io/threads-analyzer.html
-- Pebblez: small social PWA without ads or a recommendation algorithm: https://pebblez.teagarden-earlgrey.workers.dev
-- Color Vision Lab: colour vision deficiency simulator and 13-plate screening test that runs in the browser: https://color-vision-lab.vercel.app/
-- Burnline: local-first AI cost tracking (in development): https://hwemo-chung.github.io/burnline.html
+- [HotLauncher](https://hwemo-chung.github.io/hot-launcher.html): assigns a global hotkey to each of up to 20 Mac apps (macOS 26 removed Launchpad). Free, open source.
+- [LumosZipForMac](https://hwemo-chung.github.io/lumoszip.html): AES-256 password-protected ZIP files on the Mac, universal native app.
+- [Threads Analyzer](https://hwemo-chung.github.io/threads-analyzer.html): turns a Threads account into a 12-sheet Excel report. Free CLI, $29 desktop app.
+- [Pebblez](https://pebblez.teagarden-earlgrey.workers.dev): small social PWA without ads or a recommendation algorithm.
+- [Color Vision Lab](https://color-vision-lab.vercel.app/): colour vision deficiency simulator and 13-plate screening test that runs in the browser.
+- [Burnline](https://hwemo-chung.github.io/burnline.html): local-first AI cost tracking (in development).
 
 ## Free browser tools
 
-All tools: https://hwemo-chung.github.io/tools/
+- [All tools](https://hwemo-chung.github.io/tools/)
 
 <!-- TOOLS:START -->
-- 이미지 용량 줄이기: 사진을 올리면 화질을 고르고 크기를 줄여 더 작은 JPG나 WebP로 받습니다. 여러 장을 한 번에 처리합니다. https://hwemo-chung.github.io/tools/image-shrink/
-- 상품 사진 흰 배경: 상품 사진의 배경을 지우고 흰색, 투명, 원하는 색 바탕의 정사각형 이미지로 만듭니다. 쇼핑몰용 1000×1000 크기와 여백을 고르고 PNG나 JPG로 받습니다. https://hwemo-chung.github.io/tools/white-background/
-- 증명사진 만들기: 얼굴 사진을 올리면 여권(3.5×4.5cm, 머리 3.2~3.6cm), 증명, 반명함, 미국 비자 규격에 맞게 잘라 300dpi JPG와 4×6 인화용 사진으로 만듭니다. https://hwemo-chung.github.io/tools/id-photo/
-- 사진 해상도 키우기: 작은 사진이나 흐릿한 캡처를 ESRGAN 초해상도 모델로 2배 또는 4배 키워 PNG로 받습니다. 원본과 결과를 100% 크기로 나란히 비교합니다. https://hwemo-chung.github.io/tools/image-upscale/
-- 붓으로 잡티 지우기: 사진의 잡티, 먼지, 전선, 작은 물체를 붓으로 문지르면 손을 뗄 때 주변 색으로 메웁니다. 되돌리기를 지원하고 결과를 바로 받습니다. https://hwemo-chung.github.io/tools/brush-erase/
-- 사진 속 물체 지우기: 사진에서 지우고 싶은 사람이나 물건을 붓으로 칠하면 LaMa 인페인팅 모델이 그 자리를 주변 배경으로 채웁니다. 되돌리기와 원본 비교를 지원합니다. https://hwemo-chung.github.io/tools/item-removal/
-- 흑백 사진 컬러로 바꾸기: 흑백 사진이나 빛바랜 옛날 사진을 올리면 DDColor 모델이 색을 입혀 컬러 사진으로 바꿉니다. 원본과 나란히 비교하고 색 진하기를 조절해 받습니다. https://hwemo-chung.github.io/tools/colorize-photo/
-- 로고 SVG 변환: PNG나 JPG 로고를 올리면 색을 줄여 곡선으로 다시 그린 SVG 파일로 바꿉니다. 원본과 결과를 같은 배율로 확대해 비교합니다. https://hwemo-chung.github.io/tools/logo-svg/
-- 벽 색 바꾸기: 방 사진을 올리면 벽, 바닥, 천장을 자동으로 찾아 고른 페인트 색으로 바꿔 보여 줍니다. 그림자와 조명은 사진 그대로 남습니다. https://hwemo-chung.github.io/tools/wall-color/
-- 낮 사진을 저녁 사진으로: 낮에 찍은 집 외관 사진을 올리면 하늘을 노을로 바꾸고 창에 불을 켠 저녁 사진으로 만듭니다. 강도와 창 불빛을 조절해 JPG로 받습니다. https://hwemo-chung.github.io/tools/day-to-dusk/
-- 빈 방에 가구 놓아 보기: 빈 방 사진에 가구 사진을 올리면 배경을 지워 방 안에 놓습니다. 위치, 크기, 회전, 순서를 바꾸고 그림자를 넣어 PNG나 JPG로 받습니다. https://hwemo-chung.github.io/tools/room-stage/
-- 제품 연출 사진 만들기: 제품 사진의 배경을 지우고 책상, 테이블, 창틀 같은 배경 사진 위에 놓습니다. 위치와 크기, 그림자, 밝기와 색온도를 맞춰 PNG나 JPG로 받습니다. https://hwemo-chung.github.io/tools/lifestyle-scene/
-- 상품 홍보 카드 만들기: 상품 사진과 이름, 가격, 할인율을 넣으면 1080×1350, 1080×1080, 1080×1920 SNS 홍보 이미지를 만듭니다. 상품 배경을 지우고 PNG로 받습니다. https://hwemo-chung.github.io/tools/promo-template/
-- 유튜브 썸네일 만들기: 사진을 올리고 제목을 쓰면 1280×720 유튜브 썸네일을 만듭니다. 글자 테두리와 강조 박스, 레이아웃과 색을 고르고 2MB 아래 JPG나 PNG로 받습니다. https://hwemo-chung.github.io/tools/thumb-card/
-- 스크린샷 꾸미기: 스크린샷에 macOS 창이나 브라우저 주소창 테두리, 배경색, 여백, 둥근 모서리, 그림자를 넣고 16:9, 1:1, 4:5 비율의 2배 해상도 PNG로 받습니다. https://hwemo-chung.github.io/tools/shot-frame/
-- 기기 목업 만들기: 앱이나 웹 스크린샷을 휴대폰, 태블릿, 노트북, 브라우저 창 프레임 안에 넣고 배경이 투명한 2배 해상도 PNG로 받습니다. https://hwemo-chung.github.io/tools/device-mockup/
-- 무음 구간 자르기: 말하는 영상이나 녹음을 올리면 말 없는 구간을 찾아 잘라 낸 MP4나 WAV와 컷 목록 CSV를 받습니다. 기준 음량, 최소 길이, 여유 시간을 직접 정합니다. https://hwemo-chung.github.io/tools/silence-cut/
-- 세로 영상으로 자르기: 가로 영상을 9:16 세로 영상으로 자릅니다. 구간을 고르고 화면 위치를 직접 옮기거나 얼굴을 따라가게 한 뒤 소리까지 담긴 MP4로 받습니다. https://hwemo-chung.github.io/tools/vertical-clip/
-- 영상에 자막 입히기: 영상의 말을 받아 적거나 SRT 파일을 불러와 자막을 화면에 새깁니다. 글자 크기와 위치, 상자나 외곽선 스타일을 고른 뒤 소리까지 담긴 MP4로 받습니다. https://hwemo-chung.github.io/tools/burned-captions/
-- 영상 배경 바꾸기: 사람이 나오는 영상에서 배경만 골라 단색이나 사진으로 바꾸거나 흐리게 합니다. 소리까지 담긴 MP4로 받습니다. https://hwemo-chung.github.io/tools/video-cutout/
-- 오디오 파형 영상: 음성이나 음악 파일을 올리면 소리에 맞춰 움직이는 파형 영상을 MP4로 만듭니다. 제목, 커버 이미지, 배경색을 넣고 릴스·쇼츠·유튜브 비율로 받습니다. https://hwemo-chung.github.io/tools/waveform-video/
-- 보컬 분리: 노래 파일을 올리면 HTDemucs 모델로 보컬과 반주를 나눠 각각 WAV로 받습니다. 3~4분짜리 곡 전체를 처리합니다. https://hwemo-chung.github.io/tools/vocal-split/
-- 음성 잡음 제거: 말소리 녹음에서 배경 소음을 RNNoise로 줄이고 저역 울림과 50/60Hz 험을 걸러 음량을 맞춘 WAV를 받습니다. 원본과 바꿔 들어 볼 수 있습니다. https://hwemo-chung.github.io/tools/voice-denoise/
-- 자막 파일 만들기: 영상이나 음성 파일의 말을 Whisper로 받아 적어 시간이 맞춰진 자막을 만듭니다. 한국어, 영어, 일본어를 지원하고 고친 뒤 SRT나 VTT로 받습니다. https://hwemo-chung.github.io/tools/subtitle-file/
-- 자막 번역: SRT나 VTT 자막 파일을 올리면 각 줄을 다른 언어로 번역하고 시간은 그대로 둔 새 자막 파일을 만듭니다. 한국어, 영어, 일본어, 중국어, 스페인어 등을 지원합니다. https://hwemo-chung.github.io/tools/subtitle-translate/
-- PDF를 Word 문서로 바꾸기: PDF를 Word 문서(DOCX)로 바꿉니다. 제목, 문단, 굵은 글씨, 목록, 간단한 표, 그림을 살리고 스캔한 쪽은 글자 인식으로 읽습니다. https://hwemo-chung.github.io/tools/pdf-to-doc/
-- 통장 거래내역 엑셀로 옮기기: 은행에서 받은 거래내역 PDF, CSV, 엑셀 파일에서 날짜, 내용, 출금, 입금, 잔액을 표로 뽑아 XLSX나 CSV로 받습니다. 비밀번호가 걸린 PDF도 열 수 있습니다. https://hwemo-chung.github.io/tools/statement-sheet/
-- 영수증 사진을 표로 정리하기: 영수증 사진을 여러 장 올리면 글자를 읽어 날짜, 상호, 합계 금액, 결제 수단을 한 줄씩 표로 정리합니다. 고친 뒤 CSV나 엑셀로 받습니다. https://hwemo-chung.github.io/tools/receipt-line/
-- 웹페이지 전체 캡처: 웹페이지 주소를 넣으면 페이지 맨 아래까지 한 장으로 캡처해 PNG로 받습니다. PC, 태블릿, 모바일 화면 크기를 고를 수 있습니다. https://hwemo-chung.github.io/tools/page-shot/
-- Copilot 사용량: GitHub 토큰이나 결제 페이지에서 받은 사용량 CSV로 내 Copilot 프리미엄 요청·AI 크레딧 사용량을 날짜별, 모델별로 보고 월 예산 대비 비용을 확인합니다. https://hwemo-chung.github.io/tools/copilot-usage-monitor/
+- [이미지 용량 줄이기](https://hwemo-chung.github.io/tools/image-shrink/): 사진을 올리면 화질을 고르고 크기를 줄여 더 작은 JPG나 WebP로 받습니다. 여러 장을 한 번에 처리합니다.
+- [상품 사진 흰 배경](https://hwemo-chung.github.io/tools/white-background/): 상품 사진의 배경을 지우고 흰색, 투명, 원하는 색 바탕의 정사각형 이미지로 만듭니다. 쇼핑몰용 1000×1000 크기와 여백을 고르고 PNG나 JPG로 받습니다.
+- [증명사진 만들기](https://hwemo-chung.github.io/tools/id-photo/): 얼굴 사진을 올리면 여권(3.5×4.5cm, 머리 3.2~3.6cm), 증명, 반명함, 미국 비자 규격에 맞게 잘라 300dpi JPG와 4×6 인화용 사진으로 만듭니다.
+- [사진 해상도 키우기](https://hwemo-chung.github.io/tools/image-upscale/): 작은 사진이나 흐릿한 캡처를 ESRGAN 초해상도 모델로 2배 또는 4배 키워 PNG로 받습니다. 원본과 결과를 100% 크기로 나란히 비교합니다.
+- [붓으로 잡티 지우기](https://hwemo-chung.github.io/tools/brush-erase/): 사진의 잡티, 먼지, 전선, 작은 물체를 붓으로 문지르면 손을 뗄 때 주변 색으로 메웁니다. 되돌리기를 지원하고 결과를 바로 받습니다.
+- [사진 속 물체 지우기](https://hwemo-chung.github.io/tools/item-removal/): 사진에서 지우고 싶은 사람이나 물건을 붓으로 칠하면 LaMa 인페인팅 모델이 그 자리를 주변 배경으로 채웁니다. 되돌리기와 원본 비교를 지원합니다.
+- [흑백 사진 컬러로 바꾸기](https://hwemo-chung.github.io/tools/colorize-photo/): 흑백 사진이나 빛바랜 옛날 사진을 올리면 DDColor 모델이 색을 입혀 컬러 사진으로 바꿉니다. 원본과 나란히 비교하고 색 진하기를 조절해 받습니다.
+- [로고 SVG 변환](https://hwemo-chung.github.io/tools/logo-svg/): PNG나 JPG 로고를 올리면 색을 줄여 곡선으로 다시 그린 SVG 파일로 바꿉니다. 원본과 결과를 같은 배율로 확대해 비교합니다.
+- [벽 색 바꾸기](https://hwemo-chung.github.io/tools/wall-color/): 방 사진을 올리면 벽, 바닥, 천장을 자동으로 찾아 고른 페인트 색으로 바꿔 보여 줍니다. 그림자와 조명은 사진 그대로 남습니다.
+- [낮 사진을 저녁 사진으로](https://hwemo-chung.github.io/tools/day-to-dusk/): 낮에 찍은 집 외관 사진을 올리면 하늘을 노을로 바꾸고 창에 불을 켠 저녁 사진으로 만듭니다. 강도와 창 불빛을 조절해 JPG로 받습니다.
+- [빈 방에 가구 놓아 보기](https://hwemo-chung.github.io/tools/room-stage/): 빈 방 사진에 가구 사진을 올리면 배경을 지워 방 안에 놓습니다. 위치, 크기, 회전, 순서를 바꾸고 그림자를 넣어 PNG나 JPG로 받습니다.
+- [제품 연출 사진 만들기](https://hwemo-chung.github.io/tools/lifestyle-scene/): 제품 사진의 배경을 지우고 책상, 테이블, 창틀 같은 배경 사진 위에 놓습니다. 위치와 크기, 그림자, 밝기와 색온도를 맞춰 PNG나 JPG로 받습니다.
+- [상품 홍보 카드 만들기](https://hwemo-chung.github.io/tools/promo-template/): 상품 사진과 이름, 가격, 할인율을 넣으면 1080×1350, 1080×1080, 1080×1920 SNS 홍보 이미지를 만듭니다. 상품 배경을 지우고 PNG로 받습니다.
+- [유튜브 썸네일 만들기](https://hwemo-chung.github.io/tools/thumb-card/): 사진을 올리고 제목을 쓰면 1280×720 유튜브 썸네일을 만듭니다. 글자 테두리와 강조 박스, 레이아웃과 색을 고르고 2MB 아래 JPG나 PNG로 받습니다.
+- [스크린샷 꾸미기](https://hwemo-chung.github.io/tools/shot-frame/): 스크린샷에 macOS 창이나 브라우저 주소창 테두리, 배경색, 여백, 둥근 모서리, 그림자를 넣고 16:9, 1:1, 4:5 비율의 2배 해상도 PNG로 받습니다.
+- [기기 목업 만들기](https://hwemo-chung.github.io/tools/device-mockup/): 앱이나 웹 스크린샷을 휴대폰, 태블릿, 노트북, 브라우저 창 프레임 안에 넣고 배경이 투명한 2배 해상도 PNG로 받습니다.
+- [무음 구간 자르기](https://hwemo-chung.github.io/tools/silence-cut/): 말하는 영상이나 녹음을 올리면 말 없는 구간을 찾아 잘라 낸 MP4나 WAV와 컷 목록 CSV를 받습니다. 기준 음량, 최소 길이, 여유 시간을 직접 정합니다.
+- [세로 영상으로 자르기](https://hwemo-chung.github.io/tools/vertical-clip/): 가로 영상을 9:16 세로 영상으로 자릅니다. 구간을 고르고 화면 위치를 직접 옮기거나 얼굴을 따라가게 한 뒤 소리까지 담긴 MP4로 받습니다.
+- [영상에 자막 입히기](https://hwemo-chung.github.io/tools/burned-captions/): 영상의 말을 받아 적거나 SRT 파일을 불러와 자막을 화면에 새깁니다. 글자 크기와 위치, 상자나 외곽선 스타일을 고른 뒤 소리까지 담긴 MP4로 받습니다.
+- [영상 배경 바꾸기](https://hwemo-chung.github.io/tools/video-cutout/): 사람이 나오는 영상에서 배경만 골라 단색이나 사진으로 바꾸거나 흐리게 합니다. 소리까지 담긴 MP4로 받습니다.
+- [오디오 파형 영상](https://hwemo-chung.github.io/tools/waveform-video/): 음성이나 음악 파일을 올리면 소리에 맞춰 움직이는 파형 영상을 MP4로 만듭니다. 제목, 커버 이미지, 배경색을 넣고 릴스·쇼츠·유튜브 비율로 받습니다.
+- [보컬 분리](https://hwemo-chung.github.io/tools/vocal-split/): 노래 파일을 올리면 HTDemucs 모델로 보컬과 반주를 나눠 각각 WAV로 받습니다. 3~4분짜리 곡 전체를 처리합니다.
+- [음성 잡음 제거](https://hwemo-chung.github.io/tools/voice-denoise/): 말소리 녹음에서 배경 소음을 RNNoise로 줄이고 저역 울림과 50/60Hz 험을 걸러 음량을 맞춘 WAV를 받습니다. 원본과 바꿔 들어 볼 수 있습니다.
+- [자막 파일 만들기](https://hwemo-chung.github.io/tools/subtitle-file/): 영상이나 음성 파일의 말을 Whisper로 받아 적어 시간이 맞춰진 자막을 만듭니다. 한국어, 영어, 일본어를 지원하고 고친 뒤 SRT나 VTT로 받습니다.
+- [자막 번역](https://hwemo-chung.github.io/tools/subtitle-translate/): SRT나 VTT 자막 파일을 올리면 각 줄을 다른 언어로 번역하고 시간은 그대로 둔 새 자막 파일을 만듭니다. 한국어, 영어, 일본어, 중국어, 스페인어 등을 지원합니다.
+- [PDF를 Word 문서로 바꾸기](https://hwemo-chung.github.io/tools/pdf-to-doc/): PDF를 Word 문서(DOCX)로 바꿉니다. 제목, 문단, 굵은 글씨, 목록, 간단한 표, 그림을 살리고 스캔한 쪽은 글자 인식으로 읽습니다.
+- [통장 거래내역 엑셀로 옮기기](https://hwemo-chung.github.io/tools/statement-sheet/): 은행에서 받은 거래내역 PDF, CSV, 엑셀 파일에서 날짜, 내용, 출금, 입금, 잔액을 표로 뽑아 XLSX나 CSV로 받습니다. 비밀번호가 걸린 PDF도 열 수 있습니다.
+- [영수증 사진을 표로 정리하기](https://hwemo-chung.github.io/tools/receipt-line/): 영수증 사진을 여러 장 올리면 글자를 읽어 날짜, 상호, 합계 금액, 결제 수단을 한 줄씩 표로 정리합니다. 고친 뒤 CSV나 엑셀로 받습니다.
+- [웹페이지 전체 캡처](https://hwemo-chung.github.io/tools/page-shot/): 웹페이지 주소를 넣으면 페이지 맨 아래까지 한 장으로 캡처해 PNG로 받습니다. PC, 태블릿, 모바일 화면 크기를 고를 수 있습니다.
+- [Copilot 사용량](https://hwemo-chung.github.io/tools/copilot-usage-monitor/): GitHub 토큰이나 결제 페이지에서 받은 사용량 CSV로 내 Copilot 프리미엄 요청·AI 크레딧 사용량을 날짜별, 모델별로 보고 월 예산 대비 비용을 확인합니다.
 <!-- TOOLS:END -->
 
-- Color picker: https://hwemo-chung.github.io/color-picker.html
-- Public search exposure check: https://hwemo-chung.github.io/public-search-exposure.html
+- [Color picker](https://hwemo-chung.github.io/color-picker.html)
+- [Public search exposure check](https://hwemo-chung.github.io/public-search-exposure.html)
 
 ## Machine-readable catalog
 
-- Offer catalog (JSON): https://hwemo-chung.github.io/offers/products.json. `id` maps to https://hwemo-chung.github.io/offers/{id}.html; `price_min`, `price_max`, `price_currency` give the price range; `delivery` is lead time in Korean business days; `needs` lists what the buyer supplies; `bullets` lists deliverables.
+- [Offer catalog (JSON)](https://hwemo-chung.github.io/offers/products.json): `id` maps to https://hwemo-chung.github.io/offers/{id}.html; `price_min`, `price_max`, `price_currency` give the price range; `delivery` is lead time in Korean business days; `needs` lists what the buyer supplies; `bullets` lists deliverables.
 - Each offer page carries schema.org `Service` and `Offer` JSON-LD with the same values. /offers/ carries an `ItemList` of all offers.
 - There is no cart. Ordering is an email to tolaria@naver.com from the offer page.
 
@@ -73,6 +73,6 @@ All tools: https://hwemo-chung.github.io/tools/
 ## Contact
 
 - Email: tolaria@naver.com
-- GitHub: https://github.com/Hwemo-Chung
-- Privacy policy: https://hwemo-chung.github.io/pp.html
-- Specified commercial transactions (特商法): https://hwemo-chung.github.io/tokushoho.html
+- [GitHub](https://github.com/Hwemo-Chung)
+- [Privacy policy](https://hwemo-chung.github.io/pp.html)
+- [Specified commercial transactions (特商法)](https://hwemo-chung.github.io/tokushoho.html)

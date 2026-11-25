@@ -3,7 +3,7 @@
  * Legacy variable names are kept so every page and helper stylesheet keeps resolving.
  * Surface tokens stay opaque: they sit on 1px-gap grids. Glass lives on component rules.
  */
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import url("/assets/fonts/pretendard-variable-dynamic-subset.css");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
 
 :root {

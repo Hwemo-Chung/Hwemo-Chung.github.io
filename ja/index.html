@@ -207,13 +207,13 @@
                 <li><a href="/ja/threads-analyzer.html" data-i18n="nav.threads">スレッド</a></li>
                 <li><a href="/tools/" data-i18n="nav.tools">ツール</a></li>
             </ul>
-            <div class="language-toolbar" data-i18n-aria-label="common.language" aria-label="言語選択">
-                <div class="language-selector">
-                    <button class="lang-btn active" type="button" data-lang="ko">한</button>
-                    <button class="lang-btn" type="button" data-lang="en">EN</button>
-                    <button class="lang-btn" type="button" data-lang="ja">日</button>
-                </div>
-            </div>
+            <div class="language-toolbar" data-i18n-aria-label="common.language">
+        <div class="language-selector">
+            <a class="lang-btn" href="/" hreflang="ko" lang="ko" data-lang="ko">한</a>
+            <a class="lang-btn" href="/en/" hreflang="en" lang="en" data-lang="en">EN</a>
+            <a class="lang-btn active" href="/ja/" hreflang="ja" lang="ja" data-lang="ja" aria-current="page">日</a>
+        </div>
+    </div>
         </div>
     </nav>
 
@@ -318,7 +318,7 @@
 
         <section class="band" id="tools">
             <div class="wrap">
-                <div class="band-head"><h2>ツール（韓国語の画面）</h2><a href="/tools/">全て表示</a></div>
+                <div class="band-head"><h2>ツール（韓国語の画面）</h2><a href="/tools/">ツールを全て表示</a></div>
                 <!-- TOOLS:START -->
 <ul class="tool-index" data-no-i18n="">
 <li><a href="/tools/image-shrink/">이미지 용량 줄이기<span>사진</span></a></li>
@@ -488,19 +488,19 @@
 
         <section class="band" id="archive">
             <div class="wrap">
-                <div class="band-head"><h2 data-i18n="projects.archive">アーカイブ</h2><p data-i18n="projects.archiveNote">現在は販売・運用していない過去の作品です。ソースコードのみ公開しています。</p></div>
+                <div class="band-head"><h2 data-i18n="projects.archive">アーカイブ</h2><p data-i18n="projects.archiveNote">現在は販売・運用していない過去の作品です。</p></div>
                 <ul class="plain">
-                    <li><a href="https://github.com/Hwemo-Chung/gesture-color-picker-app">ジェスチャー カラー ピッカー アプリ</a> ジェスチャーベースの色を選択する（Android）</li>
-                    <li><a href="https://github.com/Hwemo-Chung/submarine-commander-game">潜水艦司令官</a> 潜水艦指揮シミュレーション</li>
-                    <li><a href="https://github.com/Hwemo-Chung/news_collector_android">ニュースコレクター</a> ニュース収集・キュレーション (Android)</li>
-                    <li><a href="https://github.com/Hwemo-Chung/news_poster">ニュース ポスター</a> ニュース投稿の自動化</li>
-                    <li><a href="https://github.com/Hwemo-Chung/sumiwake-app-project">スミワケ</a> すみわけ管理アプリ</li>
-                    <li><a href="https://github.com/Hwemo-Chung/media-organizer">メディア オーガナイザー</a> メディアファイルクリーンアップツール</li>
-                    <li><a href="https://github.com/Hwemo-Chung/elder_tel">エルダー・テル</a> 高齢者向けの簡易電話アプリ</li>
-                    <li><a href="https://github.com/Hwemo-Chung/SecretClipDiary">シークレットクリップダイアリー</a> プライベートクリップボード日記</li>
+                    <li><strong>ジェスチャー カラー ピッカー アプリ</strong> ジェスチャーベースの色を選択する（Android）</li>
+                    <li><strong>潜水艦司令官</strong> 潜水艦指揮シミュレーション</li>
+                    <li><strong>ニュースコレクター</strong> ニュース収集・キュレーション (Android)</li>
+                    <li><strong>ニュース ポスター</strong> ニュース投稿の自動化</li>
+                    <li><strong>スミワケ</strong> すみわけ管理アプリ</li>
+                    <li><strong>メディア オーガナイザー</strong> メディアファイルクリーンアップツール</li>
+                    <li><strong>エルダー・テル</strong> 高齢者向けの簡易電話アプリ</li>
+                    <li><strong>シークレットクリップダイアリー</strong> プライベートクリップボード日記</li>
                     <li><a href="https://childscreen.netlify.app/">子画面</a> 子供のスクリーンタイム管理</li>
-                    <li><a href="https://github.com/Hwemo-Chung/Dice_Story">ダイスストーリー</a> サイコロストーリーテリングゲーム</li>
-                    <li><a href="https://github.com/Hwemo-Chung/for-soccer">サッカー用</a> サッカー情報プラットフォーム</li>
+                    <li><strong>ダイスストーリー</strong> サイコロストーリーテリングゲーム</li>
+                    <li><strong>サッカー用</strong> サッカー情報プラットフォーム</li>
                 </ul>
             </div>
         </section>
@@ -615,21 +615,26 @@
             shade(ctx.createLinearGradient(0, 0, 0, H * .16), [0, .6, 1, 0]); ctx.fillRect(0, 0, W, H * .16);
             shade(ctx.createLinearGradient(0, H * .9, 0, H), [0, 0, 1, 1]); ctx.fillRect(0, H * .9, W, H * .1 + 1);
         }
-        var t0 = performance.now(), last = 0, visible = true, raf = 0;
+        /* The still frame is drawn at once. The animation loop starts only after the load event,
+           and never on narrow (mobile) widths or with prefers-reduced-motion. */
+        var t0 = performance.now(), last = 0, visible = true, raf = 0, loaded = document.readyState === 'complete';
+        function still() { return reduce || narrow; }
         function now() { return STILL_T + (performance.now() - t0) / 1000; }
         function tick(ts) {
             raf = 0;
-            if (!visible || document.hidden) return;
+            if (!visible || document.hidden || still()) return;
             if (ts - last > 32) { last = ts; draw(now()); }
             raf = requestAnimationFrame(tick);
         }
-        function start() { if (!raf && !reduce) raf = requestAnimationFrame(tick); }
-        size(); draw(STILL_T); start();
+        function start() { if (!raf && loaded && !still()) raf = requestAnimationFrame(tick); }
+        size(); draw(STILL_T);
+        if (loaded) start(); else window.addEventListener('load', function () { loaded = true; t0 = performance.now(); start(); });
         var rz = 0;
-        window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(function () { size(); draw(reduce ? STILL_T : now()); }, 120); });
+        function redraw() { clearTimeout(rz); rz = setTimeout(function () { size(); draw(still() || !loaded ? STILL_T : now()); start(); }, 120); }
+        window.addEventListener('resize', redraw);
         document.addEventListener('visibilitychange', start);
         if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; start(); }, {threshold: 0}).observe(hero);
-        if ('ResizeObserver' in window) new ResizeObserver(function () { clearTimeout(rz); rz = setTimeout(function () { size(); draw(reduce ? STILL_T : now()); }, 120); }).observe(hero);
+        if ('ResizeObserver' in window) new ResizeObserver(redraw).observe(hero);
 
         var objs = [].slice.call(hero.querySelectorAll('.obj'));
         var tx = 0, ty = 0, cx = 0, cy = 0, sy = 0, praf = 0;

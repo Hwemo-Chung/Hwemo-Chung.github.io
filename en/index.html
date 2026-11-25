@@ -207,13 +207,13 @@
                 <li><a href="/en/threads-analyzer.html" data-i18n="nav.threads">Threads</a></li>
                 <li><a href="/tools/" data-i18n="nav.tools">Tools</a></li>
             </ul>
-            <div class="language-toolbar" data-i18n-aria-label="common.language" aria-label="Language selection">
-                <div class="language-selector">
-                    <button class="lang-btn active" type="button" data-lang="ko">한</button>
-                    <button class="lang-btn" type="button" data-lang="en">EN</button>
-                    <button class="lang-btn" type="button" data-lang="ja">日</button>
-                </div>
-            </div>
+            <div class="language-toolbar" data-i18n-aria-label="common.language">
+        <div class="language-selector">
+            <a class="lang-btn" href="/" hreflang="ko" lang="ko" data-lang="ko">한</a>
+            <a class="lang-btn active" href="/en/" hreflang="en" lang="en" data-lang="en" aria-current="page">EN</a>
+            <a class="lang-btn" href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日</a>
+        </div>
+    </div>
         </div>
     </nav>
 
@@ -318,7 +318,7 @@
 
         <section class="band" id="tools">
             <div class="wrap">
-                <div class="band-head"><h2>Tools (Korean interface)</h2><a href="/tools/">See all</a></div>
+                <div class="band-head"><h2>Tools (Korean interface)</h2><a href="/tools/">See all tools</a></div>
                 <!-- TOOLS:START -->
 <ul class="tool-index" data-no-i18n="">
 <li><a href="/tools/image-shrink/">이미지 용량 줄이기<span>사진</span></a></li>
@@ -488,19 +488,19 @@
 
         <section class="band" id="archive">
             <div class="wrap">
-                <div class="band-head"><h2 data-i18n="projects.archive">Archive</h2><p data-i18n="projects.archiveNote">Older work we no longer sell or run. Only the source code is public.</p></div>
+                <div class="band-head"><h2 data-i18n="projects.archive">Archive</h2><p data-i18n="projects.archiveNote">Older work we no longer sell or run.</p></div>
                 <ul class="plain">
-                    <li><a href="https://github.com/Hwemo-Chung/gesture-color-picker-app">Gesture Color Picker App</a> Gesture-based color selection (Android)</li>
-                    <li><a href="https://github.com/Hwemo-Chung/submarine-commander-game">Submarine Commander</a> Submarine Command Simulation</li>
-                    <li><a href="https://github.com/Hwemo-Chung/news_collector_android">News Collector</a> News collection/curation (Android)</li>
-                    <li><a href="https://github.com/Hwemo-Chung/news_poster">News Poster</a> Automate news posting</li>
-                    <li><a href="https://github.com/Hwemo-Chung/sumiwake-app-project">Sumiwake</a> Sumiwake Management App</li>
-                    <li><a href="https://github.com/Hwemo-Chung/media-organizer">Media Organizer</a> Media File Organizer</li>
-                    <li><a href="https://github.com/Hwemo-Chung/elder_tel">Elder Tel</a> Simple phone app for seniors</li>
-                    <li><a href="https://github.com/Hwemo-Chung/SecretClipDiary">Secret Clip Diary</a> Personal clipboard diary</li>
+                    <li><strong>Gesture Color Picker App</strong> Gesture-based color selection (Android)</li>
+                    <li><strong>Submarine Commander</strong> Submarine Command Simulation</li>
+                    <li><strong>News Collector</strong> News collection/curation (Android)</li>
+                    <li><strong>News Poster</strong> Automate news posting</li>
+                    <li><strong>Sumiwake</strong> Sumiwake Management App</li>
+                    <li><strong>Media Organizer</strong> Media File Organizer</li>
+                    <li><strong>Elder Tel</strong> Simple phone app for seniors</li>
+                    <li><strong>Secret Clip Diary</strong> Personal clipboard diary</li>
                     <li><a href="https://childscreen.netlify.app/">Child Screen</a> Managing Children’s Screen Time</li>
-                    <li><a href="https://github.com/Hwemo-Chung/Dice_Story">Dice Story</a> Dice Storytelling Game</li>
-                    <li><a href="https://github.com/Hwemo-Chung/for-soccer">For Soccer</a> Soccer Information Platform</li>
+                    <li><strong>Dice Story</strong> Dice Storytelling Game</li>
+                    <li><strong>For Soccer</strong> Soccer Information Platform</li>
                 </ul>
             </div>
         </section>
@@ -615,21 +615,26 @@
             shade(ctx.createLinearGradient(0, 0, 0, H * .16), [0, .6, 1, 0]); ctx.fillRect(0, 0, W, H * .16);
             shade(ctx.createLinearGradient(0, H * .9, 0, H), [0, 0, 1, 1]); ctx.fillRect(0, H * .9, W, H * .1 + 1);
         }
-        var t0 = performance.now(), last = 0, visible = true, raf = 0;
+        /* The still frame is drawn at once. The animation loop starts only after the load event,
+           and never on narrow (mobile) widths or with prefers-reduced-motion. */
+        var t0 = performance.now(), last = 0, visible = true, raf = 0, loaded = document.readyState === 'complete';
+        function still() { return reduce || narrow; }
         function now() { return STILL_T + (performance.now() - t0) / 1000; }
         function tick(ts) {
             raf = 0;
-            if (!visible || document.hidden) return;
+            if (!visible || document.hidden || still()) return;
             if (ts - last > 32) { last = ts; draw(now()); }
             raf = requestAnimationFrame(tick);
         }
-        function start() { if (!raf && !reduce) raf = requestAnimationFrame(tick); }
-        size(); draw(STILL_T); start();
+        function start() { if (!raf && loaded && !still()) raf = requestAnimationFrame(tick); }
+        size(); draw(STILL_T);
+        if (loaded) start(); else window.addEventListener('load', function () { loaded = true; t0 = performance.now(); start(); });
         var rz = 0;
-        window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(function () { size(); draw(reduce ? STILL_T : now()); }, 120); });
+        function redraw() { clearTimeout(rz); rz = setTimeout(function () { size(); draw(still() || !loaded ? STILL_T : now()); start(); }, 120); }
+        window.addEventListener('resize', redraw);
         document.addEventListener('visibilitychange', start);
         if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; start(); }, {threshold: 0}).observe(hero);
-        if ('ResizeObserver' in window) new ResizeObserver(function () { clearTimeout(rz); rz = setTimeout(function () { size(); draw(reduce ? STILL_T : now()); }, 120); }).observe(hero);
+        if ('ResizeObserver' in window) new ResizeObserver(redraw).observe(hero);
 
         var objs = [].slice.call(hero.querySelectorAll('.obj'));
         var tx = 0, ty = 0, cx = 0, cy = 0, sy = 0, praf = 0;

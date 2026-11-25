@@ -63,7 +63,7 @@ const siteTranslations = {
             services: "서비스",
             tools: "무료 도구",
             archive: "아카이브",
-            archiveNote: "지금은 팔거나 운영하지 않는 예전 작업입니다. 소스 코드만 공개합니다.",
+            archiveNote: "지금은 팔거나 운영하지 않는 예전 작업입니다.",
             viewGithub: "GitHub에서 보기 →"
         },
         contact: {
@@ -137,7 +137,7 @@ const siteTranslations = {
             services: "Services",
             tools: "Free tools",
             archive: "Archive",
-            archiveNote: "Older work we no longer sell or run. Only the source code is public.",
+            archiveNote: "Older work we no longer sell or run.",
             viewGithub: "View on GitHub →"
         },
         contact: {
@@ -211,7 +211,7 @@ const siteTranslations = {
             services: "サービス",
             tools: "無料ツール",
             archive: "アーカイブ",
-            archiveNote: "現在は販売・運用していない過去の作品です。ソースコードのみ公開しています。",
+            archiveNote: "現在は販売・運用していない過去の作品です。",
             viewGithub: "GitHubで見る →"
         },
         contact: {
@@ -314,9 +314,11 @@ function setSiteLanguage(lang) {
     });
     
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('data-lang') === siteCurrentLang) {
-            btn.classList.add('active');
+        const active = btn.getAttribute('data-lang') === siteCurrentLang;
+        btn.classList.toggle('active', active);
+        if (btn.tagName === 'A') {
+            if (active) btn.setAttribute('aria-current', 'page');
+            else btn.removeAttribute('aria-current');
         }
     });
     
@@ -326,6 +328,7 @@ function setSiteLanguage(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+    // 정적 툴바(scripts/build-i18n-pages.cjs 가 넣는 <a href> 링크)가 있으면 그대로 쓴다. 없는 페이지에만 버튼 툴바를 끼워 넣는다.
     if (!document.querySelector('.language-toolbar')) {
         const toolbar = document.createElement('div');
         const selector = document.createElement('div');
@@ -355,17 +358,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', event => {
             const lang = btn.getAttribute('data-lang');
-            // 번역본 주소가 있으면 그리로 이동하고, 없으면 이 페이지에서 바꾼다
-            const alternate = document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`);
+            // 링크를 새 탭으로 여는 클릭은 브라우저에 맡긴다
+            if (btn.tagName === 'A' && (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)) return;
+            event.preventDefault();
+            // 번역본 주소(툴바 링크 또는 hreflang)가 있으면 그리로 이동하고, 없으면 이 페이지에서 바꾼다
+            const alternate = btn.getAttribute('href') || document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`)?.href;
+            const target = alternate && new URL(alternate, location.href);
             const samePage = p => p.replace(/index\.html$/, '');
-            if (alternate && samePage(new URL(alternate.href).pathname) !== samePage(location.pathname)) {
-                localStorage.setItem('language', lang);
-                location.href = new URL(alternate.href).pathname + location.hash;
+            localStorage.setItem('language', lang);
+            if (target && samePage(target.pathname) !== samePage(location.pathname)) {
+                location.href = target.pathname + location.hash;
                 return;
             }
-            localStorage.setItem('language', lang);
             setSiteLanguage(lang);
         });
     });

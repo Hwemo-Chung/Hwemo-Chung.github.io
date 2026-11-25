@@ -52,6 +52,7 @@ body.ls > .language-toolbar { position: absolute; top: 15px; right: max(24px, ca
 body.ls > .ls-nav .ls-nav__inner { padding-right: 140px; }
 .language-selector { display: inline-flex; gap: 2px; padding: 2px; background: rgba(255, 255, 255, 0.07); border-radius: var(--ls-radius-pill); box-shadow: var(--ls-ring); }
 .lang-btn { height: 26px; min-width: 32px; padding: 0 8px; border: 0; border-radius: var(--ls-radius-pill); background: transparent; color: var(--ls-muted); font: 600 12px var(--ls-font); cursor: pointer; }
+a.lang-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; text-decoration: none; }
 .lang-btn:hover { color: var(--ls-text); }
 .lang-btn.active { background: var(--ls-accent); color: var(--ls-accent-ink); }
 

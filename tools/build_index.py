@@ -44,6 +44,7 @@ sub(root / 'tools' / 'index.html', '\n'.join(
     f'<section class="group"><h2>{esc(g)}</h2><ul>\n' + '\n'.join(
         f'<li><a href="{s}/"><strong>{esc(info[s][0])}</strong><span>{esc(info[s][1])}</span></a></li>' for s in ss)
     + '\n</ul></section>' for g, ss in groups))
+# llmstxt.org link list: "- [title](URL): description"
 sub(root / 'llms.txt', '\n'.join(
-    f'- {info[s][0]}: {info[s][1]} https://hwemo-chung.github.io/tools/{s}/' for _, ss in groups for s in ss))
+    f'- [{info[s][0]}](https://hwemo-chung.github.io/tools/{s}/): {info[s][1]}' for _, ss in groups for s in ss))
 print(sum(len(ss) for _, ss in groups), 'tools in', len(groups), 'groups')
