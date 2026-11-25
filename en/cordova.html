@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Diagnosing Cordova/Ionic apps with blocked iOS updates (Xcode 26, iOS 26 SDK) | Lumos</title>
-  <meta name="description" content="Starting April 28, 2026, App Store Connect uploads will require Xcode 26 and the iOS 26 SDK. We use public data to determine if your Cordova/Ionic app meets this requirement, the Play target API, or the discontinued Firebase Dynamic Links. Diagnosis is free for the first 10 companies, and correction work is chargeable.">
+  <meta name="description" content="Since April 28, 2026, App Store Connect uploads have required Xcode 26 and the iOS 26 SDK. Using public information, we check whether your Cordova/Ionic app is caught by this requirement, the Play target API rule, or the shutdown of Firebase Dynamic Links. Diagnosis is free for the first 10 companies, and correction work is chargeable.">
   <meta name="keywords" content="Cordova, Capacitor, Ionic, iOS 26 SDK, Xcode 26, App Store Connect, targetSdkVersion, 구글 플레이, Firebase Dynamic Links, 레거시 앱">
   <link rel="canonical" href="https://hwemo-chung.github.io/en/cordova.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/cordova.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/cordova.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/cordova.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/cordova.html">
   <!-- i18n-alternates -->
@@ -16,12 +16,12 @@
   <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hwemo-chung.github.io/en/cordova.html">
-  <meta property="og:title" content="Diagnosis of Cordova/Ionic apps that are blocked from updating iOS"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="ja_JP">
-  <meta property="og:description" content="Starting April 28, 2026, App Store Connect uploads will require Xcode 26 and the iOS 26 SDK. Legacy hybrid app diagnostics are free for the first 10 companies.">
+  <meta property="og:title" content="Diagnosis of Cordova/Ionic apps whose iOS updates are blocked"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:description" content="Since April 28, 2026, App Store Connect uploads have required Xcode 26 and the iOS 26 SDK. Legacy hybrid app diagnostics are free for the first 10 companies.">
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Diagnosis of legacy apps with blocked iOS uploads">
-  <meta name="twitter:description" content="We will check for free whether you meet the Xcode 26 and iOS 26 SDK requirements. Just sort out what's blocked.">
+  <meta name="twitter:description" content="We check for free whether your app is caught by the Xcode 26 and iOS 26 SDK requirements. We only lay out what is blocked.">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -135,10 +135,10 @@
   </nav>
 
   <main id="main" class="ls-wrap">
-    <h1>Diagnose Cordova/Ionic apps that are blocked from updating iOS</h1>
+    <h1>We diagnose Cordova/Ionic apps whose iOS updates are blocked</h1>
 
     <p class="ls-lead">
-      Starting April 28, 2026, your app will need to be built with Xcode 26 and the iOS 26 SDK to be eligible for App Store Connect. Older Cordova/Ionic build environments fall prey to this requirement first. We will only look at the publicly available store information and explain what is blocked. It's free for the first 10 companies, and we'll respond within 2 business days.
+      Since April 28, 2026, apps uploaded to App Store Connect must be built with Xcode 26 and the iOS 26 SDK. Older Cordova/Ionic build environments fall prey to this requirement first. We will only look at the publicly available store information and explain what is blocked. It's free for the first 10 companies, and we'll respond within 2 business days.
     </p>
 
     <div class="ls-cta">
@@ -146,22 +146,22 @@
       <a class="ls-btn" href="#self">See how to check for yourself</a>
     </div>
     <p class="ls-fine">
-      Free diagnostics just clears up what's blocked. Fixing methods and operations are paid. No source code, signing key, or store account required.
+      The free diagnosis only lays out what is blocked. How to fix it, and the fix itself, are paid. No source code, signing key, or store account required.
     </p>
 
     <h2>Three things to diagnose</h2>
     <h3>Apple SDK Minimum Requirements <span class="ls-fine">Applicable from 2026-04-28</span></h3>
     <p>
-      App Store Connect uploads require Xcode 26 or higher and the iOS 26 SDK. old <code>cordova-ios</code> or older build pipelines may prevent update submission. Apps that are already installed will not be immediately removed from your device.
+      App Store Connect uploads require Xcode 26 or higher and the iOS 26 SDK. An old <code>cordova-ios</code> or an older build pipeline can block update submission altogether. Apps already installed are not removed from users' devices right away.
     </p>
     <h3>Google Play Target API <span class="ls-fine">2026-08-31, extension application until 11/1</span></h3>
     <p>
-      New apps and updates must target Android 16 (API 36) or higher. There are exceptions for each form factor. If your existing app targets Android 15 (API 35) or lower, its availability will be limited to new users on devices with an OS higher than your app's target. Not all users and all devices will be blocked. Depending on the app, you may be able to request an extension until 2026-11-01 in the Play Console.
+      New apps and updates must target Android 16 (API 36) or higher. There are exceptions for each form factor. If an existing app targets below Android 15 (API 35), its availability to new users on devices running a newer OS than the app's target is restricted. Not all users and all devices will be blocked. Depending on the app, you may be able to request an extension until 2026-11-01 in the Play Console.
     </p>
-    <h3>Firebase Dynamic Links <span class="ls-fine">Service ends on 2025-08-25</span></h3>
+    <h3>Firebase Dynamic Links <span class="ls-fine">Service ended on 2025-08-25</span></h3>
     <p>
       According to the Firebase official FAQ, the service has been terminated.
-      <code>page.link</code> If the same address returns 404, the link is most likely dead. If a link has been left unattended for nearly a year, it may not have received any inflow to begin with. So, in the diagnosis, we look at whether there are dead links and the size of the inflow separately.
+      <code>page.link</code> addresses that return 404 are most likely dead. If a link has been left unattended for nearly a year, it may not have been bringing in any traffic to begin with. So, in the diagnosis, we look separately at whether there are dead links and how much traffic they bring in.
     </p>
     <p>
       Cordova·Ionic apps are often tied to native plugins and outdated CLIs, making it difficult to keep up with the latest Xcode and Play targets alone. However, this does not mean that Cordova is officially archived. Each app has different circumstances.
@@ -171,7 +171,7 @@
     <ul class="ls-dash">
       <li>B2C app or external app that requires new installation, membership registration, or recruitment</li>
       <li>App that requires iOS hotfix but has broken build</li>
-      <li>Cordova/Ionic app discontinued by original developer</li>
+      <li>Cordova/Ionic app the original developer no longer maintains</li>
       <li>Teams with no or only one in-house mobile manager</li>
     </ul>
     <p>
@@ -185,24 +185,23 @@
     <ul class="ls-dash">
       <li>
         <strong>Diagnostic report (status only): 0 won, first 10 companies only.</strong>
-        View iOS upload risks, Play targets, Cordova traces, and 404s for public deep links based on public APKs and store pages. The estimated man-hours are provided only as a range and detailed patch procedures are not included. Inflow estimates are separate.
+        Based on the public APK and store pages, we check iOS upload risk, the Play target, Cordova traces, and whether public deep links return 404. The estimated man-hours are provided only as a range and detailed patch procedures are not included. Traffic estimates are separate.
       </li>
       <li>
         <strong>Play extension/policy response information: KRW 500,000 to KRW 1.5 million, per case.</strong>
-        On November 1, we will provide you with an extension application checklist, scope of agency, console text and evidence, and a one-page migration roadmap. The actual work takes tens of minutes to hours.
+        We give you a checklist for the extension request due November 1, the scope of what we can do on your behalf, the console wording and supporting evidence compiled for you, and a one-page migration roadmap. The actual work takes tens of minutes to a few hours.
       </li>
       <li>
         <strong>Emergency target API increase (Android): 3 to 6 million won, per case.</strong>
-        Only cases that can proceed without a Capacitor migration are accepted. We pass the build, prepare it for submission, and even check for actual device regression. If you have a lot of deprecated plugins, this may be out of scope.
+        Only cases that can proceed without a Capacitor migration are accepted. We get the build passing, prepare it for submission, and run regression checks on real devices. If you have a lot of deprecated plugins, this may be out of scope.
       </li>
       <li>
         <strong>Migration to Capacitor (iOS, Android): 8 to 20 million won, per case.</strong>
-        Verify by replacing the Cordova runtime with Capacitor and replacing the plugin with the current version. Includes handover documents. Code delivery is the focus, and signing keys and store uploads can be left to the customer's authority.
+        We replace the Cordova runtime with Capacitor, swap the plugins for current versions, and verify the result. Includes handover documents. Code delivery is the focus, and signing keys and store uploads can be left to the customer's authority.
       </li>
       <li>
-        <strong>Deep link recovery (after confirming inflow): KRW 1.5 to 4 million, per case.</strong>
-        dead
-Collect public URLs such as <code>page.link</code> and turn them into server redirects or App Links. Prints and QRs cannot be retrieved, so redirection is key. If there is no inflow, it is not recommended and should be determined first through diagnosis.
+        <strong>Deep link recovery (after confirming traffic): KRW 1.5 to 4 million, per case.</strong>
+        We collect dead public URLs such as <code>page.link</code> and turn them into server redirects or App Links. Prints and QRs cannot be retrieved, so redirection is key. If there is no traffic, we do not recommend it, and we assess that first in the diagnosis.
       </li>
     </ul>
     <div id="pay-diag" class="ls-cta" hidden=""></div>
@@ -213,10 +212,10 @@ Collect public URLs such as <code>page.link</code> and turn them into server red
         <strong>1. Free diagnosis.</strong> Takes the app name or store link and organizes iOS upload possibilities, Play targets, Cordova traces, and dead public links into one page. A detailed design of how to fix it is not included.
       </li>
       <li>
-        <strong>2. Urgent response.</strong> We guide or act on your behalf to apply for Play extension. You can also provide a minimal response of only uploading the target API without any migration. For iOS, if the minimum response is not possible due to SDK or build tool issues, we will provide you with a previous quote immediately.
+        <strong>2. Urgent response.</strong> We guide you through the Play extension request or file it on your behalf. We can also do a minimal fix that only raises the target API, without migrating. For iOS, if a minimal fix is not possible due to SDK or build tool issues, we give you a migration quote right away.
       </li>
       <li>
-        <strong>3. Migration to Capacitor.</strong> Move the Cordova runtime and plugin layer to the current version. Most of the web UI code is written as is. Signatures and store uploads can be designed to be left to the customer's authority.
+        <strong>3. Migration to Capacitor.</strong> We move the Cordova runtime and plugin layer to current versions. Most of the web UI code is reused as is. Signing and store uploads can be designed to stay under the customer's authority.
       </li>
     </ul>
     <p>
@@ -229,24 +228,22 @@ Collect public URLs such as <code>page.link</code> and turn them into server red
     </p>
     <ul class="ls-dash">
       <li>
-        <strong>iOS upload.</strong> Check the App Store or in-house build history to see if there have been any successful uploads or deployments since 2026-04-28. If there are no records of success, your upload may be blocked. These are the items that have the greatest impact.
+        <strong>iOS upload.</strong> Check the App Store or in-house build history to see if there have been any successful uploads or deployments since 2026-04-28. If there are no records of success, your upload may be blocked. This is the item with the greatest impact.
       </li>
       <li>
-        <strong>Cordova or not.</strong> Unzip the APK <code>assets/www/cordova.js</code> or <code>cordova_plugins.js</code> exists. If it does, it's most likely Cordova-based.
+        <strong>Cordova or not.</strong> Unzip the APK and check whether <code>assets/www/cordova.js</code> or <code>cordova_plugins.js</code> exists. If it does, it's most likely Cordova-based.
       </li>
       <li>
-        <strong>Play target API.
-In the result</strong> <code>aapt dump badging app.apk</code> Look at <code>targetSdkVersion</code>. If it is less than 35, the offer may be limited to new users of higher OS devices after 8/31. Apps that are only used by employees who have already installed them may have less impact.
+        <strong>Play target API.</strong> <code>aapt dump badging app.apk</code> prints <code>targetSdkVersion</code>; check that value. If it is below 35, availability to new users on devices with a newer OS may be restricted after 8/31. Apps used only by staff who already have them installed may be less affected.
       </li>
       <li>
-        <strong>Deep linking.</strong> Among app links on homepage, QR, text, and email
-Paste the <code>page.link</code> address into your browser. If it's 404, the link is dead. You need to check separately whether there has been an inflow.
+        <strong>Deep linking.</strong> From the app links on your homepage, QR codes, text messages and emails, paste any <code>page.link</code> address into your browser. If it's 404, the link is dead. You need to check separately whether it has brought in any traffic.
       </li>
       <li>
         <strong>Period of neglect.</strong> View the last update date for the store. The older it gets, the more work there may be in your build environment. Don't judge by date alone.
       </li>
     </ul>
-    <p>If it is difficult to check in person or you do not have an in-house representative, apply for a free diagnosis. If not applicable, reply as not applicable.</p>
+    <p>If it is difficult to check yourself or you do not have an in-house representative, apply for a free diagnosis. If nothing applies, we will tell you so.</p>
 
     <h2>What is not accepted</h2>
     <p>
@@ -258,7 +255,7 @@ Paste the <code>page.link</code> address into your browser. If it's 404, the lin
       <details>
         <summary>Why is the diagnosis free?</summary>
         <p>
-          It costs very little because it only looks at public sources. The first 10 companies are free, to build references, after that there is a fee. If not applicable, reply as not applicable. Detailed editing instructions are provided only at the paid level.
+          It costs very little because we only look at public sources. The first 10 companies are free, to build references, after that there is a fee. If nothing applies, we will tell you so. Detailed fix instructions are provided only at the paid stage.
         </p>
       </details>
       <details>
@@ -270,7 +267,7 @@ Paste the <code>page.link</code> address into your browser. If it's 404, the lin
       <details>
         <summary>Are apps used only by field employees also affected by Play policies?</summary>
         <p>
-          If there are few new installs and only existing devices are installed, the impact of limiting new user provisioning may be small. The bigger problem with these apps is that they cannot update iOS hotfixes and security patches. When diagnosing, we will ask whether you are distributing through an in-house MDM or installing a new product through the store, and we will tell you accordingly.
+          If there are few new installs and the app is used only on devices that already have it, the impact of the new-user restriction may be small. The bigger problem with these apps is that they cannot ship iOS hotfixes and security patches. When diagnosing, we will ask whether you distribute through an in-house MDM or get new installs through the store, and we will tell you accordingly.
         </p>
       </details>
       <details>
@@ -282,7 +279,7 @@ Paste the <code>page.link</code> address into your browser. If it's 404, the lin
       <details>
         <summary>If I move to Capacitor, do I have to rewrite my web code?</summary>
         <p>
-          Most of the time, it is written as is. What we change is the native runtime and plugins. Having outdated Angular or obsolete plugins increases man-hours. A list of problematic items will be included in the diagnosis, and instructions on how to fix them will be provided during the paid design stage.
+          Most of it is reused as is. What we change is the native runtime and plugins. Having outdated Angular or obsolete plugins increases man-hours. A list of problematic items will be included in the diagnosis, and instructions on how to fix them will be provided during the paid design stage.
         </p>
       </details>
       <details>
@@ -294,24 +291,24 @@ Paste the <code>page.link</code> address into your browser. If it's 404, the lin
       <details>
         <summary>Can’t the deep link be replaced with a new link?</summary>
         <p>
-          You can change the link to be exported in the future. Printed materials, texts, and URLs of external sites that have already been distributed cannot be retrieved, so server redirection is required. If there is no influx, there may be no reason to spend money on restoration.
+          Links you send out from now on can simply be changed. Printed materials, texts, and URLs of external sites that have already been distributed cannot be retrieved, so server redirection is required. If there is no traffic, there may be no reason to spend money on restoration.
         </p>
       </details>
       <details>
         <summary>Can this be solved if I use Branch or AppsFlyer?</summary>
         <p>
-          Both services are tools for creating new links. It does not automatically revive old addresses that are already dead. Setting up a redirect and replacing the link creation part of the app code are separate tasks.
+          Both services are tools for creating new links. They do not automatically revive old addresses that are already dead. Setting up a redirect and replacing the link creation part of the app code are separate tasks.
         </p>
       </details>
       <details>
         <summary>Can Japanese companies also request it?</summary>
-        <p>Practical response is available in Japanese. You can also send inquiry emails in Japanese.</p>
+        <p>We can handle the work in Japanese. You can also send inquiry emails in Japanese.</p>
       </details>
     </div>
 
     <h2 id="contact">How to apply</h2>
     <p>
-      <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>. The diagnostic report will be sent within 2 business days.
+      <a href="mailto:tolaria@naver.com">tolaria@naver.com</a>: please email us the details below. The diagnostic report will be sent within 2 business days.
     </p>
     <ul class="ls-dash">
       <li>App name or Play Store link (this alone can be used for diagnosis)</li>
@@ -323,8 +320,7 @@ Paste the <code>page.link</code> address into your browser. If it's 404, the lin
       <a class="ls-btn ls-btn--primary" href="mailto:tolaria@naver.com?subject=%EB%A0%88%EA%B1%B0%EC%8B%9C%20%EC%95%B1%20%EB%AC%B4%EB%A3%8C%20%EC%A7%84%EB%8B%A8%20%EC%8B%A0%EC%B2%AD&amp;body=%EC%95%B1%20%EC%9D%B4%EB%A6%84%20%EB%98%90%EB%8A%94%20%EC%8A%A4%ED%86%A0%EC%96%B4%20%EB%A7%81%ED%81%AC%3A%0A%EC%B5%9C%EC%A2%85%20%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EC%8B%9C%EC%A0%90%28%EB%AA%A8%EB%A5%B4%EB%A9%B4%20%EC%83%9D%EB%9E%B5%29%3A%0A%EC%82%AC%EB%82%B4%20Android%20%EB%8B%B4%EB%8B%B9%EC%9E%90%20%EC%9C%A0%EB%AC%B4%3A%0A%EC%9B%90%20%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%99%80%20%EC%97%B0%EB%9D%BD%20%EA%B0%80%EB%8A%A5%20%EC%97%AC%EB%B6%80%3A%0A">Apply for free diagnosis</a>
     </div>
     <p class="ls-fine">
-      Response to failures of Ionic·Capacitor apps in operation <a href="/retainer.html">Maintenance Page (English)</a>, other services and prices are <a href="/en/sales/">Service Page
-It is located at</a>.
+      For outage support on live Ionic·Capacitor apps, see the <a href="/retainer.html">Maintenance Page (English)</a>; for other services and prices, see the <a href="/en/sales/">Service Page</a>.
     </p>
 
     <footer class="ls-foot">

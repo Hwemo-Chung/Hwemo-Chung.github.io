@@ -3,8 +3,8 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Threads Analyzer | Thread account analysis 12-sheet Excel report</title>
-<meta name="description" content="Collect all posts from a thread account using the Meta Threads API and create a 12-sheet Excel report. View median views, dead rate by time of day, performance by character count, and follower demographics. The CLI is free.">
+<title>Threads Analyzer | 12-sheet Excel report analyzing a Threads account</title>
+<meta name="description" content="Collects every post from a Threads account through the Meta Threads API and builds a 12-sheet Excel report. View median views, dead rate by time of day, performance by character count, and follower demographics. The CLI is free.">
 <link rel="canonical" href="https://hwemo-chung.github.io/en/threads-analyzer.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/threads-analyzer.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/threads-analyzer.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/threads-analyzer.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/threads-analyzer.html">
 <!-- i18n-alternates -->
     
@@ -12,8 +12,8 @@
     
     
     <!-- /i18n-alternates -->
-<meta property="og:title" content="Threads Analyzer | Thread account analysis 12-sheet Excel report"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="ja_JP">
-<meta property="og:description" content="Re-view all thread posts by median. Check by time zone to see when posts are less likely to be buried.">
+<meta property="og:title" content="Threads Analyzer | 12-sheet Excel report analyzing a Threads account"><meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:description" content="Look at all your Threads posts again through the median. See by time of day when your posts are less likely to get buried.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hwemo-chung.github.io/en/threads-analyzer.html">
 
@@ -45,8 +45,8 @@
 
 <header class="ls-hero-center">
   <h1>Threads Analyzer</h1>
-  <p class="ls-lead">Import all posts from the thread account into the Meta Threads API and create a 12-sheet Excel report. By calculating the median instead of the average, you can see the performance over time hidden by a single viral post.</p>
-  <p>The command line CLI is free and open source and is available now. A desktop app that can be used with a click without installation is being prepared, and the launch price is <b>$29</b>(Regular price $39) This is a one-time payment. You can get it for $19 if you join the waitlist.</p>
+  <p class="ls-lead">Pulls every post from a Threads account through the Meta Threads API and turns them into a 12-sheet Excel report. Because it calculates the median instead of the average, you can see performance by time of day that a single viral post would otherwise hide.</p>
+  <p>The command line CLI is free and open source and is available now. A desktop app that can be used with a click without installation is being prepared, and the launch price is <b>$29</b> (regular price $39), a one-time payment. You can get it for $19 if you join the waitlist.</p>
   <div class="ls-cta">
     <a class="ls-btn ls-btn--primary" href="https://forms.gle/FkerkjkHwJzRmHGb6" target="_blank" rel="noopener" data-waitlist="">Get a release notification</a>
     <a class="ls-btn" href="https://github.com/Hwemo-Chung/threads-analytics">Get the free CLI</a>
@@ -56,7 +56,7 @@
 </header>
 
 <section class="ls-section">
-  <h2>Result of first running with the creator's account</h2>
+  <h2>Results from first running it on the maker's own account</h2>
   <p>This account has 1,954 posts and 4.4 million cumulative views. The numbers below were all picked by this tool.</p>
 
   <div class="ls-stats">
@@ -66,17 +66,17 @@
     <div class="ls-stat"><div class="ls-stat__v">56.5%</div><div class="ls-stat__l">Posts that did not exceed 500 views</div></div>
   </div>
 
-  <h3>The times I posted the most were the worst times.</h3>
+  <h3>The hours with the most posts were the worst hours.</h3>
   <div class="ls-table-scroll">
   <table class="ls-table">
-    <thead><tr><th>Time zone</th><th class="ls-num">Posted by</th><th class="ls-num">Median Views</th><th class="ls-num">Rate less than 500</th></tr></thead>
+    <thead><tr><th>Time of day</th><th class="ls-num">Posts</th><th class="ls-num">Median Views</th><th class="ls-num">Share under 500 views</th></tr></thead>
     <tbody>
       <tr><td>10 AM</td><td class="ls-num">170</td><td class="ls-num ls-bad">278</td><td class="ls-num ls-bad">70.0%</td></tr>
       <tr><td>1 AM</td><td class="ls-num">48</td><td class="ls-num ls-good">666</td><td class="ls-num ls-good">43.8%</td></tr>
     </tbody>
   </table>
   </div>
-  <p>On average, 10 a.m. looks better with 1,173 hits. This is because one viral post raises the average, and when looking at the median, the order is reversed.</p>
+  <p>By the average, 10 AM looks better at 1,173 views. That is because one viral post pulled the average up; by the median, the order is reversed.</p>
 
   <h3>Short posts are seen a lot, and long posts get a lot of responses.</h3>
   <div class="ls-table-scroll">
@@ -97,7 +97,7 @@
   <ul class="ls-dash">
     <li><b>All Posts</b>: Date, views, likes, and engagement are all included in each post and can be filtered.</li>
     <li><b>Insight Ranking</b>: Top 30 are selected based on views, engagement, like rate, and virality.</li>
-    <li><b>Time zone analysis</b>: Crosses 24 hours and the day of the week to produce the median and dead rate.</li>
+    <li><b>Time of Day analysis</b>: Crosses 24 hours and the day of the week to produce the median and dead rate.</li>
     <li><b>Daily view count trend</b>: Daily time series of up to 730 days and 7-day moving average.</li>
     <li><b>Snapshot growth trend</b>: Saves the follower count on every run. The API keeps no history, so the app records it itself.</li>
     <li><b>Viral in-depth analysis</b>: Calculate the top 1% based on account size.</li>
@@ -162,22 +162,22 @@
   <h2>Price</h2>
   <div class="ls-table-scroll">
   <table class="ls-table">
-    <thead><tr><th>version</th><th>Price</th><th>How to write</th><th>status</th></tr></thead>
+    <thead><tr><th>version</th><th>Price</th><th>How to use</th><th>status</th></tr></thead>
     <tbody>
       <tr><td>CLI</td><td>Free, open source. There are no feature limitations or time limits.</td><td>Run with Python. <a href="https://github.com/Hwemo-Chung/threads-analytics">github.com/Hwemo-Chung/threads-analytics</a></td><td>Available Now</td></tr>
-      <tr class="is-primary"><td>Desktop App</td><td>$29 (regular price $39), one-time payment for lifetime use. Waitlist registrants pay $19.</td><td>Mac, Windows. Write with a click without installing a terminal or Python.</td><td>Preparing</td></tr>
+      <tr class="is-primary"><td>Desktop App</td><td>$29 (regular price $39), one-time payment for lifetime use. Waitlist registrants pay $19.</td><td>Mac, Windows. Use it with a click, without installing a terminal or Python.</td><td>Preparing</td></tr>
     </tbody>
   </table>
   </div>
-  <p>The analysis engine in both versions is the same. The price of the app is for terminal, Python, and certificate settings. If the setup isn't difficult, the free CLI is sufficient.</p>
+  <p>The analysis engine in both versions is the same. The app's price pays for doing the terminal, Python, and certificate setup for you. If that setup isn't difficult for you, the free CLI is enough.</p>
 </section>
 
 <section class="ls-section">
-  <h2>What you need before writing</h2>
+  <h2>What you need before using it</h2>
   <ul class="ls-dash">
     <li>You must create the Meta developer app yourself. Meta opens insights only through apps created by the account owner. Buying the desktop app does not remove this step; it takes about 10 minutes with the on-screen wizard. If that sounds like too much, we recommend not buying it.</li>
-    <li>The follower demographics sheet only appears when you have more than 100 followers due to Meta policy. The remaining 11 sheets just need posts.</li>
-    <li>Time zone and character count analysis only makes decisions on sections with more than 30 samples.</li>
+    <li>The follower demographics sheet only appears when you have 100 or more followers, due to Meta policy. The remaining 11 sheets just need posts.</li>
+    <li>Time-of-day and character-count analyses give a verdict only for ranges with 30 or more samples.</li>
   </ul>
 </section>
 
@@ -186,20 +186,19 @@
   <div class="ls-faq">
   <details>
     <summary>Where does my data go?</summary>
-    <p>Does not send anywhere. There is no server, and the Meta API is called directly from your computer and the resulting Excel file is saved only on your computer. Token is local
-Place it in the file <code>.env</code> and lock the permissions to 600.</p>
+    <p>It isn't sent anywhere. There is no server: the Meta API is called directly from your computer, and the resulting Excel file is saved only on your computer. The token is kept in a local <code>.env</code> file, with its permissions locked to 600.</p>
   </details>
   <details>
     <summary>How long does it take?</summary>
     <p>The first collection takes about 10 minutes for 2,000 posts. From the second time, it uses the cache and takes 1 to 2 minutes.</p>
   </details>
   <details>
-    <summary>Can your followers at least write?</summary>
+    <summary>Can I use it if I have only a few followers?</summary>
     <p>Yes. If you have less than 100 followers, only the Follower Demographics sheet will be blank, and the remaining 11 sheets will remain as is.</p>
   </details>
   <details>
     <summary>Why is the app paid when the CLI is free?</summary>
-    <p>The engine is the same, and the app was created so that there is no need to set up a terminal, Python, or certificate. If you don't want to waste your time, you can use the free version.</p>
+    <p>The engine is the same; the app just saves you from setting up a terminal, Python, and certificates. If you don't mind spending that time, the free version is all you need.</p>
   </details>
 </div>
 </section>

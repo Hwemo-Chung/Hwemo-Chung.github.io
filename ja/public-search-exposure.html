@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>公開検索での露出範囲を確認| Lumos</title>
-    <meta name="description" content="名前、会社、住所を入れると、公開検索でどのように表示されるかが表示され、同じ内容をそのまま検索する Google 検索リンクが作成されます。入力した値はこのブラウザからは出ません。">
+    <meta name="description" content="名前、会社、住所を入れると、公開検索でどこまで見えるかを段階で示し、同じ内容をそのまま検索する Google 検索リンクを作成します。入力した値はこのブラウザからは出ません。">
     <meta name="author" content="Hwemo Chung">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://hwemo-chung.github.io/ja/public-search-exposure.html"><link rel="alternate" hreflang="ko" href="https://hwemo-chung.github.io/public-search-exposure.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/en/public-search-exposure.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/public-search-exposure.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/public-search-exposure.html">
@@ -16,7 +16,7 @@
     <!-- /i18n-alternates -->
     <meta property="og:site_name" content="Lumos">
     <meta property="og:title" content="公開検索での露出範囲を確認| Lumos"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="ko_KR"><meta property="og:locale:alternate" content="en_US">
-    <meta property="og:description" content="名前、会社、住所を入れると、公開検索でどのように表示されるかが表示され、同じ内容をそのまま検索する Google 検索リンクが作成されます。">
+    <meta property="og:description" content="名前、会社、住所を入れると、公開検索でどこまで見えるかを段階で示し、同じ内容をそのまま検索する Google 検索リンクを作成します。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hwemo-chung.github.io/ja/public-search-exposure.html">
     
@@ -73,34 +73,34 @@
     <main id="main">
         <article class="ls-wrap exposure">
             <h1>公開検索での露出範囲</h1>
-            <p class="ls-lead">あなたの名前、会社、住所を入れると、公開検索でどのように見えるかがわかります。その内容をそのまま見つけるGoogle検索リンクを作成します。人探しサービスや流出資料は使用しません。電話番号と住民登録番号は受け付けません。</p>
+            <p class="ls-lead">ご自身の名前、会社、住所を入れると、公開検索でどこまで見えるかを段階で示し、その内容をそのまま見つけるGoogle検索リンクを作成します。人探しサービスや流出資料は使用しません。電話番号と住民登録番号は受け付けません。</p>
 
             <form id="exposure-form" class="exposure-form" autocomplete="off">
                 <label for="person-name">名前
                     <input id="person-name" type="text" maxlength="80" autocomplete="name" placeholder="例: ホン・ギルドン" enterkeyhint="next">
                 </label>
                 <label for="company">会社
-                    <input id="company" type="text" maxlength="80" autocomplete="organization" placeholder="例: 例示上司" enterkeyhint="next">
+                    <input id="company" type="text" maxlength="80" autocomplete="organization" placeholder="例: 例示商事" enterkeyhint="next">
                 </label>
-                <label for="address">アドレス
-                    <input id="address" type="text" maxlength="120" autocomplete="street-address" placeholder="例: 例では、例文例として 1" enterkeyhint="done">
+                <label for="address">住所
+                    <input id="address" type="text" maxlength="120" autocomplete="street-address" placeholder="例: 例示市 例示区 例示路 1" enterkeyhint="done">
                 </label>
                 <div class="ls-cta">
                     <button id="fill-sample" class="ls-btn ls-btn--sm" type="button">例の値を入れる</button>
                 </div>
-                <p id="sample-note" class="ls-fine" hidden="">先ほど入れた値は、作成した例です。存在人物ではありません。</p>
+                <p id="sample-note" class="ls-fine" hidden="">先ほど入れた値は、架空の例です。実在の人物ではありません。</p>
             </form>
 
             <section class="exposure-result" aria-live="polite">
                 <h2>現れる範囲</h2>
                 <p id="exposure-level" class="exposure-level">ほとんどなし</p>
                 <p id="exposure-detail">文字や数字を入れた欄はありません。検索する内容はほとんどありません。</p>
-                <p id="blocked-note" hidden="">電話番号や住民登録番号で表示される数字は検索リンクではありません。</p>
+                <p id="blocked-note" hidden="">電話番号や住民登録番号と思われる数字は、検索リンクにしません。</p>
 
                 <h2>検索リンク</h2>
                 <p id="exposure-query" class="exposure-query">まだ検索する内容がありません。</p>
                 <p><a id="search-link" class="ls-btn ls-btn--primary" href="https://www.google.com/search" hidden="" rel="noopener noreferrer">Google で検索</a></p>
-                <p class="ls-fine">リンクを開くと、上記の内容がGoogleに移動します。このページは入力した値をサーバーに保存しません。</p>
+                <p class="ls-fine">リンクを開いたときだけ、上記の内容がGoogleに送られます。このページは入力した値をサーバーに保存しません。</p>
             </section>
 
             <section>
@@ -111,8 +111,8 @@
                         <tbody id="exposure-scale">
                             <tr data-level="none" aria-current="true"><td>ほとんどなし</td><td>文字や数字を入れた欄がない場合</td></tr>
                             <tr data-level="name"><td>名前のみ</td><td>名前だけ入れたとき</td></tr>
-                            <tr data-level="company"><td>会社と共に</td><td>会社を入れて住所が空になったとき</td></tr>
-                            <tr data-level="address"><td>アドレスまで</td><td>住所を入れたとき</td></tr>
+                            <tr data-level="company"><td>会社と共に</td><td>会社を入れ、住所は空欄のとき</td></tr>
+                            <tr data-level="address"><td>住所まで</td><td>住所を入れたとき</td></tr>
                         </tbody>
                     </table>
                 </div>

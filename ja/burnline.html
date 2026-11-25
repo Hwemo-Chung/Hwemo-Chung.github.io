@@ -3,8 +3,8 @@
 <html lang="ja"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>バーンライン |ローカルファーストの AI コスト追跡と予算上限</title>
-  <meta name="description" content="AI トークンの使用量をモデル別および日別に確認し、月ごとの上限を設定し、マシン上でプロンプトを表示し続けます。ウェイティングリストはオープンしていますが、まだ販売されていません。">
+  <title>Burnline | ローカルファーストの AI コスト追跡と予算上限</title>
+  <meta name="description" content="AI トークンの支出をモデル別・日別に確認し、月ごとの上限を設定できます。プロンプトは手元のマシンから出ません。ウェイティングリスト受付中で、まだ販売していません。">
   <link rel="canonical" href="https://hwemo-chung.github.io/ja/burnline.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/burnline.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/burnline.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/burnline.html">
   <!-- i18n-alternates -->
     
@@ -14,12 +14,12 @@
   <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hwemo-chung.github.io/ja/burnline.html">
-  <meta property="og:title" content="バーンライン |ローカルファーストの AI コスト追跡"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Burnline | ローカルファーストの AI コスト追跡"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="en_US">
   <meta property="og:description" content="マシン上の AI 使用ログを読み取り、月次予算に対するモデル別および日別のコストを表示します。">
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Burnline">
-  <meta name="twitter:description" content="ローカルファースト AI のモデル別および日別の支出レポート。ウェイティングリストが開いています。">
+  <meta name="twitter:description" content="AI の支出をモデル別・日別にまとめる、ローカルファーストのレポート。ウェイティングリスト受付中。">
   <link rel="stylesheet" href="/sales/tokens.css">
   <link rel="stylesheet" href="/sales/components.css">
   <link rel="stylesheet" href="/sales/product-extras.css">
@@ -51,7 +51,7 @@
       Burnline は、自分のマシン上の AI エージェントと API 使用ログを読み取り、月次予算に対するコストをモデル別、日別に表示します。プロンプトはマシン上に残ります。
     </p>
     <p>
-      まだ販売されていません。 CLI と HTML レポートはプロトタイプとして存在します。チェックアウトやクラウド ログインはありません。マルチモデルのコーディング エージェントを実行していて、起動メモが必要な場合は、待機リストに参加してください。今日は Burnline に送金しないでください。
+      まだ販売していません。CLI と HTML レポートはプロトタイプとして存在しますが、決済ページやクラウドへのログインはありません。マルチモデルのコーディング エージェントを使っていて、リリース情報を受け取りたい場合は、待機リストに登録してください。現時点では Burnline の代金を送金しないでください。
     </p>
 
     <div class="ls-cta" id="waitlist">
@@ -59,7 +59,7 @@
       <a class="ls-btn" href="/ja/burnline-dashboard.html">ダッシュボードを試してみる</a>
     </div>
     <p class="ls-fine">
-      ボタンをクリックすると、tolaria@naver.com への件名の電子メールが開きます。 <code>Burnline waitlist</code>。現在の AI の使用方法について 1 段落追加します。チェックアウト (ストライプまたはフォーム) は、実際の需要がある場合にのみ追加されます。
+      ボタンを押すと、tolaria@naver.com 宛てに件名 <code>Burnline waitlist</code>のメールが開きます。現在どのように AI を使っているかを 1 段落書き添えてください。チェックアウト（Stripe またはフォーム）は、実際の需要が確認できた時点で追加します。
     </p>
 
     <div class="ls-demo" data-i18n-aria-label="aria.sampleReport" aria-label="サンプルレポートの概要">
@@ -77,42 +77,42 @@
           <div class="ls-demo__value">3</div>
         </div>
         <div>
-          <div class="ls-demo__label">日</div>
+          <div class="ls-demo__label">日数</div>
           <div class="ls-demo__value">2</div>
         </div>
         <div>
           <div class="ls-demo__label">予算 (上限 $40)</div>
-          <div class="ls-demo__value ls-demo__value--hot">以上</div>
+          <div class="ls-demo__value ls-demo__value--hot">超過</div>
         </div>
       </div>
     </div>
 
     <h2 id="how">仕組み</h2>
     <h3>ログをローカルにインポートする</h3>
-    <p>Burnline をクロード コードまたは JSONL 使用ログにポイントします。コスト数値を取得するためにプロンプトをアップロードする必要はありません。</p>
-    <h3>各通話の料金</h3>
+    <p>Burnline で Claude Code または JSONL の使用ログを指定します。コストの数値を得るためにプロンプトをアップロードする必要はありません。</p>
+    <h3>API 呼び出しごとに料金を算出</h3>
     <p>レートが文書化されたオフライン モデル カタログは、トークンをドルに変換します。合計は実際の請求額と照合するためのものです。</p>
     <h3>月間上限を設定する</h3>
-    <p>予算を米ドルで設定します。バーンラインは 80% で警告し、100% でフラグを立てます。記録用にデータを CSV としてエクスポートします。</p>
+    <p>予算を米ドルで設定します。Burnline は 80% で警告し、100% でフラグを立てます。記録用にデータを CSV としてエクスポートできます。</p>
 
     <h2>予定価格</h2>
-    <p>これらは、後で使用する予定の有料レベルです。どれもライブではなく、購入ボタンもありません。</p>
+    <p>今後導入予定の有料プランです。いずれもまだ提供しておらず、購入ボタンもありません。</p>
     <div class="ls-table-scroll">
       <table class="ls-table">
-        <thead><tr><th>計画</th><th>価格</th><th>含まれるもの</th><th>ステータス</th></tr></thead>
+        <thead><tr><th>プラン</th><th>価格</th><th>含まれるもの</th><th>ステータス</th></tr></thead>
         <tbody>
-          <tr><td>無料</td><td>$0</td><td>7 日間のウィンドウ、1 つのソース、コア チャート</td><td>計画済み</td></tr>
-          <tr><td>プロ</td><td>$19 / 月</td><td>無制限の履歴、予算、CSV、カタログの更新</td><td>計画済み</td></tr>
-          <tr><td>チーム</td><td>$49 / 月</td><td>小規模チームの共有集計。 v0.1にはありません。</td><td>後で</td></tr>
+          <tr><td>無料</td><td>$0</td><td>直近7日間、ソース1つ、基本チャート</td><td>予定</td></tr>
+          <tr><td>プロ</td><td>$19 / 月</td><td>無制限の履歴、予算、CSV、カタログの更新</td><td>予定</td></tr>
+          <tr><td>チーム</td><td>$49 / 月</td><td>小規模チームの共有集計。 v0.1にはありません。</td><td>今後</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h2>それは何ではないのか</h2>
+    <h2>Burnline が対象としないこと</h2>
     <p>
-      Burnline は完全なプロンプト可観測性クラウドではなく、v1 にはエンタープライズ SSO がありません。ヘリコン規模のパイプラインが必要な場合は、それらを使用してください。 Burnline は、ほとんどセットアップせずに正確なコスト数値を求めるビルダー向けです。
+      Burnline は完全なプロンプト可観測性クラウドではなく、v1 にはエンタープライズ SSO もありません。Helicone 規模のパイプラインが必要な場合は、そちらを使ってください。Burnline は、少ない設定で正確なコスト数値を知りたい開発者向けです。
     </p>
-    <p>今すぐ実稼働モバイル アプリに関するサポートが必要ですか?を参照してください。 <a href="/ja/retainer.html">モバイルリテーナー</a>.</p>
+    <p>本番運用中のモバイルアプリのサポートが今すぐ必要な方は <a href="/ja/retainer.html">モバイルリテーナーをご覧ください</a>。</p>
 
     <footer class="ls-foot">
       <nav data-i18n-aria-label="common.footerNav" aria-label="フッターナビゲーション">

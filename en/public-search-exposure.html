@@ -80,10 +80,10 @@
                     <input id="person-name" type="text" maxlength="80" autocomplete="name" placeholder="Example: Hong Gil-dong" enterkeyhint="next">
                 </label>
                 <label for="company">Company
-                    <input id="company" type="text" maxlength="80" autocomplete="organization" placeholder="Example: Example boss" enterkeyhint="next">
+                    <input id="company" type="text" maxlength="80" autocomplete="organization" placeholder="Example: Example Trading Co." enterkeyhint="next">
                 </label>
-                <label for="address">address
-                    <input id="address" type="text" maxlength="120" autocomplete="street-address" placeholder="Example: Example city Example phrase Example 1" enterkeyhint="done">
+                <label for="address">Address
+                    <input id="address" type="text" maxlength="120" autocomplete="street-address" placeholder="Example: 1 Example-ro, Example-gu, Example City" enterkeyhint="done">
                 </label>
                 <div class="ls-cta">
                     <button id="fill-sample" class="ls-btn ls-btn--sm" type="button">Enter example value</button>
@@ -94,7 +94,7 @@
             <section class="exposure-result" aria-live="polite">
                 <h2>Revealed scope</h2>
                 <p id="exposure-level" class="exposure-level">Almost none</p>
-                <p id="exposure-detail">There is no space for letters or numbers. There is very little to search for.</p>
+                <p id="exposure-detail">No field has any letters or numbers in it. There is very little to search for.</p>
                 <p id="blocked-note" hidden="">Numbers that appear to be phone numbers or resident registration numbers will not be used as search links.</p>
 
                 <h2>Search Link</h2>
@@ -104,15 +104,15 @@
             </section>
 
             <section>
-                <h2>by stage</h2>
+                <h2>Stage criteria</h2>
                 <div class="ls-table-scroll">
                     <table class="ls-table">
-                        <thead><tr><th scope="col">step</th><th scope="col">standard</th></tr></thead>
+                        <thead><tr><th scope="col">Stage</th><th scope="col">Criteria</th></tr></thead>
                         <tbody id="exposure-scale">
-                            <tr data-level="none" aria-current="true"><td>Almost none</td><td>When there is no space for letters or numbers</td></tr>
+                            <tr data-level="none" aria-current="true"><td>Almost none</td><td>When no field has any letters or numbers in it</td></tr>
                             <tr data-level="name"><td>name only</td><td>When only the name is entered</td></tr>
                             <tr data-level="company"><td>With the company</td><td>When entering the company and leaving the address blank</td></tr>
-                            <tr data-level="address"><td>to the address</td><td>When entering the address</td></tr>
+                            <tr data-level="address"><td>Including address</td><td>When entering the address</td></tr>
                         </tbody>
                     </table>
                 </div>

@@ -3,7 +3,7 @@
 <html lang="ja"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>バーンライン ダッシュボード |モデル別および日別のローカル AI コスト</title>
+  <title>Burnline ダッシュボード | モデル別および日別のローカル AI コスト</title>
   <meta name="description" content="Burnline events.csv をロードして、毎月の予算に対するモデル別および日別の AI 支出を確認します。ファイルはブラウザ内に残ります。">
   <link rel="canonical" href="https://hwemo-chung.github.io/ja/burnline-dashboard.html"><link rel="alternate" hreflang="en" href="https://hwemo-chung.github.io/burnline-dashboard.html"><link rel="alternate" hreflang="ja" href="https://hwemo-chung.github.io/ja/burnline-dashboard.html"><link rel="alternate" hreflang="x-default" href="https://hwemo-chung.github.io/burnline-dashboard.html">
   <!-- i18n-alternates -->
@@ -12,7 +12,7 @@
     
     <!-- /i18n-alternates -->
   <meta name="theme-color" content="#ffffff">
-  <meta property="og:title" content="バーンライン ダッシュボード"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Burnline ダッシュボード"><meta property="og:locale" content="ja_JP"><meta property="og:locale:alternate" content="en_US">
   <meta property="og:description" content="AI の費用をモデル別および日別に確認します。 CSV はローカルで読み取られ、プロンプトはアップロードされません。">
   <meta property="og:url" content="https://hwemo-chung.github.io/ja/burnline-dashboard.html">
   <meta name="twitter:card" content="summary">
@@ -47,12 +47,12 @@
   <main id="main" class="wrap ls-wrap--app">
     <header class="page-head">
       <div>
-        <h1>バーンライン ダッシュボード</h1>
+        <h1>Burnline ダッシュボード</h1>
         <p class="sub">
-          バーンラインからのモデル別および日別の AI 支出を示します <code>events.csv</code>。ファイルはブラウザで読み取られ、アップロードされることはありません。バーンラインはまだ販売されていません。 <a href="/ja/burnline.html#waitlist">待機リストに参加します</a> 起動メモ。
+          Burnline の <code>events.csv</code>から、モデル別・日別の AI 支出を表示します。ファイルはブラウザ内で読み込まれ、アップロードされることはありません。Burnline はまだ販売していません。リリース情報を受け取るには、 <a href="/ja/burnline.html#waitlist">待機リストに登録</a> してください。
         </p>
         <div class="ls-badge-row">
-          <span class="ls-badge" id="data-badge">サンプル治具</span>
+          <span class="ls-badge" id="data-badge">サンプルフィクスチャ</span>
         </div>
       </div>
       <div class="actions">
@@ -66,7 +66,7 @@
     </header>
 
     <div class="drop" id="drop" tabindex="0" data-i18n-aria-label="aria.dropCsv" aria-label="events.csv をここにドロップ">
-      <p><strong>ここに events.csv をドロップします</strong> または CSV の読み込みを使用します。でファイルを作成します <code>npm run report:* -- --out …</code></p>
+      <p><strong>ここに events.csv をドロップします</strong> または「CSVのロード」を使ってください。ファイルの作成には次を使います： <code>npm run report:* -- --out …</code></p>
       <p class="status-line" id="status">組み込みサンプルの表示: 3 イベント、$47.88。</p>
     </div>
 
@@ -102,7 +102,7 @@
       <article class="kpi">
         <div class="label">イベント</div>
         <div class="value" id="kpi-events-v">0</div>
-        <div class="hint" id="kpi-events-h">セッションが範囲内にあります</div>
+        <div class="hint" id="kpi-events-h">範囲内のセッション</div>
       </article>
       <article class="kpi">
         <div class="label">最上位モデル</div>
@@ -141,8 +141,8 @@
               <th>日</th>
               <th>モデル</th>
               <th>ソース</th>
-              <th class="n">で</th>
-              <th class="n">アウト</th>
+              <th class="n">入力</th>
+              <th class="n">出力</th>
               <th class="n">米ドル</th>
               <th>プロジェクト</th>
             </tr>
