@@ -13,6 +13,8 @@ SKIP_DIRS = {'.git', '.omo', '.playwright-cli', '.playwright-mcp', '.claude', 'n
 # Redirect stubs and asset sources are not indexable pages.
 NOINDEX = {'404.html', 'hotlauncher.html', 'hot-launcher/index.html', 'HotLauncher/index.html', 'google91df428475f19f42.html',
            }
+# Pages the owner keeps ad-free on purpose (2026-11-26).
+NO_ADS = {'claude-code-kenshu.html'}
 # Legal pages: no ads, and they carry one <h1> per language section.
 LEGAL = re.compile(r'^(pp|tokushoho|[a-z]+-privacy)\.html$')
 
@@ -47,7 +49,7 @@ for rel, html in pages():
         'canonical': re.search(r'<link rel="canonical" href="([^"]+)"', head),
         'og:title': 'property="og:title"' in head,
         'og:image': 'property="og:image"' in head,
-        'adsense': ADSENSE in head or LEGAL.match(rel),
+        'adsense': ADSENSE in head or LEGAL.match(rel) or rel in NO_ADS,
         'lang': re.search(r'<html[^>]* lang="', html),
         'h1': len(re.findall(r'<h1[\s>]', html)) == 1 or LEGAL.match(rel),
     }
