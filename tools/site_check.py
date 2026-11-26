@@ -7,6 +7,8 @@ from urllib.parse import urljoin, urlparse, unquote
 root = pathlib.Path(__file__).resolve().parent.parent
 BASE = 'https://hwemo-chung.github.io/'
 ADSENSE = 'ca-pub-3498371918924514'
+# The duplicate teagarden account, closed: no page, ads.txt line or meta may name it.
+CLOSED_ADSENSE = ('8998804759171463',)
 SKIP_DIRS = {'.git', '.omo', '.playwright-cli', '.playwright-mcp', '.claude', 'node_modules', 'lumos-fireworks', 'assets'}
 # Redirect stubs and asset sources are not indexable pages.
 NOINDEX = {'404.html', 'hotlauncher.html', 'hot-launcher/index.html', 'HotLauncher/index.html', 'google91df428475f19f42.html',
@@ -63,6 +65,17 @@ for rel, html in pages():
             continue
         if not exists(unquote(u.path)):
             problems.append(f'{rel}: broken link {href}')
+
+for rel, html in pages():
+    for pid in CLOSED_ADSENSE:
+        if pid in html:
+            problems.append(f'{rel}: closed AdSense id pub-{pid}')
+ads_txt = (root / 'ads.txt').read_text(encoding='utf-8')
+for pid in CLOSED_ADSENSE:
+    if pid in ads_txt:
+        problems.append(f'ads.txt: closed AdSense id pub-{pid}')
+if f"google.com, {ADSENSE.removeprefix('ca-')}, DIRECT, f08c47fec0942fa0" not in ads_txt.splitlines():
+    problems.append('ads.txt: missing the main account line')
 
 print('\n'.join(problems) or 'ok')
 sys.exit(1 if problems else 0)
